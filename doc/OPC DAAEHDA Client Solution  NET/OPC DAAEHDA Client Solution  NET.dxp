@@ -12,7 +12,7 @@
   <PropertyDefinitionValues />
   <Title m="2007-05-31T10:49:56Z">OPC Server Studio .NET</Title>
   <ContentFiles>
-    <ContentFile FileName="Technosoftware.DaAeHdaClient.dxc" Moniker="..\..\bin\net48\Technosoftware.DaAeHdaClient.dll" DocType="DX.NET" />
+    <ContentFile FileName="Technosoftware.DaAeHdaClient.dxc" Moniker="..\..\src\Technosoftware\DaAeHdaClient\bin\Release\net5.0-windows\Technosoftware.DaAeHdaClient.dll" DocType="DX.NET" />
   </ContentFiles>
   <AutoDocFiles />
   <ContentFromProjectPlugin />
@@ -502,6 +502,191 @@
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCServerList</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCServerList2</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCShutdown</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~-_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcConnectData+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcFactory+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcReadOnlyCollection+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcReadOnlyDictionary+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcResult+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcWriteableCollection+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcWriteableDictionary+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcResult+CodeType</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcResult+FuncCallType</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.HiResClock</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.HiResClock+NativeMethods</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Utils</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Utils+TraceMasks</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Utils+TraceOutput</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Hda.TsCHdaServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Hda.TsCHdaTrend+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Hda.ITsCHdaServer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Da.TsDaPropertyID+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Da.TsCDaServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Da.TsCDaSubscription+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Cpx.TsCCpxContext</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ConnectionPoint</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.EnumString</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Server</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Server+Callback</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+IClientSecurity</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Hda_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Cpx_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da20_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Ae_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeItemUrlCollection</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeSubscription+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeSubscriptionFilters+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.ITsCAeServer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.CATID_OPCAEServer10</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.Constants</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.FILETIME</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.IOPCEventAreaBrowser</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.IOPCEventServer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.IOPCEventServer2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.IOPCEventSink</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.IOPCEventSubscriptionMgt</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.IOPCEventSubscriptionMgt2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.ONEVENTSTRUCT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.OPCAEBROWSEDIRECTION</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.OPCAEBROWSETYPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.OPCCONDITIONSTATE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.OPCEVENTSERVERSTATE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.OPCEVENTSERVERSTATUS</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.CATID_OPCDAServer10</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.CATID_OPCDAServer20</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.CATID_OPCDAServer30</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.CATID_XMLDAServer10</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.Constants</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.FILETIME</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IEnumOPCItemAttributes</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCAsyncIO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCAsyncIO2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCAsyncIO3</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCBrowse</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCBrowseServerAddressSpace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCDataCallback</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCGroupStateMgt</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCGroupStateMgt2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCItemDeadbandMgt</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCItemIO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCItemMgt</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCItemProperties</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCItemSamplingMgt</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCPublicGroupStateMgt</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCServer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCServerPublicGroups</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCSyncIO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCSyncIO2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCBROWSEDIRECTION</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCBROWSEELEMENT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCBROWSEFILTER</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCBROWSETYPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCDATASOURCE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCENUMSCOPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCEUTYPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCGROUPHEADER</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCGROUPHEADERWRITE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMATTRIBUTES</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMDEF</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMHEADER1</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMHEADER2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMHEADERWRITE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMPROPERTIES</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMPROPERTY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMRESULT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMSTATE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMVQT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCNAMESPACETYPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCSERVERSTATE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCSERVERSTATUS</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.Properties</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.Qualities</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.CATID_OPCHDAServer10</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.Constants</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_AsyncAnnotations</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_AsyncRead</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_AsyncUpdate</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_Browser</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_DataCallback</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_Playback</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_Server</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_SyncAnnotations</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_SyncRead</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_SyncUpdate</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_AGGREGATE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_ANNOTATION</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_ANNOTATIONCAPABILITIES</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_ATTRIBUTE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_BROWSEDIRECTION</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_BROWSETYPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_EDITTYPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_FILETIME</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_ITEM</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_MODIFIEDITEM</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_OPERATORCODES</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_SERVERSTATUS</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_TIME</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_UPDATECAPABILITIES</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Security_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Security.IOPCSecurityNT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Security.IOPCSecurityPrivate</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Factory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.FILETIME</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ServerEnumerator</ExcludedItem>
     </ExcludedItems>
   </Filters>
   <JavascriptProjectPlugin />
@@ -509,7 +694,7 @@
   <AjaxProjectPlugin />
   <JavaProjectPlugin />
   <DotNetAssemblies>
-    <Assembly FileName="..\..\bin\net48\Technosoftware.DaAeHdaClient.dll" RootTypeName="" />
+    <Assembly FileName="..\..\src\Technosoftware\DaAeHdaClient\bin\Release\net5.0-windows\Technosoftware.DaAeHdaClient.dll" RootTypeName="" />
   </DotNetAssemblies>
   <DatabaseProjectPlugin>
     <Databases />
@@ -532,13 +717,12 @@
     <OtherFiles>
       <OtherFile Id="682dc595-37a5-4920-9271-c404553b9938" FileName="icons\hs-caution.gif" SourceData="widget:Caution Box" BuildFlags="" />
       <OtherFile Id="4b4380ff-918c-44bd-80a7-4496271a8ec6" FileName="icons\hs-note.gif" SourceData="widget:Note Box" BuildFlags="" />
-      <OtherFile Id="1c7532ae-cd3e-4b2b-8e51-a3374ff72a24" FileName="images\Self-TestedLogo.jpg" SourceData="" BuildFlags="" />
       <OtherFile Id="685ba738-2b7d-4f88-abc6-ec6393e355b9" FileName="images\hs-caution.gif" SourceData="widget:Caution Box" BuildFlags="" />
       <OtherFile Id="110a9ae9-f4f3-46a1-90b8-b0121ee61df8" FileName="stylesheets\customstyles.css" SourceData="" BuildFlags="" />
       <OtherFile Id="559f3abc-d9d6-4b00-8f6d-2e7861751283" FileName="images\collapse.gif" SourceData="" BuildFlags="" />
       <OtherFile Id="c1d70137-96e4-4b0a-a1ff-87ee150efa91" FileName="images\cart_add.gif" SourceData="" BuildFlags="" />
       <OtherFile Id="dbf1f576-2278-441a-9d75-89db44b01fb4" FileName="images\Technosoftware.png" SourceData="" BuildFlags="" />
-      <OtherFile Id="08964be7-7081-4b91-ac71-b29bf55be231" FileName="images\OPC DAAEHDA Client SDK .NET.png" SourceData="" BuildFlags="" />
+      <OtherFile Id="0b514b06-86e1-466c-8680-6bd0c572f0f1" FileName="images\OPC DAAEHDA Client Solution NET.png" SourceData="" BuildFlags="" />
     </OtherFiles>
     <DefaultStylesheet></DefaultStylesheet>
     <DefaultCaptureDirectory>images\</DefaultCaptureDirectory>
@@ -557,39 +741,9 @@
       <RootNodes>
         <TocNode Name="" Id="{F6A82151-D20E-4116-9433-2E30928C621F}" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PROJECTITEM">
           <CaptionTemplate m="0001-01-01T00:00:00Z" />
-          <ChildNodes>
-            <TocNode Name="" Id="{1F164BAD-92E2-42EE-9B40-3FEF68D4C810}" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PROJECTITEM">
-              <CaptionTemplate m="0001-01-01T00:00:00Z" />
-              <ChildNodes />
-              <TargetItemId>{F2633C9A-4755-49BA-9C54-58DA4F582376}</TargetItemId>
-              <TargetItemBookmark></TargetItemBookmark>
-            </TocNode>
-          </ChildNodes>
+          <ChildNodes />
           <TargetItemId>{EE6C442B-769D-491F-B730-CAE8A259C379}</TargetItemId>
           <TargetItemBookmark></TargetItemBookmark>
-        </TocNode>
-        <TocNode Name="" Id="8a78b68c-51e8-455f-b6e5-45b3c200bcf3" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="NOLINK">
-          <CaptionTemplate m="2011-10-18T06:07:00.7070312Z">Tutorials</CaptionTemplate>
-          <ChildNodes>
-            <TocNode Name="" Id="{71ED622D-5F0B-4B79-B6B8-1E38E97A71B3}" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PROJECTITEM">
-              <CaptionTemplate m="0001-01-01T00:00:00Z" />
-              <ChildNodes />
-              <TargetItemId>{1F5781F7-E8DD-4100-B753-F63B0CAC01F3}</TargetItemId>
-              <TargetItemBookmark></TargetItemBookmark>
-            </TocNode>
-            <TocNode Name="" Id="07eb72db-ea09-4f55-948f-698716c4f400" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PROJECTITEM">
-              <CaptionTemplate />
-              <ChildNodes />
-              <TargetItemId>{544AC8AF-CE0A-4D2C-9E6C-0586467491BA}</TargetItemId>
-              <TargetItemBookmark></TargetItemBookmark>
-            </TocNode>
-            <TocNode Name="" Id="beeda889-3277-4e33-87cb-1c5e256c9f6d" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PROJECTITEM">
-              <CaptionTemplate />
-              <ChildNodes />
-              <TargetItemId>0ead87e8-b57d-4f33-876d-a2e3036b47cb</TargetItemId>
-              <TargetItemBookmark></TargetItemBookmark>
-            </TocNode>
-          </ChildNodes>
         </TocNode>
         <TocNode Name="" Id="{B3C5DA26-CC9E-46AC-8FB2-2B20DFC3D594}" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="NOLINK">
           <CaptionTemplate m="2007-05-31T10:49:56Z">Reference</CaptionTemplate>
@@ -951,252 +1105,26 @@
         <Caption m="2007-05-31T10:49:56Z">Overview</Caption>
         <ChildTopicCategories />
         <Topics>
-          <Topic Id="{EE6C442B-769D-491F-B730-CAE8A259C379}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2020-06-22T10:00:33.2941836Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="Overview" BuildFlags="">
+          <Topic Id="{EE6C442B-769D-491F-B730-CAE8A259C379}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2021-01-16T07:56:47.4264692Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="Overview" BuildFlags="">
             <Title m="2007-05-31T10:49:56Z">Overview</Title>
             <ContentsTitle m="2007-05-31T10:49:56Z" />
             <Notes></Notes>
             <TopicSections>
               <TopicSection Name="BodyText">
-                <Content m="2020-06-22T10:00:33.2941836Z">&lt;H1&gt;OPC DA/AE/HDA Client SDK .NET Standard&lt;/H1&gt;&lt;IMG border=0 alt="" src="images/OPC DAAEHDA Client SDK .NET.png" align=right&gt; 
-&lt;P&gt;The OPC DA/AE/HDA Client SDK .NET Standard offers a fast and easy access to the OPC Classic Client technology. Develop OPC compliant DA, AE and HDA Clients with C#/VB.NET for the .NET 4.8,&amp;nbsp;.NET 4.7.2, .NET 4.6.2&amp;nbsp;and .NET Standard 2.1&amp;nbsp;framework.&lt;/P&gt;
-&lt;P&gt;&lt;BR&gt;The OPC DA/AE/HDA Client SDK .NET Standard API defines classes which can be used to implement an OPC client capable to access OPC servers supporting different specifications with the same API. These classes manage client side state information; provide higher level abstractions for OPC tasks such as managing sessions and subscriptions or saving and restoring connection information for later use. The lower level API’s for OPC DA, OPC AE and OPC HDA defines classes which can be used to access OPC specification specific methods and properties.&lt;/P&gt;
-&lt;H3&gt;Features Include:&lt;/H3&gt;
-&lt;P&gt;The OPC DA/AE/HDA Client SDK .NET Classic includes features like:&lt;/P&gt;
+                <Content m="2021-01-16T07:56:47.4264692Z">&lt;H1&gt;OPC DA/AE/HDA Client&amp;nbsp;Solution .NET&lt;/H1&gt;&lt;IMG border=0 alt="" src="images/OPC DAAEHDA Client Solution NET.png" align=right&gt; 
+&lt;P&gt;The OPC DA/AE/HDA Client Solution .NET offers a fast and easy access to the OPC Classic Client technology. Develop OPC DA, OPC AE and OPC HDA compliant Clients with C# targeting .NET 5.0, .NET Core 3.1 or .NET Standard 2.1. For backward compatibility we also provide .NET 4.8, .NET 4.7.2 and .NET 4.6.2 support.&lt;/P&gt;
+&lt;P&gt;The OPC DA/AE/HDA Client Solution .NET API defines classes which can be used to implement an OPC client capable to access OPC servers supporting different specifications with the same API. These classes manage client side state information; provide higher level abstractions for OPC tasks such as managing sessions and subscriptions or saving and restoring connection information for later use. The lower level API’s for OPC DA, OPC AE and OPC HDA defines classes which can be used to access OPC specification specific methods and properties.&lt;/P&gt;
+&lt;H3&gt;Dual License&lt;/H3&gt;
+&lt;P&gt;The original products for OPC DA, OPC AE and OPC HDA are now getting moved to a dual license. Technosoftware GmbH provides different licenses depending on the component and on the ownership of a purchased license or sponsor status of the user of the sources. A single ZIP file or a single repository can contain multiple components where the sources have different license models. The valid license is in the header of each source file.&lt;/P&gt;
+&lt;OL&gt;
+&lt;LI&gt;OPC DA/AE/HDA core components follow a dual-license model:
 &lt;UL&gt;
-&lt;LI&gt;Clients are fully compliant to OPC DA 2.05, OPC DA 3.0, OPC AE 1.10 and OPC HDA 1.20. &amp;nbsp;&amp;nbsp;&amp;nbsp; 
-&lt;LI&gt;Supports 32bit and 64bit mode with the same assembly (build with Any CPU). 
-&lt;LI&gt;Simple error handling. 
-&lt;LI&gt;The OPC DA/AE/HDA Client SDK .NET API allows access to OPC servers through the same set of classes and methods. 
-&lt;LI&gt;Easy to understand and well documented sample clients show how to use the API. 
-&lt;LI&gt;Source of several sample controls included showing different use cases. 
-&lt;LI&gt;Increased maintainability and usability through the use of consistent coding guidelines and standard naming conventions. 
-&lt;LI&gt;Includes Documentation and Samples. 
-&lt;LI&gt;No additional royalties or run-times fees required. &lt;/LI&gt;&lt;/UL&gt;
-&lt;H3&gt;&amp;nbsp;&lt;/H3&gt;</Content>
-              </TopicSection>
-            </TopicSections>
-            <TopicLinks />
-            <TopicKeywords />
-            <PropertyDefinitionValues />
-            <ExcludedOtherFiles />
-          </Topic>
-          <Topic Id="{F2633C9A-4755-49BA-9C54-58DA4F582376}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2020-07-14T15:53:57.5729278Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="Components" BuildFlags="">
-            <Title m="2007-05-31T10:49:56Z">Components</Title>
-            <ContentsTitle m="2011-08-14T15:08:27.8636803Z">Components</ContentsTitle>
-            <Notes></Notes>
-            <TopicSections>
-              <TopicSection Name="BodyText">
-                <Content m="2020-07-14T15:53:57.5719291Z">&lt;P&gt;The following assemblies are part of the OPC DA/AE/HDA Client SDK .NET:&lt;/P&gt;
-&lt;P&gt;&lt;/P&gt;
-&lt;TABLE class=InfoTable cellSpacing=0 cellPadding=0&gt;
-&lt;TBODY&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightLabel bgColor=#ffffcf height=23 width=252&gt;&lt;STRONG&gt;Component&lt;/STRONG&gt;&lt;/TD&gt;
-&lt;TD class=TableLightLabel bgColor=#ffffcf height=23 width=704&gt;&lt;STRONG&gt;Description&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=252&gt;net48\Technosoftware.DaAeHdaClient.dll&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=704&gt;This is the assembly&amp;nbsp;for OPC DA 2.05,&amp;nbsp;OPC DA 3.0, OPC AE 1.10, OPC HDA 1.10 and OPC HDA 1.20 client applications. This DLL is build for&amp;nbsp;the .NET 4.8 framework.&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=252&gt;net472\Technosoftware.DaAeHdaClient.dll&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=704&gt;This is the assembly&amp;nbsp;for OPC DA 2.05,&amp;nbsp;OPC DA 3.0, OPC AE 1.10, OPC HDA 1.10 and OPC HDA 1.20 client applications. This DLL is build for&amp;nbsp;the .NET 4.7.2 framework.&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=252&gt;net462\Technosoftware.DaAeHdaClient.dll&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=704&gt;This is the assembly&amp;nbsp;for OPC DA 2.05,&amp;nbsp;OPC DA 3.0, OPC AE 1.10, OPC HDA 1.10 and OPC HDA 1.20 client applications. This DLL is build for&amp;nbsp;the .NET 4.6.2 framework.&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=252&gt;netstandard2.1\Technosoftware.DaAeHdaClient.dll&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=704&gt;This is the assembly&amp;nbsp;for OPC DA 2.05,&amp;nbsp;OPC DA 3.0, OPC AE 1.10, OPC HDA 1.10 and OPC HDA 1.20 client applications. This DLL is build for&amp;nbsp;the .NET Standard 2.1.&lt;/TD&gt;&lt;/TR&gt;&lt;/TBODY&gt;&lt;/TABLE&gt;</Content>
-              </TopicSection>
-            </TopicSections>
-            <TopicLinks />
-            <TopicKeywords />
-            <PropertyDefinitionValues />
-            <ExcludedOtherFiles />
-          </Topic>
-        </Topics>
-      </TopicCategory>
-      <TopicCategory Id="{DC8BF796-BEB3-4B56-A632-38AB611594C2}" AutoIndex="true">
-        <Caption m="2010-07-06T06:31:47.9619141Z">Tutorials</Caption>
-        <ChildTopicCategories />
-        <Topics>
-          <Topic Id="{1F5781F7-E8DD-4100-B753-F63B0CAC01F3}" Status="In Progress" CreatedOn="2005-06-07T00:00:00Z" ModifiedOn="2020-02-29T04:22:28.6415155Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="OPC Data Access" BuildFlags="">
-            <Title m="2011-10-18T06:09:21.4140625Z">OPC Data Access</Title>
-            <ContentsTitle m="2011-10-18T06:09:23.2451171Z">OPC Data Access</ContentsTitle>
-            <Notes></Notes>
-            <TopicSections>
-              <TopicSection Name="BodyText">
-                <Content m="2020-02-29T04:22:28.6415155Z">&lt;P&gt;The&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Da_namespace.html"&gt;overview&lt;/A&gt; shows the classes, enumerations, structures and delegates which can be used by a client to access&lt;/P&gt;
+&lt;LI&gt;Owner of a purchased license or sponsor: SCLA 1.0&lt;BR&gt;enables Owner of a purchased license or sponsor to deploy their applications using the core component sources without being required to disclose the application code.&lt;/LI&gt;&lt;/UL&gt;
 &lt;UL&gt;
-&lt;LI&gt;OPC Data Access 2.05 
-&lt;LI&gt;OPC Data Access 3.0 &lt;/LI&gt;&lt;/UL&gt;
-&lt;P&gt;servers. The base class to start with is the&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Da.TsCDaServer.html"&gt;TsCDaServer&lt;/A&gt; class. Following is a step-by-step description of the client development process.&lt;/P&gt;
-&lt;TABLE class=InfoTable cellSpacing=0 cellPadding=0&gt;
-&lt;TBODY&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightLabel bgColor=#ffffcf width=64&gt;&lt;STRONG&gt;Step&lt;/STRONG&gt;&lt;/TD&gt;
-&lt;TD class=TableLightLabel bgColor=#ffffcf width=827&gt;&lt;STRONG&gt;Description&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;&lt;B&gt;How to create an OPC Data Access client application&lt;/B&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.1&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P&gt;Use the Visual Studio Wizard to create a Windows application project.&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.2&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P&gt;Add the OPC DA/AE/HDA Client SDK .NET&amp;nbsp;Standard assembly to your project by right clicking on "References" in the Solution Explorer. Select "Add Reference" and search the DLL.&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.3&lt;/P&gt;
-&lt;P&gt;&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P&gt;Add "using OpcClientSdk;" to your C# source file.&lt;/P&gt;
-&lt;P&gt;Add "using OpcClientSdk.Da;" to your C# source file.&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.4&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P&gt;First you have to connect to an OPC Data Access Server, this can be done by the following code:&lt;/P&gt;
-&lt;BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr&gt;
-&lt;P&gt;&lt;FONT color=#2b91af size=2 face=Consolas&gt;&lt;FONT color=#2b91af size=2 face=Consolas&gt;&lt;FONT color=#2b91af size=2 face=Consolas&gt;&lt;FONT color=green&gt;// Create the session object&lt;/FONT&gt;&lt;BR&gt;TsCDaServer&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt; &lt;FONT size=2 face=Consolas&gt;&lt;FONT size=2 face=Consolas&gt;serverSession =&lt;/FONT&gt;&lt;/FONT&gt; &lt;FONT color=blue size=2 face=Consolas&gt;&lt;FONT color=blue size=2 face=Consolas&gt;&lt;FONT color=blue size=2 face=Consolas&gt;new &lt;FONT color=#2b91af&gt;TsCDaServer&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;FONT size=2 face=Consolas&gt;&lt;FONT size=2 face=Consolas&gt;()&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;
-&lt;P&gt;&lt;FONT color=green size=2 face=Consolas&gt;&lt;FONT color=green size=2 face=Consolas&gt;&lt;FONT color=green size=2 face=Consolas&gt;// Connect to the server&lt;BR&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;FONT size=2 face=Consolas&gt;&lt;FONT size=2 face=Consolas&gt;serverSession.Connect(&lt;/FONT&gt;&lt;/FONT&gt;&lt;FONT color=#a31515 size=2 face=Consolas&gt;&lt;FONT color=#a31515 size=2 face=Consolas&gt;&lt;FONT color=#a31515 size=2 face=Consolas&gt;"&lt;FONT color=#a31515 size=2 face=Consolas&gt;&lt;FONT color=#a31515 size=2 face=Consolas&gt;&lt;FONT color=#a31515 size=2 face=Consolas&gt;opcda://localhost/Technosoftware.DaSample.7&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt;"&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;FONT size=2 face=Consolas&gt;&lt;FONT size=2 face=Consolas&gt;);&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;&lt;/BLOCKQUOTE&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.5&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P dir=ltr&gt;You can now use the various functions of the&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Da.TsCDaServer.html"&gt;TsCDaServer&lt;/A&gt; class and all other related&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Da_namespace.html"&gt;OPC Data Access classes&lt;/A&gt; to access the OPC Data Access Server.&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.6&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P dir=ltr&gt;You can use the&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Da.TsCDaServer~Disconnect.html"&gt;Disconnect&lt;/A&gt; method to disconnect from the OPC Data Access server.&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;&lt;/TBODY&gt;&lt;/TABLE&gt;
-&lt;P&gt;&lt;/P&gt;</Content>
-              </TopicSection>
-            </TopicSections>
-            <TopicLinks />
-            <TopicKeywords />
-            <PropertyDefinitionValues />
-            <ExcludedOtherFiles />
-          </Topic>
-          <Topic Id="{544AC8AF-CE0A-4D2C-9E6C-0586467491BA}" Status="In Progress" CreatedOn="2008-06-16T08:46:03Z" ModifiedOn="2020-02-29T04:22:29.0154777Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="OPC Alarms and Events" BuildFlags="">
-            <Title m="2010-07-06T06:59:05.7646484Z">OPC Alarms and Events (AE)</Title>
-            <ContentsTitle m="2008-06-24T22:52:43Z" />
-            <Notes></Notes>
-            <TopicSections>
-              <TopicSection Name="BodyText">
-                <Content m="2020-02-29T04:22:29.0154777Z">&lt;P&gt;The&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Ae_namespace.html"&gt;overview&lt;/A&gt; shows the classes, enumerations, structures and delegates which can be used by a client to access&lt;/P&gt;
+&lt;LI&gt;Users that are not Owner of a purchased license or are not a sponsor: GPL 3.0&lt;BR&gt;Based on the GPL 3.0 license terms these users must disclose their application code when using the core component sources.&lt;/LI&gt;&lt;/UL&gt;
+&lt;LI&gt;Samples and Utilities:
 &lt;UL&gt;
-&lt;LI&gt;OPC Alarms&amp;amp;Events 1.0 
-&lt;LI&gt;OPC Alarms&amp;amp;Events 1.1 &lt;/LI&gt;&lt;/UL&gt;
-&lt;P&gt;servers. The base class to start with is the&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Ae.TsCAeServer.html"&gt;TsCAeServer&lt;/A&gt;&amp;nbsp;class. Following is a step-by-step description of the client development process.&lt;/P&gt;
-&lt;TABLE class=InfoTable cellSpacing=0 cellPadding=0&gt;
-&lt;TBODY&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightLabel bgColor=#ffffcf width=64&gt;&lt;STRONG&gt;Step&lt;/STRONG&gt;&lt;/TD&gt;
-&lt;TD class=TableLightLabel bgColor=#ffffcf width=827&gt;&lt;STRONG&gt;Description&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;&amp;nbsp;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;&lt;B&gt;How to create an OPC Alarms&amp;amp;Events client application&lt;/B&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.1&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P&gt;Use the Visual Studio Wizard to create a Windows application project.&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.2&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P&gt;Add the OPC DA/AE/HDA Client SDK .NET&amp;nbsp;Standard assembly to your project by right clicking on "References" in the Solution Explorer. Select "Add Reference" and search the DLL.&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.3&lt;/P&gt;
-&lt;P&gt;&amp;nbsp;&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P&gt;Add "using OpcClientSdk;" to your C# source file.&lt;/P&gt;
-&lt;P&gt;Add "using OpcClientSdk.Ae;" to your C# source file.&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.4&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P&gt;First you have to connect to an OPC&amp;nbsp;Alarms&amp;amp;Events Server, this can be done by the following code:&lt;/P&gt;
-&lt;BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr&gt;
-&lt;P&gt;&lt;FONT color=#2b91af size=2 face=Consolas&gt;&lt;FONT color=#2b91af size=2 face=Consolas&gt;&lt;FONT color=#2b91af size=2 face=Consolas&gt;&lt;FONT color=green&gt;// Create the server object&lt;/FONT&gt;&lt;BR&gt;TsCAeServer&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt; &lt;FONT size=2 face=Consolas&gt;&lt;FONT size=2 face=Consolas&gt;serverSession =&lt;/FONT&gt;&lt;/FONT&gt; &lt;FONT color=blue size=2 face=Consolas&gt;&lt;FONT color=blue size=2 face=Consolas&gt;&lt;FONT color=blue size=2 face=Consolas&gt;new&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt; &lt;FONT color=#2b91af size=2 face=Consolas&gt;TsCAeServer&lt;/FONT&gt;&lt;FONT size=2 face=Consolas&gt;&lt;FONT size=2 face=Consolas&gt;();&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;
-&lt;P&gt;&lt;FONT color=green size=2 face=Consolas&gt;&lt;FONT color=green size=2 face=Consolas&gt;&lt;FONT color=green size=2 face=Consolas&gt;// Connect to the server&lt;BR&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;FONT size=2 face=Consolas&gt;&lt;FONT size=2 face=Consolas&gt;serverSession.Connect(&lt;/FONT&gt;&lt;/FONT&gt;&lt;FONT color=#a31515 size=2 face=Consolas&gt;&lt;FONT color=#a31515 size=2 face=Consolas&gt;&lt;FONT color=#a31515 size=2 face=Consolas&gt;"&lt;FONT color=#a31515 size=2 face=Consolas&gt;&lt;FONT color=#a31515 size=2 face=Consolas&gt;&lt;FONT color=#a31515 size=2 face=Consolas&gt;opcae://localhost/Technosoftware.AeSample.7&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt;"&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;FONT size=2 face=Consolas&gt;&lt;FONT size=2 face=Consolas&gt;);&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;&lt;/BLOCKQUOTE&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.5&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P dir=ltr&gt;You can now use the various functions of the&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Ae.TsCAeServer.html"&gt;TsCAeServer&lt;/A&gt; class and all other related&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Ae_namespace.html"&gt;OPC Alarms&amp;amp;Events classes&lt;/A&gt; to access the OPC Alarms&amp;amp;Events Server.&amp;nbsp;&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.6&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P dir=ltr&gt;You can use the&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Ae.TsCAeServer~Disconnect.html"&gt;Disconnect&lt;/A&gt; method to disconnect from the OPC Alarms&amp;amp;Events server.&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;&lt;/TBODY&gt;&lt;/TABLE&gt;
-&lt;P&gt;&lt;/P&gt;</Content>
-              </TopicSection>
-            </TopicSections>
-            <TopicLinks />
-            <TopicKeywords />
-            <PropertyDefinitionValues />
-            <ExcludedOtherFiles />
-          </Topic>
-          <Topic Id="0ead87e8-b57d-4f33-876d-a2e3036b47cb" Status="New Topic" CreatedOn="2010-07-06T07:07:06.7617187Z" ModifiedOn="2020-02-29T04:22:29.1994757Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="OPC Historical Data Access" BuildFlags="">
-            <Title m="2010-07-06T07:07:29.1230469Z">OPC Historical Data Access (HDA)</Title>
-            <ContentsTitle m="2011-07-22T19:56:20.8192218Z">OPC Historical Data Access (HDA)</ContentsTitle>
-            <Notes></Notes>
-            <TopicSections>
-              <TopicSection Name="BodyText">
-                <Content m="2020-02-29T04:22:29.1994757Z">&lt;P&gt;The&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Hda_namespace.html"&gt;overview&lt;/A&gt; shows the classes, enumerations, structures and delegates can be used by a client to access&lt;/P&gt;
-&lt;UL&gt;
-&lt;LI&gt;OPC Historical Data Access 1.10 
-&lt;LI&gt;OPC Historical Data Access 1.20 &lt;/LI&gt;&lt;/UL&gt;
-&lt;P&gt;servers. The base class to start with is the&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Hda.TsCHdaServer.html"&gt;TsCHdaServer&lt;/A&gt;&amp;nbsp;class. Following is a step-by-step description of the client development process.&amp;nbsp;&lt;/P&gt;
-&lt;TABLE class=InfoTable cellSpacing=0 cellPadding=0&gt;
-&lt;TBODY&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightLabel bgColor=#ffffcf width=64&gt;&lt;STRONG&gt;Step&lt;/STRONG&gt;&lt;/TD&gt;
-&lt;TD class=TableLightLabel bgColor=#ffffcf width=827&gt;&lt;STRONG&gt;Description&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;&amp;nbsp;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;&lt;B&gt;How to create an OPC Historical Data Access client application&lt;/B&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.1&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P&gt;Use the Visual Studio Wizard to create a Windows application project.&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.2&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P&gt;Add the OPC DA/AE/HDA Client SDK .NET&amp;nbsp;Standard assembly to your project by right clicking on "References" in the Solution Explorer. Select "Add Reference" and search the DLL.&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.3&lt;/P&gt;
-&lt;P&gt;&amp;nbsp;&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P&gt;Add "using OpcClientSdk to your C# source file.&lt;/P&gt;
-&lt;P&gt;Add "using OpcClientSdk.Hda;" to your C# source file.&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.4&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P&gt;First you have to connect to an OPC&amp;nbsp;Historical Data Access Server, this can be done by the following code:&lt;/P&gt;
-&lt;BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr&gt;
-&lt;P&gt;&lt;FONT color=#2b91af size=2 face=Consolas&gt;&lt;FONT color=#2b91af size=2 face=Consolas&gt;&lt;FONT color=#2b91af size=2 face=Consolas&gt;&lt;FONT color=green&gt;// Create the server object&lt;/FONT&gt;&lt;BR&gt;TsCHdaServer&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt; &lt;FONT size=2 face=Consolas&gt;&lt;FONT size=2 face=Consolas&gt;serverSession =&lt;/FONT&gt;&lt;/FONT&gt; &lt;FONT color=blue size=2 face=Consolas&gt;&lt;FONT color=blue size=2 face=Consolas&gt;&lt;FONT color=blue size=2 face=Consolas&gt;new&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt; &lt;FONT color=#2b91af size=2 face=Consolas&gt;TsCHdaServer&lt;/FONT&gt;&lt;FONT size=2 face=Consolas&gt;&lt;FONT size=2 face=Consolas&gt;();&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;
-&lt;P&gt;&lt;FONT color=green size=2 face=Consolas&gt;&lt;FONT color=green size=2 face=Consolas&gt;&lt;FONT color=green size=2 face=Consolas&gt;// Connect to the server&lt;BR&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;FONT size=2 face=Consolas&gt;&lt;FONT size=2 face=Consolas&gt;serverSession.Connect(&lt;/FONT&gt;&lt;/FONT&gt;&lt;FONT color=#a31515 size=2 face=Consolas&gt;&lt;FONT color=#a31515 size=2 face=Consolas&gt;&lt;FONT color=#a31515 size=2 face=Consolas&gt;"opchda://localhost/Technosoftware.HDASample"&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;FONT size=2 face=Consolas&gt;&lt;FONT size=2 face=Consolas&gt;);&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;&lt;/BLOCKQUOTE&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.5&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P dir=ltr&gt;You can now use the various functions of the&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Hda.TsCHdaServer.html"&gt;TsCHdaServer&lt;/A&gt; class and all other related&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Hda_namespace.html"&gt;OPC Historical Data Access classes&lt;/A&gt; to access the OPC Historical Data Access Server.&amp;nbsp;&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR height=20&gt;
-&lt;TD class=TableLightDesc bgColor=#ffffcf vAlign=top width=64&gt;
-&lt;P&gt;1.6&lt;/P&gt;&lt;/TD&gt;
-&lt;TD class=TableLightDesc vAlign=top width=827&gt;
-&lt;P dir=ltr&gt;You can use the&amp;nbsp;&lt;A href="OpcClientSdk48~OpcClientSdk.Hda.TsCHdaServer~Disconnect.html"&gt;Disconnect&lt;/A&gt; method to disconnect from the OPC Historical Data Access server.&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;&lt;/TBODY&gt;&lt;/TABLE&gt;
-&lt;P&gt;&lt;/P&gt;</Content>
+&lt;LI&gt;All samples and most of the utilities are provided under the MIT license for everyone.&lt;/LI&gt;&lt;/UL&gt;&lt;/LI&gt;&lt;/OL&gt;</Content>
               </TopicSection>
             </TopicSections>
             <TopicLinks />
@@ -1258,81 +1186,66 @@
         <Caption m="2007-05-31T10:49:56Z">Support</Caption>
         <ChildTopicCategories />
         <Topics>
-          <Topic Id="{4A40674C-86C0-4FF4-A6F4-463328D25FF3}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2020-09-20T05:25:35.7674763Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="System Requirements" BuildFlags="">
+          <Topic Id="{4A40674C-86C0-4FF4-A6F4-463328D25FF3}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2021-01-16T08:07:02.6996116Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="System Requirements" BuildFlags="">
             <Title m="2007-05-31T10:49:56Z">System Requirements</Title>
             <ContentsTitle m="2007-05-31T10:49:56Z" />
             <Notes></Notes>
             <TopicSections>
               <TopicSection Name="BodyText">
-                <Content m="2020-09-20T05:25:35.7674763Z">&lt;H1&gt;System Requirements&lt;/H1&gt;
-&lt;TABLE style="WIDTH: 100%; TEXT-ALIGN: center" cellPadding=2 align=center&gt;
-&lt;THEAD&gt;
-&lt;TR&gt;
-&lt;TH&gt;&lt;STRONG&gt;&lt;/STRONG&gt;&lt;/TH&gt;
-&lt;TH&gt;&lt;STRONG&gt;Supported&lt;/STRONG&gt;&lt;/TH&gt;&lt;/TR&gt;&lt;/THEAD&gt;
+                <Content m="2021-01-16T08:07:02.6996116Z">&lt;TABLE class=wp-block-table width="100%"&gt;
 &lt;TBODY&gt;
-&lt;TR style="BACKGROUND-COLOR: rgb(226,240,227)"&gt;
-&lt;TD colSpan=6&gt;.NET Framework&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
-&lt;TH&gt;Windows 10&lt;/TH&gt;
+&lt;TD width="40%"&gt;&lt;BR&gt;&lt;/TD&gt;
+&lt;TD width="15%"&gt;&lt;STRONG&gt;Client .NET&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD colSpan=2&gt;&lt;STRONG&gt;.NET&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
 &lt;TD&gt;
-&lt;P&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;UL&gt;
+&lt;LI&gt;.NET 5.0&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
-&lt;TH&gt;Windows 8.1&lt;/TH&gt;
+&lt;TD colSpan=2&gt;&lt;STRONG&gt;.NET Standard&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
 &lt;TD&gt;
-&lt;P&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;UL&gt;
+&lt;LI&gt;.NET Core 3.1&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
-&lt;TH&gt;Windows Server 2016, Standard and Datacenter&lt;/TH&gt;
 &lt;TD&gt;
-&lt;P&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;UL&gt;
+&lt;LI&gt;.NET Standard 2.1&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
-&lt;TH&gt;.NET 4.8&lt;/TH&gt;
-&lt;TD&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TD colSpan=2&gt;&lt;STRONG&gt;.NET Framework&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
-&lt;TH&gt;.NET 4.7.2&lt;/TH&gt;
-&lt;TD&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR&gt;
-&lt;TH&gt;.NET 4.6.2&lt;/TH&gt;
-&lt;TD&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR&gt;
-&lt;TH&gt;Microsoft Visual Studio 2019&lt;/TH&gt;
 &lt;TD&gt;
-&lt;P&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;UL&gt;
+&lt;LI&gt;.NET 4.8&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
-&lt;TH&gt;Microsoft Visual Studio 2017&lt;/TH&gt;
 &lt;TD&gt;
-&lt;P&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR style="BACKGROUND-COLOR: rgb(226,240,227)"&gt;
-&lt;TD colSpan=6&gt;.NET Standard&lt;/TD&gt;&lt;/TR&gt;
+&lt;UL&gt;
+&lt;LI&gt;.NET 4.7.2&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
-&lt;TH&gt;Windows 10&lt;/TH&gt;
 &lt;TD&gt;
-&lt;P&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;UL&gt;
+&lt;LI&gt;.NET 4.6.2&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
-&lt;TH&gt;Windows 8.1&lt;/TH&gt;
 &lt;TD&gt;
-&lt;P&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;P&gt;Windows:&lt;/P&gt;
+&lt;UL&gt;
+&lt;LI&gt;Client 10 V. 1607+
+&lt;LI&gt;Client 8.1
+&lt;LI&gt;Server 2012 R2+
+&lt;LI&gt;Nano Server V. 1809+&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;
+&lt;P align=center&gt;√&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
-&lt;TH&gt;Windows Server 2016, Standard and Datacenter&lt;/TH&gt;
-&lt;TD&gt;
-&lt;P&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR&gt;
-&lt;TH&gt;.NET Standard 2.1&lt;/TH&gt;
-&lt;TD&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR&gt;
-&lt;TH&gt;.NET Core 3.1&lt;/TH&gt;
-&lt;TD&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR&gt;
-&lt;TH&gt;.NET Core 3.0&lt;/TH&gt;
-&lt;TD&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR&gt;
-&lt;TH&gt;Microsoft Visual Studio 2019&lt;/TH&gt;
-&lt;TD&gt;
-&lt;P&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR&gt;
-&lt;TH&gt;Microsoft Visual Studio 2017&lt;/TH&gt;
-&lt;TD&gt;
-&lt;P&gt;&lt;FONT size=5 face=Lato-Regular&gt;&lt;FONT size=5 face=Lato-Regular&gt;√&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;&lt;/TBODY&gt;&lt;/TABLE&gt;</Content>
+&lt;TD&gt;Visual Studio 2019&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;&lt;/TBODY&gt;&lt;/TABLE&gt;</Content>
               </TopicSection>
             </TopicSections>
             <TopicLinks />
@@ -1420,6 +1333,7 @@
       <Attributes>
         <Attribute key="dtscrollpos" valuetype="integer">275</Attribute>
         <Attribute key="scrollPosition" valuetype="integer">0</Attribute>
+        <Attribute key="i-toggle-section-collapsed-i-seealso-section-heading" valuetype="string">true</Attribute>
       </Attributes>
     </TopicEditorState>
   </TopicsProjectPlugin>
@@ -1453,7 +1367,7 @@
       <StripMetadata>false</StripMetadata>
       <AlwaysCopyTemplateFiles>true</AlwaysCopyTemplateFiles>
       <OutputFileExtension>.html</OutputFileExtension>
-      <Title m="2020-02-28T06:48:14.5725797Z">OPC DA/AE/HDA Client SDK .NET Standard</Title>
+      <Title m="2021-01-16T08:14:03.5186145Z">OPC DA/AE/HDA Client Solution  NET</Title>
       <ClearOutputDirectoryBeforeBuild>true</ClearOutputDirectoryBeforeBuild>
       <IsNewIndicatorEnabled>false</IsNewIndicatorEnabled>
       <IsNewDateTime>1899-12-30T00:00:00Z</IsNewDateTime>
@@ -1463,10 +1377,10 @@
           <PropertyValue m="2011-09-08T14:50:18.4189453Z">#FFFFFF</PropertyValue>
         </PropertyDefinitionValue>
         <PropertyDefinitionValue PropertyDefinitionId="08de2c63-c533-49c3-a1d7-52b3995b9bec">
-          <PropertyValue m="2020-01-04T22:15:01.0903551Z">Copyright © 2011-2020 Technosoftware GmbH</PropertyValue>
+          <PropertyValue m="2021-01-16T08:14:38.4935684Z">Copyright © 2011-2021 Technosoftware GmbH</PropertyValue>
         </PropertyDefinitionValue>
         <PropertyDefinitionValue PropertyDefinitionId="76de16a8-8dcb-462c-b636-b20ff0b3c3a1">
-          <PropertyValue m="2017-06-24T07:40:24.2567716Z">&lt;a href="mailto:support@technosoftware.com?subject=OPC DA/AE/HDA Client SDK .NET Documentation Feedback: %%FileName%%"&gt;Send comments&lt;/a&gt; on this topic.</PropertyValue>
+          <PropertyValue m="2021-01-16T08:14:36.6205125Z">&lt;a href="mailto:support@technosoftware.com?subject=OPC DAAEHDA Client Solution  NET Documentation Feedback: %%FileName%%"&gt;Send comments&lt;/a&gt; on this topic.</PropertyValue>
         </PropertyDefinitionValue>
         <PropertyDefinitionValue PropertyDefinitionId="dfae4477-6a1c-4fa6-82bb-d2f487f5b99b">
           <PropertyValue m="2011-07-16T06:31:06.2851235Z">&amp;copy;%%year%%. Technosoftware GmbH. All Rights Reserved.</PropertyValue>
@@ -1490,7 +1404,7 @@
           <PropertyValue m="2011-07-22T20:07:44.0062979Z">#AACC51</PropertyValue>
         </PropertyDefinitionValue>
         <PropertyDefinitionValue PropertyDefinitionId="a3dbf170-4a46-4d3f-9571-9b10189c0037">
-          <PropertyValue m="2014-12-07T14:19:26.795Z">&lt;a href="mailto:support@technosoftware.ch?subject=OPC DA/AE/HDA Client SDK .NET Documentation Feedback: %%FileName%%"&gt;Send comments&lt;/a&gt; on this topic.</PropertyValue>
+          <PropertyValue m="2021-01-16T08:14:31.54858Z">&lt;a href="mailto:support@technosoftware.ch?subject=OPC DAAEHDA Client Solution  NET Documentation Feedback: %%FileName%%"&gt;Send comments&lt;/a&gt; on this topic.</PropertyValue>
         </PropertyDefinitionValue>
       </PropertyDefinitionValues>
       <DefaultTemplateName>Classic</DefaultTemplateName>
@@ -1865,7 +1779,7 @@
         </CustomHtmlHelpWindowSettings>
         <IsWebOutputRootPageLinkEnabled>false</IsWebOutputRootPageLinkEnabled>
         <BrowserHelpRootPageFileName>index</BrowserHelpRootPageFileName>
-        <HelpFileName>OPC DAAEHDA Client SDK .NET Standard.chm</HelpFileName>
+        <HelpFileName>OPC DAAEHDA Client Solution  NET.chm</HelpFileName>
       </HelpCompiler>
       <RuleEngine>
         <Rules MatchType="All" Caption="" IsReadOnly="false" Id="root">
