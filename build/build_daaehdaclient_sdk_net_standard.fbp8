@@ -527,6 +527,7 @@ begin
       action.group
       begin
         description = "Build & Test Examples .NET 4.8"
+        enabled = false
         id = {BAAA47C0-521A-4048-AB45-49CE137E6AC7}
         action.setstatus
         begin
@@ -1012,7 +1013,7 @@ begin
           action.process.execute
           begin
             captureoutput = true
-            description = "Execute Program [ HelpStudio OPC DAAEHDA Client SDK .NET ]"
+            description = "Execute Program [ HelpStudio OPC DAAEHDA Client Solution  NET ]"
             enablelivecapture = true
             enablereturncodecheck = true
             enabletimeout = false
@@ -1023,14 +1024,14 @@ begin
             impersonateuser = false
             logoutput = true
             logprocessparameters = true
-            params = "\"%distr_netcore_dir%\\doc\\OPC DAAEHDA Client SDK .NET Standard\\OPC DAAEHDA Client SDK .NET Standard.dxp\" /buildconfiguration\=\"Default\""
+            params = "\"%distr_netcore_dir%\\doc\\OPC DAAEHDA Client Solution  NET\\OPC DAAEHDA Client Solution  NET.dxp\" /buildconfiguration\=\"Default\""
             processoraffinity = 0
             processpriority = tpNormal
             programname = "C:\\Program Files (x86)\\Innovasys\\DocumentX2019\\bin\\DocumentXCommandLine.exe"
             redirectstderr = true
             returncodecomparator = rcEqualTo
             returncodetocheck = 0
-            startindir = "%distr_netcore_dir%\\doc\\OPC DAAEHDA Client SDK .NET Standard"
+            startindir = "%distr_netcore_dir%\\doc\\OPC DAAEHDA Client Solution  NET"
             terminateontimeout = false
             timeoutlength = 1
             useerrordialogmonitor = false
@@ -1054,7 +1055,7 @@ begin
             copynewerfiles = false
             copyownershipandacl = false
             copyusingshortnames = false
-            destination = %distr_netcore_dir%
+            destination = %distr_netcore_dir%\\documentation
             enabletimeout = false
             expandimpersonationtoken = false
             id = {29154117-3E9F-482B-AABA-6994E9D5F1AD}
@@ -1067,7 +1068,7 @@ begin
             overwritereadonly = false
             processoraffinity = 0
             processpriority = tpNormal
-            source = "%distr_netcore_dir%\\doc\\OPC DAAEHDA Client SDK .NET Standard\\OPC DAAEHDA Client SDK .NET Standard.chm"
+            source = "%distr_netcore_dir%\\doc\\OPC DAAEHDA Client Solution  NET\\OPC DAAEHDA Client Solution  NET.chm"
             terminateontimeout = false
             timeoutlength = 2
             turnoffarchivebit = false
@@ -1075,66 +1076,6 @@ begin
             verify = false
             xcopylogmode = logNormal
             xcopymode = mdNormal
-          end
-          action.files.copy
-          begin
-            clearattributes = false
-            failifexists = false
-            failifzerofiles = true
-            filespec = "%distr_netcore_dir%\\doc\\OPC DAAEHDA Client SDK .NET Standard\\Technosoftware.DaAeHdaClient_documentxgenerated.xml"
-            force = false
-            id = {A984CC46-3A3C-4166-94CF-9407E0875A8C}
-            logfilesaffected = true
-            overwrite = true
-            overwritereadonly = false
-            recurse = false
-            target = %distr_netcore_dir%\\bin\\net48\\Technosoftware.DaAeHdaClient.xml
-            targetisdir = false
-          end
-          action.files.copy
-          begin
-            clearattributes = false
-            failifexists = false
-            failifzerofiles = true
-            filespec = "%distr_netcore_dir%\\doc\\OPC DAAEHDA Client SDK .NET Standard\\Technosoftware.DaAeHdaClient_documentxgenerated.xml"
-            force = false
-            id = {D8A55C90-7C54-43FD-A59B-31BD01136E17}
-            logfilesaffected = true
-            overwrite = true
-            overwritereadonly = false
-            recurse = false
-            target = %distr_netcore_dir%\\bin\\net472\\Technosoftware.DaAeHdaClient.xml
-            targetisdir = false
-          end
-          action.files.copy
-          begin
-            clearattributes = false
-            failifexists = false
-            failifzerofiles = true
-            filespec = "%distr_netcore_dir%\\doc\\OPC DAAEHDA Client SDK .NET Standard\\Technosoftware.DaAeHdaClient_documentxgenerated.xml"
-            force = false
-            id = {AEE0CA48-6E29-4CF9-B94F-9D2649CA4050}
-            logfilesaffected = true
-            overwrite = true
-            overwritereadonly = false
-            recurse = false
-            target = %distr_netcore_dir%\\bin\\net462\\Technosoftware.DaAeHdaClient.xml
-            targetisdir = false
-          end
-          action.files.copy
-          begin
-            clearattributes = false
-            failifexists = false
-            failifzerofiles = true
-            filespec = "%distr_netcore_dir%\\doc\\OPC DAAEHDA Client SDK .NET Standard\\Technosoftware.DaAeHdaClient_documentxgenerated.xml"
-            force = false
-            id = {ABB004C8-0208-4FC0-A606-A06FE9E6FAC9}
-            logfilesaffected = true
-            overwrite = true
-            overwritereadonly = false
-            recurse = false
-            target = %distr_netcore_dir%\\bin\\netstandard2.1\\Technosoftware.DaAeHdaClient.xml
-            targetisdir = false
           end
         end
       end
@@ -1197,7 +1138,7 @@ begin
   end
   variable
   begin
-    defaultvalue = 110
+    defaultvalue = 111
     groupname = version
     name = sdk_version
     variablescope = vtProject
