@@ -5,6 +5,10 @@ The OPC DA/AE/HDA Client Solution .NET offers a fast and easy access to the OPC 
 
 The OPC DA/AE/HDA Client Solution .NET API defines classes which can be used to implement an OPC client capable to access OPC servers supporting different specifications with the same API. These classes manage client side state information; provide higher level abstractions for OPC tasks such as managing sessions and subscriptions or saving and restoring connection information for later use. The lower level API’s for OPC DA, OPC AE and OPC HDA defines classes which can be used to access OPC specification specific methods and properties.
 
+### Build Status
+
+[![Build Status](https://dev.azure.com/technosoftware-gmbh/OPC%20DAAEHDA%20Client%20Solution%20.NET/_apis/build/status/technosoftware-gmbh.BuildandTest?branchName=master)](https://dev.azure.com/technosoftware-gmbh/OPC%20DAAEHDA%20Client%20Solution%20.NET/_build/latest?definitionId=20&branchName=master)
+
 ## Getting started
 
 Examples using the NuGet package can be found in the solution [WorkshopClientSamples.sln](/WorkshopClientSamples.sln).
