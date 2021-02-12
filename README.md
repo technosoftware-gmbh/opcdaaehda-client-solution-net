@@ -7,7 +7,7 @@ The OPC DA/AE/HDA Client Solution .NET API defines classes which can be used to 
 
 ### Build Status
 
-[![Build Status](https://dev.azure.com/technosoftware-gmbh/OPC%20DAAEHDA%20Client%20Solution%20.NET/_apis/build/status/technosoftware-gmbh.BuildandTest?branchName=master)](https://dev.azure.com/technosoftware-gmbh/OPC%20DAAEHDA%20Client%20Solution%20.NET/_build/latest?definitionId=20&branchName=master)
+[![Build Status](https://dev.azure.com/technosoftware-gmbh/OPC%20DAAEHDA%20Client%20Solution%20.NET/_apis/build/status/Build?branchName=master)](https://dev.azure.com/technosoftware-gmbh/OPC%20DAAEHDA%20Client%20Solution%20.NET/_build/latest?definitionId=26&branchName=master)
 
 ## Getting started
 
