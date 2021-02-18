@@ -9,25 +9,15 @@
     <Company>Technosoftware GmbH</Company>
     <Product>OPC DA/AE/HDA Client Solution .NET</Product>
     <Description>Technosoftware HDA Client Console</Description>
-    <Copyright>Copyright © 2011 - 2020 Technosoftware GmbH</Copyright>
+    <Copyright>Copyright © 2011 - 2021 Technosoftware GmbH</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
 
-  <Choose>
-    <When Condition="Exists('..\..\..\src') and '$(Configuration)'!='Nuget'">
-
-      <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient\Technosoftware.DaAeHdaClient.csproj" />
-      </ItemGroup>
-    </When>
-    <Otherwise>
-      <ItemGroup>
-        <PackageReference Include="Technosoftware.DaAeHdaSolution.DaAeHdaClient" Version="1.1.0.*" />
-      </ItemGroup>
-    </Otherwise>
-  </Choose>
+  <ItemGroup>
+    <PackageReference Include="Technosoftware.DaAeHdaSolution.DaAeHdaClient" Version="1.1.*" />
+  </ItemGroup>
 
 </Project>

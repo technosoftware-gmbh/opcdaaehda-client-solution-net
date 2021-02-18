@@ -1,4 +1,11 @@
 -------------------------------------------------------------------------------------------------------------
+## OPC DA/AE/HDA Client Solution .NET - 1.1.1
+
+###	Changes
+- Changed copyright year
+- Examples are now using the NuGet packages
+
+-------------------------------------------------------------------------------------------------------------
 ## OPC DA/AE/HDA Client Solution .NET - 1.1.0
 
 ###	Enhancements

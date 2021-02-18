@@ -2,9 +2,9 @@
   <PropertyGroup>
     <Product>OPC DA/AE/HDA Client Solution .NET</Product>
     <RepositoryUrl>https://github.com/technosoftware-gmbh/opcdaaehda-client-solution-net</RepositoryUrl>
-    <VersionPrefix>1.1.0</VersionPrefix>
+    <VersionPrefix>1.1.1</VersionPrefix>
     <VersionSuffix>rc-$([System.DateTime]::Now.ToString("yyyyMMdd"))</VersionSuffix>
-    <Copyright>Copyright © 2011 - 2020 Technosoftware GmbH</Copyright>
+    <Copyright>Copyright © 2011 - 2021 Technosoftware GmbH</Copyright>
     <Company>Technosoftware GmbH</Company>
     <Authors>Technosoftware GmbH</Authors>
     <NoWarn>NU5125;RCS1138;RCS1139</NoWarn>
