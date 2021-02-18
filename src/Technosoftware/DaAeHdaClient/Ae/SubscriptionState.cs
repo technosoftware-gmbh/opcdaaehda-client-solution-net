@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2020 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2020 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 // Web: http://www.technosoftware.com 
 // 
 // Purpose: 
@@ -10,7 +10,7 @@
 // which can be found here:
 // https://technosoftware.com/documents/Source_License_Agreement.pdf
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2020 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
