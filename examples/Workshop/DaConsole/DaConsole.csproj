@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Technosoftware.DaAeHdaSolution.DaAeHdaClient" Version="1.1.*" />
+    <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient\Technosoftware.DaAeHdaClient.csproj" />
   </ItemGroup>
 
 </Project>

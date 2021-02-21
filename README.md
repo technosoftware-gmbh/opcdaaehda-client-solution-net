@@ -11,7 +11,7 @@ The OPC DA/AE/HDA Client Solution .NET API defines classes which can be used to 
 
 ## Getting started
 
-Examples using the NuGet package can be found in the solution [WorkshopClientSamples.sln](/WorkshopClientSamples.sln).
+Examples can be found in the solution [WorkshopClientSamples.sln](/WorkshopClientSamples.sln).
 
 ### Licenses
 TECHNOSOFTWARE provides different licenses depending on the component and on the ownership of a purchased license of the user of the sources. A single ZIP file or a single repository can contain multiple components where the sources have different license models. The valid license is in the header of each source file.

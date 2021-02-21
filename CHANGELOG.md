@@ -1,4 +1,10 @@
 -------------------------------------------------------------------------------------------------------------
+## OPC DA/AE/HDA Client Solution .NET - 1.2.0
+
+###	Changes
+- NuGet packages are now available under a commercial license
+
+-------------------------------------------------------------------------------------------------------------
 ## OPC DA/AE/HDA Client Solution .NET - 1.1.1
 
 ###	Changes

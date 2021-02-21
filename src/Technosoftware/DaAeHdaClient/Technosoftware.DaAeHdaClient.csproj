@@ -5,7 +5,7 @@
     <TargetFrameworks>$(LibTargetFrameworks)</TargetFrameworks>
     <LangVersion>7.3</LangVersion>
     <PackageId>Technosoftware.DaAeHdaSolution.DaAeHdaClient</PackageId>
-    <Description>OPC DA/AE/HDA Client SDK .NET Standard</Description>
+    <Description>OPC DA/AE/HDA Client Solution .NET</Description>
     <Description>OPC DA/AE/HDA .NET Client Library</Description>
     <IsPackable>true</IsPackable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>

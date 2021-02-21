@@ -1,8 +1,8 @@
 <Project>
   <PropertyGroup>
     <Product>OPC DA/AE/HDA Client Solution .NET</Product>
-    <RepositoryUrl>https://github.com/technosoftware-gmbh/opcdaaehda-client-solution-net</RepositoryUrl>
-    <VersionPrefix>1.1.1</VersionPrefix>
+    <RepositoryUrl>https://github.com/technosoftware-gmbh/opcdaaehda-solution-net</RepositoryUrl>
+    <VersionPrefix>1.2.0</VersionPrefix>
     <VersionSuffix>rc-$([System.DateTime]::Now.ToString("yyyyMMdd"))</VersionSuffix>
     <Copyright>Copyright © 2011 - 2021 Technosoftware GmbH</Copyright>
     <Company>Technosoftware GmbH</Company>
@@ -22,7 +22,7 @@
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   	<Documentation>README.md</Documentation>
-    <PackageReleaseNotes>https://github.com/technosoftware-gmbh/opcdaaehda-client-solution-net/releases</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/technosoftware-gmbh/opcdaaehda-solution-net/releases</PackageReleaseNotes>
     <PackageTags>Technosoftware OPC DA/AE/HDA .NET 5.0 dotnet windows netcore</PackageTags>
   </PropertyGroup>
 
