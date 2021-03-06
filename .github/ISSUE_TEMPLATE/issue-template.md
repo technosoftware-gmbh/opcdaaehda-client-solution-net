@@ -7,27 +7,12 @@ assignees: ''
 
 ---
 
-# Prerequisites
-
-Please answer the following questions for yourself before submitting an issue. 
-
-- [ ] I am running the latest version
-- [ ] I checked the documentation and found no answer
-- [ ] I checked to make sure that this issue has not already been filed
-- [ ] I am developing a client
-- [ ] I am developing a server
+**Type of Issue**
+[ ] Issue [ ] Enhancement [ ] Compliance [ ] Question [ ] Help wanted
 
 # Expected Behavior
 
-Please describe the behavior you are expecting
-
-# Current Behavior
-
-What is the current behavior?
-
-# Failure Information (for bugs)
-
-Please help provide information about the failure if this is a bug. If it is not a bug, please remove the rest of this template.
+Please describe the issue you are experience as detailed and consised as possible.
 
 ## Steps to Reproduce
 
@@ -37,13 +22,26 @@ Please provide detailed steps for reproducing the issue.
 2. step 2
 3. you get it...
 
-## Context
+**Expected behavior**
+A clear and concise description of what you expected to happen.
 
-Please provide any relevant information about your setup. This is important in case the issue is not reproducible except for under certain conditions.
+**Screenshots**
+If applicable, add screenshots to help explain your issue.
 
-* Operating System:
-* SDK version:
+**Log output**
+If applicable, add log output to help explain your issue.
 
-## Failure Logs
+**Code snippets**
+If applicable, add a code snippet to help explain your issue.
 
-Please include any relevant log snippets or files here.
+**Environment (please complete the following information):**
+ - OS: [e.g. Windows 10, Ubuntu, macOS]
+ - Development environment: [e.g. Visual Studio 2019 16.7.2]
+ - Runtime: [e.g. .NET 5.0, .NET Core 3.1]
+ - NuGet Package Release Version [e.g. 1.2.0.8]
+ - Component: [e.g. Technosoftware.DaAeHdaSolution.DaAeHdaClient]
+ - Server: [e.g. OpcDaAeServer.exe]
+ - Client: [e.g. DaConsole]
+
+**Additional context**
+Add any other context about the problem here.
