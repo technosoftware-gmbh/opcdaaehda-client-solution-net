@@ -17,3 +17,9 @@ Examples can be found in the solution [WorkshopClientSamples.sln](/WorkshopClien
 TECHNOSOFTWARE provides different licenses depending on the component and on the ownership of a purchased license of the user of the sources. A single ZIP file or a single repository can contain multiple components where the sources have different license models. The valid license is in the header of each source file.
 
 See [LICENSE.md](LICENSE.md) for more details.
+
+### Get Perpetual License without Support
+
+The OPC DA/AE/HDA Client Solution .NET One-time fee for lifetime SCLA 1.0 license is available at
+
+ * [OPC DA/AE/HDA Client Solution .NET](https://technosoftware.com/product/opc-daaehda-client-solution-net/)
