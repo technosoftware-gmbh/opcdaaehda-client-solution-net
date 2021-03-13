@@ -5,7 +5,7 @@
 - NuGet packages are now available under a commercial license
 
 ### Fixed Issues
-- Issue #14: Fix Connect method(). I ended correctly even if connection is not established
+- Issue #14: Fix Connect method(). It ended correctly even if connection is not established
 - Issue #15: Disconnect() method is not executed correctly because of wrong implemented Dispose() methods.
 
 
