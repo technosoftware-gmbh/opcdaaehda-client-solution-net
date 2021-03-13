@@ -66,8 +66,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
 
         #region IDisposable Members
         /// <summary>
-        /// Releases unmanaged resources held by the object.
+        /// Dispose(bool disposing) executes in two distinct scenarios.
+        /// If disposing equals true, the method has been called directly
+        /// or indirectly by a user's code. Managed and unmanaged resources
+        /// can be disposed.
+        /// If disposing equals false, the method has been called by the
+        /// runtime from inside the finalizer and you should not reference
+        /// other objects. Only unmanaged resources can be disposed.
         /// </summary>
+        /// <param name="disposing">If true managed and unmanaged resources can be disposed. If false only unmanaged resources.</param>
         protected override void Dispose(bool disposing)
         {
             if (!m_disposed)
@@ -1518,8 +1525,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
 
         #region IDisposable Members
         /// <summary>
-        /// Releases unmanaged resources held by the object.
+        /// Dispose(bool disposing) executes in two distinct scenarios.
+        /// If disposing equals true, the method has been called directly
+        /// or indirectly by a user's code. Managed and unmanaged resources
+        /// can be disposed.
+        /// If disposing equals false, the method has been called by the
+        /// runtime from inside the finalizer and you should not reference
+        /// other objects. Only unmanaged resources can be disposed.
         /// </summary>
+        /// <param name="disposing">If true managed and unmanaged resources can be disposed. If false only unmanaged resources.</param>
         protected override void Dispose(bool disposing)
         {
             if (!m_disposed)

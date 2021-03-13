@@ -70,13 +70,20 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
         #region IDisposable Members
         /// <summary>
-        /// Releases unmanaged resources held by the object.
+        /// Dispose(bool disposing) executes in two distinct scenarios.
+        /// If disposing equals true, the method has been called directly
+        /// or indirectly by a user's code. Managed and unmanaged resources
+        /// can be disposed.
+        /// If disposing equals false, the method has been called by the
+        /// runtime from inside the finalizer and you should not reference
+        /// other objects. Only unmanaged resources can be disposed.
         /// </summary>
+        /// <param name="disposing">If true managed and unmanaged resources can be disposed. If false only unmanaged resources.</param>
         protected override void Dispose(bool disposing)
         {
-            if (!m_disposed)
+            if (!disposed_)
             {
-                lock (this)
+                lock (lock_)
                 {
                     if (disposing)
                     {
@@ -88,14 +95,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     // Release unmanaged resources.
                     // Set large fields to null.
 
-                    m_disposed = true;
+                    disposed_ = true;
                 }
             }
 
             base.Dispose(disposing);
         }
-
-        private bool m_disposed = false;
         #endregion
 
         #region Server Info
@@ -477,7 +482,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                         itemID.ServerHandle = serverHandles[ii];
                         itemID.ClientHandle = items[ii].ClientHandle;
 
-                        m_items.Add(clientHandles[ii], itemID);
+                        items_.Add(clientHandles[ii], itemID);
 
                         // return correct handles in result.
                         results[ii].ServerHandle = clientHandles[ii];
@@ -549,7 +554,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     if (results[ii].Result.Succeeded() && items[ii].ServerHandle != null)
                     {
                         // lookup locally cached item id.
-                        OpcItem itemID = (OpcItem)m_items[items[ii].ServerHandle];
+                        OpcItem itemID = (OpcItem)items_[items[ii].ServerHandle];
 
                         // remove the locally cached item.
                         if (itemID != null)
@@ -558,7 +563,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                             results[ii].ItemPath = itemID.ItemPath;
                             results[ii].ClientHandle = itemID.ClientHandle;
 
-                            m_items.Remove(items[ii].ServerHandle);
+                            items_.Remove(items[ii].ServerHandle);
                         }
                     }
                 }
@@ -750,7 +755,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
                 int requestID = internalRequest.RequestID;
@@ -799,7 +804,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     // discard the request.
                     request = null;
-                    m_callback.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
+                    callback_.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
 
                     // return results.
                     return results;
@@ -849,7 +854,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
                 int requestID = internalRequest.RequestID;
@@ -941,7 +946,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
                 int requestID = internalRequest.RequestID;
@@ -1108,7 +1113,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
                 int requestID = internalRequest.RequestID;
@@ -1160,7 +1165,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     // discard the request.
                     request = null;
-                    m_callback.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
+                    callback_.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
 
                     // return results.
                     return results;
@@ -1212,7 +1217,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
                 int requestID = internalRequest.RequestID;
@@ -1307,7 +1312,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
                 int requestID = internalRequest.RequestID;
@@ -1457,7 +1462,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
                 int requestID = internalRequest.RequestID;
@@ -1502,7 +1507,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     // discard the request.
                     request = null;
-                    m_callback.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
+                    callback_.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
 
                     // return results.
                     return results;
@@ -1622,7 +1627,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
                 int requestID = internalRequest.RequestID;
@@ -1670,7 +1675,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     // discard the request.
                     request = null;
-                    m_callback.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
+                    callback_.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
 
                     // return results.
                     return results;
@@ -1795,7 +1800,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new TsCHdaResultCollection();
                 }
 
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
                 int requestID = internalRequest.RequestID;
@@ -1854,7 +1859,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     // discard the request.
                     request = null;
-                    m_callback.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
+                    callback_.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
 
                     // return results.
                     return results;
@@ -1972,7 +1977,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
                 int requestID = internalRequest.RequestID;
@@ -2019,7 +2024,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     // discard the request.
                     request = null;
-                    m_callback.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
+                    callback_.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
 
                     // return results.
                     return results;
@@ -2161,7 +2166,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create request.
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize output arguments.
                 IntPtr pErrors = IntPtr.Zero;
@@ -2202,7 +2207,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     // discard the request.
                     request = null;
-                    m_callback.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
+                    callback_.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
 
                     // return results.
                     return GetIdentifiedResults(results);
@@ -2368,7 +2373,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 OPCHDA_FILETIME[] ftTimestamps = Technosoftware.DaAeHdaClient.Com.Hda.Interop.GetFILETIMEs(timestamps);
 
                 // create request.
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize output arguments.
                 IntPtr pErrors = IntPtr.Zero;
@@ -2423,7 +2428,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     // discard the request.
                     request = null;
-                    m_callback.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
+                    callback_.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
 
                     // return results.
                     return GetIdentifiedResults(results);
@@ -2560,7 +2565,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 OPCHDA_FILETIME[] ftTimestamps = Technosoftware.DaAeHdaClient.Com.Hda.Interop.GetFILETIMEs(timestamps);
 
                 // create request.
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize output arguments.
                 IntPtr pErrors = IntPtr.Zero;
@@ -2592,7 +2597,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     // discard the request.
                     request = null;
-                    m_callback.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
+                    callback_.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
 
                     // return results.
                     return GetIdentifiedResults(results);
@@ -2707,7 +2712,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
                 int requestID = internalRequest.RequestID;
@@ -2754,7 +2759,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     // discard the request.
                     request = null;
-                    m_callback.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
+                    callback_.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
 
                     // return results.
                     return results;
@@ -2886,7 +2891,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 OPCHDA_FILETIME[] ftTimestamps = Technosoftware.DaAeHdaClient.Com.Hda.Interop.GetFILETIMEs(timestamps);
 
                 // create request.
-                Request internalRequest = m_callback.CreateRequest(requestHandle, callback);
+                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize output arguments.
                 IntPtr pErrors = IntPtr.Zero;
@@ -2916,7 +2921,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     // discard the request.
                     request = null;
-                    m_callback.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
+                    callback_.CancelRequest(internalRequest, (TsCHdaCancelCompleteEventHandler)null);
 
                     // return results.
                     return GetIdentifiedResults(results);
@@ -2961,7 +2966,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 Request internalRequest = (Request)request;
 
                 // register the cancel request callback.
-                m_callback.CancelRequest(internalRequest, callback);
+                callback_.CancelRequest(internalRequest, callback);
 
                 // invoke COM method.
                 try
@@ -2987,16 +2992,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         private void Advise()
         {
-            if (m_connection == null)
+            if (connection_ == null)
             {
                 try
                 {
-                    m_connection = new ConnectionPoint(server_, typeof(OpcRcw.Hda.IOPCHDA_DataCallback).GUID);
-                    m_connection.Advise(m_callback);
+                    connection_ = new ConnectionPoint(server_, typeof(OpcRcw.Hda.IOPCHDA_DataCallback).GUID);
+                    connection_.Advise(callback_);
                 }
                 catch
                 {
-                    m_connection = null;
+                    connection_ = null;
                 }
             }
         }
@@ -3006,12 +3011,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         private void Unadvise()
         {
-            if (m_connection != null)
+            if (connection_ != null)
             {
-                if (m_connection.Unadvise() == 0)
+                if (connection_.Unadvise() == 0)
                 {
-                    m_connection.Dispose();
-                    m_connection = null;
+                    connection_.Dispose();
+                    connection_ = null;
                 }
             }
         }
@@ -3021,7 +3026,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         private int CreateHandle()
         {
-            return Hda.Server.NextHandle++;
+            return Hda.Server.nextHandle_++;
         }
 
         /// <summary>
@@ -3031,7 +3036,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         {
             int max = 0;
 
-            foreach (OpcItem item in m_items.Values)
+            foreach (OpcItem item in items_.Values)
             {
                 int handle = (int)item.ServerHandle;
 
@@ -3108,7 +3113,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 if (items[ii] != null && items[ii].ServerHandle != null)
                 {
                     // lookup cached handle.
-                    OpcItem item = (OpcItem)m_items[items[ii].ServerHandle];
+                    OpcItem item = (OpcItem)items_[items[ii].ServerHandle];
 
                     if (item != null)
                     {
@@ -3154,7 +3159,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             if (error >= 0 && item.ServerHandle != null)
             {
                 // lookup locally cached item id.
-                OpcItem itemID = (OpcItem)m_items[item.ServerHandle];
+                OpcItem itemID = (OpcItem)items_[item.ServerHandle];
 
                 // update result with locally cached information.
                 if (itemID != null)
@@ -3457,10 +3462,17 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         #endregion
 
         #region Private Members
-        private static int NextHandle = 1;
-        private Hashtable m_items = new Hashtable();
-        private DataCallback m_callback = new DataCallback();
-        private ConnectionPoint m_connection = null;
+        private static int nextHandle_ = 1;
+        private Hashtable items_ = new Hashtable();
+        private DataCallback callback_ = new DataCallback();
+        private ConnectionPoint connection_;
+
+        /// <summary>
+        /// The synchronization object for subscription access
+        /// </summary>
+        private static volatile object lock_ = new object();
+        
+        private bool disposed_ = false;
         #endregion
     }
 }
