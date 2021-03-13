@@ -26,6 +26,9 @@ using System.Runtime.InteropServices;
 using Technosoftware.DaAeHdaClient;
 using Technosoftware.DaAeHdaClient.Ae;
 using OpcRcw.Ae;
+
+using Technosoftware.DaAeHdaClient.Utilities;
+
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Com.Ae
@@ -42,34 +45,34 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// </summary>
         internal Subscription(TsCAeSubscriptionState state, object subscription)
         {
-            m_subscription = subscription;
-            m_clientHandle = Technosoftware.DaAeHdaClient.OpcConvert.Clone(state.ClientHandle);
-            m_supportsAE11 = true;
-            m_callback     = new Callback(state.ClientHandle);
+            subscription_ = subscription;
+            clientHandle_ = OpcConvert.Clone(state.ClientHandle);
+            supportsAe11_ = true;
+            callback_ = new Callback(state.ClientHandle);
 
             // check if the V1.1 interfaces are supported.
             try
             {
-                IOPCEventSubscriptionMgt2 server = (IOPCEventSubscriptionMgt2)m_subscription;
+                IOPCEventSubscriptionMgt2 server = (IOPCEventSubscriptionMgt2)subscription_;
             }
             catch
             {
-                m_supportsAE11 = false;
+                supportsAe11_ = false;
             }
         }
         #endregion
-    
+
         #region IDisposable Members
         /// <summary>
         /// The finalizer.
         /// </summary>
         ~Subscription()
         {
-            Dispose (false);
+            Dispose(false);
         }
 
         /// <summary>
-        /// Releases unmanaged resources held by the object.
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
         public void Dispose()
         {
@@ -78,42 +81,64 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         }
 
         /// <summary>
-        /// Releases unmanaged resources held by the object.
+        /// Dispose(bool disposing) executes in two distinct scenarios.
+        /// If disposing equals true, the method has been called directly
+        /// or indirectly by a user's code. Managed and unmanaged resources
+        /// can be disposed.
+        /// If disposing equals false, the method has been called by the
+        /// runtime from inside the finalizer and you should not reference
+        /// other objects. Only unmanaged resources can be disposed.
         /// </summary>
+        /// <param name="disposing">If true managed and unmanaged resources can be disposed. If false only unmanaged resources.</param>
         protected virtual void Dispose(bool disposing)
         {
-            if (!m_disposed)
+            if (!disposed_)
             {
-                lock (this)
+                lock (lock_)
                 {
                     if (disposing)
                     {
                         // Free other state (managed objects).
 
-                        // close connections.
-                        if (m_connection != null)
+                        if (subscription_ != null)
                         {
-                            m_connection.Dispose();
-                            m_connection = null;
+                            // close all connections.
+                            if (connection_ != null)
+                            {
+                                try
+                                {
+                                    connection_.Dispose();
+                                }
+                                catch
+                                {
+                                    // Ignore. COM Server probably no longer connected
+                                }
+                                connection_ = null;
+                            }
                         }
                     }
 
                     // Free your own state (unmanaged objects).
                     // Set large fields to null.
 
-                    // release the COM server.
-                    if (m_subscription != null)
+                    if (subscription_ != null)
                     {
-                        Technosoftware.DaAeHdaClient.Com.Interop.ReleaseServer(m_subscription);
-                        m_subscription = null;
+                        // release subscription object.
+                        try
+                        {
+                            Technosoftware.DaAeHdaClient.Com.Interop.ReleaseServer(subscription_);
+                        }
+                        catch
+                        {
+                            // Ignore. COM Server probably no longer connected
+                        }
+                        subscription_ = null;
                     }
                 }
 
-                m_disposed = true;
+                disposed_ = true;
             }
         }
-
-        private bool m_disposed = false;
         #endregion
 
         #region Technosoftware.DaAeHdaClient.ISubscription Members
@@ -122,8 +147,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// </summary>
         public event TsCAeDataChangedEventHandler DataChangedEvent
         {
-            add { lock (this) { Advise(); m_callback.DataChangedEvent += value; } }
-            remove { lock (this) { m_callback.DataChangedEvent -= value; Unadvise(); } }
+            add { lock (this) { Advise(); callback_.DataChangedEvent += value; } }
+            remove { lock (this) { callback_.DataChangedEvent -= value; Unadvise(); } }
         }
 
         //======================================================================
@@ -138,35 +163,34 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_subscription == null) throw new NotConnectedException();
+                if (subscription_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int pbActive = 0;
-                int pdwBufferTime = 0;
-                int pdwMaxSize = 0;
-                int phClientSubscription = 0;
+                int pbActive;
+                int pdwBufferTime;
+                int pdwMaxSize;
                 int pdwKeepAliveTime = 0;
 
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventSubscriptionMgt)m_subscription).GetState(
+                    ((IOPCEventSubscriptionMgt)subscription_).GetState(
                         out pbActive,
                         out pdwBufferTime,
                         out pdwMaxSize,
-                        out phClientSubscription);
+                        out _);
                 }
                 catch (Exception e)
                 {
                     throw Technosoftware.DaAeHdaClient.Com.Interop.CreateException("IOPCEventSubscriptionMgt.GetState", e);
-                }       
-    
+                }
+
                 // get keep alive.
-                if (m_supportsAE11)
+                if (supportsAe11_)
                 {
                     try
                     {
-                        ((IOPCEventSubscriptionMgt2)m_subscription).GetKeepAlive(out pdwKeepAliveTime);
+                        ((IOPCEventSubscriptionMgt2)subscription_).GetKeepAlive(out pdwKeepAliveTime);
                     }
                     catch (Exception e)
                     {
@@ -175,13 +199,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // build results 
-                TsCAeSubscriptionState state = new TsCAeSubscriptionState();
-
-                state.Active       = pbActive != 0;
-                state.ClientHandle = m_clientHandle;
-                state.BufferTime   = pdwBufferTime;
-                state.MaxSize      = pdwMaxSize;
-                state.KeepAlive    = pdwKeepAliveTime;
+                TsCAeSubscriptionState state = new TsCAeSubscriptionState
+                {
+                    Active = pbActive != 0,
+                    ClientHandle = clientHandle_,
+                    BufferTime = pdwBufferTime,
+                    MaxSize = pdwMaxSize,
+                    KeepAlive = pdwKeepAliveTime
+                };
 
                 // return results.
                 return state;
@@ -193,68 +218,64 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// </summary>
         /// <param name="masks">A bit mask that indicates which elements of the subscription state are changing.</param>
         /// <param name="state">The new subscription state.</param>
-        /// <returns>The actual subscption state after applying the changes.</returns>
+        /// <returns>The actual subscription state after applying the changes.</returns>
         public TsCAeSubscriptionState ModifyState(int masks, TsCAeSubscriptionState state)
         {
             lock (this)
             {
                 // verify state and arguments.
-                if (m_subscription == null) throw new NotConnectedException();
+                if (subscription_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int active = (state.Active)?1:0;
+                int active = (state.Active) ? 1 : 0;
 
-                GCHandle hActive     = GCHandle.Alloc(active, GCHandleType.Pinned);
+                GCHandle hActive = GCHandle.Alloc(active, GCHandleType.Pinned);
                 GCHandle hBufferTime = GCHandle.Alloc(state.BufferTime, GCHandleType.Pinned);
-                GCHandle hMaxSize    = GCHandle.Alloc(state.MaxSize, GCHandleType.Pinned);
+                GCHandle hMaxSize = GCHandle.Alloc(state.MaxSize, GCHandleType.Pinned);
 
-                IntPtr pbActive      = ((masks & (int)TsCAeStateMask.Active) != 0)?hActive.AddrOfPinnedObject():IntPtr.Zero;
-                IntPtr pdwBufferTime = ((masks & (int)TsCAeStateMask.BufferTime) != 0)?hBufferTime.AddrOfPinnedObject():IntPtr.Zero;
-                IntPtr pdwMaxSize    = ((masks & (int)TsCAeStateMask.MaxSize) != 0)?hMaxSize.AddrOfPinnedObject():IntPtr.Zero;
+                IntPtr pbActive = ((masks & (int)TsCAeStateMask.Active) != 0) ? hActive.AddrOfPinnedObject() : IntPtr.Zero;
+                IntPtr pdwBufferTime = ((masks & (int)TsCAeStateMask.BufferTime) != 0) ? hBufferTime.AddrOfPinnedObject() : IntPtr.Zero;
+                IntPtr pdwMaxSize = ((masks & (int)TsCAeStateMask.MaxSize) != 0) ? hMaxSize.AddrOfPinnedObject() : IntPtr.Zero;
 
                 int phClientSubscription = 0;
-                int pdwRevisedBufferTime = 0;
-                int pdwRevisedMaxSize = 0;
 
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventSubscriptionMgt)m_subscription).SetState(
+                    ((IOPCEventSubscriptionMgt)subscription_).SetState(
                         pbActive,
                         pdwBufferTime,
                         pdwMaxSize,
                         phClientSubscription,
-                        out pdwRevisedBufferTime,
-                        out pdwRevisedMaxSize);
+                        out _,
+                        out _);
                 }
                 catch (Exception e)
                 {
                     throw Technosoftware.DaAeHdaClient.Com.Interop.CreateException("IOPCEventSubscriptionMgt.SetState", e);
-                }       
+                }
                 finally
                 {
-                    if (hActive.IsAllocated)     hActive.Free();
+                    if (hActive.IsAllocated) hActive.Free();
                     if (hBufferTime.IsAllocated) hBufferTime.Free();
-                    if (hMaxSize.IsAllocated)    hMaxSize.Free();
+                    if (hMaxSize.IsAllocated) hMaxSize.Free();
                 }
 
                 // update keep alive.
-                if (((masks & (int)TsCAeStateMask.KeepAlive) != 0) && m_supportsAE11)
+                if (((masks & (int)TsCAeStateMask.KeepAlive) != 0) && supportsAe11_)
                 {
-                    int pdwRevisedKeepAliveTime = 0;
-
                     try
                     {
-                        ((IOPCEventSubscriptionMgt2)m_subscription).SetKeepAlive(
+                        ((IOPCEventSubscriptionMgt2)subscription_).SetKeepAlive(
                             state.KeepAlive,
-                            out pdwRevisedKeepAliveTime);
+                            out _);
                     }
                     catch (Exception e)
                     {
                         throw Technosoftware.DaAeHdaClient.Com.Interop.CreateException("IOPCEventSubscriptionMgt2.SetKeepAlive", e);
                     }
                 }
-                   
+
                 // return current state.
                 return GetState();
             }
@@ -272,49 +293,49 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_subscription == null) throw new NotConnectedException();
+                if (subscription_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int pdwEventType = 0;
-                int pdwNumCategories = 0;
-                IntPtr ppdwEventCategories = IntPtr.Zero;
-                int pdwLowSeverity = 0;
-                int pdwHighSeverity = 0;
-                int pdwNumAreas = 0;
-                IntPtr ppszAreaList = IntPtr.Zero;
-                int pdwNumSources = 0;
-                IntPtr ppszSourceList = IntPtr.Zero;
+                int pdwEventType;
+                int pdwNumCategories;
+                IntPtr ppidEventCategories;
+                int pdwLowSeverity;
+                int pdwHighSeverity;
+                int pdwNumAreas;
+                IntPtr ppsAreaList;
+                int pdwNumSources;
+                IntPtr ppsSourceList;
 
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventSubscriptionMgt)m_subscription).GetFilter(
+                    ((IOPCEventSubscriptionMgt)subscription_).GetFilter(
                         out pdwEventType,
                         out pdwNumCategories,
-                        out ppdwEventCategories,
+                        out ppidEventCategories,
                         out pdwLowSeverity,
                         out pdwHighSeverity,
                         out pdwNumAreas,
-                        out ppszAreaList,
+                        out ppsAreaList,
                         out pdwNumSources,
-                        out ppszSourceList);
+                        out ppsSourceList);
                 }
                 catch (Exception e)
                 {
                     throw Technosoftware.DaAeHdaClient.Com.Interop.CreateException("IOPCEventSubscriptionMgt.GetFilter", e);
-                }       
+                }
 
-                // unmarshal results 
-                int[]    categoryIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppdwEventCategories, pdwNumCategories, true);
-                string[] areaIDs     = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszAreaList, pdwNumAreas, true);
-                string[] sourceIDs   = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszSourceList, pdwNumSources, true);
+                // marshal results 
+                int[] categoryIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppidEventCategories, pdwNumCategories, true);
+                string[] areaIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppsAreaList, pdwNumAreas, true);
+                string[] sourceIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppsSourceList, pdwNumSources, true);
 
                 // build results.
-                TsCAeSubscriptionFilters filters = new TsCAeSubscriptionFilters();
+                TsCAeSubscriptionFilters filters = new TsCAeSubscriptionFilters
+                {
+                    EventTypes = pdwEventType, LowSeverity = pdwLowSeverity, HighSeverity = pdwHighSeverity
+                };
 
-                filters.EventTypes   = pdwEventType;
-                filters.LowSeverity  = pdwLowSeverity;
-                filters.HighSeverity = pdwHighSeverity;
 
                 filters.Categories.AddRange(categoryIDs);
                 filters.Areas.AddRange(areaIDs);
@@ -334,12 +355,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_subscription == null) throw new NotConnectedException();
+                if (subscription_ == null) throw new NotConnectedException();
 
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventSubscriptionMgt)m_subscription).SetFilter(
+                    ((IOPCEventSubscriptionMgt)subscription_).SetFilter(
                         filters.EventTypes,
                         filters.Categories.Count,
                         filters.Categories.ToArray(),
@@ -369,27 +390,27 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_subscription == null) throw new NotConnectedException();
+                if (subscription_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int pdwCount = 0;
-                IntPtr ppdwAttributeIDs = IntPtr.Zero;
+                int pdwCount;
+                IntPtr ppidAttributeIDs;
 
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventSubscriptionMgt)m_subscription).GetReturnedAttributes(
+                    ((IOPCEventSubscriptionMgt)subscription_).GetReturnedAttributes(
                         eventCategory,
                         out pdwCount,
-                        out ppdwAttributeIDs);
+                        out ppidAttributeIDs);
                 }
                 catch (Exception e)
                 {
                     throw Technosoftware.DaAeHdaClient.Com.Interop.CreateException("IOPCEventSubscriptionMgt.GetReturnedAttributes", e);
-                }       
+                }
 
-                // unmarshal results 
-                int[] attributeIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppdwAttributeIDs, pdwCount, true);
+                // marshal results 
+                int[] attributeIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppidAttributeIDs, pdwCount, true);
 
                 // return results.
                 return attributeIDs;
@@ -406,20 +427,20 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_subscription == null) throw new NotConnectedException();
+                if (subscription_ == null) throw new NotConnectedException();
 
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventSubscriptionMgt)m_subscription).SelectReturnedAttributes(
+                    ((IOPCEventSubscriptionMgt)subscription_).SelectReturnedAttributes(
                         eventCategory,
-                        (attributeIDs != null)?attributeIDs.Length:0,
-                        (attributeIDs != null)?attributeIDs:new int[0]);
+                        attributeIDs?.Length ?? 0,
+                        attributeIDs ?? new int[0]);
                 }
                 catch (Exception e)
                 {
                     throw Technosoftware.DaAeHdaClient.Com.Interop.CreateException("IOPCEventSubscriptionMgt.SelectReturnedAttributes", e);
-                }       
+                }
             }
         }
 
@@ -434,12 +455,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_subscription == null) throw new NotConnectedException();
+                if (subscription_ == null) throw new NotConnectedException();
 
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventSubscriptionMgt)m_subscription).Refresh(0);
+                    ((IOPCEventSubscriptionMgt)subscription_).Refresh(0);
                 }
                 catch (Exception e)
                 {
@@ -456,12 +477,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_subscription == null) throw new NotConnectedException();
+                if (subscription_ == null) throw new NotConnectedException();
 
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventSubscriptionMgt)m_subscription).CancelRefresh(0);
+                    ((IOPCEventSubscriptionMgt)subscription_).CancelRefresh(0);
                 }
                 catch (Exception e)
                 {
@@ -475,66 +496,65 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// <summary>
         /// A class that implements the IOPCEventSink interface.
         /// </summary>
-        private class Callback : OpcRcw.Ae.IOPCEventSink
+        private class Callback : IOPCEventSink
         {
             /// <summary>
             /// Initializes the object with the containing subscription object.
             /// </summary>
-            public Callback(object clientHandle) 
-            { 
-                m_clientHandle  = clientHandle;
+            public Callback(object clientHandle)
+            {
+                clientHandle_ = clientHandle;
             }
- 
+
             /// <summary>
             /// Raised when data changed callbacks arrive.
             /// </summary>
             public event TsCAeDataChangedEventHandler DataChangedEvent
             {
-                add { lock (this) { m_DataChangedEvent += value; } }
-                remove { lock (this) { m_DataChangedEvent -= value; } }
+                add { lock (this) { DataChangedEventHandler += value; } }
+                remove { lock (this) { DataChangedEventHandler -= value; } }
             }
 
             /// <summary>
             /// Called when a data changed event is received.
             /// </summary>
 			public void OnEvent(
-                int                       hClientSubscription,
-                int                       bRefresh,
-                int                       bLastRefresh,
-                int                       dwCount,
-				OpcRcw.Ae.ONEVENTSTRUCT[] pEvents)
+                int hClientSubscription,
+                int bRefresh,
+                int bLastRefresh,
+                int dwCount,
+                ONEVENTSTRUCT[] pEvents)
             {
                 try
                 {
                     lock (this)
                     {
                         // do nothing if no connections.
-                        if (m_DataChangedEvent == null) return;
+                        if (DataChangedEventHandler == null) return;
 
                         // un marshal item values.
                         TsCAeEventNotification[] notifications = Interop.GetEventNotifications(pEvents);
 
-                        for (int ii = 0; ii < notifications.Length; ii++)
+                        foreach (var notification in notifications)
                         {
-                            notifications[ii].ClientHandle = m_clientHandle;
+                            notification.ClientHandle = clientHandle_;
                         }
 
-                        if (m_DataChangedEvent != null)
-                        {
-                            // invoke the callback.
-                            m_DataChangedEvent(notifications, bRefresh != 0, bLastRefresh != 0);
-                        }
+                        // invoke the callback.
+                        DataChangedEventHandler?.Invoke(notifications, bRefresh != 0, bLastRefresh != 0);
                     }
                 }
-                catch (Exception e) 
-                { 
+                catch (Exception e)
+                {
+                    Utils.Trace(e, "Exception '{0}' in event handler.", e.Message);
+
                     string stack = e.StackTrace;
                 }
             }
 
             #region Private Members
-            private object m_clientHandle = null;
-            private event TsCAeDataChangedEventHandler m_DataChangedEvent = null;
+            private object clientHandle_;
+            private event TsCAeDataChangedEventHandler DataChangedEventHandler;
             #endregion
         }
         #endregion
@@ -546,10 +566,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// </summary>
         private void Advise()
         {
-            if (m_connection == null)
+            if (connection_ == null)
             {
-                m_connection = new ConnectionPoint(m_subscription, typeof(OpcRcw.Ae.IOPCEventSink).GUID);
-                m_connection.Advise(m_callback);
+                connection_ = new ConnectionPoint(subscription_, typeof(IOPCEventSink).GUID);
+                connection_.Advise(callback_);
             }
         }
 
@@ -558,23 +578,31 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// </summary>
         private void Unadvise()
         {
-            if (m_connection != null)
+            if (connection_ != null)
             {
-                if (m_connection.Unadvise() == 0)
+                if (connection_.Unadvise() == 0)
                 {
-                    m_connection.Dispose();
-                    m_connection = null;
+                    connection_.Dispose();
+                    connection_ = null;
                 }
             }
         }
         #endregion
 
         #region Private Members
-        private object m_subscription = null;
-        private object m_clientHandle = null;
-        private bool m_supportsAE11 = true;
-        private ConnectionPoint m_connection = null;
-        private Callback m_callback = null;
+        private object subscription_;
+        private object clientHandle_;
+        private bool supportsAe11_ = true;
+        private ConnectionPoint connection_;
+        private Callback callback_;
+
+        /// <summary>
+        /// The synchronization object for subscription access
+        /// </summary>
+        private static volatile object lock_ = new object();
+
+        private bool disposed_;
+
         #endregion
     }
 }

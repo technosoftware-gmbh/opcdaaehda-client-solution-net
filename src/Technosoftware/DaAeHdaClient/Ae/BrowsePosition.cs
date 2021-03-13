@@ -26,10 +26,10 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient.Ae
 {
-	/// <summary>
-	/// Stores the state of a browse operation.
-	/// </summary>
-	[Serializable]
+    /// <summary>
+    /// Stores the state of a browse operation.
+    /// </summary>
+    [Serializable]
 	public class TsCAeBrowsePosition : IOpcBrowsePosition
 	{
 		///////////////////////////////////////////////////////////////////////
@@ -59,14 +59,17 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		}
 
         /// <summary>
-        /// The finializer implementation.
+        /// The finalizer implementation.
         /// </summary>
         ~TsCAeBrowsePosition()
 		{
 			Dispose(false);
 		}
 
-		public virtual void Dispose()
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public virtual void Dispose()
 		{
 			Dispose(true);
 			// Take yourself off the Finalization queue
@@ -84,7 +87,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// runtime from inside the finalizer and you should not reference
 		/// other objects. Only unmanaged resources can be disposed.
 		/// </summary>
-		/// <param name="disposing"></param>
+		/// <param name="disposing">If true managed and unmanaged resources can be disposed. If false only unmanaged resources.</param>
 		protected virtual void Dispose(bool disposing)
 		{
 			// Check to see if Dispose has already been called.

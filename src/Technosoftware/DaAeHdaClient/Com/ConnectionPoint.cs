@@ -35,47 +35,54 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// <summary>
         /// The COM server that supports connection points.
         /// </summary>
-		private IConnectionPoint m_server;
+		private IConnectionPoint server_;
 
         /// <summary>
         /// The id assigned to the connection by the COM server.
         /// </summary>
-		private int m_cookie;
+		private int cookie_;
         
         /// <summary>
         /// The number of times Advise() has been called without a matching Unadvise(). 
         /// </summary>
-		private int m_refs;
+		private int refs_;
         
         /// <summary>
         /// Initializes the object by finding the specified connection point.
         /// </summary>
         public ConnectionPoint(object server, Guid iid)
         {
-            ((IConnectionPointContainer)server).FindConnectionPoint(ref iid, out m_server);
+            ((IConnectionPointContainer)server).FindConnectionPoint(ref iid, out server_);
         }
 
         /// <summary>
-        /// Releases the COM server.
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
         public void Dispose()
         {
-            if (m_server != null)
+            if (server_ != null)
             {
-                while (Unadvise() > 0);             
-                Technosoftware.DaAeHdaClient.Utilities.Interop.ReleaseServer(m_server);
-                m_server = null;
+                while (Unadvise() > 0)
+                {
+                }
+                try
+                {
+                    Utilities.Interop.ReleaseServer(server_);
+                }
+                catch
+                {
+                    // Ignore. COM Server probably no longer connected
+                }
+
+                server_ = null;
             }
         }
 
         /// <summary> 
         /// The cookie returned in the advise call. 
         /// </summary> 
-        public int Cookie 
-        { 
-            get { return m_cookie; } 
-        }
-		
+        public int Cookie => cookie_;
+
         //=====================================================================
         // IConnectionPoint
 
@@ -84,8 +91,8 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         public int Advise(object callback)
         {
-            if (m_refs++ == 0) m_server.Advise(callback, out m_cookie);
-            return m_refs;
+            if (refs_++ == 0) server_.Advise(callback, out cookie_);
+            return refs_;
         }
 
         /// <summary>
@@ -93,8 +100,8 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         public int Unadvise()
         {
-            if (--m_refs == 0) m_server.Unadvise(m_cookie);
-            return m_refs;
+            if (--refs_ == 0) server_.Unadvise(cookie_);
+            return refs_;
         }
     }
 }

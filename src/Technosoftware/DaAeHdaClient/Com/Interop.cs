@@ -788,9 +788,9 @@ namespace Technosoftware.DaAeHdaClient.Com
         }
 
         /// <summary>
-		/// This flag supresses the conversion to local time done during marhsalling.
+		/// This flag suppresses the conversion to local time done during marshalling.
 		/// </summary>
-		public static bool PreserveUTC {
+		public static bool PreserveUtc {
             get { lock (typeof(Technosoftware.DaAeHdaClient.Com.Interop)) { return m_preserveUTC; } }
             set { lock (typeof(Technosoftware.DaAeHdaClient.Com.Interop)) { m_preserveUTC = value; } }
         }

@@ -73,8 +73,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
         #region IDisposable Members
         /// <summary>
-        /// Releases unmanaged resources held by the object.
+        /// Dispose(bool disposing) executes in two distinct scenarios.
+        /// If disposing equals true, the method has been called directly
+        /// or indirectly by a user's code. Managed and unmanaged resources
+        /// can be disposed.
+        /// If disposing equals false, the method has been called by the
+        /// runtime from inside the finalizer and you should not reference
+        /// other objects. Only unmanaged resources can be disposed.
         /// </summary>
+        /// <param name="disposing">If true managed and unmanaged resources can be disposed. If false only unmanaged resources.</param>
         protected override void Dispose(bool disposing)
         {
             if (!disposed_)
@@ -255,7 +262,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 if (server_ == null) throw new NotConnectedException();
 
                 int count = items.Length;
-                if (count == 0) throw new ArgumentOutOfRangeException(nameof(items.Length), "0");
+                if (count == 0) throw new ArgumentOutOfRangeException(nameof(items.Length), @"0");
 
                 // initialize arguments.
                 string[] itemIDs = new string[count];
@@ -830,7 +837,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <summary>
         /// Converts a value to the specified type using the specified locale.
         /// </summary>
-        protected object ChangeType(object source, System.Type type, string locale)
+        protected object ChangeType(object source, Type type, string locale)
         {
             CultureInfo culture = Thread.CurrentThread.CurrentCulture;
 
@@ -846,7 +853,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             try
             {
-                object result = Technosoftware.DaAeHdaClient.OpcConvert.ChangeType(source, type);
+                object result = OpcConvert.ChangeType(source, type);
 
                 // check for overflow converting to float.
                 if (typeof(Single) == type)

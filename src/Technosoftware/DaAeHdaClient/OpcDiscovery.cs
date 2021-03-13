@@ -76,7 +76,7 @@ namespace Technosoftware.DaAeHdaClient
         /// runtime from inside the finalizer and you should not reference
         /// other objects. Only unmanaged resources can be disposed.
         /// </summary>
-        /// <param name="disposing"></param>
+        /// <param name="disposing">If true managed and unmanaged resources can be disposed. If false only unmanaged resources.</param>
         protected virtual void Dispose(bool disposing)
         {
             // Check to see if Dispose has already been called.

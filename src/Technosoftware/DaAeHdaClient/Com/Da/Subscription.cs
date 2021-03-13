@@ -73,11 +73,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         }
 
         /// <summary>
-        /// Releases unmanaged resources held by the object.
+        /// Dispose(bool disposing) executes in two distinct scenarios.
+        /// If disposing equals true, the method has been called directly
+        /// or indirectly by a user's code. Managed and unmanaged resources
+        /// can be disposed.
+        /// If disposing equals false, the method has been called by the
+        /// runtime from inside the finalizer and you should not reference
+        /// other objects. Only unmanaged resources can be disposed.
         /// </summary>
+        /// <param name="disposing">If true managed and unmanaged resources can be disposed. If false only unmanaged resources.</param>
         protected virtual void Dispose(bool disposing)
         {
-            if (!m_disposed)
+            if (!disposed_)
             {
                 lock (lock_)
                 {
@@ -90,7 +97,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                             // close all connections.
                             if (connection_ != null)
                             {
-                                connection_.Dispose();
+                                try
+                                {
+                                    connection_.Dispose();
+                                }
+                                catch
+                                {
+                                    // Ignore. COM Server probably no longer connected
+                                }
                                 connection_ = null;
                             }
                         }
@@ -102,16 +116,21 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     if (subscription_ != null)
                     {
                         // release subscription object.
-                        Technosoftware.DaAeHdaClient.Com.Interop.ReleaseServer(subscription_);
+                        try
+                        {
+                            Technosoftware.DaAeHdaClient.Com.Interop.ReleaseServer(subscription_);
+                        }
+                        catch
+                        {
+                            // Ignore. COM Server probably no longer connected
+                        }
                         subscription_ = null;
                     }
                 }
 
-                m_disposed = true;
+                disposed_ = true;
             }
         }
-
-        private bool m_disposed = false;
         #endregion
 
         #region Private Members
@@ -161,6 +180,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         private static volatile object lock_ = new object();
 
         private int outstandingCalls_;
+
+        private bool disposed_;
         #endregion
 
         #region ISubscription Members
