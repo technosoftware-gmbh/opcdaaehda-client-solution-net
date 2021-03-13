@@ -34,7 +34,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 	[Serializable]
 	public class TsCHdaServer : Technosoftware.DaAeHdaClient.OpcServer
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Class Names
 
 		/// <summary>
@@ -47,7 +46,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
 
 		private Hashtable _items = new Hashtable();
@@ -57,7 +55,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
 
         /// <summary>
@@ -100,7 +97,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
 
 		/// <summary>
@@ -137,14 +133,13 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Public Methods
-
-		/// <summary>
+        /// <summary>
 		/// Connects to the server with the specified OpcUrl and credentials.
 		/// </summary>
 		public override void Connect(OpcUrl url, OpcConnectData connectData)
 		{
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (_factory == null)
 			{
 				_factory = new Com.Factory();
@@ -191,7 +186,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		/// </summary>
 		public override void Disconnect()
 		{
-            if (_server == null) throw new NotConnectedException();
+            if (server_ == null) throw new NotConnectedException();
 
             // dispose of all items first.
             if (_items.Count > 0)
@@ -202,7 +197,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
 					ArrayList items = new ArrayList(_items.Count);
 					items.AddRange(_items);
 
-					((ITsCHdaServer)_server).ReleaseItems((OpcItem[])items.ToArray(typeof(OpcItem)));
+					((ITsCHdaServer)server_).ReleaseItems((OpcItem[])items.ToArray(typeof(OpcItem)));
 				}
 				catch
 				{
@@ -224,10 +219,8 @@ namespace Technosoftware.DaAeHdaClient.Hda
 			// disconnect from server.
 			base.Disconnect();
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region GetStatus
 
         /// <summary>
@@ -236,9 +229,10 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// <returns>The current server status.</returns>
         public OpcServerStatus GetServerStatus()
         {
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 
-            OpcServerStatus status = ((ITsCHdaServer)_server).GetServerStatus();
+            OpcServerStatus status = ((ITsCHdaServer)server_).GetServerStatus();
 
 
             if (status != null)
@@ -258,7 +252,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region GetAttributes
 
 		/// <summary>
@@ -267,11 +260,12 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		/// <returns>The a set of item attributes and their descriptions.</returns>
 		public Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute[] GetAttributes()
 		{
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 			// clear existing cached list.
             _attributes.Clear();
 
-			Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute[] attributes = ((ITsCHdaServer)_server).GetAttributes();
+			Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute[] attributes = ((ITsCHdaServer)server_).GetAttributes();
 
 			// save a locale copy.
 			if (attributes != null)
@@ -284,7 +278,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region GetAggregates
 
 		/// <summary>
@@ -293,11 +286,12 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		/// <returns>The a set of aggregates and their descriptions.</returns>
 		public TsCHdaAggregate[] GetAggregates()
 		{
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 			// discard existing cached list.
             _aggregates.Clear();
 
-			TsCHdaAggregate[] aggregates = ((ITsCHdaServer)_server).GetAggregates();
+			TsCHdaAggregate[] aggregates = ((ITsCHdaServer)server_).GetAggregates();
 
 			// save a locale copy.
 			if (aggregates != null)
@@ -310,7 +304,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region CreateBrowser
 
 		/// <summary>
@@ -321,13 +314,13 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		/// <returns>A browser object that must be released by calling Dispose().</returns>
 		public ITsCHdaBrowser CreateBrowser(TsCHdaBrowseFilter[] filters, out OpcResult[] results)
 		{
-            if (_server == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)_server).CreateBrowser(filters, out results);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			return ((ITsCHdaServer)server_).CreateBrowser(filters, out results);
 		}
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region CreateItems
 
 		/// <summary>
@@ -337,8 +330,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		/// <returns>The results for each item containing the server handle and result code.</returns>
 		public OpcItemResult[] CreateItems(OpcItem[] items)
 		{
-            if (_server == null) throw new NotConnectedException();
-			OpcItemResult[] results = ((ITsCHdaServer)_server).CreateItems(items);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			OpcItemResult[] results = ((ITsCHdaServer)server_).CreateItems(items);
 
 			// save items for future reference.
 			if (results != null)
@@ -357,7 +351,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ReleaseItems
 
 		/// <summary>
@@ -367,9 +360,10 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		/// <returns>The results for each item containing the result code.</returns>
 		public OpcItemResult[] ReleaseItems(OpcItem[] items)
 		{
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)_server).ReleaseItems(items);
+            OpcItemResult[] results = ((ITsCHdaServer)server_).ReleaseItems(items);
 
 			// remove items from local cache.
 			if (results != null)
@@ -388,7 +382,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ValidateItems
 
 		/// <summary>
@@ -398,13 +391,13 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		/// <returns>The results for each item containing the result code.</returns>
 		public OpcItemResult[] ValidateItems(OpcItem[] items)
 		{
-            if (_server == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)_server).ValidateItems(items);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			return ((ITsCHdaServer)server_).ValidateItems(items);
 		}
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ReadRaw
 
 		/// <summary>
@@ -423,8 +416,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
 			bool includeBounds,
 			OpcItem[] items)
 		{
-            if (_server == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)_server).ReadRaw(startTime, endTime, maxValues, includeBounds, items);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			return ((ITsCHdaServer)server_).ReadRaw(startTime, endTime, maxValues, includeBounds, items);
 		}
 
         /// <summary>
@@ -449,8 +443,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaReadValuesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
-             return ((ITsCHdaServer)_server).ReadRaw(startTime, endTime, maxValues, includeBounds, items, requestHandle, callback, out request);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+             return ((ITsCHdaServer)server_).ReadRaw(startTime, endTime, maxValues, includeBounds, items, requestHandle, callback, out request);
         }
 
         /// <summary>
@@ -471,8 +466,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaDataUpdateEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
-            return ((ITsCHdaServer)_server).AdviseRaw(startTime, updateInterval, items, requestHandle, callback, out request);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)server_).AdviseRaw(startTime, updateInterval, items, requestHandle, callback, out request);
         }
 
         /// <summary>
@@ -499,13 +495,13 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaDataUpdateEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
-            return ((ITsCHdaServer)_server).PlaybackRaw(startTime, endTime, maxValues, updateInterval, playbackDuration, items, requestHandle, callback, out request);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)server_).PlaybackRaw(startTime, endTime, maxValues, updateInterval, playbackDuration, items, requestHandle, callback, out request);
         }
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ReadProcessed
 
 		/// <summary>
@@ -522,8 +518,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
 			decimal resampleInterval,
 			TsCHdaItem[] items)
 		{
-            if (_server == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)_server).ReadProcessed(startTime, endTime, resampleInterval, items);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			return ((ITsCHdaServer)server_).ReadProcessed(startTime, endTime, resampleInterval, items);
 		}
 		
         /// <summary>
@@ -546,9 +543,10 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaReadValuesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)_server).ReadProcessed(
+            OpcItemResult[] results = ((ITsCHdaServer)server_).ReadProcessed(
                 startTime,
                 endTime,
                 resampleInterval,
@@ -580,9 +578,10 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaDataUpdateEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)_server).AdviseProcessed(
+            OpcItemResult[] results = ((ITsCHdaServer)server_).AdviseProcessed(
                 startTime,
                 resampleInterval,
                 numberOfIntervals,
@@ -618,9 +617,10 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaDataUpdateEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)_server).PlaybackProcessed(
+            OpcItemResult[] results = ((ITsCHdaServer)server_).PlaybackProcessed(
                 startTime,
                 endTime,
                 resampleInterval,
@@ -636,7 +636,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ReadAtTime
 
 		/// <summary>
@@ -647,8 +646,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		/// <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
 		internal TsCHdaItemValueCollection[] ReadAtTime(DateTime[] timestamps, OpcItem[] items)
 		{
-            if (_server == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)_server).ReadAtTime(timestamps, items);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			return ((ITsCHdaServer)server_).ReadAtTime(timestamps, items);
 		}
 
         /// <summary>
@@ -667,9 +667,10 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaReadValuesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)_server).ReadAtTime(
+            OpcItemResult[] results = ((ITsCHdaServer)server_).ReadAtTime(
                 timestamps,
                 items,
                 requestHandle,
@@ -681,7 +682,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ReadModified
 
 		/// <summary>
@@ -698,8 +698,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
 			int maxValues,
 			OpcItem[] items)
 		{
-            if (_server == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)_server).ReadModified(startTime, endTime, maxValues, items);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			return ((ITsCHdaServer)server_).ReadModified(startTime, endTime, maxValues, items);
 		}
 
         /// <summary>
@@ -722,9 +723,10 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaReadValuesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)_server).ReadModified(
+            OpcItemResult[] results = ((ITsCHdaServer)server_).ReadModified(
                 startTime,
                 endTime,
                 maxValues,
@@ -738,7 +740,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ReadAttributes
 
 		/// <summary>
@@ -755,8 +756,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
 			OpcItem item,
 			int[] attributeIDs)
 		{
-            if (_server == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)_server).ReadAttributes(startTime, endTime, item, attributeIDs);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			return ((ITsCHdaServer)server_).ReadAttributes(startTime, endTime, item, attributeIDs);
 		}
 
         /// <summary>
@@ -779,8 +781,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaReadAttributesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
-            TsCHdaResultCollection results = ((ITsCHdaServer)_server).ReadAttributes(
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+            TsCHdaResultCollection results = ((ITsCHdaServer)server_).ReadAttributes(
                 startTime,
                 endTime,
                 item,
@@ -794,7 +797,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ReadAnnotations
 
 		/// <summary>
@@ -809,8 +811,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
 			TsCHdaTime endTime,
 			OpcItem[] items)
 		{
-            if (_server == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)_server).ReadAnnotations(startTime, endTime, items);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			return ((ITsCHdaServer)server_).ReadAnnotations(startTime, endTime, items);
 		}
 
         /// <summary>
@@ -831,9 +834,10 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaReadAnnotationsCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)_server).ReadAnnotations(
+            OpcItemResult[] results = ((ITsCHdaServer)server_).ReadAnnotations(
                 startTime,
                 endTime,
                 items,
@@ -846,7 +850,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region InsertAnnotations
 
 		/// <summary>
@@ -856,8 +859,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		/// <returns>The results of the insert operation for each annotation set.</returns>
 		public TsCHdaResultCollection[] InsertAnnotations(TsCHdaAnnotationValueCollection[] items)
 		{
-            if (_server == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)_server).InsertAnnotations(items);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			return ((ITsCHdaServer)server_).InsertAnnotations(items);
 		}
         /// <summary>
         /// Sends an asynchronous request to inserts annotations for one or more items.
@@ -873,9 +877,10 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaUpdateCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)_server).InsertAnnotations(
+            OpcItemResult[] results = ((ITsCHdaServer)server_).InsertAnnotations(
                 items,
                 requestHandle,
                 callback,
@@ -886,7 +891,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Insert
 
 		/// <summary>
@@ -897,8 +901,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		/// <returns></returns>
 		public TsCHdaResultCollection[] Insert(TsCHdaItemValueCollection[] items, bool replace)
 		{
-            if (_server == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)_server).Insert(items, replace);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			return ((ITsCHdaServer)server_).Insert(items, replace);
 		}
 
         /// <summary>
@@ -917,9 +922,10 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaUpdateCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)_server).Insert(
+            OpcItemResult[] results = ((ITsCHdaServer)server_).Insert(
                 items,
                 replace,
                 requestHandle,
@@ -931,7 +937,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Replace
 
 		/// <summary>
@@ -941,8 +946,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		/// <returns></returns>
 		public TsCHdaResultCollection[] Replace(TsCHdaItemValueCollection[] items)
 		{
-            if (_server == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)_server).Replace(items);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			return ((ITsCHdaServer)server_).Replace(items);
 		}
 
 
@@ -960,9 +966,10 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaUpdateCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)_server).Replace(
+            OpcItemResult[] results = ((ITsCHdaServer)server_).Replace(
                 items,
                 requestHandle,
                 callback,
@@ -973,7 +980,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Delete
 
 		/// <summary>
@@ -988,8 +994,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
 			TsCHdaTime endTime,
 			OpcItem[] items)
 		{
-            if (_server == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)_server).Delete(startTime, endTime, items);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			return ((ITsCHdaServer)server_).Delete(startTime, endTime, items);
 		}
 
         /// <summary>
@@ -1010,9 +1017,10 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaUpdateCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)_server).Delete(
+            OpcItemResult[] results = ((ITsCHdaServer)server_).Delete(
                 startTime,
                 endTime,
                 items,
@@ -1025,7 +1033,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region DeleteAtTime
 
 		/// <summary>
@@ -1035,8 +1042,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		/// <returns>The results of the operation for each timestamp.</returns>
 		internal TsCHdaResultCollection[] DeleteAtTime(TsCHdaItemTimeCollection[] items)
 		{
-            if (_server == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)_server).DeleteAtTime(items);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			return ((ITsCHdaServer)server_).DeleteAtTime(items);
 		}
 
         /// <summary>
@@ -1053,9 +1061,10 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaUpdateCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (_server == null) throw new NotConnectedException();
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)_server).DeleteAtTime(
+            OpcItemResult[] results = ((ITsCHdaServer)server_).DeleteAtTime(
                 items,
                 requestHandle,
                 callback,
@@ -1066,7 +1075,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region CancelRequest
 
 		/// <summary>
@@ -1075,8 +1083,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		/// <param name="request">The state object for the request to cancel.</param>
 		public void CancelRequest(IOpcRequest request)
 		{
-            if (_server == null) throw new NotConnectedException();
-			((ITsCHdaServer)_server).CancelRequest(request);
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (server_ == null) throw new NotConnectedException();
+			((ITsCHdaServer)server_).CancelRequest(request);
 		}
 
         /// <summary>
@@ -1086,13 +1095,12 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// <param name="callback">A delegate used to receive notifications when the request completes.</param>
         public void CancelRequest(IOpcRequest request, TsCHdaCancelCompleteEventHandler callback)
         {
-            if (_server == null) throw new NotConnectedException();
-            ((ITsCHdaServer)_server).CancelRequest(request, callback);
+            if (server_ == null) throw new NotConnectedException();
+            ((ITsCHdaServer)server_).CancelRequest(request, callback);
         }
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ISerializable Members
 
 		/// <summary>
@@ -1119,7 +1127,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
 
 		/// <summary>
@@ -1135,6 +1142,5 @@ namespace Technosoftware.DaAeHdaClient.Hda
 		}
 
 		#endregion
-
 	}
 }

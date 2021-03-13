@@ -26,9 +26,7 @@ using System.Net;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using Technosoftware.DaAeHdaClient;
-#if _OPCCLIENTSDK_DA
 using Technosoftware.DaAeHdaClient.Da;
-#endif
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Utilities
@@ -1704,22 +1702,19 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             // check for special types.
             if (input == OpcType.ILLEGAL_TYPE) return (VarEnum)Enum.ToObject(typeof(VarEnum), 0x7FFF);
             if (input == typeof(System.Type)) return VarEnum.VT_I2;
-#if _OPCCLIENTSDK_DA
             if (input == typeof(TsCDaQuality)) return VarEnum.VT_I2;
             if (input == typeof(TsDaAccessRights)) return VarEnum.VT_I4;
             if (input == typeof(TsDaEuType)) return VarEnum.VT_I4;
-#endif
             return VarEnum.VT_EMPTY;
         }
 
         /// <summary>
         /// Converts the HRESULT to a system type.
         /// </summary>
-        internal static OpcResult GetResultID(int input)
+        internal static OpcResult GetResultId(int input)
         {
             switch (input)
             {
-#if _OPCCLIENTSDK_DA
                 // data access.
                 case Technosoftware.DaAeHdaClient.Com.Da.Result.S_OK: return new OpcResult(OpcResult.S_OK, input);
                 case Technosoftware.DaAeHdaClient.Com.Da.Result.E_FAIL: return new OpcResult(OpcResult.E_FAIL, input);
@@ -1751,8 +1746,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 case Technosoftware.DaAeHdaClient.Com.Cpx.Result.E_FILTER_INVALID: return new OpcResult(OpcResult.Cpx.E_FILTER_INVALID, input);
                 case Technosoftware.DaAeHdaClient.Com.Cpx.Result.E_FILTER_ERROR: return new OpcResult(OpcResult.Cpx.E_FILTER_ERROR, input);
                 case Technosoftware.DaAeHdaClient.Com.Cpx.Result.S_FILTER_NO_DATA: return new OpcResult(OpcResult.Cpx.S_FILTER_NO_DATA, input);
-#endif
-#if _OPCCLIENTSDK_HDA
+
                 // historical data access.
                 case Technosoftware.DaAeHdaClient.Com.Hda.Result.E_MAXEXCEEDED: return new OpcResult(OpcResult.Hda.E_MAXEXCEEDED, input);
                 case Technosoftware.DaAeHdaClient.Com.Hda.Result.S_NODATA: return new OpcResult(OpcResult.Hda.S_NODATA, input);
@@ -1769,8 +1763,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 case Technosoftware.DaAeHdaClient.Com.Hda.Result.E_NODATAEXISTS: return new OpcResult(OpcResult.Hda.E_NODATAEXISTS, input);
                 case Technosoftware.DaAeHdaClient.Com.Hda.Result.S_INSERTED: return new OpcResult(OpcResult.Hda.S_INSERTED, input);
                 case Technosoftware.DaAeHdaClient.Com.Hda.Result.S_REPLACED: return new OpcResult(OpcResult.Hda.S_REPLACED, input);
-#endif
-#if _OPCCLIENTSDK_AE
+
                 // Alarms and Events.
                 case Technosoftware.DaAeHdaClient.Com.Ae.Result.S_ALREADYACKED: return new OpcResult(OpcResult.Ae.S_ALREADYACKED, input);
                 case Technosoftware.DaAeHdaClient.Com.Ae.Result.S_INVALIDBUFFERTIME: return new OpcResult(OpcResult.Ae.S_INVALIDBUFFERTIME, input);
@@ -1783,7 +1776,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 case Technosoftware.DaAeHdaClient.Com.Ae.Result.E_INVALIDTIME: return new OpcResult(OpcResult.Ae.E_INVALIDTIME, input);
                 case Technosoftware.DaAeHdaClient.Com.Ae.Result.E_BUSY: return new OpcResult(OpcResult.Ae.E_BUSY, input);
                 case Technosoftware.DaAeHdaClient.Com.Ae.Result.E_NOINFO: return new OpcResult(OpcResult.Ae.E_NOINFO, input);
-#endif
+
                 default:
                     {
                         // check for RPC error.
@@ -1814,7 +1807,6 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             {
                 return OpcResult.E_FAIL.Code;
             }
-#if _OPCCLIENTSDK_DA
             else if (input.Name != null && input.Name.Namespace == OpcNamespace.OPC_DATA_ACCESS)
             {
                 if (input == OpcResult.S_OK) return Technosoftware.DaAeHdaClient.Com.Da.Result.S_OK;
@@ -1851,8 +1843,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 if (input == OpcResult.Cpx.E_FILTER_ERROR) return Technosoftware.DaAeHdaClient.Com.Cpx.Result.E_FILTER_ERROR;
                 if (input == OpcResult.Cpx.S_FILTER_NO_DATA) return Technosoftware.DaAeHdaClient.Com.Cpx.Result.S_FILTER_NO_DATA;
             }
-#endif
-#if _OPCCLIENTSDK_HDA
+
             // historical data access.
             else if (input.Name != null && input.Name.Namespace == OpcNamespace.OPC_HISTORICAL_DATA_ACCESS)
             {
@@ -1871,7 +1862,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 if (input == OpcResult.Hda.S_INSERTED) return Technosoftware.DaAeHdaClient.Com.Hda.Result.S_INSERTED;
                 if (input == OpcResult.Hda.S_REPLACED) return Technosoftware.DaAeHdaClient.Com.Hda.Result.S_REPLACED;
             }
-#endif
+
             // check for custom code.
             else if (input.Code == -1)
             {
@@ -1902,7 +1893,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// </summary>
         public static Exception CreateException(string message, int code)
         {
-            return new OpcResultException(Utilities.Interop.GetResultID(code), message);
+            return new OpcResultException(Utilities.Interop.GetResultId(code), message);
         }
 
         /// <summary>

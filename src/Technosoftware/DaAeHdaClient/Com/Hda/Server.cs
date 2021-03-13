@@ -60,8 +60,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         {
             if (url == null) throw new ArgumentNullException("url");
 
-            _url = (OpcUrl)url.Clone();
-            m_server = server;
+            url_ = (OpcUrl)url.Clone();
+            server_ = server;
 
             // establish the callback.
             Advise();
@@ -110,7 +110,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
                 IntPtr pStatus = IntPtr.Zero;
@@ -129,7 +129,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_Server)m_server).GetHistorianStatus(
+                    ((IOPCHDA_Server)server_).GetHistorianStatus(
                         out wStatus,
                         out pftCurrentTime,
                         out pftStartTime,
@@ -198,7 +198,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
                 int count = 0;
@@ -210,7 +210,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 try
                 {
-                    ((IOPCHDA_Server)m_server).GetItemAttributes(
+                    ((IOPCHDA_Server)server_).GetItemAttributes(
                         out count,
                         out pIDs,
                         out pNames,
@@ -268,7 +268,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
                 int count = 0;
@@ -279,7 +279,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 try
                 {
-                    ((IOPCHDA_Server)m_server).GetAggregates(
+                    ((IOPCHDA_Server)server_).GetAggregates(
                         out count,
                         out pIDs,
                         out pNames,
@@ -336,7 +336,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
                 int count = (filters != null) ? filters.Length : 0;
@@ -360,7 +360,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // call COM server.
                 try
                 {
-                    ((IOPCHDA_Server)m_server).CreateBrowse(
+                    ((IOPCHDA_Server)server_).CreateBrowse(
                         count,
                         ids,
                         operators,
@@ -386,7 +386,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 for (int ii = 0; ii < count; ii++)
                 {
-                    results[ii] = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                    results[ii] = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
                 }
 
                 // return browser.
@@ -410,7 +410,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -438,7 +438,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_Server)m_server).GetItemHandles(
+                    ((IOPCHDA_Server)server_).GetItemHandles(
                         items.Length,
                         itemIDs,
                         clientHandles,
@@ -465,7 +465,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 for (int ii = 0; ii < results.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(items[ii]);
-                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
 
                     if (results[ii].Result.Succeeded())
                     {
@@ -503,7 +503,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -520,7 +520,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_Server)m_server).ReleaseItemHandles(
+                    ((IOPCHDA_Server)server_).ReleaseItemHandles(
                         items.Length,
                         serverHandles,
                         out pErrors);
@@ -544,7 +544,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 for (int ii = 0; ii < results.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(items[ii]);
-                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
 
                     if (results[ii].Result.Succeeded() && items[ii].ServerHandle != null)
                     {
@@ -582,7 +582,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -607,7 +607,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_Server)m_server).ValidateItemIDs(
+                    ((IOPCHDA_Server)server_).ValidateItemIDs(
                         items.Length,
                         itemIDs,
                         out pErrors);
@@ -631,7 +631,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 for (int ii = 0; ii < results.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(items[ii]);
-                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
                 }
 
                 return results;
@@ -663,7 +663,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -684,7 +684,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_SyncRead)m_server).ReadRaw(
+                    ((IOPCHDA_SyncRead)server_).ReadRaw(
                         ref pStartTime,
                         ref pEndTime,
                         maxValues,
@@ -742,7 +742,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -767,7 +767,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_AsyncRead)m_server).ReadRaw(
+                    ((IOPCHDA_AsyncRead)server_).ReadRaw(
                         internalRequest.RequestID,
                         ref pStartTime,
                         ref pEndTime,
@@ -841,7 +841,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -866,7 +866,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_AsyncRead)m_server).AdviseRaw(
+                    ((IOPCHDA_AsyncRead)server_).AdviseRaw(
                         internalRequest.RequestID,
                         ref pStartTime,
                         ftUpdateInterval,
@@ -933,7 +933,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -960,7 +960,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_Playback)m_server).ReadRawWithUpdate(
+                    ((IOPCHDA_Playback)server_).ReadRawWithUpdate(
                         internalRequest.RequestID,
                         ref pStartTime,
                         ref pEndTime,
@@ -1021,7 +1021,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -1044,7 +1044,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_SyncRead)m_server).ReadProcessed(
+                    ((IOPCHDA_SyncRead)server_).ReadProcessed(
                         ref pStartTime,
                         ref pEndTime,
                         ftResampleInterval,
@@ -1100,7 +1100,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -1128,7 +1128,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_AsyncRead)m_server).ReadProcessed(
+                    ((IOPCHDA_AsyncRead)server_).ReadProcessed(
                         internalRequest.RequestID,
                         ref pStartTime,
                         ref pEndTime,
@@ -1204,7 +1204,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -1230,7 +1230,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_AsyncRead)m_server).AdviseProcessed(
+                    ((IOPCHDA_AsyncRead)server_).AdviseProcessed(
                         internalRequest.RequestID,
                         ref pStartTime,
                         ftResampleInterval,
@@ -1299,7 +1299,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -1327,7 +1327,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_Playback)m_server).ReadProcessedWithUpdate(
+                    ((IOPCHDA_Playback)server_).ReadProcessedWithUpdate(
                         internalRequest.RequestID,
                         ref pStartTime,
                         ref pEndTime,
@@ -1383,7 +1383,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -1402,7 +1402,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_SyncRead)m_server).ReadAtTime(
+                    ((IOPCHDA_SyncRead)server_).ReadAtTime(
                         ftTimestamps.Length,
                         ftTimestamps,
                         serverHandles.Length,
@@ -1449,7 +1449,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -1472,7 +1472,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_AsyncRead)m_server).ReadAtTime(
+                    ((IOPCHDA_AsyncRead)server_).ReadAtTime(
                         internalRequest.RequestID,
                         ftTimestamps.Length,
                         ftTimestamps,
@@ -1538,7 +1538,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -1559,7 +1559,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_SyncRead)m_server).ReadModified(
+                    ((IOPCHDA_SyncRead)server_).ReadModified(
                         ref pStartTime,
                         ref pEndTime,
                         maxValues,
@@ -1614,7 +1614,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -1639,7 +1639,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_AsyncRead)m_server).ReadModified(
+                    ((IOPCHDA_AsyncRead)server_).ReadModified(
                         internalRequest.RequestID,
                         ref pStartTime,
                         ref pEndTime,
@@ -1710,7 +1710,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (attributeIDs.Length == 0)
@@ -1731,7 +1731,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_SyncRead)m_server).ReadAttribute(
+                    ((IOPCHDA_SyncRead)server_).ReadAttribute(
                         ref pStartTime,
                         ref pEndTime,
                         serverHandles[0],
@@ -1787,7 +1787,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (attributeIDs.Length == 0)
@@ -1812,7 +1812,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_AsyncRead)m_server).ReadAttribute(
+                    ((IOPCHDA_AsyncRead)server_).ReadAttribute(
                         internalRequest.RequestID,
                         ref pStartTime,
                         ref pEndTime,
@@ -1845,7 +1845,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // add results for each attribute.
                 foreach (int error in errors)
                 {
-                    TsCHdaResult result = new TsCHdaResult(Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(error));
+                    TsCHdaResult result = new TsCHdaResult(Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(error));
                     results.Add(result);
                 }
 
@@ -1891,7 +1891,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -1912,7 +1912,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_SyncAnnotations)m_server).Read(
+                    ((IOPCHDA_SyncAnnotations)server_).Read(
                         ref pStartTime,
                         ref pEndTime,
                         serverHandles.Length,
@@ -1964,7 +1964,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -1989,7 +1989,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_AsyncAnnotations)m_server).Read(
+                    ((IOPCHDA_AsyncAnnotations)server_).Read(
                         internalRequest.RequestID,
                         ref pStartTime,
                         ref pEndTime,
@@ -2047,7 +2047,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -2082,7 +2082,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_SyncAnnotations)m_server).Insert(
+                    ((IOPCHDA_SyncAnnotations)server_).Insert(
                         serverHandles.Length,
                         serverHandles,
                         pTimestamps,
@@ -2131,7 +2131,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -2171,7 +2171,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_AsyncAnnotations)m_server).Insert(
+                    ((IOPCHDA_AsyncAnnotations)server_).Insert(
                         internalRequest.RequestID,
                         serverHandles.Length,
                         serverHandles,
@@ -2232,7 +2232,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -2273,7 +2273,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     try
                     {
-                        ((IOPCHDA_SyncUpdate)m_server).InsertReplace(
+                        ((IOPCHDA_SyncUpdate)server_).InsertReplace(
                             serverHandles.Length,
                             serverHandles,
                             ftTimestamps,
@@ -2290,7 +2290,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     try
                     {
-                        ((IOPCHDA_SyncUpdate)m_server).Insert(
+                        ((IOPCHDA_SyncUpdate)server_).Insert(
                             serverHandles.Length,
                             serverHandles,
                             ftTimestamps,
@@ -2334,7 +2334,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -2380,7 +2380,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     try
                     {
-                        ((IOPCHDA_AsyncUpdate)m_server).InsertReplace(
+                        ((IOPCHDA_AsyncUpdate)server_).InsertReplace(
                             internalRequest.RequestID,
                             serverHandles.Length,
                             serverHandles,
@@ -2399,7 +2399,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     try
                     {
-                        ((IOPCHDA_AsyncUpdate)m_server).Insert(
+                        ((IOPCHDA_AsyncUpdate)server_).Insert(
                             internalRequest.RequestID,
                             serverHandles.Length,
                             serverHandles,
@@ -2446,7 +2446,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -2485,7 +2485,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_SyncUpdate)m_server).Replace(
+                    ((IOPCHDA_SyncUpdate)server_).Replace(
                         serverHandles.Length,
                         serverHandles,
                         ftTimestamps,
@@ -2526,7 +2526,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -2569,7 +2569,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 try
                 {
-                    ((IOPCHDA_AsyncUpdate)m_server).Replace(
+                    ((IOPCHDA_AsyncUpdate)server_).Replace(
                         internalRequest.RequestID,
                         serverHandles.Length,
                         serverHandles,
@@ -2626,7 +2626,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -2646,7 +2646,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_SyncUpdate)m_server).DeleteRaw(
+                    ((IOPCHDA_SyncUpdate)server_).DeleteRaw(
                         ref pStartTime,
                         ref pEndTime,
                         serverHandles.Length,
@@ -2699,7 +2699,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -2724,7 +2724,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_AsyncUpdate)m_server).DeleteRaw(
+                    ((IOPCHDA_AsyncUpdate)server_).DeleteRaw(
                         internalRequest.RequestID,
                         ref pStartTime,
                         ref pEndTime,
@@ -2782,7 +2782,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -2817,7 +2817,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_SyncUpdate)m_server).DeleteAtTime(
+                    ((IOPCHDA_SyncUpdate)server_).DeleteAtTime(
                         serverHandles.Length,
                         serverHandles,
                         ftTimestamps,
@@ -2856,7 +2856,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // handle trivial case.
                 if (items.Length == 0)
@@ -2895,7 +2895,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 try
                 {
-                    ((IOPCHDA_AsyncUpdate)m_server).DeleteAtTime(
+                    ((IOPCHDA_AsyncUpdate)server_).DeleteAtTime(
                         internalRequest.RequestID,
                         serverHandles.Length,
                         serverHandles,
@@ -2956,7 +2956,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 Request internalRequest = (Request)request;
 
@@ -2966,7 +2966,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // invoke COM method.
                 try
                 {
-                    ((IOPCHDA_AsyncRead)m_server).Cancel(internalRequest.CancelID);
+                    ((IOPCHDA_AsyncRead)server_).Cancel(internalRequest.CancelID);
                 }
                 catch (Exception e)
                 {
@@ -2991,7 +2991,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             {
                 try
                 {
-                    m_connection = new ConnectionPoint(m_server, typeof(OpcRcw.Hda.IOPCHDA_DataCallback).GUID);
+                    m_connection = new ConnectionPoint(server_, typeof(OpcRcw.Hda.IOPCHDA_DataCallback).GUID);
                     m_connection.Advise(m_callback);
                 }
                 catch
@@ -3205,7 +3205,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             // set attribute level errors.
             for (int ii = 0; ii < attributes.Length; ii++)
             {
-                attributes[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                attributes[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
             }
 
             // create item level collection. 
@@ -3248,7 +3248,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // lookup the error code.
                 if (typeof(IOpcResult).IsInstanceOfType(results[ii]))
                 {
-                    ((IOpcResult)results[ii]).Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                    ((IOpcResult)results[ii]).Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
                 }
             }
         }
@@ -3279,7 +3279,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                         break;
                     }
 
-                    TsCHdaResult result = new TsCHdaResult(Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[index++]));
+                    TsCHdaResult result = new TsCHdaResult(Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[index++]));
                     results[ii].Add(result);
                 }
             }

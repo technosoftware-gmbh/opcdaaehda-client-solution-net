@@ -45,22 +45,19 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
     internal class Server : Technosoftware.DaAeHdaClient.Com.Da.Server
     {
 
-        //======================================================================
-        // Construction
-
+        #region Constructors
         /// <summary>
         /// The default constructor for the object.
         /// </summary>
         internal Server() { }
 
         /// <summary>
-        /// Initializes the object with the specifed COM server.
+        /// Initializes the object with the specified COM server.
         /// </summary>
         internal Server(OpcUrl url, object unknown) : base(url, unknown) { }
+        #endregion
 
-        //======================================================================
-        // IDisposable
-
+        #region IDisposable Members
         /// <summary>
         /// This must be called explicitly by clients to ensure the COM server is released.
         /// </summary>
@@ -68,13 +65,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         {
             lock (this)
             {
-                if (_subscription != null)
+                if (subscription_ != null)
                 {
                     string methodName = "IOPCServer.RemoveGroup";
                     try
                     {
                         OpcRcw.Da.IOPCServer server = BeginComCall<OpcRcw.Da.IOPCServer>(methodName, true);
-                        server.RemoveGroup(m_groupHandle, 0);
+                        server.RemoveGroup(groupHandle_, 0);
                     }
                     catch (Exception e)
                     {
@@ -85,15 +82,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         EndComCall(methodName);
                     }
 
-                    Technosoftware.DaAeHdaClient.Utilities.Interop.ReleaseServer(_subscription);
-                    _subscription = null;
-                    m_groupHandle = 0;
+                    Technosoftware.DaAeHdaClient.Utilities.Interop.ReleaseServer(subscription_);
+                    subscription_ = null;
+                    groupHandle_ = 0;
 
                     base.Dispose();
                 }
             }
         }
-
+        #endregion
+        
         //======================================================================
         // Connection Management
 
@@ -107,7 +105,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 // connect to server.
                 base.Initialize(url, connectData);
 
-                m_separators = null;
+                separators_ = null;
                 string methodName = "IOPCCommon.GetLocaleID";
 
                 // create a global subscription required for various item level operations.
@@ -146,10 +144,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         IntPtr.Zero,
                         IntPtr.Zero,
                         localeID,
-                        out m_groupHandle,
+                        out groupHandle_,
                         out revisedUpdateRate,
                         ref iid,
-                        out _subscription);
+                        out subscription_);
                 }
                 catch (Exception e)
                 {
@@ -170,23 +168,23 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// <summary>
         /// A global subscription used for various item level operations. 
         /// </summary>
-        private object _subscription = null;
+        private object subscription_ = null;
 
         /// <summary>
         /// The server handle for the global subscription.
         /// </summary>
-        private int m_groupHandle = 0;
+        private int groupHandle_ = 0;
 
         /// <summary>
         /// True if BROWSE_TO is supported; otherwise false.
         /// </summary>
-        private bool _BrowseToSupported = true;
+        private bool browseToSupported_ = true;
 
         /// <summary>
         /// A list of seperators used in the browse paths.
         /// </summary>
-        private char[] m_separators = null;
-        private object m_separatorsLock = new object();
+        private char[] separators_ = null;
+        private object separatorsLock_ = new object();
 
         //======================================================================
         // Read
@@ -206,7 +204,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // create temporary items.
                 OpcItemResult[] temporaryItems = AddItems(items);
@@ -260,7 +258,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
                             IntPtr pErrors = IntPtr.Zero;
 
-                            IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(methodName, true);
+                            IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(subscription_, methodName, true);
                             subscription.SetActiveState(
                                 cacheResults.Count,
                                 serverHandles,
@@ -326,7 +324,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // create item objects to add temporary items.
                 TsCDaItem[] groupItems = new TsCDaItem[items.Length];
@@ -382,7 +380,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         string methodName = "IOPCSyncIO.Write";
                         try
                         {
-                            IOPCSyncIO subscription = BeginComCall<IOPCSyncIO>(_subscription, methodName, true);
+                            IOPCSyncIO subscription = BeginComCall<IOPCSyncIO>(subscription_, methodName, true);
                             subscription.Write(
                                 writeItems.Count,
                                 serverHandles,
@@ -406,7 +404,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         {
                             OpcItemResult result = (OpcItemResult)writeItems[ii];
 
-                            result.Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                            result.Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
                             result.DiagnosticInfo = null;
 
                             // convert COM code to unified DA code.
@@ -433,7 +431,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// Fetches child elements of the specified branch which match the filter criteria.
         /// </summary>
         public override TsCDaBrowseElement[] Browse(
-            OpcItem itemID,
+            OpcItem itemId,
             TsCDaBrowseFilters filters,
             out Technosoftware.DaAeHdaClient.Da.TsCDaBrowsePosition position)
         {
@@ -443,7 +441,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 Technosoftware.DaAeHdaClient.Com.Da20.BrowsePosition pos = null;
 
@@ -452,7 +450,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 // search for child branches.
                 if (filters.BrowseFilter != TsCDaBrowseFilter.Item)
                 {
-                    TsCDaBrowseElement[] branches = GetElements(elements.Count, itemID, filters, true, ref pos);
+                    TsCDaBrowseElement[] branches = GetElements(elements.Count, itemId, filters, true, ref pos);
 
                     if (branches != null)
                     {
@@ -471,7 +469,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 // search for child items.
                 if (filters.BrowseFilter != TsCDaBrowseFilter.Branch)
                 {
-                    TsCDaBrowseElement[] items = GetElements(elements.Count, itemID, filters, false, ref pos);
+                    TsCDaBrowseElement[] items = GetElements(elements.Count, itemId, filters, false, ref pos);
 
                     if (items != null)
                     {
@@ -496,7 +494,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // check for valid browse position object.
                 if (position == null && position.GetType() != typeof(Technosoftware.DaAeHdaClient.Com.Da20.BrowsePosition))
@@ -569,7 +567,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize list of property lists.
                 TsCDaItemPropertyCollection[] propertyLists = new TsCDaItemPropertyCollection[itemIds.Length];
@@ -633,7 +631,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
             // get the default current for the server.
             int localeID = 0;
-            ((IOPCCommon)m_server).GetLocaleID(out localeID);
+            ((IOPCCommon)server_).GetLocaleID(out localeID);
 
             GCHandle hLocale = GCHandle.Alloc(localeID, GCHandleType.Pinned);
 
@@ -643,7 +641,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 int updateRate = 0;
 
                 // ensure the current locale is correct.
-                IOPCGroupStateMgt subscription = BeginComCall<IOPCGroupStateMgt>(methodName, true);
+                IOPCGroupStateMgt subscription = BeginComCall<IOPCGroupStateMgt>(subscription_, methodName, true);
                 ((IOPCGroupStateMgt)subscription).SetState(
                     IntPtr.Zero,
                     out updateRate,
@@ -668,7 +666,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             methodName = "IOPCItemMgt.AddItems";
             try
             {
-                IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(methodName, true);
+                IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(subscription_, methodName, true);
                 subscription.AddItems(
                     count,
                     definitions,
@@ -698,7 +696,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 results[ii] = new OpcItemResult(items[ii]);
 
                 results[ii].ServerHandle = null;
-                results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
                 results[ii].DiagnosticInfo = null;
 
                 if (results[ii].Result.Succeeded())
@@ -741,7 +739,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 string methodName = "IOPCItemMgt.RemoveItems";
                 try
                 {
-                    IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(methodName, true);
+                    IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(subscription_, methodName, true);
                     ((IOPCItemMgt)subscription).RemoveItems(
                         handles.Count,
                         (int[])handles.ToArray(typeof(int)),
@@ -789,7 +787,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             string methodName = "IOPCSyncIO.Read";
             try
             {
-                IOPCSyncIO subscription = BeginComCall<IOPCSyncIO>(_subscription, methodName, true);
+                IOPCSyncIO subscription = BeginComCall<IOPCSyncIO>(subscription_, methodName, true);
                 subscription.Read(
                     (cache) ? OPCDATASOURCE.OPC_DS_CACHE : OPCDATASOURCE.OPC_DS_DEVICE,
                     results.Length,
@@ -818,7 +816,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             // construct results list.
             for (int ii = 0; ii < results.Length; ii++)
             {
-                results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
                 results[ii].DiagnosticInfo = null;
 
                 if (results[ii].Result.Succeeded())
@@ -850,11 +848,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
                         if (e.GetType() == typeof(System.OverflowException))
                         {
-                            results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(Result.E_RANGE);
+                            results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(Result.E_RANGE);
                         }
                         else
                         {
-                            results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(Result.E_BADTYPE);
+                            results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(Result.E_BADTYPE);
                         }
                     }
                 }
@@ -951,7 +949,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 IntPtr pItemIDs = IntPtr.Zero;
                 IntPtr pErrors = IntPtr.Zero;
 
-                ((IOPCItemProperties)m_server).LookupItemIDs(
+                ((IOPCItemProperties)server_).LookupItemIDs(
                     itemID,
                     properties.Length,
                     propertyIDs,
@@ -1004,7 +1002,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 IntPtr pValues = IntPtr.Zero;
                 IntPtr pErrors = IntPtr.Zero;
 
-                ((IOPCItemProperties)m_server).GetItemProperties(
+                ((IOPCItemProperties)server_).GetItemProperties(
                     itemID,
                     properties.Length,
                     propertyIDs,
@@ -1026,7 +1024,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         continue;
                     }
 
-                    properties[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                    properties[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
 
                     // substitute property reult code.
                     if (errors[ii] == Result.E_BADRIGHTS)
@@ -1120,13 +1118,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// </summary>
         private EnumString GetEnumerator(string itemID, TsCDaBrowseFilters filters, bool branches, bool flat)
         {
-            var browser = (IOPCBrowseServerAddressSpace)m_server;
+            var browser = (IOPCBrowseServerAddressSpace)server_;
 
             if (!flat)
             {
                 if (itemID == null)
                 {
-                    if (_BrowseToSupported)
+                    if (browseToSupported_)
                     {
                         // move to the root of the hierarchial address spaces.
                         try
@@ -1137,10 +1135,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         catch (Exception e)
                         {
                             string message = String.Format("ChangeBrowsePosition to root with BROWSE_TO={0} failed with error {1}. BROWSE_TO not supported.", String.Empty, e.Message);
-                            _BrowseToSupported = false;
+                            browseToSupported_ = false;
                         }
                     }
-                    if (!_BrowseToSupported)
+                    if (!browseToSupported_)
                     {
                         // browse to root.
                         while (true)
@@ -1160,7 +1158,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 {
                     // move to the specified branch for hierarchial address spaces.
                     string id = (itemID != null) ? itemID : "";
-                    if (_BrowseToSupported)
+                    if (browseToSupported_)
                     {
                         try
                         {
@@ -1168,10 +1166,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         }
                         catch (Exception e1)
                         {
-                            _BrowseToSupported = false;
+                            browseToSupported_ = false;
                         }
                     }
-                    if (!_BrowseToSupported)
+                    if (!browseToSupported_)
                     {
                         // try to browse down instead.
                         try
@@ -1197,15 +1195,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                             // parse the browse path.
                             string[] paths = null;
 
-                            lock (m_separatorsLock)
+                            lock (separatorsLock_)
                             {
-                                if (m_separators != null)
+                                if (separators_ != null)
                                 {
-                                    paths = id.Split(m_separators);
+                                    paths = id.Split(separators_);
                                 }
                                 else
                                 {
-                                    paths = id.Split(m_separators);
+                                    paths = id.Split(separators_);
                                 }
                             }
 
@@ -1272,15 +1270,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
             char separator = itemID[itemID.Length - browseName.Length - 1];
 
-            lock (m_separatorsLock)
+            lock (separatorsLock_)
             {
                 int index = -1;
 
-                if (m_separators != null)
+                if (separators_ != null)
                 {
-                    for (int ii = 0; ii < m_separators.Length; ii++)
+                    for (int ii = 0; ii < separators_.Length; ii++)
                     {
-                        if (m_separators[ii] == separator)
+                        if (separators_[ii] == separator)
                         {
                             index = ii;
                             break;
@@ -1289,20 +1287,20 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
                     if (index == -1)
                     {
-                        char[] separators = new char[m_separators.Length + 1];
-                        Array.Copy(m_separators, separators, m_separators.Length);
-                        m_separators = separators;
+                        char[] separators = new char[separators_.Length + 1];
+                        Array.Copy(separators_, separators, separators_.Length);
+                        separators_ = separators;
                     }
                 }
 
                 if (index == -1)
                 {
-                    if (m_separators == null)
+                    if (separators_ == null)
                     {
-                        m_separators = new char[1];
+                        separators_ = new char[1];
                     }
 
-                    m_separators[m_separators.Length - 1] = separator;
+                    separators_[separators_.Length - 1] = separator;
                 }
             }
         }
@@ -1331,7 +1329,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             try
             {
                 string itemName = null;
-                ((IOPCBrowseServerAddressSpace)m_server).GetItemID(element.Name, out itemName);
+                ((IOPCBrowseServerAddressSpace)server_).GetItemID(element.Name, out itemName);
                 element.ItemName = itemName;
 
                 // detect separator.
@@ -1364,7 +1362,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 IntPtr pErrors = IntPtr.Zero;
 
                 // validate item.
-                ((IOPCItemMgt)_subscription).ValidateItems(
+                ((IOPCItemMgt)subscription_).ValidateItems(
                     1,
                     new OPCITEMDEF[] { definition },
                     0,
@@ -1427,7 +1425,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
             if (position == null)
             {
-                OpcRcw.Da.IOPCBrowseServerAddressSpace browser = (OpcRcw.Da.IOPCBrowseServerAddressSpace)m_server;
+                OpcRcw.Da.IOPCBrowseServerAddressSpace browser = (OpcRcw.Da.IOPCBrowseServerAddressSpace)server_;
 
                 // check the server address space type.
                 OpcRcw.Da.OPCNAMESPACETYPE namespaceType = OpcRcw.Da.OPCNAMESPACETYPE.OPC_NS_HIERARCHIAL;

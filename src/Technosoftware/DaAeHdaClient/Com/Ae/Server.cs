@@ -79,7 +79,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                         // Release managed resources.
 
                         // release the server.
-                        if (m_server != null)
+                        if (server_ != null)
                         {
                             // release all subscriptions.
                             foreach (Subscription subscription in m_subscriptions.Values)
@@ -104,10 +104,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                     }
 
                     // release the server.
-                    if (m_server != null)
+                    if (server_ != null)
                     {
-                        Technosoftware.DaAeHdaClient.Com.Interop.ReleaseServer(m_server);
-                        m_server = null;
+                        Technosoftware.DaAeHdaClient.Com.Interop.ReleaseServer(server_);
+                        server_ = null;
                     }
                 }
 
@@ -133,7 +133,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
                 string methodName = "IOPCServer.GetStatus";
 
                 // initialize arguments.
@@ -143,7 +143,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 try
                 {
                     IOPCEventServer server = BeginComCall<IOPCEventServer>(methodName, true);
-                    ((IOPCEventServer)m_server).GetStatus(out pStatus);
+                    ((IOPCEventServer)server_).GetStatus(out pStatus);
                 }
                 catch (Exception e)
                 {
@@ -173,7 +173,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
                 if (state == null)    throw new ArgumentNullException("state");
 
                 // initialize arguments.
@@ -185,7 +185,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventServer)m_server).CreateEventSubscription(
+                    ((IOPCEventServer)server_).CreateEventSubscription(
                         (state.Active)?1:0,
                         state.BufferTime,
                         state.MaxSize,
@@ -229,7 +229,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
                 int filters = 0;
@@ -237,7 +237,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventServer)m_server).QueryAvailableFilters(out filters);
+                    ((IOPCEventServer)server_).QueryAvailableFilters(out filters);
                 }
                 catch (Exception e)
                 {
@@ -262,7 +262,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
                 int count = 0;
@@ -273,7 +273,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventServer)m_server).QueryEventCategories(
+                    ((IOPCEventServer)server_).QueryEventCategories(
                         eventType, 
                         out count,
                         out ppdwEventCategories, 
@@ -323,7 +323,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
                 int count = 0;
@@ -332,7 +332,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventServer)m_server).QueryConditionNames(
+                    ((IOPCEventServer)server_).QueryConditionNames(
                         eventCategory, 
                         out count,
                         out ppszConditionNames);
@@ -369,7 +369,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
                 int count = 0;
@@ -378,7 +378,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventServer)m_server).QuerySubConditionNames(
+                    ((IOPCEventServer)server_).QuerySubConditionNames(
                         conditionName, 
                         out count,
                         out ppszSubConditionNames);
@@ -415,7 +415,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
                 int count = 0;
@@ -424,7 +424,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventServer)m_server).QuerySourceConditions(
+                    ((IOPCEventServer)server_).QuerySourceConditions(
                         sourceName, 
                         out count,
                         out ppszConditionNames);
@@ -461,7 +461,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
                 int count = 0;
@@ -472,7 +472,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // invoke COM method.
                 try
                 {
-                    ((IOPCEventServer)m_server).QueryEventAttributes(
+                    ((IOPCEventServer)server_).QueryEventAttributes(
                         eventCategory, 
                         out count,
                         out ppdwAttrIDs,
@@ -534,7 +534,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
                 IntPtr ppszAttrItemIDs = IntPtr.Zero;
@@ -546,7 +546,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // call server.
                 try
                 {
-                    ((IOPCEventServer)m_server).TranslateToItemIDs(
+                    ((IOPCEventServer)server_).TranslateToItemIDs(
                         (sourceName != null)?sourceName:"",
                         eventCategory,
                         (conditionName != null)?conditionName:"",
@@ -604,7 +604,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
                 IntPtr ppConditionState = IntPtr.Zero;
@@ -612,7 +612,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // call server.
                 try
                 {
-                    ((IOPCEventServer)m_server).GetConditionState(
+                    ((IOPCEventServer)server_).GetConditionState(
                         (sourceName != null)?sourceName:"",
                         (conditionName != null)?conditionName:"",
                         (attributeIDs != null)?attributeIDs.Length:0,
@@ -651,7 +651,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // check for trivial case.
                 if (areas == null || areas.Length == 0)
@@ -668,7 +668,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 {
                     try
                     {
-                        ((IOPCEventServer2)m_server).EnableConditionByArea2(
+                        ((IOPCEventServer2)server_).EnableConditionByArea2(
                             areas.Length, 
                             areas,
                             out ppErrors);
@@ -685,7 +685,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 {
                     try
                     {
-                        ((IOPCEventServer)m_server).EnableConditionByArea(
+                        ((IOPCEventServer)server_).EnableConditionByArea(
                             areas.Length, 
                             areas);
                     }
@@ -724,7 +724,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // check for trivial case.
                 if (areas == null || areas.Length == 0)
@@ -741,7 +741,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 {
                     try
                     {
-                        ((IOPCEventServer2)m_server).DisableConditionByArea2(
+                        ((IOPCEventServer2)server_).DisableConditionByArea2(
                             areas.Length, 
                             areas,
                             out ppErrors);
@@ -758,7 +758,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 {
                     try
                     {
-                        ((IOPCEventServer)m_server).DisableConditionByArea(
+                        ((IOPCEventServer)server_).DisableConditionByArea(
                             areas.Length, 
                             areas);
                     }
@@ -797,7 +797,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // check for trivial case.
                 if (sources == null || sources.Length == 0)
@@ -814,7 +814,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 {
                     try
                     {
-                        ((IOPCEventServer2)m_server).EnableConditionBySource2(
+                        ((IOPCEventServer2)server_).EnableConditionBySource2(
                             sources.Length, 
                             sources,
                             out ppErrors);
@@ -831,7 +831,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 {
                     try
                     {
-                        ((IOPCEventServer)m_server).EnableConditionBySource(
+                        ((IOPCEventServer)server_).EnableConditionBySource(
                             sources.Length, 
                             sources);
                     }
@@ -870,7 +870,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // check for trivial case.
                 if (sources == null || sources.Length == 0)
@@ -887,7 +887,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 {
                     try
                     {
-                        ((IOPCEventServer2)m_server).DisableConditionBySource2(
+                        ((IOPCEventServer2)server_).DisableConditionBySource2(
                             sources.Length, 
                             sources,
                             out ppErrors);
@@ -904,7 +904,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 {
                     try
                     {
-                        ((IOPCEventServer)m_server).DisableConditionBySource(
+                        ((IOPCEventServer)server_).DisableConditionBySource(
                             sources.Length, 
                             sources);
                     }
@@ -942,7 +942,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // check for trivial case.
                 if (areas == null || areas.Length == 0)
@@ -974,7 +974,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
 
                 try
                 {
-                    ((IOPCEventServer2)m_server).GetEnableStateByArea(
+                    ((IOPCEventServer2)server_).GetEnableStateByArea(
                         areas.Length, 
                         areas,
                         out pbEnabled,
@@ -1021,7 +1021,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // check for trivial case.
                 if (sources == null || sources.Length == 0)
@@ -1053,7 +1053,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
 
                 try
                 {
-                    ((IOPCEventServer2)m_server).GetEnableStateBySource(
+                    ((IOPCEventServer2)server_).GetEnableStateBySource(
                         sources.Length, 
                         sources,
                         out pbEnabled,
@@ -1106,7 +1106,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // check for trivial case.
                 if (conditions == null || conditions.Length == 0)
@@ -1135,7 +1135,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // call server.
                 try
                 {
-                    ((IOPCEventServer)m_server).AckCondition(
+                    ((IOPCEventServer)server_).AckCondition(
                         conditions.Length,
                         acknowledgerID,
                         comment,
@@ -1221,7 +1221,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 // initialize browser.
                 InitializeBrowser();
@@ -1268,7 +1268,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 // verify state and arguments.
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
                 if (position == null) throw new ArgumentNullException("position");
 
                 // initialize browser.
@@ -1317,7 +1317,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             // invoke COM method.
             try
             {
-                ((IOPCEventServer)m_server).CreateAreaBrowser(
+                ((IOPCEventServer)server_).CreateAreaBrowser(
                     ref riid,
                     out unknown);
             }

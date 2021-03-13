@@ -207,7 +207,6 @@ begin
           actiontypeid = {DD9E318C-F0C7-46D4-9610-D9E04863A1FB}
           customactionname = "Git Create Branch"
           description = "Git Create Branch v%sdk_version% in OPC DA/AEHDA/Client SDK .NET Standard Distribution"
-          enabled = false
           enabletimeout = false
           id = {06FBEFC2-3629-427A-9639-229DCC13B68D}
           impersonateusenetcredonly = false
@@ -228,7 +227,6 @@ begin
           actiontypeid = {BDB55D94-7093-4EFE-A279-A8746A7E4A61}
           customactionname = "Git Checkout"
           description = "Git Checkout Branch v%sdk_version% in OPC DA/AEHDA/Client SDK .NET Standard Distribution"
-          enabled = false
           enabletimeout = false
           id = {BAE541B5-1833-4CB8-BDE1-1C62B84A579E}
           impersonateusenetcredonly = false
@@ -1133,14 +1131,14 @@ begin
   end
   variable
   begin
-    defaultvalue = 1
+    defaultvalue = 2
     groupname = version
     name = minor_version
     variablescope = vtProject
   end
   variable
   begin
-    defaultvalue = 111
+    defaultvalue = 120
     groupname = version
     name = sdk_version
     variablescope = vtProject

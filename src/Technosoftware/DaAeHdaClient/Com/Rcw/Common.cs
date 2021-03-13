@@ -45,6 +45,12 @@ namespace OpcRcw.Comn
     [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
     public interface IEnumConnections
     {
+        /// <summary>
+        /// Retrieves a specified number of items in the enumeration sequence.
+        /// </summary>
+        /// <param name="cConnections"></param>
+        /// <param name="rgcd"></param>
+        /// <param name="pcFetched"></param>
         void RemoteNext(
             [MarshalAs(UnmanagedType.I4)]
             int cConnections,
@@ -53,12 +59,23 @@ namespace OpcRcw.Comn
             [Out][MarshalAs(UnmanagedType.I4)]
             out int pcFetched);
 
+        /// <summary>
+        /// Skips a specified number of items in the enumeration sequence.
+        /// </summary>
+        /// <param name="cConnections"></param>
         void Skip(
             [MarshalAs(UnmanagedType.I4)]
             int cConnections);
 
+        /// <summary>
+        /// Retrieves a specified number of items in the enumeration sequence.
+        /// </summary>
         void Reset();
 
+        /// <summary>
+        /// Creates a new enumerator that contains the same enumeration state as the current one.
+        /// </summary>
+        /// <param name="ppEnum"></param>
         void Clone(
             [Out]
             out IEnumConnections ppEnum);

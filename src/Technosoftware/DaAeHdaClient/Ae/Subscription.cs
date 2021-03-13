@@ -34,7 +34,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 	[Serializable]
 	public class TsCAeSubscription : ITsCAeSubscription, ISerializable, ICloneable
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region CategoryCollection Class
 
 		/// <summary>
@@ -81,7 +80,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region StringCollection Class
 
 		/// <summary>
@@ -128,7 +126,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region AttributeDictionary Class
 
 		/// <summary>
@@ -184,7 +181,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region AttributeCollection Class
 
 		/// <summary>
@@ -241,7 +237,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		}
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Names Class
 
 		/// <summary>
@@ -256,7 +251,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
 
 		private bool _disposed;
@@ -278,7 +272,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
 
 		/// <summary>
@@ -345,7 +338,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
 
 		/// <summary>
@@ -464,7 +456,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Public Methods
 
 		/// <summary>
@@ -472,6 +463,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// </summary>
 		public Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeDictionary GetAttributes()
 		{
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
 			Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeDictionary attributes = new Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeDictionary();
 
 			IDictionaryEnumerator enumerator = _attributes.GetEnumerator();
@@ -489,7 +481,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ISerializable Members
 
 		/// <summary>
@@ -520,7 +511,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
 
 		/// <summary>
@@ -563,7 +553,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ISubscription Members
         /// <summary>
         /// An event to receive data change updates.
@@ -580,6 +569,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// <returns>The current state of the subscription.</returns>
 		public TsCAeSubscriptionState GetState()
 		{
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (_subscription == null) throw new NotConnectedException();
 
 			_state = _subscription.GetState();
@@ -596,6 +586,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// <returns>The actual subscription state after applying the changes.</returns>
 		public Ae.TsCAeSubscriptionState ModifyState(int masks, Ae.TsCAeSubscriptionState state)
 		{
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (_subscription == null) throw new NotConnectedException();
 
             _state = _subscription.ModifyState(masks, state);
@@ -618,6 +609,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// <returns>The current filters for the subscription.</returns>
 		public TsCAeSubscriptionFilters GetFilters()
 		{
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (_subscription == null) throw new NotConnectedException();
 
             _filters = _subscription.GetFilters();
@@ -634,6 +626,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// <param name="filters">The new filters to use for the subscription.</param>
 		public void SetFilters(Ae.TsCAeSubscriptionFilters filters)
 		{
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (_subscription == null) throw new NotConnectedException();
 
             _subscription.SetFilters(filters);
@@ -647,6 +640,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// <returns>The set of attributes to returned with event notifications.</returns>
 		public int[] GetReturnedAttributes(int eventCategory)
 		{
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (_subscription == null) throw new NotConnectedException();
 
             int[] attributeIDs = _subscription.GetReturnedAttributes(eventCategory);
@@ -663,6 +657,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// <param name="attributeIDs">The list of attribute ids to return.</param>
 		public void SelectReturnedAttributes(int eventCategory, int[] attributeIDs)
 		{
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (_subscription == null) throw new NotConnectedException();
 
             _subscription.SelectReturnedAttributes(eventCategory, attributeIDs);
@@ -675,6 +670,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// </summary>
 		public void Refresh()
 		{
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (_subscription == null) throw new NotConnectedException();
 
             _subscription.Refresh();
@@ -685,6 +681,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// </summary>
 		public void CancelRefresh()
 		{
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (_subscription == null) throw new NotConnectedException();
 
             _subscription.CancelRefresh();
@@ -692,7 +689,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Private Methods
 
 		/// <summary>

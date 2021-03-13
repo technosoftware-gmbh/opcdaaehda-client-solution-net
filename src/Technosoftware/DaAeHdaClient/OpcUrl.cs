@@ -303,38 +303,29 @@ namespace Technosoftware.DaAeHdaClient
                 // In case the specification is not set, we try to find it out based on the Scheme
                 if (Specification.Id == null)
                 {
-#if _OPCCLIENTSDK_DA
                     if (Scheme == OpcUrlScheme.DA)
                     {
                         Specification = OpcSpecification.OPC_DA_20;
                         return;
                     }
-#endif
-#if _OPCCLIENTSDK_AE
                     if (Scheme == OpcUrlScheme.AE)
                     {
                         Specification = OpcSpecification.OPC_AE_10;
                         return;
                     }
-#endif
-#if _OPCCLIENTSDK_HDA
                     if (Scheme == OpcUrlScheme.HDA)
                     {
                         Specification = OpcSpecification.OPC_HDA_10;
                         return;
                     }
-#endif
-#if _OPCCLIENTSDK_DA
                     if (Scheme == OpcUrlScheme.HTTP)
                     {
                         Specification = OpcSpecification.XML_DA_10;
                         return;
                     }
-#endif
                 }
             }
         }
-
         #endregion
     }
 }

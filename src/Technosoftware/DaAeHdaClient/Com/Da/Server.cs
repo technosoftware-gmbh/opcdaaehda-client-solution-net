@@ -60,14 +60,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         internal Server() { }
 
         /// <summary>
-        /// Initializes the object with the specifed COM server.
+        /// Initializes the object with the specified COM server.
         /// </summary>
         internal Server(OpcUrl url, object server)
         {
             if (url == null) throw new ArgumentNullException(nameof(url));
 
-            _url = (OpcUrl)url.Clone();
-            m_server = server;
+            url_ = (OpcUrl)url.Clone();
+            server_ = server;
         }
         #endregion
 
@@ -77,14 +77,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         protected override void Dispose(bool disposing)
         {
-            if (!m_disposed)
+            if (!disposed_)
             {
                 lock (this)
                 {
                     if (disposing)
                     {
                         // Release managed resources.
-                        if (m_server != null)
+                        if (server_ != null)
                         {
                             // release all groups.
                             foreach (Subscription subscription in subscriptions_.Values)
@@ -121,22 +121,22 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     // Release unmanaged resources.
                     // Set large fields to null.
 
-                    if (m_server != null)
+                    if (server_ != null)
                     {
                         // release the COM server.
-                        Technosoftware.DaAeHdaClient.Com.Interop.ReleaseServer(m_server);
-                        m_server = null;
+                        Technosoftware.DaAeHdaClient.Com.Interop.ReleaseServer(server_);
+                        server_ = null;
                     }
                 }
 
                 // Call Dispose on your base class.
-                m_disposed = true;
+                disposed_ = true;
             }
 
             base.Dispose(disposing);
         }
 
-        private bool m_disposed = false;
+        private bool disposed_;
         #endregion
 
         #region Technosoftware.DaAeHdaClient.Com.Server Overrides
@@ -150,19 +150,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
                 string methodName = "IOPCServer.GetErrorString";
 
                 // invoke COM method.
                 try
                 {
-                    string errorText = null;
                     IOPCServer server = BeginComCall<IOPCServer>(methodName, true);
 
-                    ((IOPCServer)m_server).GetErrorString(
+                    (server).GetErrorString(
                         resultId.Code,
                         Technosoftware.DaAeHdaClient.Com.Interop.GetLocale(locale),
-                        out errorText);
+                        out var errorText);
 
                     return errorText;
                 }
@@ -188,7 +187,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
                 return filters_;
             }
         }
@@ -201,7 +200,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
                 filters_ = filters;
             }
         }
@@ -214,17 +213,17 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
                 string methodName = "IOPCServer.GetStatus";
 
                 // initialize arguments.
-                IntPtr pStatus = IntPtr.Zero;
+                IntPtr pStatus;
 
                 // invoke COM method.
                 try
                 {
                     IOPCServer server = BeginComCall<IOPCServer>(methodName, true);
-                    ((IOPCServer)m_server).GetStatus(out pStatus);
+                    (server).GetStatus(out pStatus);
                 }
                 catch (Exception e)
                 {
@@ -237,7 +236,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // return status.
-                return Technosoftware.DaAeHdaClient.Com.Da.Interop.GetServerStatus(ref pStatus, true);
+                return Interop.GetServerStatus(ref pStatus, true);
             }
         }
 
@@ -253,7 +252,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             lock (this)
             {
                 string methodName = "IOPCItemIO.Read";
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 int count = items.Length;
                 if (count == 0) throw new ArgumentOutOfRangeException(nameof(items.Length), "0");
@@ -318,7 +317,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     results[ii].QualitySpecified = true;
                     results[ii].Timestamp = timestamps[ii];
                     results[ii].TimestampSpecified = timestamps[ii] != DateTime.MinValue;
-                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
                     results[ii].DiagnosticInfo = null;
 
                     // convert COM code to unified DA code.
@@ -341,11 +340,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                             if (e.GetType() == typeof(OverflowException))
                             {
-                                results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(Result.E_RANGE);
+                                results[ii].Result = Utilities.Interop.GetResultId(Result.E_RANGE);
                             }
                             else
                             {
-                                results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(Result.E_BADTYPE);
+                                results[ii].Result = Utilities.Interop.GetResultId(Result.E_BADTYPE);
                             }
                         }
                     }
@@ -378,7 +377,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
                 string methodName = "IOPCItemIO.WriteVQT";
 
                 int count = items.Length;
@@ -427,7 +426,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     results[ii] = new OpcItemResult(items[ii]);
 
                     results[ii].ServerHandle = null;
-                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
                     results[ii].DiagnosticInfo = null;
 
                     // convert COM code to unified DA code.
@@ -455,7 +454,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
                 string methodName = "IOPCServer.AddGroup";
 
                 // copy the subscription state.
@@ -553,7 +552,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
                 string methodName = "IOPCServer.RemoveGroup";
 
                 // validate argument.
@@ -596,12 +595,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <summary>
         /// Fetches the children of a branch that meet the filter criteria.
         /// </summary>
-        /// <param name="itemID">The identifier of branch which is the target of the search.</param>
+        /// <param name="itemId">The identifier of branch which is the target of the search.</param>
         /// <param name="filters">The filters to use to limit the set of child elements returned.</param>
         /// <param name="position">An object used to continue a browse that could not be completed.</param>
         /// <returns>The set of elements found.</returns>
         public virtual TsCDaBrowseElement[] Browse(
-            OpcItem itemID,
+            OpcItem itemId,
             TsCDaBrowseFilters filters,
             out Technosoftware.DaAeHdaClient.Da.TsCDaBrowsePosition position)
         {
@@ -609,7 +608,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
                 string methodName = "IOPCBrowse.Browse";
 
                 position = null;
@@ -626,7 +625,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 {
                     IOPCBrowse server = BeginComCall<IOPCBrowse>(methodName, true);
                     server.Browse(
-                             (itemID != null && itemID.ItemName != null) ? itemID.ItemName : "",
+                             (itemId != null && itemId.ItemName != null) ? itemId.ItemName : "",
                          ref pContinuationPoint,
                          filters.MaxElementsReturned,
                              Technosoftware.DaAeHdaClient.Com.Da.Interop.GetBrowseFilter(filters.BrowseFilter),
@@ -660,7 +659,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 if (moreElements != 0 || (continuationPoint != null && continuationPoint != ""))
                 {
                     // allocate new browse position object.
-                    position = new Technosoftware.DaAeHdaClient.Com.Da.BrowsePosition(itemID, filters, continuationPoint);
+                    position = new Technosoftware.DaAeHdaClient.Com.Da.BrowsePosition(itemId, filters, continuationPoint);
                 }
 
                 // process results.
@@ -679,7 +678,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
                 string methodName = "IOPCBrowse.Browse";
 
                 // check for valid position object.
@@ -770,7 +769,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
                 string methodName = "IOPCBrowse.GetProperties";
 
                 // initialize arguments.
@@ -882,7 +881,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <summary>
         /// Updates the properties to convert COM values to OPC .NET API results.
         /// </summary>
-        private void ProcessResults(TsCDaBrowseElement[] elements, TsDaPropertyID[] propertyIDs)
+        private void ProcessResults(TsCDaBrowseElement[] elements, TsDaPropertyID[] propertyIds)
         {
             // check for null.
             if (elements == null)
@@ -903,13 +902,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 foreach (TsCDaItemProperty property in element.Properties)
                 {
                     // replace the property ids which on contain the codes with the proper qualified names passed in.
-                    if (propertyIDs != null)
+                    if (propertyIds != null)
                     {
-                        foreach (TsDaPropertyID propertyID in propertyIDs)
+                        foreach (TsDaPropertyID propertyId in propertyIds)
                         {
-                            if (property.ID.Code == propertyID.Code)
+                            if (property.ID.Code == propertyId.Code)
                             {
-                                property.ID = propertyID;
+                                property.ID = propertyId;
                                 break;
                             }
                         }

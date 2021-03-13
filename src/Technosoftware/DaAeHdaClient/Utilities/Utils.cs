@@ -405,9 +405,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             StringBuilder message = new StringBuilder();
 
             // append process and timestamp.
-            #if !SILVERLIGHT
             message.AppendFormat("{0} - ", Process.GetCurrentProcess().Id);
-            #endif
             message.AppendFormat("{0:d} {0:HH:mm:ss.fff} ", HiResClock.UtcNow.ToLocalTime());
 
             // format message.
@@ -562,7 +560,6 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                     // look executable directory.
                     if (!file.Exists)
                     {
-#if !SILVERLIGHT
                         string executablePath = Environment.GetCommandLineArgs()[0];
                         FileInfo executable = new FileInfo(executablePath);
 
@@ -575,7 +572,6 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                         {
                             return file.FullName;
                         }
-#endif
 
                         if (createAlways)
                         {

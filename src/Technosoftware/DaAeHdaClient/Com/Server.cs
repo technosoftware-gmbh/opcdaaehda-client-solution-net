@@ -23,10 +23,9 @@
 #region Using Directives
 using System;
 using System.Collections;
-using Technosoftware.DaAeHdaClient;
-using Technosoftware.DaAeHdaClient.Utilities;
 
 using OpcRcw.Comn;
+using Technosoftware.DaAeHdaClient.Utilities;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Com
@@ -34,19 +33,19 @@ namespace Technosoftware.DaAeHdaClient.Com
     /// <summary>
     /// An in-process wrapper for a remote OPC COM server (not thread safe).
     /// </summary>
-	internal class Server : Technosoftware.DaAeHdaClient.IOpcServer
+	internal class Server : IOpcServer
     {
         #region Fields
 
         /// <summary>
         /// The COM server wrapped by the object.
         /// </summary>
-        protected object m_server;
+        protected object server_;
 
         /// <summary>
         /// The URL containing host, prog id and clsid information for The remote server.
         /// </summary>
-        protected OpcUrl _url;
+        protected OpcUrl url_;
 
         /// <summary>
         /// A connect point with the COM server.
@@ -73,8 +72,8 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         internal Server()
         {
-            _url = null;
-            m_server = null;
+            url_ = null;
+            server_ = null;
             callback_ = new Callback(this);
         }
 
@@ -85,8 +84,8 @@ namespace Technosoftware.DaAeHdaClient.Com
         {
             if (url == null) throw new ArgumentNullException("url");
 
-            _url = (OpcUrl)url.Clone();
-            m_server = server;
+            url_ = (OpcUrl)url.Clone();
+            server_ = server;
             callback_ = new Callback(this);
         }
         #endregion
@@ -114,7 +113,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         protected virtual void Dispose(bool disposing)
         {
-            if (!m_disposed)
+            if (!disposed_)
             {
                 lock (this)
                 {
@@ -134,15 +133,15 @@ namespace Technosoftware.DaAeHdaClient.Com
                     // Set large fields to null.                
 
                     // release server.
-                    Technosoftware.DaAeHdaClient.Com.Interop.ReleaseServer(m_server);
-                    m_server = null;
+                    Interop.ReleaseServer(server_);
+                    server_ = null;
                 }
 
-                m_disposed = true;
+                disposed_ = true;
             }
         }
 
-        private bool m_disposed = false;
+        private bool disposed_;
         #endregion
 
         #region Public Methods
@@ -152,25 +151,25 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         public virtual void Initialize(OpcUrl url, OpcConnectData connectData)
         {
-            if (url == null) throw new ArgumentNullException("url");
+            if (url == null) throw new ArgumentNullException(nameof(url));
 
             lock (lock_)
             {
                 // re-connect only if the url has changed or has not been initialized.
-                if (_url == null || !_url.Equals(url))
+                if (url_ == null || !url_.Equals(url))
                 {
                     // release the current server.
-                    if (m_server != null)
+                    if (server_ != null)
                     {
                         Uninitialize();
                     }
 
                     // instantiate a new server.
-                    m_server = (IOPCCommon)Technosoftware.DaAeHdaClient.Com.Factory.Connect(url, connectData);
+                    server_ = (IOPCCommon)Factory.Connect(url, connectData);
                 }
 
                 // save url.
-                _url = (OpcUrl)url.Clone();
+                url_ = (OpcUrl)url.Clone();
             }
         }
 
@@ -192,7 +191,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         {
             try
             {
-                ((IOPCCommon)m_server).SetClientName(clientName);
+                ((IOPCCommon)server_).SetClientName(clientName);
             }
             catch (Exception e)
             {
@@ -243,13 +242,12 @@ namespace Technosoftware.DaAeHdaClient.Com
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 try
                 {
-                    int localeID = 0;
-                    ((IOPCCommon)m_server).GetLocaleID(out localeID);
-                    return Technosoftware.DaAeHdaClient.Com.Interop.GetLocale(localeID);
+                    ((IOPCCommon)server_).GetLocaleID(out var localeId);
+                    return Interop.GetLocale(localeId);
                 }
                 catch (Exception e)
                 {
@@ -267,13 +265,13 @@ namespace Technosoftware.DaAeHdaClient.Com
         {
             lock (this)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 int lcid = Technosoftware.DaAeHdaClient.Com.Interop.GetLocale(locale);
 
                 try
                 {
-                    ((IOPCCommon)m_server).SetLocaleID(lcid);
+                    ((IOPCCommon)server_).SetLocaleID(lcid);
                 }
                 catch (Exception e)
                 {
@@ -283,7 +281,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                     }
 
                     // use LOCALE_SYSTEM_DEFAULT if the server does not support the Neutral LCID.
-                    try { ((IOPCCommon)m_server).SetLocaleID(0x800); }
+                    try { ((IOPCCommon)server_).SetLocaleID(0x800); }
                     catch { }
                 }
 
@@ -300,14 +298,14 @@ namespace Technosoftware.DaAeHdaClient.Com
         {
             lock (lock_)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 try
                 {
                     int count = 0;
                     IntPtr pLocaleIDs = IntPtr.Zero;
 
-                    ((IOPCCommon)m_server).QueryAvailableLocaleIDs(out count, out pLocaleIDs);
+                    ((IOPCCommon)server_).QueryAvailableLocaleIDs(out count, out pLocaleIDs);
 
                     int[] localeIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pLocaleIDs, count, true);
 
@@ -344,7 +342,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         {
             lock (lock_)
             {
-                if (m_server == null) throw new NotConnectedException();
+                if (server_ == null) throw new NotConnectedException();
 
                 try
                 {
@@ -355,8 +353,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                         SetLocale(locale);
                     }
 
-                    string errorText = null;
-                    ((IOPCCommon)m_server).GetErrorString(resultId.Code, out errorText);
+                    ((IOPCCommon)server_).GetErrorString(resultId.Code, out var errorText);
 
                     if (currentLocale != locale)
                     {
@@ -382,8 +379,8 @@ namespace Technosoftware.DaAeHdaClient.Com
         {
             lock (lock_)
             {
-                SafeNativeMethods.ReleaseServer(m_server);
-                m_server = null;
+                SafeNativeMethods.ReleaseServer(server_);
+                server_ = null;
             }
         }
 
@@ -396,7 +393,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         {
             lock (lock_)
             {
-                return m_server is T;
+                return server_ is T;
             }
         }
         #endregion
@@ -411,7 +408,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// <returns></returns>
         protected T BeginComCall<T>(string methodName, bool isRequiredInterface) where T : class
         {
-            return BeginComCall<T>(m_server, methodName, isRequiredInterface);
+            return BeginComCall<T>(server_, methodName, isRequiredInterface);
         }
 
         /// <summary>
@@ -491,7 +488,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         {
             if (connection_ == null)
             {
-                connection_ = new ConnectionPoint(m_server, typeof(OpcRcw.Comn.IOPCShutdown).GUID);
+                connection_ = new ConnectionPoint(server_, typeof(IOPCShutdown).GUID);
                 connection_.Advise(callback_);
             }
         }

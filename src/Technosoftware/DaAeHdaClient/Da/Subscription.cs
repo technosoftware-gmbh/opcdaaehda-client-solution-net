@@ -34,7 +34,6 @@ namespace Technosoftware.DaAeHdaClient.Da
     [Serializable]
     public class TsCDaSubscription : ITsCDaSubscription, IDisposable, ISerializable, ICloneable
     {
-        ///////////////////////////////////////////////////////////////////////
         #region Names Class
 
         /// <summary>
@@ -49,7 +48,6 @@ namespace Technosoftware.DaAeHdaClient.Da
 
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Fields
 
         private bool _disposed;
@@ -86,7 +84,6 @@ namespace Technosoftware.DaAeHdaClient.Da
 
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Constructors, Destructor, Initialization
 
         /// <summary>
@@ -176,7 +173,6 @@ namespace Technosoftware.DaAeHdaClient.Da
 
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Properties
 
         /// <summary>
@@ -238,7 +234,6 @@ namespace Technosoftware.DaAeHdaClient.Da
 
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Public Methods
 
         /// <summary>
@@ -325,6 +320,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public virtual TsCDaItemResult[] AddItems(TsCDaItem[] items)
         {
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             if (items == null) throw new ArgumentNullException("items");
 
             // check if there is nothing to do.
@@ -375,6 +371,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public virtual TsCDaItemResult[] ModifyItems(int masks, TsCDaItem[] items)
         {
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             if (items == null) throw new ArgumentNullException("items");
 
             // check if there is nothing to do.
@@ -427,6 +424,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public virtual OpcItemResult[] RemoveItems(OpcItem[] items)
         {
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             if (items == null) throw new ArgumentNullException("items");
 
             // check if there is nothing to do.
@@ -477,6 +475,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public TsCDaItemValueResult[] Read(TsCDaItem[] items)
         {
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             return _subscription.Read(items);
         }
 
@@ -485,6 +484,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public OpcItemResult[] Write(TsCDaItemValue[] items)
         {
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             return _subscription.Write(items);
         }
 
@@ -502,6 +502,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             TsCDaReadCompleteEventHandler callback,
             out IOpcRequest request)
         {
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             return _subscription.Read(items, requestHandle, callback, out request);
         }
 
@@ -519,6 +520,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             TsCDaWriteCompleteEventHandler callback,
             out IOpcRequest request)
         {
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             return _subscription.Write(items, requestHandle, callback, out request);
         }
 
@@ -527,6 +529,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public void Cancel(IOpcRequest request, TsCDaCancelCompleteEventHandler callback)
         {
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             _subscription.Cancel(request, callback);
         }
 
@@ -545,6 +548,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             object requestHandle,
             out IOpcRequest request)
         {
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             _subscription.Refresh(requestHandle, out request);
         }
 
@@ -553,6 +557,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public void SetEnabled(bool enabled)
         {
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             _subscription.SetEnabled(enabled);
             _enabled = enabled;
         }
@@ -562,13 +567,13 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public bool GetEnabled()
         {
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             _enabled = _subscription.GetEnabled();
             return _enabled;
         }
 
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region ISubscription
 
         /// <summary>

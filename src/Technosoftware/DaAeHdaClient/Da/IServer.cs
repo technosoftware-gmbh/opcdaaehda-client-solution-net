@@ -79,12 +79,12 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <summary>
 		/// Fetches the children of a branch that meet the filter criteria.
 		/// </summary>
-		/// <param name="itemID">The identifier of branch which is the target of the search.</param>
+		/// <param name="itemId">The identifier of branch which is the target of the search.</param>
 		/// <param name="filters">The filters to use to limit the set of child elements returned.</param>
 		/// <param name="position">An object used to continue a browse that could not be completed.</param>
 		/// <returns>The set of elements found.</returns>
 		TsCDaBrowseElement[] Browse(
-			OpcItem itemID,
+			OpcItem itemId,
 			TsCDaBrowseFilters filters,
 			out Da.TsCDaBrowsePosition position);
 

@@ -302,7 +302,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             // construct results list.
             for (int ii = 0; ii < items.Length; ii++)
             {
-                items[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                items[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
                 items[ii].DiagnosticInfo = null;
 
                 // convert COM code to unified DA code.
@@ -392,7 +392,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             {
                 OpcItemResult result = (OpcItemResult)writeItems[ii];
 
-                result.Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                result.Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
                 result.DiagnosticInfo = null;
 
                 // convert COM code to unified DA code.
@@ -443,7 +443,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 for (int ii = 0; ii < itemIDs.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(itemIDs[ii]);
-                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
                     results[ii].DiagnosticInfo = null;
 
                     // convert COM code to unified DA code.
@@ -536,7 +536,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 {
                     OpcItemResult result = (OpcItemResult)validItems[ii];
 
-                    result.Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultID(errors[ii]);
+                    result.Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
                     result.DiagnosticInfo = null;
 
                     // convert COM code to unified DA code.
