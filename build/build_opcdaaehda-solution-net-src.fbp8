@@ -176,9 +176,8 @@ begin
         end
         action.process.execute
         begin
-          actionlogtitle = "Git Clone Repository of OPC DA/AEHDA/Client SDK .NET Standard Distribution"
           captureoutput = true
-          description = "Git Clone Repository of OPC DA/AE/HDA/Client SDK .NET Standard Distribution"
+          description = "Git Clone Repository of OPC DA/AE/HDA Client Solution .NET Distribution"
           enablelivecapture = true
           enablereturncodecheck = true
           enabletimeout = false
@@ -206,7 +205,8 @@ begin
         begin
           actiontypeid = {DD9E318C-F0C7-46D4-9610-D9E04863A1FB}
           customactionname = "Git Create Branch"
-          description = "Git Create Branch v%sdk_version% in OPC DA/AEHDA/Client SDK .NET Standard Distribution"
+          description = "Git Create Branch v%sdk_version% in OPC DA/AE/HDA Client Solution .NET Distribution"
+          enabled = false
           enabletimeout = false
           id = {06FBEFC2-3629-427A-9639-229DCC13B68D}
           impersonateusenetcredonly = false
@@ -226,7 +226,8 @@ begin
         begin
           actiontypeid = {BDB55D94-7093-4EFE-A279-A8746A7E4A61}
           customactionname = "Git Checkout"
-          description = "Git Checkout Branch v%sdk_version% in OPC DA/AEHDA/Client SDK .NET Standard Distribution"
+          description = "Git Checkout Branch v%sdk_version% in OPC DA/AE/HDA Client Solution .NET Distribution"
+          enabled = false
           enabletimeout = false
           id = {BAE541B5-1833-4CB8-BDE1-1C62B84A579E}
           impersonateusenetcredonly = false
@@ -247,17 +248,17 @@ begin
   end
   target
   begin
-    name = "Build OPC DA/AE/HDA Client SDK .NET Standard"
+    name = "Build OPC DA/AE/HDA Client Solution .NET"
     targetid = {E047915E-CDB9-4218-B11A-C71D725D332E}
     rootaction
     begin
       action.group
       begin
-        description = "Assemblies .NET Standard"
+        description = "Assemblies .NET"
         id = {BD28E99B-8860-4F53-A067-8AD5B21F8A07}
         action.group
         begin
-          description = "Build & Test OPC DA/AE/HDA Client SDK .NET StandardT Any CPU"
+          description = "Build & Test OPC DA/AE/HDA Client Solution .NET Any CPU"
           id = {1204E741-7CBA-4174-9EBD-DE6739A576A2}
           action.setstatus
           begin
@@ -265,7 +266,7 @@ begin
             isbold = false
             setbold = false
             setcolour = false
-            statusmessage = "Building OPC DA/AE/HDA Client SDK .NET Standard"
+            statusmessage = "Building OPC DA/AE/HDA Client Solution .NET"
             thecolour = 0
           end
           action.process.execute
@@ -390,7 +391,7 @@ begin
       end
       action.group
       begin
-        description = "Build & Test Examples .NET Standard"
+        description = "Build & Test Examples .NET"
         id = {8B0B39FE-19D3-4570-A0FE-AB968931A6FC}
         action.setstatus
         begin
@@ -989,7 +990,7 @@ begin
   end
   target
   begin
-    name = "Gather OPC DA/AE/HDA Client SDK .NET Standard"
+    name = "Gather OPC DA/AE/HDA Client Solution .NET"
     targetid = {5EFE8660-2830-4D00-B99C-B7B621DBCC44}
     rootaction
     begin
@@ -1089,7 +1090,7 @@ begin
   end
   variable
   begin
-    defaultvalue = c:\\opc-daaehda-net-standard-build
+    defaultvalue = c:\\opcdaaehda-solution-net-src
     groupname = paths_git
     name = build_dir
     variablescope = vtProject
@@ -1106,13 +1107,6 @@ begin
     defaultvalue = %distr_dir%\\dotnetcore
     groupname = paths_distr
     name = distr_netcore_dir
-    variablescope = vtProject
-  end
-  variable
-  begin
-    defaultvalue = v1.0.0
-    groupname = tags
-    name = git_tag
     variablescope = vtProject
   end
   variable
@@ -1145,7 +1139,7 @@ begin
   end
   variable
   begin
-    defaultvalue = git@github.com:technosoftware-gmbh/opc-daaehda-client-net-standard.git
+    defaultvalue = git@github.com:technosoftware-gmbh/opcdaaehda-client-solution-net.git
     groupname = git
     name = technosoftware_git_distr_netcore_url
     variablescope = vtProject

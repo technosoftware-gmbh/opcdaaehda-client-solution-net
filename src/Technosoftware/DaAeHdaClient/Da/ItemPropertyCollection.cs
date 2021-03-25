@@ -33,17 +33,12 @@ namespace Technosoftware.DaAeHdaClient.Da
 	[Serializable]
 	public class TsCDaItemPropertyCollection : ArrayList, IOpcResult
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private OpcResult result_ = OpcResult.S_OK;
+        #endregion
 
-		private OpcResult _result = OpcResult.S_OK;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Initializes the object with its default values.
 		/// </summary>
 		public TsCDaItemPropertyCollection()
@@ -53,35 +48,32 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <summary>
 		/// Initializes the object with the specified item identifier.
 		/// </summary>
-		public TsCDaItemPropertyCollection(OpcItem ItemID)
+		public TsCDaItemPropertyCollection(OpcItem itemId)
 		{
-			if (ItemID != null)
+			if (itemId != null)
 			{
-				ItemName = ItemID.ItemName;
-				ItemPath = ItemID.ItemPath;
+				ItemName = itemId.ItemName;
+				ItemPath = itemId.ItemPath;
 			}
 		}
 
 		/// <summary>
 		/// Initializes the object with the specified item identifier and result.
 		/// </summary>
-		public TsCDaItemPropertyCollection(OpcItem ItemID, OpcResult Result)
+		public TsCDaItemPropertyCollection(OpcItem itemId, OpcResult result)
 		{
-			if (ItemID != null)
+			if (itemId != null)
 			{
-				ItemName = ItemID.ItemName;
-				ItemPath = ItemID.ItemPath;
+				ItemName = itemId.ItemName;
+				ItemPath = itemId.ItemPath;
 			}
 
-			_result = Result;
+			result_ = result;
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// The primary identifier for the item within the server namespace.
 		/// </summary>
 		public string ItemName { get; set; }
@@ -96,35 +88,29 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		public new TsCDaItemProperty this[int index]
 		{
-			get { return (TsCDaItemProperty)base[index]; }
-			set { base[index] = value; }
-		}
+			get => (TsCDaItemProperty)base[index];
+            set => base[index] = value;
+        }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region IOpcResult Members
-
-		/// <summary>
+        /// <summary>
 		/// The error id for the result of an operation on an item.
 		/// </summary>
 		public OpcResult Result
 		{
-			get { return _result; }
-			set { _result = value; }
-		}
+			get => result_;
+            set => result_ = value;
+        }
 
 		/// <summary>
 		/// Vendor specific diagnostic information (not the localized error text).
 		/// </summary>
 		public string DiagnosticInfo { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICollection Members
-
-		/// <summary>
+        /// <summary>
 		/// Copies the objects to an Array, starting at a the specified index.
 		/// </summary>
 		/// <param name="array">The one-dimensional Array that is the destination for the objects.</param>
@@ -133,13 +119,10 @@ namespace Technosoftware.DaAeHdaClient.Da
 		{
 			CopyTo((Array)array, index);
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region IList Members
-
-		/// <summary>
+        /// <summary>
 		/// Inserts an item to the IList at the specified position.
 		/// </summary>
 		/// <param name="index">The zero-based index at which value should be inserted.</param>
@@ -187,7 +170,6 @@ namespace Technosoftware.DaAeHdaClient.Da
 		{
 			return Add((object)value);
 		}
-
-		#endregion
+        #endregion
 	}
 }

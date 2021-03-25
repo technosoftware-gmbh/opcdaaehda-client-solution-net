@@ -32,18 +32,13 @@ namespace Technosoftware.DaAeHdaClient.Da
 	[Serializable]
 	public class TsCDaBrowseFilters : ICloneable
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private TsCDaBrowseFilter browseFilter_ = TsCDaBrowseFilter.All;
+		private TsDaPropertyID[] propertyIds_;
+        #endregion
 
-		private TsCDaBrowseFilter _browseFilter = TsCDaBrowseFilter.All;
-		private TsDaPropertyID[] _propertyIDs = null;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// The maximum number of elements to return. Zero means no limit.
 		/// </summary>
 		public int MaxElementsReturned { get; set; }
@@ -53,9 +48,9 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		public TsCDaBrowseFilter BrowseFilter
 		{
-			get { return _browseFilter; }
-			set { _browseFilter = value; }
-		}
+			get => browseFilter_;
+            set => browseFilter_ = value;
+        }
 
 		/// <summary>
 		/// An expression used to match the name of the element.
@@ -77,30 +72,26 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		public TsDaPropertyID[] PropertyIDs
 		{
-			get { return _propertyIDs; }
-			set { _propertyIDs = value; }
-		}
+			get => propertyIds_;
+            set => propertyIds_ = value;
+        }
 
 		/// <summary>
 		/// Whether property values should be returned with the properties.
 		/// </summary>
 		public bool ReturnPropertyValues { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
 		/// Creates a deep copy of the object.
 		/// </summary>
 		public virtual object Clone()
 		{
 			TsCDaBrowseFilters clone = (TsCDaBrowseFilters)MemberwiseClone();
-			clone.PropertyIDs = (TsDaPropertyID[])((PropertyIDs != null) ? PropertyIDs.Clone() : null);
+			clone.PropertyIDs = (TsDaPropertyID[])PropertyIDs?.Clone();
 			return clone;
 		}
-
-		#endregion
+        #endregion
 	}
 }

@@ -32,14 +32,10 @@ namespace Technosoftware.DaAeHdaClient.Da
 	[Serializable]
 	public class TsCDaItemProperty : ICloneable, IOpcResult
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private OpcResult result_ = OpcResult.S_OK;
+        #endregion
 
-		private OpcResult _result = OpcResult.S_OK;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
 
 		/// <summary>
@@ -71,41 +67,34 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// The secondary identifier for the property if it is directly accessible as an item.
 		/// </summary>
 		public string ItemPath { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region IOpcResult Members
-
-		/// <summary>
+        /// <summary>
 		/// The <see cref="OpcResult" /> object with the result of an operation on an property.
 		/// </summary>
 		public OpcResult Result
 		{
-			get { return _result; }
-			set { _result = value; }
-		}
+			get => result_;
+            set => result_ = value;
+        }
 
 		/// <summary>
 		/// Vendor specific diagnostic information (not the localized error text).
 		/// </summary>
 		public string DiagnosticInfo { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
 		/// Creates a deep copy of the object.
 		/// </summary>
 		public virtual object Clone()
 		{
-			TsCDaItemProperty clone = (TsCDaItemProperty)MemberwiseClone();
-			clone.Value = Technosoftware.DaAeHdaClient.OpcConvert.Clone(Value);
+			var clone = (TsCDaItemProperty)MemberwiseClone();
+			clone.Value = OpcConvert.Clone(Value);
 			return clone;
 		}
-
-		#endregion
+        #endregion
 	}
 }

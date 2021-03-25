@@ -32,57 +32,39 @@ namespace Technosoftware.DaAeHdaClient.Da
 	[Serializable]
 	public class TsCDaRequest : IOpcRequest
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private ITsCDaSubscription subscription_;
+		private object handle_;
+        #endregion
 
-		private ITsCDaSubscription _subscription;
-		private object _handle;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Initializes the object with a subscription and a unique id.
 		/// </summary>
 		public TsCDaRequest(ITsCDaSubscription subscription, object handle)
 		{
-			_subscription = subscription;
-			_handle = handle;
+			subscription_ = subscription;
+			handle_ = handle;
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// The subscription processing the request.
 		/// </summary>
-		public ITsCDaSubscription Subscription
-		{
-			get { return _subscription; }
-		}
+		public ITsCDaSubscription Subscription => subscription_;
 
-		/// <summary>
+        /// <summary>
 		/// An unique identifier, assigned by the client, for the request.
 		/// </summary>
-		public object Handle
-		{
-			get { return _handle; }
-		}
+		public object Handle => handle_;
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Public Methods
-
-		/// <summary>
-		/// Cancels the request, if possible.
-		/// </summary>
-		public void Cancel(TsCDaCancelCompleteEventHandler callback) { _subscription.Cancel(this, callback); }
-
-		#endregion
+        #region Public Methods
+        /// <summary>
+        /// Cancels the request, if possible.
+        /// </summary>
+        public void Cancel(TsCDaCancelCompleteEventHandler callback) { subscription_.Cancel(this, callback); }
+        #endregion
 	}
 }

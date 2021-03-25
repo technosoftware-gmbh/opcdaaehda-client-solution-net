@@ -21,7 +21,6 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Da
@@ -29,13 +28,13 @@ namespace Technosoftware.DaAeHdaClient.Da
 	/// <summary>
 	///     <para>Defines the possible quality status bits.</para>
 	///     <para>These flags represent the quality state for an item's data value. This is
-	///     intended to be similar to but slightly simpler than the Fieldbus Data Quality
+	///     intended to be similar to but slightly simpler than the Field-bus Data Quality
 	///     Specification (section 4.4.1 in the H1 Final Specifications). This design makes it
 	///     fairly easy for both servers and client applications to determine how much
 	///     functionality they want to implement.</para>
 	/// </summary>
-	public enum TsDaQualityBits : int
-	{
+	public enum TsDaQualityBits
+    {
 		/// <summary>The Quality of the value is Good.</summary>
 		Good = 0x000000C0,
 		/// <summary>The value has been Overridden. Typically this means the input has been disconnected and a manually entered value has been 'forced'.</summary>
@@ -76,7 +75,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// After Items are added to a subscription, it may take some time for the server to
 		/// actually obtain values for these items. In such cases the client might perform a read
 		/// (from cache), or establish a ConnectionPoint based subscription and/or execute a
-		/// Refresh on such a subscription before the values are available. This substatus is only
+		/// Refresh on such a subscription before the values are available. This sub-status is only
 		/// available from OPC DA 3.0 or newer servers.
 		/// </summary>
 		BadWaitingForInitialData = 0x00000020,
@@ -84,7 +83,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 		Uncertain = 0x00000040,
 		/// <summary>
 		/// Whatever was writing this value has stopped doing so. The returned value should
-        /// be regarded as ‘stale’. Note that this differs from a BAD value with Substatus
+        /// be regarded as ‘stale’. Note that this differs from a BAD value with sub-status
 		/// badLastKnownValue (Last Known Value). That status is associated specifically with a
         /// detectable communications error on a ‘fetched’ value. This error is associated with the
         /// failure of some external source to ‘put’ something into the value within an acceptable
@@ -101,7 +100,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 		UncertainSensorNotAccurate = 0x00000050,
 		/// <summary>
 		/// The returned value is outside the limits defined for this parameter. Note that in
-        /// this case (per the Fieldbus Specification) the ‘Limits’ field indicates which limit has
+        /// this case (per the Field-bus Specification) the ‘Limits’ field indicates which limit has
 		/// been exceeded but does NOT necessarily imply that the value cannot move farther out of
 		/// range.
 		/// </summary>

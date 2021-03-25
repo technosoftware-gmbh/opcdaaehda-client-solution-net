@@ -51,7 +51,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
         /// <summary>
         /// The timestamp associated with the value.
-        /// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
         /// the time format (UTC or local time).
         /// </summary>
         public DateTime Timestamp

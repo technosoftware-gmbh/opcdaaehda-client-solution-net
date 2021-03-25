@@ -22,7 +22,6 @@
 
 #region Using Directives
 using System;
-using Technosoftware.DaAeHdaClient;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Ae
@@ -31,12 +30,10 @@ namespace Technosoftware.DaAeHdaClient.Ae
 	/// Contains multiple lists of the attributes indexed by category.
 	/// </summary>
 	[Serializable]
-	public class TsCAeAttributeDictionary : OpcWriteableDictionary
+	public sealed class TsCAeAttributeDictionary : OpcWriteableDictionary
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Constructs an empty dictionary.
 		/// </summary>
 		public TsCAeAttributeDictionary() : base(null, typeof(int), typeof(TsCAeAttributeCollection)) { }
@@ -44,36 +41,33 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// <summary>
 		/// Constructs an dictionary from a set of category ids.
 		/// </summary>
-		public TsCAeAttributeDictionary(int[] categoryIDs)
+		public TsCAeAttributeDictionary(int[] categoryIds)
 			: base(null, typeof(int), typeof(TsCAeAttributeCollection))
-		{
-			for (int ii = 0; ii < categoryIDs.Length; ii++)
-			{
-				Add(categoryIDs[ii], null);
-			}
-		}
+        {
+            foreach (var categoryId in categoryIds)
+            {
+                Add(categoryId, null);
+            }
+        }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Public Methods
-
-		/// <summary>
-		/// Gets or sets the atrtibute collection for the specified category. 
+        /// <summary>
+		/// Gets or sets the attribute collection for the specified category. 
 		/// </summary>
-		public TsCAeAttributeCollection this[int categoryID]
+		public TsCAeAttributeCollection this[int categoryId]
 		{
-			get { return (TsCAeAttributeCollection)base[categoryID]; }
+			get => (TsCAeAttributeCollection)base[categoryId];
 
-			set
+            set
 			{
 				if (value != null)
 				{
-					base[categoryID] = value;
+					base[categoryId] = value;
 				}
 				else
 				{
-					base[categoryID] = new TsCAeAttributeCollection();
+					base[categoryId] = new TsCAeAttributeCollection();
 				}
 			}
 		}
@@ -81,7 +75,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// <summary>
 		/// Adds an element with the provided key and value to the IDictionary.
 		/// </summary>
-		public virtual void Add(int key, int[] value)
+		public void Add(int key, int[] value)
 		{
 			if (value != null)
 			{
@@ -92,7 +86,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 				base.Add(key, new TsCAeAttributeCollection());
 			}
 		}
-
-		#endregion
+        #endregion
 	}
 }

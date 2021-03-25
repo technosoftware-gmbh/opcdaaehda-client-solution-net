@@ -22,7 +22,6 @@
 
 #region Using Directives
 using System;
-using Technosoftware.DaAeHdaClient;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Ae
@@ -33,17 +32,12 @@ namespace Technosoftware.DaAeHdaClient.Ae
 	[Serializable]
 	public class TsCAeAttributeValue : ICloneable, IOpcResult
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private OpcResult result_ = OpcResult.S_OK;
+        #endregion
 
-		private OpcResult _result = OpcResult.S_OK;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// A unique identifier for the attribute.
 		/// </summary>
 		public int ID { get; set; }
@@ -52,32 +46,26 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// The attribute value.
 		/// </summary>
 		public object Value { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region IOpcResult Members
-
-		/// <summary>
+        /// <summary>
 		/// The error id for the result of an operation on an property.
 		/// </summary>
 		public OpcResult Result
 		{
-			get { return _result; }
-			set { _result = value; }
-		}
+			get => result_;
+            set => result_ = value;
+        }
 
 		/// <summary>
 		/// Vendor specific diagnostic information (not the localized error text).
 		/// </summary>
 		public string DiagnosticInfo { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
 		/// Creates a deep copy of the object.
 		/// </summary>
 		public virtual object Clone()
@@ -86,7 +74,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 			clone.Value = OpcConvert.Clone(Value);
 			return clone;
 		}
-
-		#endregion
+        #endregion
 	}
 }

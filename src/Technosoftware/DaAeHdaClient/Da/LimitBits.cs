@@ -21,7 +21,6 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Da
@@ -31,8 +30,8 @@ namespace Technosoftware.DaAeHdaClient.Da
 	///     <para>The Limit Field is valid regardless of the Quality and Substatus. In some
 	///     cases such as Sensor Failure it can provide useful diagnostic information.</para>
 	/// </summary>
-	public enum TsDaLimitBits : int
-	{
+	public enum TsDaLimitBits
+    {
 		/// <summary>The value is free to move up or down</summary>
 		None = 0x0,
 		/// <summary>The value has ‘pegged’ at some lower limit</summary>

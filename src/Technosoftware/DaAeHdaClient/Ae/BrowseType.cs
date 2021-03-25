@@ -37,7 +37,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		Area,
 
 		/// <summary>
-		/// Return only nodes that are event soucres.
+		/// Return only nodes that are event sources.
 		/// </summary>
 		Source
 	}

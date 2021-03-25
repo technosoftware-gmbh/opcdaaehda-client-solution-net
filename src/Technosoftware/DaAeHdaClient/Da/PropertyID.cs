@@ -34,46 +34,39 @@ namespace Technosoftware.DaAeHdaClient.Da
 	[Serializable]
 	public struct TsDaPropertyID : ISerializable
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Names Class
-
-		/// <summary>
+        /// <summary>
 		/// A set of names for fields used in serialization.
 		/// </summary>
 		private class Names
 		{
-			internal const string NAME = "NA";
-			internal const string NAMESPACE = "NS";
-			internal const string CODE = "CO";
+			internal const string Name = "NA";
+			internal const string Namespace = "NS";
+			internal const string Code = "CO";
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
-
-		private int _code;
-		private XmlQualifiedName _name;
-		
+        private int code_;
+		private XmlQualifiedName qualifiedName_;
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
 
 		/// <summary>
 		/// Initializes a property identified by a qualified name.
 		/// </summary>
-		public TsDaPropertyID(XmlQualifiedName name) { _name = name; _code = 0; }
+		public TsDaPropertyID(XmlQualifiedName name) { qualifiedName_ = name; code_ = 0; }
 
 		/// <summary>
 		/// Initializes a property identified by an integer.
 		/// </summary>
-		public TsDaPropertyID(int code) { _name = null; _code = code; }
+		public TsDaPropertyID(int code) { qualifiedName_ = null; code_ = code; }
 
 		/// <summary>
 		/// Initializes a property identified by a property description.
 		/// </summary>
-		public TsDaPropertyID(string name, int code, string ns) { _name = new XmlQualifiedName(name, ns); _code = code; }
+		public TsDaPropertyID(string name, int code, string ns) { qualifiedName_ = new XmlQualifiedName(name, ns); code_ = code; }
 
 		///<remarks>
 		/// During deserialization, SerializationInfo is passed to the class using the constructor provided for this purpose. Any visibility 
@@ -84,7 +77,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// constructor. 
 		/// </remarks>
 		/// <summary>
-		/// Contructs a server by de-serializing its OpcUrl from the stream.
+		/// Constructs a server by de-serializing its OpcUrl from the stream.
 		/// </summary>
 		private TsDaPropertyID(SerializationInfo info, StreamingContext context)
 		{
@@ -94,48 +87,35 @@ namespace Technosoftware.DaAeHdaClient.Da
 			enumerator.Reset();
 			while (enumerator.MoveNext())
 			{
-				if (enumerator.Current.Name.Equals(Names.NAME))
+				if (enumerator.Current.Name.Equals(Names.Name))
 				{
 					name = (string)enumerator.Current.Value;
 					continue;
 				}
-				if (enumerator.Current.Name.Equals(Names.NAMESPACE))
+				if (enumerator.Current.Name.Equals(Names.Namespace))
 				{
 					ns = (string)enumerator.Current.Value;
-					continue;
-				}
+                }
 			}
-			_name = new XmlQualifiedName(name, ns);
-			_code = (int)info.GetValue(Names.CODE, typeof(int));
+			qualifiedName_ = new XmlQualifiedName(name, ns);
+			code_ = (int)info.GetValue(Names.Code, typeof(int));
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// Used for properties identified by a qualified name.
 		/// </summary>
-		public XmlQualifiedName Name
-		{
-			get { return _name; }
-		}
+		public XmlQualifiedName Name => qualifiedName_;
 
-		/// <summary>
+        /// <summary>
 		/// Used for properties identified by a integer.
 		/// </summary>
-		public int Code
-		{
-			get { return _code; }
-		}
+		public int Code => code_;
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Public Methods
-
-		/// <summary>
+        /// <summary>
 		/// Returns true if the objects are equal.
 		/// </summary>
 		public static bool operator ==(TsDaPropertyID a, TsDaPropertyID b)
@@ -150,30 +130,24 @@ namespace Technosoftware.DaAeHdaClient.Da
 		{
 			return !a.Equals(b);
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Serialization Functions
-
-		/// <summary>
+        /// <summary>
 		/// Serializes a server into a stream.
 		/// </summary>
 		public void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
-			if (_name != null)
+			if (qualifiedName_ != null)
 			{
-				info.AddValue(Names.NAME, _name.Name);
-				info.AddValue(Names.NAMESPACE, _name.Namespace);
+				info.AddValue(Names.Name, qualifiedName_.Name);
+				info.AddValue(Names.Namespace, qualifiedName_.Namespace);
 			}
-			info.AddValue(Names.CODE, _code);
+			info.AddValue(Names.Code, code_);
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Object Member Overrides
-		
 		/// <summary>
 		/// Returns true if the target object is equal to the object.
 		/// </summary>
@@ -181,18 +155,18 @@ namespace Technosoftware.DaAeHdaClient.Da
 		{
 			if (target != null && target.GetType() == typeof(TsDaPropertyID))
 			{
-				TsDaPropertyID propertyID = (TsDaPropertyID)target;
+				TsDaPropertyID propertyId = (TsDaPropertyID)target;
 
 				// compare by integer if both specify valid integers.
-				if (propertyID.Code != 0 && Code != 0)
+				if (propertyId.Code != 0 && Code != 0)
 				{
-					return (propertyID.Code == Code);
+					return (propertyId.Code == Code);
 				}
 
 				// compare by name if both specify valid names.
-				if (propertyID.Name != null && Name != null)
+				if (propertyId.Name != null && Name != null)
 				{
-					return (propertyID.Name == Name);
+					return (propertyId.Name == Name);
 				}
 			}
 
@@ -214,12 +188,11 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		public override string ToString()
 		{
-			if (Name != null && Code != 0) return String.Format("{0} ({1})", Name.Name, Code);
+			if (Name != null && Code != 0) return $"{Name.Name} ({Code})";
 			if (Name != null) return Name.Name;
-			if (Code != 0) return String.Format("{0}", Code);
+			if (Code != 0) return $"{Code}";
 			return "";
 		}
-
 		#endregion
 	}
 }

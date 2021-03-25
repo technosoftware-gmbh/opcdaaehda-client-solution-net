@@ -32,7 +32,7 @@ namespace Technosoftware.DaAeHdaClient.Da
     /// An in-process object used to access subscriptions on OPC Data Access servers.
     /// </summary>
     [Serializable]
-    public class TsCDaSubscription : ITsCDaSubscription, IDisposable, ISerializable, ICloneable
+    public class TsCDaSubscription : ITsCDaSubscription, ISerializable, ICloneable
     {
         #region Names Class
 
@@ -41,84 +41,73 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         private class Names
         {
-            internal const string STATE = "State";
-            internal const string FILTERS = "Filters";
-            internal const string ITEMS = "Items";
+            internal const string State = "State";
+            internal const string Filters = "Filters";
+            internal const string Items = "Items";
         }
 
         #endregion
 
         #region Fields
 
-        private bool _disposed;
+        private bool disposed_;
 
         /// <summary>
         /// The containing server object.
         /// </summary>
-        internal TsCDaServer _server;
+        private TsCDaServer server_;
 
         /// <summary>
         /// The remote subscription object.
         /// </summary>
-        internal ITsCDaSubscription _subscription;
+        internal ITsCDaSubscription Subscription;
 
         /// <summary>
         /// The local copy of the subscription state.
         /// </summary>
-        private TsCDaSubscriptionState _state = new TsCDaSubscriptionState();
+        private TsCDaSubscriptionState subscriptionState_ = new TsCDaSubscriptionState();
 
         /// <summary>
         /// The local copy of all subscription items.
         /// </summary>
-        private TsCDaItem[] _items;
+        private TsCDaItem[] daItems_;
 
         /// <summary>
         /// Whether data callbacks are enabled.
         /// </summary>
-        private bool _enabled = true;
+        private bool enabled_ = true;
 
         /// <summary>
         /// The local copy of the result filters.
         /// </summary>
-        private int _filters = (int)TsCDaResultFilter.All | (int)TsCDaResultFilter.ClientHandle;
-
+        private int filters_ = (int)TsCDaResultFilter.All | (int)TsCDaResultFilter.ClientHandle;
         #endregion
 
         #region Constructors, Destructor, Initialization
-
         /// <summary>
         /// Initializes object with default values.
         /// </summary>
         public TsCDaSubscription(TsCDaServer server, ITsCDaSubscription subscription)
         {
-            if (server == null)
-            {
-                throw new ArgumentNullException("server");
-            }
-            if (subscription == null)
-            {
-                throw new ArgumentNullException("subscription");
-            }
-
-            _server = server;
-            _subscription = subscription;
+            server_ = server ?? throw new ArgumentNullException(nameof(server));
+            Subscription = subscription ?? throw new ArgumentNullException(nameof(subscription));
 
             GetResultFilters();
             GetState();
         }
 
         /// <summary>
-        /// Contructs a server by de-serializing its OpcUrl from the stream.
+        /// Constructs a server by de-serializing its OpcUrl from the stream.
         /// </summary>
         protected TsCDaSubscription(SerializationInfo info, StreamingContext context)
         {
-            _state = (TsCDaSubscriptionState)info.GetValue(Names.STATE, typeof(TsCDaSubscriptionState));
-            _filters = (int)info.GetValue(Names.FILTERS, typeof(int));
-            _items = (TsCDaItem[])info.GetValue(Names.ITEMS, typeof(TsCDaItem[]));
+            subscriptionState_ = (TsCDaSubscriptionState)info.GetValue(Names.State, typeof(TsCDaSubscriptionState));
+            filters_ = (int)info.GetValue(Names.Filters, typeof(int));
+            daItems_ = (TsCDaItem[])info.GetValue(Names.Items, typeof(TsCDaItem[]));
         }
 
         /// <summary>
-        /// The finializer implementation.
+        /// The finalizer implementation.
         /// </summary>
         ~TsCDaSubscription()
         {
@@ -150,100 +139,96 @@ namespace Technosoftware.DaAeHdaClient.Da
         protected virtual void Dispose(bool disposing)
         {
             // Check to see if Dispose has already been called.
-            if (!_disposed)
+            if (!disposed_)
             {
                 // If disposing equals true, dispose all managed
                 // and unmanaged resources.
                 if (disposing)
                 {
-                    if (_subscription != null)
+                    if (Subscription != null)
                     {
-                        _subscription.Dispose();
+                        Subscription.Dispose();
 
-                        _server = null;
-                        _subscription = null;
-                        _items = null;
+                        server_ = null;
+                        Subscription = null;
+                        daItems_ = null;
                     }
                 }
                 // Release unmanaged resources. If disposing is false,
                 // only the following code is executed.
             }
-            _disposed = true;
+            disposed_ = true;
         }
-
         #endregion
 
         #region Properties
-
         /// <summary>
         /// The server that the subscription is attached to.
         /// </summary>
-        public TsCDaServer Server { get { return _server; } }
+        public TsCDaServer Server => server_;
 
         /// <summary>
         /// The name assigned to the subscription by the client.
         /// </summary>
-        public string Name { get { return _state.Name; } }
+        public string Name => subscriptionState_.Name;
 
         /// <summary>
         /// The handle assigned to the subscription by the client.
         /// </summary>
-        public object ClientHandle { get { return _state.ClientHandle; } }
+        public object ClientHandle => subscriptionState_.ClientHandle;
 
         /// <summary>
         /// The handle assigned to the subscription by the server.
         /// </summary>
-        public object ServerHandle { get { return _state.ServerHandle; } }
+        public object ServerHandle => subscriptionState_.ServerHandle;
 
         /// <summary>
         /// Whether the subscription is active.
         /// </summary>
-        public bool Active { get { return _state.Active; } }
+        public bool Active => subscriptionState_.Active;
 
         /// <summary>
         /// Whether data callbacks are enabled.
         /// </summary>
-        public bool Enabled { get { return _enabled; } }
+        public bool Enabled => enabled_;
 
         /// <summary>
         /// The current locale used by the subscription.
         /// </summary>
-        public string Locale { get { return _state.Locale; } }
+        public string Locale => subscriptionState_.Locale;
 
         /// <summary>
         /// The current result filters applied by the subscription.
         /// </summary>
-        public int Filters { get { return _filters; } }
+        public int Filters => filters_;
 
         /// <summary>
         /// Returns a copy of the current subscription state.
         /// </summary>
-        public TsCDaSubscriptionState State { get { return (TsCDaSubscriptionState)_state.Clone(); } }
+        public TsCDaSubscriptionState State => (TsCDaSubscriptionState)subscriptionState_.Clone();
 
         /// <summary>
         /// The items belonging to the subscription.
         /// </summary>
         public TsCDaItem[] Items {
             get {
-                if (_items == null) return new TsCDaItem[0];
-                TsCDaItem[] items = new TsCDaItem[_items.Length];
-                for (int ii = 0; ii < _items.Length; ii++) items[ii] = (TsCDaItem)_items[ii].Clone();
+                if (daItems_ == null) return new TsCDaItem[0];
+                TsCDaItem[] items = new TsCDaItem[daItems_.Length];
+                for (int ii = 0; ii < daItems_.Length; ii++) items[ii] = (TsCDaItem)daItems_[ii].Clone();
                 return items;
             }
         }
-
         #endregion
 
         #region Public Methods
-
         /// <summary>
         /// Serializes a server into a stream.
         /// </summary>
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue(Names.STATE, _state);
-            info.AddValue(Names.FILTERS, _filters);
-            info.AddValue(Names.ITEMS, _items);
+            info.AddValue(Names.State, subscriptionState_);
+            info.AddValue(Names.Filters, filters_);
+            info.AddValue(Names.Items, daItems_);
         }
 
         /// <summary>
@@ -255,24 +240,24 @@ namespace Technosoftware.DaAeHdaClient.Da
             TsCDaSubscription clone = (TsCDaSubscription)MemberwiseClone();
 
             // place clone in disconnected state.
-            clone._server = null;
-            clone._subscription = null;
-            clone._state = (TsCDaSubscriptionState)_state.Clone();
+            clone.server_ = null;
+            clone.Subscription = null;
+            clone.subscriptionState_ = (TsCDaSubscriptionState)subscriptionState_.Clone();
 
             // clear server handles.
-            clone._state.ServerHandle = null;
+            clone.subscriptionState_.ServerHandle = null;
 
             // always make cloned subscriptions inactive.
-            clone._state.Active = false;
+            clone.subscriptionState_.Active = false;
 
             // clone items.
-            if (clone._items != null)
+            if (clone.daItems_ != null)
             {
                 ArrayList items = new ArrayList();
 
-                Array.ForEach(clone._items, item => items.Add(item.Clone()));
+                Array.ForEach(clone.daItems_, item => items.Add(item.Clone()));
 
-                clone._items = (TsCDaItem[])items.ToArray(typeof(TsCDaItem));
+                clone.daItems_ = (TsCDaItem[])items.ToArray(typeof(TsCDaItem));
             }
 
             // return clone.
@@ -284,8 +269,8 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public int GetResultFilters()
         {
-            _filters = _subscription.GetResultFilters();
-            return _filters;
+            filters_ = Subscription.GetResultFilters();
+            return filters_;
         }
 
         /// <summary>
@@ -293,8 +278,8 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public void SetResultFilters(int filters)
         {
-            _subscription.SetResultFilters(filters);
-            _filters = filters;
+            Subscription.SetResultFilters(filters);
+            filters_ = filters;
         }
 
         /// <summary>
@@ -302,8 +287,8 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public TsCDaSubscriptionState GetState()
         {
-            _state = _subscription.GetState();
-            return _state;
+            subscriptionState_ = Subscription.GetState();
+            return subscriptionState_;
         }
 
         /// <summary>
@@ -311,8 +296,8 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public TsCDaSubscriptionState ModifyState(int masks, TsCDaSubscriptionState state)
         {
-            _state = _subscription.ModifyState(masks, state);
-            return _state;
+            subscriptionState_ = Subscription.ModifyState(masks, state);
+            return subscriptionState_;
         }
 
         /// <summary>
@@ -321,7 +306,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         public virtual TsCDaItemResult[] AddItems(TsCDaItem[] items)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             // check if there is nothing to do.
             if (items.Length == 0)
@@ -330,16 +315,16 @@ namespace Technosoftware.DaAeHdaClient.Da
             }
 
             // add items.
-            TsCDaItemResult[] results = _subscription.AddItems(items);
+            TsCDaItemResult[] results = Subscription.AddItems(items);
 
             if (results == null || results.Length == 0)
             {
-                throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The browse operation cannot continue");
+                throw new OpcResultException(new OpcResult(OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The browse operation cannot continue");
             }
 
             // update locale item list.
             ArrayList itemList = new ArrayList();
-            if (_items != null) itemList.AddRange(_items);
+            if (daItems_ != null) itemList.AddRange(daItems_);
 
             for (int ii = 0; ii < results.Length; ii++)
             {
@@ -357,7 +342,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             }
 
             // save the new item list.
-            _items = (TsCDaItem[])itemList.ToArray(typeof(TsCDaItem));
+            daItems_ = (TsCDaItem[])itemList.ToArray(typeof(TsCDaItem));
 
             // update the local state.
             GetState();
@@ -372,7 +357,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         public virtual TsCDaItemResult[] ModifyItems(int masks, TsCDaItem[] items)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             // check if there is nothing to do.
             if (items.Length == 0)
@@ -381,11 +366,11 @@ namespace Technosoftware.DaAeHdaClient.Da
             }
 
             // modify items.
-            TsCDaItemResult[] results = _subscription.ModifyItems(masks, items);
+            TsCDaItemResult[] results = Subscription.ModifyItems(masks, items);
 
             if (results == null || results.Length == 0)
             {
-                throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The browse operation cannot continue");
+                throw new OpcResultException(new OpcResult(OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The browse operation cannot continue");
             }
 
             // update local item - modify item success means all fields were updated successfully.
@@ -398,15 +383,15 @@ namespace Technosoftware.DaAeHdaClient.Da
                 }
 
                 // search local item list.
-                for (int jj = 0; jj < _items.Length; jj++)
+                for (int jj = 0; jj < daItems_.Length; jj++)
                 {
-                    if (_items[jj].ServerHandle.Equals(items[ii].ServerHandle))
+                    if (daItems_[jj].ServerHandle.Equals(items[ii].ServerHandle))
                     {
                         // update locale copy of the item.
                         // item name, item path and client handle may not be returned by server.
-                        TsCDaItem item = new TsCDaItem(results[ii]) { ItemName = _items[jj].ItemName, ItemPath = _items[jj].ItemPath, ClientHandle = _items[jj].ClientHandle };
+                        TsCDaItem item = new TsCDaItem(results[ii]) { ItemName = daItems_[jj].ItemName, ItemPath = daItems_[jj].ItemPath, ClientHandle = daItems_[jj].ClientHandle };
 
-                        _items[jj] = item;
+                        daItems_[jj] = item;
                         break;
                     }
                 }
@@ -420,12 +405,12 @@ namespace Technosoftware.DaAeHdaClient.Da
         }
 
         /// <summary>
-        /// Removes items from a subsription.
+        /// Removes items from a subscription.
         /// </summary>
         public virtual OpcItemResult[] RemoveItems(OpcItem[] items)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             // check if there is nothing to do.
             if (items.Length == 0)
@@ -434,17 +419,17 @@ namespace Technosoftware.DaAeHdaClient.Da
             }
 
             // remove items from server.
-            OpcItemResult[] results = _subscription.RemoveItems(items);
+            OpcItemResult[] results = Subscription.RemoveItems(items);
 
             if (results == null || results.Length == 0)
             {
-                throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The browse operation cannot continue");
+                throw new OpcResultException(new OpcResult(OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The browse operation cannot continue");
             }
 
             // remove items from local list if successful.
             ArrayList itemList = new ArrayList();
 
-            foreach (TsCDaItem item in _items)
+            foreach (TsCDaItem item in daItems_)
             {
                 bool removed = false;
 
@@ -461,7 +446,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             }
 
             // update local list.
-            _items = (TsCDaItem[])itemList.ToArray(typeof(TsCDaItem));
+            daItems_ = (TsCDaItem[])itemList.ToArray(typeof(TsCDaItem));
 
             // update the local state.
             GetState();
@@ -476,7 +461,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         public TsCDaItemValueResult[] Read(TsCDaItem[] items)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            return _subscription.Read(items);
+            return Subscription.Read(items);
         }
 
         /// <summary>
@@ -485,7 +470,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         public OpcItemResult[] Write(TsCDaItemValue[] items)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            return _subscription.Write(items);
+            return Subscription.Write(items);
         }
 
         /// <summary>
@@ -503,7 +488,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            return _subscription.Read(items, requestHandle, callback, out request);
+            return Subscription.Read(items, requestHandle, callback, out request);
         }
 
         /// <summary>
@@ -521,7 +506,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            return _subscription.Write(items, requestHandle, callback, out request);
+            return Subscription.Write(items, requestHandle, callback, out request);
         }
 
         /// <summary>
@@ -530,13 +515,13 @@ namespace Technosoftware.DaAeHdaClient.Da
         public void Cancel(IOpcRequest request, TsCDaCancelCompleteEventHandler callback)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            _subscription.Cancel(request, callback);
+            Subscription.Cancel(request, callback);
         }
 
         /// <summary>
         /// Tells the server to send an data change update for all subscription items. 
         /// </summary>
-        public void Refresh() { _subscription.Refresh(); }
+        public void Refresh() { Subscription.Refresh(); }
 
         /// <summary>
         /// Causes the server to send a data changed notification for all active items. 
@@ -549,7 +534,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            _subscription.Refresh(requestHandle, out request);
+            Subscription.Refresh(requestHandle, out request);
         }
 
         /// <summary>
@@ -558,8 +543,8 @@ namespace Technosoftware.DaAeHdaClient.Da
         public void SetEnabled(bool enabled)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            _subscription.SetEnabled(enabled);
-            _enabled = enabled;
+            Subscription.SetEnabled(enabled);
+            enabled_ = enabled;
         }
 
         /// <summary>
@@ -568,22 +553,19 @@ namespace Technosoftware.DaAeHdaClient.Da
         public bool GetEnabled()
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            _enabled = _subscription.GetEnabled();
-            return _enabled;
+            enabled_ = Subscription.GetEnabled();
+            return enabled_;
         }
-
         #endregion
 
         #region ISubscription
-
         /// <summary>
         /// An event to receive data change updates.
         /// </summary>
         public event TsCDaDataChangedEventHandler DataChangedEvent {
-            add { _subscription.DataChangedEvent += value; }
-            remove { _subscription.DataChangedEvent -= value; }
+            add => Subscription.DataChangedEvent += value;
+            remove => Subscription.DataChangedEvent -= value;
         }
-
         #endregion
     }
 }

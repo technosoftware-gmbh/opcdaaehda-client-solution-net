@@ -382,7 +382,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             subscriptions_ = subscriptions;
 
             // cancel subscription on server.
-            ((ITsDaServer)server_).CancelSubscription(((TsCDaSubscription)subscription)._subscription);
+            ((ITsDaServer)server_).CancelSubscription(((TsCDaSubscription)subscription).Subscription);
         }
 
         /// <summary>Fetches all the children of the root branch that meet the filter criteria.</summary>

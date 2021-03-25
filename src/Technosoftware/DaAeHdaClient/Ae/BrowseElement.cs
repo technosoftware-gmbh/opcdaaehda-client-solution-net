@@ -32,16 +32,11 @@ namespace Technosoftware.DaAeHdaClient.Ae
     [Serializable]
     public class TsCAeBrowseElement
     {
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private TsCAeBrowseType browseType_ = TsCAeBrowseType.Area;
+        #endregion
 
-		private Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType _nodeType = Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Area;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
         /// <summary>
         /// A descriptive name for element that is unique within a branch.
         /// </summary>
@@ -55,17 +50,14 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// <summary>
         /// Whether the element is a source or an area.
         /// </summary>
-        public Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType NodeType
+        public TsCAeBrowseType NodeType
         {
-            get { return _nodeType;  }  
-            set { _nodeType = value; }  
+            get => browseType_;
+            set => browseType_ = value;
         }
-
         #endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
         /// <summary>
         /// Creates a deep copy of the object.
         /// </summary>
@@ -73,7 +65,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
         { 
             return MemberwiseClone();
         }
-
         #endregion
     };
 }

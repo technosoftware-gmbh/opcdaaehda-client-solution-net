@@ -31,19 +31,14 @@ namespace Technosoftware.DaAeHdaClient.Da
 	/// A collection of items.
 	/// </summary>
 	[Serializable]
-	public class TsCDaItemCollection : ICollection, ICloneable, IList
+	public class TsCDaItemCollection : ICloneable, IList
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private ArrayList items_ = new ArrayList();
+        #endregion
 
-		private ArrayList _items = new ArrayList();
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Initializes object with the default values.
 		/// </summary>
 		public TsCDaItemCollection() { }
@@ -52,104 +47,86 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// Initializes object with the specified ResultCollection object.
 		/// </summary>
 		public TsCDaItemCollection(TsCDaItemCollection items)
-		{
-			if (items != null)
-			{
-				foreach (TsCDaItem item in items)
-				{
-					Add(item);
-				}
-			}
-		}
+        {
+            if (items == null)
+            {
+                return;
+            }
+            foreach (TsCDaItem item in items)
+            {
+                Add(item);
+            }
+        }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		///  Gets the item at the specified index.
 		/// </summary>
 		public TsCDaItem this[int index]
 		{
-			get { return (TsCDaItem)_items[index]; }
-			set { _items[index] = value; }
-		}
+			get => (TsCDaItem)items_[index];
+            set => items_[index] = value;
+        }
 
 		/// <summary>
 		/// Gets the first item with the specified item id.
 		/// </summary>
-		public TsCDaItem this[OpcItem itemID]
+		public TsCDaItem this[OpcItem itemId]
 		{
 			get
 			{
-				foreach (TsCDaItem item in _items)
+				foreach (TsCDaItem item in items_)
 				{
-					if (itemID.Key == item.Key)
+					if (itemId.Key == item.Key)
 					{
 						return item;
 					}
 				}
-
-				return null;
+                return null;
 			}
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
 		/// Creates a deep copy of the object.
 		/// </summary>
 		public virtual object Clone()
 		{
 			TsCDaItemCollection clone = (TsCDaItemCollection)MemberwiseClone();
 
-			clone._items = new ArrayList();
+			clone.items_ = new ArrayList();
 
-			foreach (TsCDaItem item in _items)
+			foreach (TsCDaItem item in items_)
 			{
-				clone._items.Add(item.Clone());
+				clone.items_.Add(item.Clone());
 			}
 
 			return clone;
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICollection Members
-
-		/// <summary>
+        /// <summary>
 		/// Indicates whether access to the ICollection is synchronized (thread-safe).
 		/// </summary>
-		public bool IsSynchronized
-		{
-			get { return false; }
-		}
+		public bool IsSynchronized => false;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the number of objects in the collection.
 		/// </summary>
-		public int Count
-		{
-			get { return (_items != null) ? _items.Count : 0; }
-		}
+		public int Count => items_?.Count ?? 0;
 
-		/// <summary>
+        /// <summary>
 		/// Copies the objects to an Array, starting at a the specified index.
 		/// </summary>
 		/// <param name="array">The one-dimensional Array that is the destination for the objects.</param>
 		/// <param name="index">The zero-based index in the Array at which copying begins.</param>
 		public void CopyTo(Array array, int index)
-		{
-			if (_items != null)
-			{
-				_items.CopyTo(array, index);
-			}
-		}
+        {
+            items_?.CopyTo(array, index);
+        }
 
 		/// <summary>
 		/// Copies the objects to an Array, starting at a the specified index.
@@ -164,53 +141,41 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <summary>
 		/// Indicates whether access to the ICollection is synchronized (thread-safe).
 		/// </summary>
-		public object SyncRoot
-		{
-			get { return this; }
-		}
+		public object SyncRoot => this;
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region IEnumerable Members
-
-		/// <summary>
+        /// <summary>
 		/// Returns an enumerator that can iterate through a collection.
 		/// </summary>
 		/// <returns>An IEnumerator that can be used to iterate through the collection.</returns>
 		public IEnumerator GetEnumerator()
 		{
-			return _items.GetEnumerator();
+			return items_.GetEnumerator();
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region IList Members
-
-		/// <summary>
+        /// <summary>
 		/// Gets a value indicating whether the IList is read-only.
 		/// </summary>
-		public bool IsReadOnly
-		{
-			get { return false; }
-		}
+		public bool IsReadOnly => false;
 
-		/// <summary>
+        /// <summary>
 		/// Gets or sets the element at the specified index.
 		/// </summary>
 		object IList.this[int index]
 		{
-			get { return _items[index]; }
+			get => items_[index];
 
-			set
+            set
 			{
 				if (!typeof(TsCDaItem).IsInstanceOfType(value))
 				{
 					throw new ArgumentException("May only add Item objects into the collection.");
 				}
 
-				_items[index] = value;
+				items_[index] = value;
 			}
 		}
 
@@ -220,7 +185,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <param name="index">The zero-based index of the item to remove.</param>
 		public void RemoveAt(int index)
 		{
-			_items.RemoveAt(index);
+			items_.RemoveAt(index);
 		}
 
 		/// <summary>
@@ -235,7 +200,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 				throw new ArgumentException("May only add Item objects into the collection.");
 			}
 
-			_items.Insert(index, value);
+			items_.Insert(index, value);
 		}
 
 		/// <summary>
@@ -244,7 +209,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <param name="value">The Object to remove from the IList.</param>
 		public void Remove(object value)
 		{
-			_items.Remove(value);
+			items_.Remove(value);
 		}
 
 		/// <summary>
@@ -254,7 +219,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <returns>true if the Object is found in the IList; otherwise, false.</returns>
 		public bool Contains(object value)
 		{
-			return _items.Contains(value);
+			return items_.Contains(value);
 		}
 
 		/// <summary>
@@ -262,7 +227,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		public void Clear()
 		{
-			_items.Clear();
+			items_.Clear();
 		}
 
 		/// <summary>
@@ -272,7 +237,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <returns>The index of value if found in the list; otherwise, -1.</returns>
 		public int IndexOf(object value)
 		{
-			return _items.IndexOf(value);
+			return items_.IndexOf(value);
 		}
 
 		/// <summary>
@@ -287,18 +252,15 @@ namespace Technosoftware.DaAeHdaClient.Da
 				throw new ArgumentException("May only add Item objects into the collection.");
 			}
 
-			return _items.Add(value);
+			return items_.Add(value);
 		}
 
 		/// <summary>
 		/// Indicates whether the IList has a fixed size.
 		/// </summary>
-		public bool IsFixedSize
-		{
-			get { return false; }
-		}
+		public bool IsFixedSize => false;
 
-		/// <summary>
+        /// <summary>
 		/// Inserts an item to the IList at the specified position.
 		/// </summary>
 		/// <param name="index">The zero-based index at which value should be inserted.</param>
@@ -346,7 +308,6 @@ namespace Technosoftware.DaAeHdaClient.Da
 		{
 			return Add((object)value);
 		}
-
-		#endregion
+        #endregion
 	}
 }

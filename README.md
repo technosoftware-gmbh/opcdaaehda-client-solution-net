@@ -1,13 +1,13 @@
-# Technosoftware GmbH OPC DA/AE/HDA Client Solution .NET
+# Technosoftware GmbH OPC DA/AE/HDA Solution .NET
 
 ### Introduction
-The OPC DA/AE/HDA Client Solution .NET offers a fast and easy access to the OPC Classic Client technology. Develop OPC DA, OPC AE and OPC HDA compliant Clients with C# targeting .NET 5.0, .NET Core 3.1 or .NET Standard 2.1. For backward compatibility we also provide .NET 4.8, .NET 4.7.2 and .NET 4.6.2 support.
+The OPC DA/AE/HDA Solution .NET offers a fast and easy access to the OPC Classic Client technology. Develop OPC DA, OPC AE and OPC HDA compliant Clients with C# targeting .NET 5.0, .NET Core 3.1 or .NET Standard 2.1. For backward compatibility we also provide .NET 4.8, .NET 4.7.2 and .NET 4.6.2 support.
 
-The OPC DA/AE/HDA Client Solution .NET API defines classes which can be used to implement an OPC client capable to access OPC servers supporting different specifications with the same API. These classes manage client side state information; provide higher level abstractions for OPC tasks such as managing sessions and subscriptions or saving and restoring connection information for later use. The lower level API’s for OPC DA, OPC AE and OPC HDA defines classes which can be used to access OPC specification specific methods and properties.
+The OPC DA/AE/HDA  Solution .NET API defines classes which can be used to implement an OPC client capable to access OPC servers supporting different specifications with the same API. These classes manage client side state information; provide higher level abstractions for OPC tasks such as managing sessions and subscriptions or saving and restoring connection information for later use. The lower level API’s for OPC DA, OPC AE and OPC HDA defines classes which can be used to access OPC specification specific methods and properties.
 
 ### Build Status
 
-[![Build Status](https://dev.azure.com/technosoftware-gmbh/OPC%20DAAEHDA%20Client%20Solution%20.NET/_apis/build/status/Build?branchName=master)](https://dev.azure.com/technosoftware-gmbh/OPC%20DAAEHDA%20Client%20Solution%20.NET/_build/latest?definitionId=26&branchName=master)
+[![Build Status](https://dev.azure.com/technosoftware-gmbh/OPC%20UA%20Solution%20.NET/_apis/build/status/DaAeHdaSolutionBuild?branchName=master)](https://dev.azure.com/technosoftware-gmbh/OPC%20UA%20Solution%20.NET/_build/latest?definitionId=39&branchName=master)
 
 ## Getting started
 

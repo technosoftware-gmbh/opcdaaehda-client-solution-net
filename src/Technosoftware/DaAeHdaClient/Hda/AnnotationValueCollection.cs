@@ -115,7 +115,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		/// <summary>
 		/// The actual start time used by a server while processing a request.
-		/// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+		/// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
 		/// the time format (UTC or local time).
 		/// </summary>
 		public DateTime StartTime
@@ -126,7 +126,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		/// <summary>
 		/// The actual end time used by a server while processing a request.
-		/// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+		/// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
 		/// the time format (UTC or local time).
 		/// </summary>
 		public DateTime EndTime

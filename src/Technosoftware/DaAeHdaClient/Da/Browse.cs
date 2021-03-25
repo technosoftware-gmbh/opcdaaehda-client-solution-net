@@ -32,26 +32,21 @@ namespace Technosoftware.DaAeHdaClient.Da
     [Serializable]
     public class TsCDaBrowsePosition : IOpcBrowsePosition
     {
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private TsCDaBrowseFilters browseFilters_;
+		private OpcItem itemId_;
+        #endregion
 
-		private TsCDaBrowseFilters _filters;
-		private OpcItem _itemID;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Saves the parameters for an incomplete browse information.
 		/// </summary>
-		public TsCDaBrowsePosition(OpcItem itemID, TsCDaBrowseFilters filters)
+		public TsCDaBrowsePosition(OpcItem itemId, TsCDaBrowseFilters filters)
 		{
-			if (filters == null) throw new ArgumentNullException("Filters");
+			if (filters == null) throw new ArgumentNullException(nameof(filters));
 
-			_itemID = (itemID != null) ? (OpcItem)itemID.Clone() : null;
-			_filters = (TsCDaBrowseFilters)filters.Clone();
+			itemId_ = (OpcItem)itemId?.Clone();
+			browseFilters_ = (TsCDaBrowseFilters)filters.Clone();
 		}
 
 		/// <summary>
@@ -61,50 +56,38 @@ namespace Technosoftware.DaAeHdaClient.Da
 		{
 			// does nothing.
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
         /// The item identifier of the branch being browsed.
         /// </summary>
-        public OpcItem ItemID 
-        { 
-            get{ return _itemID; }
-        }
+        public OpcItem ItemID => itemId_;
 
         /// <summary>
         /// The filters applied during the browse operation.
         /// </summary>
-        public TsCDaBrowseFilters Filters 
-        {
-            get { return (TsCDaBrowseFilters)_filters.Clone(); }
-        }
+        public TsCDaBrowseFilters Filters => (TsCDaBrowseFilters)browseFilters_.Clone();
 
         /// <summary>
         /// The maximum number of elements that may be returned in a single browse.
         /// </summary>
+        // ReSharper disable once UnusedMember.Global
         public int MaxElementsReturned 
         {
-            get { return _filters.MaxElementsReturned;  }
-            set { _filters.MaxElementsReturned = value; }
-		}
+            get => browseFilters_.MaxElementsReturned;
+            set => browseFilters_.MaxElementsReturned = value;
+        }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
         /// Creates a deep copy of the object.
         /// </summary>
         public virtual object Clone() 
         { 
-            return (Da.TsCDaBrowsePosition)MemberwiseClone();
+            return (TsCDaBrowsePosition)MemberwiseClone();
         }
-
         #endregion
 	}
 }

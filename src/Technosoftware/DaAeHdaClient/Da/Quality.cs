@@ -33,26 +33,21 @@ namespace Technosoftware.DaAeHdaClient.Da
 	[Serializable]
 	public struct TsCDaQuality
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private TsDaQualityBits qualityBits_;
+		private TsDaLimitBits limitBits_;
+		private byte vendorBits_;
+        #endregion
 
-		private TsDaQualityBits _qualityBits;
-		private TsDaLimitBits _limitBits;
-		private byte _vendorBits;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Initializes the object with the specified quality.
 		/// </summary>
 		public TsCDaQuality(TsDaQualityBits quality)
 		{
-			_qualityBits = quality;
-			_limitBits = TsDaLimitBits.None;
-			_vendorBits = 0;
+			qualityBits_ = quality;
+			limitBits_ = TsDaLimitBits.None;
+			vendorBits_ = 0;
 		}
 
 		/// <summary>
@@ -60,42 +55,39 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		public TsCDaQuality(short code)
 		{
-			_qualityBits = (TsDaQualityBits)(code & (short)TsDaQualityMasks.QualityMask);
-			_limitBits = (TsDaLimitBits)(code & (short)TsDaQualityMasks.LimitMask);
-			_vendorBits = (byte)((code & (short)TsDaQualityMasks.VendorMask) >> 8);
+			qualityBits_ = (TsDaQualityBits)(code & (short)TsDaQualityMasks.QualityMask);
+			limitBits_ = (TsDaLimitBits)(code & (short)TsDaQualityMasks.LimitMask);
+			vendorBits_ = (byte)((code & (short)TsDaQualityMasks.VendorMask) >> 8);
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// The value in the quality bits field.
 		/// </summary>
 		public TsDaQualityBits QualityBits
 		{
-			get { return _qualityBits; }
-			set { _qualityBits = value; }
-		}
+			get => qualityBits_;
+            set => qualityBits_ = value;
+        }
 
 		/// <summary>
 		/// The value in the limit bits field.
 		/// </summary>
 		public TsDaLimitBits LimitBits
 		{
-			get { return _limitBits; }
-			set { _limitBits = value; }
-		}
+			get => limitBits_;
+            set => limitBits_ = value;
+        }
 
 		/// <summary>
 		/// The value in the quality bits field.
 		/// </summary>
 		public byte VendorBits
 		{
-			get { return _vendorBits; }
-			set { _vendorBits = value; }
-		}
+			get => vendorBits_;
+            set => vendorBits_ = value;
+        }
 
 		/// <summary>
 		/// A 'good' quality value.
@@ -106,13 +98,10 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// An 'bad' quality value.
 		/// </summary>
 		public static readonly TsCDaQuality Bad = new TsCDaQuality(TsDaQualityBits.Bad);
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Public Methods
-
-		/// <summary>
+        /// <summary>
 		/// Returns the quality as a 16 bit integer.
 		/// </summary>
 		public short GetCode()
@@ -123,7 +112,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 			code |= (ushort)LimitBits;
 			code |= (ushort)(VendorBits << 8);
 
-			return (code <= Int16.MaxValue) ? (short)code : (short)-((UInt16.MaxValue + 1 - code));
+			return (code <= short.MaxValue) ? (short)code : (short)-((ushort.MaxValue + 1 - code));
 		}
 
 		/// <summary>
@@ -131,9 +120,9 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		public void SetCode(short code)
 		{
-			_qualityBits = (TsDaQualityBits)(code & (short)TsDaQualityMasks.QualityMask);
-			_limitBits = (TsDaLimitBits)(code & (short)TsDaQualityMasks.LimitMask);
-			_vendorBits = (byte)((code & (short)TsDaQualityMasks.VendorMask) >> 8);
+			qualityBits_ = (TsDaQualityBits)(code & (short)TsDaQualityMasks.QualityMask);
+			limitBits_ = (TsDaLimitBits)(code & (short)TsDaQualityMasks.LimitMask);
+			vendorBits_ = (byte)((code & (short)TsDaQualityMasks.VendorMask) >> 8);
 		}
 
 		/// <summary>
@@ -151,13 +140,10 @@ namespace Technosoftware.DaAeHdaClient.Da
 		{
 			return !a.Equals(b);
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Object Member Overrides
-
-		/// <summary>
+        /// <summary>
 		/// Converts a quality to a string with the format: 'quality[limit]:vendor'.
 		/// </summary>
 		public override string ToString()
@@ -218,7 +204,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 
 			if (LimitBits != TsDaLimitBits.None)
 			{
-				text += String.Format(":[{0}]", LimitBits.ToString());
+				text += $":[{LimitBits.ToString()}]";
 			}
 			else
 			{
@@ -227,7 +213,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 
 			if (VendorBits != 0)
 			{
-				text += String.Format(":{0,0:X})", VendorBits);
+				text += $":{VendorBits,0:X})";
 			}
 			else
 			{
@@ -260,7 +246,6 @@ namespace Technosoftware.DaAeHdaClient.Da
 		{
 			return GetCode();
 		}
-
 		#endregion
 	}
 }

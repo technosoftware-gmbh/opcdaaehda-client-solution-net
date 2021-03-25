@@ -32,17 +32,12 @@ namespace Technosoftware.DaAeHdaClient.Ae
 	[Serializable]
 	public class TsCAeEventAcknowledgement : ICloneable
 	{
-		///////////////////////////////////////////////////////////////////////////
 		#region Fields
+        private DateTime activeTime_ = DateTime.MinValue;
+        #endregion
 
-		private DateTime _activeTime = DateTime.MinValue;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// The name of the source that generated the event.
 		/// </summary>
 		public string SourceName { get; set; }
@@ -54,14 +49,14 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
 		/// <summary>
 		/// The time that the condition or sub-condition became active.
-		/// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+		/// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
 		/// the time format (UTC or local   time).
 		/// </summary>
 		public DateTime ActiveTime
 		{
-			get { return _activeTime; }
-			set { _activeTime = value; }
-		}
+			get => activeTime_;
+            set => activeTime_ = value;
+        }
 
 		/// <summary>
 		/// The cookie for the condition passed to client during the event notification.
@@ -80,23 +75,19 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		{
 			SourceName = notification.SourceID;
 			ConditionName = notification.ConditionName;
-			_activeTime = notification.ActiveTime;
+			activeTime_ = notification.ActiveTime;
 			Cookie = notification.Cookie;
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
 		/// Creates a deep copy of the object.
 		/// </summary>
 		public virtual object Clone()
 		{
 			return MemberwiseClone();
 		}
-
-		#endregion
+        #endregion
 	}
 }

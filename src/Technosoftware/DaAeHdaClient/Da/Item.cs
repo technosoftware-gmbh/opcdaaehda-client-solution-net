@@ -30,20 +30,15 @@ namespace Technosoftware.DaAeHdaClient.Da
     /// Describes how an item in the server address space should be accessed. 
     /// </summary>
     [Serializable]
-    public class TsCDaItem : Technosoftware.DaAeHdaClient.OpcItem
+    public class TsCDaItem : OpcItem
     {
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private bool active_ = true;
+		private float deadband_;
+        #endregion
 
-		private bool _active = true;
-		private float _deadband = 0;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Initializes the object with default values.
 		/// </summary>
 		public TsCDaItem() { }
@@ -52,44 +47,43 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// Initializes object with the specified ItemIdentifier object.
 		/// </summary>
 		public TsCDaItem(OpcItem item)
-		{
-			if (item != null)
-			{
-				ItemName = item.ItemName;
-				ItemPath = item.ItemPath;
-				ClientHandle = item.ClientHandle;
-				ServerHandle = item.ServerHandle;
-			}
-		}
+        {
+            if (item == null)
+            {
+                return;
+            }
+            ItemName = item.ItemName;
+            ItemPath = item.ItemPath;
+            ClientHandle = item.ClientHandle;
+            ServerHandle = item.ServerHandle;
+        }
 
 		/// <summary>
 		/// Initializes object with the specified Item object.
 		/// </summary>
 		public TsCDaItem(TsCDaItem item)
 			: base(item)
-		{
-			if (item != null)
-			{
-				ReqType = item.ReqType;
-				MaxAge = item.MaxAge;
-				MaxAgeSpecified = item.MaxAgeSpecified;
-				Active = item.Active;
-				ActiveSpecified = item.ActiveSpecified;
-				Deadband = item.Deadband;
-				DeadbandSpecified = item.DeadbandSpecified;
-				SamplingRate = item.SamplingRate;
-				SamplingRateSpecified = item.SamplingRateSpecified;
-				EnableBuffering = item.EnableBuffering;
-				EnableBufferingSpecified = item.EnableBufferingSpecified;
-			}
-		}
+        {
+            if (item == null)
+            {
+                return;
+            }
+            ReqType = item.ReqType;
+            MaxAge = item.MaxAge;
+            MaxAgeSpecified = item.MaxAgeSpecified;
+            Active = item.Active;
+            ActiveSpecified = item.ActiveSpecified;
+            Deadband = item.Deadband;
+            DeadbandSpecified = item.DeadbandSpecified;
+            SamplingRate = item.SamplingRate;
+            SamplingRateSpecified = item.SamplingRateSpecified;
+            EnableBuffering = item.EnableBuffering;
+            EnableBufferingSpecified = item.EnableBufferingSpecified;
+        }
+        #endregion    
 
-		#endregion    
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
         /// The data type to use when returning the item value.
         /// </summary>
 		public Type ReqType { get; set; }
@@ -109,8 +103,8 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public bool Active
         {
-            get { return _active;   }
-            set { _active = value;  }
+            get => active_;
+            set => active_ = value;
         }
 
         /// <summary>
@@ -123,8 +117,8 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// </summary>
         public float Deadband
         {
-            get { return _deadband;  }
-            set { _deadband = value; }
+            get => deadband_;
+            set => deadband_ = value;
         }
 
         /// <summary>
@@ -151,7 +145,6 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// Whether the Enable Buffering is specified.
         /// </summary>
 		public bool EnableBufferingSpecified { get; set; }
-
-		#endregion
+        #endregion
     }
 }

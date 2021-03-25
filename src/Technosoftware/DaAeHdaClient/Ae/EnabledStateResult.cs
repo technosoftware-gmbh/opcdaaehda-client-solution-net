@@ -21,7 +21,6 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Ae
@@ -29,20 +28,14 @@ namespace Technosoftware.DaAeHdaClient.Ae
 	/// <summary>
 	/// The current state of a process area or an event source.
 	/// </summary>
-	public class TsCAeEnabledStateResult : Technosoftware.DaAeHdaClient.IOpcResult
+	public class TsCAeEnabledStateResult : IOpcResult
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private string qualifiedName_;
+        #endregion
 
-		private string _qualifiedName;
-		private OpcResult _result = OpcResult.S_OK;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Initializes the object with default values.
 		/// </summary>
 		public TsCAeEnabledStateResult() { }
@@ -52,7 +45,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// </summary>
 		public TsCAeEnabledStateResult(string qualifiedName)
 		{
-			_qualifiedName = qualifiedName;
+			qualifiedName_ = qualifiedName;
 		}
 
 		/// <summary>
@@ -60,16 +53,13 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// </summary>
 		public TsCAeEnabledStateResult(string qualifiedName, OpcResult result)
 		{
-			_qualifiedName = qualifiedName;
+			qualifiedName_ = qualifiedName;
 			Result = result;
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// Whether if the area or source is enabled.
 		/// </summary>
 		public bool Enabled { get; set; }
@@ -78,39 +68,28 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// Whether the area or source is enabled and all areas within the hierarchy of its containing areas are enabled. 
 		/// </summary>
 		public bool EffectivelyEnabled { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region IOpcResult Members
-
-		/// <summary>
+        /// <summary>
 		/// The error id for the result of an operation on an item.
 		/// </summary>
-		public OpcResult Result
-		{
-			get { return _result; }
-			set { _result = value; }
-		}
+		public OpcResult Result { get; set; } = OpcResult.S_OK;
 
-		/// <summary>
+        /// <summary>
 		/// Vendor specific diagnostic information (not the localized error text).
 		/// </summary>
 		public string DiagnosticInfo { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
 		/// Creates a deep copy of the object.
 		/// </summary>
 		public virtual object Clone()
 		{
 			return MemberwiseClone();
 		}
-
-		#endregion
+        #endregion
 	}
 }

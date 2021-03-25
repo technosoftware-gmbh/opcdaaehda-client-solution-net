@@ -32,19 +32,14 @@ namespace Technosoftware.DaAeHdaClient.Da
 	[Serializable]
 	public class TsCDaSubscriptionState : ICloneable
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private bool active_ = true;
+		private int updateRate_ = 500;
+		private float deadband_;
+        #endregion
 
-		private bool _active = true;
-		private int _updateRate = 500;
-		private float _deadband = 0;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// A unique name for the subscription controlled by the client.
 		/// </summary>
 		public string Name { get; set; }
@@ -69,55 +64,55 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		public bool Active
 		{
-			get { return _active; }
-			set { _active = value; }
-		}
+			get => active_;
+            set => active_ = value;
+        }
 
-		/// <summary>
-		/// The rate in milliseconds at which the server checks of updates to send to the
-		/// client.
-		/// </summary>
-		/// <remarks>
-		///     Client Specifies the fastest rate at which data changes may be sent to the
-		///     <see cref="TsCDaDataChangedHandler">DataChangedHandler</see>
-		///     for items in this subscription. This also indicates the desired accuracy of Cached
-		///     Data. This is intended only to control the behavior of the interface. How the
-		///     server deals with the update rate and how often it actually polls the hardware
-		///     internally is an implementation detail. Passing 0 indicates the server should use
-		///     the fastest practical rate.
-		/// </remarks>
-		public int UpdateRate
+        /// <summary>
+        /// The rate in milliseconds at which the server checks of updates to send to the
+        /// client.
+        /// </summary>
+        /// <remarks>
+        ///     Client Specifies the fastest rate at which data changes may be sent to the
+        ///     <see cref="TsCDaDataChangedEventHandler">DataChangedHandler</see>
+        ///     for items in this subscription. This also indicates the desired accuracy of Cached
+        ///     Data. This is intended only to control the behavior of the interface. How the
+        ///     server deals with the update rate and how often it actually polls the hardware
+        ///     internally is an implementation detail. Passing 0 indicates the server should use
+        ///     the fastest practical rate.
+        /// </remarks>
+        public int UpdateRate
 		{
-			get { return _updateRate; }
-			set { _updateRate = value; }
-		}
+			get => updateRate_;
+            set => updateRate_ = value;
+        }
 
-		/// <summary><para>The maximum period in milliseconds between updates sent to the client.</para></summary>
-		/// <remarks>
-		/// 	<para>Clients can set the keep-alive time for a subscription to cause the server to
-		///     provide client callbacks on the subscription when there are no new events to
-		///     report. Clients can then be assured of the health of the server and subscription
-		///     without resorting to pinging the server with calls to GetStatus().</para>
-		/// 	<para>Using this facility, a client can expect a callback (data or keep-alive)
-		///     within the specified keep-alive time.</para>
-		/// 	<para>Servers shall reset their keep-alive timers when real data is sent (i.e. it
-		///     is not acceptable to constantly send the keep-alive callback at a fixed period
-		///     equal to the keep-alive time irrespective of data callbacks).</para>
-		/// 	<para>
-		///         The keep-alive callback consists of a call to the
-		///         <see cref="TsCDaDataChangedHandler">DataChangedEventHandler</see>
-		///         with an empty value list.
-		///     </para>
-		/// 	<para>
-		///         Keep-alive callbacks will not occur when the subscription is inactive.
-		///         Keep-alive callbacks do not affect the value of the
-		///         <see cref="Technosoftware.DaAeHdaClient.Da.TsCDaServerStatus.LastUpdateTime">LastUpdateTime</see> returned by
-		///         <see cref="TsCDaServer.GetStatus">GetStatus()</see> .
-		///     </para>
-		/// 	<para><strong>Available only for OPC Data Access 3.0 and OPC XML-DA
-		///     servers.</strong></para>
-		/// </remarks>
-		public int KeepAlive { get; set; }
+        /// <summary><para>The maximum period in milliseconds between updates sent to the client.</para></summary>
+        /// <remarks>
+        /// 	<para>Clients can set the keep-alive time for a subscription to cause the server to
+        ///     provide client callbacks on the subscription when there are no new events to
+        ///     report. Clients can then be assured of the health of the server and subscription
+        ///     without resorting to pinging the server with calls to GetStatus().</para>
+        /// 	<para>Using this facility, a client can expect a callback (data or keep-alive)
+        ///     within the specified keep-alive time.</para>
+        /// 	<para>Servers shall reset their keep-alive timers when real data is sent (i.e. it
+        ///     is not acceptable to constantly send the keep-alive callback at a fixed period
+        ///     equal to the keep-alive time irrespective of data callbacks).</para>
+        /// 	<para>
+        ///         The keep-alive callback consists of a call to the
+        ///         <see cref="TsCDaDataChangedEventHandler">DataChangedEventHandler</see>
+        ///         with an empty value list.
+        ///     </para>
+        /// 	<para>
+        ///         Keep-alive callbacks will not occur when the subscription is inactive.
+        ///         Keep-alive callbacks do not affect the value of the
+        ///         <see cref="OpcServerStatus.LastUpdateTime">LastUpdateTime</see> returned by
+        ///         <see cref="TsCDaServer.GetServerStatus">GetServerStatus()</see> .
+        ///     </para>
+        /// 	<para><strong>Available only for OPC Data Access 3.0 and OPC XML-DA
+        ///     servers.</strong></para>
+        /// </remarks>
+        public int KeepAlive { get; set; }
 
 		/// <summary>
 		/// The minimum percentage change from 0.0 to 100.0 required to trigger a data update
@@ -154,28 +149,24 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </remarks>
 		public float Deadband
 		{
-			get { return _deadband; }
-			set { _deadband = value; }
-		}
+			get => deadband_;
+            set => deadband_ = value;
+        }
 
 		/// <summary>
 		/// TimeZone Bias of Group (in minutes).
 		/// </summary>
 		public int TimeBias { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
 		/// Creates a shallow copy of the object.
 		/// </summary>
 		public virtual object Clone()
 		{
 			return MemberwiseClone();
 		}
-
-		#endregion
+        #endregion
 	}
 }

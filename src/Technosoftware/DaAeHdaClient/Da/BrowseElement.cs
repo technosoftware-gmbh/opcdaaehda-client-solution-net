@@ -32,17 +32,12 @@ namespace Technosoftware.DaAeHdaClient.Da
 	[Serializable]
 	public class TsCDaBrowseElement : ICloneable
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private TsCDaItemProperty[] itemProperties_ = new TsCDaItemProperty[0];
+        #endregion
 
-		private TsCDaItemProperty[] _properties = new TsCDaItemProperty[0];
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// A descriptive name for element that is unique within a branch.
 		/// </summary>
 		public string Name { get; set; }
@@ -72,25 +67,21 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		public TsCDaItemProperty[] Properties
 		{
-			get { return _properties; }
-			set { _properties = value; }
-		}
-
+			get => itemProperties_;
+            set => itemProperties_ = value;
+        }
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
 		/// Creates a deep copy of the object.
 		/// </summary>
 		public virtual object Clone()
 		{
 			TsCDaBrowseElement clone = (TsCDaBrowseElement)MemberwiseClone();
-			clone._properties = (TsCDaItemProperty[])Technosoftware.DaAeHdaClient.OpcConvert.Clone(_properties);
+			clone.itemProperties_ = (TsCDaItemProperty[])OpcConvert.Clone(itemProperties_);
 			return clone;
 		}
-
-		#endregion
+        #endregion
 	};
 }

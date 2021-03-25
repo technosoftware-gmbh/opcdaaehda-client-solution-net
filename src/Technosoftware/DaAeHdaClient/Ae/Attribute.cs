@@ -33,7 +33,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
     public class TsCAeAttribute : ICloneable
     {
         #region Properties
-
         /// <summary>
         /// A unique identifier for the attribute.
         /// </summary>
@@ -61,16 +60,13 @@ namespace Technosoftware.DaAeHdaClient.Ae
         {
             return Name;
         }
-
         #endregion
 
         #region ICloneable Members
-
         /// <summary>
         /// Creates a shallow copy of the object.
         /// </summary>
         public virtual object Clone() { return MemberwiseClone(); }
-
         #endregion
     }
 }

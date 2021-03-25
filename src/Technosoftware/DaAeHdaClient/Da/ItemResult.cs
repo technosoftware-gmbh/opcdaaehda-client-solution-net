@@ -32,17 +32,12 @@ namespace Technosoftware.DaAeHdaClient.Da
 	[Serializable]
 	public class TsCDaItemResult : TsCDaItem, IOpcResult
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
-
-		private OpcResult _result = OpcResult.S_OK;
-
+		private OpcResult result_ = OpcResult.S_OK;
 		#endregion
 
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Initializes the object with default values.
 		/// </summary>
 		public TsCDaItemResult() { }
@@ -55,10 +50,10 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <summary>
 		/// Initializes the object with an ItemIdentifier object and Result.
 		/// </summary>
-		public TsCDaItemResult(OpcItem item, OpcResult resultID)
+		public TsCDaItemResult(OpcItem item, OpcResult resultId)
 			: base(item)
 		{
-			Result = resultID;
+			Result = resultId;
 		}
 
 		/// <summary>
@@ -69,10 +64,10 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <summary>
 		/// Initializes the object with an Item object and Result.
 		/// </summary>
-		public TsCDaItemResult(TsCDaItem item, OpcResult resultID)
+		public TsCDaItemResult(TsCDaItem item, OpcResult resultId)
 			: base(item)
 		{
-			Result = resultID;
+			Result = resultId;
 		}
 
 		/// <summary>
@@ -87,10 +82,8 @@ namespace Technosoftware.DaAeHdaClient.Da
 				DiagnosticInfo = item.DiagnosticInfo;
 			}
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region IOpcResult Members
 
 		/// <summary>
@@ -98,15 +91,14 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		public OpcResult Result
 		{
-			get { return _result; }
-			set { _result = value; }
-		}
+			get => result_;
+            set => result_ = value;
+        }
 
 		/// <summary>
 		/// Vendor specific diagnostic information (not the localized error text).
 		/// </summary>
 		public string DiagnosticInfo { get; set; }
-
-		#endregion
+        #endregion
 	}
 }

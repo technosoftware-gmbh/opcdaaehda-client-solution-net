@@ -21,7 +21,6 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Ae
@@ -29,7 +28,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 	/// <summary>
 	/// Defines functionality that is common to all OPC Alarms and Events servers.
 	/// </summary>
-	internal interface ITsCAeServer : Technosoftware.DaAeHdaClient.IOpcServer
+	internal interface ITsCAeServer : IOpcServer
 	{
         /// <summary>
         /// Returns the current server status.

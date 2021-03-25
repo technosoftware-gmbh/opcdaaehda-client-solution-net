@@ -22,21 +22,18 @@
 
 #region Using Directives
 using System;
-using Technosoftware.DaAeHdaClient;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Ae
 {
 	/// <summary>
-	/// Contains a writeable collection attribute ids.
+	/// Contains a writable collection attribute ids.
 	/// </summary>
 	[Serializable]
 	public class TsCAeAttributeCollection : OpcWriteableCollection
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Creates an empty collection.
 		/// </summary>
 		internal TsCAeAttributeCollection() : base(null, typeof(int)) { }
@@ -45,28 +42,21 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// Creates a collection from an array.
 		/// </summary>
 		internal TsCAeAttributeCollection(int[] attributeIDs) : base(attributeIDs, typeof(int)) { }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Public Methods
-
-		/// <summary>
+        /// <summary>
 		/// An indexer for the collection.
 		/// </summary>
-		public new int this[int index]
-		{
-			get { return (int)Array[index]; }
-		}
+		public new int this[int index] => (int)Array[index];
 
-		/// <summary>
+        /// <summary>
 		/// Returns a copy of the collection as an array.
 		/// </summary>
 		public new int[] ToArray()
 		{
 			return (int[])Array.ToArray(typeof(int));
 		}
-
-		#endregion
+        #endregion
 	}
 }

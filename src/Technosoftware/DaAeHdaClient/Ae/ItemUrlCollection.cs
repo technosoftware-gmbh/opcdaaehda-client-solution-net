@@ -21,8 +21,6 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
-using Technosoftware.DaAeHdaClient;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Ae
@@ -32,9 +30,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 	/// </summary>
 	internal class TsCAeItemUrlCollection : OpcReadOnlyCollection
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
 		/// <summary>
 		/// Constructs an empty collection.
 		/// </summary>
@@ -44,28 +40,21 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// Constructs a collection from an array of item urls.
 		/// </summary>
 		public TsCAeItemUrlCollection(TsCAeItemUrl[] itemUrls) : base(itemUrls) { }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Public Methods
-		
-		/// <summary>
+        /// <summary>
 		/// An indexer for the collection.
 		/// </summary>
-		public new TsCAeItemUrl this[int index]
-		{
-			get { return (TsCAeItemUrl)Array.GetValue(index); }
-		}
+		public new TsCAeItemUrl this[int index] => (TsCAeItemUrl)Array.GetValue(index);
 
-		/// <summary>
+        /// <summary>
 		/// Returns a copy of the collection as an array.
 		/// </summary>
 		public new TsCAeItemUrl[] ToArray()
 		{
 			return (TsCAeItemUrl[])OpcConvert.Clone(Array);
 		}
-
-#endregion
+        #endregion
 	}
 }

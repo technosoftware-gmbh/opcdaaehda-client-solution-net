@@ -21,7 +21,6 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Da
@@ -29,7 +28,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 	/// <summary>
 	/// Defines functionality that is common to all OPC Data Access servers.
 	/// </summary>
-	public interface ITsDaServer : Technosoftware.DaAeHdaClient.IOpcServer
+	public interface ITsDaServer : IOpcServer
 	{
 		/// <summary>
 		/// Returns the filters applied by the server to any item results returned to the client.
@@ -86,14 +85,14 @@ namespace Technosoftware.DaAeHdaClient.Da
 		TsCDaBrowseElement[] Browse(
 			OpcItem itemId,
 			TsCDaBrowseFilters filters,
-			out Da.TsCDaBrowsePosition position);
+			out TsCDaBrowsePosition position);
 
 		/// <summary>
 		/// Continues a browse operation with previously specified search criteria.
 		/// </summary>
 		/// <param name="position">An object containing the browse operation state information.</param>
 		/// <returns>The set of elements found.</returns>
-		TsCDaBrowseElement[] BrowseNext(ref Da.TsCDaBrowsePosition position);
+		TsCDaBrowseElement[] BrowseNext(ref TsCDaBrowsePosition position);
 
 		/// <summary>
 		/// Returns the item properties for a set of items.

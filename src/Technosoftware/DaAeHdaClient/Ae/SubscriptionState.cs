@@ -24,29 +24,15 @@ namespace Technosoftware.DaAeHdaClient.Ae
 	[Serializable]
 	public class TsCAeSubscriptionState : ICloneable
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private bool active_ = true;
+        #endregion
 
-		private bool _active = true;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
+        #endregion
 
-		/// <summary>
-		/// Initializes object with default values.
-		/// </summary>
-		public TsCAeSubscriptionState()
-		{
-		}
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// A descriptive name for the subscription.
 		/// </summary>
 		public string Name { get; set; }
@@ -61,9 +47,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// </summary>
 		public bool Active
 		{
-			get { return _active; }
-			set { _active = value; }
-		}
+			get => active_;
+            set => active_ = value;
+        }
 
 		/// <summary>
 		/// The maximum rate at which the server send event notifications.
@@ -79,20 +65,16 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// The maximum period between updates sent to the client.
 		/// </summary>
 		public int KeepAlive { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
 		/// Creates a shallow copy of the object.
 		/// </summary>
 		public virtual object Clone()
 		{
 			return MemberwiseClone();
 		}
-
-		#endregion
+        #endregion
 	}
 }

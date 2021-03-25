@@ -32,17 +32,12 @@ namespace Technosoftware.DaAeHdaClient.Da
 	[Serializable]
 	public class TsCDaItemValueResult : TsCDaItemValue, IOpcResult
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private OpcResult result_ = OpcResult.S_OK;
+        #endregion
 
-		private OpcResult _result = OpcResult.S_OK;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Initializes the object with default values.
 		/// </summary>
 		public TsCDaItemValueResult() { }
@@ -73,60 +68,56 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <summary>
 		/// Initializes the object with the specified item name and result code.
 		/// </summary>
-		public TsCDaItemValueResult(string itemName, OpcResult resultID)
+		public TsCDaItemValueResult(string itemName, OpcResult resultId)
 			: base(itemName)
 		{
-			Result = resultID;
+			Result = resultId;
 		}
 
 		/// <summary>
 		/// Initializes the object with the specified item name, result code and diagnostic info.
 		/// </summary>
-		public TsCDaItemValueResult(string itemName, OpcResult resultID, string diagnosticInfo)
+		public TsCDaItemValueResult(string itemName, OpcResult resultId, string diagnosticInfo)
 			: base(itemName)
 		{
-			Result = resultID;
+			Result = resultId;
 			DiagnosticInfo = diagnosticInfo;
 		}
 
 		/// <summary>
 		/// Initialize object with the specified ItemIdentifier and result code.
 		/// </summary>
-		public TsCDaItemValueResult(OpcItem item, OpcResult resultID)
+		public TsCDaItemValueResult(OpcItem item, OpcResult resultId)
 			: base(item)
 		{
-			Result = resultID;
+			Result = resultId;
 		}
 
 		/// <summary>
 		/// Initializes the object with the specified ItemIdentifier, result code and diagnostic info.
 		/// </summary>
-		public TsCDaItemValueResult(OpcItem item, OpcResult resultID, string diagnosticInfo)
+		public TsCDaItemValueResult(OpcItem item, OpcResult resultId, string diagnosticInfo)
 			: base(item)
 		{
-			Result = resultID;
+			Result = resultId;
 			DiagnosticInfo = diagnosticInfo;
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region IOpcResult Members
-
-		/// <summary>
+        /// <summary>
 		/// The error id for the result of an operation on an property.
 		/// </summary>
 		public OpcResult Result
 		{
-			get { return _result; }
-			set { _result = value; }
-		}
+			get => result_;
+            set => result_ = value;
+        }
 
 		/// <summary>
 		/// Vendor specific diagnostic information (not the localized error text).
 		/// </summary>
 		public string DiagnosticInfo { get; set; }
-
-		#endregion
+        #endregion
 	}
 }

@@ -21,9 +21,11 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
+
 using System;
 using System.Collections;
 using System.Runtime.Serialization;
+
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Ae
@@ -35,16 +37,13 @@ namespace Technosoftware.DaAeHdaClient.Ae
 	public class TsCAeSubscription : ITsCAeSubscription, ISerializable, ICloneable
 	{
 		#region CategoryCollection Class
-
-		/// <summary>
+        /// <summary>
 		/// Contains a read-only collection category ids.
 		/// </summary>
 		public class CategoryCollection : OpcReadOnlyCollection
 		{
-			///////////////////////////////////////////////////////////////////
 			#region Constructors, Destructor, Initialization
-
-			/// <summary>
+            /// <summary>
 			/// Creates an empty collection.
 			/// </summary>
 			internal CategoryCollection() : base(new int[0]) { }
@@ -53,44 +52,33 @@ namespace Technosoftware.DaAeHdaClient.Ae
 			/// Creates a collection containing the list of category ids.
 			/// </summary>
 			internal CategoryCollection(int[] categoryIDs) : base(categoryIDs) { }
+            #endregion
 
-			#endregion
-
-			///////////////////////////////////////////////////////////////////
 			#region Public Methods
-
-			/// <summary>
+            /// <summary>
 			/// An indexer for the collection.
 			/// </summary>
-			public new int this[int index]
-			{
-				get { return (int)Array.GetValue(index); }
-			}
+			public new int this[int index] => (int)Array.GetValue(index);
 
-			/// <summary>
+            /// <summary>
 			/// Returns a copy of the collection as an array.
 			/// </summary>
 			public new int[] ToArray()
 			{
-				return (int[])Technosoftware.DaAeHdaClient.OpcConvert.Clone(Array);
+				return (int[])OpcConvert.Clone(Array);
 			}
-
-			#endregion
+            #endregion
 		}
-
-		#endregion
+        #endregion
 
 		#region StringCollection Class
-
-		/// <summary>
+        /// <summary>
 		/// Contains a read-only collection of strings.
 		/// </summary>
 		public class StringCollection : OpcReadOnlyCollection
 		{
-			///////////////////////////////////////////////////////////////////
 			#region Constructors, Destructor, Initialization
-
-			/// <summary>
+            /// <summary>
 			/// Creates an empty collection.
 			/// </summary>
 			internal StringCollection() : base(new string[0]) { }
@@ -99,44 +87,33 @@ namespace Technosoftware.DaAeHdaClient.Ae
 			/// Creates a collection containing the specified strings.
 			/// </summary>
 			internal StringCollection(string[] strings) : base(strings) { }
-
-			#endregion
+            #endregion
 			
-			///////////////////////////////////////////////////////////////////
 			#region Public Methods
-
-			/// <summary>
+            /// <summary>
 			/// An indexer for the collection.
 			/// </summary>
-			public new string this[int index]
-			{
-				get { return (string)Array.GetValue(index); }
-			}
+			public new string this[int index] => (string)Array.GetValue(index);
 
-			/// <summary>
+            /// <summary>
 			/// Returns a copy of the collection as an array.
 			/// </summary>
 			public new string[] ToArray()
 			{
-				return (string[])Technosoftware.DaAeHdaClient.OpcConvert.Clone(Array);
+				return (string[])OpcConvert.Clone(Array);
 			}
-
-			#endregion
+            #endregion
 		}
-
-		#endregion
+        #endregion
 
 		#region AttributeDictionary Class
-
-		/// <summary>
+        /// <summary>
 		/// Contains a read-only dictionary of attribute lists indexed by category id.
 		/// </summary>
 		[Serializable]
 		public class AttributeDictionary : OpcReadOnlyDictionary
 		{
-			///////////////////////////////////////////////////////////////////
 			#region Constructors, Destructor, Initialization
-			
 			/// <summary>
 			/// Creates an empty collection.
 			/// </summary>
@@ -146,52 +123,40 @@ namespace Technosoftware.DaAeHdaClient.Ae
 			/// Constructs an dictionary from a set of category ids.
 			/// </summary>
 			internal AttributeDictionary(Hashtable dictionary) : base(dictionary) { }
+            #endregion
 
-			#endregion
-
-			///////////////////////////////////////////////////////////////////
 			#region Public Methods
-
-			/// <summary>
-			/// Gets or sets the atrtibute collection for the specified category. 
+            /// <summary>
+			/// Gets or sets the attribute collection for the specified category. 
 			/// </summary>
-			public AttributeCollection this[int categoryID]
-			{
-				get { return (AttributeCollection)base[categoryID]; }
-			}
+			public AttributeCollection this[int categoryId] => (AttributeCollection)base[categoryId];
 
-			/// <summary>
+            /// <summary>
 			/// Adds or replaces the set of attributes associated with the category.
 			/// </summary>
-			internal void Update(int categoryID, int[] attributeIDs)
+			internal void Update(int categoryId, int[] attributeIDs)
 			{
-				Dictionary[categoryID] = new AttributeCollection(attributeIDs);
+				Dictionary[categoryId] = new AttributeCollection(attributeIDs);
 			}
+            #endregion
 
-			#endregion
-
-			///////////////////////////////////////////////////////////////////
 			#region ISerializable Members
 			/// <summary>
-			/// Contructs an object by deserializing it from a stream.
+			/// Constructs an object by deserializing it from a stream.
 			/// </summary>
 			protected AttributeDictionary(SerializationInfo info, StreamingContext context) : base(info, context) { }
 			#endregion
 		}
-
-		#endregion
+        #endregion
 
 		#region AttributeCollection Class
-
-		/// <summary>
+        /// <summary>
 		/// Contains a read-only collection attribute ids.
 		/// </summary>
 		[Serializable]
 		public class AttributeCollection : OpcReadOnlyCollection
 		{
-			///////////////////////////////////////////////////////////////////
 			#region Constructors, Destructor, Initialization
-
 			/// <summary>
 			/// Creates an empty collection.
 			/// </summary>
@@ -201,95 +166,77 @@ namespace Technosoftware.DaAeHdaClient.Ae
 			/// Creates a collection containing the specified attribute ids.
 			/// </summary>
 			internal AttributeCollection(int[] attributeIDs) : base(attributeIDs) { }
+            #endregion
 
-			#endregion
-
-			///////////////////////////////////////////////////////////////////
 			#region Public Methods
-			
 			/// <summary>
 			/// An indexer for the collection.
 			/// </summary>
-			public new int this[int index]
-			{
-				get { return (int)Array.GetValue(index); }
-			}
+			public new int this[int index] => (int)Array.GetValue(index);
 
-			/// <summary>
+            /// <summary>
 			/// Returns a copy of the collection as an array.
 			/// </summary>
 			public new int[] ToArray()
 			{
-				return (int[])Technosoftware.DaAeHdaClient.OpcConvert.Clone(Array);
+				return (int[])OpcConvert.Clone(Array);
 			}
+            #endregion
 
-			#endregion
-
-			///////////////////////////////////////////////////////////////////
 			#region ISerializable Members
-
-			/// <summary>
-			/// Contructs an object by deserializing it from a stream.
+            /// <summary>
+			/// Constructs an object by deserializing it from a stream.
 			/// </summary>
 			protected AttributeCollection(SerializationInfo info, StreamingContext context) : base(info, context) { }
-
-			#endregion
+            #endregion
 		}
 		#endregion
 
 		#region Names Class
-
-		/// <summary>
+        /// <summary>
 		/// A set of names for fields used in serialization.
 		/// </summary>
 		private class Names
 		{
-			internal const string STATE = "ST";
-			internal const string FILTERS = "FT";
-			internal const string ATTRIBUTES = "AT";
+			internal const string State = "ST";
+			internal const string Filters = "FT";
+			internal const string Attributes = "AT";
 		}
-
-		#endregion
+        #endregion
 
 		#region Fields
-
-		private bool _disposed;
-		private TsCAeServer _server;
-		private ITsCAeSubscription _subscription;
+        private bool disposed_;
+		private TsCAeServer server_;
+		private ITsCAeSubscription subscription_;
 
 		// state
-		private TsCAeSubscriptionState _state = new TsCAeSubscriptionState();
-		private string _name;
+		private TsCAeSubscriptionState state_;
+		private string name_;
 
 		// filters
-		private TsCAeSubscriptionFilters _filters = new TsCAeSubscriptionFilters();
-		private CategoryCollection _categories = new CategoryCollection();
-		private StringCollection _areas = new StringCollection();
-		private StringCollection _sources = new StringCollection();
+		private TsCAeSubscriptionFilters subscriptionFilters_ = new TsCAeSubscriptionFilters();
+		private CategoryCollection categories_ = new CategoryCollection();
+		private StringCollection areas_ = new StringCollection();
+		private StringCollection sources_ = new StringCollection();
 
 		// returned attributes
-		private AttributeDictionary _attributes = new AttributeDictionary();
-
-		#endregion
+		private AttributeDictionary attributes_ = new AttributeDictionary();
+        #endregion
 
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Initializes object with default values.
 		/// </summary>
 		public TsCAeSubscription(TsCAeServer server, ITsCAeSubscription subscription, TsCAeSubscriptionState state)
 		{
-			if (server == null) throw new ArgumentNullException("server");
-			if (subscription == null) throw new ArgumentNullException("subscription");
-
-			_server = server;
-			_subscription = subscription;
-			_state = (Ae.TsCAeSubscriptionState)state.Clone();
-			_name = state.Name;
+            server_ = server ?? throw new ArgumentNullException(nameof(server));
+			subscription_ = subscription ?? throw new ArgumentNullException(nameof(subscription));
+			state_ = (TsCAeSubscriptionState)state.Clone();
+			name_ = state.Name;
 		}
 
         /// <summary>
-        /// The finializer implementation.
+        /// The finalizer implementation.
         /// </summary>
         ~TsCAeSubscription()
 		{
@@ -321,22 +268,22 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		protected virtual void Dispose(bool disposing)
 		{
 			// Check to see if Dispose has already been called.
-			if(!_disposed)
+			if(!disposed_)
 			{
 				// If disposing equals true, dispose all managed
 				// and unmanaged resources.
 				if(disposing)
 				{
-					if (_subscription != null)
+					if (subscription_ != null)
 					{
-						_server.SubscriptionDisposed(this);
-						_subscription.Dispose();
+						server_.SubscriptionDisposed(this);
+						subscription_.Dispose();
 					}
 				}
 				// Release unmanaged resources. If disposing is false,
 				// only the following code is executed.
 			}
-			_disposed = true;
+			disposed_ = true;
 		}
 
 		#endregion
@@ -346,160 +293,119 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// <summary>
 		/// The server that the subscription object belongs to.
 		/// </summary>
-		public TsCAeServer Server
-		{
-			get { return _server; }
-		}
+		public TsCAeServer Server => server_;
 
-		/// <summary>
+        /// <summary>
 		/// A descriptive name for the subscription.
 		/// </summary>
-		public string Name
-		{
-			get { return _state.Name; }
-		}
+		public string Name => state_.Name;
 
-		/// <summary>
+        /// <summary>
 		/// A unique identifier for the subscription assigned by the client.
 		/// </summary>
-		public object ClientHandle
-		{
-			get { return _state.ClientHandle; }
-		}
+		public object ClientHandle => state_.ClientHandle;
 
-		/// <summary>
+        /// <summary>
 		/// Whether the subscription is monitoring for events to send to the client.
 		/// </summary>
-		public bool Active
-		{
-			get { return _state.Active; }
-		}
+		public bool Active => state_.Active;
 
-		/// <summary>
+        /// <summary>
 		/// The maximum rate at which the server send event notifications.
-		/// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+		/// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
 		/// the time format (UTC or local   time).
 		/// </summary>
-		public int BufferTime
-		{
-			get { return _state.BufferTime; }
-		}
+		public int BufferTime => state_.BufferTime;
 
-		/// <summary>
+        /// <summary>
 		/// The requested maximum number of events that will be sent in a single callback.
 		/// </summary>
-		public int MaxSize
-		{
-			get { return _state.MaxSize; }
-		}
+		public int MaxSize => state_.MaxSize;
 
-		/// <summary>
+        /// <summary>
 		/// The maximum period between updates sent to the client.
 		/// </summary>
-		public int KeepAlive
-		{
-			get { return _state.KeepAlive; }
-		}
+		public int KeepAlive => state_.KeepAlive;
 
-		/// <summary>
+        /// <summary>
 		/// A mask indicating which event types should be sent to the client.
 		/// </summary>
-		public int EventTypes
-		{
-			get { return _filters.EventTypes; }
-		}
+		public int EventTypes => subscriptionFilters_.EventTypes;
 
-		/// <summary>
+        /// <summary>
 		/// The highest severity for the events that should be sent to the client.
 		/// </summary>
-		public int HighSeverity
-		{
-			get { return _filters.HighSeverity; }
-		}
+        // ReSharper disable once UnusedMember.Global
+        public int HighSeverity => subscriptionFilters_.HighSeverity;
 
-		/// <summary>
+        /// <summary>
 		/// The lowest severity for the events that should be sent to the client.
 		/// </summary>
-		public int LowSeverity
-		{
-			get { return _filters.LowSeverity; }
-		}
+        // ReSharper disable once UnusedMember.Global
+        public int LowSeverity => subscriptionFilters_.LowSeverity;
 
-		/// <summary>
+        /// <summary>
 		/// The event category ids monitored by this subscription.
 		/// </summary>
-		public CategoryCollection Categories
-		{
-			get { return _categories; }
-		}
+		public CategoryCollection Categories => categories_;
 
-		/// <summary>
+        /// <summary>
 		/// A list of full-qualified ids for process areas of interest - only events or conditions in these areas will be reported.
 		/// </summary>
-		public StringCollection Areas
-		{
-			get { return _areas; }
-		}
+		public StringCollection Areas => areas_;
 
-		/// <summary>
-		/// A list of full-qualified ids for sources of interest - only events or conditions from these soucres will be reported.
+        /// <summary>
+		/// A list of full-qualified ids for sources of interest - only events or conditions from these sources will be reported.
 		/// </summary>
-		public StringCollection Sources
-		{
-			get { return _sources; }
-		}
+		public StringCollection Sources => sources_;
 
-		/// <summary>
+        /// <summary>
 		/// The list of attributes returned for each event category.
 		/// </summary>
-		public AttributeDictionary Attributes
-		{
-			get { return _attributes; }
-		}
-
-		#endregion
+		public AttributeDictionary Attributes => attributes_;
+        #endregion
 
 		#region Public Methods
-
-		/// <summary>
-		/// Returns a writeable copy of the current attributes.
+        /// <summary>
+		/// Returns a writable copy of the current attributes.
 		/// </summary>
-		public Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeDictionary GetAttributes()
+		public TsCAeAttributeDictionary GetAttributes()
 		{
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-			Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeDictionary attributes = new Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeDictionary();
+			TsCAeAttributeDictionary attributes = new TsCAeAttributeDictionary();
 
-			IDictionaryEnumerator enumerator = _attributes.GetEnumerator();
+			IDictionaryEnumerator enumerator = attributes_.GetEnumerator();
 
 			while (enumerator.MoveNext())
 			{
-				int categoryID = (int)enumerator.Key;
-				AttributeCollection attributeIDs = (AttributeCollection)enumerator.Value;
+                if (enumerator.Key != null)
+                {
+                    var categoryId = (int)enumerator.Key;
+                    AttributeCollection attributeIDs = (AttributeCollection)enumerator.Value;
 
-				attributes.Add(categoryID, attributeIDs.ToArray());
-			}
+                    attributes.Add(categoryId, attributeIDs.ToArray());
+                }
+            }
 
 			return attributes;
 		}
-
-		#endregion
+        #endregion
 
 		#region ISerializable Members
-
-		/// <summary>
-		/// Contructs a server by de-serializing its OpcUrl from the stream.
+        /// <summary>
+		/// Constructs a server by de-serializing its OpcUrl from the stream.
 		/// </summary>
 		protected TsCAeSubscription(SerializationInfo info, StreamingContext context)
 		{
-			_state = (Ae.TsCAeSubscriptionState)info.GetValue(Names.STATE, typeof(Ae.TsCAeSubscriptionState));
-			_filters = (Ae.TsCAeSubscriptionFilters)info.GetValue(Names.FILTERS, typeof(Ae.TsCAeSubscriptionFilters));
-			_attributes = (AttributeDictionary)info.GetValue(Names.ATTRIBUTES, typeof(AttributeDictionary));
+			state_ = (TsCAeSubscriptionState)info.GetValue(Names.State, typeof(TsCAeSubscriptionState));
+			subscriptionFilters_ = (TsCAeSubscriptionFilters)info.GetValue(Names.Filters, typeof(TsCAeSubscriptionFilters));
+			attributes_ = (AttributeDictionary)info.GetValue(Names.Attributes, typeof(AttributeDictionary));
 
-			_name = _state.Name;
+			name_ = state_.Name;
 
-			_categories = new CategoryCollection(_filters.Categories.ToArray());
-			_areas = new StringCollection(_filters.Areas.ToArray());
-			_sources = new StringCollection(_filters.Sources.ToArray());
+			categories_ = new CategoryCollection(subscriptionFilters_.Categories.ToArray());
+			areas_ = new StringCollection(subscriptionFilters_.Areas.ToArray());
+			sources_ = new StringCollection(subscriptionFilters_.Sources.ToArray());
 		}
 
 		/// <summary>
@@ -507,22 +413,20 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// </summary>
 		public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
-			info.AddValue(Names.STATE, _state);
-			info.AddValue(Names.FILTERS, _filters);
-			info.AddValue(Names.ATTRIBUTES, _attributes);
+			info.AddValue(Names.State, state_);
+			info.AddValue(Names.Filters, subscriptionFilters_);
+			info.AddValue(Names.Attributes, attributes_);
 		}
-
-		#endregion
+        #endregion
 
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
 		/// Returns an unconnected copy of the subscription with the same items.
 		/// </summary>
 		public virtual object Clone()
 		{
 			// do a memberwise clone.
-			Ae.TsCAeSubscription clone = (Ae.TsCAeSubscription)MemberwiseClone();
+			TsCAeSubscription clone = (TsCAeSubscription)MemberwiseClone();
 
 			/*
 			// place clone in disconnected state.
@@ -553,8 +457,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 			// return clone.
 			return clone;
 		}
-
-		#endregion
+        #endregion
 
 		#region ISubscription Members
         /// <summary>
@@ -562,8 +465,8 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// </summary>
         public event TsCAeDataChangedEventHandler DataChangedEvent
         {
-            add { _subscription.DataChangedEvent += value; }
-            remove { _subscription.DataChangedEvent -= value; }
+            add => subscription_.DataChangedEvent += value;
+            remove => subscription_.DataChangedEvent -= value;
         }
 
 		/// <summary>
@@ -573,12 +476,12 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		public TsCAeSubscriptionState GetState()
 		{
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (_subscription == null) throw new NotConnectedException();
+            if (subscription_ == null) throw new NotConnectedException();
 
-			_state = _subscription.GetState();
-			_state.Name = _name;
+			state_ = subscription_.GetState();
+			state_.Name = name_;
 
-			return (TsCAeSubscriptionState)_state.Clone();
+			return (TsCAeSubscriptionState)state_.Clone();
 		}
 
 		/// <summary>
@@ -587,23 +490,23 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// <param name="masks">A bit mask that indicates which elements of the subscription state are changing.</param>
 		/// <param name="state">The new subscription state.</param>
 		/// <returns>The actual subscription state after applying the changes.</returns>
-		public Ae.TsCAeSubscriptionState ModifyState(int masks, Ae.TsCAeSubscriptionState state)
+		public TsCAeSubscriptionState ModifyState(int masks, TsCAeSubscriptionState state)
 		{
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (_subscription == null) throw new NotConnectedException();
+            if (subscription_ == null) throw new NotConnectedException();
 
-            _state = _subscription.ModifyState(masks, state);
+            state_ = subscription_.ModifyState(masks, state);
 
 			if ((masks & (int)TsCAeStateMask.Name) != 0)
 			{
-				_state.Name = _name = state.Name;
+				state_.Name = name_ = state.Name;
 			}
 			else
 			{
-				_state.Name = _name;
+				state_.Name = name_;
 			}
 
-			return (Ae.TsCAeSubscriptionState)_state.Clone();
+			return (TsCAeSubscriptionState)state_.Clone();
 		}
 
 		/// <summary>
@@ -613,26 +516,26 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		public TsCAeSubscriptionFilters GetFilters()
 		{
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (_subscription == null) throw new NotConnectedException();
+            if (subscription_ == null) throw new NotConnectedException();
 
-            _filters = _subscription.GetFilters();
-			_categories = new CategoryCollection(_filters.Categories.ToArray());
-			_areas = new StringCollection(_filters.Areas.ToArray());
-			_sources = new StringCollection(_filters.Sources.ToArray());
+            subscriptionFilters_ = subscription_.GetFilters();
+			categories_ = new CategoryCollection(subscriptionFilters_.Categories.ToArray());
+			areas_ = new StringCollection(subscriptionFilters_.Areas.ToArray());
+			sources_ = new StringCollection(subscriptionFilters_.Sources.ToArray());
 
-			return (TsCAeSubscriptionFilters)_filters.Clone();
+			return (TsCAeSubscriptionFilters)subscriptionFilters_.Clone();
 		}
 
 		/// <summary>
 		/// Sets the current filters for the subscription.
 		/// </summary>
 		/// <param name="filters">The new filters to use for the subscription.</param>
-		public void SetFilters(Ae.TsCAeSubscriptionFilters filters)
+		public void SetFilters(TsCAeSubscriptionFilters filters)
 		{
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (_subscription == null) throw new NotConnectedException();
+            if (subscription_ == null) throw new NotConnectedException();
 
-            _subscription.SetFilters(filters);
+            subscription_.SetFilters(filters);
 
 			GetFilters();
 		}
@@ -644,11 +547,11 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		public int[] GetReturnedAttributes(int eventCategory)
 		{
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (_subscription == null) throw new NotConnectedException();
+            if (subscription_ == null) throw new NotConnectedException();
 
-            int[] attributeIDs = _subscription.GetReturnedAttributes(eventCategory);
+            int[] attributeIDs = subscription_.GetReturnedAttributes(eventCategory);
 
-			_attributes.Update(eventCategory, (int[])Technosoftware.DaAeHdaClient.OpcConvert.Clone(attributeIDs));
+			attributes_.Update(eventCategory, (int[])OpcConvert.Clone(attributeIDs));
 
 			return attributeIDs;
 		}
@@ -661,11 +564,11 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		public void SelectReturnedAttributes(int eventCategory, int[] attributeIDs)
 		{
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (_subscription == null) throw new NotConnectedException();
+            if (subscription_ == null) throw new NotConnectedException();
 
-            _subscription.SelectReturnedAttributes(eventCategory, attributeIDs);
+            subscription_.SelectReturnedAttributes(eventCategory, attributeIDs);
 
-			_attributes.Update(eventCategory, (int[])Technosoftware.DaAeHdaClient.OpcConvert.Clone(attributeIDs));
+			attributes_.Update(eventCategory, (int[])OpcConvert.Clone(attributeIDs));
 		}
 
 		/// <summary>
@@ -674,9 +577,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		public void Refresh()
 		{
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (_subscription == null) throw new NotConnectedException();
+            if (subscription_ == null) throw new NotConnectedException();
 
-            _subscription.Refresh();
+            subscription_.Refresh();
 		}
 
 		/// <summary>
@@ -685,31 +588,23 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		public void CancelRefresh()
 		{
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (_subscription == null) throw new NotConnectedException();
+            if (subscription_ == null) throw new NotConnectedException();
 
-            _subscription.CancelRefresh();
+            subscription_.CancelRefresh();
 		}
-
 		#endregion
 
-		#region Private Methods
-
-		/// <summary>
+		#region Internal Properties
+        /// <summary>
 		/// The current state.
 		/// </summary>
-		internal TsCAeSubscriptionState State
-		{
-			get { return _state; }
-		}
+		internal TsCAeSubscriptionState State => state_;
 
-		/// <summary>
+        /// <summary>
 		/// The current filters.
 		/// </summary>
-		internal TsCAeSubscriptionFilters Filters
-		{
-			get { return _filters; }
-		}
+		internal TsCAeSubscriptionFilters Filters => subscriptionFilters_;
 
-		#endregion
+        #endregion
 	}
 }

@@ -21,9 +21,11 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
+
 using System;
-using Technosoftware.DaAeHdaClient;
+
 using Technosoftware.DaAeHdaClient.Da;
+
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Ae
@@ -34,22 +36,16 @@ namespace Technosoftware.DaAeHdaClient.Ae
     [Serializable]
     public class TsCAeEventNotification : ICloneable
     {
-        ///////////////////////////////////////////////////////////////////////
         #region Fields
-
-        private DateTime _time = DateTime.MinValue;
-        private TsCAeEventType _eventType = TsCAeEventType.Condition;
-        private int _severity = 1;
-        private AttributeCollection _attributes = new AttributeCollection();
-        private TsCDaQuality _quality = TsCDaQuality.Bad;
-
-        private DateTime _activeTime = DateTime.MinValue;
-
+        private DateTime time_ = DateTime.MinValue;
+        private TsCAeEventType eventType_ = TsCAeEventType.Condition;
+        private int severity_ = 1;
+        private AttributeCollection attributes_ = new AttributeCollection();
+        private TsCDaQuality daQuality_ = TsCDaQuality.Bad;
+        private DateTime activeTime_ = DateTime.MinValue;
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region AttributeCollection Class
-
         /// <summary>
         /// Contains a read-only collection of AttributeValues.
         /// </summary>
@@ -66,12 +62,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
             /// </summary>
             internal AttributeCollection(object[] attributes) : base(attributes) { }
         }
-
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Properties
-
         /// <summary>
         /// The handle of the subscription that requested the notification
         /// </summary>
@@ -84,13 +77,13 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
         /// <summary>
         /// The time of the event occurrence.
-        /// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
         /// the time format (UTC or local time).
         /// </summary>
         public DateTime Time
         {
-            get { return _time; }
-            set { _time = value; }
+            get => time_;
+            set => time_ = value;
         }
 
         /// <summary>
@@ -103,8 +96,8 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// </summary>
         public TsCAeEventType EventType
         {
-            get { return _eventType; }
-            set { _eventType = value; }
+            get => eventType_;
+            set => eventType_ = value;
         }
 
         /// <summary>
@@ -117,8 +110,8 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// </summary>
         public int Severity
         {
-            get { return _severity; }
-            set { _severity = value; }
+            get => severity_;
+            set => severity_ = value;
         }
 
         /// <summary>
@@ -135,10 +128,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// <summary>
         /// The values of the attributes selected for the event subscription. 
         /// </summary>
-        public AttributeCollection Attributes
-        {
-            get { return _attributes; }
-        }
+        public AttributeCollection Attributes => attributes_;
 
         /// <summary>
         /// Indicates which properties of the condition have changed, to have caused the server to send the event notification.
@@ -148,20 +138,21 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// <summary>
         /// Indicates which properties of the condition have changed, to have caused the server to send the event notification.
         /// </summary>
+        // ReSharper disable once UnusedMember.Global
         public string ChangeMaskAsText
         {
             get
             {
                 string str = null;
 
-                if ((ChangeMask & (int)0x0001) == 0x0001) str = "Active State, ";
-                if ((ChangeMask & (int)0x0002) == 0x0002) str += "Ack State, ";
-                if ((ChangeMask & (int)0x0004) == 0x0004) str += "Enable State, ";
-                if ((ChangeMask & (int)0x0008) == 0x0005) str += "Quality, ";
-                if ((ChangeMask & (int)0x0010) == 0x0010) str += "Serverity, ";
-                if ((ChangeMask & (int)0x0020) == 0x0020) str += "Subconditionn, ";
-                if ((ChangeMask & (int)0x0040) == 0x0040) str += "Message, ";
-                if ((ChangeMask & (int)0x0080) == 0x0080) str += "Attribute";
+                if ((ChangeMask & 0x0001) == 0x0001) str = "Active State, ";
+                if ((ChangeMask & 0x0002) == 0x0002) str += "Ack State, ";
+                if ((ChangeMask & 0x0004) == 0x0004) str += "Enable State, ";
+                if ((ChangeMask & 0x0008) == 0x0005) str += "Quality, ";
+                if ((ChangeMask & 0x0010) == 0x0010) str += "Severity, ";
+                if ((ChangeMask & 0x0020) == 0x0020) str += "SubCondition, ";
+                if ((ChangeMask & 0x0040) == 0x0040) str += "Message, ";
+                if ((ChangeMask & 0x0080) == 0x0080) str += "Attribute";
 
                 return str;
             }
@@ -175,13 +166,14 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// <summary>
         /// A bit mask specifying the new state of the condition.
         /// </summary>
+        // ReSharper disable once UnusedMember.Global
         public string NewStateAsText
         {
             get
             {
-                string str = null;
+                string str;
 
-                if ((NewState & (int)0x0001) == 0x0001)
+                if ((NewState & 0x0001) == 0x0001)
                 {
                     str = "Active, ";
                 }
@@ -189,15 +181,15 @@ namespace Technosoftware.DaAeHdaClient.Ae
                 {
                     str = "Inactive, ";
                 }
-                if ((NewState & (int)0x0002) == 0x0002)
+                if ((NewState & 0x0002) == 0x0002)
                 {
-                    str += "Acked, ";
+                    str += "Acknowledged, ";
                 }
                 else
                 {
-                    str += "Unacked, ";
+                    str += "UnAcknowledged, ";
                 }
-                if ((NewState & (int)0x0004) == 0x0004)
+                if ((NewState & 0x0004) == 0x0004)
                 {
                     str += "Enabled";
                 }
@@ -215,9 +207,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// </summary>
 		public TsCDaQuality Quality
 		{
-			get { return _quality; }
-			set { _quality = value; }
-		}
+			get => daQuality_;
+            set => daQuality_ = value;
+        }
 
         /// <summary>
         /// Whether the related condition requires acknowledgment of this event.
@@ -227,13 +219,13 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// <summary>
         /// The time that the condition became active (for single-state conditions), or the
         /// time of the transition into the current sub-condition (for multi-state conditions). 
-        /// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
         /// the time format (UTC or local time).
         /// </summary>
         public DateTime ActiveTime
         {
-            get { return _activeTime; }
-            set { _activeTime = value; }
+            get => activeTime_;
+            set => activeTime_ = value;
         }
 
         /// <summary>
@@ -243,16 +235,12 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
         /// <summary>
         /// For tracking events, this is the actor id for the event notification. 
-        /// For condition-related events, this is the acknowledger id passed by the client.
+        /// For condition-related events, this is the acknowledgment id passed by the client.
         /// </summary>
         public string ActorID { get; set; }
-
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Public Methods
-
-
         /// <summary>
         /// Sets the list of attribute values.
         /// </summary>
@@ -260,19 +248,16 @@ namespace Technosoftware.DaAeHdaClient.Ae
         {
             if (attributes == null)
             {
-                _attributes = new AttributeCollection();
+                attributes_ = new AttributeCollection();
             }
             else
             {
-                _attributes = new AttributeCollection(attributes);
+                attributes_ = new AttributeCollection(attributes);
             }
         }
-
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region ICloneable Members
-
         /// <summary>
         /// Creates a deep copy of the object.
         /// </summary>
@@ -280,11 +265,10 @@ namespace Technosoftware.DaAeHdaClient.Ae
         {
             TsCAeEventNotification clone = (TsCAeEventNotification)MemberwiseClone();
 
-            clone._attributes = (AttributeCollection)_attributes.Clone();
+            clone.attributes_ = (AttributeCollection)attributes_.Clone();
 
             return clone;
         }
-
         #endregion
 
     }

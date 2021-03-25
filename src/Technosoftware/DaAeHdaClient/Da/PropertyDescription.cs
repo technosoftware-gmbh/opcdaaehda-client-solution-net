@@ -34,10 +34,8 @@ namespace Technosoftware.DaAeHdaClient.Da
 	[Serializable]
 	public class TsDaPropertyDescription
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Initializes the object with the specified values.
 		/// </summary>
 		public TsDaPropertyDescription(TsDaPropertyID id, Type type, string name)
@@ -46,13 +44,10 @@ namespace Technosoftware.DaAeHdaClient.Da
 			Type = type;
 			Name = name;
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// The unique identifier for the property.
 		/// </summary>
 		public TsDaPropertyID ID { get; set; }
@@ -66,13 +61,10 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// The short description defined in the OPC specifications.
 		/// </summary>
 		public string Name { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Data Access Properties
-
-		/// <remarks/>
+        /// <remarks/>
 		public static readonly TsDaPropertyDescription DATATYPE = new TsDaPropertyDescription(TsDaProperty.DATATYPE, typeof(Type), "Item Canonical DataType");
 		/// <remarks/>
 		public static readonly TsDaPropertyDescription VALUE = new TsDaPropertyDescription(TsDaProperty.VALUE, typeof(object), "Item Value");
@@ -134,13 +126,10 @@ namespace Technosoftware.DaAeHdaClient.Da
 		public static readonly TsDaPropertyDescription DEVIATION_LIMIT = new TsDaPropertyDescription(TsDaProperty.DEVIATION_LIMIT, typeof(double), "Deviation Limit");
 		/// <remarks/>
 		public static readonly TsDaPropertyDescription SOUNDFILE = new TsDaPropertyDescription(TsDaProperty.SOUNDFILE, typeof(string), "Sound File");
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Complex Data Properties
-
-		/// <remarks/>
+        /// <remarks/>
 		public static readonly TsDaPropertyDescription TYPE_SYSTEM_ID = new TsDaPropertyDescription(TsDaProperty.TYPE_SYSTEM_ID, typeof(string), "Type System ID");
 		/// <remarks/>
 		public static readonly TsDaPropertyDescription DICTIONARY_ID = new TsDaPropertyDescription(TsDaProperty.DICTIONARY_ID, typeof(string), "Dictionary ID");
@@ -160,26 +149,20 @@ namespace Technosoftware.DaAeHdaClient.Da
 		public static readonly TsDaPropertyDescription UNFILTERED_ITEM_ID = new TsDaPropertyDescription(TsDaProperty.UNFILTERED_ITEM_ID, typeof(string), "Unfiltered Item ID");
 		/// <remarks/>
 		public static readonly TsDaPropertyDescription DATA_FILTER_VALUE = new TsDaPropertyDescription(TsDaProperty.DATA_FILTER_VALUE, typeof(string), "Data Filter Value");
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Object Member Overrides
-
-		/// <summary>
+        /// <summary>
 		/// Converts the description to a string.
 		/// </summary>
 		public override string ToString()
 		{
 			return Name;
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Public Methods
-
-		/// <summary>
+        /// <summary>
 		/// Returns the description for the specified property.
 		/// </summary>
 		public static TsDaPropertyDescription Find(TsDaPropertyID id)
@@ -212,7 +195,6 @@ namespace Technosoftware.DaAeHdaClient.Da
 
 			return (TsDaPropertyDescription[])values.ToArray(typeof(TsDaPropertyDescription));
 		}
-
-		#endregion
+        #endregion
 	}
 }

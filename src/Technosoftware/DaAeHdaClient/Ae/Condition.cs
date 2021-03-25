@@ -22,7 +22,6 @@
 
 #region Using Directives
 using System;
-using Technosoftware.DaAeHdaClient;
 using Technosoftware.DaAeHdaClient.Da;
 #endregion
 
@@ -34,9 +33,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
     [Serializable]
     public class TsCAeCondition : ICloneable
     {
-        ///////////////////////////////////////////////////////////////////////
         #region Fields
-
         private TsCAeSubCondition _activeSubcondition = new TsCAeSubCondition();
         private TsCDaQuality _quality = TsCDaQuality.Bad;
         private DateTime _lastAckTime = DateTime.MinValue;
@@ -45,12 +42,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
         private DateTime _condLastInactive = DateTime.MinValue;
         private SubConditionCollection _subconditions = new SubConditionCollection();
         private AttributeValueCollection _attributes = new AttributeValueCollection();
-
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region AttributeCollection Class
-
         /// <summary>
         /// Contains a read-only collection of AttributeValues.
         /// </summary>
@@ -77,12 +71,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
             /// </summary>
             internal AttributeValueCollection() : base(null, typeof(Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeValue)) { }
         }
-
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region SubConditionCollection Class
-
         /// <summary>
         /// Contains a read-only collection of SubConditions.
         /// </summary>
@@ -109,12 +100,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
             /// </summary>
             internal SubConditionCollection() : base(null, typeof(TsCAeSubCondition)) { }
         }
-
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Properties
-
         /// <summary>
         /// A bit mask indicating the current state of the condition
         /// </summary>
@@ -142,7 +130,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
         /// <summary>
         /// The time of the most recent acknowledgment of this condition (of any sub-condition).
-        /// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
         /// the time format (UTC or local   time).
         /// </summary>
         public DateTime LastAckTime
@@ -155,7 +143,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// Time of the most recent transition into active sub-condition. 
         /// This is the time value which must be specified when acknowledging the condition. 
         /// If the condition has never been active, this value is DateTime.MinValue.
-        /// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
         /// the time format (UTC or local   time).
         /// </summary>
         public DateTime SubCondLastActive
@@ -168,7 +156,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// Time of the most recent transition into the condition. 
         /// There may be transitions among the sub-conditions which are more recent. 
         /// If the condition has never been active, this value is DateTime.MinValue.
-        /// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
         /// the time format (UTC or local   time).
         /// </summary>
         public DateTime CondLastActive
@@ -181,7 +169,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// Time of the most recent transition out of this condition. 
         /// This value is DateTime.MinValue if the condition has never been active, 
         /// or if it is currently active for the first time and has never been exited.
-        /// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
         /// the time format (UTC or local   time).
         /// </summary>
         public DateTime CondLastInactive
@@ -218,12 +206,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
         {
             get { return _attributes; }
         }
-
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region ICloneable Members
-
         /// <summary>
         /// Creates a deep copy of the object.
         /// </summary>
@@ -237,7 +222,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
             return clone;
         }
-
         #endregion
 
     }

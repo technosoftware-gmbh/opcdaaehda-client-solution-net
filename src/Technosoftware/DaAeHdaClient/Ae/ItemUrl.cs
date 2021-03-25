@@ -22,7 +22,6 @@
 
 #region Using Directives
 using System;
-using Technosoftware.DaAeHdaClient;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Ae
@@ -33,16 +32,11 @@ namespace Technosoftware.DaAeHdaClient.Ae
     [Serializable]
     public class TsCAeItemUrl : OpcItem
     {
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private OpcUrl url_ = new OpcUrl();
+        #endregion
 
-		private OpcUrl _url = new OpcUrl();
-	
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
         /// <summary>
         /// Initializes the object with default values.
         /// </summary>
@@ -72,26 +66,20 @@ namespace Technosoftware.DaAeHdaClient.Ae
                 Url = item.Url;
             }
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// The url of the server that contains the item.
 		/// </summary>
 		public OpcUrl Url
 		{
-			get { return _url; }
-			set { _url = value; }
-		}
+			get => url_;
+            set => url_ = value;
+        }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
         /// <summary>
         /// Creates a deep copy of the object.
         /// </summary>
@@ -99,7 +87,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
         { 
             return new TsCAeItemUrl(this);
         }
-
         #endregion
 
     }

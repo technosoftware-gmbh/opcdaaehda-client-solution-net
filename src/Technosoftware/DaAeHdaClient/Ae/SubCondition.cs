@@ -32,17 +32,12 @@ namespace Technosoftware.DaAeHdaClient.Ae
 	[Serializable]
 	public class TsCAeSubCondition : ICloneable
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private int severity_ = 1;
+        #endregion
 
-		private int _severity = 1;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// The name assigned to the sub-condition.
 		/// </summary>
 		public string Name { get; set; }
@@ -57,21 +52,18 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// </summary>
 		public int Severity
 		{
-			get { return _severity; }
-			set { _severity = value; }
-		}
+			get => severity_;
+            set => severity_ = value;
+        }
 
 		/// <summary>
 		/// The text string to be included in any event notification generated on behalf of this sub-condition.
 		/// </summary>
 		public string Description { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
-
-		/// <summary>
+		#region Helper Methods
+        /// <summary>
 		/// Returns a string that represents the current object.
 		/// </summary>
 		/// <returns></returns>
@@ -79,17 +71,13 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		{
 			return Name;
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
 		/// Creates a shallow copy of the object.
 		/// </summary>
 		public virtual object Clone() { return MemberwiseClone(); }
-
-		#endregion
+        #endregion
 	}
 }

@@ -33,18 +33,13 @@ namespace Technosoftware.DaAeHdaClient.Da
 	[Serializable]
 	public class TsCDaItemValue : OpcItem
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private TsCDaQuality daQuality_ = TsCDaQuality.Bad;
+		private DateTime timestamp_ = DateTime.MinValue;
+        #endregion
 
-		private TsCDaQuality _quality = TsCDaQuality.Bad;
-		private DateTime _timestamp = DateTime.MinValue;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Initializes the object with default values.
 		/// </summary>
 		public TsCDaItemValue() { }
@@ -53,15 +48,16 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// Initializes the object with and ItemIdentifier object.
 		/// </summary>
 		public TsCDaItemValue(OpcItem item)
-		{
-			if (item != null)
-			{
-				ItemName = item.ItemName;
-				ItemPath = item.ItemPath;
-				ClientHandle = item.ClientHandle;
-				ServerHandle = item.ServerHandle;
-			}
-		}
+        {
+            if (item == null)
+            {
+                return;
+            }
+            ItemName = item.ItemName;
+            ItemPath = item.ItemPath;
+            ClientHandle = item.ClientHandle;
+            ServerHandle = item.ServerHandle;
+        }
 
 		/// <summary>
 		/// Initializes the object with the specified item name.
@@ -76,23 +72,21 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		public TsCDaItemValue(TsCDaItemValue item)
 			: base(item)
-		{
-			if (item != null)
-			{
-				Value = Technosoftware.DaAeHdaClient.OpcConvert.Clone(item.Value);
-				Quality = item.Quality;
-				QualitySpecified = item.QualitySpecified;
-				Timestamp = item.Timestamp;
-				TimestampSpecified = item.TimestampSpecified;
-			}
-		}
+        {
+            if (item == null)
+            {
+                return;
+            }
+            Value = OpcConvert.Clone(item.Value);
+            Quality = item.Quality;
+            QualitySpecified = item.QualitySpecified;
+            Timestamp = item.Timestamp;
+            TimestampSpecified = item.TimestampSpecified;
+        }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// The item value.
 		/// </summary>
 		public object Value { get; set; }
@@ -102,9 +96,9 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		public TsCDaQuality Quality
 		{
-			get { return _quality; }
-			set { _quality = value; }
-		}
+			get => daQuality_;
+            set => daQuality_ = value;
+        }
 
 		/// <summary>
 		/// Whether the quality is specified.
@@ -113,35 +107,31 @@ namespace Technosoftware.DaAeHdaClient.Da
 
 		/// <summary>
 		/// The timestamp for the item value.
-		/// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+		/// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
 		/// the time format (UTC or local time).
 		/// </summary>
 		public DateTime Timestamp
 		{
-			get { return _timestamp; }
-			set { _timestamp = value; }
-		}
+			get => timestamp_;
+            set => timestamp_ = value;
+        }
 
 		/// <summary>
 		/// Whether the timestamp is specified.
 		/// </summary>
 		public bool TimestampSpecified { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
 		/// Creates a deep copy of the object.
 		/// </summary>
 		public override object Clone()
 		{
 			TsCDaItemValue clone = (TsCDaItemValue)MemberwiseClone();
-			clone.Value = Technosoftware.DaAeHdaClient.OpcConvert.Clone(Value);
+			clone.Value = OpcConvert.Clone(Value);
 			return clone;
 		}
-
-		#endregion
+        #endregion
 	}
 }

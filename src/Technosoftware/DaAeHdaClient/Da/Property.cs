@@ -21,8 +21,6 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
-using Technosoftware.DaAeHdaClient;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Da
@@ -32,7 +30,6 @@ namespace Technosoftware.DaAeHdaClient.Da
 	/// </summary>
 	public class TsDaProperty
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Data Access Properties
 
 		/// <summary><para>Item Canonical DataType</para></summary>
@@ -246,13 +243,10 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// 	<para>e.g. C:\MEDIA\FIC101.WAV, or .MID</para>
 		/// </summary>
 		public static readonly TsDaPropertyID SOUNDFILE = new TsDaPropertyID("soundFile", 313, OpcNamespace.OPC_DATA_ACCESS);
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Complex Data Properties
-
-		/// <summary>
+        /// <summary>
 		/// 	<para>Type System ID</para>
 		/// 	<para>Complex Data Property</para>
 		/// </summary>
@@ -319,10 +313,8 @@ namespace Technosoftware.DaAeHdaClient.Da
 		///     queries.</para>
 		/// </summary>
 		public static readonly TsDaPropertyID DATA_FILTER_VALUE = new TsDaPropertyID("dataFilterValue", 609, OpcNamespace.OPC_DATA_ACCESS);
+        #endregion
 
-		#endregion
-
-        ///////////////////////////////////////////////////////////////////////
         #region XML Data Access Properties
         /// <remarks/>
         public static readonly TsDaPropertyID MINIMUM_VALUE = new TsDaPropertyID("minimumValue", 109, OpcNamespace.OPC_DATA_ACCESS);

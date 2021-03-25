@@ -32,20 +32,15 @@ namespace Technosoftware.DaAeHdaClient.Da
 	/// </summary>
 	public interface ITsCDaSubscription : IDisposable
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Events
-
         /// <summary>
         /// An event to receive data change updates.
         /// </summary>
         event TsCDaDataChangedEventHandler DataChangedEvent;
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Result Filters
-
-		/// <summary>
+        /// <summary>
 		/// Returns the filters applied by the server to any item results returned to the client.
 		/// </summary>
 		/// <returns>A bit mask indicating which fields should be returned in any item results.</returns>
@@ -56,13 +51,10 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		/// <param name="filters">A bit mask indicating which fields should be returned in any item results.</param>
 		void SetResultFilters(int filters);
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region State Management
-
-		/// <summary>
+        /// <summary>
 		/// Returns the current state of the subscription.
 		/// </summary>
 		/// <returns>The current state of the subscription.</returns>
@@ -73,15 +65,12 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		/// <param name="masks">A bit mask that indicates which elements of the subscription state are changing.</param>
 		/// <param name="state">The new subscription state.</param>
-		/// <returns>The actual subscption state after applying the changes.</returns>
+		/// <returns>The actual subscription state after applying the changes.</returns>
 		TsCDaSubscriptionState ModifyState(int masks, TsCDaSubscriptionState state);
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Item Management
-
-		/// <summary>
+        /// <summary>
 		/// Adds items to the subscription.
 		/// </summary>
 		/// <param name="items">The set of items to add to the subscription.</param>
@@ -102,13 +91,10 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <param name="items">The identifiers (i.e. server handles) for the items being removed.</param>
 		/// <returns>The results of the remove item operation for each item.</returns>
 		OpcItemResult[] RemoveItems(OpcItem[] items);
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Synchronous I/O
-
-		/// <summary>
+        /// <summary>
 		/// Reads the values for a set of items in the subscription.
 		/// </summary>
 		/// <param name="items">The identifiers (i.e. server handles) for the items being read.</param>
@@ -121,12 +107,9 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <param name="items">The item values to write.</param>
 		/// <returns>The results of the write operation for each item.</returns>
 		OpcItemResult[] Write(TsCDaItemValue[] items);
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Asynchronous I/O
-
         /// <summary>
         /// Begins an asynchronous read operation for a set of items.
         /// </summary>
@@ -188,13 +171,10 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		/// <returns>Whether data change notifications are enabled.</returns>
 		bool GetEnabled();
-
-		#endregion
+        #endregion
 	}
 
-	///////////////////////////////////////////////////////////////////////////
 	#region Delegate Declarations
-
     /// <summary>
     /// A delegate to receive data change updates from the server.
     /// </summary>
@@ -242,6 +222,5 @@ namespace Technosoftware.DaAeHdaClient.Da
     /// </summary>
     /// <param name="requestHandle">An identifier for the request assigned by the caller.</param>
     public delegate void TsCDaCancelCompleteEventHandler(object requestHandle);
-
-	#endregion
+    #endregion
 }

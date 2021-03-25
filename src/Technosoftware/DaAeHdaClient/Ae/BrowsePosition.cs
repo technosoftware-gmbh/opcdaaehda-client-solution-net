@@ -32,30 +32,25 @@ namespace Technosoftware.DaAeHdaClient.Ae
     [Serializable]
 	public class TsCAeBrowsePosition : IOpcBrowsePosition
 	{
-		///////////////////////////////////////////////////////////////////////
 		#region Fields
+        private bool disposed_;
+		private string areaId_;
+		private TsCAeBrowseType browseType_;
+		private string browseFilter_;
+        #endregion
 
-  		private bool _disposed;
-		private string _areaID;
-		private TsCAeBrowseType _browseType = TsCAeBrowseType.Area;
-		private string _browseFilter;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Constructors, Destructor, Initialization
-
-		/// <summary>
+        /// <summary>
 		/// Saves the parameters for an incomplete browse information.
 		/// </summary>
 		public TsCAeBrowsePosition(
-			string areaID,
+			string areaId,
 			TsCAeBrowseType browseType,
 			string browseFilter)
 		{
-			_areaID = areaID;
-			_browseType = browseType;
-			_browseFilter = browseFilter;
+			areaId_ = areaId;
+			browseType_ = browseType;
+			browseFilter_ = browseFilter;
 		}
 
         /// <summary>
@@ -91,7 +86,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		protected virtual void Dispose(bool disposing)
 		{
 			// Check to see if Dispose has already been called.
-			if(!_disposed)
+			if(!disposed_)
 			{
 				// If disposing equals true, dispose all managed
 				// and unmanaged resources.
@@ -101,51 +96,35 @@ namespace Technosoftware.DaAeHdaClient.Ae
 				// Release unmanaged resources. If disposing is false,
 				// only the following code is executed.
 			}
-			_disposed = true;
+			disposed_ = true;
 		}
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Properties
-
-		/// <summary>
+        /// <summary>
 		/// The fully qualified id for the area being browsed.
 		/// </summary>
-		public string AreaID
-		{
-			get { return _areaID; }
-		}
+		public string AreaID => areaId_;
 
-		/// <summary>
+        /// <summary>
 		/// The type of child element being returned with the browse.
 		/// </summary>
-		public TsCAeBrowseType BrowseType
-		{
-			get { return _browseType; }
-		}
+		public TsCAeBrowseType BrowseType => browseType_;
 
-		/// <summary>
+        /// <summary>
 		/// The filter applied to the name of the elements being returned.
 		/// </summary>
-		public string BrowseFilter
-		{
-			get { return _browseFilter; }
-		}
+		public string BrowseFilter => browseFilter_;
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region ICloneable Members
-
-		/// <summary>
+        /// <summary>
 		/// Creates a shallow copy of the object.
 		/// </summary>
 		public virtual object Clone()
 		{
 			return (TsCAeBrowsePosition)MemberwiseClone();
 		}
-
-		#endregion
+        #endregion
 	}
 }

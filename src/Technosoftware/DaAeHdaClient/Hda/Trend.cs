@@ -160,14 +160,14 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
 		/// <summary>
 		/// The start time for the trend.
-		/// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+		/// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
 		/// the time format (UTC or local time).
 		/// </summary>
 		public TsCHdaTime StartTime { get; set; }
 
 		/// <summary>
 		/// The end time for the trend.
-		/// The <see cref="LicenseHandler.TimeAsUTC">OpcBase.TimeAsUTC</see> property defines
+		/// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
 		/// the time format (UTC or local time).
 		/// </summary>
 		public TsCHdaTime EndTime { get; set; }

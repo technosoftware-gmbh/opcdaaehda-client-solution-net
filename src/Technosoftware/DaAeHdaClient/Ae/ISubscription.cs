@@ -31,20 +31,15 @@ namespace Technosoftware.DaAeHdaClient.Ae
     /// </summary>
     public interface ITsCAeSubscription : IDisposable
     {
-		///////////////////////////////////////////////////////////////////////
 		#region Events
         /// <summary>
         /// An event to receive event change updates.
         /// </summary>
         event TsCAeDataChangedEventHandler DataChangedEvent;
+        #endregion
 
-        
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region State Management
-
-		/// <summary>
+        /// <summary>
         /// Returns the current state of the subscription.
         /// </summary>
         /// <returns>The current state of the subscription.</returns>
@@ -55,15 +50,12 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// </summary>
         /// <param name="masks">A bit mask that indicates which elements of the subscription state are changing.</param>
         /// <param name="state">The new subscription state.</param>
-        /// <returns>The actual subscption state after applying the changes.</returns>
+        /// <returns>The actual subscription state after applying the changes.</returns>
         TsCAeSubscriptionState ModifyState(int masks, TsCAeSubscriptionState state);
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Filter Management
-
-		/// <summary>
+        /// <summary>
         /// Returns the current filters for the subscription.
         /// </summary>
         /// <returns>The current filters for the subscription.</returns>
@@ -74,13 +66,10 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// </summary>
         /// <param name="filters">The new filters to use for the subscription.</param>
         void SetFilters(TsCAeSubscriptionFilters filters);
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Attribute Management
-
-		/// <summary>
+        /// <summary>
         /// Returns the set of attributes to return with event notifications.
         /// </summary>      
         /// <param name="eventCategory">The specific event category for which the attributes apply.</param>
@@ -93,13 +82,10 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// <param name="eventCategory">The specific event category for which the attributes apply.</param>
         /// <param name="attributeIDs">The list of attribute ids to return.</param>
         void SelectReturnedAttributes(int eventCategory, int[] attributeIDs);
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
 		#region Refresh
-
-		/// <summary>
+        /// <summary>
         /// Force a refresh for all active conditions and inactive, unacknowledged conditions whose event notifications match the filter of the event subscription.
         /// </summary>
         void Refresh();
@@ -108,11 +94,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// Cancels an outstanding refresh request.
         /// </summary>
         void CancelRefresh();
-
-		#endregion
+        #endregion
 	}
 
-	///////////////////////////////////////////////////////////////////////////
 	#region Delegate Declarations
     /// <summary>
     /// A delegate to receive data change updates from the server.
@@ -121,6 +105,5 @@ namespace Technosoftware.DaAeHdaClient.Ae
     /// <param name="refresh">TRUE if this is a subscription refresh</param>
     /// <param name="lastRefresh">TRUE if this is the last subscription refresh in response to a specific invocation of the Refresh method.</param>
     public delegate void TsCAeDataChangedEventHandler(TsCAeEventNotification[] notifications, bool refresh, bool lastRefresh);
-
     #endregion 
 }

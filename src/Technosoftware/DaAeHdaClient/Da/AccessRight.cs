@@ -21,7 +21,6 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Da
@@ -32,8 +31,8 @@ namespace Technosoftware.DaAeHdaClient.Da
 	///     This is NOT related to security but rather to the nature of the underlying
 	///     hardware.</para>
 	/// </summary>
-	public enum TsDaAccessRights : int
-	{
+	public enum TsDaAccessRights
+    {
 		/// <summary>The access rights for this item are server.</summary>
 		Unknown = 0x00,
 		/// <summary>The client can read the data item's value.</summary>
