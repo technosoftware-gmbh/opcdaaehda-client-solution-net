@@ -42,7 +42,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
     /// <summary>
     /// An in-process wrapper for a remote OPC COM-HDA server (thread-safe).
     /// </summary>
-    internal class Server : Technosoftware.DaAeHdaClient.Com.Server, Technosoftware.DaAeHdaClient.Hda.ITsCHdaServer
+    internal class Server : Technosoftware.DaAeHdaClient.Com.Server, ITsCHdaServer
     {
         #region Constructor
         //======================================================================
@@ -58,7 +58,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         internal Server(OpcUrl url, object server)
         {
-            if (url == null) throw new ArgumentNullException("url");
+            if (url == null) throw new ArgumentNullException(nameof(url));
 
             url_ = (OpcUrl)url.Clone();
             server_ = server;
@@ -147,7 +147,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_Server.GetHistorianStatus", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_Server.GetHistorianStatus", e);
                 }
 
                 // unmarshal return parameters and free memory.
@@ -178,13 +178,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 if (pftStartTime != IntPtr.Zero)
                 {
-                    status.StartTime = Technosoftware.DaAeHdaClient.Utilities.Interop.GetDateTime(pftStartTime);
+                    status.StartTime = Utilities.Interop.GetDateTime(pftStartTime);
                     Marshal.FreeCoTaskMem(pftStartTime);
                 }
 
                 if (pftCurrentTime != IntPtr.Zero)
                 {
-                    status.CurrentTime = Technosoftware.DaAeHdaClient.Utilities.Interop.GetDateTime(pftCurrentTime);
+                    status.CurrentTime = Utilities.Interop.GetDateTime(pftCurrentTime);
                     Marshal.FreeCoTaskMem(pftCurrentTime);
                 }
 
@@ -199,7 +199,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// Returns the item attributes supported by the server.
         /// </summary>
         /// <returns>The a set of item attributes and their descriptions.</returns>
-        public Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute[] GetAttributes()
+        public TsCHdaAttribute[] GetAttributes()
         {
             lock (this)
             {
@@ -224,20 +224,20 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_Server.GetItemAttributes", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_Server.GetItemAttributes", e);
                 }
 
                 // check if no attributes supported.
                 if (count == 0)
                 {
-                    return new Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute[0];
+                    return new TsCHdaAttribute[0];
                 }
 
                 // unmarshal return parameters and free memory.
-                int[] ids = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pIDs, count, true);
-                string[] names = Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(ref pNames, count, true);
-                string[] descriptions = Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(ref pDescriptions, count, true);
-                short[] datatypes = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt16s(ref pDataTypes, count, true);
+                int[] ids = Utilities.Interop.GetInt32s(ref pIDs, count, true);
+                string[] names = Utilities.Interop.GetUnicodeStrings(ref pNames, count, true);
+                string[] descriptions = Utilities.Interop.GetUnicodeStrings(ref pDescriptions, count, true);
+                short[] datatypes = Utilities.Interop.GetInt16s(ref pDataTypes, count, true);
 
                 // verify return parameters.
                 if (ids == null || names == null || descriptions == null || datatypes == null)
@@ -245,16 +245,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The response from the server was invalid or incomplete");
                 }
 
-                Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute[] attributes = new Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute[count];
+                TsCHdaAttribute[] attributes = new TsCHdaAttribute[count];
 
                 for (int ii = 0; ii < count; ii++)
                 {
-                    attributes[ii] = new Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute();
+                    attributes[ii] = new TsCHdaAttribute();
 
                     attributes[ii].ID = ids[ii];
                     attributes[ii].Name = names[ii];
                     attributes[ii].Description = descriptions[ii];
-                    attributes[ii].DataType = Technosoftware.DaAeHdaClient.Utilities.Interop.GetType((VarEnum)Enum.ToObject(typeof(VarEnum), datatypes[ii]));
+                    attributes[ii].DataType = Utilities.Interop.GetType((VarEnum)Enum.ToObject(typeof(VarEnum), datatypes[ii]));
                 }
 
                 // return results.
@@ -292,7 +292,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_Server.GetAggregates", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_Server.GetAggregates", e);
                 }
 
                 // check if no aggregates supported.
@@ -302,9 +302,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarshal return parameters and free memory.
-                int[] ids = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pIDs, count, true);
-                string[] names = Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(ref pNames, count, true);
-                string[] descriptions = Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(ref pDescriptions, count, true);
+                int[] ids = Utilities.Interop.GetInt32s(ref pIDs, count, true);
+                string[] names = Utilities.Interop.GetUnicodeStrings(ref pNames, count, true);
+                string[] descriptions = Utilities.Interop.GetUnicodeStrings(ref pDescriptions, count, true);
 
                 // verify return parameters.
                 if (ids == null || names == null || descriptions == null)
@@ -355,7 +355,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     ids[ii] = filters[ii].AttributeID;
                     operators[ii] = (OPCHDA_OPERATORCODES)Enum.ToObject(typeof(OPCHDA_OPERATORCODES), filters[ii].Operator);
-                    values[ii] = Technosoftware.DaAeHdaClient.Utilities.Interop.GetVARIANT(filters[ii].FilterValue);
+                    values[ii] = Utilities.Interop.GetVARIANT(filters[ii].FilterValue);
                 }
 
                 // initialize output parameners
@@ -375,11 +375,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_Server.CreateBrowse", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_Server.CreateBrowse", e);
                 }
 
                 // unmarshal return parameters and free memory.
-                int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, count, true);
+                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, count, true);
 
                 // verify return parameters.
                 if ((count > 0 && errors == null) || pBrowser == null)
@@ -391,11 +391,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 for (int ii = 0; ii < count; ii++)
                 {
-                    results[ii] = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
+                    results[ii] = Utilities.Interop.GetResultId(errors[ii]);
                 }
 
                 // return browser.
-                return new Technosoftware.DaAeHdaClient.Com.Hda.Browser(this, pBrowser, filters, results);
+                return new Browser(this, pBrowser, filters, results);
             }
         }
         #endregion
@@ -411,7 +411,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// <returns>The results for each item containing the server handle and result code.</returns>
         public OpcItemResult[] CreateItems(OpcItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             lock (this)
             {
@@ -452,12 +452,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_Server.GetItemHandles", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_Server.GetItemHandles", e);
                 }
 
                 // unmarshal return parameters and free memory.
-                int[] serverHandles = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pServerHandles, items.Length, true);
-                int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
+                int[] serverHandles = Utilities.Interop.GetInt32s(ref pServerHandles, items.Length, true);
+                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
 
                 // verify return parameters.
                 if (serverHandles == null || errors == null)
@@ -470,7 +470,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 for (int ii = 0; ii < results.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(items[ii]);
-                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
+                    results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
 
                     if (results[ii].Result.Succeeded())
                     {
@@ -504,7 +504,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// <returns>The results for each item containing the result code.</returns>
         public OpcItemResult[] ReleaseItems(OpcItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             lock (this)
             {
@@ -532,11 +532,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_Server.ReleaseItemHandles", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_Server.ReleaseItemHandles", e);
                 }
 
                 // unmarshal return parameters and free memory.
-                int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
+                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
 
                 // verify return parameters.
                 if (errors == null)
@@ -549,7 +549,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 for (int ii = 0; ii < results.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(items[ii]);
-                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
+                    results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
 
                     if (results[ii].Result.Succeeded() && items[ii].ServerHandle != null)
                     {
@@ -583,7 +583,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// <returns>The results for each item containing the result code.</returns>
         public OpcItemResult[] ValidateItems(OpcItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             lock (this)
             {
@@ -619,11 +619,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_Server.ValidateItemIDs", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_Server.ValidateItemIDs", e);
                 }
 
                 // unmarshal return parameters and free memory.
-                int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
+                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
 
                 // verify return parameters.
                 if (errors == null)
@@ -636,7 +636,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 for (int ii = 0; ii < results.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(items[ii]);
-                    results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
+                    results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
                 }
 
                 return results;
@@ -664,7 +664,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             bool includeBounds,
             OpcItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             lock (this)
             {
@@ -679,8 +679,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // initialize input parameters.
                 int[] serverHandles = GetServerHandles(items);
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OpcRcw.Hda.OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
                 IntPtr pValues = IntPtr.Zero;
@@ -701,7 +701,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_SyncRead.ReadRaw", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_SyncRead.ReadRaw", e);
                 }
 
                 // unmarhal modified item structures.
@@ -740,8 +740,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaReadValuesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
-            if (callback == null) throw new ArgumentNullException("callback");
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             request = null;
 
@@ -763,8 +763,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 int[] serverHandles = GetServerHandles(items);
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OpcRcw.Hda.OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
                 IntPtr pErrors = IntPtr.Zero;
@@ -785,7 +785,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncRead.ReadRaw", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_AsyncRead.ReadRaw", e);
                 }
 
                 // create result objects.
@@ -839,8 +839,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaDataUpdateEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
-            if (callback == null) throw new ArgumentNullException("callback");
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             request = null;
 
@@ -882,7 +882,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncRead.AdviseRaw", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_AsyncRead.AdviseRaw", e);
                 }
 
                 // create result objects.
@@ -931,8 +931,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaDataUpdateEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
-            if (callback == null) throw new ArgumentNullException("callback");
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             request = null;
 
@@ -979,7 +979,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_Playback.ReadRawWithUpdate", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_Playback.ReadRawWithUpdate", e);
                 }
 
                 // create result objects.
@@ -1022,7 +1022,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             decimal resampleInterval,
             TsCHdaItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             lock (this)
             {
@@ -1038,8 +1038,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 int[] serverHandles = GetServerHandles(items);
                 int[] aggregateIDs = GetAggregateIDs(items);
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OpcRcw.Hda.OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
                 OPCHDA_FILETIME ftResampleInterval = Interop.GetFILETIME(resampleInterval);
 
                 // initialize output arguments.
@@ -1061,7 +1061,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_SyncRead.ReadProcessed", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_SyncRead.ReadProcessed", e);
                 }
 
                 // unmarhal modified item structures.
@@ -1098,8 +1098,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaReadValuesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
-            if (callback == null) throw new ArgumentNullException("callback");
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             request = null;
 
@@ -1122,8 +1122,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 int[] serverHandles = GetServerHandles(items);
                 int[] aggregateIDs = GetAggregateIDs(items);
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OpcRcw.Hda.OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
                 OPCHDA_FILETIME ftResampleInterval = Interop.GetFILETIME(resampleInterval);
 
 
@@ -1146,7 +1146,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncRead.ReadProcessed", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_AsyncRead.ReadProcessed", e);
                 }
 
                 // create result objects.
@@ -1202,8 +1202,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaDataUpdateEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
-            if (callback == null) throw new ArgumentNullException("callback");
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             request = null;
 
@@ -1226,7 +1226,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 int[] serverHandles = GetServerHandles(items);
                 int[] aggregateIDs = GetAggregateIDs(items);
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
                 OPCHDA_FILETIME ftResampleInterval = Interop.GetFILETIME(resampleInterval);
 
                 // initialize output arguments.
@@ -1248,7 +1248,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncRead.AdviseProcessed", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_AsyncRead.AdviseProcessed", e);
                 }
 
                 // create result objects.
@@ -1297,8 +1297,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaDataUpdateEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
-            if (callback == null) throw new ArgumentNullException("callback");
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             request = null;
 
@@ -1321,8 +1321,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 int[] serverHandles = GetServerHandles(items);
                 int[] aggregateIDs = GetAggregateIDs(items);
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OpcRcw.Hda.OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
                 OPCHDA_FILETIME ftResampleInterval = Interop.GetFILETIME(resampleInterval);
                 OPCHDA_FILETIME ftUpdateInterval = Interop.GetFILETIME(updateInterval);
 
@@ -1347,7 +1347,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_Playback.ReadProcessedWithUpdate", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_Playback.ReadProcessedWithUpdate", e);
                 }
 
                 // create result objects.
@@ -1384,7 +1384,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
         public TsCHdaItemValueCollection[] ReadAtTime(DateTime[] timestamps, OpcItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             lock (this)
             {
@@ -1417,7 +1417,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_SyncRead.ReadAtTime", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_SyncRead.ReadAtTime", e);
                 }
 
                 // unmarhal modified item structures.
@@ -1447,8 +1447,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaReadValuesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
-            if (callback == null) throw new ArgumentNullException("callback");
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             request = null;
 
@@ -1488,7 +1488,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncRead.ReadAtTime", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_AsyncRead.ReadAtTime", e);
                 }
 
                 // create result objects.
@@ -1539,7 +1539,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             int maxValues,
             OpcItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             lock (this)
             {
@@ -1554,8 +1554,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // initialize input parameters.
                 int[] serverHandles = GetServerHandles(items);
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OpcRcw.Hda.OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
                 IntPtr pValues = IntPtr.Zero;
@@ -1575,7 +1575,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_SyncRead.ReadModified", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_SyncRead.ReadModified", e);
                 }
 
                 // unmarhal modified item structures.
@@ -1612,8 +1612,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaReadValuesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
-            if (callback == null) throw new ArgumentNullException("callback");
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             request = null;
 
@@ -1635,8 +1635,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 int[] serverHandles = GetServerHandles(items);
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OpcRcw.Hda.OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
                 IntPtr pErrors = IntPtr.Zero;
@@ -1656,7 +1656,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncRead.ReadModified", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_AsyncRead.ReadModified", e);
                 }
 
                 // create result objects.
@@ -1710,8 +1710,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             OpcItem item,
             int[] attributeIDs)
         {
-            if (item == null) throw new ArgumentNullException("item");
-            if (attributeIDs == null) throw new ArgumentNullException("attributeIDs");
+            if (item == null) throw new ArgumentNullException(nameof(item));
+            if (attributeIDs == null) throw new ArgumentNullException(nameof(attributeIDs));
 
             lock (this)
             {
@@ -1726,8 +1726,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // initialize input parameters.
                 int[] serverHandles = GetServerHandles(new OpcItem[] { item });
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OpcRcw.Hda.OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
                 IntPtr pValues = IntPtr.Zero;
@@ -1747,11 +1747,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_SyncRead.ReadAttribute", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_SyncRead.ReadAttribute", e);
                 }
 
                 // unmarhal item attribute structures.
-                Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection[] attributes = Interop.GetAttributeValueCollections(ref pValues, attributeIDs.Length, true);
+                TsCHdaAttributeValueCollection[] attributes = Interop.GetAttributeValueCollections(ref pValues, attributeIDs.Length, true);
 
                 // create item level result collection. 
                 TsCHdaItemAttributeCollection result = UpdateResults(item, attributes, ref pErrors);
@@ -1784,9 +1784,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaReadAttributesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (item == null) throw new ArgumentNullException("item");
-            if (attributeIDs == null) throw new ArgumentNullException("attributeIDs");
-            if (callback == null) throw new ArgumentNullException("callback");
+            if (item == null) throw new ArgumentNullException(nameof(item));
+            if (attributeIDs == null) throw new ArgumentNullException(nameof(attributeIDs));
+            if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             request = null;
 
@@ -1808,8 +1808,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 int[] serverHandles = GetServerHandles(new OpcItem[] { item });
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OpcRcw.Hda.OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
                 IntPtr pErrors = IntPtr.Zero;
@@ -1829,7 +1829,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncRead.ReadAttribute", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_AsyncRead.ReadAttribute", e);
                 }
 
                 // create result objects.
@@ -1839,7 +1839,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 UpdateResult(item, results, 0);
 
                 // unmarshal return parameters and free memory.
-                int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, attributeIDs.Length, true);
+                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, attributeIDs.Length, true);
 
                 // verify return parameters.
                 if (errors == null)
@@ -1850,7 +1850,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // add results for each attribute.
                 foreach (int error in errors)
                 {
-                    TsCHdaResult result = new TsCHdaResult(Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(error));
+                    TsCHdaResult result = new TsCHdaResult(Utilities.Interop.GetResultId(error));
                     results.Add(result);
                 }
 
@@ -1892,7 +1892,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaTime endTime,
             OpcItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             lock (this)
             {
@@ -1907,8 +1907,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // initialize input parameters.
                 int[] serverHandles = GetServerHandles(items);
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OpcRcw.Hda.OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
                 IntPtr pValues = IntPtr.Zero;
@@ -1927,7 +1927,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_SyncAnnotations.Read", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_SyncAnnotations.Read", e);
                 }
 
                 // unmarhal modified item structures.
@@ -1962,8 +1962,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaReadAnnotationsCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
-            if (callback == null) throw new ArgumentNullException("callback");
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             request = null;
 
@@ -1985,8 +1985,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 int[] serverHandles = GetServerHandles(items);
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OpcRcw.Hda.OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
                 IntPtr pErrors = IntPtr.Zero;
@@ -2005,7 +2005,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncAnnotations.Read", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_AsyncAnnotations.Read", e);
                 }
 
                 // create result objects.
@@ -2048,7 +2048,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// <returns>The results of the insert operation for each annotation set.</returns>
         public TsCHdaResultCollection[] InsertAnnotations(TsCHdaAnnotationValueCollection[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             lock (this)
             {
@@ -2096,16 +2096,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_SyncAnnotations.Insert", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_SyncAnnotations.Insert", e);
                 }
 
                 // free memory allocated for input arguments.
                 for (int ii = 0; ii < pAnnotations.Length; ii++)
                 {
-                    Technosoftware.DaAeHdaClient.Utilities.Interop.GetDateTimes(ref pAnnotations[ii].ftTimeStamps, 1, true);
-                    Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(ref pAnnotations[ii].szAnnotation, 1, true);
-                    Technosoftware.DaAeHdaClient.Utilities.Interop.GetDateTimes(ref pAnnotations[ii].ftAnnotationTime, 1, true);
-                    Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(ref pAnnotations[ii].szUser, 1, true);
+                    Utilities.Interop.GetDateTimes(ref pAnnotations[ii].ftTimeStamps, 1, true);
+                    Utilities.Interop.GetUnicodeStrings(ref pAnnotations[ii].szAnnotation, 1, true);
+                    Utilities.Interop.GetDateTimes(ref pAnnotations[ii].ftAnnotationTime, 1, true);
+                    Utilities.Interop.GetUnicodeStrings(ref pAnnotations[ii].szUser, 1, true);
                 }
 
                 // unmarshal return parameters and free memory.
@@ -2130,7 +2130,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaUpdateCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             request = null;
 
@@ -2187,16 +2187,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncAnnotations.Insert", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_AsyncAnnotations.Insert", e);
                 }
 
                 // free memory allocated for input arguments.
                 for (int ii = 0; ii < pAnnotations.Length; ii++)
                 {
-                    Technosoftware.DaAeHdaClient.Utilities.Interop.GetDateTimes(ref pAnnotations[ii].ftTimeStamps, 1, true);
-                    Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(ref pAnnotations[ii].szAnnotation, 1, true);
-                    Technosoftware.DaAeHdaClient.Utilities.Interop.GetDateTimes(ref pAnnotations[ii].ftAnnotationTime, 1, true);
-                    Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(ref pAnnotations[ii].szUser, 1, true);
+                    Utilities.Interop.GetDateTimes(ref pAnnotations[ii].ftTimeStamps, 1, true);
+                    Utilities.Interop.GetUnicodeStrings(ref pAnnotations[ii].szAnnotation, 1, true);
+                    Utilities.Interop.GetDateTimes(ref pAnnotations[ii].ftAnnotationTime, 1, true);
+                    Utilities.Interop.GetUnicodeStrings(ref pAnnotations[ii].szUser, 1, true);
                 }
 
                 // unmarshal return parameters and free memory.
@@ -2233,7 +2233,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// <returns></returns>
         public TsCHdaResultCollection[] Insert(TsCHdaItemValueCollection[] items, bool replace)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             lock (this)
             {
@@ -2268,7 +2268,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return results;
                 }
 
-                OPCHDA_FILETIME[] ftTimestamps = Technosoftware.DaAeHdaClient.Com.Hda.Interop.GetFILETIMEs(timestamps);
+                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // initialize output arguments.
                 IntPtr pErrors = IntPtr.Zero;
@@ -2288,7 +2288,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
                     catch (Exception e)
                     {
-                        throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_SyncUpdate.InsertReplace", e);
+                        throw Utilities.Interop.CreateException("IOPCHDA_SyncUpdate.InsertReplace", e);
                     }
                 }
                 else
@@ -2305,7 +2305,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
                     catch (Exception e)
                     {
-                        throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_SyncUpdate.Insert", e);
+                        throw Utilities.Interop.CreateException("IOPCHDA_SyncUpdate.Insert", e);
                     }
                 }
 
@@ -2333,7 +2333,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaUpdateCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             request = null;
 
@@ -2370,7 +2370,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return GetIdentifiedResults(results);
                 }
 
-                OPCHDA_FILETIME[] ftTimestamps = Technosoftware.DaAeHdaClient.Com.Hda.Interop.GetFILETIMEs(timestamps);
+                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // create request.
                 Request internalRequest = callback_.CreateRequest(requestHandle, callback);
@@ -2397,7 +2397,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
                     catch (Exception e)
                     {
-                        throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncUpdate.InsertReplace", e);
+                        throw Utilities.Interop.CreateException("IOPCHDA_AsyncUpdate.InsertReplace", e);
                     }
                 }
                 else
@@ -2416,7 +2416,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
                     catch (Exception e)
                     {
-                        throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncUpdate.Insert", e);
+                        throw Utilities.Interop.CreateException("IOPCHDA_AsyncUpdate.Insert", e);
                     }
                 }
 
@@ -2482,7 +2482,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return results;
                 }
 
-                OPCHDA_FILETIME[] ftTimestamps = Technosoftware.DaAeHdaClient.Com.Hda.Interop.GetFILETIMEs(timestamps);
+                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // initialize output arguments.
                 IntPtr pErrors = IntPtr.Zero;
@@ -2500,7 +2500,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_SyncUpdate.Replace", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_SyncUpdate.Replace", e);
                 }
 
                 // unmarshal return parameters and free memory.
@@ -2525,7 +2525,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaUpdateCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             request = null;
 
@@ -2562,7 +2562,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return GetIdentifiedResults(results);
                 }
 
-                OPCHDA_FILETIME[] ftTimestamps = Technosoftware.DaAeHdaClient.Com.Hda.Interop.GetFILETIMEs(timestamps);
+                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // create request.
                 Request internalRequest = callback_.CreateRequest(requestHandle, callback);
@@ -2586,7 +2586,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncUpdate.Replace", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_AsyncUpdate.Replace", e);
                 }
 
                 // unmarshal return parameters and free memory.
@@ -2627,7 +2627,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaTime endTime,
             OpcItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             lock (this)
             {
@@ -2642,8 +2642,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // initialize input parameters.
                 int[] serverHandles = GetServerHandles(items);
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OpcRcw.Hda.OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
                 IntPtr pErrors = IntPtr.Zero;
@@ -2660,7 +2660,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_SyncUpdate.DeleteRaw", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_SyncUpdate.DeleteRaw", e);
                 }
 
                 // create result objects.
@@ -2697,8 +2697,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaUpdateCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
-            if (callback == null) throw new ArgumentNullException("callback");
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             request = null;
 
@@ -2720,8 +2720,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 int[] serverHandles = GetServerHandles(items);
 
-                OpcRcw.Hda.OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OpcRcw.Hda.OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
+                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
                 IntPtr pErrors = IntPtr.Zero;
@@ -2740,7 +2740,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncUpdate.DeleteRaw", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_AsyncUpdate.DeleteRaw", e);
                 }
 
                 // create result objects.
@@ -2783,7 +2783,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// <returns>The results of the operation for each timestamp.</returns>
         public TsCHdaResultCollection[] DeleteAtTime(TsCHdaItemTimeCollection[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             lock (this)
             {
@@ -2814,7 +2814,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return results;
                 }
 
-                OPCHDA_FILETIME[] ftTimestamps = Technosoftware.DaAeHdaClient.Com.Hda.Interop.GetFILETIMEs(timestamps);
+                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // initialize output arguments.
                 IntPtr pErrors = IntPtr.Zero;
@@ -2830,7 +2830,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_SyncUpdate.DeleteAtTime", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_SyncUpdate.DeleteAtTime", e);
                 }
 
                 // unmarshal return parameters and free memory.
@@ -2855,7 +2855,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             TsCHdaUpdateCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             request = null;
 
@@ -2888,7 +2888,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return GetIdentifiedResults(results);
                 }
 
-                OPCHDA_FILETIME[] ftTimestamps = Technosoftware.DaAeHdaClient.Com.Hda.Interop.GetFILETIMEs(timestamps);
+                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // create request.
                 Request internalRequest = callback_.CreateRequest(requestHandle, callback);
@@ -2910,7 +2910,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncUpdate.DeleteAtTime", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_AsyncUpdate.DeleteAtTime", e);
                 }
 
                 // unmarshal return parameters and free memory.
@@ -2945,7 +2945,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// Cancels an asynchronous request.
         /// </summary>
         /// <param name="request">The state object for the request to cancel.</param>
-        public void CancelRequest(Technosoftware.DaAeHdaClient.IOpcRequest request)
+        public void CancelRequest(IOpcRequest request)
         {
             CancelRequest(request, (TsCHdaCancelCompleteEventHandler)null);
         }
@@ -2955,9 +2955,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         /// <param name="request">The state object for the request to cancel.</param>
         /// <param name="callback">A delegate used to receive notifications when the request completes.</param>
-        public void CancelRequest(Technosoftware.DaAeHdaClient.IOpcRequest request, TsCHdaCancelCompleteEventHandler callback)
+        public void CancelRequest(IOpcRequest request, TsCHdaCancelCompleteEventHandler callback)
         {
-            if (request == null) throw new ArgumentNullException("request");
+            if (request == null) throw new ArgumentNullException(nameof(request));
 
             lock (this)
             {
@@ -2978,7 +2978,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     // a return code of E_FAIL indicates the request does not exist or can't be cancelled.
                     if (OpcResult.E_FAIL.Code != Marshal.GetHRForException(e))
                     {
-                        throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_AsyncRead.Cancel", e);
+                        throw Utilities.Interop.CreateException("IOPCHDA_AsyncRead.Cancel", e);
                     }
                 }
             }
@@ -2996,7 +2996,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             {
                 try
                 {
-                    connection_ = new ConnectionPoint(server_, typeof(OpcRcw.Hda.IOPCHDA_DataCallback).GUID);
+                    connection_ = new ConnectionPoint(server_, typeof(IOPCHDA_DataCallback).GUID);
                     connection_.Advise(callback_);
                 }
                 catch
@@ -3026,7 +3026,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         private int CreateHandle()
         {
-            return Hda.Server.nextHandle_++;
+            return nextHandle_++;
         }
 
         /// <summary>
@@ -3180,8 +3180,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             OPCHDA_TIME pEndTime)
         {
             // unmarshal actual times from input arguments.
-			DateTime startTime = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(Hda.Interop.Convert(pStartTime.ftTime));
-			DateTime endTime   = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(Hda.Interop.Convert(pEndTime.ftTime));
+			DateTime startTime = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(Interop.Convert(pStartTime.ftTime));
+			DateTime endTime   = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(Interop.Convert(pEndTime.ftTime));
 
             foreach (ITsCHdaActualTime result in results)
             {
@@ -3195,11 +3195,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         TsCHdaItemAttributeCollection UpdateResults(
             OpcItem item,
-            Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection[] attributes,
+            TsCHdaAttributeValueCollection[] attributes,
             ref IntPtr pErrors)
         {
             // unmarshal return parameters and free memory.
-            int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, attributes.Length, true);
+            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, attributes.Length, true);
 
             // verify return parameters.
             if (attributes == null || errors == null)
@@ -3210,13 +3210,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             // set attribute level errors.
             for (int ii = 0; ii < attributes.Length; ii++)
             {
-                attributes[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
+                attributes[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
             }
 
             // create item level collection. 
             TsCHdaItemAttributeCollection result = new TsCHdaItemAttributeCollection();
 
-            foreach (Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection attribute in attributes)
+            foreach (TsCHdaAttributeValueCollection attribute in attributes)
             {
                 result.Add(attribute);
             }
@@ -3237,7 +3237,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             ref IntPtr pErrors)
         {
             // unmarshal return parameters and free memory.
-            int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
+            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
 
             // verify return parameters.
             if (results == null || errors == null)
@@ -3253,7 +3253,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // lookup the error code.
                 if (typeof(IOpcResult).IsInstanceOfType(results[ii]))
                 {
-                    ((IOpcResult)results[ii]).Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
+                    ((IOpcResult)results[ii]).Result = Utilities.Interop.GetResultId(errors[ii]);
                 }
             }
         }
@@ -3264,7 +3264,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         void UpdateResults(ICollection[] items, TsCHdaResultCollection[] results, int count, ref IntPtr pErrors)
         {
             // unmarshal return parameters and free memory.
-            int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, count, true);
+            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, count, true);
 
             // verify return parameters.
             if (errors == null)
@@ -3284,7 +3284,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                         break;
                     }
 
-                    TsCHdaResult result = new TsCHdaResult(Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[index++]));
+                    TsCHdaResult result = new TsCHdaResult(Utilities.Interop.GetResultId(errors[index++]));
                     results[ii].Add(result);
                 }
             }
@@ -3321,7 +3321,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 {
                     handles[index] = serverHandles[ii];
                     timestamps[index] = value.Timestamp;
-                    values[index] = Technosoftware.DaAeHdaClient.Utilities.Interop.GetVARIANT(value.Value);
+                    values[index] = Utilities.Interop.GetVARIANT(value.Value);
                     qualities[index] = value.Quality.GetCode();
 
                     index++;
@@ -3402,10 +3402,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     annotations[index] = new OPCHDA_ANNOTATION();
 
                     annotations[index].dwNumValues = 1;
-                    annotations[index].ftTimeStamps = Technosoftware.DaAeHdaClient.Utilities.Interop.GetFILETIMEs(new DateTime[] { timestamps[jj] });
-                    annotations[index].szAnnotation = Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(new string[] { items[ii][jj].Annotation });
-                    annotations[index].ftAnnotationTime = Technosoftware.DaAeHdaClient.Utilities.Interop.GetFILETIMEs(new DateTime[] { items[ii][jj].CreationTime });
-                    annotations[index].szUser = Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(new string[] { items[ii][jj].User });
+                    annotations[index].ftTimeStamps = Utilities.Interop.GetFILETIMEs(new DateTime[] { timestamps[jj] });
+                    annotations[index].szAnnotation = Utilities.Interop.GetUnicodeStrings(new string[] { items[ii][jj].Annotation });
+                    annotations[index].ftAnnotationTime = Utilities.Interop.GetFILETIMEs(new DateTime[] { items[ii][jj].CreationTime });
+                    annotations[index].szUser = Utilities.Interop.GetUnicodeStrings(new string[] { items[ii][jj].User });
 
                     index++;
                 }

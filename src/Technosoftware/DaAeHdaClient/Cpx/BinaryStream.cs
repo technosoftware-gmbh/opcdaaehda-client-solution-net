@@ -85,13 +85,13 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		{
 			if (field.FieldTerminator == null) throw new TsCCpxInvalidSchemaException(String.Format("{0} is not a terminated subscription.", field.Name));
 
-			string terminator = System.Convert.ToString(field.FieldTerminator).ToUpper();
+			string terminator = Convert.ToString(field.FieldTerminator).ToUpper();
 
 			byte[] bytes = new byte[terminator.Length / 2];
 
 			for (int ii = 0; ii < bytes.Length; ii++)
 			{
-				bytes[ii] = System.Convert.ToByte(terminator.Substring(ii * 2, 2), 16);
+				bytes[ii] = Convert.ToByte(terminator.Substring(ii * 2, 2), 16);
 			}
 
 			return bytes;

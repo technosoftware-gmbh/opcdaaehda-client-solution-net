@@ -26,55 +26,55 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// Defines possible HDA quality codes.
-	/// </summary>
-	[Flags]
-	public enum TsCHdaQuality
-	{
-		/// <summary>
-		/// More than one piece of data that may be hidden exists at same timestamp.
-		/// </summary>
-		ExtraData = 0x00010000,
+    /// <summary>
+    /// Defines possible HDA quality codes.
+    /// </summary>
+    [Flags]
+    public enum TsCHdaQuality
+    {
+        /// <summary>
+        /// More than one piece of data that may be hidden exists at same timestamp.
+        /// </summary>
+        ExtraData = 0x00010000,
 
-		/// <summary>
-		/// Interpolated data value.
-		/// </summary>
-		Interpolated = 0x00020000,
+        /// <summary>
+        /// Interpolated data value.
+        /// </summary>
+        Interpolated = 0x00020000,
 
-		/// <summary>
-		/// Raw data
-		/// </summary>
-		Raw = 0x00040000,
+        /// <summary>
+        /// Raw data
+        /// </summary>
+        Raw = 0x00040000,
 
-		/// <summary>
-		/// Calculated data value, as would be returned from a ReadProcessed call.
-		/// </summary>
-		Calculated = 0x00080000,
+        /// <summary>
+        /// Calculated data value, as would be returned from a ReadProcessed call.
+        /// </summary>
+        Calculated = 0x00080000,
 
-		/// <summary>
-		/// No data found to provide upper or lower bound value. 
-		/// </summary>
-		NoBound = 0x00100000,
+        /// <summary>
+        /// No data found to provide upper or lower bound value. 
+        /// </summary>
+        NoBound = 0x00100000,
 
-		/// <summary>
-		/// Bad No data collected. Archiving not active (for item or all items).
-		/// </summary>
-		NoData = 0x00200000,
+        /// <summary>
+        /// Bad No data collected. Archiving not active (for item or all items).
+        /// </summary>
+        NoData = 0x00200000,
 
-		/// <summary>
-		/// Collection started/stopped/lost.
-		/// </summary>
-		DataLost = 0x00400000,
+        /// <summary>
+        /// Collection started/stopped/lost.
+        /// </summary>
+        DataLost = 0x00400000,
 
-		/// <summary>
-		/// Scaling or conversion error. 
-		/// </summary>
-		Conversion = 0x00800000,
+        /// <summary>
+        /// Scaling or conversion error. 
+        /// </summary>
+        Conversion = 0x00800000,
 
-		/// <summary>
-		/// Aggregate value is for an incomplete interval. 
-		/// </summary>
-		Partial = 0x01000000
-	}
+        /// <summary>
+        /// Aggregate value is for an incomplete interval. 
+        /// </summary>
+        Partial = 0x01000000
+    }
 }

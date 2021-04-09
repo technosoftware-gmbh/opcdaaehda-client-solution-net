@@ -56,7 +56,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 		/// </summary>
 		public string[] EnumerateHosts()
 		{
-			return Com.Interop.EnumComputers();
+			return Interop.EnumComputers();
 		}
 
 		/// <summary>
@@ -77,7 +77,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 				NetworkCredential credentials = (connectData != null)?connectData.GetCredential(null, null):null;
 
 				// connect to the server.				
-				m_server = (IOPCServerList2)Com.Interop.CreateInstance(CLSID, host, credentials);
+				m_server = (IOPCServerList2)Interop.CreateInstance(CLSID, host, credentials);
 				m_host   = host;
 
 				try
@@ -101,13 +101,13 @@ namespace Technosoftware.DaAeHdaClient.Com
 					Guid[] clsids = ReadClasses(enumerator);
 
                     // release enumerator object.					
-                    Com.Interop.ReleaseServer(enumerator);
+                    Interop.ReleaseServer(enumerator);
 					enumerator = null;
 
 					// fetch class descriptions.
 					foreach (Guid clsid in clsids)
 					{
-						Factory factory = new Com.Factory();
+						Factory factory = new Factory();
 
 						try
 						{
@@ -148,7 +148,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 				finally
 				{
 					// free the server.
-					Com.Interop.ReleaseServer(m_server);
+					Interop.ReleaseServer(m_server);
 					m_server = null;
 				}
 			}
@@ -164,7 +164,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 				NetworkCredential credentials = (connectData != null)?connectData.GetCredential(null, null):null;
 
 				// connect to the server.				
-				m_server = (IOPCServerList2)Com.Interop.CreateInstance(CLSID, host, credentials);
+				m_server = (IOPCServerList2)Interop.CreateInstance(CLSID, host, credentials);
 				m_host   = host;
 
 				// lookup prog id.
@@ -180,7 +180,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 				}
 				finally
 				{
-					Com.Interop.ReleaseServer(m_server);
+					Interop.ReleaseServer(m_server);
 					m_server = null;
 				}
 

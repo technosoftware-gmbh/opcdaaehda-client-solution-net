@@ -45,12 +45,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// <summary>
         /// The unique id assigned to the request when it was created.
         /// </summary>
-        public int RequestID {get { return m_requestID; }}
-        
+        public int RequestID => m_requestID;
+
         /// <summary>
         /// The unqiue id assigned by the server when it was created.
         /// </summary>
-        public int CancelID {get { return m_cancelID; }}
+        public int CancelID => m_cancelID;
 
         /// <summary>
         /// Fired when the server acknowledges that a request was cancelled.
@@ -189,10 +189,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// <summary>
         /// An unique identifier, assigned by the client, for the request.
         /// </summary>
-        public object Handle
-        {
-            get { return m_requestHandle; }
-        }
+        public object Handle => m_requestHandle;
+
         #endregion
 
         #region IActualTime Members
@@ -201,8 +199,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         public DateTime StartTime
         {
-            get { return m_startTime;  } 
-            set { m_startTime = value; }
+            get => m_startTime;
+            set => m_startTime = value;
         }
 
         /// <summary>
@@ -210,8 +208,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         public DateTime EndTime
         {
-            get { return m_endTime;  } 
-            set { m_endTime = value; }
+            get => m_endTime;
+            set => m_endTime = value;
         }
         #endregion
 

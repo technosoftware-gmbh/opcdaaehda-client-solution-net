@@ -32,53 +32,43 @@ namespace Technosoftware.DaAeHdaClient.Hda
     [Serializable]
     public class TsCHdaItem : OpcItem
     {
-		///////////////////////////////////////////////////////////////////////
-		#region Fields
+        #region Fields
+        private int aggregate_ = TsCHdaAggregateID.NoAggregate;
+        #endregion
 
-		private int _aggregate = TsCHdaAggregateID.NoAggregate;
+        #region Constructors, Destructor, Initialization
+        /// <summary>
+        /// Initializes object with the default values.
+        /// </summary>
+        public TsCHdaItem() { }
 
-		#endregion
+        /// <summary>
+        /// Initializes object with the specified ItemIdentifier object.
+        /// </summary>
+        public TsCHdaItem(OpcItem item) : base(item) { }
 
-		///////////////////////////////////////////////////////////////////////
-		#region Constructors, Destructor, Initialization
+        /// <summary>
+        /// Initializes object with the specified Item object.
+        /// </summary>
+        public TsCHdaItem(TsCHdaItem item)
+            : base(item)
+        {
+            if (item != null)
+            {
+                Aggregate = item.Aggregate;
+            }
+        }
+        #endregion
 
-		/// <summary>
-		/// Initializes object with the default values.
-		/// </summary>
-		public TsCHdaItem() { }
-
-		/// <summary>
-		/// Initializes object with the specified ItemIdentifier object.
-		/// </summary>
-		public TsCHdaItem(OpcItem item) : base(item) { }
-
-		/// <summary>
-		/// Initializes object with the specified Item object.
-		/// </summary>
-		public TsCHdaItem(TsCHdaItem item)
-			: base(item)
-		{
-			if (item != null)
-			{
-				Aggregate = item.Aggregate;
-			}
-		}
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
-
+        #region Properties
         /// <summary>
         /// The aggregate to use to process the data.
         /// </summary>
         public int Aggregate
         {
-            get { return _aggregate;  } 
-            set { _aggregate = value; }
-		}
-
-		#endregion
-
-	}
+            get => aggregate_;
+            set => aggregate_ = value;
+        }
+        #endregion
+    }
 }

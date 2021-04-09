@@ -64,15 +64,9 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// </summary>
         public static bool Disabled
         {
-            get
-            {
-                return s_Default.m_disabled;
-            }
+            get => s_Default.m_disabled;
 
-            set
-            {
-                s_Default.m_disabled = value;
-            }
+            set => s_Default.m_disabled = value;
         }
 
         /// <summary>

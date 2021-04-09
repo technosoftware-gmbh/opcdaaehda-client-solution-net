@@ -26,38 +26,33 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient
 {
-	/// <summary>
-	/// Contains properties that describe the current status of an OPC server.
-	/// </summary>
-	[Serializable]
-	public class OpcServerStatus : ICloneable
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region Fields
+    /// <summary>
+    /// Contains properties that describe the current status of an OPC server.
+    /// </summary>
+    [Serializable]
+    public class OpcServerStatus : ICloneable
+    {
+        #region Fields
+        private OpcServerState serverState_ = OpcServerState.Unknown;
+        private DateTime startTime_ = DateTime.MinValue;
+        private DateTime currentTime_ = DateTime.MinValue;
+        private DateTime lastUpdateTime_ = DateTime.MinValue;
+        private Int32 bandWidth_ = -1;
+        private Int16 majorVersion_;
+        private Int16 minorVersion_;
+        private Int16 buildNumber_;
+        #endregion
 
-        private OpcServerState _serverState = OpcServerState.Unknown;
-		private DateTime _startTime = DateTime.MinValue;
-		private DateTime _currentTime = DateTime.MinValue;
-		private DateTime _lastUpdateTime = DateTime.MinValue;
-		private Int32 _bandWidth = -1;
-		private Int16 _majorVersion = 0;
-		private Int16 _minorVersion = 0;
-		private Int16 _buildNumber = 0;
+        #region Properties
+        /// <summary>
+        /// The vendor name and product name for the server.
+        /// </summary>
+        public string VendorInfo { get; set; }
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
-		
-		/// <summary>
-		/// The vendor name and product name for the server.
-		/// </summary>
-		public string VendorInfo { get; set; }
-
-		/// <summary>
-		/// A string that contains the server software version number.
-		/// </summary>
-		public string ProductVersion { get; set; }
+        /// <summary>
+        /// A string that contains the server software version number.
+        /// </summary>
+        public string ProductVersion { get; set; }
 
         /// <summary>
         /// The server for which the status is being reported.
@@ -69,114 +64,110 @@ namespace Technosoftware.DaAeHdaClient
         /// indicates both, the status is for the entire server, and 
         /// not for an individual wrapped server.
         /// </summary>
-         public uint ServerType { get; set; }
+        public uint ServerType { get; set; }
 
-		/// <summary>
-		/// The current state of the server.
-		/// </summary>
-		public OpcServerState ServerState
-		{
-			get { return _serverState; }
-			set { _serverState = value; }
-		}
+        /// <summary>
+        /// The current state of the server.
+        /// </summary>
+        public OpcServerState ServerState
+        {
+            get => serverState_;
+            set => serverState_ = value;
+        }
 
-		/// <summary>
-		/// A string that describes the current server state.
-		/// </summary>
-		public string StatusInfo { get; set; }
+        /// <summary>
+        /// A string that describes the current server state.
+        /// </summary>
+        public string StatusInfo { get; set; }
 
-		/// <summary>
-		/// The time when the server started.
-		/// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
-		/// the time format (UTC or local   time).
-		/// </summary>
-		public DateTime StartTime
-		{
-			get { return _startTime; }
-			set { _startTime = value; }
-		}
+        /// <summary>
+        /// The time when the server started.
+        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+        /// the time format (UTC or local   time).
+        /// </summary>
+        public DateTime StartTime
+        {
+            get => startTime_;
+            set => startTime_ = value;
+        }
 
-		/// <summary>
-		/// Th current time at the server.
-		/// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
-		/// the time format (UTC or local   time).
-		/// </summary>
-		public DateTime CurrentTime
-		{
-			get { return _currentTime; }
-			set { _currentTime = value; }
-		}
+        /// <summary>
+        /// Th current time at the server.
+        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+        /// the time format (UTC or local   time).
+        /// </summary>
+        public DateTime CurrentTime
+        {
+            get => currentTime_;
+            set => currentTime_ = value;
+        }
 
-		/// <summary>
-		/// The maximum number of values that can be returned by the server on a per item basis. 
-		/// </summary>
-		public int MaxReturnValues { get; set; }
+        /// <summary>
+        /// The maximum number of values that can be returned by the server on a per item basis. 
+        /// </summary>
+        public int MaxReturnValues { get; set; }
 
-		/// <summary>
-		/// The last time the server sent an data update to the client.
-		/// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
-		/// the time format (UTC or local   time).
-		/// </summary>
-		public DateTime LastUpdateTime
-		{
-			get { return _lastUpdateTime; }
-			set { _lastUpdateTime = value; }
-		}
+        /// <summary>
+        /// The last time the server sent an data update to the client.
+        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+        /// the time format (UTC or local   time).
+        /// </summary>
+        public DateTime LastUpdateTime
+        {
+            get => lastUpdateTime_;
+            set => lastUpdateTime_ = value;
+        }
 
-		/// <summary>
-		/// Total   number of groups being managed by the server.
-		/// </summary>
-		public Int32 GroupCount { get; set; }
+        /// <summary>
+        /// Total   number of groups being managed by the server.
+        /// </summary>
+        public Int32 GroupCount { get; set; }
 
-		/// <summary>
-		/// The behavior of of this value   is server specific.
-		/// </summary>
-		public Int32 BandWidth
-		{
-			get { return _bandWidth; }
-			set { _bandWidth = value; }
-		}
+        /// <summary>
+        /// The behavior of of this value   is server specific.
+        /// </summary>
+        public Int32 BandWidth
+        {
+            get => bandWidth_;
+            set => bandWidth_ = value;
+        }
 
-		/// <summary>
-		/// The major   version of the used server issue.
-		/// </summary>
-		public Int16 MajorVersion
-		{
-			get { return _majorVersion; }
-			set { _majorVersion = value; }
-		}
+        /// <summary>
+        /// The major   version of the used server issue.
+        /// </summary>
+        public Int16 MajorVersion
+        {
+            get => majorVersion_;
+            set => majorVersion_ = value;
+        }
 
-		/// <summary>
-		/// The minor   version of the used server issue.
-		/// </summary>
-		public Int16 MinorVersion
-		{
-			get { return _minorVersion; }
-			set { _minorVersion = value; }
-		}
+        /// <summary>
+        /// The minor   version of the used server issue.
+        /// </summary>
+        public Int16 MinorVersion
+        {
+            get => minorVersion_;
+            set => minorVersion_ = value;
+        }
 
-		/// <summary>
-		/// The build   number of the used server issue.
-		/// </summary>
-		public Int16 BuildNumber
-		{
-			get { return _buildNumber; }
-			set { _buildNumber = value; }
-		}
+        /// <summary>
+        /// The build   number of the used server issue.
+        /// </summary>
+        public Int16 BuildNumber
+        {
+            get => buildNumber_;
+            set => buildNumber_ = value;
+        }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region ICloneable Members
-
-		/// <summary>
-		/// Creates a deepcopy of the object.
-		/// </summary>
-		public virtual object Clone()
-		{
-			return MemberwiseClone();
-		}
-
-		#endregion
-	}
+        #region ICloneable Members
+        /// <summary>
+        /// Creates a deep-copy of the object.
+        /// </summary>
+        public virtual object Clone()
+        {
+            return MemberwiseClone();
+        }
+        #endregion
+    }
 }

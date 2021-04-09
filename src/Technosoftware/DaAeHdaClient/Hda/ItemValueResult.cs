@@ -26,77 +26,65 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// A result associated with a single item value.
-	/// </summary>
-	[Serializable]
-	public class TsCHdaResult : ICloneable, IOpcResult
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region Fields
+    /// <summary>
+    /// A result associated with a single item value.
+    /// </summary>
+    [Serializable]
+    public class TsCHdaResult : ICloneable, IOpcResult
+    {
+        #region Fields
+        private OpcResult result_ = OpcResult.S_OK;
+        #endregion
 
-		private OpcResult _result = OpcResult.S_OK;
+        #region Constructors, Destructor, Initialization
+        /// <summary>
+        /// Initializes the object with default values.
+        /// </summary>
+        public TsCHdaResult() { }
 
-		#endregion
+        /// <summary>
+        /// Initializes the object with the specified result id.
+        /// </summary>
+        public TsCHdaResult(OpcResult resultId)
+        {
+            Result = resultId;
+            DiagnosticInfo = null;
+        }
 
-		///////////////////////////////////////////////////////////////////////
-		#region Constructors, Destructor, Initialization
+        /// <summary>
+        /// Initializes the object with the specified result object.
+        /// </summary>
+        public TsCHdaResult(IOpcResult result)
+        {
+            Result = result.Result;
+            DiagnosticInfo = result.DiagnosticInfo;
+        }
+        #endregion
 
-		/// <summary>
-		/// Initializes the object with default values.
-		/// </summary>
-		public TsCHdaResult() { }
+        #region IOpcResult Members
+        /// <summary>
+        /// The error id for the result of an operation on an item.
+        /// </summary>
+        public OpcResult Result
+        {
+            get => result_;
+            set => result_ = value;
+        }
 
-		/// <summary>
-		/// Initializes the object with the specified result id.
-		/// </summary>
-		public TsCHdaResult(OpcResult resultID)
-		{
-			Result = resultID;
-			DiagnosticInfo = null;
-		}
+        /// <summary>
+        /// Vendor specific diagnostic information (not the localized error text).
+        /// </summary>
+        public string DiagnosticInfo { get; set; }
+        #endregion
 
-		/// <summary>
-		/// Initializes the object with the specified result object.
-		/// </summary>
-		public TsCHdaResult(IOpcResult result)
-		{
-			Result = result.Result;
-			DiagnosticInfo = result.DiagnosticInfo;
-		}
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region IOpcResult Members
-
-		/// <summary>
-		/// The error id for the result of an operation on an item.
-		/// </summary>
-		public OpcResult Result
-		{
-			get { return _result; }
-			set { _result = value; }
-		}
-
-		/// <summary>
-		/// Vendor specific diagnostic information (not the localized error text).
-		/// </summary>
-		public string DiagnosticInfo { get; set; }
-	
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region ICloneable Members
-
-		/// <summary>
-		/// Creates a deep copy of the object.
-		/// </summary>
-		public object Clone()
-		{
-			return MemberwiseClone();
-		}
-
-		#endregion
-	}
+        #region ICloneable Members
+        /// <summary>
+        /// Creates a deep copy of the object.
+        /// </summary>
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
+        #endregion
+    }
 }

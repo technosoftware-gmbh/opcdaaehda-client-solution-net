@@ -1624,7 +1624,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// <summary>
         /// Converts the VARTYPE to a system type.
         /// </summary>
-        internal static System.Type GetType(VarEnum input)
+        internal static Type GetType(VarEnum input)
         {
             switch (input)
             {
@@ -1665,7 +1665,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// <summary>
         /// Converts the system type to a VARTYPE.
         /// </summary>
-        internal static VarEnum GetType(System.Type input)
+        internal static VarEnum GetType(Type input)
         {
             if (input == null) return VarEnum.VT_EMPTY;
             if (input == typeof(sbyte)) return VarEnum.VT_I1;
@@ -1701,7 +1701,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
 
             // check for special types.
             if (input == OpcType.ILLEGAL_TYPE) return (VarEnum)Enum.ToObject(typeof(VarEnum), 0x7FFF);
-            if (input == typeof(System.Type)) return VarEnum.VT_I2;
+            if (input == typeof(Type)) return VarEnum.VT_I2;
             if (input == typeof(TsCDaQuality)) return VarEnum.VT_I2;
             if (input == typeof(TsDaAccessRights)) return VarEnum.VT_I4;
             if (input == typeof(TsDaEuType)) return VarEnum.VT_I4;
@@ -1716,66 +1716,66 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             switch (input)
             {
                 // data access.
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.S_OK: return new OpcResult(OpcResult.S_OK, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_FAIL: return new OpcResult(OpcResult.E_FAIL, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_INVALIDARG: return new OpcResult(OpcResult.E_INVALIDARG, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.DISP_E_TYPEMISMATCH: return new OpcResult(OpcResult.Da.E_BADTYPE, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.DISP_E_OVERFLOW: return new OpcResult(OpcResult.Da.E_RANGE, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_OUTOFMEMORY: return new OpcResult(OpcResult.E_OUTOFMEMORY, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_NOINTERFACE: return new OpcResult(OpcResult.E_NOTSUPPORTED, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_INVALIDHANDLE: return new OpcResult(OpcResult.Da.E_INVALIDHANDLE, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_BADTYPE: return new OpcResult(OpcResult.Da.E_BADTYPE, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_UNKNOWNITEMID: return new OpcResult(OpcResult.Da.E_UNKNOWN_ITEM_NAME, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_INVALIDITEMID: return new OpcResult(OpcResult.Da.E_INVALID_ITEM_NAME, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_UNKNOWNPATH: return new OpcResult(OpcResult.Da.E_UNKNOWN_ITEM_PATH, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_INVALIDFILTER: return new OpcResult(OpcResult.Da.E_INVALID_FILTER, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_RANGE: return new OpcResult(OpcResult.Da.E_RANGE, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_DUPLICATENAME: return new OpcResult(OpcResult.Da.E_DUPLICATENAME, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.S_UNSUPPORTEDRATE: return new OpcResult(OpcResult.Da.S_UNSUPPORTEDRATE, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.S_CLAMP: return new OpcResult(OpcResult.Da.S_CLAMP, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_INVALID_PID: return new OpcResult(OpcResult.Da.E_INVALID_PID, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_DEADBANDNOTSUPPORTED: return new OpcResult(OpcResult.Da.E_NO_ITEM_DEADBAND, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_NOBUFFERING: return new OpcResult(OpcResult.Da.E_NO_ITEM_BUFFERING, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_NOTSUPPORTED: return new OpcResult(OpcResult.Da.E_NO_WRITEQT, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.E_INVALIDCONTINUATIONPOINT: return new OpcResult(OpcResult.Da.E_INVALIDCONTINUATIONPOINT, input);
-                case Technosoftware.DaAeHdaClient.Com.Da.Result.S_DATAQUEUEOVERFLOW: return new OpcResult(OpcResult.Da.S_DATAQUEUEOVERFLOW, input);
+                case Com.Da.Result.S_OK: return new OpcResult(OpcResult.S_OK, input);
+                case Com.Da.Result.E_FAIL: return new OpcResult(OpcResult.E_FAIL, input);
+                case Com.Da.Result.E_INVALIDARG: return new OpcResult(OpcResult.E_INVALIDARG, input);
+                case Com.Da.Result.DISP_E_TYPEMISMATCH: return new OpcResult(OpcResult.Da.E_BADTYPE, input);
+                case Com.Da.Result.DISP_E_OVERFLOW: return new OpcResult(OpcResult.Da.E_RANGE, input);
+                case Com.Da.Result.E_OUTOFMEMORY: return new OpcResult(OpcResult.E_OUTOFMEMORY, input);
+                case Com.Da.Result.E_NOINTERFACE: return new OpcResult(OpcResult.E_NOTSUPPORTED, input);
+                case Com.Da.Result.E_INVALIDHANDLE: return new OpcResult(OpcResult.Da.E_INVALIDHANDLE, input);
+                case Com.Da.Result.E_BADTYPE: return new OpcResult(OpcResult.Da.E_BADTYPE, input);
+                case Com.Da.Result.E_UNKNOWNITEMID: return new OpcResult(OpcResult.Da.E_UNKNOWN_ITEM_NAME, input);
+                case Com.Da.Result.E_INVALIDITEMID: return new OpcResult(OpcResult.Da.E_INVALID_ITEM_NAME, input);
+                case Com.Da.Result.E_UNKNOWNPATH: return new OpcResult(OpcResult.Da.E_UNKNOWN_ITEM_PATH, input);
+                case Com.Da.Result.E_INVALIDFILTER: return new OpcResult(OpcResult.Da.E_INVALID_FILTER, input);
+                case Com.Da.Result.E_RANGE: return new OpcResult(OpcResult.Da.E_RANGE, input);
+                case Com.Da.Result.E_DUPLICATENAME: return new OpcResult(OpcResult.Da.E_DUPLICATENAME, input);
+                case Com.Da.Result.S_UNSUPPORTEDRATE: return new OpcResult(OpcResult.Da.S_UNSUPPORTEDRATE, input);
+                case Com.Da.Result.S_CLAMP: return new OpcResult(OpcResult.Da.S_CLAMP, input);
+                case Com.Da.Result.E_INVALID_PID: return new OpcResult(OpcResult.Da.E_INVALID_PID, input);
+                case Com.Da.Result.E_DEADBANDNOTSUPPORTED: return new OpcResult(OpcResult.Da.E_NO_ITEM_DEADBAND, input);
+                case Com.Da.Result.E_NOBUFFERING: return new OpcResult(OpcResult.Da.E_NO_ITEM_BUFFERING, input);
+                case Com.Da.Result.E_NOTSUPPORTED: return new OpcResult(OpcResult.Da.E_NO_WRITEQT, input);
+                case Com.Da.Result.E_INVALIDCONTINUATIONPOINT: return new OpcResult(OpcResult.Da.E_INVALIDCONTINUATIONPOINT, input);
+                case Com.Da.Result.S_DATAQUEUEOVERFLOW: return new OpcResult(OpcResult.Da.S_DATAQUEUEOVERFLOW, input);
 
                 // complex data.
-                case Technosoftware.DaAeHdaClient.Com.Cpx.Result.E_TYPE_CHANGED: return new OpcResult(OpcResult.Cpx.E_TYPE_CHANGED, input);
-                case Technosoftware.DaAeHdaClient.Com.Cpx.Result.E_FILTER_DUPLICATE: return new OpcResult(OpcResult.Cpx.E_FILTER_DUPLICATE, input);
-                case Technosoftware.DaAeHdaClient.Com.Cpx.Result.E_FILTER_INVALID: return new OpcResult(OpcResult.Cpx.E_FILTER_INVALID, input);
-                case Technosoftware.DaAeHdaClient.Com.Cpx.Result.E_FILTER_ERROR: return new OpcResult(OpcResult.Cpx.E_FILTER_ERROR, input);
-                case Technosoftware.DaAeHdaClient.Com.Cpx.Result.S_FILTER_NO_DATA: return new OpcResult(OpcResult.Cpx.S_FILTER_NO_DATA, input);
+                case Com.Cpx.Result.E_TYPE_CHANGED: return new OpcResult(OpcResult.Cpx.E_TYPE_CHANGED, input);
+                case Com.Cpx.Result.E_FILTER_DUPLICATE: return new OpcResult(OpcResult.Cpx.E_FILTER_DUPLICATE, input);
+                case Com.Cpx.Result.E_FILTER_INVALID: return new OpcResult(OpcResult.Cpx.E_FILTER_INVALID, input);
+                case Com.Cpx.Result.E_FILTER_ERROR: return new OpcResult(OpcResult.Cpx.E_FILTER_ERROR, input);
+                case Com.Cpx.Result.S_FILTER_NO_DATA: return new OpcResult(OpcResult.Cpx.S_FILTER_NO_DATA, input);
 
                 // historical data access.
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.E_MAXEXCEEDED: return new OpcResult(OpcResult.Hda.E_MAXEXCEEDED, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.S_NODATA: return new OpcResult(OpcResult.Hda.S_NODATA, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.S_MOREDATA: return new OpcResult(OpcResult.Hda.S_MOREDATA, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.E_INVALIDAGGREGATE: return new OpcResult(OpcResult.Hda.E_INVALIDAGGREGATE, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.S_CURRENTVALUE: return new OpcResult(OpcResult.Hda.S_CURRENTVALUE, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.S_EXTRADATA: return new OpcResult(OpcResult.Hda.S_EXTRADATA, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.W_NOFILTER: return new OpcResult(OpcResult.Hda.W_NOFILTER, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.E_UNKNOWNATTRID: return new OpcResult(OpcResult.Hda.E_UNKNOWNATTRID, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.E_NOT_AVAIL: return new OpcResult(OpcResult.Hda.E_NOT_AVAIL, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.E_INVALIDDATATYPE: return new OpcResult(OpcResult.Hda.E_INVALIDDATATYPE, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.E_DATAEXISTS: return new OpcResult(OpcResult.Hda.E_DATAEXISTS, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.E_INVALIDATTRID: return new OpcResult(OpcResult.Hda.E_INVALIDATTRID, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.E_NODATAEXISTS: return new OpcResult(OpcResult.Hda.E_NODATAEXISTS, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.S_INSERTED: return new OpcResult(OpcResult.Hda.S_INSERTED, input);
-                case Technosoftware.DaAeHdaClient.Com.Hda.Result.S_REPLACED: return new OpcResult(OpcResult.Hda.S_REPLACED, input);
+                case Com.Hda.Result.E_MAXEXCEEDED: return new OpcResult(OpcResult.Hda.E_MAXEXCEEDED, input);
+                case Com.Hda.Result.S_NODATA: return new OpcResult(OpcResult.Hda.S_NODATA, input);
+                case Com.Hda.Result.S_MOREDATA: return new OpcResult(OpcResult.Hda.S_MOREDATA, input);
+                case Com.Hda.Result.E_INVALIDAGGREGATE: return new OpcResult(OpcResult.Hda.E_INVALIDAGGREGATE, input);
+                case Com.Hda.Result.S_CURRENTVALUE: return new OpcResult(OpcResult.Hda.S_CURRENTVALUE, input);
+                case Com.Hda.Result.S_EXTRADATA: return new OpcResult(OpcResult.Hda.S_EXTRADATA, input);
+                case Com.Hda.Result.W_NOFILTER: return new OpcResult(OpcResult.Hda.W_NOFILTER, input);
+                case Com.Hda.Result.E_UNKNOWNATTRID: return new OpcResult(OpcResult.Hda.E_UNKNOWNATTRID, input);
+                case Com.Hda.Result.E_NOT_AVAIL: return new OpcResult(OpcResult.Hda.E_NOT_AVAIL, input);
+                case Com.Hda.Result.E_INVALIDDATATYPE: return new OpcResult(OpcResult.Hda.E_INVALIDDATATYPE, input);
+                case Com.Hda.Result.E_DATAEXISTS: return new OpcResult(OpcResult.Hda.E_DATAEXISTS, input);
+                case Com.Hda.Result.E_INVALIDATTRID: return new OpcResult(OpcResult.Hda.E_INVALIDATTRID, input);
+                case Com.Hda.Result.E_NODATAEXISTS: return new OpcResult(OpcResult.Hda.E_NODATAEXISTS, input);
+                case Com.Hda.Result.S_INSERTED: return new OpcResult(OpcResult.Hda.S_INSERTED, input);
+                case Com.Hda.Result.S_REPLACED: return new OpcResult(OpcResult.Hda.S_REPLACED, input);
 
                 // Alarms and Events.
-                case Technosoftware.DaAeHdaClient.Com.Ae.Result.S_ALREADYACKED: return new OpcResult(OpcResult.Ae.S_ALREADYACKED, input);
-                case Technosoftware.DaAeHdaClient.Com.Ae.Result.S_INVALIDBUFFERTIME: return new OpcResult(OpcResult.Ae.S_INVALIDBUFFERTIME, input);
-                case Technosoftware.DaAeHdaClient.Com.Ae.Result.S_INVALIDMAXSIZE: return new OpcResult(OpcResult.Ae.S_INVALIDMAXSIZE, input);
-                case Technosoftware.DaAeHdaClient.Com.Ae.Result.S_INVALIDKEEPALIVETIME: return new OpcResult(OpcResult.Ae.S_INVALIDKEEPALIVETIME, input);
+                case Com.Ae.Result.S_ALREADYACKED: return new OpcResult(OpcResult.Ae.S_ALREADYACKED, input);
+                case Com.Ae.Result.S_INVALIDBUFFERTIME: return new OpcResult(OpcResult.Ae.S_INVALIDBUFFERTIME, input);
+                case Com.Ae.Result.S_INVALIDMAXSIZE: return new OpcResult(OpcResult.Ae.S_INVALIDMAXSIZE, input);
+                case Com.Ae.Result.S_INVALIDKEEPALIVETIME: return new OpcResult(OpcResult.Ae.S_INVALIDKEEPALIVETIME, input);
 
                 // This function returns Da.Result.E_INVALID_PID. AE specific code must map to E_INVALIDBRANCHNAME.
                 // case Technosoftware.DaAeHdaClient.Com.Ae.Result.E_INVALIDBRANCHNAME:    return new OpcResult(OpcResult.Ae.E_INVALIDBRANCHNAME, input);
 
-                case Technosoftware.DaAeHdaClient.Com.Ae.Result.E_INVALIDTIME: return new OpcResult(OpcResult.Ae.E_INVALIDTIME, input);
-                case Technosoftware.DaAeHdaClient.Com.Ae.Result.E_BUSY: return new OpcResult(OpcResult.Ae.E_BUSY, input);
-                case Technosoftware.DaAeHdaClient.Com.Ae.Result.E_NOINFO: return new OpcResult(OpcResult.Ae.E_NOINFO, input);
+                case Com.Ae.Result.E_INVALIDTIME: return new OpcResult(OpcResult.Ae.E_INVALIDTIME, input);
+                case Com.Ae.Result.E_BUSY: return new OpcResult(OpcResult.Ae.E_BUSY, input);
+                case Com.Ae.Result.E_NOINFO: return new OpcResult(OpcResult.Ae.E_NOINFO, input);
 
                 default:
                     {
@@ -1809,58 +1809,58 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             }
             else if (input.Name != null && input.Name.Namespace == OpcNamespace.OPC_DATA_ACCESS)
             {
-                if (input == OpcResult.S_OK) return Technosoftware.DaAeHdaClient.Com.Da.Result.S_OK;
-                if (input == OpcResult.E_FAIL) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_FAIL;
-                if (input == OpcResult.E_INVALIDARG) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_INVALIDARG;
-                if (input == OpcResult.Da.E_BADTYPE) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_BADTYPE;
-                if (input == OpcResult.Da.E_READONLY) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_BADRIGHTS;
-                if (input == OpcResult.Da.E_WRITEONLY) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_BADRIGHTS;
-                if (input == OpcResult.Da.E_RANGE) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_RANGE;
-                if (input == OpcResult.E_OUTOFMEMORY) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_OUTOFMEMORY;
-                if (input == OpcResult.E_NOTSUPPORTED) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_NOINTERFACE;
-                if (input == OpcResult.Da.E_INVALIDHANDLE) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_INVALIDHANDLE;
-                if (input == OpcResult.Da.E_UNKNOWN_ITEM_NAME) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_UNKNOWNITEMID;
-                if (input == OpcResult.Da.E_INVALID_ITEM_NAME) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_INVALIDITEMID;
-                if (input == OpcResult.Da.E_INVALID_ITEM_PATH) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_INVALIDITEMID;
-                if (input == OpcResult.Da.E_UNKNOWN_ITEM_PATH) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_UNKNOWNPATH;
-                if (input == OpcResult.Da.E_INVALID_FILTER) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_INVALIDFILTER;
-                if (input == OpcResult.Da.S_UNSUPPORTEDRATE) return Technosoftware.DaAeHdaClient.Com.Da.Result.S_UNSUPPORTEDRATE;
-                if (input == OpcResult.Da.S_CLAMP) return Technosoftware.DaAeHdaClient.Com.Da.Result.S_CLAMP;
-                if (input == OpcResult.Da.E_INVALID_PID) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_INVALID_PID;
-                if (input == OpcResult.Da.E_NO_ITEM_DEADBAND) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_DEADBANDNOTSUPPORTED;
-                if (input == OpcResult.Da.E_NO_ITEM_BUFFERING) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_NOBUFFERING;
-                if (input == OpcResult.Da.E_NO_WRITEQT) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_NOTSUPPORTED;
-                if (input == OpcResult.Da.E_INVALIDCONTINUATIONPOINT) return Technosoftware.DaAeHdaClient.Com.Da.Result.E_INVALIDCONTINUATIONPOINT;
-                if (input == OpcResult.Da.S_DATAQUEUEOVERFLOW) return Technosoftware.DaAeHdaClient.Com.Da.Result.S_DATAQUEUEOVERFLOW;
+                if (input == OpcResult.S_OK) return Com.Da.Result.S_OK;
+                if (input == OpcResult.E_FAIL) return Com.Da.Result.E_FAIL;
+                if (input == OpcResult.E_INVALIDARG) return Com.Da.Result.E_INVALIDARG;
+                if (input == OpcResult.Da.E_BADTYPE) return Com.Da.Result.E_BADTYPE;
+                if (input == OpcResult.Da.E_READONLY) return Com.Da.Result.E_BADRIGHTS;
+                if (input == OpcResult.Da.E_WRITEONLY) return Com.Da.Result.E_BADRIGHTS;
+                if (input == OpcResult.Da.E_RANGE) return Com.Da.Result.E_RANGE;
+                if (input == OpcResult.E_OUTOFMEMORY) return Com.Da.Result.E_OUTOFMEMORY;
+                if (input == OpcResult.E_NOTSUPPORTED) return Com.Da.Result.E_NOINTERFACE;
+                if (input == OpcResult.Da.E_INVALIDHANDLE) return Com.Da.Result.E_INVALIDHANDLE;
+                if (input == OpcResult.Da.E_UNKNOWN_ITEM_NAME) return Com.Da.Result.E_UNKNOWNITEMID;
+                if (input == OpcResult.Da.E_INVALID_ITEM_NAME) return Com.Da.Result.E_INVALIDITEMID;
+                if (input == OpcResult.Da.E_INVALID_ITEM_PATH) return Com.Da.Result.E_INVALIDITEMID;
+                if (input == OpcResult.Da.E_UNKNOWN_ITEM_PATH) return Com.Da.Result.E_UNKNOWNPATH;
+                if (input == OpcResult.Da.E_INVALID_FILTER) return Com.Da.Result.E_INVALIDFILTER;
+                if (input == OpcResult.Da.S_UNSUPPORTEDRATE) return Com.Da.Result.S_UNSUPPORTEDRATE;
+                if (input == OpcResult.Da.S_CLAMP) return Com.Da.Result.S_CLAMP;
+                if (input == OpcResult.Da.E_INVALID_PID) return Com.Da.Result.E_INVALID_PID;
+                if (input == OpcResult.Da.E_NO_ITEM_DEADBAND) return Com.Da.Result.E_DEADBANDNOTSUPPORTED;
+                if (input == OpcResult.Da.E_NO_ITEM_BUFFERING) return Com.Da.Result.E_NOBUFFERING;
+                if (input == OpcResult.Da.E_NO_WRITEQT) return Com.Da.Result.E_NOTSUPPORTED;
+                if (input == OpcResult.Da.E_INVALIDCONTINUATIONPOINT) return Com.Da.Result.E_INVALIDCONTINUATIONPOINT;
+                if (input == OpcResult.Da.S_DATAQUEUEOVERFLOW) return Com.Da.Result.S_DATAQUEUEOVERFLOW;
             }
 
                 // complex data.
             else if (input.Name != null && input.Name.Namespace == OpcNamespace.OPC_COMPLEX_DATA)
             {
-                if (input == OpcResult.Cpx.E_TYPE_CHANGED) return Technosoftware.DaAeHdaClient.Com.Cpx.Result.E_TYPE_CHANGED;
-                if (input == OpcResult.Cpx.E_FILTER_DUPLICATE) return Technosoftware.DaAeHdaClient.Com.Cpx.Result.E_FILTER_DUPLICATE;
-                if (input == OpcResult.Cpx.E_FILTER_INVALID) return Technosoftware.DaAeHdaClient.Com.Cpx.Result.E_FILTER_INVALID;
-                if (input == OpcResult.Cpx.E_FILTER_ERROR) return Technosoftware.DaAeHdaClient.Com.Cpx.Result.E_FILTER_ERROR;
-                if (input == OpcResult.Cpx.S_FILTER_NO_DATA) return Technosoftware.DaAeHdaClient.Com.Cpx.Result.S_FILTER_NO_DATA;
+                if (input == OpcResult.Cpx.E_TYPE_CHANGED) return Com.Cpx.Result.E_TYPE_CHANGED;
+                if (input == OpcResult.Cpx.E_FILTER_DUPLICATE) return Com.Cpx.Result.E_FILTER_DUPLICATE;
+                if (input == OpcResult.Cpx.E_FILTER_INVALID) return Com.Cpx.Result.E_FILTER_INVALID;
+                if (input == OpcResult.Cpx.E_FILTER_ERROR) return Com.Cpx.Result.E_FILTER_ERROR;
+                if (input == OpcResult.Cpx.S_FILTER_NO_DATA) return Com.Cpx.Result.S_FILTER_NO_DATA;
             }
 
             // historical data access.
             else if (input.Name != null && input.Name.Namespace == OpcNamespace.OPC_HISTORICAL_DATA_ACCESS)
             {
-                if (input == OpcResult.Hda.E_MAXEXCEEDED) return Technosoftware.DaAeHdaClient.Com.Hda.Result.E_MAXEXCEEDED;
-                if (input == OpcResult.Hda.S_NODATA) return Technosoftware.DaAeHdaClient.Com.Hda.Result.S_NODATA;
-                if (input == OpcResult.Hda.S_MOREDATA) return Technosoftware.DaAeHdaClient.Com.Hda.Result.S_MOREDATA;
-                if (input == OpcResult.Hda.E_INVALIDAGGREGATE) return Technosoftware.DaAeHdaClient.Com.Hda.Result.E_INVALIDAGGREGATE;
-                if (input == OpcResult.Hda.S_CURRENTVALUE) return Technosoftware.DaAeHdaClient.Com.Hda.Result.S_CURRENTVALUE;
-                if (input == OpcResult.Hda.S_EXTRADATA) return Technosoftware.DaAeHdaClient.Com.Hda.Result.S_EXTRADATA;
-                if (input == OpcResult.Hda.E_UNKNOWNATTRID) return Technosoftware.DaAeHdaClient.Com.Hda.Result.E_UNKNOWNATTRID;
-                if (input == OpcResult.Hda.E_NOT_AVAIL) return Technosoftware.DaAeHdaClient.Com.Hda.Result.E_NOT_AVAIL;
-                if (input == OpcResult.Hda.E_INVALIDDATATYPE) return Technosoftware.DaAeHdaClient.Com.Hda.Result.E_INVALIDDATATYPE;
-                if (input == OpcResult.Hda.E_DATAEXISTS) return Technosoftware.DaAeHdaClient.Com.Hda.Result.E_DATAEXISTS;
-                if (input == OpcResult.Hda.E_INVALIDATTRID) return Technosoftware.DaAeHdaClient.Com.Hda.Result.E_INVALIDATTRID;
-                if (input == OpcResult.Hda.E_NODATAEXISTS) return Technosoftware.DaAeHdaClient.Com.Hda.Result.E_NODATAEXISTS;
-                if (input == OpcResult.Hda.S_INSERTED) return Technosoftware.DaAeHdaClient.Com.Hda.Result.S_INSERTED;
-                if (input == OpcResult.Hda.S_REPLACED) return Technosoftware.DaAeHdaClient.Com.Hda.Result.S_REPLACED;
+                if (input == OpcResult.Hda.E_MAXEXCEEDED) return Com.Hda.Result.E_MAXEXCEEDED;
+                if (input == OpcResult.Hda.S_NODATA) return Com.Hda.Result.S_NODATA;
+                if (input == OpcResult.Hda.S_MOREDATA) return Com.Hda.Result.S_MOREDATA;
+                if (input == OpcResult.Hda.E_INVALIDAGGREGATE) return Com.Hda.Result.E_INVALIDAGGREGATE;
+                if (input == OpcResult.Hda.S_CURRENTVALUE) return Com.Hda.Result.S_CURRENTVALUE;
+                if (input == OpcResult.Hda.S_EXTRADATA) return Com.Hda.Result.S_EXTRADATA;
+                if (input == OpcResult.Hda.E_UNKNOWNATTRID) return Com.Hda.Result.E_UNKNOWNATTRID;
+                if (input == OpcResult.Hda.E_NOT_AVAIL) return Com.Hda.Result.E_NOT_AVAIL;
+                if (input == OpcResult.Hda.E_INVALIDDATATYPE) return Com.Hda.Result.E_INVALIDDATATYPE;
+                if (input == OpcResult.Hda.E_DATAEXISTS) return Com.Hda.Result.E_DATAEXISTS;
+                if (input == OpcResult.Hda.E_INVALIDATTRID) return Com.Hda.Result.E_INVALIDATTRID;
+                if (input == OpcResult.Hda.E_NODATAEXISTS) return Com.Hda.Result.E_NODATAEXISTS;
+                if (input == OpcResult.Hda.S_INSERTED) return Com.Hda.Result.S_INSERTED;
+                if (input == OpcResult.Hda.S_REPLACED) return Com.Hda.Result.S_REPLACED;
             }
 
             // check for custom code.
@@ -1893,7 +1893,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// </summary>
         public static Exception CreateException(string message, int code)
         {
-            return new OpcResultException(Utilities.Interop.GetResultId(code), message);
+            return new OpcResultException(GetResultId(code), message);
         }
 
         /// <summary>

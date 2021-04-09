@@ -183,17 +183,17 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 			output.Aggregate = input.haAggregate;
 
             object[] values = Com.Interop.GetVARIANTs(ref input.pvDataValues, input.dwCount, deallocate);
-			DateTime[] timestamps = Technosoftware.DaAeHdaClient.Utilities.Interop.GetDateTimes(ref input.pftTimeStamps, input.dwCount, deallocate);
-			int[] qualities = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref input.pdwQualities, input.dwCount, deallocate);
+			DateTime[] timestamps = Utilities.Interop.GetDateTimes(ref input.pftTimeStamps, input.dwCount, deallocate);
+			int[] qualities = Utilities.Interop.GetInt32s(ref input.pdwQualities, input.dwCount, deallocate);
 
 			for (int ii = 0; ii < input.dwCount; ii++)
 			{
-				Technosoftware.DaAeHdaClient.Hda.TsCHdaItemValue value = new Technosoftware.DaAeHdaClient.Hda.TsCHdaItemValue();
+				TsCHdaItemValue value = new TsCHdaItemValue();
 
 				value.Value = values[ii];
 				value.Timestamp = timestamps[ii];
-                value.Quality = new Technosoftware.DaAeHdaClient.Da.TsCDaQuality((short)(qualities[ii] & 0x0000FFFF));
-                value.HistorianQuality = (Technosoftware.DaAeHdaClient.Hda.TsCHdaQuality)((int)(qualities[ii] & 0xFFFF0000));
+                value.Quality = new TsCDaQuality((short)(qualities[ii] & 0x0000FFFF));
+                value.HistorianQuality = (TsCHdaQuality)((int)(qualities[ii] & 0xFFFF0000));
 
 				output.Add(value);
 			}
@@ -262,11 +262,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 			output.ClientHandle = input.hClient;
 
             object[] values = Com.Interop.GetVARIANTs(ref input.pvDataValues, input.dwCount, deallocate);
-			DateTime[] timestamps = Technosoftware.DaAeHdaClient.Utilities.Interop.GetDateTimes(ref input.pftTimeStamps, input.dwCount, deallocate);
-			int[] qualities = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref input.pdwQualities, input.dwCount, deallocate);
-			DateTime[] modificationTimes = Technosoftware.DaAeHdaClient.Utilities.Interop.GetDateTimes(ref input.pftModificationTime, input.dwCount, deallocate);
-			int[] editTypes = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref input.pEditType, input.dwCount, deallocate);
-			string[] users = Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(ref input.szUser, input.dwCount, deallocate);
+			DateTime[] timestamps = Utilities.Interop.GetDateTimes(ref input.pftTimeStamps, input.dwCount, deallocate);
+			int[] qualities = Utilities.Interop.GetInt32s(ref input.pdwQualities, input.dwCount, deallocate);
+			DateTime[] modificationTimes = Utilities.Interop.GetDateTimes(ref input.pftModificationTime, input.dwCount, deallocate);
+			int[] editTypes = Utilities.Interop.GetInt32s(ref input.pEditType, input.dwCount, deallocate);
+			string[] users = Utilities.Interop.GetUnicodeStrings(ref input.szUser, input.dwCount, deallocate);
 
 			for (int ii = 0; ii < input.dwCount; ii++)
 			{
@@ -274,8 +274,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
 				value.Value = values[ii];
 				value.Timestamp = timestamps[ii];
-                value.Quality = new Technosoftware.DaAeHdaClient.Da.TsCDaQuality((short)(qualities[ii] & 0x0000FFFF));
-                value.HistorianQuality = (Technosoftware.DaAeHdaClient.Hda.TsCHdaQuality)((int)(qualities[ii] & 0xFFFF0000));
+                value.Quality = new TsCDaQuality((short)(qualities[ii] & 0x0000FFFF));
+                value.HistorianQuality = (TsCHdaQuality)((int)(qualities[ii] & 0xFFFF0000));
 				value.ModificationTime = modificationTimes[ii];
 				value.EditType = (TsCHdaEditType)editTypes[ii];
 				value.User = users[ii];
@@ -289,13 +289,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 		/// <summary>
 		/// Unmarshals and deallocates an array of OPCHDA_ATTRIBUTE structures.
 		/// </summary>
-		internal static Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection[] GetAttributeValueCollections(ref IntPtr pInput, int count, bool deallocate)
+		internal static TsCHdaAttributeValueCollection[] GetAttributeValueCollections(ref IntPtr pInput, int count, bool deallocate)
 		{
-			Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection[] output = null;
+			TsCHdaAttributeValueCollection[] output = null;
 
 			if (pInput != IntPtr.Zero && count > 0)
 			{
-				output = new Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection[count];
+				output = new TsCHdaAttributeValueCollection[count];
 
 				IntPtr pos = pInput;
 
@@ -318,9 +318,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 		/// <summary>
 		/// Unmarshals and deallocates an OPCHDA_ATTRIBUTE structure.
 		/// </summary>
-		internal static Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection GetAttributeValueCollection(IntPtr pInput, bool deallocate)
+		internal static TsCHdaAttributeValueCollection GetAttributeValueCollection(IntPtr pInput, bool deallocate)
 		{
-			Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection output = null;
+			TsCHdaAttributeValueCollection output = null;
 
 			if (pInput != IntPtr.Zero)
 			{
@@ -340,18 +340,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 		/// <summary>
 		/// Unmarshals and deallocates an OPCHDA_ATTRIBUTE structure.
 		/// </summary>
-		internal static Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection GetAttributeValueCollection(OpcRcw.Hda.OPCHDA_ATTRIBUTE input, bool deallocate)
+		internal static TsCHdaAttributeValueCollection GetAttributeValueCollection(OpcRcw.Hda.OPCHDA_ATTRIBUTE input, bool deallocate)
 		{
-			Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection output = new Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection();
+			TsCHdaAttributeValueCollection output = new TsCHdaAttributeValueCollection();
 
 			output.AttributeID = input.dwAttributeID;
 
             object[] values = Com.Interop.GetVARIANTs(ref input.vAttributeValues, input.dwNumValues, deallocate);
-			DateTime[] timestamps = Technosoftware.DaAeHdaClient.Utilities.Interop.GetDateTimes(ref input.ftTimeStamps, input.dwNumValues, deallocate);
+			DateTime[] timestamps = Utilities.Interop.GetDateTimes(ref input.ftTimeStamps, input.dwNumValues, deallocate);
 
 			for (int ii = 0; ii < input.dwNumValues; ii++)
 			{
-				Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue value = new Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue();
+				TsCHdaAttributeValue value = new TsCHdaAttributeValue();
 
 				value.Value = values[ii];
 				value.Timestamp = timestamps[ii];
@@ -422,10 +422,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
 			output.ClientHandle = input.hClient;
 
-			DateTime[] timestamps = Technosoftware.DaAeHdaClient.Utilities.Interop.GetDateTimes(ref input.ftTimeStamps, input.dwNumValues, deallocate);
-			string[] annotations = Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(ref input.szAnnotation, input.dwNumValues, deallocate);
-			DateTime[] creationTimes = Technosoftware.DaAeHdaClient.Utilities.Interop.GetDateTimes(ref input.ftAnnotationTime, input.dwNumValues, deallocate);
-			string[] users = Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(ref input.szUser, input.dwNumValues, deallocate);
+			DateTime[] timestamps = Utilities.Interop.GetDateTimes(ref input.ftTimeStamps, input.dwNumValues, deallocate);
+			string[] annotations = Utilities.Interop.GetUnicodeStrings(ref input.szAnnotation, input.dwNumValues, deallocate);
+			DateTime[] creationTimes = Utilities.Interop.GetDateTimes(ref input.ftAnnotationTime, input.dwNumValues, deallocate);
+			string[] users = Utilities.Interop.GetUnicodeStrings(ref input.szUser, input.dwNumValues, deallocate);
 
 			for (int ii = 0; ii < input.dwNumValues; ii++)
 			{

@@ -32,9 +32,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
     [Serializable]
     public class TsCHdaAttribute : ICloneable
     {
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
-
+        #region Properties
         /// <summary>
         /// A unique identifier for the attribute.
         /// </summary>
@@ -54,31 +52,24 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// The data type of the attribute.
         /// </summary>
 		public Type DataType { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Public Methods
-
-		/// <summary>
+        #region Public Methods
+        /// <summary>
         /// Returns a string that represents the current object.
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
             return Name;
-		}
+        }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region ICloneable Members
-
-		/// <summary>
+        #region ICloneable Members
+        /// <summary>
         /// Creates a shallow copy of the object.
         /// </summary>
         public virtual object Clone() { return MemberwiseClone(); }
-
         #endregion
     }
 }

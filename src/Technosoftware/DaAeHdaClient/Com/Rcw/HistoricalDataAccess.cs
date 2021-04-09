@@ -217,7 +217,7 @@ namespace OpcRcw.Hda
         void GetEnum(
             OPCHDA_BROWSETYPE dwBrowseType,
             [Out] 
-            out OpcRcw.Comn.IEnumString ppIEnumString);   
+            out Comn.IEnumString ppIEnumString);   
 
 	    void ChangeBrowsePosition(
             OPCHDA_BROWSEDIRECTION dwBrowseDirection,

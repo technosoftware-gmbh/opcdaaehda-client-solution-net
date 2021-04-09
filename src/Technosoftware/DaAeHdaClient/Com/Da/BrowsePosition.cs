@@ -34,7 +34,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
     /// Implements an object that handles multi-step browse operations.
     /// </summary>
     [Serializable]
-	internal class BrowsePosition : Technosoftware.DaAeHdaClient.Da.TsCDaBrowsePosition
+	internal class BrowsePosition : TsCDaBrowsePosition
     {
         /// <summary>
         /// The continuation point for a browse operation.
@@ -50,7 +50,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// Initializes a browse position 
         /// </summary>
         internal BrowsePosition(
-            Technosoftware.DaAeHdaClient.OpcItem itemID, 
+            OpcItem itemID, 
             TsCDaBrowseFilters      filters, 
             string             continuationPoint)
         :

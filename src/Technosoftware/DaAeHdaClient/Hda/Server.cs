@@ -28,201 +28,181 @@ using System.Runtime.Serialization;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// An in-process object used to access OPC Data Access servers.
-	/// </summary>
-	[Serializable]
-	public class TsCHdaServer : Technosoftware.DaAeHdaClient.OpcServer
-	{
-		#region Class Names
+    /// <summary>
+    /// An in-process object used to access OPC Data Access servers.
+    /// </summary>
+    [Serializable]
+    public class TsCHdaServer : OpcServer
+    {
+        #region Class Names
 
-		/// <summary>
-		/// A set of names for fields used in serialization.
-		/// </summary>
-		private class Names
-		{
-			internal const string TRENDS = "Trends";
-		}
+        /// <summary>
+        /// A set of names for fields used in serialization.
+        /// </summary>
+        private class Names
+        {
+            internal const string Trends = "Trends";
+        }
+        #endregion
 
-		#endregion
+        #region Fields
+        private Hashtable items_ = new Hashtable();
+        private TsCHdaAttributeCollection attributes_ = new TsCHdaAttributeCollection();
+        private TsCHdaAggregateCollection aggregates_ = new TsCHdaAggregateCollection();
+        private TsCHdaTrendCollection trends_ = new TsCHdaTrendCollection();
+        #endregion
 
-		#region Fields
-
-		private Hashtable _items = new Hashtable();
-		private Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeCollection _attributes = new Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeCollection();
-		private TsCHdaAggregateCollection _aggregates = new TsCHdaAggregateCollection();
-		private TsCHdaTrendCollection _trends = new TsCHdaTrendCollection();
-
-		#endregion
-
-		#region Constructors, Destructor, Initialization
-
+        #region Constructors, Destructor, Initialization
         /// <summary>
         /// Initializes the object.
         /// </summary>
         public TsCHdaServer()
-            
+
         {
-            base._factory = new Com.Factory();
+            Factory = new Com.Factory();
         }
 
-		/// <summary>
-		/// Initializes the object with a factory and a default OpcUrl.
-		/// </summary>
-        /// <param name="factory">The TsOpcFactory used to connect to remote servers.</param>
-		/// <param name="url">The network address of a remote server.</param>
-		public TsCHdaServer(OpcFactory factory, OpcUrl url)
-			:
-			base(factory, url)
-		{
-		}
-
-		/// <summary>
-		/// Contructs a server by de-serializing its OpcUrl from the stream.
-		/// </summary>
-		protected TsCHdaServer(SerializationInfo info, StreamingContext context)
-			: base(info, context)
-		{
-			TsCHdaTrend[] trends = (TsCHdaTrend[])info.GetValue(Names.TRENDS, typeof(TsCHdaTrend[]));
-
-			if (trends != null)
-			{
-				Array.ForEach(trends, trend =>
-				{
-					trend.SetServer(this);
-					_trends.Add(trend);
-				});
-			}
-		}
-
-		#endregion
-
-		#region Properties
-
-		/// <summary>
-		/// Returns a collection of item attributes supported by the server.
-		/// </summary>
-		public Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeCollection Attributes
-		{
-			get { return _attributes; }
-		}
-
-		/// <summary>
-		/// Returns a collection of aggregates supported by the server.
-		/// </summary>
-		public TsCHdaAggregateCollection Aggregates
-		{
-			get { return _aggregates; }
-		}
-
-		/// <summary>
-		/// Returns a collection of items with server handles assigned to them.
-		/// </summary>
-		public OpcItemCollection Items
-		{
-			get { return new OpcItemCollection(_items.Values); }
-		}
-
-		/// <summary>
-		/// Returns a collection of trends created for the server.
-		/// </summary>
-		public TsCHdaTrendCollection Trends
-		{
-			get { return _trends; }
-		}
-
-		#endregion
-
-		#region Public Methods
         /// <summary>
-		/// Connects to the server with the specified OpcUrl and credentials.
-		/// </summary>
-		public override void Connect(OpcUrl url, OpcConnectData connectData)
-		{
-            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (_factory == null)
-			{
-				_factory = new Com.Factory();
-			}
-			// connect to server.
-			base.Connect(url, connectData);
+        /// Initializes the object with a factory and a default OpcUrl.
+        /// </summary>
+        /// <param name="factory">The TsOpcFactory used to connect to remote servers.</param>
+        /// <param name="url">The network address of a remote server.</param>
+        public TsCHdaServer(OpcFactory factory, OpcUrl url)
+            :
+            base(factory, url)
+        {
+        }
 
-			// fetch supported attributes.
-			GetAttributes();
+        /// <summary>
+        /// Construct a server by de-serializing its OpcUrl from the stream.
+        /// </summary>
+        protected TsCHdaServer(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+            TsCHdaTrend[] trends = (TsCHdaTrend[])info.GetValue(Names.Trends, typeof(TsCHdaTrend[]));
 
-			// fetch supported aggregates.
-			GetAggregates();
-
-			// create items for trends.
-			foreach (TsCHdaTrend trend in _trends)
-			{
-				ArrayList itemIDs = new ArrayList();
-
-				foreach (TsCHdaItem item in trend.Items)
-				{
-					itemIDs.Add(new OpcItem(item));
-				}
-
-				// save server handles for each item.
-				OpcItemResult[] results = CreateItems((OpcItem[])itemIDs.ToArray(typeof(OpcItem)));
-
-				if (results != null)
-				{
-					for (int ii = 0; ii < results.Length; ii++)
-					{
-						trend.Items[ii].ServerHandle = null;
-
-						if (results[ii].Result.Succeeded())
-						{
-							trend.Items[ii].ServerHandle = results[ii].ServerHandle;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Disconnects from the server and releases all network resources.
-		/// </summary>
-		public override void Disconnect()
-		{
-            if (server_ == null) throw new NotConnectedException();
-
-            // dispose of all items first.
-            if (_items.Count > 0)
-			{
-
-				try
-				{
-					ArrayList items = new ArrayList(_items.Count);
-					items.AddRange(_items);
-
-					((ITsCHdaServer)server_).ReleaseItems((OpcItem[])items.ToArray(typeof(OpcItem)));
-				}
-				catch
-				{
-					// ignore errors.
-				}
-
-				_items.Clear();
-			}
-
-			// invalidate server handles for trends.
-			foreach (TsCHdaTrend trend in _trends)
-			{
-				foreach (TsCHdaItem item in trend.Items)
-				{
-					item.ServerHandle = null;
-				}
-			}
-
-			// disconnect from server.
-			base.Disconnect();
-		}
+            if (trends != null)
+            {
+                Array.ForEach(trends, trend =>
+                {
+                    trend.SetServer(this);
+                    trends_.Add(trend);
+                });
+            }
+        }
         #endregion
 
-		#region GetStatus
+        #region Properties
+        /// <summary>
+        /// Returns a collection of item attributes supported by the server.
+        /// </summary>
+        public TsCHdaAttributeCollection Attributes => attributes_;
 
+        /// <summary>
+		/// Returns a collection of aggregates supported by the server.
+		/// </summary>
+		public TsCHdaAggregateCollection Aggregates => aggregates_;
+
+        /// <summary>
+		/// Returns a collection of items with server handles assigned to them.
+		/// </summary>
+		public OpcItemCollection Items => new OpcItemCollection(items_.Values);
+
+        /// <summary>
+		/// Returns a collection of trends created for the server.
+		/// </summary>
+		public TsCHdaTrendCollection Trends => trends_;
+        #endregion
+
+        #region Public Methods
+        /// <summary>
+        /// Connects to the server with the specified OpcUrl and credentials.
+        /// </summary>
+        public override void Connect(OpcUrl url, OpcConnectData connectData)
+        {
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (Factory == null)
+            {
+                Factory = new Com.Factory();
+            }
+            // connect to server.
+            base.Connect(url, connectData);
+
+            // fetch supported attributes.
+            GetAttributes();
+
+            // fetch supported aggregates.
+            GetAggregates();
+
+            // create items for trends.
+            foreach (TsCHdaTrend trend in trends_)
+            {
+                ArrayList itemIDs = new ArrayList();
+
+                foreach (TsCHdaItem item in trend.Items)
+                {
+                    itemIDs.Add(new OpcItem(item));
+                }
+
+                // save server handles for each item.
+                OpcItemResult[] results = CreateItems((OpcItem[])itemIDs.ToArray(typeof(OpcItem)));
+
+                if (results != null)
+                {
+                    for (int ii = 0; ii < results.Length; ii++)
+                    {
+                        trend.Items[ii].ServerHandle = null;
+
+                        if (results[ii].Result.Succeeded())
+                        {
+                            trend.Items[ii].ServerHandle = results[ii].ServerHandle;
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Disconnects from the server and releases all network resources.
+        /// </summary>
+        public override void Disconnect()
+        {
+            if (Server == null) throw new NotConnectedException();
+
+            // dispose of all items first.
+            if (items_.Count > 0)
+            {
+
+                try
+                {
+                    ArrayList items = new ArrayList(items_.Count);
+                    items.AddRange(items_);
+
+                    ((ITsCHdaServer)Server).ReleaseItems((OpcItem[])items.ToArray(typeof(OpcItem)));
+                }
+                catch
+                {
+                    // ignore errors.
+                }
+
+                items_.Clear();
+            }
+
+            // invalidate server handles for trends.
+            foreach (TsCHdaTrend trend in trends_)
+            {
+                foreach (TsCHdaItem item in trend.Items)
+                {
+                    item.ServerHandle = null;
+                }
+            }
+
+            // disconnect from server.
+            base.Disconnect();
+        }
+        #endregion
+
+        #region GetStatus
         /// <summary>
         /// Returns the current server status.
         /// </summary>
@@ -230,16 +210,16 @@ namespace Technosoftware.DaAeHdaClient.Hda
         public OpcServerStatus GetServerStatus()
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcServerStatus status = ((ITsCHdaServer)server_).GetServerStatus();
+            OpcServerStatus status = ((ITsCHdaServer)Server).GetServerStatus();
 
 
             if (status != null)
             {
                 if (status.StatusInfo == null)
                 {
-                    status.StatusInfo = GetString(String.Format("serverState.{0}", status.ServerState));
+                    status.StatusInfo = GetString($"serverState.{status.ServerState}");
                 }
             }
             else
@@ -249,177 +229,163 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
             return status;
         }
+        #endregion
 
-		#endregion
-
-		#region GetAttributes
-
-		/// <summary>
-		/// Returns the item attributes supported by the server.
-		/// </summary>
-		/// <returns>The a set of item attributes and their descriptions.</returns>
-		public Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute[] GetAttributes()
-		{
+        #region GetAttributes
+        /// <summary>
+        /// Returns the item attributes supported by the server.
+        /// </summary>
+        /// <returns>The a set of item attributes and their descriptions.</returns>
+        public TsCHdaAttribute[] GetAttributes()
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			// clear existing cached list.
-            _attributes.Clear();
+            if (Server == null) throw new NotConnectedException();
+            // clear existing cached list.
+            attributes_.Clear();
 
-			Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute[] attributes = ((ITsCHdaServer)server_).GetAttributes();
+            TsCHdaAttribute[] attributes = ((ITsCHdaServer)Server).GetAttributes();
 
-			// save a locale copy.
-			if (attributes != null)
-			{
-				_attributes.Init(attributes);
-			}
+            // save a locale copy.
+            if (attributes != null)
+            {
+                attributes_.Init(attributes);
+            }
 
-			return attributes;
-		}
+            return attributes;
+        }
+        #endregion
 
-		#endregion
-
-		#region GetAggregates
-
-		/// <summary>
-		/// Returns the aggregates supported by the server.
-		/// </summary>
-		/// <returns>The a set of aggregates and their descriptions.</returns>
-		public TsCHdaAggregate[] GetAggregates()
-		{
+        #region GetAggregates
+        /// <summary>
+        /// Returns the aggregates supported by the server.
+        /// </summary>
+        /// <returns>The a set of aggregates and their descriptions.</returns>
+        public TsCHdaAggregate[] GetAggregates()
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			// discard existing cached list.
-            _aggregates.Clear();
+            if (Server == null) throw new NotConnectedException();
+            // discard existing cached list.
+            aggregates_.Clear();
 
-			TsCHdaAggregate[] aggregates = ((ITsCHdaServer)server_).GetAggregates();
+            TsCHdaAggregate[] aggregates = ((ITsCHdaServer)Server).GetAggregates();
 
-			// save a locale copy.
-			if (aggregates != null)
-			{
-				_aggregates.Init(aggregates);
-			}
+            // save a locale copy.
+            if (aggregates != null)
+            {
+                aggregates_.Init(aggregates);
+            }
 
-			return aggregates;
-		}
+            return aggregates;
+        }
+        #endregion
 
-		#endregion
-
-		#region CreateBrowser
-
-		/// <summary>
-		/// Creates a object used to browse the server address space.
-		/// </summary>
-		/// <param name="filters">The set of attribute filters to use when browsing.</param>
-		/// <param name="results">A result code for each individual filter.</param>
-		/// <returns>A browser object that must be released by calling Dispose().</returns>
-		public ITsCHdaBrowser CreateBrowser(TsCHdaBrowseFilter[] filters, out OpcResult[] results)
-		{
+        #region CreateBrowser
+        /// <summary>
+        /// Creates a object used to browse the server address space.
+        /// </summary>
+        /// <param name="filters">The set of attribute filters to use when browsing.</param>
+        /// <param name="results">A result code for each individual filter.</param>
+        /// <returns>A browser object that must be released by calling Dispose().</returns>
+        public ITsCHdaBrowser CreateBrowser(TsCHdaBrowseFilter[] filters, out OpcResult[] results)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)server_).CreateBrowser(filters, out results);
-		}
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).CreateBrowser(filters, out results);
+        }
+        #endregion
 
-		#endregion
-
-		#region CreateItems
-
-		/// <summary>
-		/// Creates a set of items.
-		/// </summary>
-		/// <param name="items">The identifiers for the items to create.</param>
-		/// <returns>The results for each item containing the server handle and result code.</returns>
-		public OpcItemResult[] CreateItems(OpcItem[] items)
-		{
+        #region CreateItems
+        /// <summary>
+        /// Creates a set of items.
+        /// </summary>
+        /// <param name="items">The identifiers for the items to create.</param>
+        /// <returns>The results for each item containing the server handle and result code.</returns>
+        public OpcItemResult[] CreateItems(OpcItem[] items)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			OpcItemResult[] results = ((ITsCHdaServer)server_).CreateItems(items);
+            if (Server == null) throw new NotConnectedException();
+            OpcItemResult[] results = ((ITsCHdaServer)Server).CreateItems(items);
 
-			// save items for future reference.
-			if (results != null)
-			{
-				foreach (OpcItemResult result in results)
-				{
-					if (result.Result.Succeeded())
-					{
-						_items.Add(result.ServerHandle, new OpcItem(result));
-					}
-				}
-			}
+            // save items for future reference.
+            if (results != null)
+            {
+                foreach (OpcItemResult result in results)
+                {
+                    if (result.Result.Succeeded())
+                    {
+                        items_.Add(result.ServerHandle, new OpcItem(result));
+                    }
+                }
+            }
 
-			return results;
-		}
+            return results;
+        }
+        #endregion
 
-		#endregion
-
-		#region ReleaseItems
-
-		/// <summary>
-		/// Releases a set of previously created items.
-		/// </summary>
-		/// <param name="items">The server handles for the items to release.</param>
-		/// <returns>The results for each item containing the result code.</returns>
-		public OpcItemResult[] ReleaseItems(OpcItem[] items)
-		{
+        #region ReleaseItems
+        /// <summary>
+        /// Releases a set of previously created items.
+        /// </summary>
+        /// <param name="items">The server handles for the items to release.</param>
+        /// <returns>The results for each item containing the result code.</returns>
+        public OpcItemResult[] ReleaseItems(OpcItem[] items)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)server_).ReleaseItems(items);
+            OpcItemResult[] results = ((ITsCHdaServer)Server).ReleaseItems(items);
 
-			// remove items from local cache.
-			if (results != null)
-			{
-				foreach (OpcItemResult result in results)
-				{
-					if (result.Result.Succeeded())
-					{
-						_items.Remove(result.ServerHandle);
-					}
-				}
-			}
+            // remove items from local cache.
+            if (results != null)
+            {
+                foreach (OpcItemResult result in results)
+                {
+                    if (result.Result.Succeeded())
+                    {
+                        items_.Remove(result.ServerHandle);
+                    }
+                }
+            }
 
-			return results;
-		}
+            return results;
+        }
+        #endregion
 
-		#endregion
-
-		#region ValidateItems
-
-		/// <summary>
-		/// Validates a set of items.
-		/// </summary>
-		/// <param name="items">The identifiers for the items to validate.</param>
-		/// <returns>The results for each item containing the result code.</returns>
-		public OpcItemResult[] ValidateItems(OpcItem[] items)
-		{
+        #region ValidateItems
+        /// <summary>
+        /// Validates a set of items.
+        /// </summary>
+        /// <param name="items">The identifiers for the items to validate.</param>
+        /// <returns>The results for each item containing the result code.</returns>
+        public OpcItemResult[] ValidateItems(OpcItem[] items)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)server_).ValidateItems(items);
-		}
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).ValidateItems(items);
+        }
+        #endregion
 
-		#endregion
-
-		#region ReadRaw
-
-		/// <summary>
-		/// Reads raw (unprocessed) data from the historian database for a set of items.
-		/// </summary>
-		/// <param name="startTime">The beginning of the history period to read.</param>
-		/// <param name="endTime">The end of the history period to be read.</param>
-		/// <param name="maxValues">The number of values to be read for each item.</param>
-		/// <param name="includeBounds">Whether the bounding item values should be returned.</param>
-		/// <param name="items">The set of items to read (must include the item name).</param>
-		/// <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
-		internal TsCHdaItemValueCollection[] ReadRaw(
-			TsCHdaTime startTime,
-			TsCHdaTime endTime,
-			int maxValues,
-			bool includeBounds,
-			OpcItem[] items)
-		{
+        #region ReadRaw
+        /// <summary>
+        /// Reads raw (unprocessed) data from the historian database for a set of items.
+        /// </summary>
+        /// <param name="startTime">The beginning of the history period to read.</param>
+        /// <param name="endTime">The end of the history period to be read.</param>
+        /// <param name="maxValues">The number of values to be read for each item.</param>
+        /// <param name="includeBounds">Whether the bounding item values should be returned.</param>
+        /// <param name="items">The set of items to read (must include the item name).</param>
+        /// <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
+        internal TsCHdaItemValueCollection[] ReadRaw(
+            TsCHdaTime startTime,
+            TsCHdaTime endTime,
+            int maxValues,
+            bool includeBounds,
+            OpcItem[] items)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)server_).ReadRaw(startTime, endTime, maxValues, includeBounds, items);
-		}
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).ReadRaw(startTime, endTime, maxValues, includeBounds, items);
+        }
 
         /// <summary>
         /// Sends an asynchronous request to read raw data from the historian database for a set of items.
@@ -444,8 +410,8 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-             return ((ITsCHdaServer)server_).ReadRaw(startTime, endTime, maxValues, includeBounds, items, requestHandle, callback, out request);
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).ReadRaw(startTime, endTime, maxValues, includeBounds, items, requestHandle, callback, out request);
         }
 
         /// <summary>
@@ -467,8 +433,8 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-            return ((ITsCHdaServer)server_).AdviseRaw(startTime, updateInterval, items, requestHandle, callback, out request);
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).AdviseRaw(startTime, updateInterval, items, requestHandle, callback, out request);
         }
 
         /// <summary>
@@ -496,33 +462,31 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-            return ((ITsCHdaServer)server_).PlaybackRaw(startTime, endTime, maxValues, updateInterval, playbackDuration, items, requestHandle, callback, out request);
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).PlaybackRaw(startTime, endTime, maxValues, updateInterval, playbackDuration, items, requestHandle, callback, out request);
+        }
+        #endregion
+
+        #region ReadProcessed
+        /// <summary>
+        /// Reads processed data from the historian database for a set of items.
+        /// </summary>
+        /// <param name="startTime">The beginning of the history period to read.</param>
+        /// <param name="endTime">The end of the history period to be read.</param>
+        /// <param name="resampleInterval">The interval between returned values.</param>
+        /// <param name="items">The set of items to read (must include the item name).</param>
+        /// <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
+        internal TsCHdaItemValueCollection[] ReadProcessed(
+            TsCHdaTime startTime,
+            TsCHdaTime endTime,
+            decimal resampleInterval,
+            TsCHdaItem[] items)
+        {
+            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).ReadProcessed(startTime, endTime, resampleInterval, items);
         }
 
-		#endregion
-
-		#region ReadProcessed
-
-		/// <summary>
-		/// Reads processed data from the historian database for a set of items.
-		/// </summary>
-		/// <param name="startTime">The beginning of the history period to read.</param>
-		/// <param name="endTime">The end of the history period to be read.</param>
-		/// <param name="resampleInterval">The interval between returned values.</param>
-		/// <param name="items">The set of items to read (must include the item name).</param>
-		/// <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
-		internal TsCHdaItemValueCollection[] ReadProcessed(
-			TsCHdaTime startTime,
-			TsCHdaTime endTime,
-			decimal resampleInterval,
-			TsCHdaItem[] items)
-		{
-            LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)server_).ReadProcessed(startTime, endTime, resampleInterval, items);
-		}
-		
         /// <summary>
         /// Sends an asynchronous request to read processed data from the historian database for a set of items.
         /// </summary>
@@ -544,9 +508,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)server_).ReadProcessed(
+            OpcItemResult[] results = ((ITsCHdaServer)Server).ReadProcessed(
                 startTime,
                 endTime,
                 resampleInterval,
@@ -579,9 +543,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)server_).AdviseProcessed(
+            OpcItemResult[] results = ((ITsCHdaServer)Server).AdviseProcessed(
                 startTime,
                 resampleInterval,
                 numberOfIntervals,
@@ -618,9 +582,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)server_).PlaybackProcessed(
+            OpcItemResult[] results = ((ITsCHdaServer)Server).PlaybackProcessed(
                 startTime,
                 endTime,
                 resampleInterval,
@@ -633,23 +597,21 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
             return results;
         }
+        #endregion
 
-		#endregion
-
-		#region ReadAtTime
-
-		/// <summary>
-		/// Reads data from the historian database for a set of items at specific times.
-		/// </summary>
-		/// <param name="timestamps">The set of timestamps to use when reading items values.</param>
-		/// <param name="items">The set of items to read (must include the item name).</param>
-		/// <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
-		internal TsCHdaItemValueCollection[] ReadAtTime(DateTime[] timestamps, OpcItem[] items)
-		{
+        #region ReadAtTime
+        /// <summary>
+        /// Reads data from the historian database for a set of items at specific times.
+        /// </summary>
+        /// <param name="timestamps">The set of timestamps to use when reading items values.</param>
+        /// <param name="items">The set of items to read (must include the item name).</param>
+        /// <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
+        internal TsCHdaItemValueCollection[] ReadAtTime(DateTime[] timestamps, OpcItem[] items)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)server_).ReadAtTime(timestamps, items);
-		}
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).ReadAtTime(timestamps, items);
+        }
 
         /// <summary>
         /// Sends an asynchronous request to read item values at specific times.
@@ -668,9 +630,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)server_).ReadAtTime(
+            OpcItemResult[] results = ((ITsCHdaServer)Server).ReadAtTime(
                 timestamps,
                 items,
                 requestHandle,
@@ -679,29 +641,27 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
             return results;
         }
+        #endregion
 
-		#endregion
-
-		#region ReadModified
-
-		/// <summary>
-		/// Reads item values that have been deleted or replaced.
-		/// </summary>
-		/// <param name="startTime">The beginning of the history period to read.</param>
-		/// <param name="endTime">The end of the history period to be read.</param>
-		/// <param name="maxValues">The number of values to be read for each item.</param>
-		/// <param name="items">The set of items to read (must include the item name).</param>
-		/// <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
-		internal TsCHdaModifiedValueCollection[] ReadModified(
-			TsCHdaTime startTime,
-			TsCHdaTime endTime,
-			int maxValues,
-			OpcItem[] items)
-		{
+        #region ReadModified
+        /// <summary>
+        /// Reads item values that have been deleted or replaced.
+        /// </summary>
+        /// <param name="startTime">The beginning of the history period to read.</param>
+        /// <param name="endTime">The end of the history period to be read.</param>
+        /// <param name="maxValues">The number of values to be read for each item.</param>
+        /// <param name="items">The set of items to read (must include the item name).</param>
+        /// <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
+        internal TsCHdaModifiedValueCollection[] ReadModified(
+            TsCHdaTime startTime,
+            TsCHdaTime endTime,
+            int maxValues,
+            OpcItem[] items)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)server_).ReadModified(startTime, endTime, maxValues, items);
-		}
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).ReadModified(startTime, endTime, maxValues, items);
+        }
 
         /// <summary>
         /// Sends an asynchronous request to read item values that have been deleted or replaced.
@@ -724,9 +684,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)server_).ReadModified(
+            OpcItemResult[] results = ((ITsCHdaServer)Server).ReadModified(
                 startTime,
                 endTime,
                 maxValues,
@@ -737,29 +697,27 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
             return results;
         }
+        #endregion
 
-		#endregion
-
-		#region ReadAttributes
-
-		/// <summary>
-		/// Reads the current or historical values for the attributes of an item.
-		/// </summary>
-		/// <param name="startTime">The beginning of the history period to read.</param>
-		/// <param name="endTime">The end of the history period to be read.</param>
-		/// <param name="item">The item to read (must include the item name).</param>
-		/// <param name="attributeIDs">The attributes to read.</param>
-		/// <returns>A set of attribute values for each requested attribute.</returns>
-		internal TsCHdaItemAttributeCollection ReadAttributes(
-			TsCHdaTime startTime,
-			TsCHdaTime endTime,
-			OpcItem item,
-			int[] attributeIDs)
-		{
+        #region ReadAttributes
+        /// <summary>
+        /// Reads the current or historical values for the attributes of an item.
+        /// </summary>
+        /// <param name="startTime">The beginning of the history period to read.</param>
+        /// <param name="endTime">The end of the history period to be read.</param>
+        /// <param name="item">The item to read (must include the item name).</param>
+        /// <param name="attributeIDs">The attributes to read.</param>
+        /// <returns>A set of attribute values for each requested attribute.</returns>
+        internal TsCHdaItemAttributeCollection ReadAttributes(
+            TsCHdaTime startTime,
+            TsCHdaTime endTime,
+            OpcItem item,
+            int[] attributeIDs)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)server_).ReadAttributes(startTime, endTime, item, attributeIDs);
-		}
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).ReadAttributes(startTime, endTime, item, attributeIDs);
+        }
 
         /// <summary>
         /// Sends an asynchronous request to read the attributes of an item.
@@ -782,8 +740,8 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-            TsCHdaResultCollection results = ((ITsCHdaServer)server_).ReadAttributes(
+            if (Server == null) throw new NotConnectedException();
+            TsCHdaResultCollection results = ((ITsCHdaServer)Server).ReadAttributes(
                 startTime,
                 endTime,
                 item,
@@ -794,27 +752,25 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
             return results;
         }
+        #endregion
 
-		#endregion
-
-		#region ReadAnnotations
-
-		/// <summary>
-		/// Reads any annotations for an item within the a time interval.
-		/// </summary>
-		/// <param name="startTime">The beginning of the history period to read.</param>
-		/// <param name="endTime">The end of the history period to be read.</param>
-		/// <param name="items">The set of items to read (must include the item name).</param>
-		/// <returns>A set of annotations within the requested time range for each item.</returns>
-		internal TsCHdaAnnotationValueCollection[] ReadAnnotations(
-			TsCHdaTime startTime,
-			TsCHdaTime endTime,
-			OpcItem[] items)
-		{
+        #region ReadAnnotations
+        /// <summary>
+        /// Reads any annotations for an item within the a time interval.
+        /// </summary>
+        /// <param name="startTime">The beginning of the history period to read.</param>
+        /// <param name="endTime">The end of the history period to be read.</param>
+        /// <param name="items">The set of items to read (must include the item name).</param>
+        /// <returns>A set of annotations within the requested time range for each item.</returns>
+        internal TsCHdaAnnotationValueCollection[] ReadAnnotations(
+            TsCHdaTime startTime,
+            TsCHdaTime endTime,
+            OpcItem[] items)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)server_).ReadAnnotations(startTime, endTime, items);
-		}
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).ReadAnnotations(startTime, endTime, items);
+        }
 
         /// <summary>
         /// Sends an asynchronous request to read the annotations for a set of items.
@@ -835,9 +791,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)server_).ReadAnnotations(
+            OpcItemResult[] results = ((ITsCHdaServer)Server).ReadAnnotations(
                 startTime,
                 endTime,
                 items,
@@ -847,22 +803,20 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
             return results;
         }
+        #endregion
 
-		#endregion
-
-		#region InsertAnnotations
-
-		/// <summary>
-		/// Inserts annotations for one or more items.
-		/// </summary>
-		/// <param name="items">A list of annotations to add for each item (must include the item name).</param>
-		/// <returns>The results of the insert operation for each annotation set.</returns>
-		public TsCHdaResultCollection[] InsertAnnotations(TsCHdaAnnotationValueCollection[] items)
-		{
+        #region InsertAnnotations
+        /// <summary>
+        /// Inserts annotations for one or more items.
+        /// </summary>
+        /// <param name="items">A list of annotations to add for each item (must include the item name).</param>
+        /// <returns>The results of the insert operation for each annotation set.</returns>
+        public TsCHdaResultCollection[] InsertAnnotations(TsCHdaAnnotationValueCollection[] items)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)server_).InsertAnnotations(items);
-		}
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).InsertAnnotations(items);
+        }
         /// <summary>
         /// Sends an asynchronous request to inserts annotations for one or more items.
         /// </summary>
@@ -878,9 +832,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)server_).InsertAnnotations(
+            OpcItemResult[] results = ((ITsCHdaServer)Server).InsertAnnotations(
                 items,
                 requestHandle,
                 callback,
@@ -888,23 +842,21 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
             return results;
         }
+        #endregion
 
-		#endregion
-
-		#region Insert
-
-		/// <summary>
-		/// Inserts the values into the history database for one or more items. 
-		/// </summary>
-		/// <param name="items">The set of values to insert.</param>
-		/// <param name="replace">Whether existing values should be replaced.</param>
-		/// <returns></returns>
-		public TsCHdaResultCollection[] Insert(TsCHdaItemValueCollection[] items, bool replace)
-		{
+        #region Insert
+        /// <summary>
+        /// Inserts the values into the history database for one or more items. 
+        /// </summary>
+        /// <param name="items">The set of values to insert.</param>
+        /// <param name="replace">Whether existing values should be replaced.</param>
+        /// <returns></returns>
+        public TsCHdaResultCollection[] Insert(TsCHdaItemValueCollection[] items, bool replace)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)server_).Insert(items, replace);
-		}
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).Insert(items, replace);
+        }
 
         /// <summary>
         /// Sends an asynchronous request to inserts values for one or more items.
@@ -923,9 +875,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)server_).Insert(
+            OpcItemResult[] results = ((ITsCHdaServer)Server).Insert(
                 items,
                 replace,
                 requestHandle,
@@ -934,22 +886,20 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
             return results;
         }
+        #endregion
 
-		#endregion
-
-		#region Replace
-
-		/// <summary>
-		/// Replace the values into the history database for one or more items. 
-		/// </summary>
-		/// <param name="items">The set of values to replace.</param>
-		/// <returns></returns>
-		public TsCHdaResultCollection[] Replace(TsCHdaItemValueCollection[] items)
-		{
+        #region Replace
+        /// <summary>
+        /// Replace the values into the history database for one or more items. 
+        /// </summary>
+        /// <param name="items">The set of values to replace.</param>
+        /// <returns></returns>
+        public TsCHdaResultCollection[] Replace(TsCHdaItemValueCollection[] items)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)server_).Replace(items);
-		}
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).Replace(items);
+        }
 
 
         /// <summary>
@@ -967,9 +917,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)server_).Replace(
+            OpcItemResult[] results = ((ITsCHdaServer)Server).Replace(
                 items,
                 requestHandle,
                 callback,
@@ -977,27 +927,25 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
             return results;
         }
+        #endregion
 
-		#endregion
-
-		#region Delete
-
-		/// <summary>
-		/// Deletes the values with the specified time domain for one or more items.
-		/// </summary>
-		/// <param name="startTime">The beginning of the history period to delete.</param>
-		/// <param name="endTime">The end of the history period to be delete.</param>
-		/// <param name="items">The set of items to delete (must include the item name).</param>
-		/// <returns>The results of the delete operation for each item.</returns>
-		internal OpcItemResult[] Delete(
-			TsCHdaTime startTime,
-			TsCHdaTime endTime,
-			OpcItem[] items)
-		{
+        #region Delete
+        /// <summary>
+        /// Deletes the values with the specified time domain for one or more items.
+        /// </summary>
+        /// <param name="startTime">The beginning of the history period to delete.</param>
+        /// <param name="endTime">The end of the history period to be delete.</param>
+        /// <param name="items">The set of items to delete (must include the item name).</param>
+        /// <returns>The results of the delete operation for each item.</returns>
+        internal OpcItemResult[] Delete(
+            TsCHdaTime startTime,
+            TsCHdaTime endTime,
+            OpcItem[] items)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)server_).Delete(startTime, endTime, items);
-		}
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).Delete(startTime, endTime, items);
+        }
 
         /// <summary>
         /// Sends an asynchronous request to delete values for one or more items.
@@ -1018,9 +966,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)server_).Delete(
+            OpcItemResult[] results = ((ITsCHdaServer)Server).Delete(
                 startTime,
                 endTime,
                 items,
@@ -1030,22 +978,20 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
             return results;
         }
+        #endregion
 
-		#endregion
-
-		#region DeleteAtTime
-
-		/// <summary>
-		/// Deletes the values at the specified times for one or more items. 
-		/// </summary>
-		/// <param name="items">The set of timestamps to delete for one or more items.</param>
-		/// <returns>The results of the operation for each timestamp.</returns>
-		internal TsCHdaResultCollection[] DeleteAtTime(TsCHdaItemTimeCollection[] items)
-		{
+        #region DeleteAtTime
+        /// <summary>
+        /// Deletes the values at the specified times for one or more items. 
+        /// </summary>
+        /// <param name="items">The set of timestamps to delete for one or more items.</param>
+        /// <returns>The results of the operation for each timestamp.</returns>
+        internal TsCHdaResultCollection[] DeleteAtTime(TsCHdaItemTimeCollection[] items)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			return ((ITsCHdaServer)server_).DeleteAtTime(items);
-		}
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsCHdaServer)Server).DeleteAtTime(items);
+        }
 
         /// <summary>
         /// Sends an asynchronous request to delete values for one or more items at a specified times.
@@ -1062,9 +1008,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             out IOpcRequest request)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)server_).DeleteAtTime(
+            OpcItemResult[] results = ((ITsCHdaServer)Server).DeleteAtTime(
                 items,
                 requestHandle,
                 callback,
@@ -1072,21 +1018,19 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
             return results;
         }
+        #endregion
 
-		#endregion
-
-		#region CancelRequest
-
-		/// <summary>
-		/// Cancels an asynchronous request.
-		/// </summary>
-		/// <param name="request">The state object for the request to cancel.</param>
-		public void CancelRequest(IOpcRequest request)
-		{
+        #region CancelRequest
+        /// <summary>
+        /// Cancels an asynchronous request.
+        /// </summary>
+        /// <param name="request">The state object for the request to cancel.</param>
+        public void CancelRequest(IOpcRequest request)
+        {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (server_ == null) throw new NotConnectedException();
-			((ITsCHdaServer)server_).CancelRequest(request);
-		}
+            if (Server == null) throw new NotConnectedException();
+            ((ITsCHdaServer)Server).CancelRequest(request);
+        }
 
         /// <summary>
         /// Cancels an asynchronous request.
@@ -1095,52 +1039,47 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// <param name="callback">A delegate used to receive notifications when the request completes.</param>
         public void CancelRequest(IOpcRequest request, TsCHdaCancelCompleteEventHandler callback)
         {
-            if (server_ == null) throw new NotConnectedException();
-            ((ITsCHdaServer)server_).CancelRequest(request, callback);
+            if (Server == null) throw new NotConnectedException();
+            ((ITsCHdaServer)Server).CancelRequest(request, callback);
         }
+        #endregion
 
-		#endregion
+        #region ISerializable Members
+        /// <summary>
+        /// Serializes a server into a stream.
+        /// </summary>
+        public override void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            base.GetObjectData(info, context);
 
-		#region ISerializable Members
+            TsCHdaTrend[] trends = null;
 
-		/// <summary>
-		/// Serializes a server into a stream.
-		/// </summary>
-		public override void GetObjectData(SerializationInfo info, StreamingContext context)
-		{
-			base.GetObjectData(info, context);
+            if (trends_.Count > 0)
+            {
+                trends = new TsCHdaTrend[trends_.Count];
 
-			TsCHdaTrend[] trends = null;
+                for (int ii = 0; ii < trends.Length; ii++)
+                {
+                    trends[ii] = trends_[ii];
+                }
+            }
 
-			if (_trends.Count > 0)
-			{
-				trends = new TsCHdaTrend[_trends.Count];
+            info.AddValue(Names.Trends, trends);
+        }
+        #endregion
 
-				for (int ii = 0; ii < trends.Length; ii++)
-				{
-					trends[ii] = _trends[ii];
-				}
-			}
+        #region ICloneable Members
+        /// <summary>
+        /// Returns an unconnected copy of the server with the same OpcUrl. 
+        /// </summary>
+        public override object Clone()
+        {
+            // clone the base object.
+            TsCHdaServer clone = (TsCHdaServer)base.Clone();
 
-			info.AddValue(Names.TRENDS, trends);
-		}
-
-		#endregion
-
-		#region ICloneable Members
-
-		/// <summary>
-		/// Returns an unconnected copy of the server with the same OpcUrl. 
-		/// </summary>
-		public override object Clone()
-		{
-			// clone the base object.
-			TsCHdaServer clone = (TsCHdaServer)base.Clone();
-
-			// return clone.
-			return clone;
-		}
-
-		#endregion
-	}
+            // return clone.
+            return clone;
+        }
+        #endregion
+    }
 }

@@ -25,24 +25,19 @@ using System;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Hda
-{   
+{
     /// <summary>
     /// An annotation associated with an item.
     /// </summary>
     [Serializable]
     public class TsCHdaAnnotationValue : ICloneable
     {
-		///////////////////////////////////////////////////////////////////////
-		#region Fields
+        #region Fields
+        private DateTime timestamp_ = DateTime.MinValue;
+        private DateTime creationTime_ = DateTime.MinValue;
+        #endregion
 
-		private DateTime _timestamp = DateTime.MinValue;
-		private DateTime _creationTime = DateTime.MinValue;
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
-
+        #region Properties
         /// <summary>
         /// The timestamp for the annotation.
         /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
@@ -50,15 +45,15 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// </summary>
         public DateTime Timestamp
         {
-            get { return _timestamp;  } 
-            set { _timestamp = value; }
+            get => timestamp_;
+            set => timestamp_ = value;
         }
-        
+
         /// <summary>
         /// The text of the annotation.
         /// </summary>
-		public string Annotation { get; set; }       
-        
+        public string Annotation { get; set; }
+
         /// <summary>
         /// The time when the annotation was created.
         /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
@@ -66,28 +61,24 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// </summary>
         public DateTime CreationTime
         {
-            get { return _creationTime;  } 
-            set { _creationTime = value; }
+            get => creationTime_;
+            set => creationTime_ = value;
         }
 
         /// <summary>
         /// The user who created the annotation.
         /// </summary>
 		public string User { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region ICloneable Members
-
-		/// <summary>
+        #region ICloneable Members
+        /// <summary>
         /// Creates a deep copy of the object.
         /// </summary>
         public virtual object Clone()
         {
             return MemberwiseClone();
         }
-
         #endregion
     }
 }

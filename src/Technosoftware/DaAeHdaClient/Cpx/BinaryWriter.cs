@@ -44,9 +44,9 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		/// <returns>A buffer containing the binary form of the complex type.</returns>
 		public byte[] Write(TsCCpxComplexValue namedValue, TypeDictionary dictionary, string typeName)
 		{
-			if (namedValue == null) throw new ArgumentNullException("namedValue");
-			if (dictionary == null) throw new ArgumentNullException("dictionary");
-			if (typeName == null) throw new ArgumentNullException("typeName");
+			if (namedValue == null) throw new ArgumentNullException(nameof(namedValue));
+			if (dictionary == null) throw new ArgumentNullException(nameof(dictionary));
+			if (typeName == null) throw new ArgumentNullException(nameof(typeName));
 
 			TsCCpxContext context = InitializeContext(null, dictionary, typeName);
 
@@ -260,7 +260,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 							{
 								bytes = new byte[1];
 
-								sbyte value = System.Convert.ToSByte(fieldValue);
+								sbyte value = Convert.ToSByte(fieldValue);
 
 								if (value < 0)
 								{
@@ -274,9 +274,9 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 								break;
 							}
 
-						case 2: { bytes = BitConverter.GetBytes(System.Convert.ToInt16(fieldValue)); break; }
-						case 4: { bytes = BitConverter.GetBytes(System.Convert.ToInt32(fieldValue)); break; }
-						case 8: { bytes = BitConverter.GetBytes(System.Convert.ToInt64(fieldValue)); break; }
+						case 2: { bytes = BitConverter.GetBytes(Convert.ToInt16(fieldValue)); break; }
+						case 4: { bytes = BitConverter.GetBytes(Convert.ToInt32(fieldValue)); break; }
+						case 8: { bytes = BitConverter.GetBytes(Convert.ToInt64(fieldValue)); break; }
 						default: { bytes = (byte[])fieldValue; break; }
 					}
 				}
@@ -284,10 +284,10 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				{
 					switch (length)
 					{
-						case 1: { bytes = new byte[] { System.Convert.ToByte(fieldValue) }; break; }
-						case 2: { bytes = BitConverter.GetBytes(System.Convert.ToUInt16(fieldValue)); break; }
-						case 4: { bytes = BitConverter.GetBytes(System.Convert.ToUInt32(fieldValue)); break; }
-						case 8: { bytes = BitConverter.GetBytes(System.Convert.ToUInt64(fieldValue)); break; }
+						case 1: { bytes = new byte[] { Convert.ToByte(fieldValue) }; break; }
+						case 2: { bytes = BitConverter.GetBytes(Convert.ToUInt16(fieldValue)); break; }
+						case 4: { bytes = BitConverter.GetBytes(Convert.ToUInt32(fieldValue)); break; }
+						case 8: { bytes = BitConverter.GetBytes(Convert.ToUInt64(fieldValue)); break; }
 						default: { bytes = (byte[])fieldValue; break; }
 					}
 				}
@@ -339,8 +339,8 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				{
 					switch (length)
 					{
-						case 4: { bytes = BitConverter.GetBytes(System.Convert.ToSingle(fieldValue)); break; }
-						case 8: { bytes = BitConverter.GetBytes(System.Convert.ToDouble(fieldValue)); break; }
+						case 4: { bytes = BitConverter.GetBytes(Convert.ToSingle(fieldValue)); break; }
+						case 8: { bytes = BitConverter.GetBytes(Convert.ToDouble(fieldValue)); break; }
 						default: { bytes = (byte[])fieldValue; break; }
 					}
 				}

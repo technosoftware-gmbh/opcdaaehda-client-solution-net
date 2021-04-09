@@ -28,109 +28,91 @@ using System.Runtime.Serialization;
 namespace Technosoftware.DaAeHdaClient
 {
 
-	/// <summary>
-	/// The default class used to instantiate server objects.
-	/// </summary>
+    /// <summary>
+    /// The default class used to instantiate server objects.
+    /// </summary>
     [Serializable]
     public class OpcFactory : IOpcFactory, ISerializable, ICloneable
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region Class Names
+    {
+        #region Class Names
+        /// <summary>
+        /// A set of names for fields used in serialization.
+        /// </summary>
+        private class Names
+        {
+            internal const string SystemType = "SystemType";
+        }
+        #endregion
 
-		/// <summary>
-		/// A set of names for fields used in serialization.
-		/// </summary>
-		private class Names
-		{
-			internal const string SYSTEM_TYPE = "SystemType";
-		}
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Constructors, Destructor, Initialization
-
-		/// <summary>
-		/// Initializes the object with the type of the servers it can instantiate.
-		/// </summary>
-		/// <param name="systemType">The System.Type of the server object that the factory can create.</param>
-		public OpcFactory(Type systemType)
-		{
-			SystemType = systemType;
-		}
-
-		/// <summary>
-		/// Maybe overridden to release unmanaged resources.
-		/// </summary>
-		public virtual void Dispose()
-		{
-			// do nothing.
-		}
+        #region Constructors, Destructor, Initialization
+        /// <summary>
+        /// Initializes the object with the type of the servers it can instantiate.
+        /// </summary>
+        /// <param name="systemType">The System.Type of the server object that the factory can create.</param>
+        public OpcFactory(Type systemType)
+        {
+            SystemType = systemType;
+        }
 
         /// <summary>
-        /// Contructs a server by de-serializing its OpcUrl from the stream.
+        /// Maybe overridden to release unmanaged resources.
+        /// </summary>
+        public virtual void Dispose()
+        {
+            // do nothing.
+        }
+
+        /// <summary>
+        /// Construct a server by de-serializing its OpcUrl from the stream.
         /// </summary>
         protected OpcFactory(SerializationInfo info, StreamingContext context)
         {
-            SystemType  = (System.Type)info.GetValue(Names.SYSTEM_TYPE, typeof(System.Type));
+            SystemType = (Type)info.GetValue(Names.SystemType, typeof(Type));
         }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
-
-		/// <summary>
-		/// The system type used to instantiate the remote server object.
-		/// </summary>
-		protected Type SystemType { get; set; }
+        #region Properties
+        /// <summary>
+        /// The system type used to instantiate the remote server object.
+        /// </summary>
+        protected Type SystemType { get; set; }
 
         /// <summary>
-        /// Can be used to foce OPC DA 2.0 even if OPC DA 3.0 serverfeatures are available
+        /// Can be used to force OPC DA 2.0 even if OPC DA 3.0 server features are available
         /// </summary>
         public bool ForceDa20Usage { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region ISerializable
-
+        #region ISerializable
         /// <summary>
         /// Serializes a server into a stream.
         /// </summary>
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue(Names.SYSTEM_TYPE,  SystemType);
+            info.AddValue(Names.SystemType, SystemType);
         }
-    
-		#endregion
+        #endregion
 
-		///////////////////////////////////////////////////////////////////////
-		#region ICloneable
+        #region ICloneable
+        /// <summary>
+        /// Returns a clone of the factory.
+        /// </summary>
+        public virtual object Clone()
+        {
+            return MemberwiseClone();
+        }
+        #endregion
 
-		/// <summary>
-		/// Returns a clone of the factory.
-		/// </summary>
-		public virtual object Clone()
-		{
-			return MemberwiseClone();
-		}
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region IOpcFactory
-
-		/// <summary>
-		/// Creates a new instance of the server.
-		/// </summary>
-		public virtual IOpcServer CreateInstance(OpcUrl url, OpcConnectData connectData)
-		{
+        #region IOpcFactory
+        /// <summary>
+        /// Creates a new instance of the server.
+        /// </summary>
+        public virtual IOpcServer CreateInstance(OpcUrl url, OpcConnectData connectData)
+        {
             IOpcServer server = (IOpcServer)Activator.CreateInstance(SystemType, new object[] { url, connectData });
 
-			return server;
-		}
-
-		#endregion
-	}
+            return server;
+        }
+        #endregion
+    }
 }

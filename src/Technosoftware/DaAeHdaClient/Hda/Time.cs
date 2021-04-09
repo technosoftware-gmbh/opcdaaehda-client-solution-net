@@ -23,33 +23,28 @@
 #region Using Directives
 using System;
 using System.Text;
-using System.Collections;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Hda
-{   
+{
     /// <summary>
     /// A time specified as either an absolute or relative value.
     /// </summary>
     [Serializable]
     public class TsCHdaTime
     {
-		///////////////////////////////////////////////////////////////////////
-		#region Fields
+        #region Fields
 
-		private DateTime _absoluteTime = DateTime.MinValue;
-		private TsCHdaRelativeTime _baseTime = TsCHdaRelativeTime.Now;
-		private TsCHdaTimeOffsetCollection _offsets = new TsCHdaTimeOffsetCollection();
+        private DateTime absoluteTime_ = DateTime.MinValue;
+        private TsCHdaRelativeTime baseTime_ = TsCHdaRelativeTime.Now;
+        private TsCHdaTimeOffsetCollection offsets_ = new TsCHdaTimeOffsetCollection();
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Constructors, Destructor, Initialization
-
+        #region Constructors, Destructor, Initialization
         /// <summary>
         /// Initializes the object with its default values.
         /// </summary>
-        public TsCHdaTime() {}
+        public TsCHdaTime() { }
 
         /// <summary>
         /// Initializes the object with an absolute time.
@@ -67,35 +62,32 @@ namespace Technosoftware.DaAeHdaClient.Hda
         public TsCHdaTime(string time)
         {
             TsCHdaTime value = Parse(time);
-            
-            _absoluteTime = DateTime.MinValue;
-            _baseTime     = value._baseTime;
-            _offsets      = value._offsets;
-		}
 
-		#endregion
+            absoluteTime_ = DateTime.MinValue;
+            baseTime_ = value.baseTime_;
+            offsets_ = value.offsets_;
+        }
+        #endregion
 
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
-
-		/// <summary>
+        #region Properties
+        /// <summary>
         /// Whether the time is a relative or absolute time.
         /// </summary>
         public bool IsRelative
         {
-            get { return (_absoluteTime == DateTime.MinValue); }
-            set { _absoluteTime = DateTime.MinValue; }
+            get => (absoluteTime_ == DateTime.MinValue);
+            set => absoluteTime_ = DateTime.MinValue;
         }
 
         /// <summary>
-        /// The time as abolute value.
+        /// The time as absolute value.
         /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
         /// the time format (UTC or local time).
         /// </summary>
         public DateTime AbsoluteTime
         {
-            get { return _absoluteTime;  }
-            set { _absoluteTime = value; }
+            get => absoluteTime_;
+            set => absoluteTime_ = value;
         }
 
         /// <summary>
@@ -103,24 +95,18 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// </summary>
         public TsCHdaRelativeTime BaseTime
         {
-            get { return _baseTime; }
-            set { _baseTime = value; }
+            get => baseTime_;
+            set => baseTime_ = value;
         }
 
         /// <summary>
         /// The set of offsets to be applied to the base of a relative time.
         /// </summary>
-        public TsCHdaTimeOffsetCollection Offsets
-        {
-            get { return _offsets; }
-		}
+        public TsCHdaTimeOffsetCollection Offsets => offsets_;
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Public Methods
-
-		/// <summary>
+        #region Public Methods
+        /// <summary>
         /// Converts a relative time to an absolute time by using the system clock.
         /// </summary>
         public DateTime ResolveTime()
@@ -128,77 +114,77 @@ namespace Technosoftware.DaAeHdaClient.Hda
             // nothing special to do for absolute times.
             if (!IsRelative)
             {
-                return _absoluteTime;
+                return absoluteTime_;
             }
 
             // get local time from the system.
-	    DateTime time = DateTime.UtcNow;
+            DateTime time = DateTime.UtcNow;
 
-            int years        = time.Year;
-            int months       = time.Month;
-            int days         = time.Day;
-            int hours        = time.Hour;
-            int minutes      = time.Minute;
-            int seconds      = time.Second;
+            int years = time.Year;
+            int months = time.Month;
+            int days = time.Day;
+            int hours = time.Hour;
+            int minutes = time.Minute;
+            int seconds = time.Second;
             int milliseconds = time.Millisecond;
 
             // move to the beginning of the period indicated by the base time.
             switch (BaseTime)
             {
                 case TsCHdaRelativeTime.Year:
-                {
-                    months       = 0;
-                    days         = 0;
-                    hours        = 0;
-                    minutes      = 0;
-                    seconds      = 0;
-                    milliseconds = 0;
-                    break;
-                }
+                    {
+                        months = 0;
+                        days = 0;
+                        hours = 0;
+                        minutes = 0;
+                        seconds = 0;
+                        milliseconds = 0;
+                        break;
+                    }
 
                 case TsCHdaRelativeTime.Month:
-                {
-                    days         = 0;
-                    hours        = 0;
-                    minutes      = 0;
-                    seconds      = 0;
-                    milliseconds = 0;
-                    break;
-                }
+                    {
+                        days = 0;
+                        hours = 0;
+                        minutes = 0;
+                        seconds = 0;
+                        milliseconds = 0;
+                        break;
+                    }
 
                 case TsCHdaRelativeTime.Week:
                 case TsCHdaRelativeTime.Day:
-                {
-                    hours        = 0;
-                    minutes      = 0;
-                    seconds      = 0;
-                    milliseconds = 0;
-                    break;
-                }
+                    {
+                        hours = 0;
+                        minutes = 0;
+                        seconds = 0;
+                        milliseconds = 0;
+                        break;
+                    }
 
                 case TsCHdaRelativeTime.Hour:
-                {
-                    minutes      = 0;
-                    seconds      = 0;
-                    milliseconds = 0;
-                    break;
-                }
+                    {
+                        minutes = 0;
+                        seconds = 0;
+                        milliseconds = 0;
+                        break;
+                    }
 
                 case TsCHdaRelativeTime.Minute:
-                {
-                    seconds      = 0;
-                    milliseconds = 0;
-                    break;
-                }
+                    {
+                        seconds = 0;
+                        milliseconds = 0;
+                        break;
+                    }
 
                 case TsCHdaRelativeTime.Second:
-                {
-                    milliseconds = 0;
-                    break;
-                }
+                    {
+                        milliseconds = 0;
+                        break;
+                    }
             }
 
-            // contruct base time.
+            // construct base time.
             time = new DateTime(years, months, days, hours, minutes, seconds, milliseconds);
 
             // adjust to beginning of week.
@@ -212,11 +198,11 @@ namespace Technosoftware.DaAeHdaClient.Hda
             {
                 switch (offset.Type)
                 {
-                    case TsCHdaRelativeTime.Year:   { time = time.AddYears(offset.Value);   break; }
-                    case TsCHdaRelativeTime.Month:  { time = time.AddMonths(offset.Value);  break; }
-                    case TsCHdaRelativeTime.Week:   { time = time.AddDays(offset.Value*7);  break; }
-                    case TsCHdaRelativeTime.Day:    { time = time.AddDays(offset.Value);    break; }
-                    case TsCHdaRelativeTime.Hour:   { time = time.AddHours(offset.Value);   break; }
+                    case TsCHdaRelativeTime.Year: { time = time.AddYears(offset.Value); break; }
+                    case TsCHdaRelativeTime.Month: { time = time.AddMonths(offset.Value); break; }
+                    case TsCHdaRelativeTime.Week: { time = time.AddDays(offset.Value * 7); break; }
+                    case TsCHdaRelativeTime.Day: { time = time.AddDays(offset.Value); break; }
+                    case TsCHdaRelativeTime.Hour: { time = time.AddHours(offset.Value); break; }
                     case TsCHdaRelativeTime.Minute: { time = time.AddMinutes(offset.Value); break; }
                     case TsCHdaRelativeTime.Second: { time = time.AddSeconds(offset.Value); break; }
                 }
@@ -234,13 +220,13 @@ namespace Technosoftware.DaAeHdaClient.Hda
         {
             if (!IsRelative)
             {
-                return Technosoftware.DaAeHdaClient.OpcConvert.ToString(_absoluteTime);
+                return OpcConvert.ToString(absoluteTime_);
             }
 
             StringBuilder buffer = new StringBuilder(256);
 
             buffer.Append(BaseTypeToString(BaseTime));
-            buffer.Append(Offsets.ToString());
+            buffer.Append(Offsets);
 
             return buffer.ToString();
         }
@@ -249,12 +235,12 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// Parses a string representation of a time.
         /// </summary>
         /// <param name="buffer">The string representation to parse.</param>
-        /// <returns>A Time object initailized with the string.</returns>
+        /// <returns>A Time object initialized with the string.</returns>
         public static TsCHdaTime Parse(string buffer)
         {
             // remove trailing and leading white spaces.
             buffer = buffer.Trim();
-            
+
             TsCHdaTime time = new TsCHdaTime();
 
             // determine if string is a relative time.
@@ -276,7 +262,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             // parse an absolute time string.
             if (!isRelative)
             {
-		time.AbsoluteTime = System.Convert.ToDateTime(buffer).ToUniversalTime();
+                time.AbsoluteTime = Convert.ToDateTime(buffer).ToUniversalTime();
                 return time;
             }
 
@@ -287,14 +273,11 @@ namespace Technosoftware.DaAeHdaClient.Hda
             }
 
             return time;
-		}
+        }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Public Methods
-
-		/// <summary>
+        #region Public Methods
+        /// <summary>
         /// Converts a base time to a string token.
         /// </summary>
         /// <param name="baseTime">The base time value to convert.</param>
@@ -303,19 +286,18 @@ namespace Technosoftware.DaAeHdaClient.Hda
         {
             switch (baseTime)
             {
-                case TsCHdaRelativeTime.Now:    { return "NOW"; }
+                case TsCHdaRelativeTime.Now: { return "NOW"; }
                 case TsCHdaRelativeTime.Second: { return "SECOND"; }
                 case TsCHdaRelativeTime.Minute: { return "MINUTE"; }
-                case TsCHdaRelativeTime.Hour:   { return "HOUR"; }
-                case TsCHdaRelativeTime.Day:    { return "DAY"; }
-                case TsCHdaRelativeTime.Week:   { return "WEEK"; }
-                case TsCHdaRelativeTime.Month:  { return "MONTH"; }
-                case TsCHdaRelativeTime.Year:   { return "YEAR"; }
+                case TsCHdaRelativeTime.Hour: { return "HOUR"; }
+                case TsCHdaRelativeTime.Day: { return "DAY"; }
+                case TsCHdaRelativeTime.Week: { return "WEEK"; }
+                case TsCHdaRelativeTime.Month: { return "MONTH"; }
+                case TsCHdaRelativeTime.Year: { return "YEAR"; }
             }
 
-            throw new ArgumentOutOfRangeException("baseTime", baseTime.ToString(), "Invalid value for relative base time.");
+            throw new ArgumentOutOfRangeException(nameof(baseTime), baseTime.ToString(), @"Invalid value for relative base time.");
         }
-
         #endregion
     }
 }

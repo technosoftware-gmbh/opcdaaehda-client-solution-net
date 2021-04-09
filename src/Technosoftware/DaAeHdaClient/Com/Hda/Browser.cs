@@ -48,9 +48,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// <summary>
         /// Initializes the object with the specifed COM server.
         /// </summary>
-        internal Browser(Technosoftware.DaAeHdaClient.Com.Hda.Server server, IOPCHDA_Browser browser, TsCHdaBrowseFilter[] filters, OpcResult[] results)
+        internal Browser(Server server, IOPCHDA_Browser browser, TsCHdaBrowseFilter[] filters, OpcResult[] results)
         {
-            if (browser == null) throw new ArgumentNullException("browser");
+            if (browser == null) throw new ArgumentNullException(nameof(browser));
 
             // save the server object that created the browser.
             m_server = server;
@@ -84,7 +84,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             lock (this)
             {
                 m_server = null;
-                Technosoftware.DaAeHdaClient.Utilities.Interop.ReleaseServer(m_browser);
+                Utilities.Interop.ReleaseServer(m_browser);
                 m_browser = null;
             }
         }
@@ -157,7 +157,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_Browser.ChangeBrowsePosition", e);
+                    throw Utilities.Interop.CreateException("IOPCHDA_Browser.ChangeBrowsePosition", e);
                 }
 
                 // browse for branches
@@ -211,9 +211,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         public TsCHdaBrowseElement[] BrowseNext(int maxElements, ref IOpcBrowsePosition position)
         {
             // check arguments.
-            if (position == null || position.GetType() != typeof(Technosoftware.DaAeHdaClient.Com.Hda.BrowsePosition))
+            if (position == null || position.GetType() != typeof(BrowsePosition))
             {
-                throw new ArgumentException("Not a valid browse position object.", "position");
+                throw new ArgumentException("Not a valid browse position object.", nameof(position));
             }
 
             // interpret invalid values as 'no limit'.
@@ -224,7 +224,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
             lock (this)
             {
-                Technosoftware.DaAeHdaClient.Com.Hda.BrowsePosition pos = (Technosoftware.DaAeHdaClient.Com.Hda.BrowsePosition)position;
+                BrowsePosition pos = (BrowsePosition)position;
 
                 ArrayList elements = new ArrayList();
 
@@ -251,7 +251,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
                     catch (Exception e)
                     {
-                        throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_Browser.ChangeBrowsePosition", e);
+                        throw Utilities.Interop.CreateException("IOPCHDA_Browser.ChangeBrowsePosition", e);
                     }
 
                     // create enumerator for items.
@@ -291,14 +291,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             {
                 OPCHDA_BROWSETYPE browseType = (isBranch)?OPCHDA_BROWSETYPE.OPCHDA_BRANCH:OPCHDA_BROWSETYPE.OPCHDA_LEAF;
 
-                OpcRcw.Comn.IEnumString pEnumerator = null;
+                IEnumString pEnumerator = null;
                 m_browser.GetEnum(browseType, out pEnumerator);
 
                 return new EnumString(pEnumerator);
             }
             catch (Exception e)
             {
-                throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCHDA_Browser.GetEnum", e);
+                throw Utilities.Interop.CreateException("IOPCHDA_Browser.GetEnum", e);
             }
         }
 
@@ -312,7 +312,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             while (elements.Count < maxElements)
             {           
                 // fetch next batch of element names.
-                int count = Browser.BLOCK_SIZE;
+                int count = BLOCK_SIZE;
 
                 if (elements.Count + count > maxElements)
                 {
@@ -373,7 +373,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         #endregion
 
         #region Private Members
-        private Technosoftware.DaAeHdaClient.Com.Hda.Server m_server = null;
+        private Server m_server = null;
         private IOPCHDA_Browser m_browser = null;
         private TsCHdaBrowseFilterCollection m_filters = new TsCHdaBrowseFilterCollection();
         private const int BLOCK_SIZE = 10;
@@ -383,7 +383,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
     /// <summary>
     /// Stores the state of a browse operation that was halted.
     /// </summary>
-    internal class BrowsePosition : Technosoftware.DaAeHdaClient.Hda.TsCHdaBrowsePosition
+    internal class BrowsePosition : TsCHdaBrowsePosition
     {
         /// <summary>
         /// Initializes a the object with the browse operation state information.
@@ -403,8 +403,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         internal string BranchPath
         {
-            get { return m_branchPath;  }
-            set { m_branchPath = value; }
+            get => m_branchPath;
+            set => m_branchPath = value;
         }
 
         /// <summary>
@@ -412,8 +412,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         internal EnumString Enumerator
         {
-            get { return m_enumerator;  }
-            set { m_enumerator = value; }
+            get => m_enumerator;
+            set => m_enumerator = value;
         }
 
         /// <summary>
@@ -421,8 +421,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         internal bool FetchingItems
         {
-            get { return m_fetchingItems;  }
-            set { m_fetchingItems = value; }
+            get => m_fetchingItems;
+            set => m_fetchingItems = value;
         }
 
         #region IDisposable Members

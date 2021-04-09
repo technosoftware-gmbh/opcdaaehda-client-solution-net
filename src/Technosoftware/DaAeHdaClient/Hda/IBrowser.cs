@@ -39,19 +39,19 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// <summary>
         /// Browses the server's address space at the specified branch.
         /// </summary>
-        /// <param name="itemID">The item id of the branch to search.</param>
+        /// <param name="itemId">The item id of the branch to search.</param>
         /// <returns>The set of elements that meet the filter criteria.</returns>
-        TsCHdaBrowseElement[] Browse(OpcItem itemID);
-        
+        TsCHdaBrowseElement[] Browse(OpcItem itemId);
+
         /// <summary>
         /// Begins a browsing the server's address space at the specified branch.
         /// </summary>
-        /// <param name="itemID">The item id of the branch to search.</param>
+        /// <param name="itemId">The item id of the branch to search.</param>
         /// <param name="maxElements">The maximum number of elements to return.</param>
         /// <param name="position">The position object used to continue a browse operation.</param>
         /// <returns>The set of elements that meet the filter criteria.</returns>
-        TsCHdaBrowseElement[] Browse(OpcItem itemID, int maxElements, out IOpcBrowsePosition position);
-        
+        TsCHdaBrowseElement[] Browse(OpcItem itemId, int maxElements, out IOpcBrowsePosition position);
+
         /// <summary>
         /// Continues browsing the server's address space at the specified position.
         /// </summary>

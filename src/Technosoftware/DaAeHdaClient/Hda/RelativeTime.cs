@@ -26,49 +26,49 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// Possible base or offset types for relative times.
-	/// </summary>
-	public enum TsCHdaRelativeTime
-	{
-		/// <summary>
-		/// Start from the current time.
-		/// </summary>
-		Now,
+    /// <summary>
+    /// Possible base or offset types for relative times.
+    /// </summary>
+    public enum TsCHdaRelativeTime
+    {
+        /// <summary>
+        /// Start from the current time.
+        /// </summary>
+        Now,
 
-		/// <summary>
-		/// The start of the current second or an offset in seconds.
-		/// </summary>
-		Second,
+        /// <summary>
+        /// The start of the current second or an offset in seconds.
+        /// </summary>
+        Second,
 
-		/// <summary>
-		/// The start of the current minutes or an offset in minutes.
-		/// </summary>
-		Minute,
+        /// <summary>
+        /// The start of the current minutes or an offset in minutes.
+        /// </summary>
+        Minute,
 
-		/// <summary>
-		/// The start of the current hour or an offset in hours.
-		/// </summary>
-		Hour,
+        /// <summary>
+        /// The start of the current hour or an offset in hours.
+        /// </summary>
+        Hour,
 
-		/// <summary>
-		/// The start of the current day or an offset in days.
-		/// </summary>
-		Day,
+        /// <summary>
+        /// The start of the current day or an offset in days.
+        /// </summary>
+        Day,
 
-		/// <summary>
-		/// The start of the current week or an offset in weeks.
-		/// </summary>
-		Week,
+        /// <summary>
+        /// The start of the current week or an offset in weeks.
+        /// </summary>
+        Week,
 
-		/// <summary>
-		/// The start of the current month or an offset in months.
-		/// </summary>
-		Month,
+        /// <summary>
+        /// The start of the current month or an offset in months.
+        /// </summary>
+        Month,
 
-		/// <summary>
-		/// The start of the current year or an offset in years.
-		/// </summary>
-		Year
-	}
+        /// <summary>
+        /// The start of the current year or an offset in years.
+        /// </summary>
+        Year
+    }
 }

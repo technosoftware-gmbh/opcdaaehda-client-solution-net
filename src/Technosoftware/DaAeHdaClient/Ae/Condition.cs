@@ -53,23 +53,20 @@ namespace Technosoftware.DaAeHdaClient.Ae
             /// <summary>
             /// An indexer for the collection.
             /// </summary>
-            public new Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeValue this[int index]
-            {
-                get { return (Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeValue)Array[index]; }
-            }
+            public new TsCAeAttributeValue this[int index] => (TsCAeAttributeValue)Array[index];
 
             /// <summary>
             /// Returns a copy of the collection as an array.
             /// </summary>
-            public new Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeValue[] ToArray()
+            public new TsCAeAttributeValue[] ToArray()
             {
-                return (Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeValue[])Array.ToArray();
+                return (TsCAeAttributeValue[])Array.ToArray();
             }
 
             /// <summary>
             /// Creates an empty collection.
             /// </summary>
-            internal AttributeValueCollection() : base(null, typeof(Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeValue)) { }
+            internal AttributeValueCollection() : base(null, typeof(TsCAeAttributeValue)) { }
         }
         #endregion
 
@@ -82,10 +79,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             /// <summary>
             /// An indexer for the collection.
             /// </summary>
-            public new TsCAeSubCondition this[int index]
-            {
-                get { return (TsCAeSubCondition)Array[index]; }
-            }
+            public new TsCAeSubCondition this[int index] => (TsCAeSubCondition)Array[index];
 
             /// <summary>
             /// Returns a copy of the collection as an array.
@@ -115,8 +109,8 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// </summary>
         public TsCAeSubCondition ActiveSubCondition
         {
-            get { return _activeSubcondition; }
-            set { _activeSubcondition = value; }
+            get => _activeSubcondition;
+            set => _activeSubcondition = value;
         }
 
         /// <summary>
@@ -124,9 +118,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		/// </summary>
 		public TsCDaQuality Quality
 		{
-			get { return _quality; }
-			set { _quality = value; }
-		}
+			get => _quality;
+            set => _quality = value;
+        }
 
         /// <summary>
         /// The time of the most recent acknowledgment of this condition (of any sub-condition).
@@ -135,8 +129,8 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// </summary>
         public DateTime LastAckTime
         {
-            get { return _lastAckTime; }
-            set { _lastAckTime = value; }
+            get => _lastAckTime;
+            set => _lastAckTime = value;
         }
 
         /// <summary>
@@ -148,8 +142,8 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// </summary>
         public DateTime SubCondLastActive
         {
-            get { return _subCondLastActive; }
-            set { _subCondLastActive = value; }
+            get => _subCondLastActive;
+            set => _subCondLastActive = value;
         }
 
         /// <summary>
@@ -161,8 +155,8 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// </summary>
         public DateTime CondLastActive
         {
-            get { return _condLastActive; }
-            set { _condLastActive = value; }
+            get => _condLastActive;
+            set => _condLastActive = value;
         }
 
         /// <summary>
@@ -174,8 +168,8 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// </summary>
         public DateTime CondLastInactive
         {
-            get { return _condLastInactive; }
-            set { _condLastInactive = value; }
+            get => _condLastInactive;
+            set => _condLastInactive = value;
         }
 
         /// <summary>
@@ -194,18 +188,13 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// The sub-conditions defined for this condition. 
         /// For single-state conditions, the collection will contain one element, the value of which describes the condition.
         /// </summary>
-        public SubConditionCollection SubConditions
-        {
-            get { return _subconditions; }
-        }
+        public SubConditionCollection SubConditions => _subconditions;
 
         /// <summary>
         /// The values of the attributes requested for this condition. 
         /// </summary>
-        public AttributeValueCollection Attributes
-        {
-            get { return _attributes; }
-        }
+        public AttributeValueCollection Attributes => _attributes;
+
         #endregion
 
         #region ICloneable Members
@@ -214,7 +203,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// </summary>
         public virtual object Clone()
         {
-            Ae.TsCAeCondition clone = (Ae.TsCAeCondition)MemberwiseClone();
+            TsCAeCondition clone = (TsCAeCondition)MemberwiseClone();
 
             clone._activeSubcondition = (TsCAeSubCondition)_activeSubcondition.Clone();
             clone._subconditions = (SubConditionCollection)_subconditions.Clone();

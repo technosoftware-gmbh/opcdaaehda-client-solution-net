@@ -34,7 +34,6 @@ namespace Technosoftware.DaAeHdaClient
     /// </summary>
     public class OpcConvert
     {
-        ///////////////////////////////////////////////////////////////////////
         #region Public Methods
         /// <summary>
         /// Checks whether the array contains any useful data.
@@ -57,7 +56,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public static bool IsValid(string target)
         {
-            return (target != null && target.Length > 0);
+            return !string.IsNullOrEmpty(target);
         }
 
         /// <summary>
@@ -65,7 +64,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public static bool IsEmpty(string target)
         {
-            return (target == null || target.Length == 0);
+            return string.IsNullOrEmpty(target);
         }
 
         /// <summary>
@@ -82,7 +81,7 @@ namespace Technosoftware.DaAeHdaClient
 
                 for (int ii = 0; ii < array.Length; ii++)
                 {
-                    array.SetValue(OpcConvert.Clone(array.GetValue(ii)), ii);
+                    array.SetValue(Clone(array.GetValue(ii)), ii);
                 }
 
                 return array;
@@ -99,8 +98,8 @@ namespace Technosoftware.DaAeHdaClient
         {
             if (a == null || b == null) return (a == null && b == null);
 
-            System.Type type1 = a.GetType();
-            System.Type type2 = b.GetType();
+            Type type1 = a.GetType();
+            Type type2 = b.GetType();
 
             if (type1 != type2) return false;
 
@@ -125,7 +124,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Converts an object to the specified type and returns a deep copy.
         /// </summary>
-        public static object ChangeType(object source, System.Type newType)
+        public static object ChangeType(object source, Type newType)
         {
             // check for null source object.
             if (source == null)
@@ -144,7 +143,7 @@ namespace Technosoftware.DaAeHdaClient
                 return Clone(source);
             }
 
-            System.Type type = source.GetType();
+            Type type = source.GetType();
 
             // convert between array types.
             if (type.IsArray && newType.IsArray)
@@ -153,24 +152,23 @@ namespace Technosoftware.DaAeHdaClient
 
                 foreach (object element in (Array)source)
                 {
-                    array.Add(Technosoftware.DaAeHdaClient.OpcConvert.ChangeType(element, newType.GetElementType()));
+                    array.Add(ChangeType(element, newType.GetElementType()));
                 }
 
-                return array.ToArray(newType.GetElementType());
+                return array.ToArray(newType.GetElementType() ?? throw new InvalidOperationException());
             }
 
             // convert scalar value to an array type.
             if (!type.IsArray && newType.IsArray)
             {
-                ArrayList array = new ArrayList(1);
-                array.Add(OpcConvert.ChangeType(source, newType.GetElementType()));
-                return array.ToArray(newType.GetElementType());
+                ArrayList array = new ArrayList(1) {ChangeType(source, newType.GetElementType())};
+                return array.ToArray(newType.GetElementType() ?? throw new InvalidOperationException());
             }
 
             // convert single element array type to scalar type.
             if (type.IsArray && !newType.IsArray && ((Array)source).Length == 1)
             {
-                return System.Convert.ChangeType(((Array)source).GetValue(0), newType);
+                return Convert.ChangeType(((Array)source).GetValue(0), newType);
             }
 
             // convert array type to string.
@@ -184,7 +182,7 @@ namespace Technosoftware.DaAeHdaClient
 
                 foreach (object element in (Array)source)
                 {
-                    buffer.AppendFormat("{0}", Technosoftware.DaAeHdaClient.OpcConvert.ChangeType(element, typeof(string)));
+                    buffer.AppendFormat("{0}", ChangeType(element, typeof(string)));
 
                     count++;
 
@@ -207,7 +205,7 @@ namespace Technosoftware.DaAeHdaClient
                     // check for an integer passed as a string.
                     if (((string)source).Length > 0 && Char.IsDigit((string)source, 0))
                     {
-                        return Enum.ToObject(newType, System.Convert.ToInt32(source));
+                        return Enum.ToObject(newType, Convert.ToInt32(source));
                     }
 
                     // parse a string value.
@@ -224,21 +222,19 @@ namespace Technosoftware.DaAeHdaClient
             if (newType == typeof(bool))
             {
                 // check for an integer passed as a string.
-                if (typeof(string).IsInstanceOfType(source))
+                if (source is string text)
                 {
-                    string text = (string)source;
-
                     if (text.Length > 0 && (text[0] == '+' || text[0] == '-' || Char.IsDigit(text, 0)))
                     {
-                        return System.Convert.ToBoolean(System.Convert.ToInt32(source));
+                        return Convert.ToBoolean(Convert.ToInt32(source));
                     }
                 }
 
-                return System.Convert.ToBoolean(source);
+                return Convert.ToBoolean(source);
             }
 
             // use default conversion.
-            return System.Convert.ChangeType(source, newType);
+            return Convert.ChangeType(source, newType);
         }
 
         /// <summary>
@@ -249,7 +245,7 @@ namespace Technosoftware.DaAeHdaClient
             // check for null
             if (source == null) return "";
 
-            System.Type type = source.GetType();
+            Type type = source.GetType();
 
             // check for invalid values in date times.
             if (type == typeof(DateTime))
@@ -280,7 +276,7 @@ namespace Technosoftware.DaAeHdaClient
             // use only the name for system types.
             if (type.FullName == "System.RuntimeType")
             {
-                return ((System.Type)source).Name;
+                return ((Type)source).Name;
             }
 
             // treat byte arrays as a special case.
@@ -290,9 +286,9 @@ namespace Technosoftware.DaAeHdaClient
 
                 StringBuilder buffer = new StringBuilder(bytes.Length * 3);
 
-                for (int ii = 0; ii < bytes.Length; ii++)
+                foreach (var character in bytes)
                 {
-                    buffer.Append(bytes[ii].ToString("X2"));
+                    buffer.Append(character.ToString("X2"));
                     buffer.Append(" ");
                 }
 
@@ -302,16 +298,16 @@ namespace Technosoftware.DaAeHdaClient
             // show the element type and length for arrays.
             if (type.IsArray)
             {
-                return String.Format("{0}[{1}]", type.GetElementType().Name, ((Array)source).Length);
+                return $"{type.GetElementType()?.Name}[{((Array)source).Length}]";
             }
 
             // instances of array are always treated as arrays of objects.
             if (type == typeof(Array))
             {
-                return String.Format("Object[{0}]", ((Array)source).Length);
+                return $"Object[{((Array)source).Length}]";
             }
 
-            // default behavoir.
+            // default behavior.
             return source.ToString();
         }
 
@@ -321,13 +317,13 @@ namespace Technosoftware.DaAeHdaClient
         public static bool Match(string target, string pattern, bool caseSensitive)
         {
             // an empty pattern always matches.
-            if (pattern == null || pattern.Length == 0)
+            if (string.IsNullOrEmpty(pattern))
             {
                 return true;
             }
 
             // an empty string never matches.
-            if (target == null || target.Length == 0)
+            if (string.IsNullOrEmpty(target))
             {
                 return false;
             }
@@ -348,22 +344,19 @@ namespace Technosoftware.DaAeHdaClient
                 }
             }
 
-            char c;
-            char p;
-            char l;
-
             int pIndex = 0;
             int tIndex = 0;
 
             while (tIndex < target.Length && pIndex < pattern.Length)
             {
-                p = ConvertCase(pattern[pIndex++], caseSensitive);
+                var p = ConvertCase(pattern[pIndex++], caseSensitive);
 
                 if (pIndex > pattern.Length)
                 {
                     return (tIndex >= target.Length); // if end of string true
                 }
 
+                char c;
                 switch (p)
                 {
                     // match zero or more char.
@@ -409,7 +402,7 @@ namespace Technosoftware.DaAeHdaClient
                                 return false; // syntax 
                             }
 
-                            l = '\0';
+                            var l = '\0';
 
                             // match a char if NOT in set []
                             if (pattern[pIndex] == '!')
@@ -452,8 +445,7 @@ namespace Technosoftware.DaAeHdaClient
                                     p = ConvertCase(pattern[pIndex++], caseSensitive);
                                 }
                             }
-
-                                // match if char is in set []
+                            // match if char is in set []
                             else
                             {
                                 p = ConvertCase(pattern[pIndex++], caseSensitive);
@@ -540,7 +532,6 @@ namespace Technosoftware.DaAeHdaClient
 
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Private Methods
 
         private static char ConvertCase(char c, bool caseSensitive)

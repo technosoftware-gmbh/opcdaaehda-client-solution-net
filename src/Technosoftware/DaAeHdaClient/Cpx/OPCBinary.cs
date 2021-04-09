@@ -17,253 +17,253 @@ namespace Technosoftware.DaAeHdaClient.Cpx
     
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/", IsNullable=false)]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlRootAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/", IsNullable=false)]
     public class TypeDictionary {
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("TypeDescription")]
+        [XmlElementAttribute("TypeDescription")]
         public TypeDescription[] TypeDescription;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public string DictionaryName;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         [System.ComponentModel.DefaultValueAttribute(true)]
         public bool DefaultBigEndian = true;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         [System.ComponentModel.DefaultValueAttribute("UCS-2")]
         public string DefaultStringEncoding = "UCS-2";
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         [System.ComponentModel.DefaultValueAttribute(2)]
         public int DefaultCharWidth = 2;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         [System.ComponentModel.DefaultValueAttribute("IEEE-754")]
         public string DefaultFloatFormat = "IEEE-754";
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class TypeDescription {
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Field")]
+        [XmlElementAttribute("Field")]
         public FieldType[] Field;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public string TypeID;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public bool DefaultBigEndian;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [XmlIgnoreAttribute()]
         public bool DefaultBigEndianSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public string DefaultStringEncoding;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public int DefaultCharWidth;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [XmlIgnoreAttribute()]
         public bool DefaultCharWidthSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public string DefaultFloatFormat;
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TypeReference))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CharString))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Unicode))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Ascii))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FloatingPoint))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Double))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Single))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Integer))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UInt64))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UInt32))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UInt16))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UInt8))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Int64))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Int32))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Int16))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Int8))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BitString))]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlIncludeAttribute(typeof(TypeReference))]
+    [XmlIncludeAttribute(typeof(CharString))]
+    [XmlIncludeAttribute(typeof(Unicode))]
+    [XmlIncludeAttribute(typeof(Ascii))]
+    [XmlIncludeAttribute(typeof(FloatingPoint))]
+    [XmlIncludeAttribute(typeof(Double))]
+    [XmlIncludeAttribute(typeof(Single))]
+    [XmlIncludeAttribute(typeof(Integer))]
+    [XmlIncludeAttribute(typeof(UInt64))]
+    [XmlIncludeAttribute(typeof(UInt32))]
+    [XmlIncludeAttribute(typeof(UInt16))]
+    [XmlIncludeAttribute(typeof(UInt8))]
+    [XmlIncludeAttribute(typeof(Int64))]
+    [XmlIncludeAttribute(typeof(Int32))]
+    [XmlIncludeAttribute(typeof(Int16))]
+    [XmlIncludeAttribute(typeof(Int8))]
+    [XmlIncludeAttribute(typeof(BitString))]
     public class FieldType {
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public string Name;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public string Format;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public int Length;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [XmlIgnoreAttribute()]
         public bool LengthSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public int ElementCount;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [XmlIgnoreAttribute()]
         public bool ElementCountSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public string ElementCountRef;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public string FieldTerminator;
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class TypeReference : FieldType {
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public string TypeID;
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Unicode))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Ascii))]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlIncludeAttribute(typeof(Unicode))]
+    [XmlIncludeAttribute(typeof(Ascii))]
     public class CharString : FieldType {
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public int CharWidth;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [XmlIgnoreAttribute()]
         public bool CharWidthSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public string StringEncoding;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public string CharCountRef;
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class Unicode : CharString {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class Ascii : CharString {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Double))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Single))]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlIncludeAttribute(typeof(Double))]
+    [XmlIncludeAttribute(typeof(Single))]
     public class FloatingPoint : FieldType {
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         public string FloatFormat;
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class Double : FloatingPoint {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class Single : FloatingPoint {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UInt64))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UInt32))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UInt16))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UInt8))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Int64))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Int32))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Int16))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Int8))]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlIncludeAttribute(typeof(UInt64))]
+    [XmlIncludeAttribute(typeof(UInt32))]
+    [XmlIncludeAttribute(typeof(UInt16))]
+    [XmlIncludeAttribute(typeof(UInt8))]
+    [XmlIncludeAttribute(typeof(Int64))]
+    [XmlIncludeAttribute(typeof(Int32))]
+    [XmlIncludeAttribute(typeof(Int16))]
+    [XmlIncludeAttribute(typeof(Int8))]
     public class Integer : FieldType {
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttributeAttribute()]
         [System.ComponentModel.DefaultValueAttribute(true)]
         public bool Signed = true;
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class UInt64 : Integer {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class UInt32 : Integer {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class UInt16 : Integer {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class UInt8 : Integer {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class Int64 : Integer {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class Int32 : Integer {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class Int16 : Integer {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class Int8 : Integer {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
+    [XmlTypeAttribute(Namespace="http://opcfoundation.org/OPCBinary/1.0/")]
     public class BitString : FieldType {
     }
 }

@@ -109,69 +109,44 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		/// <summary>
 		/// The type system id for the complex item.
 		/// </summary>
-		public string TypeSystemID
-		{
-			get { return _typeSystemID; }
-		}
+		public string TypeSystemID => _typeSystemID;
 
-		/// <summary>
+        /// <summary>
 		/// The dictionary id for the complex item.
 		/// </summary>
-		public string DictionaryID
-		{
-			get { return _dictionaryID; }
-		}
+		public string DictionaryID => _dictionaryID;
 
-		/// <summary>
+        /// <summary>
 		/// The type id for the complex item.
 		/// </summary>
-		public string TypeID
-		{
-			get { return _typeID; }
-		}
+		public string TypeID => _typeID;
 
-
-		/// <summary>
+        /// <summary>
 		/// The id of the item containing the dictionary for the item.
 		/// </summary>
-		public OpcItem DictionaryItemID
-		{
-			get { return _dictionaryItemID; }
-		}
+		public OpcItem DictionaryItemID => _dictionaryItemID;
 
-		/// <summary>
+        /// <summary>
 		/// The id of the item containing the type description for the item.
 		/// </summary>
-		public OpcItem TypeItemID
-		{
-			get { return _typeItemID; }
-		}
+		public OpcItem TypeItemID => _typeItemID;
 
-		/// <summary>
+        /// <summary>
 		/// The id of the unconverted version of the item. Only valid for items which apply type conversions to the item. 
 		/// </summary>
-		public OpcItem UnconvertedItemID
-		{
-			get { return _unconvertedItemID; }
-		}
+		public OpcItem UnconvertedItemID => _unconvertedItemID;
 
-		/// <summary>
+        /// <summary>
 		/// The id of the unfiltered version of the item. Only valid for items apply data filters to the item. 
 		/// </summary>
-		public OpcItem UnfilteredItemID
-		{
-			get { return _unfilteredItemID; }
-		}
+		public OpcItem UnfilteredItemID => _unfilteredItemID;
 
-		/// <summary>
+        /// <summary>
 		/// The item used to create new data filters for the complex data item (null is item does not support it). 
 		/// </summary>
-		public OpcItem DataFilterItem
-		{
-			get { return _filterItem; }
-		}
+		public OpcItem DataFilterItem => _filterItem;
 
-		/// <summary>
+        /// <summary>
 		/// The current data filter value. Only valid for items apply data filters to the item.
 		/// </summary>
 		public string DataFilterValue { get; set; }
@@ -255,7 +230,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				return null;
 			}
 
-			Da.TsCDaBrowsePosition position = null;
+			TsCDaBrowsePosition position = null;
 
 			try
 			{
@@ -342,7 +317,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				return null;
 			}
 
-			Da.TsCDaBrowsePosition position = null;
+			TsCDaBrowsePosition position = null;
 
 			try
 			{
@@ -400,7 +375,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				return null;
 			}
 
-			Da.TsCDaBrowsePosition position = null;
+			TsCDaBrowsePosition position = null;
 
 			try
 			{
@@ -569,7 +544,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				return;
 			}
 
-			Da.TsCDaBrowsePosition position = null;
+			TsCDaBrowsePosition position = null;
 
 			try
 			{

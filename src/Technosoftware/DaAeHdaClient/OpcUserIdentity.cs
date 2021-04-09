@@ -374,9 +374,9 @@ namespace Technosoftware.DaAeHdaClient
         /// <returns>True if the objects are equal; otherwise false.</returns>
         public static bool operator ==(OpcUserIdentity a, OpcUserIdentity b)
         {
-            if (Object.ReferenceEquals(a, null))
+            if (ReferenceEquals(a, null))
             {
-                return Object.ReferenceEquals(b, null);
+                return ReferenceEquals(b, null);
             }
 
             return a.Equals(b);
@@ -390,9 +390,9 @@ namespace Technosoftware.DaAeHdaClient
         /// <returns>True if the objects are not equal; otherwise false.</returns>
         public static bool operator !=(OpcUserIdentity a, OpcUserIdentity b)
         {
-            if (Object.ReferenceEquals(a, null))
+            if (ReferenceEquals(a, null))
             {
-                return !Object.ReferenceEquals(b, null);
+                return !ReferenceEquals(b, null);
             }
 
             return !a.Equals(b);

@@ -43,8 +43,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         internal Subscription(object subscription, TsCDaSubscriptionState state, int filters)
         {
-            if (subscription == null) throw new ArgumentNullException("subscription");
-            if (state == null) throw new ArgumentNullException("state");
+            if (subscription == null) throw new ArgumentNullException(nameof(subscription));
+            if (state == null) throw new ArgumentNullException(nameof(state));
 
             subscription_ = subscription;
             name_ = state.Name;
@@ -317,7 +317,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <returns>The actual subscption state after applying the changes.</returns>
         public TsCDaSubscriptionState ModifyState(int masks, TsCDaSubscriptionState state)
         {
-            if (state == null) throw new ArgumentNullException("state");
+            if (state == null) throw new ArgumentNullException(nameof(state));
 
             lock (lock_)
             {
@@ -424,7 +424,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <returns>The results of the add item operation for each item.</returns>
         public TsCDaItemResult[] AddItems(TsCDaItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             // check if nothing to do.
             if (items.Length == 0)
@@ -439,7 +439,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 // marshal input parameters.
                 int count = items.Length;
 
-                OPCITEMDEF[] definitions = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetOPCITEMDEFs(items);
+                OPCITEMDEF[] definitions = Interop.GetOPCITEMDEFs(items);
                 TsCDaItemResult[] results = null;
 
                 lock (items_)
@@ -474,7 +474,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     }
 
                     // unmarshal output parameters.
-                    int[] serverHandles = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetItemResults(ref pResults, count, true);
+                    int[] serverHandles = Interop.GetItemResults(ref pResults, count, true);
                     int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, count, true);
 
                     // construct result list.
@@ -548,7 +548,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <returns>The results of the modify item operation for each item.</returns>
         public TsCDaItemResult[] ModifyItems(int masks, TsCDaItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             // check if nothing to do.
             if (items.Length == 0)
@@ -589,7 +589,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <returns>The results of the remove item operation for each item.</returns>
         public OpcItemResult[] RemoveItems(OpcItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             // check if nothing to do.
             if (items.Length == 0)
@@ -681,7 +681,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <returns>The value for each of items.</returns>
         public TsCDaItemValueResult[] Read(TsCDaItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             // check if nothing to do.
             if (items.Length == 0)
@@ -719,7 +719,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <returns>The results of the write operation for each item.</returns>
         public OpcItemResult[] Write(TsCDaItemValue[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             // check if nothing to do.
             if (items.Length == 0)
@@ -767,8 +767,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             TsCDaReadCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            if (items == null) throw new ArgumentNullException("items");
-            if (callback == null) throw new ArgumentNullException("callback");
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             request = null;
 
@@ -797,7 +797,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // create request object.
-                Technosoftware.DaAeHdaClient.Com.Da.Request internalRequest = new Technosoftware.DaAeHdaClient.Com.Da.Request(
+                Request internalRequest = new Request(
                     this,
                     requestHandle,
                     _filters,
@@ -858,8 +858,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             out IOpcRequest request)
         {
 
-            if (items == null) throw new ArgumentNullException("items");
-            if (callback == null) throw new ArgumentNullException("callback");
+            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             request = null;
 
@@ -888,7 +888,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // create request object.
-                Technosoftware.DaAeHdaClient.Com.Da.Request internalRequest = new Technosoftware.DaAeHdaClient.Com.Da.Request(
+                Request internalRequest = new Request(
                     this,
                     requestHandle,
                     _filters,
@@ -941,27 +941,27 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <param name="callback">The function to invoke when the cancel completes.</param>
         public void Cancel(IOpcRequest request, TsCDaCancelCompleteEventHandler callback)
         {
-            if (request == null) throw new ArgumentNullException("request");
+            if (request == null) throw new ArgumentNullException(nameof(request));
 
             lock (lock_)
             {
                 lock (request)
                 {
                     // check if request can still be cancelled.
-                    if (!callback_.CancelRequest((Technosoftware.DaAeHdaClient.Com.Da.Request)request))
+                    if (!callback_.CancelRequest((Request)request))
                     {
                         return;
                     }
 
                     // update the callback.
-                    ((Technosoftware.DaAeHdaClient.Com.Da.Request)request).Callback = callback;
+                    ((Request)request).Callback = callback;
 
                     // send a cancel request to the server.
                     string methodName = "IOPCAsyncIO2.Cancel2";
                     try
                     {
                         IOPCAsyncIO2 subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
-                        subscription.Cancel2(((Technosoftware.DaAeHdaClient.Com.Da.Request)request).CancelID);
+                        subscription.Cancel2(((Request)request).CancelID);
                     }
                     catch (Exception e)
                     {
@@ -1025,7 +1025,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // create request object.
-                Technosoftware.DaAeHdaClient.Com.Da.Request internalRequest = new Technosoftware.DaAeHdaClient.Com.Da.Request(
+                Request internalRequest = new Request(
                     this,
                     requestHandle,
                     _filters,
@@ -1278,7 +1278,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     serverHandles[ii] = (int)itemIDs[ii].ServerHandle;
                 }
 
-                OPCITEMVQT[] values = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetOPCITEMVQTs(items);
+                OPCITEMVQT[] values = Interop.GetOPCITEMVQTs(items);
 
                 // write to sever.
                 IntPtr pErrors = IntPtr.Zero;
@@ -1406,7 +1406,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     serverHandles[ii] = (int)itemIDs[ii].ServerHandle;
                 }
 
-                OPCITEMVQT[] values = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetOPCITEMVQTs(items);
+                OPCITEMVQT[] values = Interop.GetOPCITEMVQTs(items);
 
                 // write to sever.
                 IntPtr pErrors = IntPtr.Zero;
@@ -1484,7 +1484,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 for (int ii = 0; ii < changedItems.Count; ii++)
                 {
                     TsCDaItemResult item = (TsCDaItemResult)changedItems[ii];
-                    handles[ii] = System.Convert.ToInt32(item.ServerHandle);
+                    handles[ii] = Convert.ToInt32(item.ServerHandle);
                     datatypes[ii] = (short)Technosoftware.DaAeHdaClient.Com.Interop.GetType(item.ReqType);
                 }
 
@@ -1546,7 +1546,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 for (int ii = 0; ii < items.Length; ii++)
                 {
-                    handles[ii] = System.Convert.ToInt32(items[ii].ServerHandle);
+                    handles[ii] = Convert.ToInt32(items[ii].ServerHandle);
                 }
 
                 // initialize output parameters.
@@ -1639,7 +1639,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 for (int ii = 0; ii < items.Length; ii++)
                 {
-                    handles[ii] = System.Convert.ToInt32(items[ii].ServerHandle);
+                    handles[ii] = Convert.ToInt32(items[ii].ServerHandle);
                     deadbands[ii] = items[ii].Deadband;
                 }
 
@@ -1699,7 +1699,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 for (int ii = 0; ii < items.Length; ii++)
                 {
-                    handles[ii] = System.Convert.ToInt32(items[ii].ServerHandle);
+                    handles[ii] = Convert.ToInt32(items[ii].ServerHandle);
                 }
 
                 // initialize output parameters.
@@ -1791,7 +1791,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 for (int ii = 0; ii < items.Length; ii++)
                 {
-                    handles[ii] = System.Convert.ToInt32(items[ii].ServerHandle);
+                    handles[ii] = Convert.ToInt32(items[ii].ServerHandle);
                     samplingRate[ii] = items[ii].SamplingRate;
                 }
 
@@ -1865,7 +1865,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 for (int ii = 0; ii < items.Length; ii++)
                 {
-                    handles[ii] = System.Convert.ToInt32(items[ii].ServerHandle);
+                    handles[ii] = Convert.ToInt32(items[ii].ServerHandle);
                 }
 
                 // initialize output parameters.
@@ -1974,7 +1974,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 for (int ii = 0; ii < changedItems.Count; ii++)
                 {
                     TsCDaItemResult item = (TsCDaItemResult)changedItems[ii];
-                    handles[ii] = System.Convert.ToInt32(item.ServerHandle);
+                    handles[ii] = Convert.ToInt32(item.ServerHandle);
                     enabled[ii] = (item.EnableBufferingSpecified && item.EnableBuffering) ? 1 : 0;
                 }
 
@@ -2094,7 +2094,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 int invalidHandle = 0;
 
-                foreach (Technosoftware.DaAeHdaClient.OpcItem item in m_items.Values)
+                foreach (OpcItem item in m_items.Values)
                 {
                     if (item.ServerHandle != null && item.ServerHandle.GetType() == typeof(int))
                     {
@@ -2256,7 +2256,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             /// <summary>
             /// Adds an asynchrounous request.
             /// </summary>
-            public void BeginRequest(Technosoftware.DaAeHdaClient.Com.Da.Request request)
+            public void BeginRequest(Request request)
             {
                 lock (lock_)
                 {
@@ -2267,7 +2267,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             /// <summary>
             /// Returns true is an asynchrounous request can be cancelled.
             /// </summary>
-			public bool CancelRequest(Technosoftware.DaAeHdaClient.Com.Da.Request request)
+			public bool CancelRequest(Request request)
             {
                 lock (lock_)
                 {
@@ -2278,7 +2278,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             /// <summary>
             /// Remvoes an asynchrounous request.
             /// </summary>
-			public void EndRequest(Technosoftware.DaAeHdaClient.Com.Da.Request request)
+			public void EndRequest(Request request)
             {
                 lock (lock_)
                 {
@@ -2334,14 +2334,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 try
                 {
-                    Technosoftware.DaAeHdaClient.Com.Da.Request request = null;
+                    Request request = null;
 
                     lock (lock_)
                     {
                         // check for an outstanding request.
                         if (dwTransid != 0)
                         {
-                            request = (Technosoftware.DaAeHdaClient.Com.Da.Request)_requests[dwTransid];
+                            request = (Request)_requests[dwTransid];
 
 
                             if (request != null)
@@ -2397,13 +2397,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 try
                 {
-                    Technosoftware.DaAeHdaClient.Com.Da.Request request = null;
+                    Request request = null;
                     TsCDaItemValueResult[] values = null;
 
                     lock (lock_)
                     {
                         // do nothing if no outstanding requests.
-                        request = (Technosoftware.DaAeHdaClient.Com.Da.Request)_requests[dwTransid];
+                        request = (Request)_requests[dwTransid];
 
                         if (request == null)
                         {
@@ -2452,13 +2452,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 try
                 {
-                    Technosoftware.DaAeHdaClient.Com.Da.Request request = null;
+                    Request request = null;
                     OpcItemResult[] results = null;
 
                     lock (lock_)
                     {
                         // do nothing if no outstanding requests.
-                        request = (Technosoftware.DaAeHdaClient.Com.Da.Request)_requests[dwTransid];
+                        request = (Request)_requests[dwTransid];
 
                         if (request == null)
                         {
@@ -2511,12 +2511,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 try
                 {
-                    Technosoftware.DaAeHdaClient.Com.Da.Request request = null;
+                    Request request = null;
 
                     lock (lock_)
                     {
                         // do nothing if no outstanding requests.
-                        request = (Technosoftware.DaAeHdaClient.Com.Da.Request)_requests[dwTransid];
+                        request = (Request)_requests[dwTransid];
 
                         if (request == null)
                         {
@@ -2563,7 +2563,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     values[ii].Value = pvValues[ii];
                     values[ii].Quality = new TsCDaQuality(pwQualities[ii]);
                     values[ii].QualitySpecified = true;
-                    values[ii].Timestamp = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(Technosoftware.DaAeHdaClient.Com.Da.Interop.Convert(pftTimeStamps[ii]));
+                    values[ii].Timestamp = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(Interop.Convert(pftTimeStamps[ii]));
                     values[ii].TimestampSpecified = values[ii].Timestamp != DateTime.MinValue;
                     values[ii].Result = Technosoftware.DaAeHdaClient.Com.Interop.GetResultID(pErrors[ii]);
                     values[ii].DiagnosticInfo = null;
@@ -2584,7 +2584,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
     /// Contains the state of an asynchronous request to a COM server.
     /// </summary>
     [Serializable]
-    internal class Request : Technosoftware.DaAeHdaClient.Da.TsCDaRequest
+    internal class Request : TsCDaRequest
     {
         /// <summary>
         /// The unique id assigned by the subscription.

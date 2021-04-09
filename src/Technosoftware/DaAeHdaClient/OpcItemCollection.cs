@@ -23,8 +23,6 @@
 #region Using Directives
 using System;
 using System.Collections;
-using System.Text;
-using System.Xml;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient
@@ -57,8 +55,8 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public OpcItem this[int index]
         {
-            get { return this.itemIDs[index]; }
-            set { this.itemIDs[index] = value; }
+            get => itemIds_[index];
+            set => itemIds_[index] = value;
         }
 
         /// <summary>
@@ -71,17 +69,17 @@ namespace Technosoftware.DaAeHdaClient
 
             if (collection != null)
             {
-                ArrayList itemIDs = new ArrayList(collection.Count);
+                ArrayList itemIds = new ArrayList(collection.Count);
 
                 foreach (object value in collection)
                 {
-                    if (typeof(OpcItem).IsInstanceOfType(value))
+                    if (value is OpcItem item)
                     {
-                        itemIDs.Add(((OpcItem)value).Clone());
+                        itemIds.Add(item.Clone());
                     }
                 }
 
-                this.itemIDs = (OpcItem[])itemIDs.ToArray(typeof(OpcItem));
+                this.itemIds_ = (OpcItem[])itemIds.ToArray(typeof(OpcItem));
             }
         }
 
@@ -90,7 +88,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public void Clear()
         {
-            this.itemIDs = new OpcItem[0];
+            itemIds_ = new OpcItem[0];
         }
 
         #region ICloneable Members
@@ -107,18 +105,12 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Indicates whether access to the ICollection is synchronized (thread-safe).
         /// </summary>
-        public bool IsSynchronized
-        {
-            get { return false; }
-        }
+        public bool IsSynchronized => false;
 
         /// <summary>
         /// Gets the number of objects in the collection.
         /// </summary>
-        public int Count
-        {
-            get { return (this.itemIDs != null) ? this.itemIDs.Length : 0; }
-        }
+        public int Count => itemIds_?.Length ?? 0;
 
         /// <summary>
         /// Copies the objects to an Array, starting at a the specified index.
@@ -127,10 +119,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <param name="index">The zero-based index in the Array at which copying begins.</param>
         public void CopyTo(Array array, int index)
         {
-            if (this.itemIDs != null)
-            {
-                this.itemIDs.CopyTo(array, index);
-            }
+            itemIds_?.CopyTo(array, index);
         }
 
         /// <summary>
@@ -146,10 +135,8 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Indicates whether access to the ICollection is synchronized (thread-safe).
         /// </summary>
-        public object SyncRoot
-        {
-            get { return this; }
-        }
+        public object SyncRoot => this;
+
         #endregion
 
         #region IEnumerable Members
@@ -159,12 +146,12 @@ namespace Technosoftware.DaAeHdaClient
         /// <returns>An IEnumerator that can be used to iterate through the collection.</returns>
         public IEnumerator GetEnumerator()
         {
-            return this.itemIDs.GetEnumerator();
+            return itemIds_.GetEnumerator();
         }
         #endregion
 
         #region Private Members
-        private OpcItem[] itemIDs = new OpcItem[0];
+        private OpcItem[] itemIds_ = new OpcItem[0];
         #endregion
     }
 }

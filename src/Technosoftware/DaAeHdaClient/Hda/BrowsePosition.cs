@@ -26,33 +26,27 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// Stores the state of a browse operation.
-	/// </summary>
-	[Serializable]
-	public class TsCHdaBrowsePosition : IOpcBrowsePosition
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region IDisposable Members
+    /// <summary>
+    /// Stores the state of a browse operation.
+    /// </summary>
+    [Serializable]
+    public class TsCHdaBrowsePosition : IOpcBrowsePosition
+    {
+        #region IDisposable Members
+        /// <summary>
+        /// Releases any unmanaged resources held by the object.
+        /// </summary>
+        public virtual void Dispose() { }
+        #endregion
 
-		/// <summary>
-		/// Releases any unmanaged resources held by the object.
-		/// </summary>
-		public virtual void Dispose() { }
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region ICloneable Members
-
-		/// <summary>
-		/// Creates a shallow copy of the object.
-		/// </summary>
-		public virtual object Clone()
-		{
-			return (Technosoftware.DaAeHdaClient.Hda.TsCHdaBrowsePosition)MemberwiseClone();
-		}
-
-		#endregion
-	}
+        #region ICloneable Members
+        /// <summary>
+        /// Creates a shallow copy of the object.
+        /// </summary>
+        public virtual object Clone()
+        {
+            return (TsCHdaBrowsePosition)MemberwiseClone();
+        }
+        #endregion
+    }
 }

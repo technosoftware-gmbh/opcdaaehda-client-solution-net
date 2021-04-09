@@ -21,34 +21,33 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// The types of modifications that can be applied to an item.
-	/// </summary>
-	public enum TsCHdaEditType
-	{
-		/// <summary>
-		/// The item was inserted.
-		/// </summary>
-		Insert = 1,
+    /// <summary>
+    /// The types of modifications that can be applied to an item.
+    /// </summary>
+    public enum TsCHdaEditType
+    {
+        /// <summary>
+        /// The item was inserted.
+        /// </summary>
+        Insert = 1,
 
-		/// <summary>
-		/// The item was replaced.
-		/// </summary>
-		Replace = 2,
+        /// <summary>
+        /// The item was replaced.
+        /// </summary>
+        Replace = 2,
 
-		/// <summary>
-		/// The item was inserted or replaced during an insert/replace operation.
-		/// </summary>
-		InsertReplace = 3,
+        /// <summary>
+        /// The item was inserted or replaced during an insert/replace operation.
+        /// </summary>
+        InsertReplace = 3,
 
-		/// <summary>
-		/// The item was deleted.
-		/// </summary>
-		Delete = 4
-	}
+        /// <summary>
+        /// The item was deleted.
+        /// </summary>
+        Delete = 4
+    }
 }

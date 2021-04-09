@@ -21,65 +21,55 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// Contains the description of an element in the server's address space.
-	/// </summary>
-	public class TsCHdaBrowseElement : OpcItem
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region Fields
+    /// <summary>
+    /// Contains the description of an element in the server's address space.
+    /// </summary>
+    public class TsCHdaBrowseElement : OpcItem
+    {
+        #region Fields
+        private TsCHdaAttributeValueCollection attributes_ = new TsCHdaAttributeValueCollection();
+        #endregion
 
-		private Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection _attributes = new Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection();
+        #region Properties
+        /// <summary>
+        /// The name of element within its branch.
+        /// </summary>
+        public string Name { get; set; }
 
-		#endregion
+        /// <summary>
+        /// Whether the element is an item with associated data in the archive.
+        /// </summary>
+        public bool IsItem { get; set; }
 
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
+        /// <summary>
+        /// Whether the element has child elements.
+        /// </summary>
+        public bool HasChildren { get; set; }
 
-		/// <summary>
-		/// The name of element within its branch.
-		/// </summary>
-		public string Name { get; set; }
+        /// <summary>
+        /// The current values of any attributes associated with the item.
+        /// </summary>
+        public TsCHdaAttributeValueCollection Attributes
+        {
+            get => attributes_;
+            set => attributes_ = value;
+        }
+        #endregion
 
-		/// <summary>
-		/// Whether the element is an item with associated data in the archive.
-		/// </summary>
-		public bool IsItem { get; set; }
-
-		/// <summary>
-		/// Whether the element has child elements.
-		/// </summary>
-		public bool HasChildren { get; set; }
-
-		/// <summary>
-		/// The current values of any attributes associated with the item.
-		/// </summary>
-		public Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection Attributes
-		{
-			get { return _attributes; }
-			set { _attributes = value; }
-		}
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region ICloneable Members
-
-		/// <summary>
-		/// Creates a deepcopy of the object.
-		/// </summary>
-		public override object Clone()
-		{
-			TsCHdaBrowseElement element = (TsCHdaBrowseElement)MemberwiseClone();
-			element.Attributes = (Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection)_attributes.Clone();
-			return element;
-		}
-
-		#endregion
-	}
+        #region ICloneable Members
+        /// <summary>
+        /// Creates a deep-copy of the object.
+        /// </summary>
+        public override object Clone()
+        {
+            TsCHdaBrowseElement element = (TsCHdaBrowseElement)MemberwiseClone();
+            element.Attributes = (TsCHdaAttributeValueCollection)attributes_.Clone();
+            return element;
+        }
+        #endregion
+    }
 }

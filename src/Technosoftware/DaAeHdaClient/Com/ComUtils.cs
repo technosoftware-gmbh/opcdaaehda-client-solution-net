@@ -467,7 +467,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 			/// <summary>
 			/// Allocates a COSERVERINFO structure.
 			/// </summary>
-			public COSERVERINFO Allocate(string hostName, Technosoftware.DaAeHdaClient.OpcUserIdentity identity)
+			public COSERVERINFO Allocate(string hostName, OpcUserIdentity identity)
 			{
 				// initialize server info structure.
 				COSERVERINFO serverInfo = new COSERVERINFO();
@@ -478,7 +478,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 				serverInfo.dwReserved2  = 0;
                 
                 // no authentication for default identity
-				if (Technosoftware.DaAeHdaClient.OpcUserIdentity.IsDefault(identity))
+				if (OpcUserIdentity.IsDefault(identity))
                 {
 					return serverInfo;
                 }
@@ -623,7 +623,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 		/// <summary>
 		/// Creates an instance of a COM server using the specified license key.
 		/// </summary>
-		public static object CreateInstance(Guid clsid, string hostName, Technosoftware.DaAeHdaClient.OpcUserIdentity identity)
+		public static object CreateInstance(Guid clsid, string hostName, OpcUserIdentity identity)
 		{			
 			return CreateInstance1(clsid, hostName, identity);
 		}
@@ -631,7 +631,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 		/// <summary>
 		/// Creates an instance of a COM server.
 		/// </summary>
-		public static object CreateInstance1(Guid clsid, string hostName, Technosoftware.DaAeHdaClient.OpcUserIdentity identity)
+		public static object CreateInstance1(Guid clsid, string hostName, OpcUserIdentity identity)
 		{
 			ServerInfo   serverInfo   = new ServerInfo();
 			COSERVERINFO coserverInfo = serverInfo.Allocate(hostName, identity);
@@ -2667,7 +2667,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         public static Exception CreateException(Exception e, string function)
         {
-			return new OpcResultException(new OpcResult((int)OpcResult.E_NETWORK_ERROR.Code, OpcResult.FuncCallType.SysFuncCall, null), String.Format("Call to {0} failed. Error: {1}.", function, ComUtils.GetSystemMessage(Marshal.GetHRForException(e), LOCALE_SYSTEM_DEFAULT)));
+			return new OpcResultException(new OpcResult((int)OpcResult.E_NETWORK_ERROR.Code, OpcResult.FuncCallType.SysFuncCall, null), String.Format("Call to {0} failed. Error: {1}.", function, GetSystemMessage(Marshal.GetHRForException(e), LOCALE_SYSTEM_DEFAULT)));
         }
                 
         /// <summary>

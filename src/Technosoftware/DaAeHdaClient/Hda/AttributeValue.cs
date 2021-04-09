@@ -26,53 +26,44 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// The value of an attribute at a point in time.
-	/// </summary>
-	[Serializable]
-	public class TsCHdaAttributeValue : ICloneable
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region Fields
-		
-		private DateTime _timestamp = DateTime.MinValue;
+    /// <summary>
+    /// The value of an attribute at a point in time.
+    /// </summary>
+    [Serializable]
+    public class TsCHdaAttributeValue : ICloneable
+    {
+        #region Fields
+        private DateTime timestamp_ = DateTime.MinValue;
+        #endregion
 
-		#endregion
+        #region Properties
+        /// <summary>
+        /// The value of the data.
+        /// </summary>
+        public object Value { get; set; }
 
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
+        /// <summary>
+        /// The timestamp associated with the value.
+        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+        /// the time format (UTC or local time).
+        /// </summary>
+        public DateTime Timestamp
+        {
+            get => timestamp_;
+            set => timestamp_ = value;
+        }
+        #endregion
 
-		/// <summary>
-		/// The value of the data.
-		/// </summary>
-		public object Value { get; set; }
-
-		/// <summary>
-		/// The timestamp associated with the value.
-		/// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
-		/// the time format (UTC or local time).
-		/// </summary>
-		public DateTime Timestamp
-		{
-			get { return _timestamp; }
-			set { _timestamp = value; }
-		}
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region ICloneable Members
-
-		/// <summary>
-		/// Creates a deep copy of the object.
-		/// </summary>
-		public virtual object Clone()
-		{
-			Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue clone = (Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue)MemberwiseClone();
-			clone.Value = Technosoftware.DaAeHdaClient.OpcConvert.Clone(Value);
-			return clone;
-		}
-
-		#endregion
-	}
+        #region ICloneable Members
+        /// <summary>
+        /// Creates a deep copy of the object.
+        /// </summary>
+        public virtual object Clone()
+        {
+            TsCHdaAttributeValue clone = (TsCHdaAttributeValue)MemberwiseClone();
+            clone.Value = OpcConvert.Clone(Value);
+            return clone;
+        }
+        #endregion
+    }
 }

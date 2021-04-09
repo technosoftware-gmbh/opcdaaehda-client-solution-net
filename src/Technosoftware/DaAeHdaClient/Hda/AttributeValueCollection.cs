@@ -23,344 +23,301 @@
 #region Using Directives
 using System;
 using System.Collections;
-using Technosoftware.DaAeHdaClient;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// The set of values for an item attribute over a period of time.
-	/// </summary>
-	[Serializable]
-	public class TsCHdaAttributeValueCollection : IOpcResult, ICollection, ICloneable, IList
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region Fields
+    /// <summary>
+    /// The set of values for an item attribute over a period of time.
+    /// </summary>
+    [Serializable]
+    public class TsCHdaAttributeValueCollection : IOpcResult, ICollection, ICloneable, IList
+    {
+        #region Fields
+        private OpcResult result_ = OpcResult.S_OK;
+        private ArrayList attributeValues_ = new ArrayList();
+        #endregion
 
-		private OpcResult _result = OpcResult.S_OK;
-		private ArrayList _attributeValues = new ArrayList();
+        #region Constructors, Destructor, Initialization
+        /// <summary>
+        /// Initializes object with the default values.
+        /// </summary>
+        public TsCHdaAttributeValueCollection() { }
 
-		#endregion
+        /// <summary>
+        /// Initializes object with the specified ItemIdentifier object.
+        /// </summary>
+        public TsCHdaAttributeValueCollection(TsCHdaAttribute attribute)
+        {
+            AttributeID = attribute.ID;
+        }
 
-		///////////////////////////////////////////////////////////////////////
-		#region Constructors, Destructor, Initialization
+        /// <summary>
+        /// Initializes object with the specified AttributeValueCollection object.
+        /// </summary>
+        public TsCHdaAttributeValueCollection(TsCHdaAttributeValueCollection collection)
+        {
+            attributeValues_ = new ArrayList(collection.attributeValues_.Count);
 
-		/// <summary>
-		/// Initializes object with the default values.
-		/// </summary>
-		public TsCHdaAttributeValueCollection() { }
+            foreach (TsCHdaAttributeValue value in collection.attributeValues_)
+            {
+                attributeValues_.Add(value.Clone());
+            }
+        }
+        #endregion
 
-		/// <summary>
-		/// Initializes object with the specified ItemIdentifier object.
-		/// </summary>
-		public TsCHdaAttributeValueCollection(Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute attribute)
-		{
-			AttributeID = attribute.ID;
-		}
+        #region Properties
+        /// <summary>
+        /// A unique identifier for the attribute.
+        /// </summary>
+        public int AttributeID { get; set; }
 
-		/// <summary>
-		/// Initializes object with the specified AttributeValueCollection object.
-		/// </summary>
-		public TsCHdaAttributeValueCollection(Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection collection)
-		{
-			_attributeValues = new ArrayList(collection._attributeValues.Count);
+        /// <summary>
+        /// Accessor for elements in the collection.
+        /// </summary>
+        public TsCHdaAttributeValue this[int index]
+        {
+            get => (TsCHdaAttributeValue)attributeValues_[index];
+            set => attributeValues_[index] = value;
+        }
+        #endregion
 
-			foreach (Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue value in collection._attributeValues)
-			{
-				_attributeValues.Add(value.Clone());
-			}
-		}
+        #region IOpcResult Members
+        /// <summary>
+        /// The error id for the result of an operation on an item.
+        /// </summary>
+        public OpcResult Result
+        {
+            get => result_;
+            set => result_ = value;
+        }
 
-		#endregion
-		
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
+        /// <summary>
+        /// Vendor specific diagnostic information (not the localized error text).
+        /// </summary>
+        public string DiagnosticInfo { get; set; }
+        #endregion
 
-		/// <summary>
-		/// A unique identifier for the attribute.
-		/// </summary>
-		public int AttributeID { get; set; }
+        #region ICloneable Members
+        /// <summary>
+        /// Creates a deep copy of the object.
+        /// </summary>
+        public virtual object Clone()
+        {
+            TsCHdaAttributeValueCollection collection = (TsCHdaAttributeValueCollection)MemberwiseClone();
 
-		/// <summary>
-		/// Accessor for elements in the collection.
-		/// </summary>
-		public Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue this[int index]
-		{
-			get { return (Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue)_attributeValues[index]; }
-			set { _attributeValues[index] = value; }
-		}
+            collection.attributeValues_ = new ArrayList(attributeValues_.Count);
 
-		#endregion
+            foreach (TsCHdaAttributeValue value in attributeValues_)
+            {
+                collection.attributeValues_.Add(value.Clone());
+            }
 
-		///////////////////////////////////////////////////////////////////////
-		#region IOpcResult Members
+            return collection;
+        }
+        #endregion
 
-		/// <summary>
-		/// The error id for the result of an operation on an item.
-		/// </summary>
-		public OpcResult Result
-		{
-			get { return _result; }
-			set { _result = value; }
-		}
+        #region ICollection Members
+        /// <summary>
+        /// Indicates whether access to the ICollection is synchronized (thread-safe).
+        /// </summary>
+        public bool IsSynchronized => false;
 
-		/// <summary>
-		/// Vendor specific diagnostic information (not the localized error text).
-		/// </summary>
-		public string DiagnosticInfo { get; set; }
+        /// <summary>
+        /// Gets the number of objects in the collection.
+        /// </summary>
+        public int Count => attributeValues_?.Count ?? 0;
 
-		#endregion
+        /// <summary>
+        /// Copies the objects to an Array, starting at a the specified index.
+        /// </summary>
+        /// <param name="array">The one-dimensional Array that is the destination for the objects.</param>
+        /// <param name="index">The zero-based index in the Array at which copying begins.</param>
+        public void CopyTo(Array array, int index)
+        {
+            attributeValues_?.CopyTo(array, index);
+        }
 
-		///////////////////////////////////////////////////////////////////////
-		#region ICloneable Members
+        /// <summary>
+        /// Copies the objects to an Array, starting at a the specified index.
+        /// </summary>
+        /// <param name="array">The one-dimensional Array that is the destination for the objects.</param>
+        /// <param name="index">The zero-based index in the Array at which copying begins.</param>
+        public void CopyTo(TsCHdaAttributeValue[] array, int index)
+        {
+            CopyTo((Array)array, index);
+        }
 
-		/// <summary>
-		/// Creates a deep copy of the object.
-		/// </summary>
-		public virtual object Clone()
-		{
-			Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection collection = (Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection)MemberwiseClone();
+        /// <summary>
+        /// Indicates whether access to the ICollection is synchronized (thread-safe).
+        /// </summary>
+        public object SyncRoot => this;
+        #endregion
 
-			collection._attributeValues = new ArrayList(_attributeValues.Count);
+        #region IEnumerable Members
+        /// <summary>
+        /// Returns an enumerator that can iterate through a collection.
+        /// </summary>
+        /// <returns>An IEnumerator that can be used to iterate through the collection.</returns>
+        public IEnumerator GetEnumerator()
+        {
+            return attributeValues_.GetEnumerator();
+        }
+        #endregion
 
-			foreach (Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue value in _attributeValues)
-			{
-				collection._attributeValues.Add(value.Clone());
-			}
+        #region IList Members
+        /// <summary>
+        /// Gets a value indicating whether the IList is read-only.
+        /// </summary>
+        public bool IsReadOnly => false;
 
-			return collection;
-		}
+        /// <summary>
+        /// Gets or sets the element at the specified index.
+        /// </summary>
+        object IList.this[int index]
+        {
+            get => attributeValues_[index];
 
-		#endregion
+            set
+            {
+                if (!(value is TsCHdaAttributeValue))
+                {
+                    throw new ArgumentException("May only add AttributeValue objects into the collection.");
+                }
 
-		///////////////////////////////////////////////////////////////////////
-		#region ICollection Members
+                attributeValues_[index] = value;
+            }
+        }
 
-		/// <summary>
-		/// Indicates whether access to the ICollection is synchronized (thread-safe).
-		/// </summary>
-		public bool IsSynchronized
-		{
-			get { return false; }
-		}
+        /// <summary>
+        /// Removes the IList item at the specified index.
+        /// </summary>
+        /// <param name="index">The zero-based index of the item to remove.</param>
+        public void RemoveAt(int index)
+        {
+            attributeValues_.RemoveAt(index);
+        }
 
-		/// <summary>
-		/// Gets the number of objects in the collection.
-		/// </summary>
-		public int Count
-		{
-			get { return (_attributeValues != null) ? _attributeValues.Count : 0; }
-		}
+        /// <summary>
+        /// Inserts an item to the IList at the specified position.
+        /// </summary>
+        /// <param name="index">The zero-based index at which value should be inserted.</param>
+        /// <param name="value">The Object to insert into the IList. </param>
+        public void Insert(int index, object value)
+        {
+            if (!(value is TsCHdaAttributeValue))
+            {
+                throw new ArgumentException("May only add AttributeValue objects into the collection.");
+            }
 
-		/// <summary>
-		/// Copies the objects to an Array, starting at a the specified index.
-		/// </summary>
-		/// <param name="array">The one-dimensional Array that is the destination for the objects.</param>
-		/// <param name="index">The zero-based index in the Array at which copying begins.</param>
-		public void CopyTo(Array array, int index)
-		{
-			if (_attributeValues != null)
-			{
-				_attributeValues.CopyTo(array, index);
-			}
-		}
+            attributeValues_.Insert(index, value);
+        }
 
-		/// <summary>
-		/// Copies the objects to an Array, starting at a the specified index.
-		/// </summary>
-		/// <param name="array">The one-dimensional Array that is the destination for the objects.</param>
-		/// <param name="index">The zero-based index in the Array at which copying begins.</param>
-		public void CopyTo(Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue[] array, int index)
-		{
-			CopyTo((Array)array, index);
-		}
+        /// <summary>
+        /// Removes the first occurrence of a specific object from the IList.
+        /// </summary>
+        /// <param name="value">The Object to remove from the IList.</param>
+        public void Remove(object value)
+        {
+            attributeValues_.Remove(value);
+        }
 
-		/// <summary>
-		/// Indicates whether access to the ICollection is synchronized (thread-safe).
-		/// </summary>
-		public object SyncRoot
-		{
-			get { return this; }
-		}
+        /// <summary>
+        /// Determines whether the IList contains a specific value.
+        /// </summary>
+        /// <param name="value">The Object to locate in the IList.</param>
+        /// <returns>true if the Object is found in the IList; otherwise, false.</returns>
+        public bool Contains(object value)
+        {
+            return attributeValues_.Contains(value);
+        }
 
-		#endregion
+        /// <summary>
+        /// Removes all items from the IList.
+        /// </summary>
+        public void Clear()
+        {
+            attributeValues_.Clear();
+        }
 
-		///////////////////////////////////////////////////////////////////////
-		#region IEnumerable Members
+        /// <summary>
+        /// Determines the index of a specific item in the IList.
+        /// </summary>
+        /// <param name="value">The Object to locate in the IList.</param>
+        /// <returns>The index of value if found in the list; otherwise, -1.</returns>
+        public int IndexOf(object value)
+        {
+            return attributeValues_.IndexOf(value);
+        }
 
-		/// <summary>
-		/// Returns an enumerator that can iterate through a collection.
-		/// </summary>
-		/// <returns>An IEnumerator that can be used to iterate through the collection.</returns>
-		public IEnumerator GetEnumerator()
-		{
-			return _attributeValues.GetEnumerator();
-		}
+        /// <summary>
+        /// Adds an item to the IList.
+        /// </summary>
+        /// <param name="value">The Object to add to the IList. </param>
+        /// <returns>The position into which the new element was inserted.</returns>
+        public int Add(object value)
+        {
+            if (!(value is TsCHdaAttributeValue))
+            {
+                throw new ArgumentException("May only add AttributeValue objects into the collection.");
+            }
 
-		#endregion
+            return attributeValues_.Add(value);
+        }
 
-		///////////////////////////////////////////////////////////////////////
-		#region IList Members
+        /// <summary>
+        /// Indicates whether the IList has a fixed size.
+        /// </summary>
+        public bool IsFixedSize => false;
 
-		/// <summary>
-		/// Gets a value indicating whether the IList is read-only.
-		/// </summary>
-		public bool IsReadOnly
-		{
-			get { return false; }
-		}
+        /// <summary>
+        /// Inserts an item to the IList at the specified position.
+        /// </summary>
+        /// <param name="index">The zero-based index at which value should be inserted.</param>
+        /// <param name="value">The Object to insert into the IList. </param>
+        public void Insert(int index, TsCHdaAttributeValue value)
+        {
+            Insert(index, (object)value);
+        }
 
-		/// <summary>
-		/// Gets or sets the element at the specified index.
-		/// </summary>
-		object IList.this[int index]
-		{
-			get { return _attributeValues[index]; }
+        /// <summary>
+        /// Removes the first occurrence of a specific object from the IList.
+        /// </summary>
+        /// <param name="value">The Object to remove from the IList.</param>
+        public void Remove(TsCHdaAttributeValue value)
+        {
+            Remove((object)value);
+        }
 
-			set
-			{
-				if (!typeof(Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue).IsInstanceOfType(value))
-				{
-					throw new ArgumentException("May only add AttributeValue objects into the collection.");
-				}
+        /// <summary>
+        /// Determines whether the IList contains a specific value.
+        /// </summary>
+        /// <param name="value">The Object to locate in the IList.</param>
+        /// <returns>true if the Object is found in the IList; otherwise, false.</returns>
+        public bool Contains(TsCHdaAttributeValue value)
+        {
+            return Contains((object)value);
+        }
 
-				_attributeValues[index] = value;
-			}
-		}
+        /// <summary>
+        /// Determines the index of a specific item in the IList.
+        /// </summary>
+        /// <param name="value">The Object to locate in the IList.</param>
+        /// <returns>The index of value if found in the list; otherwise, -1.</returns>
+        public int IndexOf(TsCHdaAttributeValue value)
+        {
+            return IndexOf((object)value);
+        }
 
-		/// <summary>
-		/// Removes the IList item at the specified index.
-		/// </summary>
-		/// <param name="index">The zero-based index of the item to remove.</param>
-		public void RemoveAt(int index)
-		{
-			_attributeValues.RemoveAt(index);
-		}
-
-		/// <summary>
-		/// Inserts an item to the IList at the specified position.
-		/// </summary>
-		/// <param name="index">The zero-based index at which value should be inserted.</param>
-		/// <param name="value">The Object to insert into the IList. </param>
-		public void Insert(int index, object value)
-		{
-			if (!typeof(Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue).IsInstanceOfType(value))
-			{
-				throw new ArgumentException("May only add AttributeValue objects into the collection.");
-			}
-
-			_attributeValues.Insert(index, value);
-		}
-
-		/// <summary>
-		/// Removes the first occurrence of a specific object from the IList.
-		/// </summary>
-		/// <param name="value">The Object to remove from the IList.</param>
-		public void Remove(object value)
-		{
-			_attributeValues.Remove(value);
-		}
-
-		/// <summary>
-		/// Determines whether the IList contains a specific value.
-		/// </summary>
-		/// <param name="value">The Object to locate in the IList.</param>
-		/// <returns>true if the Object is found in the IList; otherwise, false.</returns>
-		public bool Contains(object value)
-		{
-			return _attributeValues.Contains(value);
-		}
-
-		/// <summary>
-		/// Removes all items from the IList.
-		/// </summary>
-		public void Clear()
-		{
-			_attributeValues.Clear();
-		}
-
-		/// <summary>
-		/// Determines the index of a specific item in the IList.
-		/// </summary>
-		/// <param name="value">The Object to locate in the IList.</param>
-		/// <returns>The index of value if found in the list; otherwise, -1.</returns>
-		public int IndexOf(object value)
-		{
-			return _attributeValues.IndexOf(value);
-		}
-
-		/// <summary>
-		/// Adds an item to the IList.
-		/// </summary>
-		/// <param name="value">The Object to add to the IList. </param>
-		/// <returns>The position into which the new element was inserted.</returns>
-		public int Add(object value)
-		{
-			if (!typeof(Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue).IsInstanceOfType(value))
-			{
-				throw new ArgumentException("May only add AttributeValue objects into the collection.");
-			}
-
-			return _attributeValues.Add(value);
-		}
-
-		/// <summary>
-		/// Indicates whether the IList has a fixed size.
-		/// </summary>
-		public bool IsFixedSize
-		{
-			get { return false; }
-		}
-
-		/// <summary>
-		/// Inserts an item to the IList at the specified position.
-		/// </summary>
-		/// <param name="index">The zero-based index at which value should be inserted.</param>
-		/// <param name="value">The Object to insert into the IList. </param>
-		public void Insert(int index, Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue value)
-		{
-			Insert(index, (object)value);
-		}
-
-		/// <summary>
-		/// Removes the first occurrence of a specific object from the IList.
-		/// </summary>
-		/// <param name="value">The Object to remove from the IList.</param>
-		public void Remove(Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue value)
-		{
-			Remove((object)value);
-		}
-
-		/// <summary>
-		/// Determines whether the IList contains a specific value.
-		/// </summary>
-		/// <param name="value">The Object to locate in the IList.</param>
-		/// <returns>true if the Object is found in the IList; otherwise, false.</returns>
-		public bool Contains(Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue value)
-		{
-			return Contains((object)value);
-		}
-
-		/// <summary>
-		/// Determines the index of a specific item in the IList.
-		/// </summary>
-		/// <param name="value">The Object to locate in the IList.</param>
-		/// <returns>The index of value if found in the list; otherwise, -1.</returns>
-		public int IndexOf(Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue value)
-		{
-			return IndexOf((object)value);
-		}
-
-		/// <summary>
-		/// Adds an item to the IList.
-		/// </summary>
-		/// <param name="value">The Object to add to the IList. </param>
-		/// <returns>The position into which the new element was inserted.</returns>
-		public int Add(Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue value)
-		{
-			return Add((object)value);
-		}
-
-		#endregion
-	}
+        /// <summary>
+        /// Adds an item to the IList.
+        /// </summary>
+        /// <param name="value">The Object to add to the IList. </param>
+        /// <returns>The position into which the new element was inserted.</returns>
+        public int Add(TsCHdaAttributeValue value)
+        {
+            return Add((object)value);
+        }
+        #endregion
+    }
 }

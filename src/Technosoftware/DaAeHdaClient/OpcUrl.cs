@@ -27,35 +27,32 @@ using System.Net;
 
 namespace Technosoftware.DaAeHdaClient
 {
-	/// <summary>
-	/// Contains information required to connect to the OPC server.
-	/// </summary>
-	[Serializable]
-	public class OpcUrl : ICloneable
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region Constructors, Destructor, Initialization
+    /// <summary>
+    /// Contains information required to connect to the OPC server.
+    /// </summary>
+    [Serializable]
+    public class OpcUrl : ICloneable
+    {
+        #region Constructors, Destructor, Initialization
+        /// <summary>
+        /// Initializes an empty instance.
+        /// </summary>
+        public OpcUrl()
+        {
+            Scheme = OpcUrlScheme.HTTP;
+            HostName = "localhost";
+            Port = 0;
+            Path = null;
+        }
 
-		/// <summary>
-		/// Initializes an empty instance.
-		/// </summary>
-		public OpcUrl()
-		{
-			Scheme = OpcUrlScheme.HTTP;
-			HostName = "localhost";
-			Port = 0;
-			Path = null;
-		}
-
-
-		/// <summary>
-		/// Initializes an instance by providing OPC specification, OPC URL scheme and an URL string.
-		/// </summary>
+        /// <summary>
+        /// Initializes an instance by providing OPC specification, OPC URL scheme and an URL string.
+        /// </summary>
         /// <param name="specification">A description of an interface version defined by an OPC specification.</param>
         /// <param name="scheme">The scheme (protocol) for the URL</param>
-		/// <param name="url">The URL of the OPC server.</param>
-		public OpcUrl(OpcSpecification specification, string scheme, string url)
-		{
+        /// <param name="url">The URL of the OPC server.</param>
+        public OpcUrl(OpcSpecification specification, string scheme, string url)
+        {
             Specification = specification;
             HostName = "localhost";
             Port = 0;
@@ -66,156 +63,147 @@ namespace Technosoftware.DaAeHdaClient
             Scheme = scheme;
         }
 
-		/// <summary>
-		/// Initializes an instance by parsing an URL string.
-		/// </summary>
-		/// <param name="url">The URL of the OPC server.</param>
-		public OpcUrl(string url)
-		{
-			Scheme = OpcUrlScheme.HTTP;
-			HostName = "localhost";
-			Port = 0;
-			Path = null;
+        /// <summary>
+        /// Initializes an instance by parsing an URL string.
+        /// </summary>
+        /// <param name="url">The URL of the OPC server.</param>
+        public OpcUrl(string url)
+        {
+            Scheme = OpcUrlScheme.HTTP;
+            HostName = "localhost";
+            Port = 0;
+            Path = null;
 
             ParseUrl(url);
-		}
+        }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
-
+        #region Properties
         /// <summary>
         /// The supported OPC specification.
         /// </summary>
         public OpcSpecification Specification { get; set; }
 
-		/// <summary>
-		/// The scheme (protocol) for the URL
-		/// </summary>
-		public string Scheme { get; set; }
+        /// <summary>
+        /// The scheme (protocol) for the URL
+        /// </summary>
+        public string Scheme { get; set; }
 
-		/// <summary>
-		/// The host name for the URL.
-		/// </summary>
-		public string HostName { get; set; }
+        /// <summary>
+        /// The host name for the URL.
+        /// </summary>
+        public string HostName { get; set; }
 
-		/// <summary>
-		/// The port name for the URL (0 means default for protocol).
-		/// </summary>
-		public int Port { get; set; }
+        /// <summary>
+        /// The port name for the URL (0 means default for protocol).
+        /// </summary>
+        public int Port { get; set; }
 
-		/// <summary>
-		/// The path for the URL.
-		/// </summary>
-		public string Path { get; set; }
-		#endregion
+        /// <summary>
+        /// The path for the URL.
+        /// </summary>
+        public string Path { get; set; }
+        #endregion
 
-		///////////////////////////////////////////////////////////////////////
-		#region Object Method Overrides
+        #region Object Method Overrides
+        /// <summary>
+        /// Returns a URL string for the object.
+        /// </summary>
+        public override string ToString()
+        {
+            string hostName = string.IsNullOrEmpty(HostName) ? "localhost" : HostName;
 
-		/// <summary>
-		/// Returns a URL string for the object.
-		/// </summary>
-		public override string ToString()
-		{
-			string hostName = (HostName == null || HostName == "") ? "localhost" : HostName;
+            if (Port > 0)
+            {
+                return $"{Scheme}://{hostName}:{Port}/{Path}";
+            }
+            else
+            {
+                return $"{Scheme}://{hostName}/{Path}";
+            }
+        }
 
-			if (Port > 0)
-			{
-				return String.Format("{0}://{1}:{2}/{3}", new object[] { Scheme, hostName, Port, Path });
-			}
-			else
-			{
-				return String.Format("{0}://{1}/{2}", new object[] { Scheme, hostName, Path });
-			}
-		}
+        /// <summary>
+        /// Compares the object to either another URL object or a URL string.
+        /// </summary>
+        public override bool Equals(object target)
+        {
+            OpcUrl url;
 
-		/// <summary>
-		/// Compares the object to either another URL object or a URL string.
-		/// </summary>
-		public override bool Equals(object target)
-		{
-			OpcUrl url;
+            if (target != null && target.GetType() == typeof(OpcUrl))
+            {
+                url = (OpcUrl)target;
+            }
+            else
+            {
+                url = null;
+            }
 
-			if (target != null && target.GetType() == typeof(OpcUrl))
-			{
-				url = (OpcUrl)target;
-			}
-			else
-			{
-				url = null;
-			}
+            if (target != null && target.GetType() == typeof(string))
+            {
+                url = new OpcUrl((string)target);
+            }
 
-			if (target != null && target.GetType() == typeof(string))
-			{
-				url = new OpcUrl((string)target);
-			}
+            if (url == null) return false;
+            if (url.Path != Path) return false;
+            if (url.Scheme != Scheme) return false;
+            if (url.HostName != HostName) return false;
+            if (url.Port != Port) return false;
 
-			if (url == null) return false;
-			if (url.Path != Path) return false;
-			if (url.Scheme != Scheme) return false;
-			if (url.HostName != HostName) return false;
-			if (url.Port != Port) return false;
+            return true;
+        }
 
-			return true;
-		}
+        /// <summary>
+        /// Returns a hash code for the object.
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return ToString().GetHashCode();
+        }
+        #endregion
 
-		/// <summary>
-		/// Returns a hash code for the object.
-		/// </summary>
-		public override int GetHashCode()
-		{
-			return ToString().GetHashCode();
-		}
-		#endregion
+        #region ICloneable Members
+        /// <summary>
+        /// Returns a deep copy of the object.
+        /// </summary>
+        public virtual object Clone()
+        {
+            return MemberwiseClone();
+        }
+        #endregion
 
-		///////////////////////////////////////////////////////////////////////
-		#region ICloneable Members
-		/// <summary>
-		/// Returns a deep copy of the object.
-		/// </summary>
-		public virtual object Clone()
-		{
-			return MemberwiseClone();
-		}
-		#endregion
-
-        ///////////////////////////////////////////////////////////////////////
         #region Private Methods
-
         private void ParseUrl(string url)
         {
 
-			string buffer = url;
+            string buffer = url;
 
-			// extract the scheme (default is http).
-			int index = buffer.IndexOf("://");
+            // extract the scheme (default is http).
+            int index = buffer.IndexOf("://", StringComparison.Ordinal);
 
-			if (index >= 0)
-			{
-				Scheme = buffer.Substring(0, index);
-				buffer = buffer.Substring(index + 3);
-			}
+            if (index >= 0)
+            {
+                Scheme = buffer.Substring(0, index);
+                buffer = buffer.Substring(index + 3);
+            }
 
-			index = buffer.IndexOfAny(new char[] { '/' });
+            index = buffer.IndexOfAny(new[] { '/' });
 
-			if (index < 0)
-			{
-				Path = buffer;
-				return;
-			}
+            if (index < 0)
+            {
+                Path = buffer;
+                return;
+            }
 
-			string hostPortString = buffer.Substring(0, index);
-			IPAddress address;
+            string hostPortString = buffer.Substring(0, index);
 
-			IPAddress.TryParse(hostPortString, out address);
+            IPAddress.TryParse(hostPortString, out var address);
 
             if (address != null && address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6)
             {
                 if (hostPortString.Contains("]"))
                 {
-                    HostName = hostPortString.Substring(0, hostPortString.IndexOf("]") + 1);
+                    HostName = hostPortString.Substring(0, hostPortString.IndexOf("]", StringComparison.Ordinal) + 1);
                     if (hostPortString.Substring(hostPortString.IndexOf(']')).Contains(":"))
                     {
                         string portString = hostPortString.Substring(hostPortString.LastIndexOf(':') + 1);
@@ -223,7 +211,7 @@ namespace Technosoftware.DaAeHdaClient
                         {
                             try
                             {
-                                Port = System.Convert.ToUInt16(portString);
+                                Port = Convert.ToUInt16(portString);
                             }
                             catch
                             {
@@ -244,7 +232,7 @@ namespace Technosoftware.DaAeHdaClient
                 }
                 else
                 {
-                    HostName = String.Format("[{0}]", hostPortString);
+                    HostName = $"[{hostPortString}]";
                     Port = 0;
                 }
 
@@ -254,7 +242,7 @@ namespace Technosoftware.DaAeHdaClient
             {
 
                 // extract the hostname (default is localhost).
-                index = buffer.IndexOfAny(new char[] { ':', '/' });
+                index = buffer.IndexOfAny(new[] { ':', '/' });
 
                 if (index < 0)
                 {
@@ -268,9 +256,9 @@ namespace Technosoftware.DaAeHdaClient
                 if (buffer[index] == ':')
                 {
                     buffer = buffer.Substring(index + 1);
-                    index = buffer.IndexOf("/");
+                    index = buffer.IndexOf("/", StringComparison.Ordinal);
 
-                    string port = null;
+                    string port;
 
                     if (index >= 0)
                     {
@@ -285,7 +273,7 @@ namespace Technosoftware.DaAeHdaClient
 
                     try
                     {
-                        Port = (int)System.Convert.ToUInt16(port);
+                        Port = Convert.ToUInt16(port);
                     }
                     catch
                     {
@@ -321,7 +309,6 @@ namespace Technosoftware.DaAeHdaClient
                     if (Scheme == OpcUrlScheme.HTTP)
                     {
                         Specification = OpcSpecification.XML_DA_10;
-                        return;
                     }
                 }
             }

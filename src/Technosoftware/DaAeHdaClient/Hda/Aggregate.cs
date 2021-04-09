@@ -25,20 +25,18 @@ using System;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Hda
-{   
+{
     /// <summary>
     /// The description of an item aggregate supported by the server.
     /// </summary>
     [Serializable]
     public class TsCHdaAggregate : ICloneable
     {
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
-
+        #region Properties
         /// <summary>
         /// A unique identifier for the aggregate.
         /// </summary>
-		public int Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// The unique name for the aggregate.
@@ -49,12 +47,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// A short description of the aggregate.
         /// </summary>
 		public string Description { get; set; }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Public Methods
-
+        #region Public Methods
         /// <summary>
         /// Returns a string that represents the current object.
         /// </summary>
@@ -62,18 +57,14 @@ namespace Technosoftware.DaAeHdaClient.Hda
         public override string ToString()
         {
             return Name;
-		}
+        }
+        #endregion
 
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region ICloneable Members
-
-		/// <summary>
+        #region ICloneable Members
+        /// <summary>
         /// Creates a shallow copy of the object.
         /// </summary>
         public virtual object Clone() { return MemberwiseClone(); }
-
         #endregion
     }
 }

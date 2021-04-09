@@ -40,7 +40,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
     /// <summary>
     ///  A class that implements the HDA data callback interface.
     /// </summary>
-	internal class  DataCallback : OpcRcw.Hda.IOPCHDA_DataCallback
+	internal class  DataCallback : IOPCHDA_DataCallback
     {   
         /// <summary>
         /// Initializes the object with the containing subscription object.
@@ -136,7 +136,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                         results[ii].ServerHandle = results[ii].ClientHandle;
                         results[ii].ClientHandle = null;
-                        results[ii].Result     = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(phrErrors[ii]);
+                        results[ii].Result     = Utilities.Interop.GetResultId(phrErrors[ii]);
                     }
 
                     // invoke callback - remove request if unexpected error occured.
@@ -182,7 +182,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                         results[ii] = Interop.GetItemValueCollection(pItemValues[ii], false);
 
                         results[ii].ServerHandle = pItemValues[ii].hClient;
-                        results[ii].Result     = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(phrErrors[ii]);
+                        results[ii].Result     = Utilities.Interop.GetResultId(phrErrors[ii]);
                     }
 
                     // invoke callback - remove request if all results arrived.
@@ -228,7 +228,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                         results[ii] = Interop.GetModifiedValueCollection(pItemValues[ii], false);
 
                         results[ii].ServerHandle = pItemValues[ii].hClient;
-                        results[ii].Result     = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(phrErrors[ii]);
+                        results[ii].Result     = Utilities.Interop.GetResultId(phrErrors[ii]);
                     }
 
                     // invoke callback - remove request if all results arrived.
@@ -272,13 +272,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     item.ServerHandle = hClient;
 
                     // unmarshal results.
-                    Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection[] results = new Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection[pAttributeValues.Length];
+                    TsCHdaAttributeValueCollection[] results = new TsCHdaAttributeValueCollection[pAttributeValues.Length];
 
                     for (int ii = 0; ii < pAttributeValues.Length; ii++)
                     {
                         results[ii] = Interop.GetAttributeValueCollection(pAttributeValues[ii], false);
 
-                        results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(phrErrors[ii]);
+                        results[ii].Result = Utilities.Interop.GetResultId(phrErrors[ii]);
                     
                         item.Add(results[ii]);
                     }
@@ -326,7 +326,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                         results[ii] = Interop.GetAnnotationValueCollection(pAnnotationValues[ii], false);
 
                         results[ii].ServerHandle = pAnnotationValues[ii].hClient;
-                        results[ii].Result     = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(phrErrors[ii]);
+                        results[ii].Result     = Utilities.Interop.GetResultId(phrErrors[ii]);
                     }
 
                     // invoke callback - remove request if all results arrived.
@@ -387,7 +387,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                                 itemResults = new TsCHdaResultCollection();
                             }
 
-                            TsCHdaResult result = new TsCHdaResult(Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(phrErrors[ii]));
+                            TsCHdaResult result = new TsCHdaResult(Utilities.Interop.GetResultId(phrErrors[ii]));
                             itemResults.Add(result);
                         }
 
@@ -436,7 +436,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                     // the data is transfered as a array of pointers to items instead of simply
                     // as an array of items. This is due to a mistake in the HDA IDL.
-                    int[] pItems = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref ppItemValues, dwNumItems, false);
+                    int[] pItems = Utilities.Interop.GetInt32s(ref ppItemValues, dwNumItems, false);
 
                     for (int ii = 0; ii < dwNumItems; ii++)
                     {
@@ -451,7 +451,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                             results[ii]              = item[0];
                             results[ii].ServerHandle = results[ii].ClientHandle;
                             results[ii].ClientHandle = null;
-                            results[ii].Result     = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(phrErrors[ii]);
+                            results[ii].Result     = Utilities.Interop.GetResultId(phrErrors[ii]);
                         }
                     }
 
@@ -512,7 +512,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                                 itemResults = new TsCHdaResultCollection();
                             }
 
-                            TsCHdaResult result = new TsCHdaResult(Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(phrErrors[ii]));
+                            TsCHdaResult result = new TsCHdaResult(Utilities.Interop.GetResultId(phrErrors[ii]));
                             itemResults.Add(result);
                         }
 

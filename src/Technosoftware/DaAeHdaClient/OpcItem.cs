@@ -33,13 +33,11 @@ namespace Technosoftware.DaAeHdaClient
     [Serializable]
     public class OpcItem : ICloneable
     {
-        ///////////////////////////////////////////////////////////////////////
         #region Constructors, Destructor, Initialization
-
         /// <summary>
         /// Initializes the object with default values.
         /// </summary>
-        public OpcItem() {}
+        public OpcItem() { }
 
         /// <summary>
         /// Initializes the object with the specified item name.
@@ -58,71 +56,59 @@ namespace Technosoftware.DaAeHdaClient
             ItemPath = itemPath;
             ItemName = itemName;
         }
-        
+
         /// <summary>
         /// Initializes the object with the specified item identifier.
         /// </summary>
-        public OpcItem(OpcItem itemID)
+        public OpcItem(OpcItem itemId)
         {
-            if (itemID != null)
+            if (itemId != null)
             {
-                ItemPath     = itemID.ItemPath;
-                ItemName     = itemID.ItemName;
-                ClientHandle = itemID.ClientHandle;
-                ServerHandle = itemID.ServerHandle;
+                ItemPath = itemId.ItemPath;
+                ItemName = itemId.ItemName;
+                ClientHandle = itemId.ClientHandle;
+                ServerHandle = itemId.ServerHandle;
             }
         }
-
         #endregion
 
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
+        #region Properties
+        /// <summary>
+        /// The primary identifier for an item within the server namespace.
+        /// </summary>
+        public string ItemName { get; set; }
 
-		/// <summary>
-		/// The primary identifier for an item within the server namespace.
-		/// </summary>
-		public string ItemName { get; set; }
+        /// <summary>
+        /// An secondary identifier for an item within the server namespace.
+        /// </summary>
+        public string ItemPath { get; set; }
 
-		/// <summary>
-		/// An secondary identifier for an item within the server namespace.
-		/// </summary>
-		public string ItemPath { get; set; }
-
-		/// <summary>
-		/// A unique item identifier assigned by the client.
-		/// </summary>
+        /// <summary>
+        /// A unique item identifier assigned by the client.
+        /// </summary>
         public object ClientHandle { get; set; }
 
-		/// <summary>
-		/// A unique item identifier assigned by the server.
-		/// </summary>
+        /// <summary>
+        /// A unique item identifier assigned by the server.
+        /// </summary>
         public object ServerHandle { get; set; }
 
-		/// <summary>
-		/// Create a string that can be used as index in a hash table for the item.
-		/// </summary>
-		public string Key
-		{
-			get
-			{
-				return new StringBuilder(64)
-					.Append(ItemName ?? "null")
-					.Append(Environment.NewLine)
-					.Append(ItemPath ?? "null")
-					.ToString();
-			}
-		}
+        /// <summary>
+        /// Create a string that can be used as index in a hash table for the item.
+        /// </summary>
+        public string Key =>
+            new StringBuilder(64)
+                .Append(ItemName ?? "null")
+                .Append(Environment.NewLine)
+                .Append(ItemPath ?? "null")
+                .ToString();
+        #endregion
 
-		#endregion
-
-        ///////////////////////////////////////////////////////////////////////
         #region ICloneable Members
-
         /// <summary>
         /// Creates a shallow copy of the object.
         /// </summary>
         public virtual object Clone() { return MemberwiseClone(); }
-
         #endregion
     }
 }

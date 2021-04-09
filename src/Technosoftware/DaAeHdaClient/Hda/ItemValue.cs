@@ -22,6 +22,9 @@
 
 #region Using Directives
 using System;
+using System.ComponentModel;
+using System.Runtime.InteropServices;
+
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Hda
@@ -32,18 +35,13 @@ namespace Technosoftware.DaAeHdaClient.Hda
     [Serializable]
     public class TsCHdaItemValue : ICloneable
     {
-        ///////////////////////////////////////////////////////////////////////
         #region Fields
-
-        private DateTime _timestamp = DateTime.MinValue;
-        private Da.TsCDaQuality _quality = Da.TsCDaQuality.Bad;
-        private Hda.TsCHdaQuality _historianQuality = Hda.TsCHdaQuality.NoData;
-
+        private DateTime timestamp_ = DateTime.MinValue;
+        private Da.TsCDaQuality daQuality_ = Da.TsCDaQuality.Bad;
+        private TsCHdaQuality historianQuality_ = TsCHdaQuality.NoData;
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Properties
-
         /// <summary>
         /// The value of the item.
         /// </summary>
@@ -56,52 +54,52 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// </summary>
         public DateTime Timestamp
         {
-            get { return _timestamp; }
-            set { _timestamp = value; }
+            get => timestamp_;
+            set => timestamp_ = value;
         }
 
         /// <summary>
 		/// The quality associated with the value when it was acquired from the data source.
 		/// </summary>
 		public Da.TsCDaQuality Quality
-		{
-			get { return _quality; }
-			set { _quality = value; }
-		}
+        {
+            get => daQuality_;
+            set => daQuality_ = value;
+        }
 
         /// <summary>
         /// The quality associated with the value when it was retrieved from the hiatorian database.
         /// </summary>
-        public Hda.TsCHdaQuality HistorianQuality
+        public TsCHdaQuality HistorianQuality
         {
-            get { return _historianQuality; }
-            set { _historianQuality = value; }
+            get => historianQuality_;
+            set => historianQuality_ = value;
         }
 
         /// <summary>
-        /// VARTYPE of the item
+        /// VarEnum of the item
         /// </summary>
         public System.Runtime.InteropServices.VarEnum VarType
         {
-            get { return Technosoftware.DaAeHdaClient.Utilities.Interop.GetType(Value.GetType()); }
-            set { }
+            get => Utilities.Interop.GetType(Value.GetType());
+            set
+            {
+                if (!Enum.IsDefined(typeof(VarEnum), value))
+                    throw new InvalidEnumArgumentException(nameof(value), (int)value, typeof(VarEnum));
+            }
         }
-
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region ICloneable Members
-
         /// <summary>
         /// Creates a deep copy of the object.
         /// </summary>
         public object Clone()
         {
             TsCHdaItemValue value = (TsCHdaItemValue)MemberwiseClone();
-            value.Value = Technosoftware.DaAeHdaClient.OpcConvert.Clone(Value);
+            value.Value = OpcConvert.Clone(Value);
             return value;
         }
-
         #endregion
     }
 }

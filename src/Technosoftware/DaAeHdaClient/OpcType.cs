@@ -104,7 +104,7 @@ namespace Technosoftware.DaAeHdaClient
 		{
 			ArrayList values = new ArrayList();
 
-			FieldInfo[] fields = typeof(Technosoftware.DaAeHdaClient.OpcType).GetFields(BindingFlags.Static | BindingFlags.Public);
+			FieldInfo[] fields = typeof(OpcType).GetFields(BindingFlags.Static | BindingFlags.Public);
 
 			Array.ForEach(fields, field => values.Add(field.GetValue(typeof(Type))));
 

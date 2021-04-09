@@ -29,7 +29,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
     /// <summary>
     /// Defines functionality that is common to all OPC Historical Data Access servers.
     /// </summary>
-    internal interface ITsCHdaServer : Technosoftware.DaAeHdaClient.IOpcServer
+    internal interface ITsCHdaServer : IOpcServer
     {
         /// <summary>
         /// Returns the current server status.
@@ -41,7 +41,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// Returns the item attributes supported by the server.
         /// </summary>
         /// <returns>The a set of item attributes and their descriptions.</returns>
-        Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute[] GetAttributes();
+        TsCHdaAttribute[] GetAttributes();
 
         /// <summary>
         /// Returns the aggregates supported by the server.

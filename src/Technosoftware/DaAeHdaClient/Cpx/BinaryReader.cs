@@ -54,9 +54,9 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		/// <returns>A structured represenation of the data in the buffer.</returns>
 		public TsCCpxComplexValue Read(byte[] buffer, TypeDictionary dictionary, string typeName)
 		{
-			if (buffer == null) throw new ArgumentNullException("buffer");
-			if (dictionary == null) throw new ArgumentNullException("dictionary");
-			if (typeName == null) throw new ArgumentNullException("typeName");
+			if (buffer == null) throw new ArgumentNullException(nameof(buffer));
+			if (dictionary == null) throw new ArgumentNullException(nameof(dictionary));
+			if (typeName == null) throw new ArgumentNullException(nameof(typeName));
 
 			TsCCpxContext context = InitializeContext(buffer, dictionary, typeName);
 
@@ -139,7 +139,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				// assign a value for field type.
 				if (fieldValue.Type == null)
 				{
-					fieldValue.Type = Technosoftware.DaAeHdaClient.OpcConvert.ToString(fieldValue.Value.GetType());
+					fieldValue.Type = OpcConvert.ToString(fieldValue.Value.GetType());
 				}
 
 				fieldValues.Add(fieldValue);
@@ -468,7 +468,7 @@ else
 				{
 					if (charWidth == 1)
 					{
-						chars[ii] = System.Convert.ToChar(buffer[context.Index + ii]);
+						chars[ii] = Convert.ToChar(buffer[context.Index + ii]);
 					}
 					else
 					{
@@ -729,7 +729,7 @@ else
 				throw new TsCCpxInvalidSchemaException(String.Format("Referenced field not found ({0}).", fieldName));
 			}
 
-			return System.Convert.ToInt32(complexValue.Value);
+			return Convert.ToInt32(complexValue.Value);
 		}
 
 		#endregion

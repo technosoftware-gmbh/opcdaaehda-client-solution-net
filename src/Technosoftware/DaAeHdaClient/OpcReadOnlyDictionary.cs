@@ -48,15 +48,15 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         protected virtual Hashtable Dictionary
         {
-            get { return m_dictionary; }
+            get => dictionary_;
 
             set
             {
-                m_dictionary = value;
+                dictionary_ = value;
 
-                if (m_dictionary == null)
+                if (dictionary_ == null)
                 {
-                    m_dictionary = new Hashtable();
+                    dictionary_ = new Hashtable();
                 }
             }
         }
@@ -68,28 +68,28 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         private class Names
         {
-            internal const string COUNT = "CT";
-            internal const string KEY = "KY";
-            internal const string VALUE = "VA";
+            internal const string Count = "CT";
+            internal const string Key = "KY";
+            internal const string Value = "VA";
         }
 
         /// <summary>
-        /// Contructs a server by de-serializing its OpcUrl from the stream.
+        /// Construct a server by de-serializing its OpcUrl from the stream.
         /// </summary>
         protected OpcReadOnlyDictionary(SerializationInfo info, StreamingContext context)
         {
-            int count = (int)info.GetValue(Names.COUNT, typeof(int));
+            int count = (int)info.GetValue(Names.Count, typeof(int));
 
-            m_dictionary = new Hashtable();
+            dictionary_ = new Hashtable();
 
             for (int ii = 0; ii < count; ii++)
             {
-                object key = info.GetValue(Names.KEY + ii.ToString(), typeof(object));
-                object value = info.GetValue(Names.VALUE + ii.ToString(), typeof(object));
+                object key = info.GetValue(Names.Key + ii.ToString(), typeof(object));
+                object value = info.GetValue(Names.Value + ii.ToString(), typeof(object));
 
                 if (key != null)
                 {
-                    m_dictionary[key] = value;
+                    dictionary_[key] = value;
                 }
             }
         }
@@ -99,16 +99,16 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue(Names.COUNT, m_dictionary.Count);
+            info.AddValue(Names.Count, dictionary_.Count);
 
             int ii = 0;
 
-            IDictionaryEnumerator enumerator = m_dictionary.GetEnumerator();
+            IDictionaryEnumerator enumerator = dictionary_.GetEnumerator();
 
             while (enumerator.MoveNext())
             {
-                info.AddValue(Names.KEY + ii.ToString(), enumerator.Key);
-                info.AddValue(Names.VALUE + ii.ToString(), enumerator.Value);
+                info.AddValue(Names.Key + ii.ToString(), enumerator.Key);
+                info.AddValue(Names.Value + ii.ToString(), enumerator.Value);
 
                 ii++;
             }
@@ -119,17 +119,14 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Gets a value indicating whether the IDictionary is read-only.
         /// </summary>
-        public virtual bool IsReadOnly
-        {
-            get { return true; }
-        }
+        public virtual bool IsReadOnly => true;
 
         /// <summary>
         /// Returns an IDictionaryEnumerator for the IDictionary.
         /// </summary>
         public virtual IDictionaryEnumerator GetEnumerator()
         {
-            return m_dictionary.GetEnumerator();
+            return dictionary_.GetEnumerator();
         }
 
         /// <summary>
@@ -137,15 +134,9 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual object this[object key]
         {
-            get
-            {
-                return m_dictionary[key];
-            }
+            get => dictionary_[key];
 
-            set
-            {
-                throw new InvalidOperationException(READ_ONLY_DICTIONARY);
-            }
+            set => throw new InvalidOperationException(ReadOnlyDictionary);
         }
 
         /// <summary>
@@ -153,7 +144,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual void Remove(object key)
         {
-            throw new InvalidOperationException(READ_ONLY_DICTIONARY);
+            throw new InvalidOperationException(ReadOnlyDictionary);
         }
 
         /// <summary>
@@ -161,7 +152,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual bool Contains(object key)
         {
-            return m_dictionary.Contains(key);
+            return dictionary_.Contains(key);
         }
 
         /// <summary>
@@ -169,58 +160,44 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual void Clear()
         {
-            throw new InvalidOperationException(READ_ONLY_DICTIONARY);
+            throw new InvalidOperationException(ReadOnlyDictionary);
         }
 
         /// <summary>
         /// Gets an ICollection containing the values in the IDictionary.
         /// </summary>
-        public virtual ICollection Values
-        {
-            get { return m_dictionary.Values; }
-        }
+        public virtual ICollection Values => dictionary_.Values;
 
         /// <summary>
         /// Adds an element with the provided key and value to the IDictionary.
         /// </summary>
         public void Add(object key, object value)
         {
-            throw new InvalidOperationException(READ_ONLY_DICTIONARY);
+            throw new InvalidOperationException(ReadOnlyDictionary);
         }
 
         /// <summary>
         /// Gets an ICollection containing the keys of the IDictionary.
         /// </summary>
-        public virtual ICollection Keys
-        {
-            get { return m_dictionary.Keys; }
-        }
+        public virtual ICollection Keys => dictionary_.Keys;
 
         /// <summary>
         /// Gets a value indicating whether the IDictionary has a fixed size.
         /// </summary>
-        public virtual bool IsFixedSize
-        {
-            get { return false; }
-        }
+        public virtual bool IsFixedSize => false;
+
         #endregion
 
         #region ICollection Members
         /// <summary>
         /// Indicates whether access to the ICollection is synchronized (thread-safe).
         /// </summary>
-        public virtual bool IsSynchronized
-        {
-            get { return false; }
-        }
+        public virtual bool IsSynchronized => false;
 
         /// <summary>
         /// Gets the number of objects in the collection.
         /// </summary>
-        public virtual int Count
-        {
-            get { return m_dictionary.Count; }
-        }
+        public virtual int Count => dictionary_.Count;
 
         /// <summary>
         /// Copies the objects to an Array, starting at a the specified index.
@@ -229,19 +206,17 @@ namespace Technosoftware.DaAeHdaClient
         /// <param name="index">The zero-based index in the Array at which copying begins.</param>
         public virtual void CopyTo(Array array, int index)
         {
-            if (m_dictionary != null)
+            if (dictionary_ != null)
             {
-                m_dictionary.CopyTo(array, index);
+                dictionary_.CopyTo(array, index);
             }
         }
 
         /// <summary>
         /// Indicates whether access to the ICollection is synchronized (thread-safe).
         /// </summary>
-        public virtual object SyncRoot
-        {
-            get { return this; }
-        }
+        public virtual object SyncRoot => this;
+
         #endregion
 
         #region IEnumerable Members
@@ -251,7 +226,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <returns>An IEnumerator that can be used to iterate through the collection.</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return this.GetEnumerator();
+            return GetEnumerator();
         }
         #endregion
 
@@ -261,19 +236,19 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual object Clone()
         {
-            OpcReadOnlyDictionary clone = (OpcReadOnlyDictionary)this.MemberwiseClone();
+            OpcReadOnlyDictionary clone = (OpcReadOnlyDictionary)MemberwiseClone();
 
             // clone contents of hashtable.
             Hashtable dictionary = new Hashtable();
 
-            IDictionaryEnumerator enumerator = m_dictionary.GetEnumerator();
+            IDictionaryEnumerator enumerator = dictionary_.GetEnumerator();
 
             while (enumerator.MoveNext())
             {
-                dictionary.Add(Technosoftware.DaAeHdaClient.OpcConvert.Clone(enumerator.Key), Technosoftware.DaAeHdaClient.OpcConvert.Clone(enumerator.Value));
+                dictionary.Add(OpcConvert.Clone(enumerator.Key), OpcConvert.Clone(enumerator.Value));
             }
 
-            clone.m_dictionary = dictionary;
+            clone.dictionary_ = dictionary;
 
             // return clone.
             return clone;
@@ -281,8 +256,8 @@ namespace Technosoftware.DaAeHdaClient
         #endregion
 
         #region Private Members
-        private Hashtable m_dictionary = new Hashtable();
-        private const string READ_ONLY_DICTIONARY = "Cannot change the contents of a read-only dictionary";
+        private Hashtable dictionary_ = new Hashtable();
+        private const string ReadOnlyDictionary = "Cannot change the contents of a read-only dictionary";
         #endregion
     }
 }

@@ -63,7 +63,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <summary>
         /// Allocates and marshals a OPCSERVERSTATUS structure.
         /// </summary>
-        internal static OpcRcw.Da.OPCSERVERSTATUS GetServerStatus(Technosoftware.DaAeHdaClient.OpcServerStatus input, int groupCount)
+        internal static OpcRcw.Da.OPCSERVERSTATUS GetServerStatus(OpcServerStatus input, int groupCount)
         {
             OpcRcw.Da.OPCSERVERSTATUS output = new OpcRcw.Da.OPCSERVERSTATUS();
 
@@ -679,7 +679,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 if (propertyID == TsDaProperty.DATATYPE)
                 {
-                    return (short)Technosoftware.DaAeHdaClient.Com.Interop.GetType((System.Type)input);
+                    return (short)Technosoftware.DaAeHdaClient.Com.Interop.GetType((Type)input);
                 }
 
                 if (propertyID == TsDaProperty.ACCESSRIGHTS)
@@ -753,7 +753,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     output[ii].bQualitySpecified = (input[ii].QualitySpecified) ? 1 : 0;
                     output[ii].wQuality = (input[ii].QualitySpecified) ? input[ii].Quality.GetCode() : (short)0;
                     output[ii].bTimeStampSpecified = (input[ii].TimestampSpecified) ? 1 : 0;
-                    output[ii].ftTimeStamp = Technosoftware.DaAeHdaClient.Com.Da.Interop.Convert(Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(timestamp));
+                    output[ii].ftTimeStamp = Convert(Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(timestamp));
                 }
 
             }
@@ -892,7 +892,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     item.hClient = System.Convert.ToInt32(input[ii].ClientHandle);
                     item.vDataValue = input[ii].Value;
                     item.wQuality = (input[ii].QualitySpecified) ? input[ii].Quality.GetCode() : (short)0;
-                    item.ftTimeStamp = Interop.Convert(Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(input[ii].Timestamp));
+                    item.ftTimeStamp = Convert(Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(input[ii].Timestamp));
                     item.wReserved = 0;
 
                     Marshal.StructureToPtr(item, pos, false);

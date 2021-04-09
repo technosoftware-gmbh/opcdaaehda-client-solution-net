@@ -178,7 +178,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// <summary>
         /// The size, in bytes, of a VARIANT structure.
         /// </summary>
-        internal static int VARIANT_SIZE { get { return (IntPtr.Size > 4) ? 0x18 : 0x10; } }
+        internal static int VARIANT_SIZE => (IntPtr.Size > 4) ? 0x18 : 0x10;
 
         [DllImport("OleAut32.dll")]
         internal static extern int VariantChangeTypeEx(
@@ -1608,7 +1608,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// <summary>
         /// Converts the system type to a VARTYPE.
         /// </summary>
-        public static VarEnum GetVarType(System.Type type)
+        public static VarEnum GetVarType(Type type)
         {
             if (type == null)
             {

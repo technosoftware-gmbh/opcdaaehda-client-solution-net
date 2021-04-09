@@ -35,20 +35,20 @@ namespace Technosoftware.DaAeHdaClient
     public class OpcWriteableDictionary : IDictionary, ISerializable
     {
         #region Fields
-        private Hashtable _dictionary = new Hashtable();
-        private System.Type _keyType;
-        private System.Type _valueType;
+        private Hashtable dictionary_ = new Hashtable();
+        private Type keyType_;
+        private Type valueType_;
         #endregion
 
         #region Protected Interface
         /// <summary>
         /// Creates a collection that wraps the specified array instance.
         /// </summary>
-        protected OpcWriteableDictionary(IDictionary dictionary, System.Type keyType, System.Type valueType)
+        protected OpcWriteableDictionary(IDictionary dictionary, Type keyType, Type valueType)
         {
             // set default key/value types.
-            _keyType = keyType ?? typeof(object);
-            _valueType = valueType ?? typeof(object);
+            keyType_ = keyType ?? typeof(object);
+            valueType_ = valueType ?? typeof(object);
 
             // copy dictionary.
             Dictionary = dictionary;
@@ -59,36 +59,36 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         protected virtual IDictionary Dictionary
         {
-            get { return _dictionary;  }
-            
-            set 
-            { 
+            get => dictionary_;
+
+            set
+            {
                 // copy dictionary.
                 if (value != null)
-                {           
+                {
                     // verify that current keys of the dictionary are the correct type.
-                    if (_keyType != null)
+                    if (keyType_ != null)
                     {
                         foreach (object element in value.Keys)
                         {
-                            ValidateKey(element, _keyType);
+                            ValidateKey(element, keyType_);
                         }
                     }
 
                     // verify that current values of the dictionary are the correct type.
-                    if (_valueType != null)
+                    if (valueType_ != null)
                     {
                         foreach (object element in value.Values)
                         {
-                            ValidateValue(element, _valueType);
+                            ValidateValue(element, valueType_);
                         }
                     }
 
-                    _dictionary = new Hashtable(value);
+                    dictionary_ = new Hashtable(value);
                 }
                 else
                 {
-                    _dictionary = new Hashtable();
+                    dictionary_ = new Hashtable();
                 }
             }
         }
@@ -96,49 +96,50 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// The type of objects allowed as keys in the dictionary.
         /// </summary>
-        protected System.Type KeyType
+        // ReSharper disable once UnusedMember.Global
+        protected Type KeyType
         {
-            get { return _keyType; }
-            
-            set 
+            get => keyType_;
+
+            set
             {
                 // verify that current keys of the dictionary are the correct type.
-                foreach (object element in _dictionary.Keys)
+                foreach (object element in dictionary_.Keys)
                 {
                     ValidateKey(element, value);
                 }
 
-                _keyType = value; 
+                keyType_ = value;
             }
         }
 
         /// <summary>
         /// The type of objects allowed as values in the dictionary.
         /// </summary>
-        protected System.Type ValueType
+        protected Type ValueType
         {
-            get { return _valueType; }
-            
-            set 
+            get => valueType_;
+
+            set
             {
                 // verify that current values of the dictionary are the correct type.
-                foreach (object element in _dictionary.Values)
+                foreach (object element in dictionary_.Values)
                 {
                     ValidateValue(element, value);
                 }
 
-                _valueType = value; 
+                valueType_ = value;
             }
         }
-                
+
         /// <summary>
         /// Throws an exception if the key is not valid for the dictionary.
         /// </summary>
-        protected virtual void ValidateKey(object element, System.Type type)
+        protected virtual void ValidateKey(object element, Type type)
         {
             if (element == null)
             {
-                throw new ArgumentException(String.Format(INVALID_VALUE, element, "key"));
+                throw new ArgumentException(String.Format(INVALID_VALUE, null, "key"));
             }
 
             if (!type.IsInstanceOfType(element))
@@ -146,11 +147,11 @@ namespace Technosoftware.DaAeHdaClient
                 throw new ArgumentException(String.Format(INVALID_TYPE, element.GetType(), "key"));
             }
         }
-                
+
         /// <summary>
         /// Throws an exception if the value is not valid for the dictionary.
         /// </summary>
-        protected virtual void ValidateValue(object element, System.Type type)
+        protected virtual void ValidateValue(object element, Type type)
         {
             if (element != null)
             {
@@ -164,7 +165,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <remarks/>
         protected const string INVALID_VALUE = "The {1} '{0}' cannot be added to the dictionary.";
         /// <remarks/>
-        protected const string INVALID_TYPE  = "A {1} with type '{0}' cannot be added to the dictionary.";
+        protected const string INVALID_TYPE = "A {1} with type '{0}' cannot be added to the dictionary.";
         #endregion
 
         #region ISerializable Members
@@ -172,34 +173,34 @@ namespace Technosoftware.DaAeHdaClient
         /// A set of names for fields used in serialization.
         /// </summary>
         private class Names
-        {  
-            internal const string COUNT       = "CT";
-            internal const string KEY         = "KY";
-            internal const string VALUE       = "VA";
-            internal const string KEY_TYPE    = "KT";
-            internal const string VALUE_VALUE = "VT";                                                    
+        {
+            internal const string Count = "CT";
+            internal const string Key = "KY";
+            internal const string Value = "VA";
+            internal const string KeyType = "KT";
+            internal const string ValueValue = "VT";
         }
 
         /// <summary>
-        /// Contructs a server by de-serializing its OpcUrl from the stream.
+        /// Construct a server by de-serializing its OpcUrl from the stream.
         /// </summary>
         protected OpcWriteableDictionary(SerializationInfo info, StreamingContext context)
-        {   
-            _keyType   = (System.Type)info.GetValue(Names.KEY_TYPE, typeof(System.Type));
-            _valueType = (System.Type)info.GetValue(Names.VALUE_VALUE, typeof(System.Type));
+        {
+            keyType_ = (Type)info.GetValue(Names.KeyType, typeof(Type));
+            valueType_ = (Type)info.GetValue(Names.ValueValue, typeof(Type));
 
-            int count = (int)info.GetValue(Names.COUNT, typeof(int));
+            int count = (int)info.GetValue(Names.Count, typeof(int));
 
-            _dictionary = new Hashtable();
+            dictionary_ = new Hashtable();
 
             for (int ii = 0; ii < count; ii++)
             {
-                object key   = info.GetValue(Names.KEY + ii.ToString(), typeof(object));
-                object value = info.GetValue(Names.VALUE + ii.ToString(), typeof(object));
+                object key = info.GetValue(Names.Key + ii.ToString(), typeof(object));
+                object value = info.GetValue(Names.Value + ii.ToString(), typeof(object));
 
                 if (key != null)
                 {
-                    _dictionary[key] = value;
+                    dictionary_[key] = value;
                 }
             }
         }
@@ -208,22 +209,22 @@ namespace Technosoftware.DaAeHdaClient
         /// Serializes a server into a stream.
         /// </summary>
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
-        {           
-            info.AddValue(Names.KEY_TYPE, _keyType);
-            info.AddValue(Names.VALUE_VALUE, _valueType);
-            info.AddValue(Names.COUNT, _dictionary.Count);
+        {
+            info.AddValue(Names.KeyType, keyType_);
+            info.AddValue(Names.ValueValue, valueType_);
+            info.AddValue(Names.Count, dictionary_.Count);
 
             int ii = 0;
 
-            IDictionaryEnumerator enumerator = _dictionary.GetEnumerator();
+            IDictionaryEnumerator enumerator = dictionary_.GetEnumerator();
 
             while (enumerator.MoveNext())
             {
-                info.AddValue(Names.KEY + ii.ToString(), enumerator.Key);
-                info.AddValue(Names.VALUE + ii.ToString(), enumerator.Value);
+                info.AddValue(Names.Key + ii.ToString(), enumerator.Key);
+                info.AddValue(Names.Value + ii.ToString(), enumerator.Value);
 
                 ii++;
-            }       
+            }
         }
         #endregion
 
@@ -231,34 +232,28 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Gets a value indicating whether the IDictionary is read-only.
         /// </summary>
-        public virtual bool IsReadOnly
-        {
-            get { return false; }
-        }
+        public virtual bool IsReadOnly => false;
 
         /// <summary>
         /// Returns an IDictionaryEnumerator for the IDictionary.
         /// </summary>
         public virtual IDictionaryEnumerator GetEnumerator()
         {
-            return _dictionary.GetEnumerator();
-        }       
+            return dictionary_.GetEnumerator();
+        }
 
         /// <summary>
         /// Gets or sets the element with the specified key. 
         /// </summary>
         public virtual object this[object key]
         {
-            get
-            {
-                return _dictionary[key];
-            }
+            get => dictionary_[key];
 
             set
             {
-                ValidateKey(key, _keyType);
-                ValidateValue(value, _valueType);
-                _dictionary[key] = value;
+                ValidateKey(key, keyType_);
+                ValidateValue(value, valueType_);
+                dictionary_[key] = value;
             }
         }
 
@@ -267,7 +262,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual void Remove(object key)
         {
-            _dictionary.Remove(key);
+            dictionary_.Remove(key);
         }
 
         /// <summary>
@@ -275,7 +270,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual bool Contains(object key)
         {
-            return _dictionary.Contains(key);
+            return dictionary_.Contains(key);
         }
 
         /// <summary>
@@ -283,60 +278,46 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual void Clear()
         {
-            _dictionary.Clear();
+            dictionary_.Clear();
         }
 
         /// <summary>
         /// Gets an ICollection containing the values in the IDictionary.
         /// </summary>
-        public virtual ICollection Values
-        {
-            get { return _dictionary.Values; }
-        }
+        public virtual ICollection Values => dictionary_.Values;
 
         /// <summary>
         /// Adds an element with the provided key and value to the IDictionary.
         /// </summary>
         public virtual void Add(object key, object value)
         {
-            ValidateKey(key, _keyType);
-            ValidateValue(value, _valueType);
-            _dictionary.Add(key, value);
+            ValidateKey(key, keyType_);
+            ValidateValue(value, valueType_);
+            dictionary_.Add(key, value);
         }
 
         /// <summary>
         /// Gets an ICollection containing the keys of the IDictionary.
         /// </summary>
-        public virtual ICollection Keys
-        {
-            get { return _dictionary.Keys; }
-        }
+        public virtual ICollection Keys => dictionary_.Keys;
 
         /// <summary>
         /// Gets a value indicating whether the IDictionary has a fixed size.
         /// </summary>
-        public virtual bool IsFixedSize
-        {
-            get { return false; }
-        }
+        public virtual bool IsFixedSize => false;
+
         #endregion
 
         #region ICollection Members
         /// <summary>
         /// Indicates whether access to the ICollection is synchronized (thread-safe).
         /// </summary>
-        public virtual bool IsSynchronized
-        {
-            get { return false; }
-        }
+        public virtual bool IsSynchronized => false;
 
         /// <summary>
         /// Gets the number of objects in the collection.
         /// </summary>
-        public virtual int Count
-        {
-            get { return _dictionary.Count; }
-        }
+        public virtual int Count => dictionary_.Count;
 
         /// <summary>
         /// Copies the objects to an Array, starting at a the specified index.
@@ -345,19 +326,13 @@ namespace Technosoftware.DaAeHdaClient
         /// <param name="index">The zero-based index in the Array at which copying begins.</param>
         public virtual void CopyTo(Array array, int index)
         {
-            if (_dictionary != null)
-            {
-                _dictionary.CopyTo(array, index);
-            }
+            dictionary_?.CopyTo(array, index);
         }
 
         /// <summary>
         /// Indicates whether access to the ICollection is synchronized (thread-safe).
         /// </summary>
-        public virtual object SyncRoot
-        {
-            get { return this; }
-        }
+        public virtual object SyncRoot => this;
         #endregion
 
         #region IEnumerable Members
@@ -370,7 +345,7 @@ namespace Technosoftware.DaAeHdaClient
             return GetEnumerator();
         }
         #endregion
-        
+
         #region ICloneable Members
         /// <summary>
         /// Creates a deep copy of the collection.
@@ -378,18 +353,18 @@ namespace Technosoftware.DaAeHdaClient
         public virtual object Clone()
         {
             OpcWriteableDictionary clone = (OpcWriteableDictionary)MemberwiseClone();
-    
+
             // clone contents of hashtable.
             Hashtable dictionary = new Hashtable();
 
-            IDictionaryEnumerator enumerator = _dictionary.GetEnumerator();
+            IDictionaryEnumerator enumerator = dictionary_.GetEnumerator();
 
             while (enumerator.MoveNext())
             {
-                dictionary.Add(Technosoftware.DaAeHdaClient.OpcConvert.Clone(enumerator.Key), Technosoftware.DaAeHdaClient.OpcConvert.Clone(enumerator.Value));
+                dictionary.Add(OpcConvert.Clone(enumerator.Key), OpcConvert.Clone(enumerator.Value));
             }
 
-            clone._dictionary = dictionary;
+            clone.dictionary_ = dictionary;
 
             // return clone.
             return clone;

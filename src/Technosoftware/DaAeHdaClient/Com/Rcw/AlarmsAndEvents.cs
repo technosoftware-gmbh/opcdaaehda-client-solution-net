@@ -431,7 +431,7 @@ namespace OpcRcw.Ae
             [MarshalAs(UnmanagedType.LPWStr)]
             string szFilterCriteria,  
             [Out] 
-            out OpcRcw.Comn.IEnumString ppIEnumString); 
+            out Comn.IEnumString ppIEnumString); 
 
         void GetQualifiedAreaName( 
             [MarshalAs(UnmanagedType.LPWStr)]

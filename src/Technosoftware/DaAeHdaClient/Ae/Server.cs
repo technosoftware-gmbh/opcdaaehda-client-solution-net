@@ -127,7 +127,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public TsCAeServer()
 
         {
-            _factory = new Factory();
+            Factory = new Factory();
         }
 
         /// <summary>
@@ -179,9 +179,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public override void Connect(OpcUrl url, OpcConnectData connectData)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (_factory == null)
+            if (Factory == null)
             {
-                _factory = new Factory();
+                Factory = new Factory();
             }
             // connect to server.
             base.Connect(url, connectData);
@@ -214,7 +214,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// </summary>
         public override void Disconnect()
         {
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             // dispose of all subscriptions first.
             disposing_ = true;
@@ -237,9 +237,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public OpcServerStatus GetServerStatus()
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcServerStatus status = ((ITsCAeServer)server_).GetServerStatus();
+            OpcServerStatus status = ((ITsCAeServer)Server).GetServerStatus();
 
             if (status != null)
             {
@@ -250,7 +250,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             }
             else
             {
-                if (server_ == null) throw new NotConnectedException();
+                if (Server == null) throw new NotConnectedException();
             }
 
             return status;
@@ -264,10 +264,10 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public ITsCAeSubscription CreateSubscription(TsCAeSubscriptionState state)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             // create remote object.
-            ITsCAeSubscription subscription = ((ITsCAeServer)server_).CreateSubscription(state);
+            ITsCAeSubscription subscription = ((ITsCAeServer)Server).CreateSubscription(state);
 
             if (subscription != null)
             {
@@ -288,9 +288,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public int QueryAvailableFilters()
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            filters_ = ((ITsCAeServer)server_).QueryAvailableFilters();
+            filters_ = ((ITsCAeServer)Server).QueryAvailableFilters();
 
             return filters_;
         }
@@ -303,10 +303,10 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public TsCAeCategory[] QueryEventCategories(int eventType)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             // fetch categories from server.
-            TsCAeCategory[] categories = ((ITsCAeServer)server_).QueryEventCategories(eventType);
+            TsCAeCategory[] categories = ((ITsCAeServer)Server).QueryEventCategories(eventType);
 
             // return result.
             return categories;
@@ -320,10 +320,10 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public string[] QueryConditionNames(int eventCategory)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             // fetch condition names from the server.
-            string[] conditions = ((ITsCAeServer)server_).QueryConditionNames(eventCategory);
+            string[] conditions = ((ITsCAeServer)Server).QueryConditionNames(eventCategory);
 
             // return result.
             return conditions;
@@ -337,10 +337,10 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public string[] QuerySubConditionNames(string conditionName)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             // fetch sub-condition names from the server.
-            string[] subConditions = ((ITsCAeServer)server_).QuerySubConditionNames(conditionName);
+            string[] subConditions = ((ITsCAeServer)Server).QuerySubConditionNames(conditionName);
 
             // return result.
             return subConditions;
@@ -354,10 +354,10 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public string[] QueryConditionNames(string sourceName)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             // fetch condition names from the server.
-            string[] conditions = ((ITsCAeServer)server_).QueryConditionNames(sourceName);
+            string[] conditions = ((ITsCAeServer)Server).QueryConditionNames(sourceName);
 
             // return result.
             return conditions;
@@ -371,10 +371,10 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public TsCAeAttribute[] QueryEventAttributes(int eventCategory)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             // fetch attributes from server.
-            TsCAeAttribute[] attributes = ((ITsCAeServer)server_).QueryEventAttributes(eventCategory);
+            TsCAeAttribute[] attributes = ((ITsCAeServer)Server).QueryEventAttributes(eventCategory);
 
             // return result.
             return attributes;
@@ -397,9 +397,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
           int[] attributeIDs)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            TsCAeItemUrl[] itemUrls = ((ITsCAeServer)server_).TranslateToItemIDs(
+            TsCAeItemUrl[] itemUrls = ((ITsCAeServer)Server).TranslateToItemIDs(
                 sourceName,
                 eventCategory,
                 conditionName,
@@ -422,9 +422,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
             int[] attributeIDs)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            TsCAeCondition condition = ((ITsCAeServer)server_).GetConditionState(sourceName, conditionName, attributeIDs);
+            TsCAeCondition condition = ((ITsCAeServer)Server).GetConditionState(sourceName, conditionName, attributeIDs);
 
             return condition;
         }
@@ -437,9 +437,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public OpcResult[] EnableConditionByArea(string[] areas)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcResult[] results = ((ITsCAeServer)server_).EnableConditionByArea(areas);
+            OpcResult[] results = ((ITsCAeServer)Server).EnableConditionByArea(areas);
 
             return results;
         }
@@ -452,9 +452,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public OpcResult[] DisableConditionByArea(string[] areas)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcResult[] results = ((ITsCAeServer)server_).DisableConditionByArea(areas);
+            OpcResult[] results = ((ITsCAeServer)Server).DisableConditionByArea(areas);
 
             return results;
         }
@@ -467,9 +467,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public OpcResult[] EnableConditionBySource(string[] sources)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcResult[] results = ((ITsCAeServer)server_).EnableConditionBySource(sources);
+            OpcResult[] results = ((ITsCAeServer)Server).EnableConditionBySource(sources);
 
             return results;
         }
@@ -482,9 +482,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public OpcResult[] DisableConditionBySource(string[] sources)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcResult[] results = ((ITsCAeServer)server_).DisableConditionBySource(sources);
+            OpcResult[] results = ((ITsCAeServer)Server).DisableConditionBySource(sources);
 
             return results;
         }
@@ -496,9 +496,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public TsCAeEnabledStateResult[] GetEnableStateByArea(string[] areas)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            TsCAeEnabledStateResult[] results = ((ITsCAeServer)server_).GetEnableStateByArea(areas);
+            TsCAeEnabledStateResult[] results = ((ITsCAeServer)Server).GetEnableStateByArea(areas);
 
             return results;
         }
@@ -510,9 +510,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public TsCAeEnabledStateResult[] GetEnableStateBySource(string[] sources)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            TsCAeEnabledStateResult[] results = ((ITsCAeServer)server_).GetEnableStateBySource(sources);
+            TsCAeEnabledStateResult[] results = ((ITsCAeServer)Server).GetEnableStateBySource(sources);
 
             return results;
         }
@@ -530,9 +530,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
             TsCAeEventAcknowledgement[] conditions)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            return ((ITsCAeServer)server_).AcknowledgeCondition(acknowledgmentId, comment, conditions);
+            return ((ITsCAeServer)Server).AcknowledgeCondition(acknowledgmentId, comment, conditions);
         }
 
         /// <summary>
@@ -548,9 +548,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
             string browseFilter)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            return ((ITsCAeServer)server_).Browse(areaId, browseType, browseFilter);
+            return ((ITsCAeServer)Server).Browse(areaId, browseType, browseFilter);
         }
 
         /// <summary>
@@ -570,9 +570,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
             out IOpcBrowsePosition position)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            return ((ITsCAeServer)server_).Browse(areaId, browseType, browseFilter, maxElements, out position);
+            return ((ITsCAeServer)Server).Browse(areaId, browseType, browseFilter, maxElements, out position);
         }
 
         /// <summary>
@@ -584,9 +584,9 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public TsCAeBrowseElement[] BrowseNext(int maxElements, ref IOpcBrowsePosition position)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            return ((ITsCAeServer)server_).BrowseNext(maxElements, ref position);
+            return ((ITsCAeServer)Server).BrowseNext(maxElements, ref position);
         }
 
         #endregion
@@ -634,7 +634,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             try
             {
                 // create remote object.
-                remoteServer = ((ITsCAeServer)server_).CreateSubscription(template.State);
+                remoteServer = ((ITsCAeServer)Server).CreateSubscription(template.State);
 
                 if (remoteServer == null)
                 {

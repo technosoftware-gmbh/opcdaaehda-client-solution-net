@@ -477,7 +477,7 @@ namespace OpcRcw.Da
             [MarshalAs(UnmanagedType.I4)]  
             int dwAccessRightsFilter,
 		    [Out] 
-            out OpcRcw.Comn.IEnumString ppIEnumString);        
+            out Comn.IEnumString ppIEnumString);        
 
         void GetItemID(
             [MarshalAs(UnmanagedType.LPWStr)]  
@@ -489,7 +489,7 @@ namespace OpcRcw.Da
             [MarshalAs(UnmanagedType.LPWStr)]  
             string szItemID,
 		    [Out] 
-            out OpcRcw.Comn.IEnumString pIEnumString);
+            out Comn.IEnumString pIEnumString);
     }
 
     /// <exclude />

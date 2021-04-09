@@ -21,53 +21,52 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// Defines constants for well-known item attributes.
-	/// </summary>
-	public class TsCHdaAttributeID
-	{
-		/// <remarks/>
-		public const int DATA_TYPE = 0x01;
-		/// <remarks/>
-		public const int DESCRIPTION = 0x02;
-		/// <remarks/>
-		public const int ENG_UNITS = 0x03;
-		/// <remarks/>
-		public const int STEPPED = 0x04;
-		/// <remarks/>
-		public const int ARCHIVING = 0x05;
-		/// <remarks/>
-		public const int DERIVE_EQUATION = 0x06;
-		/// <remarks/>
-		public const int NODE_NAME = 0x07;
-		/// <remarks/>
-		public const int PROCESS_NAME = 0x08;
-		/// <remarks/>
-		public const int SOURCE_NAME = 0x09;
-		/// <remarks/>
-		public const int SOURCE_TYPE = 0x0a;
-		/// <remarks/>
-		public const int NORMAL_MAXIMUM = 0x0b;
-		/// <remarks/>
-		public const int NORMAL_MINIMUM = 0x0c;
-		/// <remarks/>
-		public const int ITEMID = 0x0d;
-		/// <remarks/>
-		public const int MAX_TIME_INT = 0x0e;
-		/// <remarks/>
-		public const int MIN_TIME_INT = 0x0f;
-		/// <remarks/>
-		public const int EXCEPTION_DEV = 0x10;
-		/// <remarks/>
-		public const int EXCEPTION_DEV_TYPE = 0x11;
-		/// <remarks/>
-		public const int HIGH_ENTRY_LIMIT = 0x12;
-		/// <remarks/>
-		public const int LOW_ENTRY_LIMIT = 0x13;
-	}
+    /// <summary>
+    /// Defines constants for well-known item attributes.
+    /// </summary>
+    public class TsCHdaAttributeID
+    {
+        /// <remarks/>
+        public const int DATA_TYPE = 0x01;
+        /// <remarks/>
+        public const int DESCRIPTION = 0x02;
+        /// <remarks/>
+        public const int ENG_UNITS = 0x03;
+        /// <remarks/>
+        public const int STEPPED = 0x04;
+        /// <remarks/>
+        public const int ARCHIVING = 0x05;
+        /// <remarks/>
+        public const int DERIVE_EQUATION = 0x06;
+        /// <remarks/>
+        public const int NODE_NAME = 0x07;
+        /// <remarks/>
+        public const int PROCESS_NAME = 0x08;
+        /// <remarks/>
+        public const int SOURCE_NAME = 0x09;
+        /// <remarks/>
+        public const int SOURCE_TYPE = 0x0a;
+        /// <remarks/>
+        public const int NORMAL_MAXIMUM = 0x0b;
+        /// <remarks/>
+        public const int NORMAL_MINIMUM = 0x0c;
+        /// <remarks/>
+        public const int ITEMID = 0x0d;
+        /// <remarks/>
+        public const int MAX_TIME_INT = 0x0e;
+        /// <remarks/>
+        public const int MIN_TIME_INT = 0x0f;
+        /// <remarks/>
+        public const int EXCEPTION_DEV = 0x10;
+        /// <remarks/>
+        public const int EXCEPTION_DEV_TYPE = 0x11;
+        /// <remarks/>
+        public const int HIGH_ENTRY_LIMIT = 0x12;
+        /// <remarks/>
+        public const int LOW_ENTRY_LIMIT = 0x13;
+    }
 }

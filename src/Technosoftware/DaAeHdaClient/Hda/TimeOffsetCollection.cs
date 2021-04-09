@@ -28,253 +28,238 @@ using System.Collections;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// A collection of time offsets used in a relative time.
-	/// </summary>
-	[Serializable]
-	public class TsCHdaTimeOffsetCollection : ArrayList
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
+    /// <summary>
+    /// A collection of time offsets used in a relative time.
+    /// </summary>
+    [Serializable]
+    public class TsCHdaTimeOffsetCollection : ArrayList
+    {
+        #region Properties
+        /// <summary>
+        /// Accessor for elements in the time offset collection.
+        /// </summary>
+        public new TsCHdaTimeOffset this[int index]
+        {
+            get => this[index];
+            set => this[index] = value;
+        }
+        #endregion
 
-		/// <summary>
-		/// Accessor for elements in the time offset collection.
-		/// </summary>
-		public new TsCHdaTimeOffset this[int index]
-		{
-			get { return this[index]; }
-			set { this[index] = value; }
-		}
+        #region Public Methods
+        /// <summary>
+        /// Adds a new offset to the collection.
+        /// </summary>
+        /// <param name="value">The offset value.</param>
+        /// <param name="type">The offset type.</param>
+        public int Add(int value, TsCHdaRelativeTime type)
+        {
+            TsCHdaTimeOffset offset = new TsCHdaTimeOffset { Value = value, Type = type };
 
-		#endregion
+            return base.Add(offset);
+        }
 
-		///////////////////////////////////////////////////////////////////////
-		#region Public Methods
+        /// <summary>
+        /// Returns a String that represents the current Object.
+        /// </summary>
+        /// <returns>A String that represents the current Object.</returns>
+        public override string ToString()
+        {
+            StringBuilder buffer = new StringBuilder(256);
 
-		/// <summary>
-		/// Adds a new offset to the collection.
-		/// </summary>
-		/// <param name="value">The offset value.</param>
-		/// <param name="type">The offset type.</param>
-		public int Add(int value, TsCHdaRelativeTime type)
-		{
-			TsCHdaTimeOffset offset = new TsCHdaTimeOffset { Value = value, Type = type };
+            foreach (TsCHdaTimeOffset offset in (ICollection)this)
+            {
+                if (offset.Value >= 0)
+                {
+                    buffer.Append("+");
+                }
 
-			return base.Add(offset);
-		}
+                buffer.AppendFormat("{0}", offset.Value);
+                buffer.Append(TsCHdaTimeOffset.OffsetTypeToString(offset.Type));
+            }
 
-		/// <summary>
-		/// Returns a String that represents the current Object.
-		/// </summary>
-		/// <returns>A String that represents the current Object.</returns>
-		public override string ToString()
-		{
-			StringBuilder buffer = new StringBuilder(256);
+            return buffer.ToString();
+        }
 
-			foreach (TsCHdaTimeOffset offset in (ICollection)this)
-			{
-				if (offset.Value >= 0)
-				{
-					buffer.Append("+");
-				}
+        /// <summary>
+        /// Initializes the collection from a set of offsets contained in a string. 
+        /// </summary>
+        /// <param name="buffer">A string containing the time offset fields.</param>
+        public void Parse(string buffer)
+        {
+            // clear existing offsets.
+            Clear();
 
-				buffer.AppendFormat("{0}", offset.Value);
-				buffer.Append(TsCHdaTimeOffset.OffsetTypeToString(offset.Type));
-			}
+            // parse the offsets.
+            bool positive = true;
+            int magnitude = 0;
+            string units = "";
+            int state = 0;
 
-			return buffer.ToString();
-		}
+            // state = 0 - looking for start of next offset field.
+            // state = 1 - looking for beginning of offset value.
+            // state = 2 - reading offset value.
+            // state = 3 - reading offset type.
 
-		/// <summary>
-		/// Initializes the collection from a set of offsets contained in a string. 
-		/// </summary>
-		/// <param name="buffer">A string containing the time offset fields.</param>
-		public void Parse(string buffer)
-		{
-			// clear existing offsets.
-			Clear();
+            for (int ii = 0; ii < buffer.Length; ii++)
+            {
+                // check for sign part of the offset field.
+                if (buffer[ii] == '+' || buffer[ii] == '-')
+                {
+                    if (state == 3)
+                    {
+                        Add(CreateOffset(positive, magnitude, units));
 
-			// parse the offsets.
-			bool positive = true;
-			int magnitude = 0;
-			string units = "";
-			int state = 0;
+                        magnitude = 0;
+                        units = "";
+                        state = 0;
+                    }
 
-			// state = 0 - looking for start of next offset field.
-			// state = 1 - looking for beginning of offset value.
-			// state = 2 - reading offset value.
-			// state = 3 - reading offset type.
+                    if (state != 0)
+                    {
+                        throw new FormatException("Unexpected token encountered while parsing relative time string.");
+                    }
 
-			for (int ii = 0; ii < buffer.Length; ii++)
-			{
-				// check for sign part of the offset field.
-				if (buffer[ii] == '+' || buffer[ii] == '-')
-				{
-					if (state == 3)
-					{
-						Add(CreateOffset(positive, magnitude, units));
+                    positive = buffer[ii] == '+';
+                    state = 1;
+                }
 
-						magnitude = 0;
-						units = "";
-						state = 0;
-					}
+                // check for integer part of the offset field.
+                else if (Char.IsDigit(buffer, ii))
+                {
+                    if (state == 3)
+                    {
+                        Add(CreateOffset(positive, magnitude, units));
 
-					if (state != 0)
-					{
-						throw new FormatException("Unexpected token encountered while parsing relative time string.");
-					}
+                        magnitude = 0;
+                        units = "";
+                        state = 0;
+                    }
 
-					positive = buffer[ii] == '+';
-					state = 1;
-				}
+                    if (state != 0 && state != 1 && state != 2)
+                    {
+                        throw new FormatException("Unexpected token encountered while parsing relative time string.");
+                    }
 
-					// check for integer part of the offset field.
-				else if (Char.IsDigit(buffer, ii))
-				{
-					if (state == 3)
-					{
-						Add(CreateOffset(positive, magnitude, units));
+                    magnitude *= 10;
+                    magnitude += Convert.ToInt32(buffer[ii] - '0');
 
-						magnitude = 0;
-						units = "";
-						state = 0;
-					}
+                    state = 2;
+                }
 
-					if (state != 0 && state != 1 && state != 2)
-					{
-						throw new FormatException("Unexpected token encountered while parsing relative time string.");
-					}
+                // check for units part of the offset field.
+                else if (!Char.IsWhiteSpace(buffer, ii))
+                {
+                    if (state != 2 && state != 3)
+                    {
+                        throw new FormatException("Unexpected token encountered while parsing relative time string.");
+                    }
 
-					magnitude *= 10;
-					magnitude += System.Convert.ToInt32(buffer[ii] - '0');
+                    units += buffer[ii];
+                    state = 3;
+                }
+            }
 
-					state = 2;
-				}
+            // process final field.
+            if (state == 3)
+            {
+                Add(CreateOffset(positive, magnitude, units));
+                state = 0;
+            }
 
-					// check for units part of the offset field.
-				else if (!Char.IsWhiteSpace(buffer, ii))
-				{
-					if (state != 2 && state != 3)
-					{
-						throw new FormatException("Unexpected token encountered while parsing relative time string.");
-					}
+            // check final state.
+            if (state != 0)
+            {
+                throw new FormatException("Unexpected end of string encountered while parsing relative time string.");
+            }
+        }
+        #endregion
 
-					units += buffer[ii];
-					state = 3;
-				}
-			}
+        #region ICollection Members
+        /// <summary>
+        /// Copies the objects to an Array, starting at a the specified index.
+        /// </summary>
+        /// <param name="array">The one-dimensional Array that is the destination for the objects.</param>
+        /// <param name="index">The zero-based index in the Array at which copying begins.</param>
+        public void CopyTo(TsCHdaTimeOffset[] array, int index)
+        {
+            CopyTo((Array)array, index);
+        }
+        #endregion
 
-			// process final field.
-			if (state == 3)
-			{
-				Add(CreateOffset(positive, magnitude, units));
-				state = 0;
-			}
+        #region IList Members
+        /// <summary>
+        /// Inserts an item to the IList at the specified position.
+        /// </summary>
+        /// <param name="index">The zero-based index at which value should be inserted.</param>
+        /// <param name="value">The Object to insert into the IList. </param>
+        public void Insert(int index, TsCHdaTimeOffset value)
+        {
+            Insert(index, (object)value);
+        }
 
-			// check final state.
-			if (state != 0)
-			{
-				throw new FormatException("Unexpected end of string encountered while parsing relative time string.");
-			}
-		}
+        /// <summary>
+        /// Removes the first occurrence of a specific object from the IList.
+        /// </summary>
+        /// <param name="value">The Object to remove from the IList.</param>
+        public void Remove(TsCHdaTimeOffset value)
+        {
+            Remove((object)value);
+        }
 
-		#endregion
+        /// <summary>
+        /// Determines whether the IList contains a specific value.
+        /// </summary>
+        /// <param name="value">The Object to locate in the IList.</param>
+        /// <returns>true if the Object is found in the IList; otherwise, false.</returns>
+        public bool Contains(TsCHdaTimeOffset value)
+        {
+            return Contains((object)value);
+        }
 
-		///////////////////////////////////////////////////////////////////////
-		#region ICollection Members
+        /// <summary>
+        /// Determines the index of a specific item in the IList.
+        /// </summary>
+        /// <param name="value">The Object to locate in the IList.</param>
+        /// <returns>The index of value if found in the list; otherwise, -1.</returns>
+        public int IndexOf(TsCHdaTimeOffset value)
+        {
+            return IndexOf((object)value);
+        }
 
-		/// <summary>
-		/// Copies the objects to an Array, starting at a the specified index.
-		/// </summary>
-		/// <param name="array">The one-dimensional Array that is the destination for the objects.</param>
-		/// <param name="index">The zero-based index in the Array at which copying begins.</param>
-		public void CopyTo(TsCHdaTimeOffset[] array, int index)
-		{
-			CopyTo((Array)array, index);
-		}
+        /// <summary>
+        /// Adds an item to the IList.
+        /// </summary>
+        /// <param name="value">The Object to add to the IList. </param>
+        /// <returns>The position into which the new element was inserted.</returns>
+        public int Add(TsCHdaTimeOffset value)
+        {
+            return Add((object)value);
+        }
+        #endregion
 
-		#endregion
+        #region Private Methods
+        /// <summary>
+        /// Creates a new offset object from the components extracted from a string.
+        /// </summary>
+        private static TsCHdaTimeOffset CreateOffset(bool positive, int magnitude, string units)
+        {
+            foreach (TsCHdaRelativeTime offsetType in Enum.GetValues(typeof(TsCHdaRelativeTime)))
+            {
+                if (offsetType == TsCHdaRelativeTime.Now)
+                {
+                    continue;
+                }
 
-		///////////////////////////////////////////////////////////////////////
-		#region IList Members
+                if (units == TsCHdaTimeOffset.OffsetTypeToString(offsetType))
+                {
+                    TsCHdaTimeOffset offset = new TsCHdaTimeOffset { Value = (positive) ? magnitude : -magnitude, Type = offsetType };
 
-		/// <summary>
-		/// Inserts an item to the IList at the specified position.
-		/// </summary>
-		/// <param name="index">The zero-based index at which value should be inserted.</param>
-		/// <param name="value">The Object to insert into the IList. </param>
-		public void Insert(int index, TsCHdaTimeOffset value)
-		{
-			Insert(index, (object)value);
-		}
+                    return offset;
+                }
+            }
 
-		/// <summary>
-		/// Removes the first occurrence of a specific object from the IList.
-		/// </summary>
-		/// <param name="value">The Object to remove from the IList.</param>
-		public void Remove(TsCHdaTimeOffset value)
-		{
-			Remove((object)value);
-		}
-
-		/// <summary>
-		/// Determines whether the IList contains a specific value.
-		/// </summary>
-		/// <param name="value">The Object to locate in the IList.</param>
-		/// <returns>true if the Object is found in the IList; otherwise, false.</returns>
-		public bool Contains(TsCHdaTimeOffset value)
-		{
-			return Contains((object)value);
-		}
-
-		/// <summary>
-		/// Determines the index of a specific item in the IList.
-		/// </summary>
-		/// <param name="value">The Object to locate in the IList.</param>
-		/// <returns>The index of value if found in the list; otherwise, -1.</returns>
-		public int IndexOf(TsCHdaTimeOffset value)
-		{
-			return IndexOf((object)value);
-		}
-
-		/// <summary>
-		/// Adds an item to the IList.
-		/// </summary>
-		/// <param name="value">The Object to add to the IList. </param>
-		/// <returns>The position into which the new element was inserted.</returns>
-		public int Add(TsCHdaTimeOffset value)
-		{
-			return Add((object)value);
-		}
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Private Methods
-
-		/// <summary>
-		/// Creates a new offset object from the components extracted from a string.
-		/// </summary>
-		private static TsCHdaTimeOffset CreateOffset(bool positive, int magnitude, string units)
-		{
-			foreach (TsCHdaRelativeTime offsetType in Enum.GetValues(typeof(TsCHdaRelativeTime)))
-			{
-				if (offsetType == TsCHdaRelativeTime.Now)
-				{
-					continue;
-				}
-
-				if (units == TsCHdaTimeOffset.OffsetTypeToString(offsetType))
-				{
-					TsCHdaTimeOffset offset = new TsCHdaTimeOffset { Value = (positive) ? magnitude : -magnitude, Type = offsetType };
-
-					return offset;
-				}
-			}
-
-			throw new ArgumentOutOfRangeException("units", units, "String is not a valid offset time type.");
-		}
-
-		#endregion
-	}
+            throw new ArgumentOutOfRangeException(nameof(units), units, @"String is not a valid offset time type.");
+        }
+        #endregion
+    }
 }

@@ -25,7 +25,6 @@ using System;
 using System.Collections.Generic;
 
 using Technosoftware.DaAeHdaClient.Com;
-using OpcRcw.Comn;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient
@@ -33,22 +32,15 @@ namespace Technosoftware.DaAeHdaClient
     /// <summary>Provides methods for discover (search) of OPC Servers.</summary>
 	public class OpcDiscovery
     {
-        ///////////////////////////////////////////////////////////////////////
         #region Fields
-
-        private static Technosoftware.DaAeHdaClient.Com.ServerEnumerator _discovery;
-        private static string _hostName;
-        private bool _disposed;
-
-        private static Dictionary<OpcSpecification, string> _discoveryServers = new Dictionary<OpcSpecification, string>();
-
+        private static ServerEnumerator discovery_;
+        private static string hostName_;
+        private bool disposed_;
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Constructors, Destructor, Initialization
-
         /// <summary>
-        /// The finializer implementation.
+        /// The finalizer implementation.
         /// </summary>
         ~OpcDiscovery()
         {
@@ -80,42 +72,33 @@ namespace Technosoftware.DaAeHdaClient
         protected virtual void Dispose(bool disposing)
         {
             // Check to see if Dispose has already been called.
-            if (!_disposed)
+            if (!disposed_)
             {
                 // If disposing equals true, dispose all managed
                 // and unmanaged resources.
                 if (disposing)
                 {
-                    if (_discovery != null)
-                    {
-                        _discovery.Dispose();
-                    }
+                    discovery_?.Dispose();
                 }
                 // Release unmanaged resources. If disposing is false,
                 // only the following code is executed.
             }
-            _disposed = true;
+            disposed_ = true;
         }
-
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Public Methods (Host related)
-
         /// <summary>
         /// Returns a list of host names which could contain OPC servers.
         /// </summary>
         /// <returns>List of available network host names.</returns>
         public static List<string> GetHostNames()
         {
-            return Com.ComUtils.EnumComputers();
+            return ComUtils.EnumComputers();
         }
-
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Public Methods (Returns a list of OpcServer)
-
         /// <summary>
         /// Returns a list of servers that support the specified specification.
         /// </summary>
@@ -150,86 +133,63 @@ namespace Technosoftware.DaAeHdaClient
         {
             List<OpcServer> serverList = new List<OpcServer>();
 
-            bool dcomDiscovery = false;
+            bool discovery = specification == OpcSpecification.OPC_AE_10 || (specification == OpcSpecification.OPC_DA_20 ||
+                specification == OpcSpecification.OPC_DA_30) || specification == OpcSpecification.OPC_HDA_10;
 
-            if (specification == OpcSpecification.OPC_AE_10)
+            if (discovery)
             {
-                dcomDiscovery = true;
-            }
-            if (specification == OpcSpecification.OPC_DA_20 ||
-				specification == OpcSpecification.OPC_DA_30)
-            {
-                dcomDiscovery = true;
-            }
-            if (specification == OpcSpecification.OPC_HDA_10)
-            {
-                dcomDiscovery = true;
-            }
+                if (discovery_ == null || hostName_ != discoveryServerUrl)
+                {
+                    discovery_?.Dispose();
+                    hostName_ = discoveryServerUrl;
+                    discovery_ = new ServerEnumerator();
+                }
 
-            if (specification == null)
-            {
-                return serverList;
-            }
-            else if (dcomDiscovery)
-            {
-                if (_discovery == null || _hostName != discoveryServerUrl)
-				{
-					if (_discovery != null)
-					{
-						_discovery.Dispose();
-					}
-                    _hostName = discoveryServerUrl;
-					_discovery = new Technosoftware.DaAeHdaClient.Com.ServerEnumerator();
-				}
+                OpcServer[] servers = discovery_.GetAvailableServers(specification);
 
-				OpcServer[] servers = _discovery.GetAvailableServers(specification);
-
-				if (servers != null)
-				{
-					foreach (OpcServer server in servers)
-					{
-						serverList.Add(server);
-					}
-				}
+                if (servers != null)
+                {
+                    foreach (OpcServer server in servers)
+                    {
+                        serverList.Add(server);
+                    }
+                }
             }
 
             return serverList;
         }
-
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Public Methods (Returns OpcServer object for a specific URL)
-
         /// <summary>
         /// Creates a server object for the specified URL.
         /// </summary>
         /// <param name="url">The OpcUrl of the OPC server.</param>
-        /// <returns>The OpcServer obkect.</returns>
-        public static OpcServer GetServer(Technosoftware.DaAeHdaClient.OpcUrl url)
+        /// <returns>The OpcServer object.</returns>
+        public static OpcServer GetServer(OpcUrl url)
         {
-            if (url == null) throw new ArgumentNullException("url");
+            if (url == null) throw new ArgumentNullException(nameof(url));
 
             OpcServer server = null;
 
             // create an unconnected server object for COM based servers.
 
             // DA
-            if (server == null && String.Compare(url.Scheme, OpcUrlScheme.DA, false) == 0)
+            if (String.CompareOrdinal(url.Scheme, OpcUrlScheme.DA) == 0)
             {
-                server = new Da.TsCDaServer(new Technosoftware.DaAeHdaClient.Com.Factory(), url);
+                server = new Da.TsCDaServer(new Factory(), url);
             }
 
             // AE
-            else if (String.Compare(url.Scheme, OpcUrlScheme.AE, false) == 0)
+            else if (String.CompareOrdinal(url.Scheme, OpcUrlScheme.AE) == 0)
             {
-                server = new Ae.TsCAeServer(new Technosoftware.DaAeHdaClient.Com.Factory(), url);
+                server = new Ae.TsCAeServer(new Factory(), url);
             }
 
             // HDA
-            else if (String.Compare(url.Scheme, OpcUrlScheme.HDA, false) == 0)
+            else if (String.CompareOrdinal(url.Scheme, OpcUrlScheme.HDA) == 0)
             {
-                server = new Hda.TsCHdaServer(new Technosoftware.DaAeHdaClient.Com.Factory(), url);
+                server = new Hda.TsCHdaServer(new Factory(), url);
             }
 
             // Other specifications not supported yet.
@@ -240,7 +200,6 @@ namespace Technosoftware.DaAeHdaClient
 
             return server;
         }
-
         #endregion
 
     }

@@ -27,185 +27,152 @@ using System.Collections;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// A collection of attribute filters used when browsing the server address space.
-	/// </summary>
-	[Serializable]
-	public class TsCHdaBrowseFilterCollection : Technosoftware.DaAeHdaClient.OpcItem, ICollection
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region Fields
+    /// <summary>
+    /// A collection of attribute filters used when browsing the server address space.
+    /// </summary>
+    [Serializable]
+    public class TsCHdaBrowseFilterCollection : OpcItem, ICollection
+    {
+        #region Fields
+        private TsCHdaBrowseFilter[] browseFilters_ = new TsCHdaBrowseFilter[0];
+        #endregion
 
-		private TsCHdaBrowseFilter[] _filters = new TsCHdaBrowseFilter[0];
+        #region Constructors, Destructor, Initialization
+        /// <summary>
+        /// Creates an empty collection.
+        /// </summary>
+        public TsCHdaBrowseFilterCollection()
+        {
+            // do nothing.
+        }
 
-		#endregion
+        /// <summary>
+        /// Initializes the object with any BrowseFilter contained in the collection.
+        /// </summary>
+        /// <param name="collection">A collection containing browse filters.</param>
+        public TsCHdaBrowseFilterCollection(ICollection collection)
+        {
+            Init(collection);
+        }
+        #endregion
 
-		///////////////////////////////////////////////////////////////////////
-		#region Constructors, Destructor, Initialization
+        #region Properties
+        /// <summary>
+        /// Returns the browse filter at the specified index.
+        /// </summary>
+        public TsCHdaBrowseFilter this[int index]
+        {
+            get => browseFilters_[index];
+            set => browseFilters_[index] = value;
+        }
+        #endregion
 
-		/// <summary>
-		/// Creates an empty collection.
-		/// </summary>
-		public TsCHdaBrowseFilterCollection()
-		{
-			// do nothing.
-		}
+        #region Public Methods
+        /// <summary>
+        /// Returns the browse filter for the specified attribute id.
+        /// </summary>
+        public TsCHdaBrowseFilter Find(int id)
+        {
+            foreach (TsCHdaBrowseFilter filter in browseFilters_)
+            {
+                if (filter.AttributeID == id)
+                {
+                    return filter;
+                }
+            }
 
-		/// <summary>
-		/// Initializes the object with any BrowseFilter contained in the collection.
-		/// </summary>
-		/// <param name="collection">A collection containing browse filters.</param>
-		public TsCHdaBrowseFilterCollection(ICollection collection)
-		{
-			Init(collection);
-		}
+            return null;
+        }
 
-		#endregion
+        /// <summary>
+        /// Initializes the object with any attribute values contained in the collection.
+        /// </summary>
+        /// <param name="collection">A collection containing attribute values.</param>
+        public void Init(ICollection collection)
+        {
+            Clear();
 
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
+            if (collection != null)
+            {
+                ArrayList values = new ArrayList(collection.Count);
 
-		/// <summary>
-		/// Returns the browse filter at the specified index.
-		/// </summary>
-		public TsCHdaBrowseFilter this[int index]
-		{
-			get { return _filters[index]; }
-			set { _filters[index] = value; }
-		}
+                foreach (object value in collection)
+                {
+                    if (value.GetType() == typeof(TsCHdaBrowseFilter))
+                    {
+                        values.Add(OpcConvert.Clone(value));
+                    }
+                }
 
-		#endregion
+                browseFilters_ = (TsCHdaBrowseFilter[])values.ToArray(typeof(TsCHdaBrowseFilter));
+            }
+        }
 
-		///////////////////////////////////////////////////////////////////////
-		#region Public Methods
+        /// <summary>
+        /// Removes all attribute values in the collection.
+        /// </summary>
+        public void Clear()
+        {
+            browseFilters_ = new TsCHdaBrowseFilter[0];
+        }
+        #endregion
 
-		/// <summary>
-		/// Returns the browse filter for the specified attribute id.
-		/// </summary>
-		public TsCHdaBrowseFilter Find(int id)
-		{
-			foreach (TsCHdaBrowseFilter filter in _filters)
-			{
-				if (filter.AttributeID == id)
-				{
-					return filter;
-				}
-			}
+        #region ICloneable Members
+        /// <summary>
+        /// Creates a deep copy of the object.
+        /// </summary>
+        public override object Clone()
+        {
+            return new TsCHdaBrowseFilterCollection(this);
+        }
+        #endregion
 
-			return null;
-		}
+        #region ICollection Members
+        /// <summary>
+        /// Indicates whether access to the ICollection is synchronized (thread-safe).
+        /// </summary>
+        public bool IsSynchronized => false;
 
-		/// <summary>
-		/// Initializes the object with any attribute values contained in the collection.
-		/// </summary>
-		/// <param name="collection">A collection containing attribute values.</param>
-		public void Init(ICollection collection)
-		{
-			Clear();
+        /// <summary>
+        /// Gets the number of objects in the collection.
+        /// </summary>
+        public int Count => browseFilters_?.Length ?? 0;
 
-			if (collection != null)
-			{
-				ArrayList values = new ArrayList(collection.Count);
+        /// <summary>
+        /// Copies the objects in to an Array, starting at a the specified index.
+        /// </summary>
+        /// <param name="array">The one-dimensional Array that is the destination for the objects.</param>
+        /// <param name="index">The zero-based index in the Array at which copying begins.</param>
+        public void CopyTo(Array array, int index)
+        {
+            browseFilters_?.CopyTo(array, index);
+        }
 
-				foreach (object value in collection)
-				{
-					if (value.GetType() == typeof(TsCHdaBrowseFilter))
-					{
-						values.Add(Technosoftware.DaAeHdaClient.OpcConvert.Clone(value));
-					}
-				}
+        /// <summary>
+        /// Copies the objects to an Array, starting at a the specified index.
+        /// </summary>
+        /// <param name="array">The one-dimensional Array that is the destination for the objects.</param>
+        /// <param name="index">The zero-based index in the Array at which copying begins.</param>
+        public void CopyTo(TsCHdaBrowseFilter[] array, int index)
+        {
+            CopyTo((Array)array, index);
+        }
 
-				_filters = (TsCHdaBrowseFilter[])values.ToArray(typeof(TsCHdaBrowseFilter));
-			}
-		}
+        /// <summary>
+        /// Indicates whether access to the ICollection is synchronized (thread-safe).
+        /// </summary>
+        public object SyncRoot => this;
+        #endregion
 
-		/// <summary>
-		/// Removes all attribute values in the collection.
-		/// </summary>
-		public void Clear()
-		{
-			_filters = new TsCHdaBrowseFilter[0];
-		}
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region ICloneable Members
-
-		/// <summary>
-		/// Creates a deep copy of the object.
-		/// </summary>
-		public override object Clone()
-		{
-			return new TsCHdaBrowseFilterCollection(this);
-		}
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region ICollection Members
-
-		/// <summary>
-		/// Indicates whether access to the ICollection is synchronized (thread-safe).
-		/// </summary>
-		public bool IsSynchronized
-		{
-			get { return false; }
-		}
-
-		/// <summary>
-		/// Gets the number of objects in the collection.
-		/// </summary>
-		public int Count
-		{
-			get { return (_filters != null) ? _filters.Length : 0; }
-		}
-
-		/// <summary>
-		/// Copies the objects in to an Array, starting at a the specified index.
-		/// </summary>
-		/// <param name="array">The one-dimensional Array that is the destination for the objects.</param>
-		/// <param name="index">The zero-based index in the Array at which copying begins.</param>
-		public void CopyTo(Array array, int index)
-		{
-			if (_filters != null)
-			{
-				_filters.CopyTo(array, index);
-			}
-		}
-
-		/// <summary>
-		/// Copies the objects to an Array, starting at a the specified index.
-		/// </summary>
-		/// <param name="array">The one-dimensional Array that is the destination for the objects.</param>
-		/// <param name="index">The zero-based index in the Array at which copying begins.</param>
-		public void CopyTo(TsCHdaBrowseFilter[] array, int index)
-		{
-			CopyTo((Array)array, index);
-		}
-
-		/// <summary>
-		/// Indicates whether access to the ICollection is synchronized (thread-safe).
-		/// </summary>
-		public object SyncRoot
-		{
-			get { return this; }
-		}
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region IEnumerable Members
-
-		/// <summary>
-		/// Returns an enumerator that can iterate through a collection.
-		/// </summary>
-		/// <returns>An IEnumerator that can be used to iterate through the collection.</returns>
-		public IEnumerator GetEnumerator()
-		{
-			return _filters.GetEnumerator();
-		}
-
-		#endregion
-	}
+        #region IEnumerable Members
+        /// <summary>
+        /// Returns an enumerator that can iterate through a collection.
+        /// </summary>
+        /// <returns>An IEnumerator that can be used to iterate through the collection.</returns>
+        public IEnumerator GetEnumerator()
+        {
+            return browseFilters_.GetEnumerator();
+        }
+        #endregion
+    }
 }

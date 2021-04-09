@@ -36,7 +36,7 @@ namespace Technosoftware.DaAeHdaClient
     {
         #region Fields
         private ArrayList _array;
-        private System.Type _elementType;
+        private Type _elementType;
         #endregion
 
         #region Public Interface
@@ -45,8 +45,8 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual object this[int index]
         {
-            get { return _array[index]; }
-            set { _array[index] = value; }
+            get => _array[index];
+            set => _array[index] = value;
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Creates a collection that wraps the specified array instance.
         /// </summary>
-        protected OpcWriteableCollection(ICollection array, System.Type elementType)
+        protected OpcWriteableCollection(ICollection array, Type elementType)
         {
             // copy array.
             if (array != null)
@@ -110,7 +110,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         protected virtual ArrayList Array
         {
-            get { return _array; }
+            get => _array;
 
             set
             {
@@ -126,9 +126,9 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// The type of objects allowed in the collection.
         /// </summary>
-        protected virtual System.Type ElementType
+        protected virtual Type ElementType
         {
-            get { return _elementType; }
+            get => _elementType;
 
             set
             {
@@ -180,7 +180,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         protected OpcWriteableCollection(SerializationInfo info, StreamingContext context)
         {
-            _elementType = (System.Type)info.GetValue(Names.ELEMENT_TYPE, typeof(System.Type));
+            _elementType = (Type)info.GetValue(Names.ELEMENT_TYPE, typeof(Type));
 
             int count = (int)info.GetValue(Names.COUNT, typeof(int));
 
@@ -211,18 +211,12 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Indicates whether access to the ICollection is synchronized (thread-safe).
         /// </summary>
-        public virtual bool IsSynchronized
-        {
-            get { return false; }
-        }
+        public virtual bool IsSynchronized => false;
 
         /// <summary>
         /// Gets the number of objects in the collection.
         /// </summary>
-        public virtual int Count
-        {
-            get { return _array.Count; }
-        }
+        public virtual int Count => _array.Count;
 
         /// <summary>
         /// Copies the objects to an Array, starting at a the specified index.
@@ -240,10 +234,8 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Indicates whether access to the ICollection is synchronized (thread-safe).
         /// </summary>
-        public virtual object SyncRoot
-        {
-            get { return this; }
-        }
+        public virtual object SyncRoot => this;
+
         #endregion
 
         #region IEnumerable Members
@@ -261,18 +253,15 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Gets a value indicating whether the collection is read-only.
         /// </summary>
-        public virtual bool IsReadOnly
-        {
-            get { return false; }
-        }
+        public virtual bool IsReadOnly => false;
 
         /// <summary>
         /// Gets or sets the element at the specified index.
         /// </summary>
         object IList.this[int index]
         {
-            get { return this[index]; }
-            set { this[index] = value; }
+            get => this[index];
+            set => this[index] = value;
         }
 
         /// <summary>
@@ -346,10 +335,8 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Indicates whether the IList has a fixed size.
         /// </summary>
-        public virtual bool IsFixedSize
-        {
-            get { return false; }
-        }
+        public virtual bool IsFixedSize => false;
+
         #endregion
 
         #region ICloneable Members
@@ -364,7 +351,7 @@ namespace Technosoftware.DaAeHdaClient
 
             for (int ii = 0; ii < _array.Count; ii++)
             {
-                clone.Add(Technosoftware.DaAeHdaClient.OpcConvert.Clone(_array[ii]));
+                clone.Add(OpcConvert.Clone(_array[ii]));
             }
 
             return clone;

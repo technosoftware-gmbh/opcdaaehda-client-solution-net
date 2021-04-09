@@ -82,7 +82,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         internal Server(OpcUrl url, object server)
         {
-            if (url == null) throw new ArgumentNullException("url");
+            if (url == null) throw new ArgumentNullException(nameof(url));
 
             url_ = (OpcUrl)url.Clone();
             server_ = server;
@@ -274,7 +274,7 @@ namespace Technosoftware.DaAeHdaClient.Com
             {
                 if (server_ == null) throw new NotConnectedException();
 
-                int lcid = Technosoftware.DaAeHdaClient.Com.Interop.GetLocale(locale);
+                int lcid = Interop.GetLocale(locale);
 
                 try
                 {
@@ -314,7 +314,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 
                     ((IOPCCommon)server_).QueryAvailableLocaleIDs(out count, out pLocaleIDs);
 
-                    int[] localeIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pLocaleIDs, count, true);
+                    int[] localeIDs = Interop.GetInt32s(ref pLocaleIDs, count, true);
 
                     if (localeIDs != null)
                     {
@@ -518,7 +518,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// <summary>
         /// A class that implements the IOPCShutdown interface.
         /// </summary>
-        private class Callback : OpcRcw.Comn.IOPCShutdown
+        private class Callback : IOPCShutdown
         {
             /// <summary>
             /// Initializes the object with the containing subscription object.

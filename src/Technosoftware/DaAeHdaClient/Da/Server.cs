@@ -161,11 +161,11 @@ namespace Technosoftware.DaAeHdaClient.Da
         public override void Connect(OpcUrl url, OpcConnectData connectData)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (_factory == null)
+            if (Factory == null)
             {
-                if (_factory == null)
+                if (Factory == null)
                 {
-                    _factory = new Com.Factory();
+                    Factory = new Com.Factory();
                 }
             }
             // connect to server.
@@ -200,7 +200,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         /// <summary>Disconnects from the server and releases all network resources.</summary>
         public override void Disconnect()
         {
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             // dispose of all subscriptions first.
             if (subscriptions_ != null)
@@ -222,10 +222,10 @@ namespace Technosoftware.DaAeHdaClient.Da
         public int GetResultFilters()
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             // update local cache.
-            filters_ = ((ITsDaServer)server_).GetResultFilters();
+            filters_ = ((ITsDaServer)Server).GetResultFilters();
 
             // return filters.
             return filters_;
@@ -236,10 +236,10 @@ namespace Technosoftware.DaAeHdaClient.Da
         public void SetResultFilters(int filters)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             // set filters on server.
-            ((ITsDaServer)server_).SetResultFilters(filters);
+            ((ITsDaServer)Server).SetResultFilters(filters);
 
             // cache updated filters.
             filters_ = filters;
@@ -250,9 +250,9 @@ namespace Technosoftware.DaAeHdaClient.Da
         public OpcServerStatus GetServerStatus()
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            OpcServerStatus status = ((ITsDaServer)server_).GetServerStatus();
+            OpcServerStatus status = ((ITsDaServer)Server).GetServerStatus();
 
             if (status != null)
             {
@@ -276,9 +276,9 @@ namespace Technosoftware.DaAeHdaClient.Da
         public TsCDaItemValueResult[] Read(TsCDaItem[] items)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            return ((ITsDaServer)server_).Read(items);
+            return ((ITsDaServer)Server).Read(items);
         }
 
         /// <summary>Writes the value, quality and timestamp for a set of items.</summary>
@@ -288,9 +288,9 @@ namespace Technosoftware.DaAeHdaClient.Da
         public OpcItemResult[] Write(TsCDaItemValue[] items)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
-            return ((ITsDaServer)server_).Write(items);
+            return ((ITsDaServer)Server).Write(items);
         }
 
         /// <summary>
@@ -303,10 +303,10 @@ namespace Technosoftware.DaAeHdaClient.Da
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             if (state == null) throw new ArgumentNullException(nameof(state));
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             // create subscription on server.
-            ITsCDaSubscription subscription = ((ITsDaServer)server_).CreateSubscription(state);
+            ITsCDaSubscription subscription = ((ITsDaServer)Server).CreateSubscription(state);
 
             // set filters.
             subscription.SetResultFilters(filters_);
@@ -348,7 +348,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             if (subscription == null) throw new ArgumentNullException(nameof(subscription));
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             // validate argument.
             if (!typeof(TsCDaSubscription).IsInstanceOfType(subscription))
@@ -382,7 +382,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             subscriptions_ = subscriptions;
 
             // cancel subscription on server.
-            ((ITsDaServer)server_).CancelSubscription(((TsCDaSubscription)subscription).Subscription);
+            ((ITsDaServer)Server).CancelSubscription(((TsCDaSubscription)subscription).Subscription);
         }
 
         /// <summary>Fetches all the children of the root branch that meet the filter criteria.</summary>
@@ -393,11 +393,11 @@ namespace Technosoftware.DaAeHdaClient.Da
             TsCDaBrowseFilters filters)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
             TsCDaBrowsePosition position;
             List<TsCDaBrowseElement> elementsList = new List<TsCDaBrowseElement>();
 
-            TsCDaBrowseElement[] elements = ((ITsDaServer)server_).Browse(null, filters, out position);
+            TsCDaBrowseElement[] elements = ((ITsDaServer)Server).Browse(null, filters, out position);
 
             if (elements != null)
             {
@@ -418,7 +418,7 @@ namespace Technosoftware.DaAeHdaClient.Da
                 {
                     OpcItem itemId = new OpcItem(element.ItemPath, element.ItemName);
 
-                    TsCDaBrowseElement[] childElements = ((ITsDaServer)server_).Browse(itemId, filters, out position);
+                    TsCDaBrowseElement[] childElements = ((ITsDaServer)Server).Browse(itemId, filters, out position);
                     if (childElements != null)
                     {
                         Browse(childElements, filters, ref elementsList);
@@ -444,8 +444,8 @@ namespace Technosoftware.DaAeHdaClient.Da
             out TsCDaBrowsePosition position)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (server_ == null) throw new NotConnectedException();
-            return ((ITsDaServer)server_).Browse(itemId, filters, out position);
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsDaServer)Server).Browse(itemId, filters, out position);
         }
 
         /// <summary>Continues a browse operation with previously specified search criteria.</summary>
@@ -455,8 +455,8 @@ namespace Technosoftware.DaAeHdaClient.Da
         public TsCDaBrowseElement[] BrowseNext(ref TsCDaBrowsePosition position)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (server_ == null) throw new NotConnectedException();
-            return ((ITsDaServer)server_).BrowseNext(ref position);
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsDaServer)Server).BrowseNext(ref position);
         }
 
         /// <summary>Returns the item properties for a set of items.</summary>
@@ -470,8 +470,8 @@ namespace Technosoftware.DaAeHdaClient.Da
             bool returnValues)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (server_ == null) throw new NotConnectedException();
-            return ((ITsDaServer)server_).GetProperties(itemIds, propertyIDs, returnValues);
+            if (Server == null) throw new NotConnectedException();
+            return ((ITsDaServer)Server).GetProperties(itemIds, propertyIDs, returnValues);
         }
         #endregion
 
@@ -482,7 +482,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         private TsCDaSubscription EstablishSubscription(TsCDaSubscription template)
         {
             // create subscription.
-            TsCDaSubscription subscription = new TsCDaSubscription(this, ((ITsDaServer)server_).CreateSubscription(template.State));
+            TsCDaSubscription subscription = new TsCDaSubscription(this, ((ITsDaServer)Server).CreateSubscription(template.State));
 
             // set filters.
             subscription.SetResultFilters(template.Filters);

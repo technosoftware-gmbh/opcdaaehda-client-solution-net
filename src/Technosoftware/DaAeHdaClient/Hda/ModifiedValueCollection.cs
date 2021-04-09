@@ -26,49 +26,43 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// A collection of modified item values with a result code indicating the results of a read operation.
-	/// </summary>
-	[Serializable]
-	public class TsCHdaModifiedValueCollection : TsCHdaItemValueCollection
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region Constructors, Destructor, Initialization
+    /// <summary>
+    /// A collection of modified item values with a result code indicating the results of a read operation.
+    /// </summary>
+    [Serializable]
+    public class TsCHdaModifiedValueCollection : TsCHdaItemValueCollection
+    {
+        #region Constructors, Destructor, Initialization
+        /// <summary>
+        /// Initialize object with default values.
+        /// </summary>
+        public TsCHdaModifiedValueCollection() { }
 
-		/// <summary>
-		/// Initialize object with default values.
-		/// </summary>
-		public TsCHdaModifiedValueCollection() { }
+        /// <summary>
+        /// Initialize object with the specified ItemIdentifier object.
+        /// </summary>
+        public TsCHdaModifiedValueCollection(OpcItem item) : base(item) { }
 
-		/// <summary>
-		/// Initialize object with the specified ItemIdentifier object.
-		/// </summary>
-		public TsCHdaModifiedValueCollection(OpcItem item) : base(item) { }
+        /// <summary>
+        /// Initializes object with the specified Item object.
+        /// </summary>
+        public TsCHdaModifiedValueCollection(TsCHdaItem item) : base(item) { }
 
-		/// <summary>
-		/// Initializes object with the specified Item object.
-		/// </summary>
-		public TsCHdaModifiedValueCollection(TsCHdaItem item) : base(item) { }
+        /// <summary>
+        /// Initializes object with the specified ItemValueCollection object.
+        /// </summary>
+        public TsCHdaModifiedValueCollection(TsCHdaItemValueCollection item) : base(item) { }
+        #endregion
 
-		/// <summary>
-		/// Initializes object with the specified ItemValueCollection object.
-		/// </summary>
-		public TsCHdaModifiedValueCollection(TsCHdaItemValueCollection item) : base(item) { }
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
-
-		/// <summary>
-		/// Accessor for elements in the collection.
-		/// </summary>
-		public new TsCHdaModifiedValue this[int index]
-		{
-			get { return (TsCHdaModifiedValue)this[index]; }
-			set { this[index] = value; }
-		}
-
-		#endregion
-	}
+        #region Properties
+        /// <summary>
+        /// Accessor for elements in the collection.
+        /// </summary>
+        public new TsCHdaModifiedValue this[int index]
+        {
+            get => (TsCHdaModifiedValue)this[index];
+            set => this[index] = value;
+        }
+        #endregion
+    }
 }

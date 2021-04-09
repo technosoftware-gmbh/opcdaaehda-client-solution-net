@@ -27,9 +27,6 @@ using System.Globalization;
 using System.Resources;
 using System.Reflection;
 using System.Runtime.Serialization;
-using System.Text;
-
-using Microsoft.Win32;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient
@@ -43,65 +40,62 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// The remote server object.
         /// </summary>
-        internal IOpcServer server_;
+        internal IOpcServer Server;
 
         /// <summary>
         /// The OpcUrl that describes the network location of the server.
         /// </summary>
-        private OpcUrl _url;
+        private OpcUrl opcUrl_;
 
         /// <summary>
         /// The factory used to instantiate the remote server.
         /// </summary>
         [CLSCompliant(false)]
-        protected IOpcFactory _factory;
+        protected IOpcFactory Factory;
 
         /// <summary>
         /// The last set of credentials used to connect successfully to the server.
         /// </summary>
-        private OpcConnectData _connectData;
+        private OpcConnectData connectData_;
 
         /// <summary>
         /// A short name for the server.
         /// </summary>
-        private string _serverName;
+        private string serverName_;
 
         /// <summary>
         /// A short name for the server assigned by the client
         /// </summary>
-        private string _clientName;
+        private string clientName_;
 
         /// <summary>
         /// The default locale used by the server.
         /// </summary>
-        private string _locale;
+        private string locale_;
 
         /// <summary>
         /// The set of locales supported by the remote server.
         /// </summary>
-        private string[] _supportedLocales;
+        private string[] supportedLocales_;
 
         /// <summary>
         /// The resource manager used to access localized resources.
         /// </summary>
-        [CLSCompliant(false)]
-        protected ResourceManager _resourceManager;
-
+        protected ResourceManager ResourceManager;
         #endregion
 
         #region Constructors, Destructor, Initialization
-
         /// <summary>
         /// Initializes the object.
         /// </summary>
         public OpcServer()
         {
-            _factory = null;
-            server_ = null;
-            _url = null;
-            _serverName = null;
-            _supportedLocales = null;
-            _resourceManager = new ResourceManager("Technosoftware.DaAeHdaClient.Resources.Strings", Assembly.GetExecutingAssembly());
+            Factory = null;
+            Server = null;
+            opcUrl_ = null;
+            serverName_ = null;
+            supportedLocales_ = null;
+            ResourceManager = new ResourceManager("Technosoftware.DaAeHdaClient.Resources.Strings", Assembly.GetExecutingAssembly());
         }
 
         /// <summary>
@@ -111,14 +105,14 @@ namespace Technosoftware.DaAeHdaClient
         /// <param name="url">The network address of a remote server.</param>
 		public OpcServer(OpcFactory factory, OpcUrl url)
         {
-            if (factory == null) throw new ArgumentNullException("factory");
+            if (factory == null) throw new ArgumentNullException(nameof(factory));
 
-            _factory = (IOpcFactory)factory.Clone();
-            server_ = null;
-            _url = null;
-            _serverName = null;
-            _supportedLocales = null;
-            _resourceManager = new ResourceManager("Technosoftware.DaAeHdaClient.Resources.Strings", Assembly.GetExecutingAssembly());
+            Factory = (IOpcFactory)factory.Clone();
+            Server = null;
+            opcUrl_ = null;
+            serverName_ = null;
+            supportedLocales_ = null;
+            ResourceManager = new ResourceManager("Technosoftware.DaAeHdaClient.Resources.Strings", Assembly.GetExecutingAssembly());
 
             if (url != null) SetUrl(url);
         }
@@ -128,26 +122,26 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual void Dispose()
         {
-            if (_factory != null)
+            if (Factory != null)
             {
-                _factory.Dispose();
-                _factory = null;
+                Factory.Dispose();
+                Factory = null;
             }
 
-            if (server_ != null)
+            if (Server != null)
             {
                 try { Disconnect(); }
-                catch (Exception e)
+                catch
                 {
+                    // ignored
                 }
 
-                server_ = null;
+                Server = null;
             }
         }
         #endregion
 
         #region Properties
-
         /// <summary>
         /// Information about an OPC Server
         /// </summary>
@@ -159,7 +153,7 @@ namespace Technosoftware.DaAeHdaClient
         public IList<OpcSpecification> SupportedSpecifications { get; set; }
 
         /// <summary>
-        /// Can be used to force OPC DA 2.0 even if OPC DA 3.0 serverfeatures are available
+        /// Can be used to force OPC DA 2.0 even if OPC DA 3.0 server features are available
         /// </summary>
         public bool ForceDa20Usage { get; set; }
         #endregion
@@ -197,12 +191,12 @@ namespace Technosoftware.DaAeHdaClient
                     }
                     catch
                     {
-                        continue;
+                        // ignored
                     }
                 }
 
                 // return default locale.     
-                return (supportedLocales != null && supportedLocales.Length > 0) ? supportedLocales[0] : "";
+                return (supportedLocales.Length > 0) ? supportedLocales[0] : "";
             }
             catch
             {
@@ -213,29 +207,28 @@ namespace Technosoftware.DaAeHdaClient
         #endregion
 
         #region Private Methods
-
         /// <summary>
         /// Updates the OpcUrl for the server.
         /// </summary>
         private void SetUrl(OpcUrl url)
         {
-            if (url == null) throw new ArgumentNullException("url");
+            if (url == null) throw new ArgumentNullException(nameof(url));
 
             //  cannot change the OpcUrl if the remote server is already instantiated.
-            if (server_ != null) throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The server is already connected.");
+            if (Server != null) throw new OpcResultException(new OpcResult(OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The server is already connected.");
 
             //  copy the url.
-            _url = (OpcUrl)url.Clone();
+            opcUrl_ = (OpcUrl)url.Clone();
 
             //  construct a name for the server.
             string name = "";
 
             //  use the host name as a base.
-            if (_url.HostName != null)
+            if (opcUrl_.HostName != null)
             {
-                name = _url.HostName.ToLower();
+                name = opcUrl_.HostName.ToLower();
 
-                // suppress localhoat and loopback as explicit hostnames.
+                // suppress localhost and loopback as explicit hostnames.
                 if (name == "localhost" || name == "127.0.0.1")
                 {
                     name = "";
@@ -243,33 +236,33 @@ namespace Technosoftware.DaAeHdaClient
             }
 
             //  append the port.
-            if (_url.Port != 0)
+            if (opcUrl_.Port != 0)
             {
-                name += String.Format(".{0}", _url.Port);
+                name += $".{opcUrl_.Port}";
             }
 
             //  add a separator.
             if (name != "") { name += "."; }
 
             //  use the prog id as the name.
-            if (_url.Scheme != OpcUrlScheme.HTTP)
+            if (opcUrl_.Scheme != OpcUrlScheme.HTTP)
             {
-                string progID = _url.Path;
+                string progId = opcUrl_.Path;
 
-                int index = progID.LastIndexOf('/');
+                int index = progId.LastIndexOf('/');
 
                 if (index != -1)
                 {
-                    progID = progID.Substring(0, index);
+                    progId = progId.Substring(0, index);
                 }
 
-                name += progID;
+                name += progId;
             }
 
             // use full path without the extension as the name.
             else
             {
-                string path = _url.Path;
+                string path = opcUrl_.Path;
 
                 // strip the file extension.
                 int index = path.LastIndexOf('.');
@@ -289,9 +282,9 @@ namespace Technosoftware.DaAeHdaClient
             }
 
             //  save the generated name in case the server name is not already set
-            if (String.IsNullOrEmpty(_serverName))
+            if (String.IsNullOrEmpty(serverName_))
             {
-                _serverName = name;
+                serverName_ = name;
             }
         }
         #endregion
@@ -303,13 +296,13 @@ namespace Technosoftware.DaAeHdaClient
         protected string GetString(string name)
         {
             //  create a culture object.
-            CultureInfo culture = null;
+            CultureInfo culture;
 
             try { culture = new CultureInfo(Locale); }
             catch { culture = new CultureInfo(""); }
 
             //  lookup resource string.
-            try { return _resourceManager.GetString(name, culture); }
+            try { return ResourceManager.GetString(name, culture); }
             catch { return null; }
         }
         #endregion
@@ -320,19 +313,19 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         private class Names
         {
-            internal const string NAME = "Name";
-            internal const string URL = "Url";
-            internal const string FACTORY = "Factory";
+            internal const string Name = "Name";
+            internal const string Url = "Url";
+            internal const string Factory = "Factory";
         }
 
         /// <summary>
-        /// Contructs a server by de-serializing its OpcUrl from the stream.
+        /// Construct a server by de-serializing its OpcUrl from the stream.
         /// </summary>
         internal OpcServer(SerializationInfo info, StreamingContext context)
         {
-            _serverName = info.GetString(Names.NAME);
-            _url = (OpcUrl)info.GetValue(Names.URL, typeof(OpcUrl));
-            _factory = (IOpcFactory)info.GetValue(Names.FACTORY, typeof(IOpcFactory));
+            serverName_ = info.GetString(Names.Name);
+            opcUrl_ = (OpcUrl)info.GetValue(Names.Url, typeof(OpcUrl));
+            Factory = (IOpcFactory)info.GetValue(Names.Factory, typeof(IOpcFactory));
         }
 
         /// <summary>
@@ -340,9 +333,9 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue(Names.NAME, _serverName);
-            info.AddValue(Names.URL, _url);
-            info.AddValue(Names.FACTORY, _factory);
+            info.AddValue(Names.Name, serverName_);
+            info.AddValue(Names.Url, opcUrl_);
+            info.AddValue(Names.Factory, Factory);
         }
         #endregion
 
@@ -356,10 +349,10 @@ namespace Technosoftware.DaAeHdaClient
             OpcServer clone = (OpcServer)MemberwiseClone();
 
             //  place clone in disconnected state.
-            clone.server_ = null;
-            clone._supportedLocales = null;
-            clone._locale = null;
-            clone._resourceManager = new ResourceManager("Technosoftware.DaAeHdaClient.Resources.Strings", Assembly.GetExecutingAssembly());
+            clone.Server = null;
+            clone.supportedLocales_ = null;
+            clone.locale_ = null;
+            clone.ResourceManager = new ResourceManager("Technosoftware.DaAeHdaClient.Resources.Strings", Assembly.GetExecutingAssembly());
 
             //  return clone.
             return clone;
@@ -372,11 +365,8 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual string ServerName
         {
-            get { return _serverName; }
-            set
-            {
-                _serverName = value;
-            }
+            get => serverName_;
+            set => serverName_ = value;
         }
 
         /// <summary>
@@ -384,14 +374,11 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual string ClientName
         {
-            get { return _clientName; }
+            get => clientName_;
             set
             {
-                _clientName = value;
-                if (server_ != null)
-                {
-                    server_.SetClientName(value);
-                }
+                clientName_ = value;
+                Server?.SetClientName(value);
             }
         }
         /// <summary>
@@ -399,25 +386,24 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual OpcUrl Url
         {
-            get { return (_url != null) ? (OpcUrl)_url.Clone() : null; }
-            set { SetUrl(value); }
+            get => (OpcUrl)opcUrl_?.Clone();
+            set => SetUrl(value);
         }
 
         /// <summary>
         /// The default of locale used by the remote server.
         /// </summary>
-        public virtual string Locale { get { return _locale; } }
+        public virtual string Locale => locale_;
 
         /// <summary>
         /// The set of locales supported by the remote server.
         /// </summary>
-        public virtual string[] SupportedLocales { get { return (_supportedLocales != null) ? (string[])_supportedLocales.Clone() : null; } }
-
+        public virtual string[] SupportedLocales => (string[])supportedLocales_?.Clone();
 
         /// <summary>
         /// Whether the remote server is currently connected.
         /// </summary>
-        public virtual bool IsConnected { get { return (server_ != null); } }
+        public virtual bool IsConnected => (Server != null);
 
         /// <summary>
         /// Allows the client to optionally register a client name with the server. This is included primarily for debugging purposes. The recommended behavior is that the client set his Node name and EXE name here.
@@ -432,7 +418,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual void Connect()
         {
-            Connect(_url, null);
+            Connect(opcUrl_, null);
         }
 
         /// <summary>Establishes a physical connection to the remote server.</summary>
@@ -440,10 +426,9 @@ namespace Technosoftware.DaAeHdaClient
         /// <param name="url">Name of the server. The usual form is http:://xxx/yyy, e.g. http://localhost//TsOpcXSampleServer/Service.asmx.</param>
         public virtual void Connect(string url)
         {
-            OpcConnectData connectData = null;
-            _factory = null;
-            OpcUrl opcurl = new OpcUrl(url);
-            Connect(opcurl, connectData);
+            Factory = null;
+            OpcUrl opcUrl = new OpcUrl(url);
+            Connect(opcUrl, null);
         }
 
         /// <summary>
@@ -452,7 +437,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <param name="connectData">Any protocol configuration or user authentication information.</param>
         public virtual void Connect(OpcConnectData connectData)
         {
-            Connect(_url, connectData);
+            Connect(opcUrl_, connectData);
         }
 
         /// <summary>
@@ -462,22 +447,22 @@ namespace Technosoftware.DaAeHdaClient
         /// <param name="connectData">Any protocol configuration or user authentication information.</param>
         public virtual void Connect(OpcUrl url, OpcConnectData connectData)
         {
-            if (url == null) throw new ArgumentNullException("url");
-            if (server_ != null) throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The server is already connected.");
+            if (url == null) throw new ArgumentNullException(nameof(url));
+            if (Server != null) throw new OpcResultException(new OpcResult(OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The server is already connected.");
 
             //  save url.
             SetUrl(url);
 
             try
             {
-                _factory.ForceDa20Usage = ForceDa20Usage;
+                Factory.ForceDa20Usage = ForceDa20Usage;
 
                 // instantiate the server object.
-                server_ = _factory.CreateInstance(url, connectData);
-                if (server_ == null) throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "A connection to the server could not be established.");
+                Server = Factory.CreateInstance(url, connectData);
+                if (Server == null) throw new OpcResultException(new OpcResult(OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "A connection to the server could not be established.");
 
                 // save the connect data.
-                _connectData = connectData;
+                connectData_ = connectData;
 
                 try
                 {
@@ -485,45 +470,46 @@ namespace Technosoftware.DaAeHdaClient
                     GetSupportedLocales();
 
                     // update the default locale.
-                    SetLocale(_locale);
+                    SetLocale(locale_);
 
                     SupportedSpecifications = new List<OpcSpecification>();
-                    if (server_ is Com.Da20.Server)
+                    if (Server is Com.Da20.Server)
                     {
                         SupportedSpecifications.Add(OpcSpecification.OPC_DA_20);
                     }
-                    else if (server_ is Com.Da.Server)
+                    else if (Server is Com.Da.Server)
                     {
                         SupportedSpecifications.Add(OpcSpecification.OPC_DA_30);
                         SupportedSpecifications.Add(OpcSpecification.OPC_DA_20);
                     }
-                    else if (server_ is Com.Ae.Server)
-                        if (server_ is Com.Ae.Server)
+                    else if (Server is Com.Ae.Server)
+                        if (Server is Com.Ae.Server)
                         {
                             SupportedSpecifications.Add(OpcSpecification.OPC_AE_10);
                         }
-                        else if (server_ is Com.Hda.Server)
-                            if (server_ is Com.Hda.Server)
+                        else if (Server is Com.Hda.Server)
+                            if (Server is Com.Hda.Server)
                             {
                                 SupportedSpecifications.Add(OpcSpecification.OPC_HDA_10);
                             }
                 }
-                catch (Exception e)
+                catch
                 {
+                    // ignored
                 }
-
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                if (server_ != null)
+                if (Server != null)
                 {
                     try { Disconnect(); }
-                    catch (Exception e1)
+                    catch
                     {
+                        // ignored
                     }
                 }
 
-                throw e;
+                throw;
             }
         }
 
@@ -532,11 +518,11 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual void Disconnect()
         {
-            if (server_ == null) throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The server is not currently connected.");
+            if (Server == null) throw new OpcResultException(new OpcResult(OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The server is not currently connected.");
 
             //  dispose of the remote server object.
-            server_.Dispose();
-            server_ = null;
+            Server.Dispose();
+            Server = null;
         }
 
         /// <summary>
@@ -544,15 +530,15 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         /// <remarks>This method does not copy the value of any properties.</remarks>
         /// <returns>An unconnected duplicate instance of the server object.</returns>
-        public virtual Technosoftware.DaAeHdaClient.OpcServer Duplicate()
+        public virtual OpcServer Duplicate()
         {
-            OpcServer instance = (Technosoftware.DaAeHdaClient.OpcServer)Activator.CreateInstance(GetType(), new object[] { _factory, _url });
+            OpcServer instance = (OpcServer)Activator.CreateInstance(GetType(), Factory, opcUrl_);
 
             //  preserve the credentials.
-            instance._connectData = _connectData;
+            instance.connectData_ = connectData_;
 
             //  preserve the locale.
-            instance._locale = _locale;
+            instance.locale_ = locale_;
 
             return instance;
         }
@@ -562,8 +548,8 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual event OpcServerShutdownEventHandler ServerShutdownEvent
         {
-            add { server_.ServerShutdownEvent += value; }
-            remove { server_.ServerShutdownEvent -= value; }
+            add => Server.ServerShutdownEvent += value;
+            remove => Server.ServerShutdownEvent -= value;
         }
 
         /// <summary>
@@ -572,13 +558,13 @@ namespace Technosoftware.DaAeHdaClient
         /// <returns>The locale name in the format "[languagecode]-[country/regioncode]".</returns>
         public virtual string GetLocale()
         {
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             // cache the current locale.
-            _locale = server_.GetLocale();
+            locale_ = Server.GetLocale();
 
             // return the cached value.
-            return _locale;
+            return locale_;
         }
 
         /// <summary>
@@ -588,29 +574,29 @@ namespace Technosoftware.DaAeHdaClient
         /// <returns>A locale that the server supports and is the best match for the requested locale.</returns>
         public virtual string SetLocale(string locale)
         {
-            if (server_ == null) throw new NotConnectedException();
+            if (Server == null) throw new NotConnectedException();
 
             try
             {
                 // set the requested locale on the server.
-                _locale = server_.SetLocale(locale);
+                locale_ = Server.SetLocale(locale);
             }
             catch
             {
                 // find a best match and check if the server supports it.
-                string revisedLocale = OpcServer.FindBestLocale(locale, _supportedLocales);
+                string revisedLocale = FindBestLocale(locale, supportedLocales_);
 
                 if (revisedLocale != locale)
                 {
-                    server_.SetLocale(revisedLocale);
+                    Server.SetLocale(revisedLocale);
                 }
 
                 // cache the revised locale.
-                _locale = revisedLocale;
+                locale_ = revisedLocale;
             }
 
             // return actual local used.
-            return _locale;
+            return locale_;
         }
 
         /// <summary>
@@ -620,10 +606,10 @@ namespace Technosoftware.DaAeHdaClient
         /// <returns>An array of locales with the format "[languagecode]-[country/regioncode]".</returns>
         public virtual string[] GetSupportedLocales()
         {
-            if (server_ == null) throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The server is not currently connected.");
+            if (Server == null) throw new OpcResultException(new OpcResult(OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The server is not currently connected.");
 
             //  cache supported locales.
-            _supportedLocales = server_.GetSupportedLocales();
+            supportedLocales_ = Server.GetSupportedLocales();
 
             //  return copy of cached locales. 
             return SupportedLocales;
@@ -637,9 +623,9 @@ namespace Technosoftware.DaAeHdaClient
         /// <returns>A message localized for the best match for the requested locale.</returns>
         public virtual string GetErrorText(string locale, OpcResult resultId)
         {
-            if (server_ == null) throw new OpcResultException(OpcResult.E_FAIL, "The server is not currently connected.");
+            if (Server == null) throw new OpcResultException(OpcResult.E_FAIL, "The server is not currently connected.");
 
-            return server_.GetErrorText(locale ?? _locale, resultId);
+            return Server.GetErrorText(locale ?? locale_, resultId);
         }
         #endregion
     }

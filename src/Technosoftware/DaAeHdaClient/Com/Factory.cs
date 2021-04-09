@@ -35,7 +35,7 @@ namespace Technosoftware.DaAeHdaClient.Com
     /// The default class used to instantiate server objects.
     /// </summary>
     [Serializable]
-    public class Factory : Technosoftware.DaAeHdaClient.OpcFactory
+    public class Factory : OpcFactory
     {
         //======================================================================
         // Construction
@@ -65,16 +65,16 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// <summary>
         /// Creates a new instance of the server.
         /// </summary>
-		public override Technosoftware.DaAeHdaClient.IOpcServer CreateInstance(Technosoftware.DaAeHdaClient.OpcUrl url, Technosoftware.DaAeHdaClient.OpcConnectData connectData)
+		public override IOpcServer CreateInstance(OpcUrl url, OpcConnectData connectData)
         {
-            object comServer = Factory.Connect(url, connectData);
+            object comServer = Connect(url, connectData);
 
             if (comServer == null)
             {
                 return null;
             }
 
-            Technosoftware.DaAeHdaClient.Com.Server server = null;
+            Server server = null;
             Type interfaceType = null;
 
             try
@@ -85,7 +85,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                 }
 
                 // DA
-                else if (url.Scheme == Technosoftware.DaAeHdaClient.OpcUrlScheme.DA)
+                else if (url.Scheme == OpcUrlScheme.DA)
                 {
                     // Verify that it is a DA server.
                     if (!typeof(OpcRcw.Da.IOPCServer).IsInstanceOfType(comServer))
@@ -114,7 +114,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                 }
 
                 // AE
-                else if (url.Scheme == Technosoftware.DaAeHdaClient.OpcUrlScheme.AE)
+                else if (url.Scheme == OpcUrlScheme.AE)
                 {
                     // Verify that it is a AE server.
                     if (!typeof(OpcRcw.Ae.IOPCEventServer).IsInstanceOfType(comServer))
@@ -127,7 +127,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                 }
 
                 // HDA
-                else if (url.Scheme == Technosoftware.DaAeHdaClient.OpcUrlScheme.HDA)
+                else if (url.Scheme == OpcUrlScheme.HDA)
                 {
                     // Verify that it is a HDA server.
                     if (!typeof(OpcRcw.Hda.IOPCHDA_Server).IsInstanceOfType(comServer))
@@ -147,7 +147,7 @@ namespace Technosoftware.DaAeHdaClient.Com
             }
             catch (NotSupportedException e)
             {
-                Technosoftware.DaAeHdaClient.Utilities.Interop.ReleaseServer(server);
+                Utilities.Interop.ReleaseServer(server);
                 server = null;
 
                 if (interfaceType != null)
@@ -168,7 +168,7 @@ namespace Technosoftware.DaAeHdaClient.Com
             }
             catch (Exception e)
             {
-                Technosoftware.DaAeHdaClient.Utilities.Interop.ReleaseServer(server);
+                Utilities.Interop.ReleaseServer(server);
                 server = null;
 
                 throw e;
@@ -186,7 +186,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// <summary>
         /// Connects to the specified COM server.
         /// </summary>
-        public static object Connect(Technosoftware.DaAeHdaClient.OpcUrl url, Technosoftware.DaAeHdaClient.OpcConnectData connectData)
+        public static object Connect(OpcUrl url, OpcConnectData connectData)
         {
             // parse path to find prog id and clsid.
             string progID = url.Path;
@@ -243,7 +243,7 @@ namespace Technosoftware.DaAeHdaClient.Com
             {
                 try
                 {
-                    return Technosoftware.DaAeHdaClient.Utilities.Interop.CreateInstance(guid, url.HostName, credentials);
+                    return Utilities.Interop.CreateInstance(guid, url.HostName, credentials);
                 }
                 catch (Exception e)
                 {

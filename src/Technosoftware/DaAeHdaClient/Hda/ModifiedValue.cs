@@ -26,48 +26,42 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// A value of an item at in instant of time that has be deleted or replaced.
-	/// </summary>
-	[Serializable]
-	public class TsCHdaModifiedValue : TsCHdaItemValue
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region Fields
+    /// <summary>
+    /// A value of an item at in instant of time that has be deleted or replaced.
+    /// </summary>
+    [Serializable]
+    public class TsCHdaModifiedValue : TsCHdaItemValue
+    {
+        #region Fields
+        private DateTime modificationTime_ = DateTime.MinValue;
+        private TsCHdaEditType editType_ = TsCHdaEditType.Insert;
+        #endregion
 
-		private DateTime _modificationTime = DateTime.MinValue;
-		private TsCHdaEditType _editType = TsCHdaEditType.Insert;
+        #region Properties
+        /// <summary>
+        /// The time when the value was deleted or replaced.
+        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+        /// the time format (UTC or local time).
+        /// </summary>
+        public DateTime ModificationTime
+        {
+            get => modificationTime_;
+            set => modificationTime_ = value;
+        }
 
-		#endregion
+        /// <summary>
+        /// Whether the value was deleted or replaced.
+        /// </summary>
+        public TsCHdaEditType EditType
+        {
+            get => editType_;
+            set => editType_ = value;
+        }
 
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
-
-		/// <summary>
-		/// The time when the value was deleted or replaced.
-		/// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
-		/// the time format (UTC or local time).
-		/// </summary>
-		public DateTime ModificationTime
-		{
-			get { return _modificationTime; }
-			set { _modificationTime = value; }
-		}
-
-		/// <summary>
-		/// Whether the value was deleted or replaced.
-		/// </summary>
-		public TsCHdaEditType EditType
-		{
-			get { return _editType; }
-			set { _editType = value; }
-		}
-
-		/// <summary>
-		/// The user who modified the item value.
-		/// </summary>
-		public string User { get; set; }
-
-		#endregion
-	}
+        /// <summary>
+        /// The user who modified the item value.
+        /// </summary>
+        public string User { get; set; }
+        #endregion
+    }
 }

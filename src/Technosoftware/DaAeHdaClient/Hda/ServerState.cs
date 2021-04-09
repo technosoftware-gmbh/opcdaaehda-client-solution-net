@@ -21,29 +21,28 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// The set of possible server states.
-	/// </summary>
-	public enum TsCHdaServerState
-	{
-		/// <summary>
-		/// The historian is running.
-		/// </summary>
-		Up = 1,
+    /// <summary>
+    /// The set of possible server states.
+    /// </summary>
+    public enum TsCHdaServerState
+    {
+        /// <summary>
+        /// The historian is running.
+        /// </summary>
+        Up = 1,
 
-		/// <summary>
-		/// The historian is not running.
-		/// </summary>
-		Down = 2,
+        /// <summary>
+        /// The historian is not running.
+        /// </summary>
+        Down = 2,
 
-		/// <summary>
-		/// The status of the historian is indeterminate.
-		/// </summary>
-		Indeterminate = 3
-	}
+        /// <summary>
+        /// The status of the historian is indeterminate.
+        /// </summary>
+        Indeterminate = 3
+    }
 }

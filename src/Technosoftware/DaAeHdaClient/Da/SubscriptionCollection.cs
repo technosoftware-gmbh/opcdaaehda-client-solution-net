@@ -70,9 +70,9 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// </summary>
 		public TsCDaSubscription this[int index]
 		{
-			get { return (TsCDaSubscription)_subscriptions[index]; }
-			set { _subscriptions[index] = value; }
-		}
+			get => (TsCDaSubscription)_subscriptions[index];
+            set => _subscriptions[index] = value;
+        }
 
 		#endregion
 
@@ -104,20 +104,14 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <summary>
 		/// Indicates whether access to the ICollection is synchronized (thread-safe).
 		/// </summary>
-		public bool IsSynchronized
-		{
-			get { return false; }
-		}
+		public bool IsSynchronized => false;
 
-		/// <summary>
+        /// <summary>
 		/// Gets the number of objects in the collection.
 		/// </summary>
-		public int Count
-		{
-			get { return (_subscriptions != null) ? _subscriptions.Count : 0; }
-		}
+		public int Count => (_subscriptions != null) ? _subscriptions.Count : 0;
 
-		/// <summary>
+        /// <summary>
 		/// Copies the objects to an Array, starting at a the specified index.
 		/// </summary>
 		/// <param name="array">The one-dimensional Array that is the destination for the objects.</param>
@@ -143,12 +137,9 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <summary>
 		/// Indicates whether access to the ICollection is synchronized (thread-safe).
 		/// </summary>
-		public object SyncRoot
-		{
-			get { return this; }
-		}
+		public object SyncRoot => this;
 
-		#endregion
+        #endregion
 
 		///////////////////////////////////////////////////////////////////////
 		#region IEnumerable Members
@@ -170,19 +161,16 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <summary>
 		/// Gets a value indicating whether the IList is read-only.
 		/// </summary>
-		public bool IsReadOnly
-		{
-			get { return false; }
-		}
+		public bool IsReadOnly => false;
 
-		/// <summary>
+        /// <summary>
 		/// Gets or sets the element at the specified index.
 		/// </summary>
 		object IList.this[int index]
 		{
-			get { return _subscriptions[index]; }
+			get => _subscriptions[index];
 
-			set
+            set
 			{
 				if (!typeof(TsCDaSubscription).IsInstanceOfType(value))
 				{
@@ -272,12 +260,9 @@ namespace Technosoftware.DaAeHdaClient.Da
 		/// <summary>
 		/// Indicates whether the IList has a fixed size.
 		/// </summary>
-		public bool IsFixedSize
-		{
-			get { return false; }
-		}
+		public bool IsFixedSize => false;
 
-		/// <summary>
+        /// <summary>
 		/// Inserts an subscription to the IList at the specified position.
 		/// </summary>
 		/// <param name="index">The zero-based index at which value should be inserted.</param>

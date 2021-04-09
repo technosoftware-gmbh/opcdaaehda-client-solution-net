@@ -22,11 +22,7 @@
 
 #region Using Directives
 using System;
-using System.Xml;
 using System.Collections;
-using System.Text;
-using System.Threading;
-using System.Globalization;
 using System.Runtime.Serialization;
 #endregion
 
@@ -38,28 +34,22 @@ namespace Technosoftware.DaAeHdaClient
     [Serializable]
     public class OpcReadOnlyCollection : ICollection, ICloneable, ISerializable
     {
-		///////////////////////////////////////////////////////////////////////
-		#region Fields
-
-		private Array _array;
-
-		#endregion
+        #region Fields
+        private Array array_;
+        #endregion
 
         #region Public Methods
         /// <summary>
         /// An indexer for the collection.
         /// </summary>
-        public virtual object this[int index]
-        {
-            get { return _array.GetValue(index); }
-        }
+        public virtual object this[int index] => array_.GetValue(index);
 
         /// <summary>
         /// Returns a copy of the collection as an array.
         /// </summary>
         public virtual Array ToArray()
         {
-            return (Array)Technosoftware.DaAeHdaClient.OpcConvert.Clone(_array);
+            return (Array)OpcConvert.Clone(array_);
         }
         #endregion
 
@@ -77,15 +67,15 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         protected virtual Array Array
         {
-            get { return _array;  }
+            get => array_;
 
             set
             {
-                _array  = value; 
+                array_ = value;
 
-                if (_array  == null)
+                if (array_ == null)
                 {
-                    _array  = new object[0];
+                    array_ = new object[0];
                 }
             }
         }
@@ -97,15 +87,15 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         private class Names
         {
-            internal const string ARRAY = "AR";
+            internal const string Array = "AR";
         }
 
         /// <summary>
-        /// Contructs a server by de-serializing its OpcUrl from the stream.
+        /// Construct a server by de-serializing its OpcUrl from the stream.
         /// </summary>
         protected OpcReadOnlyCollection(SerializationInfo info, StreamingContext context)
         {
-            _array = (Array)info.GetValue(Names.ARRAY, typeof(Array));
+            array_ = (Array)info.GetValue(Names.Array, typeof(Array));
         }
 
         /// <summary>
@@ -113,7 +103,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue(Names.ARRAY, _array);
+            info.AddValue(Names.Array, array_);
         }
         #endregion
 
@@ -121,18 +111,12 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Indicates whether access to the ICollection is synchronized (thread-safe).
         /// </summary>
-        public virtual bool IsSynchronized
-        {
-            get { return false; }
-        }
+        public virtual bool IsSynchronized => false;
 
         /// <summary>
         /// Gets the number of objects in the collection.
         /// </summary>
-        public virtual int Count
-        {
-            get { return _array.Length; }
-        }
+        public virtual int Count => array_.Length;
 
         /// <summary>
         /// Copies the objects to an Array, starting at a the specified index.
@@ -141,19 +125,17 @@ namespace Technosoftware.DaAeHdaClient
         /// <param name="index">The zero-based index in the Array at which copying begins.</param>
         public virtual void CopyTo(Array array, int index)
         {
-            if (_array  != null)
+            if (array_ != null)
             {
-                _array.CopyTo(array, index);
+                array_.CopyTo(array, index);
             }
         }
 
         /// <summary>
         /// Indicates whether access to the ICollection is synchronized (thread-safe).
         /// </summary>
-        public virtual object SyncRoot
-        {
-            get { return this; }
-        }
+        public virtual object SyncRoot => this;
+
         #endregion
 
         #region IEnumerable Members
@@ -163,7 +145,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <returns>An IEnumerator that can be used to iterate through the collection.</returns>
         public virtual IEnumerator GetEnumerator()
         {
-            return _array.GetEnumerator();
+            return array_.GetEnumerator();
         }
         #endregion
 
@@ -175,14 +157,14 @@ namespace Technosoftware.DaAeHdaClient
         {
             OpcReadOnlyCollection clone = (OpcReadOnlyCollection)MemberwiseClone();
 
-            ArrayList array = new ArrayList(_array.Length);
+            ArrayList array = new ArrayList(array_.Length);
 
             // clone the elements and determine the element type.
-            System.Type elementType = null;
+            Type elementType = null;
 
-            for (int ii = 0; ii < _array.Length; ii++)
+            for (int ii = 0; ii < array_.Length; ii++)
             {
-                object element = _array.GetValue(ii);
+                object element = array_.GetValue(ii);
 
                 if (elementType == null)
                 {
@@ -190,13 +172,13 @@ namespace Technosoftware.DaAeHdaClient
                 }
                 else if (elementType != typeof(object))
                 {
-                    while (!elementType.IsInstanceOfType(element))
+                    while (!(elementType is null) && !elementType.IsInstanceOfType(element))
                     {
                         elementType = elementType.BaseType;
                     }
                 }
 
-                array.Add(Technosoftware.DaAeHdaClient.OpcConvert.Clone(element));
+                array.Add(OpcConvert.Clone(element));
             }
 
             // convert array list to an array.

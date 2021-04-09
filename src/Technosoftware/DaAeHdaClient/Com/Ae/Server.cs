@@ -42,7 +42,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
     /// A .NET wrapper for a COM server that implements the AE server interfaces.
     /// </summary>
     [Serializable]
-    internal class Server : Technosoftware.DaAeHdaClient.Com.Server, Technosoftware.DaAeHdaClient.Ae.ITsCAeServer
+    internal class Server : Technosoftware.DaAeHdaClient.Com.Server, ITsCAeServer
     {
         #region Constructors
         /// <summary>
@@ -163,7 +163,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // return results.
-                return Technosoftware.DaAeHdaClient.Com.Ae.Interop.GetServerStatus(ref pStatus, true);
+                return Interop.GetServerStatus(ref pStatus, true);
             }
         }
 
@@ -181,11 +181,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             {
                 // verify state and arguments.
                 if (server_ == null) throw new NotConnectedException();
-                if (state == null)    throw new ArgumentNullException("state");
+                if (state == null)    throw new ArgumentNullException(nameof(state));
 
                 // initialize arguments.
                 object unknown    = null;
-                Guid   riid       = typeof(OpcRcw.Ae.IOPCEventSubscriptionMgt).GUID;
+                Guid   riid       = typeof(IOPCEventSubscriptionMgt).GUID;
                 int    bufferTime = 0;
                 int    maxSize    = 0;
 
@@ -211,7 +211,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 state.BufferTime = bufferTime;
                 state.MaxSize    = maxSize;
 
-                Subscription subscription = new Technosoftware.DaAeHdaClient.Com.Ae.Subscription(state, unknown);
+                Subscription subscription = new Subscription(state, unknown);
 
                 // set keep alive.
                 subscription.ModifyState((int)TsCAeStateMask.KeepAlive, state);
@@ -264,7 +264,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// </summary>
         /// <param name="eventType">A bit mask for the event types of interest.</param>
         /// <returns>A collection of event categories.</returns>
-        public Technosoftware.DaAeHdaClient.Ae.TsCAeCategory[] QueryEventCategories(int eventType)
+        public TsCAeCategory[] QueryEventCategories(int eventType)
         {
             lock (this)
             {
@@ -294,7 +294,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // check for empty list.
                 if (count == 0)
                 {
-                    return new Technosoftware.DaAeHdaClient.Ae.TsCAeCategory[0];
+                    return new TsCAeCategory[0];
                 }
 
                 // unmarshal arguments.
@@ -302,11 +302,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 string[] names = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszEventCategoryDescs, count, true);
 
                 // build results.
-                Technosoftware.DaAeHdaClient.Ae.TsCAeCategory[] categories = new Technosoftware.DaAeHdaClient.Ae.TsCAeCategory[count];
+                TsCAeCategory[] categories = new TsCAeCategory[count];
 
                 for (int ii = 0; ii < count; ii++)
                 {
-                    categories[ii] = new Technosoftware.DaAeHdaClient.Ae.TsCAeCategory();
+                    categories[ii] = new TsCAeCategory();
 
                     categories[ii].ID   = ids[ii];
                     categories[ii].Name = names[ii];
@@ -463,7 +463,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// </summary>
         /// <param name="eventCategory">A bit mask for the event categories of interest.</param>
         /// <returns>A collection of event attributes.</returns>
-        public Technosoftware.DaAeHdaClient.Ae.TsCAeAttribute[] QueryEventAttributes(int eventCategory)
+        public TsCAeAttribute[] QueryEventAttributes(int eventCategory)
         {
             lock (this)
             {
@@ -494,7 +494,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // check for empty list.
                 if (count == 0)
                 {
-                    return new Technosoftware.DaAeHdaClient.Ae.TsCAeAttribute[0];
+                    return new TsCAeAttribute[0];
                 }
 
                 // unmarshal arguments.
@@ -503,11 +503,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 short[]  types = Technosoftware.DaAeHdaClient.Com.Interop.GetInt16s(ref ppvtAttrTypes, count, true);
 
                 // build results.
-                Technosoftware.DaAeHdaClient.Ae.TsCAeAttribute[] attributes = new Technosoftware.DaAeHdaClient.Ae.TsCAeAttribute[count];
+                TsCAeAttribute[] attributes = new TsCAeAttribute[count];
 
                 for (int ii = 0; ii < count; ii++)
                 {
-                    attributes[ii] = new Technosoftware.DaAeHdaClient.Ae.TsCAeAttribute();
+                    attributes[ii] = new TsCAeAttribute();
 
                     attributes[ii].ID       = ids[ii];
                     attributes[ii].Name     = names[ii];
@@ -603,7 +603,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// <param name="conditionName">A condition name for the source.</param>
         /// <param name="attributeIDs">The list of attributes to return with the condition state.</param>
         /// <returns>The current state of the connection.</returns>
-		public Technosoftware.DaAeHdaClient.Ae.TsCAeCondition GetConditionState(
+		public TsCAeCondition GetConditionState(
             string sourceName,
             string conditionName,
             int[]  attributeIDs)
@@ -632,7 +632,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }       
             
                 // unmarshal results.
-				Technosoftware.DaAeHdaClient.Ae.TsCAeCondition[] conditions = Technosoftware.DaAeHdaClient.Com.Ae.Interop.GetConditions(ref ppConditionState, 1, true);
+				TsCAeCondition[] conditions = Interop.GetConditions(ref ppConditionState, 1, true);
             
                 // fill in attribute ids.
                 for (int ii = 0; ii < conditions[0].Attributes.Count; ii++)
@@ -710,7 +710,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
 
                 for (int ii = 0; ii < errors.Length; ii++)
                 {
-                    results[ii] = Technosoftware.DaAeHdaClient.Com.Ae.Interop.GetResultID(errors[ii]);
+                    results[ii] = Interop.GetResultID(errors[ii]);
                 }
 
                 // return results.
@@ -783,7 +783,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
 
                 for (int ii = 0; ii < errors.Length; ii++)
                 {
-                    results[ii] = Technosoftware.DaAeHdaClient.Com.Ae.Interop.GetResultID(errors[ii]);
+                    results[ii] = Interop.GetResultID(errors[ii]);
                 }
 
                 // return results.
@@ -856,7 +856,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
 
                 for (int ii = 0; ii < errors.Length; ii++)
                 {
-                    results[ii] = Technosoftware.DaAeHdaClient.Com.Ae.Interop.GetResultID(errors[ii]);
+                    results[ii] = Interop.GetResultID(errors[ii]);
                 }
 
                 // return results.
@@ -929,7 +929,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
 
                 for (int ii = 0; ii < errors.Length; ii++)
                 {
-                    results[ii] = Technosoftware.DaAeHdaClient.Com.Ae.Interop.GetResultID(errors[ii]);
+                    results[ii] = Interop.GetResultID(errors[ii]);
                 }
 
                 // return results.
@@ -1008,7 +1008,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
 
                     results[ii].Enabled            = enabled[ii] != 0;
                     results[ii].EffectivelyEnabled = effectivelyEnabled[ii] != 0;
-                    results[ii].Result           = Technosoftware.DaAeHdaClient.Com.Ae.Interop.GetResultID(errors[ii]);
+                    results[ii].Result           = Interop.GetResultID(errors[ii]);
                 }
 
                 // return results
@@ -1087,7 +1087,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
 
                     results[ii].Enabled            = enabled[ii] != 0;
                     results[ii].EffectivelyEnabled = effectivelyEnabled[ii] != 0;
-                    results[ii].Result           = Technosoftware.DaAeHdaClient.Com.Ae.Interop.GetResultID(errors[ii]);
+                    results[ii].Result           = Interop.GetResultID(errors[ii]);
                 }
 
                 // return results
@@ -1133,7 +1133,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 {
                     pszSource[ii]        = conditions[ii].SourceName;
                     pszConditionName[ii] = conditions[ii].ConditionName;
-                    pftActiveTime[ii]    = Ae.Interop.Convert(Com.Interop.GetFILETIME(conditions[ii].ActiveTime));
+                    pftActiveTime[ii]    = Interop.Convert(Com.Interop.GetFILETIME(conditions[ii].ActiveTime));
                     pdwCookie[ii]        = conditions[ii].Cookie;
                 }
 
@@ -1165,7 +1165,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
 
                 for (int ii = 0; ii < count; ii++)
                 {
-                    results[ii] = Technosoftware.DaAeHdaClient.Com.Ae.Interop.GetResultID(errors[ii]);
+                    results[ii] = Interop.GetResultID(errors[ii]);
                 }
 
                 // return results.
@@ -1183,9 +1183,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// <param name="browseType">The type of children to return.</param>
         /// <param name="browseFilter">The expression used to filter the names of children returned.</param>
         /// <returns>The set of elements that meet the filter criteria.</returns>
-        public Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement[] Browse(
+        public TsCAeBrowseElement[] Browse(
             string     areaID,
-            Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType browseType, 
+            TsCAeBrowseType browseType, 
             string     browseFilter)
         {
             lock (this)
@@ -1194,7 +1194,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 IOpcBrowsePosition position = null;
 
                 // browse for all elements at the current position.
-                Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement[] elements = Browse(areaID, browseType, browseFilter, 0, out position);
+                TsCAeBrowseElement[] elements = Browse(areaID, browseType, browseFilter, 0, out position);
 
                 // free position object.
                 if (position != null)
@@ -1216,9 +1216,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// <param name="maxElements">The maximum number of elements to return.</param>
         /// <param name="position">The object used to continue the browse if the number nodes exceeds the maximum specified.</param>
         /// <returns>The set of elements that meet the filter criteria.</returns>
-        public Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement[] Browse(
+        public TsCAeBrowseElement[] Browse(
             string              areaID,
-            Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType          browseType, 
+            TsCAeBrowseType          browseType, 
             string              browseFilter, 
             int                 maxElements,
             out IOpcBrowsePosition position)
@@ -1257,7 +1257,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // return results.
-                return (Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement[])elements.ToArray(typeof(Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement));
+                return (TsCAeBrowseElement[])elements.ToArray(typeof(TsCAeBrowseElement));
             }
         }
         
@@ -1270,13 +1270,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// <param name="maxElements">The maximum number of elements to return.</param>
         /// <param name="position">The position object used to continue a browse operation.</param>
         /// <returns>The set of elements that meet the filter criteria.</returns>
-        public Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement[] BrowseNext(int maxElements, ref IOpcBrowsePosition position)
+        public TsCAeBrowseElement[] BrowseNext(int maxElements, ref IOpcBrowsePosition position)
         {
             lock (this)
             {
                 // verify state and arguments.
                 if (server_ == null) throw new NotConnectedException();
-                if (position == null) throw new ArgumentNullException("position");
+                if (position == null) throw new ArgumentNullException(nameof(position));
 
                 // initialize browser.
                 InitializeBrowser();
@@ -1300,7 +1300,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // return results.
-                return (Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement[])elements.ToArray(typeof(Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement));
+                return (TsCAeBrowseElement[])elements.ToArray(typeof(TsCAeBrowseElement));
             }
         }   
         #endregion
@@ -1366,11 +1366,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// <summary>
         /// Creates an enumerator for the names at the current position.
         /// </summary>
-        private object CreateEnumerator(Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType browseType, string browseFilter)
+        private object CreateEnumerator(TsCAeBrowseType browseType, string browseFilter)
         {
             // initialize arguments.
             OPCAEBROWSETYPE dwBrowseFilterType = Interop.GetBrowseType(browseType);
-            OpcRcw.Comn.IEnumString enumerator = null;
+            IEnumString enumerator = null;
 
             // invoke COM method.
             try
@@ -1398,13 +1398,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// <summary>
         /// Returns the qualified name for the node at the current position.
         /// </summary>
-        private string GetQualifiedName(string name, Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType browseType)
+        private string GetQualifiedName(string name, TsCAeBrowseType browseType)
         {
             // initialize arguments.
             string nodeID = null;
 
             // fetch area qualified name.
-            if (browseType == Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Area)
+            if (browseType == TsCAeBrowseType.Area)
             {
                 try
                 {
@@ -1436,7 +1436,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// <summary>
         /// Fetches up to max elements and returns an flag indicating whether there are any elements left.
         /// </summary>
-		private int FetchElements(Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType browseType, int maxElements, System.Runtime.InteropServices.ComTypes.IEnumString enumerator, ArrayList elements)
+		private int FetchElements(TsCAeBrowseType browseType, int maxElements, System.Runtime.InteropServices.ComTypes.IEnumString enumerator, ArrayList elements)
         {
             string[] buffer = new string[1];
 
@@ -1457,7 +1457,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // create elements.
 				for (int ii = 0; ii < fetched; ii++)
                 {
-                    Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement element = new Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement();
+                    TsCAeBrowseElement element = new TsCAeBrowseElement();
 
                     element.Name          = buffer[ii];
                     element.QualifiedName = GetQualifiedName(buffer[ii], browseType);
@@ -1505,7 +1505,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
     /// Stores the state of a browse operation.
     /// </summary>
     [Serializable]
-    internal class BrowsePosition : Technosoftware.DaAeHdaClient.Ae.TsCAeBrowsePosition
+    internal class BrowsePosition : TsCAeBrowsePosition
     {
         #region Constructors
         /// <summary>
@@ -1513,7 +1513,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// </summary>
         public BrowsePosition(
             string          areaID,
-            Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType      browseType, 
+            TsCAeBrowseType      browseType, 
             string          browseFilter,
 			System.Runtime.InteropServices.ComTypes.IEnumString enumerator)
         :
@@ -1566,10 +1566,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// <summary>
         /// Returns the enumerator stored in the object.
         /// </summary>
-		public System.Runtime.InteropServices.ComTypes.IEnumString Enumerator
-        {
-            get { return m_enumerator; }
-        }
+		public System.Runtime.InteropServices.ComTypes.IEnumString Enumerator => m_enumerator;
+
         #endregion
 
         #region Private Members

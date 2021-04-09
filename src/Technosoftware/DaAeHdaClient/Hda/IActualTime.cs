@@ -26,19 +26,19 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// A interface used to actual time information associated with a result.
-	/// </summary>
-	public interface ITsCHdaActualTime
-	{
-		/// <summary>
-		/// The actual start time used by a server while processing a request.
-		/// </summary>
-		DateTime StartTime { get; set; }
+    /// <summary>
+    /// A interface used to actual time information associated with a result.
+    /// </summary>
+    public interface ITsCHdaActualTime
+    {
+        /// <summary>
+        /// The actual start time used by a server while processing a request.
+        /// </summary>
+        DateTime StartTime { get; set; }
 
-		/// <summary>
-		/// The actual end time used by a server while processing a request.
-		/// </summary>
-		DateTime EndTime { get; set; }
-	}
+        /// <summary>
+        /// The actual end time used by a server while processing a request.
+        /// </summary>
+        DateTime EndTime { get; set; }
+    }
 }

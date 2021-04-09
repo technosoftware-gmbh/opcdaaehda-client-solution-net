@@ -11,6 +11,8 @@
 ### Refactoring
 - Refactored Technosoftware.DaAeHdaClient.Da
 - Refactored Technosoftware.DaAeHdaClient.Ae
+- Refactored Technosoftware.DaAeHdaClient.Hda
+- Removed OpcServerType class because it is not used at all
 
 -------------------------------------------------------------------------------------------------------------
 ## OPC DA/AE/HDA Client Solution .NET - 1.1.1

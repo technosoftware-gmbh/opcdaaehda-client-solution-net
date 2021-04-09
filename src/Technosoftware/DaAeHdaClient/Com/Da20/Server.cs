@@ -70,7 +70,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     string methodName = "IOPCServer.RemoveGroup";
                     try
                     {
-                        OpcRcw.Da.IOPCServer server = BeginComCall<OpcRcw.Da.IOPCServer>(methodName, true);
+                        IOPCServer server = BeginComCall<IOPCServer>(methodName, true);
                         server.RemoveGroup(groupHandle_, 0);
                     }
                     catch (Exception e)
@@ -82,7 +82,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         EndComCall(methodName);
                     }
 
-                    Technosoftware.DaAeHdaClient.Utilities.Interop.ReleaseServer(subscription_);
+                    Utilities.Interop.ReleaseServer(subscription_);
                     subscription_ = null;
                     groupHandle_ = 0;
 
@@ -120,7 +120,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 {
                     Uninitialize();
                     ComCallError(methodName, e);
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException(methodName, e);
+                    throw Utilities.Interop.CreateException(methodName, e);
                 }
                 finally
                 {
@@ -153,7 +153,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 {
                     Uninitialize();
                     ComCallError(methodName, e);
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException(methodName, e);
+                    throw Utilities.Interop.CreateException(methodName, e);
                 }
                 finally
                 {
@@ -194,7 +194,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// </summary>
         public override TsCDaItemValueResult[] Read(TsCDaItem[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             // check if nothing to do.
             if (items.Length == 0)
@@ -271,7 +271,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         catch (Exception e)
                         {
                             ComCallError(methodName, e);
-                            throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException(methodName, e);
+                            throw Utilities.Interop.CreateException(methodName, e);
                         }
                         finally
                         {
@@ -314,7 +314,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// </summary>
         public override OpcItemResult[] Write(TsCDaItemValue[] items)
         {
-            if (items == null) throw new ArgumentNullException("items");
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             // check if nothing to do.
             if (items.Length == 0)
@@ -371,7 +371,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         for (int ii = 0; ii < serverHandles.Length; ii++)
                         {
                             serverHandles[ii] = (int)((OpcItemResult)writeItems[ii]).ServerHandle;
-                            values[ii] = Technosoftware.DaAeHdaClient.Utilities.Interop.GetVARIANT(((TsCDaItemValue)writeValues[ii]).Value);
+                            values[ii] = Utilities.Interop.GetVARIANT(((TsCDaItemValue)writeValues[ii]).Value);
                         }
 
                         IntPtr pErrors = IntPtr.Zero;
@@ -390,7 +390,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         catch (Exception e)
                         {
                             ComCallError(methodName, e);
-                            throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException(methodName, e);
+                            throw Utilities.Interop.CreateException(methodName, e);
                         }
                         finally
                         {
@@ -398,13 +398,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         }
 
                         // unmarshal results.
-                        int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, writeItems.Count, true);
+                        int[] errors = Utilities.Interop.GetInt32s(ref pErrors, writeItems.Count, true);
 
                         for (int ii = 0; ii < writeItems.Count; ii++)
                         {
                             OpcItemResult result = (OpcItemResult)writeItems[ii];
 
-                            result.Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
+                            result.Result = Utilities.Interop.GetResultId(errors[ii]);
                             result.DiagnosticInfo = null;
 
                             // convert COM code to unified DA code.
@@ -433,9 +433,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         public override TsCDaBrowseElement[] Browse(
             OpcItem itemId,
             TsCDaBrowseFilters filters,
-            out Technosoftware.DaAeHdaClient.Da.TsCDaBrowsePosition position)
+            out TsCDaBrowsePosition position)
         {
-            if (filters == null) throw new ArgumentNullException("filters");
+            if (filters == null) throw new ArgumentNullException(nameof(filters));
 
             position = null;
 
@@ -443,7 +443,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             {
                 if (server_ == null) throw new NotConnectedException();
 
-                Technosoftware.DaAeHdaClient.Com.Da20.BrowsePosition pos = null;
+                BrowsePosition pos = null;
 
                 ArrayList elements = new ArrayList();
 
@@ -490,19 +490,19 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// <summary>
         /// Continues a browse operation with previously specified search criteria.
         /// </summary>
-		public override TsCDaBrowseElement[] BrowseNext(ref Technosoftware.DaAeHdaClient.Da.TsCDaBrowsePosition position)
+		public override TsCDaBrowseElement[] BrowseNext(ref TsCDaBrowsePosition position)
         {
             lock (this)
             {
                 if (server_ == null) throw new NotConnectedException();
 
                 // check for valid browse position object.
-                if (position == null && position.GetType() != typeof(Technosoftware.DaAeHdaClient.Com.Da20.BrowsePosition))
+                if (position == null && position.GetType() != typeof(BrowsePosition))
                 {
                     throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The browse operation cannot continue");
                 }
 
-                Technosoftware.DaAeHdaClient.Com.Da20.BrowsePosition pos = (Technosoftware.DaAeHdaClient.Com.Da20.BrowsePosition)position;
+                BrowsePosition pos = (BrowsePosition)position;
 
                 OpcItem itemID = pos.ItemID;
                 TsCDaBrowseFilters filters = pos.Filters;
@@ -557,7 +557,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             TsDaPropertyID[] propertyIDs,
             bool returnValues)
         {
-            if (itemIds == null) throw new ArgumentNullException("itemIds");
+            if (itemIds == null) throw new ArgumentNullException(nameof(itemIds));
 
             // check for trival case.
             if (itemIds.Length == 0)
@@ -654,7 +654,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             catch (Exception e)
             {
                 ComCallError(methodName, e);
-                throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException(methodName, e);
+                throw Utilities.Interop.CreateException(methodName, e);
             }
             finally
             {
@@ -676,7 +676,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             catch (Exception e)
             {
                 ComCallError(methodName, e);
-                throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException(methodName, e);
+                throw Utilities.Interop.CreateException(methodName, e);
             }
             finally
             {
@@ -686,7 +686,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
             // unmarshal output parameters.
             int[] serverHandles = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetItemResults(ref pResults, count, true);
-            int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, count, true);
+            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, count, true);
 
             // create results list.
             OpcItemResult[] results = new OpcItemResult[count];
@@ -696,7 +696,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 results[ii] = new OpcItemResult(items[ii]);
 
                 results[ii].ServerHandle = null;
-                results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
+                results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
                 results[ii].DiagnosticInfo = null;
 
                 if (results[ii].Result.Succeeded())
@@ -749,13 +749,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 catch (Exception e)
                 {
                     ComCallError(methodName, e);
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException(methodName, e);
+                    throw Utilities.Interop.CreateException(methodName, e);
                 }
                 finally
                 {
                     EndComCall(methodName);
                     // free returned error array.
-                    Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, handles.Count, true);
+                    Utilities.Interop.GetInt32s(ref pErrors, handles.Count, true);
                 }
 
             }
@@ -777,7 +777,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
             for (int ii = 0; ii < results.Length; ii++)
             {
-                serverHandles[ii] = System.Convert.ToInt32(results[ii].ServerHandle);
+                serverHandles[ii] = Convert.ToInt32(results[ii].ServerHandle);
             }
 
             // initialize output parameters.
@@ -798,7 +798,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             catch (Exception e)
             {
                 ComCallError(methodName, e);
-                throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException(methodName, e);
+                throw Utilities.Interop.CreateException(methodName, e);
             }
             finally
             {
@@ -808,7 +808,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
             // unmarshal output parameters.
             TsCDaItemValue[] values = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetItemValues(ref pValues, results.Length, true);
-            int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, results.Length, true);
+            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, results.Length, true);
 
             // pre-fetch the current locale to use for data conversions.
             string locale = GetLocale();
@@ -816,7 +816,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             // construct results list.
             for (int ii = 0; ii < results.Length; ii++)
             {
-                results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
+                results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
                 results[ii].DiagnosticInfo = null;
 
                 if (results[ii].Result.Succeeded())
@@ -846,13 +846,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         results[ii].Timestamp = DateTime.MinValue;
                         results[ii].TimestampSpecified = false;
 
-                        if (e.GetType() == typeof(System.OverflowException))
+                        if (e.GetType() == typeof(OverflowException))
                         {
-                            results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(Result.E_RANGE);
+                            results[ii].Result = Utilities.Interop.GetResultId(Result.E_RANGE);
                         }
                         else
                         {
-                            results[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(Result.E_BADTYPE);
+                            results[ii].Result = Utilities.Interop.GetResultId(Result.E_BADTYPE);
                         }
                     }
                 }
@@ -900,9 +900,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             }
 
             // unmarshal results.
-            int[] propertyIDs = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pPropertyIDs, count, true);
-            short[] datatypes = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt16s(ref pDataTypes, count, true);
-            string[] descriptions = Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(ref pDescriptions, count, true);
+            int[] propertyIDs = Utilities.Interop.GetInt32s(ref pPropertyIDs, count, true);
+            short[] datatypes = Utilities.Interop.GetInt16s(ref pDataTypes, count, true);
+            string[] descriptions = Utilities.Interop.GetUnicodeStrings(ref pDescriptions, count, true);
 
             // check for error condition.
             if (count == 0)
@@ -919,7 +919,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
                 properties[ii].ID = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetPropertyID(propertyIDs[ii]);
                 properties[ii].Description = descriptions[ii];
-                properties[ii].DataType = Technosoftware.DaAeHdaClient.Utilities.Interop.GetType((VarEnum)datatypes[ii]);
+                properties[ii].DataType = Utilities.Interop.GetType((VarEnum)datatypes[ii]);
                 properties[ii].ItemName = null;
                 properties[ii].ItemPath = null;
                 properties[ii].Result = OpcResult.S_OK;
@@ -957,8 +957,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     out pErrors);
 
                 // unmarshal results.
-                string[] itemIDs = Technosoftware.DaAeHdaClient.Utilities.Interop.GetUnicodeStrings(ref pItemIDs, properties.Length, true);
-                int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, properties.Length, true);
+                string[] itemIDs = Utilities.Interop.GetUnicodeStrings(ref pItemIDs, properties.Length, true);
+                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, properties.Length, true);
 
                 // update property objects.
                 for (int ii = 0; ii < properties.Length; ii++)
@@ -1010,8 +1010,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     out pErrors);
 
                 // unmarshal results.
-                object[] values = Com.Interop.GetVARIANTs(ref pValues, properties.Length, true);
-                int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, properties.Length, true);
+                object[] values = Interop.GetVARIANTs(ref pValues, properties.Length, true);
+                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, properties.Length, true);
 
                 // update property objects.
                 for (int ii = 0; ii < properties.Length; ii++)
@@ -1024,7 +1024,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         continue;
                     }
 
-                    properties[ii].Result = Technosoftware.DaAeHdaClient.Utilities.Interop.GetResultId(errors[ii]);
+                    properties[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
 
                     // substitute property reult code.
                     if (errors[ii] == Result.E_BADRIGHTS)
@@ -1372,7 +1372,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 // free results.
                 Technosoftware.DaAeHdaClient.Com.Da.Interop.GetItemResults(ref pResults, 1, true);
 
-                int[] errors = Technosoftware.DaAeHdaClient.Utilities.Interop.GetInt32s(ref pErrors, 1, true);
+                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, 1, true);
 
                 // can only be an item if validation succeeded.
                 element.IsItem = (errors[0] >= 0);
@@ -1418,17 +1418,17 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             OpcItem itemID,
             TsCDaBrowseFilters filters,
             bool branches,
-            ref Technosoftware.DaAeHdaClient.Com.Da20.BrowsePosition position)
+            ref BrowsePosition position)
         {
             // get the enumerator.
             EnumString enumerator = null;
 
             if (position == null)
             {
-                OpcRcw.Da.IOPCBrowseServerAddressSpace browser = (OpcRcw.Da.IOPCBrowseServerAddressSpace)server_;
+                IOPCBrowseServerAddressSpace browser = (IOPCBrowseServerAddressSpace)server_;
 
                 // check the server address space type.
-                OpcRcw.Da.OPCNAMESPACETYPE namespaceType = OpcRcw.Da.OPCNAMESPACETYPE.OPC_NS_HIERARCHIAL;
+                OPCNAMESPACETYPE namespaceType = OPCNAMESPACETYPE.OPC_NS_HIERARCHIAL;
 
                 try
                 {
@@ -1436,11 +1436,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Utilities.Interop.CreateException("IOPCBrowseServerAddressSpace.QueryOrganization", e);
+                    throw Utilities.Interop.CreateException("IOPCBrowseServerAddressSpace.QueryOrganization", e);
                 }
 
                 // return an empty list if requesting branches for a flat address space.
-                if (namespaceType == OpcRcw.Da.OPCNAMESPACETYPE.OPC_NS_FLAT)
+                if (namespaceType == OPCNAMESPACETYPE.OPC_NS_FLAT)
                 {
                     if (branches)
                     {
@@ -1459,7 +1459,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                          (itemID != null) ? itemID.ItemName : null,
                          filters,
                          branches,
-             namespaceType == OpcRcw.Da.OPCNAMESPACETYPE.OPC_NS_FLAT);
+             namespaceType == OPCNAMESPACETYPE.OPC_NS_FLAT);
             }
             else
             {
@@ -1491,7 +1491,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         // check if max returned elements is exceeded.
                         if (filters.MaxElementsReturned != 0 && filters.MaxElementsReturned == elements.Count + elementsFound)
                         {
-                            position = new Technosoftware.DaAeHdaClient.Com.Da20.BrowsePosition(itemID, filters, enumerator, branches);
+                            position = new BrowsePosition(itemID, filters, enumerator, branches);
                             position.Names = names;
                             position.Index = ii;
                             break;
@@ -1543,7 +1543,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             TsCDaSubscriptionState state,
             int filters)
         {
-            return new Technosoftware.DaAeHdaClient.Com.Da20.Subscription(group, state, filters);
+            return new Subscription(group, state, filters);
         }
     }
 
@@ -1551,7 +1551,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
     /// Implements an object that handles multi-step browse operations for DA2.05 servers.
     /// </summary>
     [Serializable]
-    internal class BrowsePosition : Technosoftware.DaAeHdaClient.Da.TsCDaBrowsePosition
+    internal class BrowsePosition : TsCDaBrowsePosition
     {
         /// <summary>
         /// The enumerator for a browse operation.

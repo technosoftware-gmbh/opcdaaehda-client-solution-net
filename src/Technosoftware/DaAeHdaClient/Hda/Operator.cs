@@ -26,39 +26,39 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// The set of possible operators to use when applying an item attribute filter.
-	/// </summary>
-	public enum TsCHdaOperator
-	{
-		/// <summary>
-		/// The attribute value is equal (or matches) to the filter.
-		/// </summary>
-		Equal = 1,
+    /// <summary>
+    /// The set of possible operators to use when applying an item attribute filter.
+    /// </summary>
+    public enum TsCHdaOperator
+    {
+        /// <summary>
+        /// The attribute value is equal (or matches) to the filter.
+        /// </summary>
+        Equal = 1,
 
-		/// <summary>
-		/// The attribute value is less than the filter.
-		/// </summary>
-		Less,
+        /// <summary>
+        /// The attribute value is less than the filter.
+        /// </summary>
+        Less,
 
-		/// <summary>
-		/// The attribute value is less than or equal to the filter.
-		/// </summary>
-		LessEqual,
+        /// <summary>
+        /// The attribute value is less than or equal to the filter.
+        /// </summary>
+        LessEqual,
 
-		/// <summary>
-		/// The attribute value is greater than the filter.
-		/// </summary>
-		Greater,
+        /// <summary>
+        /// The attribute value is greater than the filter.
+        /// </summary>
+        Greater,
 
-		/// <summary>
-		/// The attribute value is greater than or equal to the filter.
-		/// </summary>
-		GreaterEqual,
+        /// <summary>
+        /// The attribute value is greater than or equal to the filter.
+        /// </summary>
+        GreaterEqual,
 
-		/// <summary>
-		/// The attribute value is not equal (or does not match)to the filter.
-		/// </summary>
-		NotEqual
-	}
+        /// <summary>
+        /// The attribute value is not equal (or does not match)to the filter.
+        /// </summary>
+        NotEqual
+    }
 }

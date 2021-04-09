@@ -29,21 +29,16 @@ using System.Runtime.Serialization;
 namespace Technosoftware.DaAeHdaClient
 {
     /// <summary>
-    /// Contains protocol dependent connection and authenication information.
+    /// Contains protocol dependent connection and authentication information.
     /// </summary>
     [Serializable]
     public class OpcConnectData : ISerializable, ICredentials
     {
-        ///////////////////////////////////////////////////////////////////////
         #region Fields
-
-        private WebProxy _proxy;
-
+        private WebProxy proxy_;
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Public Methods
-
         /// <summary>
         /// The credentials to submit to the proxy server for authentication.
         /// </summary>
@@ -72,13 +67,13 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public IWebProxy GetProxy()
         {
-            if (_proxy != null)
+            if (proxy_ != null)
             {
-                return _proxy;
+                return proxy_;
             }
             else
             {
-                return WebRequest.DefaultWebProxy ;
+                return WebRequest.DefaultWebProxy;
             }
         }
 
@@ -87,7 +82,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public void SetProxy(WebProxy proxy)
         {
-            _proxy = proxy;
+            proxy_ = proxy;
         }
 
         /// <summary>
@@ -95,8 +90,8 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
 		public OpcConnectData(OpcUserIdentity userIdentity)
         {
-			UserIdentity = userIdentity;
-            _proxy = null;
+            UserIdentity = userIdentity;
+            proxy_ = null;
         }
 
         /// <summary>
@@ -105,51 +100,50 @@ namespace Technosoftware.DaAeHdaClient
 		public OpcConnectData(OpcUserIdentity userIdentity, WebProxy proxy)
         {
             UserIdentity = userIdentity;
-            _proxy = proxy;
+            proxy_ = proxy;
         }
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region ISerializable Members
         /// <summary>
         /// A set of names for fields used in serialization.
         /// </summary>
         private class Names
         {
-            internal const string USER_NAME = "UN";
-            internal const string PASSWORD = "PW";
-            internal const string DOMAIN = "DO";
-            internal const string PROXY_URI = "PU";
-            internal const string LICENSE_KEY = "LK";
+            internal const string UserName = "UN";
+            internal const string Password = "PW";
+            internal const string Domain = "DO";
+            internal const string ProxyUri = "PU";
+            internal const string LicenseKey = "LK";
         }
 
         /// <summary>
-        /// Contructs teh object by de-serializing from the stream.
+        /// Construct the object by de-serializing from the stream.
         /// </summary>
         protected OpcConnectData(SerializationInfo info, StreamingContext context)
         {
-            string username = info.GetString(Names.USER_NAME);
-            string password = info.GetString(Names.PASSWORD);
-            string domain = info.GetString(Names.DOMAIN);
-            string proxyUri = info.GetString(Names.PROXY_URI);
-            string licenseKey = info.GetString(Names.LICENSE_KEY);
+            string username = info.GetString(Names.UserName);
+            string password = info.GetString(Names.Password);
+            string domain = info.GetString(Names.Domain);
+            string proxyUri = info.GetString(Names.ProxyUri);
+            info.GetString(Names.LicenseKey);
 
             if (domain != null)
             {
-				UserIdentity = new OpcUserIdentity("","");
+                UserIdentity = new OpcUserIdentity("", "");
             }
             else
             {
-				UserIdentity = new OpcUserIdentity(username, password);
+                UserIdentity = new OpcUserIdentity(username, password);
             }
 
             if (proxyUri != null)
             {
-                _proxy = new WebProxy(proxyUri);
+                proxy_ = new WebProxy(proxyUri);
             }
             else
             {
-                _proxy = null;
+                proxy_ = null;
             }
         }
 
@@ -160,24 +154,24 @@ namespace Technosoftware.DaAeHdaClient
         {
             if (UserIdentity != null)
             {
-                info.AddValue(Names.USER_NAME, UserIdentity.Username);
-                info.AddValue(Names.PASSWORD,  UserIdentity.Password);
-                info.AddValue(Names.DOMAIN,    UserIdentity.Domain);
+                info.AddValue(Names.UserName, UserIdentity.Username);
+                info.AddValue(Names.Password, UserIdentity.Password);
+                info.AddValue(Names.Domain, UserIdentity.Domain);
             }
             else
             {
-                info.AddValue(Names.USER_NAME, null);
-                info.AddValue(Names.PASSWORD, null);
-                info.AddValue(Names.DOMAIN, null);
+                info.AddValue(Names.UserName, null);
+                info.AddValue(Names.Password, null);
+                info.AddValue(Names.Domain, null);
             }
 
-            if (_proxy != null)
+            if (proxy_ != null)
             {
-                info.AddValue(Names.PROXY_URI, _proxy.Address);
+                info.AddValue(Names.ProxyUri, proxy_.Address);
             }
             else
             {
-                info.AddValue(Names.PROXY_URI, null);
+                info.AddValue(Names.ProxyUri, null);
             }
         }
         #endregion

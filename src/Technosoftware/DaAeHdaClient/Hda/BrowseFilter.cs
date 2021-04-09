@@ -26,56 +26,47 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// Defines a filter to apply to an item attribute when browsing.
-	/// </summary>
-	[Serializable]
-	public class TsCHdaBrowseFilter : ICloneable
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region Fields
+    /// <summary>
+    /// Defines a filter to apply to an item attribute when browsing.
+    /// </summary>
+    [Serializable]
+    public class TsCHdaBrowseFilter : ICloneable
+    {
+        #region Fields
+        private TsCHdaOperator filterOperator_ = TsCHdaOperator.Equal;
+        #endregion
 
-		private TsCHdaOperator _filterOperator = TsCHdaOperator.Equal;
+        #region Properties
+        /// <summary>
+        /// The attribute id to use when filtering.
+        /// </summary>
+        public int AttributeID { get; set; }
 
-		#endregion
+        /// <summary>
+        /// The operator to use when testing if the filter condition is met.
+        /// </summary>
+        public TsCHdaOperator Operator
+        {
+            get => filterOperator_;
+            set => filterOperator_ = value;
+        }
 
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
+        /// <summary>
+        /// The value of the filter. The '*' and '?' wildcard characters are permitted. 
+        /// </summary>
+        public object FilterValue { get; set; }
+        #endregion
 
-		/// <summary>
-		/// The attribute id to use when filtering.
-		/// </summary>
-		public int AttributeID { get; set; }
-
-		/// <summary>
-		/// The operator to use when testing if the filter condition is met.
-		/// </summary>
-		public TsCHdaOperator Operator
-		{
-			get { return _filterOperator; }
-			set { _filterOperator = value; }
-		}
-
-		/// <summary>
-		/// The value of the filter. The '*' and '?' wildcard characters are permitted. 
-		/// </summary>
-		public object FilterValue { get; set; }
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region ICloneable Members
-
-		/// <summary>
-		/// Creates a deepcopy of the object.
-		/// </summary>
-		public virtual object Clone()
-		{
-			TsCHdaBrowseFilter filter = (TsCHdaBrowseFilter)MemberwiseClone();
-			filter.FilterValue = Technosoftware.DaAeHdaClient.OpcConvert.Clone(FilterValue);
-			return filter;
-		}
-
-		#endregion
-	}
+        #region ICloneable Members
+        /// <summary>
+        /// Creates a deep-copy of the object.
+        /// </summary>
+        public virtual object Clone()
+        {
+            TsCHdaBrowseFilter filter = (TsCHdaBrowseFilter)MemberwiseClone();
+            filter.FilterValue = OpcConvert.Clone(FilterValue);
+            return filter;
+        }
+        #endregion
+    }
 }

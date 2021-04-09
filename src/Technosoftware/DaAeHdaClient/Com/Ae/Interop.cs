@@ -116,12 +116,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// <summary>
         /// Converts a NodeType value to the OPCAEBROWSETYPE equivalent.
         /// </summary>
-        internal static OpcRcw.Ae.OPCAEBROWSETYPE GetBrowseType(Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType input)
+        internal static OpcRcw.Ae.OPCAEBROWSETYPE GetBrowseType(TsCAeBrowseType input)
         {
             switch (input)
             {
-                case Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Area: return OpcRcw.Ae.OPCAEBROWSETYPE.OPC_AREA;
-                case Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Source: return OpcRcw.Ae.OPCAEBROWSETYPE.OPC_SOURCE;
+                case TsCAeBrowseType.Area: return OpcRcw.Ae.OPCAEBROWSETYPE.OPC_AREA;
+                case TsCAeBrowseType.Source: return OpcRcw.Ae.OPCAEBROWSETYPE.OPC_SOURCE;
             }
 
             return OpcRcw.Ae.OPCAEBROWSETYPE.OPC_AREA;
@@ -180,13 +180,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// <summary>
         /// Converts an array of OPCCONDITIONSTATE structs to an array of Condition objects.
         /// </summary>
-        internal static Technosoftware.DaAeHdaClient.Ae.TsCAeCondition[] GetConditions(ref IntPtr pInput, int count, bool deallocate)
+        internal static TsCAeCondition[] GetConditions(ref IntPtr pInput, int count, bool deallocate)
         {
-            Technosoftware.DaAeHdaClient.Ae.TsCAeCondition[] output = null;
+            TsCAeCondition[] output = null;
 
             if (pInput != IntPtr.Zero && count > 0)
             {
-                output = new Technosoftware.DaAeHdaClient.Ae.TsCAeCondition[count];
+                output = new TsCAeCondition[count];
 
                 IntPtr pos = pInput;
 
@@ -194,7 +194,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 {
                     OpcRcw.Ae.OPCCONDITIONSTATE condition = (OpcRcw.Ae.OPCCONDITIONSTATE)Marshal.PtrToStructure(pos, typeof(OpcRcw.Ae.OPCCONDITIONSTATE));
 
-                    output[ii] = new Technosoftware.DaAeHdaClient.Ae.TsCAeCondition();
+                    output[ii] = new TsCAeCondition();
 
                     output[ii].State = condition.wState;
                     output[ii].Quality = new TsCDaQuality(condition.wQuality);
@@ -243,11 +243,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                     {
                         for (int jj = 0; jj < values.Length; jj++)
                         {
-                            Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeValue attribute = new Technosoftware.DaAeHdaClient.Ae.TsCAeAttributeValue();
+                            TsCAeAttributeValue attribute = new TsCAeAttributeValue();
 
                             attribute.ID = 0;
                             attribute.Value = values[jj];
-                            attribute.Result = Technosoftware.DaAeHdaClient.Com.Ae.Interop.GetResultID(errors[jj]);
+                            attribute.Result = GetResultID(errors[jj]);
 
                             output[ii].Attributes.Add(attribute);
                         }

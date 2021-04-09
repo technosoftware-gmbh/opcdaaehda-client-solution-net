@@ -32,17 +32,12 @@ namespace Technosoftware.DaAeHdaClient
     [Serializable]
     public class OpcItemResult : OpcItem, IOpcResult
     {
-        ///////////////////////////////////////////////////////////////////////
         #region Fields
-
-        private OpcResult _result = OpcResult.S_OK;
-        private string _diagnosticInfo = null;
-
+        private OpcResult result_ = OpcResult.S_OK;
+        private string diagnosticInfo_;
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region Constructors, Destructor, Initialization
-        
         /// <summary>
         /// Initialize object with default values.
         /// </summary>
@@ -72,53 +67,50 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Initializes the object with the specified item name and result code.
         /// </summary>
-        public OpcItemResult(string itemName, OpcResult resultID)
+        public OpcItemResult(string itemName, OpcResult resultId)
             : base(itemName)
         {
-            Result = resultID;
+            Result = resultId;
         }
 
         /// <summary>
         /// Initialize object with the specified item name, result code and diagnostic info.
         /// </summary>
-        public OpcItemResult(string itemName, OpcResult resultID, string diagnosticInfo)
+        public OpcItemResult(string itemName, OpcResult resultId, string diagnosticInfo)
             : base(itemName)
         {
-            Result = resultID;
+            Result = resultId;
             DiagnosticInfo = diagnosticInfo;
         }
 
         /// <summary>
         /// Initialize object with the specified OpcItem and result code.
         /// </summary>
-        public OpcItemResult(OpcItem item, OpcResult resultID)
+        public OpcItemResult(OpcItem item, OpcResult resultId)
             : base(item)
         {
-            Result = resultID;
+            Result = resultId;
         }
 
         /// <summary>
         /// Initialize object with the specified OpcItem, result code and diagnostic info.
         /// </summary>
-        public OpcItemResult(OpcItem item, OpcResult resultID, string diagnosticInfo)
+        public OpcItemResult(OpcItem item, OpcResult resultId, string diagnosticInfo)
             : base(item)
         {
-            Result = resultID;
+            Result = resultId;
             DiagnosticInfo = diagnosticInfo;
         }
-
         #endregion
 
-        ///////////////////////////////////////////////////////////////////////
         #region IOpcResult Members
-
         /// <summary>
         /// The error id for the result of an operation on an item.
         /// </summary>
         public OpcResult Result
         {
-            get { return _result; }
-            set { _result = value; }
+            get => result_;
+            set => result_ = value;
         }
 
         /// <summary>
@@ -126,11 +118,9 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public string DiagnosticInfo
         {
-            get { return _diagnosticInfo; }
-            set { _diagnosticInfo = value; }
+            get => diagnosticInfo_;
+            set => diagnosticInfo_ = value;
         }
-
         #endregion
-
     }
 }

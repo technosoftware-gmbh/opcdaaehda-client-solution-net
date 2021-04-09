@@ -26,52 +26,45 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// An offset component of a relative time.
-	/// </summary>
-	[Serializable]
-	public struct TsCHdaTimeOffset
-	{
+    /// <summary>
+    /// An offset component of a relative time.
+    /// </summary>
+    [Serializable]
+    public struct TsCHdaTimeOffset
+    {
+        #region Properties
+        /// <summary>
+        /// A signed value indicated the magnitude of the time offset.
+        /// </summary>
+        public int Value { get; set; }
 
-		///////////////////////////////////////////////////////////////////////
-		#region Properties
+        /// <summary>
+        /// The time interval to use when applying the offset.
+        /// </summary>
+        public TsCHdaRelativeTime Type { get; set; }
+        #endregion
 
-		/// <summary>
-		/// A signed value indicated the magnitude of the time offset.
-		/// </summary>
-		public int Value { get; set; }
+        #region Internal Methods
+        /// <summary>
+        /// Converts a offset type to a string token.
+        /// </summary>
+        /// <param name="offsetType">The offset type value to convert.</param>
+        /// <returns>The string token representing the offset type.</returns>
+        internal static string OffsetTypeToString(TsCHdaRelativeTime offsetType)
+        {
+            switch (offsetType)
+            {
+                case TsCHdaRelativeTime.Second: { return "S"; }
+                case TsCHdaRelativeTime.Minute: { return "M"; }
+                case TsCHdaRelativeTime.Hour: { return "H"; }
+                case TsCHdaRelativeTime.Day: { return "D"; }
+                case TsCHdaRelativeTime.Week: { return "W"; }
+                case TsCHdaRelativeTime.Month: { return "MO"; }
+                case TsCHdaRelativeTime.Year: { return "Y"; }
+            }
 
-		/// <summary>
-		/// The time interval to use when applying the offset.
-		/// </summary>
-		public TsCHdaRelativeTime Type { get; set; }
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region Internal Methods
-
-		/// <summary>
-		/// Converts a offset type to a string token.
-		/// </summary>
-		/// <param name="offsetType">The offset type value to convert.</param>
-		/// <returns>The string token representing the offset type.</returns>
-		internal static string OffsetTypeToString(TsCHdaRelativeTime offsetType)
-		{
-			switch (offsetType)
-			{
-				case TsCHdaRelativeTime.Second: { return "S"; }
-				case TsCHdaRelativeTime.Minute: { return "M"; }
-				case TsCHdaRelativeTime.Hour: { return "H"; }
-				case TsCHdaRelativeTime.Day: { return "D"; }
-				case TsCHdaRelativeTime.Week: { return "W"; }
-				case TsCHdaRelativeTime.Month: { return "MO"; }
-				case TsCHdaRelativeTime.Year: { return "Y"; }
-			}
-
-			throw new ArgumentOutOfRangeException("offsetType", offsetType.ToString(), "Invalid value for relative time offset type.");
-		}
-
-		#endregion
-	}
+            throw new ArgumentOutOfRangeException(nameof(offsetType), offsetType.ToString(), @"Invalid value for relative time offset type.");
+        }
+        #endregion
+    }
 }

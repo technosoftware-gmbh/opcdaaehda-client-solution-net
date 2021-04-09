@@ -165,10 +165,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// <summary>
         /// Gets the current trace mask settings.
         /// </summary>
-        public static int TraceMask
-        {
-            get { return s_traceMasks; }
-        }
+        public static int TraceMask => s_traceMasks;
 
         /// <summary>
         /// Sets the mask for tracing (thead safe).
@@ -181,11 +178,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// <summary>
         /// Returns Tracing class instance for event attaching.
         /// </summary>
-        public static Tracing Tracing
-        {
-            get
-            { return Tracing.Instance; }
-        }
+        public static Tracing Tracing => Tracing.Instance;
 
         /// <summary>
         /// Writes a trace statement.
@@ -219,7 +212,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 // write to debug trace listeners.
                 if (s_traceOutput == (int)TraceOutput.DebugAndFile)
                 {
-                    System.Diagnostics.Debug.WriteLine(output);
+                    Debug.WriteLine(output);
                 }
 
                 // write to trace listeners.
@@ -514,7 +507,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// </summary>
         public static string GetAbsoluteFilePath(string filePath, bool checkCurrentDirectory, bool throwOnError, bool createAlways)
         {
-            filePath = Utils.ReplaceSpecialFolderNames(filePath);
+            filePath = ReplaceSpecialFolderNames(filePath);
 
             if (!String.IsNullOrEmpty(filePath))
             {
@@ -543,7 +536,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                     {
                         if (!file.Exists)
                         {
-                            file = new FileInfo(Utils.Format("{0}\\{1}", Environment.CurrentDirectory, filePath));
+                            file = new FileInfo(Format("{0}\\{1}", Environment.CurrentDirectory, filePath));
                         }
 
                         if (file.Exists)
@@ -565,7 +558,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
 
                         if (executable.Exists)
                         {
-                            file = new FileInfo(Utils.Format("{0}\\{1}", executable.DirectoryName, filePath));
+                            file = new FileInfo(Format("{0}\\{1}", executable.DirectoryName, filePath));
                         }
 
                         if (file.Exists)

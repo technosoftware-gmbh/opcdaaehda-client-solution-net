@@ -26,69 +26,60 @@ using System;
 
 namespace Technosoftware.DaAeHdaClient.Hda
 {
-	/// <summary>
-	/// Describes the results for an item used in a read processed or raw data request.
-	/// </summary>
-	[Serializable]
-	public class TsCHdaItemResult : TsCHdaItem, IOpcResult
-	{
-		///////////////////////////////////////////////////////////////////////
-		#region Fields
+    /// <summary>
+    /// Describes the results for an item used in a read processed or raw data request.
+    /// </summary>
+    [Serializable]
+    public class TsCHdaItemResult : TsCHdaItem, IOpcResult
+    {
+        #region Fields
+        private OpcResult result_ = OpcResult.S_OK;
+        #endregion
 
-		private OpcResult _result = OpcResult.S_OK;
+        #region Constructors, Destructor, Initialization
+        /// <summary>
+        /// Initialize object with default values.
+        /// </summary>
+        public TsCHdaItemResult() { }
 
-		#endregion
+        /// <summary>
+        /// Initialize object with the specified ItemIdentifier object.
+        /// </summary>
+        public TsCHdaItemResult(OpcItem item) : base(item) { }
 
-		///////////////////////////////////////////////////////////////////////
-		#region Constructors, Destructor, Initialization
+        /// <summary>
+        /// Initializes object with the specified Item object.
+        /// </summary>
+        public TsCHdaItemResult(TsCHdaItem item) : base(item) { }
 
-		/// <summary>
-		/// Initialize object with default values.
-		/// </summary>
-		public TsCHdaItemResult() { }
+        /// <summary>
+        /// Initialize object with the specified ItemResult object.
+        /// </summary>
+        public TsCHdaItemResult(TsCHdaItemResult item)
+            : base(item)
+        {
+            if (item != null)
+            {
+                Result = item.Result;
+                DiagnosticInfo = item.DiagnosticInfo;
+            }
+        }
+        #endregion
 
-		/// <summary>
-		/// Initialize object with the specified ItemIdentifier object.
-		/// </summary>
-		public TsCHdaItemResult(OpcItem item) : base(item) { }
+        #region IOpcResult Members
+        /// <summary>
+        /// The error id for the result of an operation on an item.
+        /// </summary>
+        public OpcResult Result
+        {
+            get => result_;
+            set => result_ = value;
+        }
 
-		/// <summary>
-		/// Initializes object with the specified Item object.
-		/// </summary>
-		public TsCHdaItemResult(TsCHdaItem item) : base(item) { }
-
-		/// <summary>
-		/// Initialize object with the specified ItemResult object.
-		/// </summary>
-		public TsCHdaItemResult(TsCHdaItemResult item)
-			: base(item)
-		{
-			if (item != null)
-			{
-				Result = item.Result;
-				DiagnosticInfo = item.DiagnosticInfo;
-			}
-		}
-
-		#endregion
-
-		///////////////////////////////////////////////////////////////////////
-		#region IOpcResult Members
-
-		/// <summary>
-		/// The error id for the result of an operation on an item.
-		/// </summary>
-		public OpcResult Result
-		{
-			get { return _result; }
-			set { _result = value; }
-		}
-
-		/// <summary>
-		/// Vendor specific diagnostic information (not the localized error text).
-		/// </summary>
-		public string DiagnosticInfo { get; set; }
-
-		#endregion
-	}
+        /// <summary>
+        /// Vendor specific diagnostic information (not the localized error text).
+        /// </summary>
+        public string DiagnosticInfo { get; set; }
+        #endregion
+    }
 }
