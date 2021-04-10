@@ -9,10 +9,6 @@ The OPC DA/AE/HDA  Solution .NET API defines classes which can be used to implem
 
 We provide an online help for the current version: [OPC DA/AE/HDA Solution NET Online Help](https://technosoftware.com/help/OPCDaAeHdaSolutionNet/12/)
 
-### Build Status
-
-[![Build Status](https://dev.azure.com/technosoftware-gmbh/OPC%20UA%20Solution%20.NET/_apis/build/status/DaAeHdaSolutionBuild?branchName=master)](https://dev.azure.com/technosoftware-gmbh/OPC%20UA%20Solution%20.NET/_build/latest?definitionId=39&branchName=master)
-
 ## Getting started
 
 Examples can be found in the solution [WorkshopClientSamples.sln](/WorkshopClientSamples.sln).
