@@ -7,7 +7,7 @@ The OPC DA/AE/HDA  Solution .NET API defines classes which can be used to implem
 
 ## Online Help
 
-We provide an online help for the current version: [OPC DA/AE/HDA Solution NET Online Help](https://technosoftware.com/help/OPCDaAeHdaSolutionNet/12/)
+We provide an online help for the current version: [OPC DA/AE/HDA Client Solution NET Online Help](https://technosoftware.com/help/OPCDaAeHdaClientSolutionNet/12/)
 
 ## Getting started
 
@@ -23,3 +23,13 @@ See [LICENSE.md](LICENSE.md) for more details.
 The OPC DA/AE/HDA Client Solution .NET One-time fee for lifetime SCLA 1.0 license is available at
 
  * [OPC DA/AE/HDA Client Solution .NET](https://technosoftware.com/product/opc-daaehda-client-solution-net/)
+
+### Get Support for the Solution under GPL 3.0 or SCLA 1.0:
+
+Support for the Solution under the GPL 3.0 or SCLA 1.0 is available [here](https://github.com/technosoftware-gmbh/opcdaaehda-client-solution-net/issues).
+
+### Get Support with a Support Subscription:
+
+The Support Subscription is ideal for a corporation and a user of Technosoftware GmbH’s solutions on productive systems for which you want to get support for.
+
+There are different levels availabe for purchase available [here](https://technosoftware.com/product/opc-support/).

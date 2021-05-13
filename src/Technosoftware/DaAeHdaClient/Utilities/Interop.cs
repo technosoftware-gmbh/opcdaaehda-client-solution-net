@@ -348,15 +348,15 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         {
             void CreateInstance(
                 [MarshalAs(UnmanagedType.IUnknown)]
-				object punkOuter,
-                [MarshalAs(UnmanagedType.LPStruct)] 
-				Guid riid,
+                object punkOuter,
+                [MarshalAs(UnmanagedType.LPStruct)]
+                Guid riid,
                 [MarshalAs(UnmanagedType.Interface)]
-				[Out] out object ppvObject);
+                [Out] out object ppvObject);
 
             void LockServer(
                 [MarshalAs(UnmanagedType.Bool)]
-				bool fLock);
+                bool fLock);
         }
 
         [ComImport]
@@ -366,15 +366,15 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         {
             void CreateInstance(
                 [MarshalAs(UnmanagedType.IUnknown)]
-				object punkOuter,
-                [MarshalAs(UnmanagedType.LPStruct)] 
-				Guid riid,
+                object punkOuter,
+                [MarshalAs(UnmanagedType.LPStruct)]
+                Guid riid,
                 [MarshalAs(UnmanagedType.Interface)]
-				[Out] out object ppvObject);
+                [Out] out object ppvObject);
 
             void LockServer(
                 [MarshalAs(UnmanagedType.Bool)]
-				bool fLock);
+                bool fLock);
 
             void GetLicInfo(
                 [In, Out] ref LICINFO pLicInfo);
@@ -382,19 +382,19 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             void RequestLicKey(
                 int dwReserved,
                 [MarshalAs(UnmanagedType.BStr)]
-				string pbstrKey);
+                string pbstrKey);
 
             void CreateInstanceLic(
                 [MarshalAs(UnmanagedType.IUnknown)]
-				object punkOuter,
+                object punkOuter,
                 [MarshalAs(UnmanagedType.IUnknown)]
-				object punkReserved,
-                [MarshalAs(UnmanagedType.LPStruct)]  
-				Guid riid,
+                object punkReserved,
+                [MarshalAs(UnmanagedType.LPStruct)]
+                Guid riid,
                 [MarshalAs(UnmanagedType.BStr)]
-				string bstrKey,
+                string bstrKey,
                 [MarshalAs(UnmanagedType.IUnknown)]
-				[Out] out object ppvObject);
+                [Out] out object ppvObject);
         }
 
         [DllImport("ole32.dll")]
@@ -403,7 +403,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             uint dwClsContext,
             [In] ref COSERVERINFO pServerInfo,
             [MarshalAs(UnmanagedType.LPStruct)] Guid riid,
-            [MarshalAs(UnmanagedType.IUnknown)] [Out] out object ppv);
+            [MarshalAs(UnmanagedType.IUnknown)][Out] out object ppv);
 
         [DllImport("advapi32.dll", SetLastError = true)]
         private static extern bool LogonUser(
@@ -423,19 +423,19 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             int SECURITY_IMPERSONATION_LEVEL,
             ref IntPtr DuplicateTokenHandle);
 
- #region Nested type: GUID
+        #region Nested type: GUID
 
         /// <summary>
         /// WIN32 GUID struct declaration.
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         private struct GUID
-            {
+        {
             public readonly int Data1;
             public readonly short Data2;
             public readonly short Data3;
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)] public readonly byte[] Data4;
-            }
+        }
 
         #endregion
 
@@ -443,39 +443,39 @@ namespace Technosoftware.DaAeHdaClient.Utilities
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         private struct SOLE_AUTHENTICATION_SERVICE
-				{
+        {
             public readonly uint dwAuthnSvc;
             public readonly uint dwAuthzSvc;
             [MarshalAs(UnmanagedType.LPWStr)] public readonly string pPrincipalName;
             public readonly int hr;
-				}
+        }
 
         #endregion
 
         #endregion
 
-        private static bool _preserveUTC = true;
+        private static bool preserveUtc_ = true;
 
-		/// <summary>
-        /// This flag supresses the conversion to local time done during marhsalling.
-		/// </summary>
-        public static bool PreserveUTC
-			{
+        /// <summary>
+        /// This flag suppresses the conversion to local time done during marshalling.
+        /// </summary>
+        public static bool PreserveUtc
+        {
             get
-			{
-                lock (typeof (Interop))
-				{
-                    return _preserveUTC;
-				}
-			}
+            {
+                lock (typeof(Interop))
+                {
+                    return preserveUtc_;
+                }
+            }
             set
-		{
-                lock (typeof (Interop))
-			{
-                    _preserveUTC = value;
-				}
-			}
-		}
+            {
+                lock (typeof(Interop))
+                {
+                    preserveUtc_ = value;
+                }
+            }
+        }
 
         #region ServerInfo Class
         /// <summary>
@@ -1379,7 +1379,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             // adjust for WIN32 FILETIME base.
             long ticks = 0;
 
-            if (_preserveUTC)
+            if (preserveUtc_)
             {
                 ticks = datetime.Subtract(new TimeSpan(FILETIME_BaseTime.Ticks)).Ticks;
             }
@@ -1446,7 +1446,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             }
 
             // adjust for WIN32 FILETIME base.          
-            if (_preserveUTC)
+            if (preserveUtc_)
             {
                 return FILETIME_BaseTime.Add(new TimeSpan(ticks));
             }
@@ -1834,7 +1834,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 if (input == OpcResult.Da.S_DATAQUEUEOVERFLOW) return Com.Da.Result.S_DATAQUEUEOVERFLOW;
             }
 
-                // complex data.
+            // complex data.
             else if (input.Name != null && input.Name.Namespace == OpcNamespace.OPC_COMPLEX_DATA)
             {
                 if (input == OpcResult.Cpx.E_TYPE_CHANGED) return Com.Cpx.Result.E_TYPE_CHANGED;
@@ -1951,13 +1951,13 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 string msg = Marshal.PtrToStringUni(buffer);
                 Marshal.FreeCoTaskMem(buffer);
 
-                if (msg != null && msg.Length > 0)
+                if (!string.IsNullOrEmpty(msg))
                 {
                     return msg.Trim();
                 }
             }
 
-            return String.Format("0x{0:X8}", error);
+            return $"0x{error:X8}";
         }
     }
 }

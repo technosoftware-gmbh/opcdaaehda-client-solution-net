@@ -22,45 +22,37 @@
 
 #region Using Directives
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Text;
-using System.Xml;
 using System.Globalization;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
 using System.Diagnostics;
-using System.Reflection;
-using System.Runtime.Serialization;
 using System.IO;
-using Microsoft.Win32;
-using System.Runtime.InteropServices;
+// ReSharper disable UnusedMember.Global
+
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Utilities
 {
-	/// <summary>
-	/// Defines various static utility functions.
-	/// </summary>
-	internal static class Utils
+    /// <summary>
+    /// Defines various static utility functions.
+    /// </summary>
+    internal static class Utils
     {
         #region Trace Support
-        #if DEBUG
-        private static int s_traceOutput = (int)TraceOutput.DebugAndFile;
-        private static int s_traceMasks = (int)TraceMasks.All;
-        #else
-        private static int s_traceOutput = (int)TraceOutput.FileOnly;
-        private static int s_traceMasks = (int)TraceMasks.None;
-        #endif
+#if DEBUG
+        private static int traceOutput_ = (int)TraceOutput.DebugAndFile;
+        private static int traceMasks_ = TraceMasks.All;
+#else
+        private static int traceOutput_ = (int)TraceOutput.FileOnly;
+        private static int traceMasks_ = (int)TraceMasks.None;
+#endif
 
-        private static string s_traceFileName = null;
-        private static long s_BaseLineTicks = DateTime.UtcNow.Ticks;
-        private static object s_traceFileLock = new object();
+        private static string traceFileName_;
+        private static long baseLineTicks_ = DateTime.UtcNow.Ticks;
+        private static object traceFileLock_ = new object();
 
         /// <summary>
         /// The possible trace output mechanisms.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
         public enum TraceOutput
         {
             /// <summary>
@@ -87,14 +79,13 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// <summary>
         /// The masks used to filter trace messages.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
         public static class TraceMasks
         {
             /// <summary>
             /// Do not output any messages.
             /// </summary>
             public const int None = 0x0;
-            
+
             /// <summary>
             /// Output error messages.
             /// </summary>
@@ -156,23 +147,23 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// </summary>
         public static void SetTraceOutput(TraceOutput output)
         {
-            lock (s_traceFileLock)
+            lock (traceFileLock_)
             {
-                s_traceOutput = (int)output;
+                traceOutput_ = (int)output;
             }
         }
 
         /// <summary>
         /// Gets the current trace mask settings.
         /// </summary>
-        public static int TraceMask => s_traceMasks;
+        public static int TraceMask => traceMasks_;
 
         /// <summary>
         /// Sets the mask for tracing (thead safe).
         /// </summary>
         public static void SetTraceMask(int masks)
         {
-            s_traceMasks = (int)masks;
+            traceMasks_ = masks;
         }
 
         /// <summary>
@@ -186,7 +177,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         private static void TraceWriteLine(string message, params object[] args)
         {
             // null strings not supported.
-            if (String.IsNullOrEmpty(message))
+            if (string.IsNullOrEmpty(message))
             {
                 return;
             }
@@ -203,27 +194,27 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 catch (Exception)
                 {
                     output = message;
-                } 
+                }
             }
 
             // write to the log file.
-            lock (s_traceFileLock)
+            lock (traceFileLock_)
             {
                 // write to debug trace listeners.
-                if (s_traceOutput == (int)TraceOutput.DebugAndFile)
+                if (traceOutput_ == (int)TraceOutput.DebugAndFile)
                 {
                     Debug.WriteLine(output);
                 }
 
                 // write to trace listeners.
-                if (s_traceOutput == (int)TraceOutput.StdOutAndFile)
+                if (traceOutput_ == (int)TraceOutput.StdOutAndFile)
                 {
                     System.Diagnostics.Trace.WriteLine(output);
                 }
 
-                string traceFileName = s_traceFileName;
+                string traceFileName = traceFileName_;
 
-                if (s_traceOutput != (int)TraceOutput.Off && !String.IsNullOrEmpty(traceFileName))
+                if (traceOutput_ != (int)TraceOutput.Off && !String.IsNullOrEmpty(traceFileName))
                 {
                     try
                     {
@@ -251,7 +242,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("Could not write to trace file. Error={0}\r\nFilePath={1}", e.Message, traceFileName);
+                        Console.WriteLine(@"Could not write to trace file. Error={0} FilePath={1}", e.Message, traceFileName);
                     }
                 }
             }
@@ -263,25 +254,25 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         public static void SetTraceLog(string filePath, bool deleteExisting)
         {
             // turn tracing on.
-            lock (s_traceFileLock)
+            lock (traceFileLock_)
             {
                 // check if tracing is being turned off.
                 if (String.IsNullOrEmpty(filePath))
                 {
-                    s_traceFileName = null;
+                    traceFileName_ = null;
                     return;
                 }
 
-                s_traceFileName = GetAbsoluteFilePath(filePath, true, false, true);
+                traceFileName_ = GetAbsoluteFilePath(filePath, true, false, true);
 
-                if (s_traceOutput == (int)TraceOutput.Off)
+                if (traceOutput_ == (int)TraceOutput.Off)
                 {
-                    s_traceOutput = (int)TraceOutput.FileOnly;
+                    traceOutput_ = (int)TraceOutput.FileOnly;
                 }
 
                 try
                 {
-                    FileInfo file = new FileInfo(s_traceFileName);
+                    FileInfo file = new FileInfo(traceFileName_);
 
                     if (deleteExisting && file.Exists)
                     {
@@ -301,13 +292,13 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 }
             }
         }
-        
+
         /// <summary>
         /// Writes an informational message to the trace log.
         /// </summary>
         public static void Trace(string format, params object[] args)
         {
-            Trace((int)TraceMasks.Information, format, false, args);
+            Trace(TraceMasks.Information, format, false, args);
         }
 
         /// <summary>
@@ -353,9 +344,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             // append exception information.
             if (e != null)
             {
-                OpcResultException sre = e as OpcResultException;
-
-                if (sre != null)
+                if (e is OpcResultException sre)
                 {
                     message.AppendFormat(CultureInfo.InvariantCulture, " {0} '{1}'", sre.Result.Code, sre.Message);
                 }
@@ -365,16 +354,16 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 }
 
                 // append stack trace.
-                if ((s_traceMasks & (int)TraceMasks.StackTrace) != 0)
+                if ((traceMasks_ & TraceMasks.StackTrace) != 0)
                 {
                     message.AppendFormat(CultureInfo.InvariantCulture, "\r\n\r\n{0}\r\n", new String('=', 40));
-                    message.Append(e.StackTrace.ToString());
+                    message.Append(e.StackTrace);
                     message.AppendFormat(CultureInfo.InvariantCulture, "\r\n{0}\r\n", new String('=', 40));
                 }
             }
 
             // trace message.
-            Trace((int)TraceMasks.Error, message.ToString(), handled, null);
+            Trace(TraceMasks.Error, message.ToString(), handled, null);
         }
 
         /// <summary>
@@ -388,13 +377,11 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             }
 
             // do nothing if mask not enabled.
-            if ((s_traceMasks & traceMask) == 0)
+            if ((traceMasks_ & traceMask) == 0)
             {
                 return;
             }
 
-            double seconds = ((double)(HiResClock.UtcNow.Ticks - s_BaseLineTicks))/TimeSpan.TicksPerSecond;
-            
             StringBuilder message = new StringBuilder();
 
             // append process and timestamp.
@@ -411,7 +398,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 catch (Exception)
                 {
                     message.Append(format);
-                } 
+                }
             }
             else
             {
@@ -449,8 +436,8 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             }
 
             // extract special folder name.
-            string folder = null;
-            string path = null;
+            string folder;
+            string path;
 
             int index = input.IndexOf('%', 1);
 
@@ -471,7 +458,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             try
             {
                 var specialFolder = (Environment.SpecialFolder)Enum.Parse(
-                    typeof (Environment.SpecialFolder),
+                    typeof(Environment.SpecialFolder),
                     folder,
                     true);
 
@@ -577,7 +564,8 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             // file does not exist.
             if (throwOnError)
             {
-                throw new OpcResultException(new OpcResult((int)OpcResult.CONNECT_E_NOCONNECTION.Code, OpcResult.FuncCallType.SysFuncCall, null), String.Format("File does not exist: {0}\r\nCurrent directory is: {1}", filePath, Environment.CurrentDirectory));
+                throw new OpcResultException(new OpcResult(OpcResult.CONNECT_E_NOCONNECTION.Code, OpcResult.FuncCallType.SysFuncCall, null),
+                    $"File does not exist: {filePath}\r\nCurrent directory is: {Environment.CurrentDirectory}");
             }
 
             return null;
@@ -591,18 +579,18 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             try
             {
                 // create the directory as required.
-                if (!file.Directory.Exists)
+                if (file.Directory != null && !file.Directory.Exists)
                 {
                     Directory.CreateDirectory(file.DirectoryName);
                 }
 
                 // open and close the file.
-                using (Stream ostrm = file.Open(FileMode.CreateNew, FileAccess.ReadWrite, FileShare.ReadWrite))
+                using (file.Open(FileMode.CreateNew, FileAccess.ReadWrite, FileShare.ReadWrite))
                 {
                     return filePath;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 if (throwOnError)
                 {
@@ -630,8 +618,8 @@ namespace Technosoftware.DaAeHdaClient.Utilities
     public class Tracing
     {
         #region Private Members
-        private static object m_syncRoot = new Object();
-        private static Tracing s_instance;
+        private static object syncRoot_ = new object();
+        private static Tracing instance_;
         #endregion Private Members
 
         #region Singleton Instance
@@ -648,17 +636,17 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         {
             get
             {
-                if (s_instance == null)
+                if (instance_ == null)
                 {
-                    lock (m_syncRoot)
+                    lock (syncRoot_)
                     {
-                        if (s_instance == null)
+                        if (instance_ == null)
                         {
-                            s_instance = new Tracing();
+                            instance_ = new Tracing();
                         }
                     }
                 }
-                return s_instance;
+                return instance_;
             }
         }
         #endregion Singleton Instance
@@ -716,27 +704,27 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// <summary>
         /// Gets the trace mask.
         /// </summary>
-        public int TraceMask { get; private set; }
+        public int TraceMask { get; }
 
         /// <summary>
         /// Gets the format.
         /// </summary>
-        public string Format { get; private set; }
+        public string Format { get; }
 
         /// <summary>
         /// Gets the arguments.
         /// </summary>
-        public object[] Arguments { get; private set; }
+        public object[] Arguments { get; }
 
         /// <summary>
         /// Gets the message.
         /// </summary>
-        public string Message { get; private set; }
+        public string Message { get; }
 
         /// <summary>
         /// Gets the exception.
         /// </summary>
-        public Exception Exception { get; private set; }
+        public Exception Exception { get; }
         #endregion Public Properties
     }
     #endregion TraceEventArgs Class
@@ -747,7 +735,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
     public static class ConfigUtils
     {
         /// <summary>
-        /// Gets the log file directory and ensures it is writeable.
+        /// Gets the log file directory and ensures it is writable.
         /// </summary>
         public static string GetLogFileDirectory()
         {

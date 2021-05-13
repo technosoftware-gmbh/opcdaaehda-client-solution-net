@@ -22,7 +22,6 @@
 
 #region Using Directives
 using System;
-using System.Xml;
 using System.Runtime.Serialization;
 #endregion
 
