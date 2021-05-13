@@ -1090,7 +1090,7 @@ begin
   end
   variable
   begin
-    defaultvalue = c:\\opcdaaehda-solution-net-src
+    defaultvalue = c:\\opcdaaehda-client-solution-net
     groupname = paths_git
     name = build_dir
     variablescope = vtProject
@@ -1111,13 +1111,6 @@ begin
   end
   variable
   begin
-    defaultvalue = %build_dir%\\installer
-    groupname = paths
-    name = installer_dir
-    variablescope = vtProject
-  end
-  variable
-  begin
     defaultvalue = 1
     groupname = version
     name = major_version
@@ -1132,7 +1125,7 @@ begin
   end
   variable
   begin
-    defaultvalue = 120
+    defaultvalue = 121
     groupname = version
     name = sdk_version
     variablescope = vtProject
