@@ -1,0 +1,1885 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DocumentXProject Id="{76D92FEA-3799-4C52-81D9-7CAC4D3FDD8F}" Version="2018.1">
+  <Features>
+    <Feature>Document! X</Feature>
+  </Features>
+  <SeparateFiles>false</SeparateFiles>
+  <Flags>
+    <Flag Id="{4AAE0FD4-7313-4FEE-A25F-0785B885F736}" HighlightColor="#FFFFFFA1">Exclude from Booklet</Flag>
+    <Flag Id="{46CEF21D-3301-4517-A875-A0906828390E}" HighlightColor="#FFA1FFD0">Exclude from Online</Flag>
+  </Flags>
+  <PropertyDefinitions />
+  <PropertyDefinitionValues />
+  <Title m="2007-05-31T10:49:56Z">OPC Server Studio .NET</Title>
+  <ContentFiles>
+    <ContentFile FileName="Technosoftware.DaAeHdaClient.dxc" Moniker="..\..\src\Technosoftware\DaAeHdaClient\bin\Release\net5.0-windows\Technosoftware.DaAeHdaClient.dll" DocType="DX.NET" />
+  </ContentFiles>
+  <AutoDocFiles />
+  <ContentFromProjectPlugin />
+  <Filters>
+    <ExcludedItems>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Sec_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Sec.IOPCSecurityNT</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Sec.IOPCSecurityPrivate</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.CATID_OPCHDAServer10</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.Constants</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_AsyncAnnotations</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_AsyncRead</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_AsyncUpdate</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_Browser</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_DataCallback</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_Playback</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_Server</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_SyncAnnotations</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_SyncRead</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_SyncUpdate</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_AGGREGATE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_ANNOTATION</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_ANNOTATIONCAPABILITIES</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_ATTRIBUTE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_BROWSEDIRECTION</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_BROWSETYPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_EDITTYPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_ITEM</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_MODIFIEDITEM</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_OPERATORCODES</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_SERVERSTATUS</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_TIME</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_UPDATECAPABILITIES</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.CATID_OPCDAServer10</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.CATID_OPCDAServer20</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.CATID_OPCDAServer30</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.CATID_XMLDAServer10</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.Constants</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IEnumOPCItemAttributes</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCAsyncIO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCAsyncIO2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCAsyncIO3</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCBrowse</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCBrowseServerAddressSpace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCDataCallback</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCGroupStateMgt</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCGroupStateMgt2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCItemDeadbandMgt</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCItemIO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCItemMgt</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCItemProperties</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCItemSamplingMgt</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCPublicGroupStateMgt</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCServer</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCServerPublicGroups</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCSyncIO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCSyncIO2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCBROWSEDIRECTION</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCBROWSEELEMENT</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCBROWSEFILTER</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCBROWSETYPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCDATASOURCE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCENUMSCOPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCEUTYPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCGROUPHEADER</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCGROUPHEADERWRITE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMATTRIBUTES</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMDEF</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMHEADER1</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMHEADER2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMHEADERWRITE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMPROPERTIES</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMPROPERTY</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMRESULT</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMSTATE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMVQT</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCNAMESPACETYPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCSERVERSTATE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCSERVERSTATUS</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.Properties</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.Qualities</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.CONNECTDATA</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IConnectionPoint</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IConnectionPointContainer</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IEnumConnectionPoints</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IEnumConnections</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IEnumGUID</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IEnumString</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IEnumUnknown</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IOPCCommon</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IOPCEnumGUID</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IOPCServerList</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IOPCServerList2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IOPCShutdown</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.CATID_OPCAEServer10</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.Constants</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.IOPCEventAreaBrowser</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.IOPCEventServer</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.IOPCEventServer2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.IOPCEventSink</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.IOPCEventSubscriptionMgt</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.IOPCEventSubscriptionMgt2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.ONEVENTSTRUCT</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.OPCAEBROWSEDIRECTION</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.OPCAEBROWSETYPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.OPCCONDITIONSTATE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.OPCEVENTSERVERSTATE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.OPCEVENTSERVERSTATUS</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da20_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da20.BrowsePosition</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da20.Server</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da20.Subscription</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.BrowsePosition</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Interop</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Request</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Result</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Server</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Subscription</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Subscription+Callback</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Subscription+ItemTable</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Cpx_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Cpx.Result</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.BrowsePosition</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.Browser</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.DataCallback</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.Interop</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.Request</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.Result</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.Server</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae.BrowsePosition</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae.Interop</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae.Result</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae.Server</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae.Subscription</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae.Subscription+Callback</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComServerDescription</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+GUID</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+IClassFactory</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+IClassFactory2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+LICINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+MULTI_QI</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+ServerInfo</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ConnectionPoint</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.EnumString</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Factory</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+GUID</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+IClassFactory2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+IClientSecurity</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+LICINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+MULTI_QI</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+ServerInfo</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+GUID</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+IClassFactory</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+IClassFactory2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+LICINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+MULTI_QI</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+ServerInfo</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Server</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Server+Callback</ExcludedItem>
+      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ServerFactory</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcConnectData+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcFactory+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcReadOnlyCollection+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcReadOnlyDictionary+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcResult+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcServer+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcWriteableCollection+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcWriteableDictionary+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcResult+CodeType</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcResult+FuncCallType</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.HiResClock</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.HiResClock+NativeMethods</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+ServerInfo</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Utils</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Utils+TraceMasks</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+IClassFactory</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+IClassFactory2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+MULTI_QI</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+LICINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+GUID</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Utils+TraceOutput</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Hda.TsCHdaServer+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Hda.TsCHdaTrend+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Hda.ITsCHdaServer</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Da.TsDaPropertyID+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Da.TsCDaServer+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Da.TsCDaSubscription+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Cpx.TsCCpxContext</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+ServerInfo</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ConnectionPoint</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.EnumString</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+ServerInfo</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+ServerInfo</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Server</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Server+Callback</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ServerFactory</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComServerDescription</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+IClassFactory</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+IClassFactory2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+IClassFactory2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+IClientSecurity</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+IClassFactory</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+IClassFactory2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+GUID</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+MULTI_QI</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+LICINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+MULTI_QI</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+LICINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+GUID</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+GUID</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+MULTI_QI</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+LICINFO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Hda_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Cpx_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Da_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Da20_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Ae_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Ae.TsCAeItemUrlCollection</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Ae.TsCAeServer+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Ae.TsCAeSubscription+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Ae.TsCAeSubscriptionFilters+Names</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Ae.ITsCAeServer</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Factory</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.FILETIME</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.CATID_OPCAEServer10</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.Constants</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.FILETIME</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.IOPCEventAreaBrowser</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.IOPCEventServer</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.IOPCEventServer2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.IOPCEventSink</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.IOPCEventSubscriptionMgt</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.IOPCEventSubscriptionMgt2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.ONEVENTSTRUCT</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.OPCAEBROWSEDIRECTION</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.OPCAEBROWSETYPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.OPCCONDITIONSTATE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.OPCEVENTSERVERSTATE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.OPCEVENTSERVERSTATUS</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.CONNECTDATA</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IConnectionPoint</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IConnectionPointContainer</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IEnumConnectionPoints</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IEnumConnections</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IEnumGUID</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IEnumString</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IEnumUnknown</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IOPCCommon</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IOPCEnumGUID</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IOPCServerList</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IOPCServerList2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IOPCShutdown</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.CATID_OPCDAServer10</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.CATID_OPCDAServer20</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.CATID_OPCDAServer30</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.CATID_XMLDAServer10</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.Constants</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IEnumOPCItemAttributes</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCAsyncIO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCAsyncIO2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCAsyncIO3</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCBrowse</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCBrowseServerAddressSpace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCDataCallback</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCGroupStateMgt</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCGroupStateMgt2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCItemDeadbandMgt</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCItemIO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCItemMgt</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCItemProperties</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCItemSamplingMgt</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCPublicGroupStateMgt</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCServer</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCServerPublicGroups</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCSyncIO</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCSyncIO2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCBROWSEDIRECTION</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCBROWSEELEMENT</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCBROWSEFILTER</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCBROWSETYPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCDATASOURCE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCENUMSCOPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCEUTYPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCGROUPHEADER</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCGROUPHEADERWRITE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMATTRIBUTES</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMDEF</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMHEADER1</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMHEADER2</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMHEADERWRITE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMPROPERTIES</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMPROPERTY</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMRESULT</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMSTATE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMVQT</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCNAMESPACETYPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCSERVERSTATE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCSERVERSTATUS</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.Properties</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Da.Qualities</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.CATID_OPCHDAServer10</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.Constants</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_AsyncAnnotations</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_AsyncRead</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_AsyncUpdate</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_Browser</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_DataCallback</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_Playback</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_Server</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_SyncAnnotations</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_SyncRead</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_SyncUpdate</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_AGGREGATE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_ANNOTATION</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_ANNOTATIONCAPABILITIES</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_ATTRIBUTE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_BROWSEDIRECTION</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_BROWSETYPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_EDITTYPE</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_ITEM</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_MODIFIEDITEM</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_OPERATORCODES</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_SERVERSTATUS</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_TIME</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_UPDATECAPABILITIES</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Sec_namespace</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Sec.IOPCSecurityNT</ExcludedItem>
+      <ExcludedItem>OpcClientSdk~OpcRcw.Sec.IOPCSecurityPrivate</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.EvaluationTimer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcConnectData+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcFactory+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcReadOnlyCollection+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcReadOnlyDictionary+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcResult+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcWriteableCollection+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcWriteableDictionary+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcResult+CodeType</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcResult+FuncCallType</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.HiResClock</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.HiResClock+NativeMethods</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Utils</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Utils+TraceMasks</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Utils+TraceOutput</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Licensing_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Licensing.Validation_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Licensing.Security.Cryptography_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Hda.TsCHdaServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Hda.TsCHdaTrend+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Hda.ITsCHdaServer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Da.TsDaPropertyID+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Da.TsCDaServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Da.TsCDaSubscription+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Cpx.TsCCpxContext</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ConnectionPoint</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.EnumString</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Server</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Server+Callback</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+IClientSecurity</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Hda_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Cpx_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Da_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Da20_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Ae_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Ae.TsCAeItemUrlCollection</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Ae.TsCAeServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Ae.TsCAeSubscription+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Ae.TsCAeSubscriptionFilters+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Ae.ITsCAeServer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Factory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.FILETIME</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ServerEnumerator</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.CONNECTDATA</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IConnectionPoint</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IConnectionPointContainer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumConnectionPoints</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumConnections</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumGUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumString</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumUnknown</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCCommon</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCEnumGUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCServerList</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCServerList2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCShutdown</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~-_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcConnectData+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcFactory+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcReadOnlyCollection+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcReadOnlyDictionary+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcResult+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcWriteableCollection+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcWriteableDictionary+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcResult+CodeType</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcResult+FuncCallType</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.HiResClock</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.HiResClock+NativeMethods</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Utils</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Utils+TraceMasks</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Utils+TraceOutput</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Hda.TsCHdaServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Hda.TsCHdaTrend+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Hda.ITsCHdaServer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Da.TsDaPropertyID+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Da.TsCDaServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Da.TsCDaSubscription+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Cpx.TsCCpxContext</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ConnectionPoint</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.EnumString</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Server</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Server+Callback</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+IClientSecurity</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Hda_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Cpx_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da20_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Ae_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeItemUrlCollection</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeSubscription+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeSubscriptionFilters+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.ITsCAeServer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.CATID_OPCAEServer10</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.Constants</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.FILETIME</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.IOPCEventAreaBrowser</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.IOPCEventServer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.IOPCEventServer2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.IOPCEventSink</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.IOPCEventSubscriptionMgt</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.IOPCEventSubscriptionMgt2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.ONEVENTSTRUCT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.OPCAEBROWSEDIRECTION</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.OPCAEBROWSETYPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.OPCCONDITIONSTATE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.OPCEVENTSERVERSTATE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.OPCEVENTSERVERSTATUS</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.CATID_OPCDAServer10</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.CATID_OPCDAServer20</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.CATID_OPCDAServer30</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.CATID_XMLDAServer10</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.Constants</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.FILETIME</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IEnumOPCItemAttributes</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCAsyncIO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCAsyncIO2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCAsyncIO3</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCBrowse</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCBrowseServerAddressSpace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCDataCallback</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCGroupStateMgt</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCGroupStateMgt2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCItemDeadbandMgt</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCItemIO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCItemMgt</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCItemProperties</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCItemSamplingMgt</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCPublicGroupStateMgt</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCServer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCServerPublicGroups</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCSyncIO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.IOPCSyncIO2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCBROWSEDIRECTION</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCBROWSEELEMENT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCBROWSEFILTER</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCBROWSETYPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCDATASOURCE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCENUMSCOPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCEUTYPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCGROUPHEADER</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCGROUPHEADERWRITE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMATTRIBUTES</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMDEF</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMHEADER1</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMHEADER2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMHEADERWRITE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMPROPERTIES</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMPROPERTY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMRESULT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMSTATE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCITEMVQT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCNAMESPACETYPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCSERVERSTATE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.OPCSERVERSTATUS</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.Properties</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.Qualities</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.CATID_OPCHDAServer10</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.Constants</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_AsyncAnnotations</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_AsyncRead</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_AsyncUpdate</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_Browser</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_DataCallback</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_Playback</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_Server</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_SyncAnnotations</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_SyncRead</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.IOPCHDA_SyncUpdate</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_AGGREGATE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_ANNOTATION</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_ANNOTATIONCAPABILITIES</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_ATTRIBUTE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_BROWSEDIRECTION</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_BROWSETYPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_EDITTYPE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_FILETIME</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_ITEM</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_MODIFIEDITEM</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_OPERATORCODES</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_SERVERSTATUS</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_TIME</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Hda.OPCHDA_UPDATECAPABILITIES</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Security_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Security.IOPCSecurityNT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Security.IOPCSecurityPrivate</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Factory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.FILETIME</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ServerEnumerator</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Security.Cryptography_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Security.Cryptography.KeyGenerator</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Security.Cryptography.KeyPair</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Security.Cryptography.NativeKeyGenerator</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Security.Cryptography.NativeKeyPair</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Security.Cryptography.NativeSigner</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Security.Cryptography.Signer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.GeneralValidationFailure</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.IAddAdditionalValidationChain</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.IAssertValidation</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.ICompleteValidationChain</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.ILicenseValidator</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.InvalidSignatureValidationFailure</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.IStartValidationChain</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.IValidationChain</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.IValidationChainCondition</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.IValidationFailure</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.LicenseExpiredValidationFailure</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.LicenseValidationExtensions</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.LicenseValidator</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Validation.ValidationChainBuilder</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.AssemblyBuildDateAttribute</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Customer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.IFluentInterface</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.ILicenseBuilder</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.License</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.LicenseAttributes</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.LicenseBuilder</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.LicenseType</ExcludedItem>
+    </ExcludedItems>
+  </Filters>
+  <JavascriptProjectPlugin />
+  <ComProjectPlugin />
+  <AjaxProjectPlugin />
+  <JavaProjectPlugin />
+  <DotNetAssemblies>
+    <Assembly FileName="..\..\src\Technosoftware\DaAeHdaClient\bin\Release\net5.0-windows\Technosoftware.DaAeHdaClient.dll" RootTypeName="" />
+  </DotNetAssemblies>
+  <DatabaseProjectPlugin>
+    <Databases />
+  </DatabaseProjectPlugin>
+  <XsdProjectPlugin>
+    <XsdSchemas />
+  </XsdProjectPlugin>
+  <GlossaryProjectPlugin>
+    <IsGlossaryOutputEnabled>true</IsGlossaryOutputEnabled>
+    <Glossary>
+      <GlossaryItems />
+      <Title />
+    </Glossary>
+  </GlossaryProjectPlugin>
+  <WebServiceProjectPlugin>
+    <WebServices />
+  </WebServiceProjectPlugin>
+  <HelpProjectPlugin ShowGettingStartedPage="true" />
+  <OtherFilesProjectPlugin>
+    <OtherFiles>
+      <OtherFile Id="682dc595-37a5-4920-9271-c404553b9938" FileName="icons\hs-caution.gif" SourceData="widget:Caution Box" BuildFlags="" />
+      <OtherFile Id="4b4380ff-918c-44bd-80a7-4496271a8ec6" FileName="icons\hs-note.gif" SourceData="widget:Note Box" BuildFlags="" />
+      <OtherFile Id="685ba738-2b7d-4f88-abc6-ec6393e355b9" FileName="images\hs-caution.gif" SourceData="widget:Caution Box" BuildFlags="" />
+      <OtherFile Id="110a9ae9-f4f3-46a1-90b8-b0121ee61df8" FileName="stylesheets\customstyles.css" SourceData="" BuildFlags="" />
+      <OtherFile Id="559f3abc-d9d6-4b00-8f6d-2e7861751283" FileName="images\collapse.gif" SourceData="" BuildFlags="" />
+      <OtherFile Id="c1d70137-96e4-4b0a-a1ff-87ee150efa91" FileName="images\cart_add.gif" SourceData="" BuildFlags="" />
+      <OtherFile Id="dbf1f576-2278-441a-9d75-89db44b01fb4" FileName="images\Technosoftware.png" SourceData="" BuildFlags="" />
+      <OtherFile Id="0b514b06-86e1-466c-8680-6bd0c572f0f1" FileName="images\OPC DAAEHDA Client Solution NET.png" SourceData="" BuildFlags="" />
+    </OtherFiles>
+    <DefaultStylesheet></DefaultStylesheet>
+    <DefaultCaptureDirectory>images\</DefaultCaptureDirectory>
+  </OtherFilesProjectPlugin>
+  <SourceControlProjectPlugin />
+  <TasksProjectPlugin>
+    <Tasks>
+      <TaskItems />
+    </Tasks>
+  </TasksProjectPlugin>
+  <BookletsProjectPlugin />
+  <TableOfContents>
+    <TocLayout Id="a26571f9-b526-4386-aa82-5eedc7095a2e">
+      <Name />
+      <Description />
+      <RootNodes>
+        <TocNode Name="" Id="{F6A82151-D20E-4116-9433-2E30928C621F}" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PROJECTITEM">
+          <CaptionTemplate m="0001-01-01T00:00:00Z" />
+          <ChildNodes />
+          <TargetItemId>{EE6C442B-769D-491F-B730-CAE8A259C379}</TargetItemId>
+          <TargetItemBookmark></TargetItemBookmark>
+        </TocNode>
+        <TocNode Name="" Id="{B3C5DA26-CC9E-46AC-8FB2-2B20DFC3D594}" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="NOLINK">
+          <CaptionTemplate m="2007-05-31T10:49:56Z">Reference</CaptionTemplate>
+          <ChildNodes>
+            <TocNode Name="" DocumentationTypeName="DX.NET" TemplateTocType="Custom" TemplateTocName="" DependsOnItemTypeName="" Id="967a208f-b4ce-4bc2-bb0f-47a17301fe6f" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="TEMPLATETOC">
+              <ChildNodes>
+                <TocNode Name="" Id="649fbdb5-088a-4c68-b685-9c58306e365a" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:NAMESPACE" RepeatsForItemTypeFilter="" LinkToPage="false" NodeType="REPEATING">
+                  <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                  <ChildNodes>
+                    <TocNode Name="" Id="12630cdb-6e15-4750-833e-132ab0f724fe" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                      <CaptionTemplate>$$Overview$$</CaptionTemplate>
+                      <ChildNodes />
+                      <PageTypeName>namespace.html</PageTypeName>
+                    </TocNode>
+                    <TocNode Name="" Id="a39352b9-9f1d-4ee3-827b-5ea14e2d214f" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:CLASS" DependsOnItemTypeFilter="" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="NOLINK">
+                      <CaptionTemplate>$$Classes$$</CaptionTemplate>
+                      <ChildNodes>
+                        <TocNode Name="" Id="eb304aab-b914-4ad6-b3b8-68c3a618230a" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:CLASS" RepeatsForItemTypeFilter="" LinkToPage="true" NodeType="REPEATING">
+                          <CaptionTemplate>%%Short_Item_Title%%</CaptionTemplate>
+                          <ChildNodes>
+                            <TocNode Name="" Id="2d83f4ff-71ae-4a62-ab16-d6cff005a3a5" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Overview$$</CaptionTemplate>
+                              <ChildNodes />
+                              <PageTypeName>class.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="55ddb279-fd71-4ed7-b1a0-4e705161c81a" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Members$$</CaptionTemplate>
+                              <ChildNodes />
+                              <PageTypeName>class_members.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="ad999a88-2874-4001-8171-cd954d0be80f" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:CONSTRUCTOR" DependsOnItemTypeFilter="" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:CONSTRUCTOR" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                              <CaptionTemplate>%%Constructor_Title%%</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="6b5fd178-22e9-45e7-9312-af50c536d33d" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:CONSTRUCTOR" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Constructor_Title%%</CaptionTemplate>
+                                  <ChildNodes />
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                              <FileNameTemplate></FileNameTemplate>
+                            </TocNode>
+                            <TocNode Name="" Id="dbb34e0b-2239-4208-bb2b-d1d391f4d26d" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:METHOD" DependsOnItemTypeFilter="includeinherited=false" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Methods$$</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="7916d9e1-a937-4473-941c-09419af0c840" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:METHOD" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                  <ChildNodes>
+                                    <TocNode Name="" Id="c1602958-3e80-424a-b01e-18e5d0f82a1f" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:METHOD" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                      <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                      <ChildNodes />
+                                      <FileNameTemplate></FileNameTemplate>
+                                    </TocNode>
+                                  </ChildNodes>
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                              <PageTypeName>class_methods.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="1b40746f-f2cd-46d1-900a-718624d7f2b8" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:PROPERTY" DependsOnItemTypeFilter="includeinherited=false" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Properties$$</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="131b65b9-3d44-423f-b726-13c8ec14a3e2" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:PROPERTY" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                  <ChildNodes>
+                                    <TocNode Name="" Id="404605d7-9a4a-4380-af46-c9437b94ebb3" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:PROPERTY" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                      <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                      <ChildNodes />
+                                      <FileNameTemplate></FileNameTemplate>
+                                    </TocNode>
+                                  </ChildNodes>
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                              <PageTypeName>class_properties.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="f82dc128-8c5d-4d76-90dd-b4453cd7d767" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:FIELD" DependsOnItemTypeFilter="includeinherited=false" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Fields$$</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="22797213-c662-4125-af1f-94c5708e74e3" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:FIELD" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                  <ChildNodes />
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                              <PageTypeName>class_fields.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="000aae5a-3bf3-466c-96e5-26af5e86a60a" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:EVENT" DependsOnItemTypeFilter="includeinherited=false" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Events$$</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="f18f5dd3-b19c-410d-bb71-c4eccfae5371" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:EVENT" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                  <ChildNodes />
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                              <PageTypeName>class_events.html</PageTypeName>
+                            </TocNode>
+                          </ChildNodes>
+                          <FileNameTemplate></FileNameTemplate>
+                        </TocNode>
+                      </ChildNodes>
+                    </TocNode>
+                    <TocNode Name="" Id="30acfec1-8ecd-4030-b688-e1e804546362" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:ENUMERATION" DependsOnItemTypeFilter="" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="NOLINK">
+                      <CaptionTemplate>$$Enumerations$$</CaptionTemplate>
+                      <ChildNodes>
+                        <TocNode Name="" Id="50bcfcf1-cb13-41af-9acf-36e51ab7f838" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:ENUMERATION" RepeatsForItemTypeFilter="" LinkToPage="true" NodeType="REPEATING">
+                          <CaptionTemplate>%%Short_Item_Title%%</CaptionTemplate>
+                          <ChildNodes />
+                          <FileNameTemplate></FileNameTemplate>
+                        </TocNode>
+                      </ChildNodes>
+                    </TocNode>
+                    <TocNode Name="" Id="7b91e5d4-190d-4f31-b441-7475f79a385a" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:STRUCTURE" DependsOnItemTypeFilter="" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="NOLINK">
+                      <CaptionTemplate>$$Structures$$</CaptionTemplate>
+                      <ChildNodes>
+                        <TocNode Name="" Id="d06cb4bd-e2d1-413b-b666-50fc62b9344f" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:STRUCTURE" RepeatsForItemTypeFilter="" LinkToPage="true" NodeType="REPEATING">
+                          <CaptionTemplate>%%Short_Item_Title%%</CaptionTemplate>
+                          <ChildNodes>
+                            <TocNode Name="" Id="515a540c-d6d9-452a-b2e5-d4b68e549f71" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Overview$$</CaptionTemplate>
+                              <ChildNodes />
+                              <PageTypeName>structure.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="d58dbd94-5830-4430-a346-68f0f7a9906b" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Members$$</CaptionTemplate>
+                              <ChildNodes />
+                              <PageTypeName>structure_members.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="705b4ba0-acee-4cca-9c8c-6438b64bb6bf" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:CONSTRUCTOR" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                              <CaptionTemplate>%%Constructor_Title%%</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="f3e0b4d9-58b3-45ae-bd1a-93cd25a037ff" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:CONSTRUCTOR" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Constructor_Title%%</CaptionTemplate>
+                                  <ChildNodes />
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                              <FileNameTemplate></FileNameTemplate>
+                            </TocNode>
+                            <TocNode Name="" Id="edc4fbca-fbc9-4b5b-ae29-09522683de46" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:METHOD" DependsOnItemTypeFilter="includeinherited=false" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Methods$$</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="2a92ab07-a68f-4561-9c7f-6b7114f725c9" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:METHOD" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                  <ChildNodes>
+                                    <TocNode Name="" Id="612e7c02-3e4d-4e45-89fa-862141a6caee" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:METHOD" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                      <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                      <ChildNodes />
+                                      <FileNameTemplate></FileNameTemplate>
+                                    </TocNode>
+                                  </ChildNodes>
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                              <PageTypeName>structure_methods.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="cfa25533-ab83-4b4c-a77c-84c59798257a" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:PROPERTY" DependsOnItemTypeFilter="" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Properties$$</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="26f0cfc0-57d8-4c92-aac8-07672d4925a7" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:PROPERTY" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                  <ChildNodes>
+                                    <TocNode Name="" Id="08cfb819-ea66-4852-88de-4d8df0de0f64" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:PROPERTY" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                      <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                      <ChildNodes />
+                                      <FileNameTemplate></FileNameTemplate>
+                                    </TocNode>
+                                  </ChildNodes>
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                              <PageTypeName>structure_properties.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="0f436c75-5d73-4d68-94f8-9f7a56974854" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:FIELD" DependsOnItemTypeFilter="" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Fields$$</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="c2d26c18-2d99-4d5e-8ca5-b490eaede05e" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:FIELD" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                  <ChildNodes />
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                              <PageTypeName>structure_fields.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="912adaa5-97ac-4a46-b052-97461b8646a6" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:EVENT" DependsOnItemTypeFilter="includeinherited=false" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Events$$</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="8af29379-f87d-485d-bb7a-ac1e57593200" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:EVENT" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                  <ChildNodes />
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                              <PageTypeName>structure_events.html</PageTypeName>
+                            </TocNode>
+                          </ChildNodes>
+                          <FileNameTemplate></FileNameTemplate>
+                        </TocNode>
+                      </ChildNodes>
+                    </TocNode>
+                    <TocNode Name="" Id="c4e71b24-57fe-436f-bc7e-5a99c8ac55a1" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:INTERFACE" DependsOnItemTypeFilter="" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="NOLINK">
+                      <CaptionTemplate>$$Interfaces$$</CaptionTemplate>
+                      <ChildNodes>
+                        <TocNode Name="" Id="e2770e0b-39ba-46d2-a11a-9294a1a29216" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:INTERFACE" RepeatsForItemTypeFilter="" LinkToPage="true" NodeType="REPEATING">
+                          <CaptionTemplate>%%Short_Item_Title%%</CaptionTemplate>
+                          <ChildNodes>
+                            <TocNode Name="" Id="c97224fa-ce9a-441c-990e-78fea70442fd" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Overview$$</CaptionTemplate>
+                              <ChildNodes />
+                              <PageTypeName>class.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="9960c752-caae-4255-a1f4-36e0f7f3bfca" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Members$$</CaptionTemplate>
+                              <ChildNodes />
+                              <PageTypeName>class_members.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="3e08ba49-f9eb-4b29-93bf-3a636c6718af" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:METHOD" DependsOnItemTypeFilter="includeinherited=false" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Methods$$</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="d9dd3dbe-d934-4123-b9f6-6a8e6f0441ce" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:METHOD" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                  <ChildNodes>
+                                    <TocNode Name="" Id="8bc5cae8-f46d-412f-b93b-83782cc1441f" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:METHOD" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                      <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                      <ChildNodes />
+                                      <FileNameTemplate></FileNameTemplate>
+                                    </TocNode>
+                                  </ChildNodes>
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                              <PageTypeName>Interface_methods.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="fe997a0c-78b6-4c7f-b362-e448b795f2d8" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:PROPERTY" DependsOnItemTypeFilter="includeinherited=false" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Properties$$</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="315f61dc-e9c8-4f14-96ef-4e4e2bd998b8" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:PROPERTY" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                  <ChildNodes>
+                                    <TocNode Name="" Id="b9d11f48-2de5-42a4-8401-c7d9b8ee3eff" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:PROPERTY" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                      <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                      <ChildNodes />
+                                      <FileNameTemplate></FileNameTemplate>
+                                    </TocNode>
+                                  </ChildNodes>
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                              <PageTypeName>Interface_properties.html</PageTypeName>
+                            </TocNode>
+                            <TocNode Name="" Id="e10f0fc9-5729-4d24-8b71-e72327afd2d0" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:FIELD" DependsOnItemTypeFilter="includeinherited=false" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="NOLINK">
+                              <CaptionTemplate>$$Fields$$</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="fc5b80ec-a849-471b-b6e5-7698f0a33669" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:FIELD" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                  <ChildNodes />
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                            </TocNode>
+                            <TocNode Name="" Id="79f76594-57a3-498a-b6a0-13932347b6ce" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:EVENT" DependsOnItemTypeFilter="includeinherited=false" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PAGETYPE">
+                              <CaptionTemplate>$$Events$$</CaptionTemplate>
+                              <ChildNodes>
+                                <TocNode Name="" Id="efb5f465-228d-4842-9e91-981bd0a52e16" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:EVENT" RepeatsForItemTypeFilter="includeinherited=false" LinkToPage="true" NodeType="REPEATING">
+                                  <CaptionTemplate>%%Local_Item_Title%%</CaptionTemplate>
+                                  <ChildNodes />
+                                  <FileNameTemplate></FileNameTemplate>
+                                </TocNode>
+                              </ChildNodes>
+                              <PageTypeName>Interface_events.html</PageTypeName>
+                            </TocNode>
+                          </ChildNodes>
+                          <FileNameTemplate></FileNameTemplate>
+                        </TocNode>
+                      </ChildNodes>
+                    </TocNode>
+                    <TocNode Name="" Id="b8bcbf04-f663-427c-8893-a804d802b89f" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="DX.NET:DELEGATE" DependsOnItemTypeFilter="" DependsOnMinimumCount="1" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="NOLINK">
+                      <CaptionTemplate>Delegates</CaptionTemplate>
+                      <ChildNodes>
+                        <TocNode Name="" Id="5a9e0e85-5301-4707-8720-40da33db6dce" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" RepeatsForItemTypeName="DX.NET:DELEGATE" RepeatsForItemTypeFilter="" LinkToPage="true" NodeType="REPEATING">
+                          <CaptionTemplate>%%Short_Item_Title%%</CaptionTemplate>
+                          <ChildNodes />
+                          <FileNameTemplate></FileNameTemplate>
+                        </TocNode>
+                      </ChildNodes>
+                    </TocNode>
+                  </ChildNodes>
+                  <FileNameTemplate></FileNameTemplate>
+                </TocNode>
+              </ChildNodes>
+            </TocNode>
+          </ChildNodes>
+        </TocNode>
+        <TocNode Name="" Id="{94D80825-7689-47E2-907A-CD757BF98FE7}" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PROJECTITEM">
+          <CaptionTemplate m="0001-01-01T00:00:00Z" />
+          <ChildNodes />
+          <TargetItemId>{4A40674C-86C0-4FF4-A6F4-463328D25FF3}</TargetItemId>
+          <TargetItemBookmark></TargetItemBookmark>
+        </TocNode>
+        <TocNode Name="" Id="7358ba2e-b026-4056-8224-ad310996a095" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PROJECTITEM">
+          <CaptionTemplate />
+          <ChildNodes />
+          <TargetItemId>{728F595D-5426-4B4A-A5B3-2C6865FEA866}</TargetItemId>
+          <TargetItemBookmark></TargetItemBookmark>
+        </TocNode>
+        <TocNode Name="" Id="974cc9e9-7fee-455b-9436-9bba3b501b5e" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PROJECTITEM">
+          <CaptionTemplate />
+          <ChildNodes />
+          <TargetItemId>{95CC9CE0-63F7-4C1D-A216-ECD61B43B016}</TargetItemId>
+          <TargetItemBookmark></TargetItemBookmark>
+        </TocNode>
+        <TocNode Name="" Id="{A86F889F-66A6-47BF-850F-7E659A507315}" IconIndex="-1" IsNew="false" Target="" DependsOnItemTypeName="" DependsOnItemTypeFilter="" DependsOnMinimumCount="0" DependsOnStillProcessChildNodes="false" BuildFlags="" NodeType="PROJECTITEM">
+          <CaptionTemplate m="0001-01-01T00:00:00Z" />
+          <ChildNodes />
+          <TargetItemId>{99E1524B-2E6B-4ADC-8A3C-95903CD29559}</TargetItemId>
+          <TargetItemBookmark></TargetItemBookmark>
+        </TocNode>
+      </RootNodes>
+    </TocLayout>
+  </TableOfContents>
+  <TopicsProjectPlugin>
+    <TopicCategories>
+      <TopicCategory Id="-" AutoIndex="false">
+        <Caption>(Un-categorized)</Caption>
+        <ChildTopicCategories />
+        <Topics />
+      </TopicCategory>
+      <TopicCategory Id="{7CE5B514-D697-4B47-9C00-2A639FF212E5}" AutoIndex="true">
+        <Caption m="2007-05-31T10:49:56Z">License Agreement</Caption>
+        <ChildTopicCategories />
+        <Topics>
+          <Topic Id="{99E1524B-2E6B-4ADC-8A3C-95903CD29559}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2021-03-14T11:40:43.381717Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="License Agreement" BuildFlags="">
+            <Title m="2007-05-31T10:49:56Z">License Agreement</Title>
+            <ContentsTitle m="2007-05-31T10:49:56Z" />
+            <Notes></Notes>
+            <TopicSections>
+              <TopicSection Name="BodyText">
+                <Content m="2021-03-14T11:40:43.381717Z">&lt;P&gt;TECHNOSOFTWARE (THE "LICENSOR") IS WILLING TO LICENSE THE ACCOMPANYING SOFTWARE AND ASSOCIATED DOCUMENTATION INCLUDING AUTHORIZED COPIES OF EACH (THE "SOFTWARE") TO YOU ("LICENSEE") ONLY ON THE CONDITION THAT LICENSEE ACCEPTS ALL OF THE TERMS IN THIS AGREEMENT.&lt;/P&gt;
+&lt;P&gt;The licensed Software is protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties. The licensed Software is licensed, not sold. Technosoftware shall own all right, title and interest including the intellectual property rights in and to the information on bug fixes or error corrections relating to the licensed Software that are submitted by Licensee to Technosoftware as well as any intellectual property rights to the correction of any errors, if any.&lt;/P&gt;
+&lt;P&gt;PLEASE READ THE TERMS CAREFULLY BEFORE INSTALLING THE SOFTWARE. BY INSTALLING THE SOFTWARE, LICENSEE ACKNOWLEDGES THAT LICENSEE HAS READ AND UNDERSTANDS THIS AGREEMENT AND AGREES TO BE BOUND BY ITS TERMS AND CONDITIONS. THE EFFECTIVE DATE OF THIS AGREEMENT SHALL BE THE DATE UPON THE SOFTWARE WAS FIRST DELIVERED TO YOU OR FIRST DOWNLOADED BY YOU.&lt;/P&gt;
+&lt;P&gt;IF LICENSEE DOES NOT ACCEPT THESE LICENSE TERMS, THEN TECHNOSOFTWARE DOES NOT GRANT ANY LICENSE TO THE SOFTWARE, AND LICENSEE MUST NOT DOWNLOAD OR INSTALL THE SOFTWARE.&lt;/P&gt;
+&lt;P&gt;TECHNOSOFTWARE provides different licenses depending on the component and on the ownership of a purchased license of the user of the sources. A single ZIP file or a single repository can contain multiple components where the sources have different license models. The valid license is in the header of each source file.&lt;/P&gt;
+&lt;P&gt;Following are basic rules on how TECHNOSOFTWARE licenses the different components:&lt;/P&gt;
+&lt;OL&gt;
+&lt;LI&gt;OPC DA/AE/HDA and OPC UA core components follow a dual-license model: 
+&lt;UL&gt;
+&lt;LI&gt;Owner of a purchased license: &lt;A href="https://technosoftware.com/license/Source_Code_License_Agreement.pdf"&gt;SCLA 1.0&lt;/A&gt;&lt;BR&gt;enables licensee to deploy their applications using the core component sources without being required to disclose the application code. All versions, current and future, are licensed under &lt;A href="https://technosoftware.com/license/Source_Code_License_Agreement.pdf"&gt;SCLA 1.0&lt;/A&gt; 
+&lt;LI&gt;Users that are not Owner of a purchased license: GPL 3.0&lt;BR&gt;Based on the GPL 3.0 license terms these users must disclose their application code when using the core component sources.&lt;/LI&gt;&lt;/UL&gt;
+&lt;LI&gt;NuGet Packages
+&lt;UL&gt;
+&lt;LI&gt;The NuGet Packages, e.g. Technosoftware.DaAeHdaSolution.DaAeHdaClient, are licensed under Technosoftware's&amp;nbsp;&lt;A href="https://technosoftware.com/documents/Technosoftware_SLA.pdf"&gt;SLA&lt;/A&gt;. Without purchasing a license at &lt;A href="https://technosoftware.com/product/opc-daaehda-client-net/"&gt;https://technosoftware.com/product/opc-daaehda-client-net/&lt;/A&gt;&amp;nbsp;applications using the NuGet packages are running in evaluation mode.&lt;/LI&gt;&lt;/UL&gt;
+&lt;LI&gt;Samples and Utilities:
+&lt;UL&gt;
+&lt;LI&gt;All samples and most of the utilities are provided under the MIT.&lt;BR&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/LI&gt;&lt;/OL&gt;</Content>
+              </TopicSection>
+            </TopicSections>
+            <TopicLinks />
+            <TopicKeywords />
+            <PropertyDefinitionValues />
+            <ExcludedOtherFiles />
+          </Topic>
+        </Topics>
+      </TopicCategory>
+      <TopicCategory Id="C1" AutoIndex="true">
+        <Caption m="2007-05-31T10:49:56Z">Overview</Caption>
+        <ChildTopicCategories />
+        <Topics>
+          <Topic Id="{EE6C442B-769D-491F-B730-CAE8A259C379}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2021-01-16T07:56:47.4264692Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="Overview" BuildFlags="">
+            <Title m="2007-05-31T10:49:56Z">Overview</Title>
+            <ContentsTitle m="2007-05-31T10:49:56Z" />
+            <Notes></Notes>
+            <TopicSections>
+              <TopicSection Name="BodyText">
+                <Content m="2021-01-16T07:56:47.4264692Z">&lt;H1&gt;OPC DA/AE/HDA Client&amp;nbsp;Solution .NET&lt;/H1&gt;&lt;IMG border=0 alt="" src="images/OPC DAAEHDA Client Solution NET.png" align=right&gt; 
+&lt;P&gt;The OPC DA/AE/HDA Client Solution .NET offers a fast and easy access to the OPC Classic Client technology. Develop OPC DA, OPC AE and OPC HDA compliant Clients with C# targeting .NET 5.0, .NET Core 3.1 or .NET Standard 2.1. For backward compatibility we also provide .NET 4.8, .NET 4.7.2 and .NET 4.6.2 support.&lt;/P&gt;
+&lt;P&gt;The OPC DA/AE/HDA Client Solution .NET API defines classes which can be used to implement an OPC client capable to access OPC servers supporting different specifications with the same API. These classes manage client side state information; provide higher level abstractions for OPC tasks such as managing sessions and subscriptions or saving and restoring connection information for later use. The lower level API’s for OPC DA, OPC AE and OPC HDA defines classes which can be used to access OPC specification specific methods and properties.&lt;/P&gt;
+&lt;H3&gt;Dual License&lt;/H3&gt;
+&lt;P&gt;The original products for OPC DA, OPC AE and OPC HDA are now getting moved to a dual license. Technosoftware GmbH provides different licenses depending on the component and on the ownership of a purchased license or sponsor status of the user of the sources. A single ZIP file or a single repository can contain multiple components where the sources have different license models. The valid license is in the header of each source file.&lt;/P&gt;
+&lt;OL&gt;
+&lt;LI&gt;OPC DA/AE/HDA core components follow a dual-license model:
+&lt;UL&gt;
+&lt;LI&gt;Owner of a purchased license or sponsor: SCLA 1.0&lt;BR&gt;enables Owner of a purchased license or sponsor to deploy their applications using the core component sources without being required to disclose the application code.&lt;/LI&gt;&lt;/UL&gt;
+&lt;UL&gt;
+&lt;LI&gt;Users that are not Owner of a purchased license or are not a sponsor: GPL 3.0&lt;BR&gt;Based on the GPL 3.0 license terms these users must disclose their application code when using the core component sources.&lt;/LI&gt;&lt;/UL&gt;
+&lt;LI&gt;Samples and Utilities:
+&lt;UL&gt;
+&lt;LI&gt;All samples and most of the utilities are provided under the MIT license for everyone.&lt;/LI&gt;&lt;/UL&gt;&lt;/LI&gt;&lt;/OL&gt;</Content>
+              </TopicSection>
+            </TopicSections>
+            <TopicLinks />
+            <TopicKeywords />
+            <PropertyDefinitionValues />
+            <ExcludedOtherFiles />
+          </Topic>
+        </Topics>
+      </TopicCategory>
+      <TopicCategory Id="C3" AutoIndex="true">
+        <Caption m="2007-05-31T10:49:56Z">Reference</Caption>
+        <ChildTopicCategories />
+        <Topics />
+      </TopicCategory>
+      <TopicCategory Id="{F7E1C983-90F3-4B53-BF8F-82208A13BC00}" AutoIndex="true">
+        <Caption m="2007-05-31T10:49:56Z">Deploying your Application</Caption>
+        <ChildTopicCategories />
+        <Topics>
+          <Topic Id="{728F595D-5426-4B4A-A5B3-2C6865FEA866}" Status="In Progress" CreatedOn="2005-06-13T00:00:00Z" ModifiedOn="2013-08-29T20:20:26.9339301Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="Deploying your Application" BuildFlags="">
+            <Title m="2007-05-31T10:49:56Z">Deploying your Application</Title>
+            <ContentsTitle m="2007-05-31T10:49:56Z" />
+            <Notes></Notes>
+            <TopicSections>
+              <TopicSection Name="BodyText">
+                <Content m="2013-08-29T20:20:26.9339301Z">&lt;H4&gt;Deploying your Application&lt;/H4&gt;
+&lt;P&gt;There are 2 main issues you need to be aware of when deploying your application to&amp;nbsp;end users:&lt;/P&gt;
+&lt;BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr&gt;
+&lt;P dir=ltr&gt;&lt;STRONG&gt;Required Software Components&lt;/STRONG&gt;&lt;/P&gt;
+&lt;P dir=ltr&gt;Please be sure that the required software components are installed. If they are not yet install please install the software as follows:&lt;/P&gt;
+&lt;OL dir=ltr&gt;
+&lt;LI&gt;
+&lt;DIV&gt;Install the .NET Framework&lt;BR&gt;Install the .NET Framework distributable which can be downloaded from &lt;A href="http://www.microsoft.com"&gt;www.microsoft.com&lt;/A&gt; or is installed with Microsoft Visual Studio&amp;nbsp;2008, Visual Studio 2010 or Visual Studio 2012. &lt;/DIV&gt;
+&lt;LI&gt;
+&lt;DIV&gt;OPC Core Components distributable&lt;BR&gt;This setup application installs the OPC Core components required by applications based on the OPC Client SDK .NET Base Edition. Use one of the following:&lt;BR&gt;
+&lt;OL&gt;
+&lt;LI&gt;\bin\redist\OPCCoreComponentsRedistributable&lt;BR&gt;If the system is a 64bit operating system&amp;nbsp;you need to use this OPC Core Components 
+&lt;LI&gt;\x86\redist\OPCCoreComponentsRedistributable&lt;BR&gt;If the system is a 32bit operating system you need to use this OPC Core Components&amp;nbsp; &lt;/LI&gt;&lt;/OL&gt;&lt;?xml:namespace prefix = "innovasys" ns = "http://www.innovasys.com/widgets" /&gt;&lt;innovasys:widget type="Caution Box" layout="block"&gt;&lt;innovasys:widgetproperty layout="inline" name="Content"&gt;Please be sure that you run this application after you have installed the .NET Framework. Otherwise important files are not copied.&amp;nbsp;&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;&lt;/DIV&gt;&lt;/LI&gt;&lt;/OL&gt;
+&lt;P dir=ltr&gt;&lt;STRONG&gt;OPC Client SDK .NET Classic Components&lt;/STRONG&gt;&lt;/P&gt;
+&lt;OL dir=ltr&gt;
+&lt;LI&gt;
+&lt;DIV&gt;Please see also the OPC Client SDK .NET Guide&amp;nbsp;for more detailed information. Use one of the following DLL's explaind in the chapter &lt;A href="{F2633C9A-4755-49BA-9C54-58DA4F582376}"&gt;Components&lt;/A&gt; &lt;/DIV&gt;&lt;/LI&gt;&lt;/OL&gt;
+&lt;P style="MARGIN-RIGHT: 0px" dir=ltr&gt;&lt;/P&gt;
+&lt;TABLE style="BORDER-TOP: buttonshadow 1px solid; BORDER-RIGHT: buttonshadow 1px solid; BORDER-BOTTOM: buttonshadow 1px solid; BORDER-LEFT: buttonshadow 1px solid" cellSpacing=4 cellPadding=0 bgColor=infobackground&gt;
+&lt;TBODY&gt;
+&lt;TR&gt;
+&lt;TD vAlign=top&gt;&lt;IMG border=0 alt="" src="icons/hs-note.gif"&gt;&lt;/TD&gt;
+&lt;TD vAlign=top&gt;After successfully deploying your application you should&amp;nbsp;check the security permission settings. &amp;nbsp;&lt;BR&gt;Most problems occur because of failures in these configuration settings. Some general hints are given in the &lt;A href="{95CC9CE0-63F7-4C1D-A216-ECD61B43B016}" style="auto-update-caption: true"&gt;Trouble Shooting&lt;/A&gt; Section.&amp;nbsp;&lt;/TD&gt;&lt;/TR&gt;&lt;/TBODY&gt;&lt;/TABLE&gt;
+&lt;P&gt;&amp;nbsp;&lt;/P&gt;&lt;/BLOCKQUOTE&gt;</Content>
+              </TopicSection>
+            </TopicSections>
+            <TopicLinks />
+            <TopicKeywords />
+            <PropertyDefinitionValues />
+            <ExcludedOtherFiles />
+          </Topic>
+        </Topics>
+      </TopicCategory>
+      <TopicCategory Id="C4" AutoIndex="true">
+        <Caption m="2007-05-31T10:49:56Z">Support</Caption>
+        <ChildTopicCategories />
+        <Topics>
+          <Topic Id="{4A40674C-86C0-4FF4-A6F4-463328D25FF3}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2021-01-16T08:07:02.6996116Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="System Requirements" BuildFlags="">
+            <Title m="2007-05-31T10:49:56Z">System Requirements</Title>
+            <ContentsTitle m="2007-05-31T10:49:56Z" />
+            <Notes></Notes>
+            <TopicSections>
+              <TopicSection Name="BodyText">
+                <Content m="2021-01-16T08:07:02.6996116Z">&lt;TABLE class=wp-block-table width="100%"&gt;
+&lt;TBODY&gt;
+&lt;TR&gt;
+&lt;TD width="40%"&gt;&lt;BR&gt;&lt;/TD&gt;
+&lt;TD width="15%"&gt;&lt;STRONG&gt;Client .NET&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD colSpan=2&gt;&lt;STRONG&gt;.NET&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;UL&gt;
+&lt;LI&gt;.NET 5.0&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD colSpan=2&gt;&lt;STRONG&gt;.NET Standard&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;UL&gt;
+&lt;LI&gt;.NET Core 3.1&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;UL&gt;
+&lt;LI&gt;.NET Standard 2.1&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD colSpan=2&gt;&lt;STRONG&gt;.NET Framework&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;UL&gt;
+&lt;LI&gt;.NET 4.8&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;UL&gt;
+&lt;LI&gt;.NET 4.7.2&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;UL&gt;
+&lt;LI&gt;.NET 4.6.2&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;P&gt;Windows:&lt;/P&gt;
+&lt;UL&gt;
+&lt;LI&gt;Client 10 V. 1607+
+&lt;LI&gt;Client 8.1
+&lt;LI&gt;Server 2012 R2+
+&lt;LI&gt;Nano Server V. 1809+&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;
+&lt;P align=center&gt;√&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;Visual Studio 2019&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;&lt;/TBODY&gt;&lt;/TABLE&gt;</Content>
+              </TopicSection>
+            </TopicSections>
+            <TopicLinks />
+            <TopicKeywords />
+            <PropertyDefinitionValues />
+            <ExcludedOtherFiles />
+          </Topic>
+          <Topic Id="{95CC9CE0-63F7-4C1D-A216-ECD61B43B016}" Status="In Progress" CreatedOn="2005-06-13T00:00:00Z" ModifiedOn="2013-08-29T20:21:34.2509874Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="Trouble Shooting" BuildFlags="">
+            <Title m="2007-05-31T10:49:56Z">Trouble Shooting</Title>
+            <ContentsTitle m="2007-05-31T10:49:56Z" />
+            <Notes></Notes>
+            <TopicSections>
+              <TopicSection Name="BodyText">
+                <Content m="2013-08-29T20:21:34.2500197Z">&lt;P&gt;The ability of OPC clients and servers to remotely interconnect - i.e have the OPC client application running on one computer and the OPC server on another - is quite powerful and is the enabler for many interesting applications. However, therein lies a hidden issue - Distributed COM, or as it is more commonly known - DCOM. DCOM is often one of the stumbling blocks for new OPC users. So new users should take note that there are some important details to be concerned with when setting up a system for remote OPC connections. Be aware that it may be necessary to enlist the services of a network administrator, in order to safely and effectively set up the required configurations.&lt;/P&gt;
+&lt;P&gt;Most OPC servers include detailed instructions for setting up DCOM, because each DCOM configuration is potentially slightly different, therefore we chose not to include definitive information on DCOM in our OPC client documentation. As a general note, you would be wise to disable any firewall for testing purposes - that is often the source of problems. It is also a good idea once your DCOM security settings have been set and you are successfully reading and writing OPC data remotely, to confirm the integrity of your network and PCs from a security standpoint.&lt;/P&gt;
+&lt;P&gt;&lt;STRONG&gt;&lt;U&gt;Note:&lt;/U&gt;&lt;/STRONG&gt; Most of this section is a compilation of several sources found on the internet. This section&amp;nbsp;is not intended to be a substitute for good knowledge of the Microsoft Windows user accounts and security model. It's intention is to&amp;nbsp;point out some key things you need to have setup before you even try to configure a DCOM connection between an OPC client and an OPC server. Links to sources where you can get more information are given below. Some of the information pointed out here can also be found elsewhere.&amp;nbsp;&lt;/P&gt;
+&lt;H4&gt;DCOM Configuration on OPC Server PC&lt;/H4&gt;
+&lt;P&gt;First of all, refer to your OPC server documentation, or contact your vendor for information about setting DCOM security for your particular OPC server. The information below is intended for general reference and should not be taken as 100% accurate in all cases. No responsibility is taken for the application or misapplication of the information presented.&lt;/P&gt;
+&lt;P&gt;The following settings will enable Windows NT or Windows 2000 to communicate with an NT or Windows client and back (assuming that there are no firewalls or proxy servers involved).&lt;/P&gt;
+&lt;P&gt;To configure your OPC Server on an NT or Windows 2000 machine, follow the steps given below. Note that DCOMCNFG will only show servers that are EXEs. It will not show DLL servers. In the case of DLL servers, carefully consult the OPC server documentation.&lt;/P&gt;
+&lt;UL&gt;
+&lt;LI&gt;Go to the Windows task bar -&amp;gt; Start -&amp;gt; Run… then type in DCOMCNFG.EXE to launch the DCOM configurator. 
+&lt;LI&gt;From the Applications tab, select the DCOM Server application (which will be represented by its ProgID - a friendly name, such as "Technosoftware.DaSample.6") or by its CLSID (a GUID - Globally Unique Identifier) such as {5BD7512F-3F2B-11D0-B4D2-02E0C911A7B1}). 
+&lt;LI&gt;Double-click the Server application or click the Properties button to view the properties of the server application. 
+&lt;LI&gt;Select the Security Tab. 
+&lt;LI&gt;Make the following changes:&lt;BR&gt;IMPORTANT: The following changes will allow anyone at all to launch the server. These settings are just for getting the servers up and running in development mode for debugging purposes. They are not intended for specific DCOM security on a target platform distribution. &lt;/LI&gt;&lt;/UL&gt;
+&lt;BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr&gt;
+&lt;BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr&gt;&lt;PRE&gt;CUSTOM ACCESS PERMISSIONS:&lt;BR&gt; Everyone    -     allow access&lt;BR&gt; System      -    allow access&lt;BR&gt; Interactive -     allow access&lt;BR&gt;CUSTOM LAUNCH PERMISSIONS:&lt;BR&gt; Everyone    -        allow launch&lt;BR&gt; System      -    allow launch&lt;BR&gt; Interactive -     allow launch
+&lt;/PRE&gt;&lt;/BLOCKQUOTE&gt;&lt;/BLOCKQUOTE&gt;
+&lt;P&gt;Select the Identity Tab, and then select "The Interactive User."&lt;/P&gt;
+&lt;P&gt;&lt;BR&gt;Click OK, and then click OK again.&lt;/P&gt;
+&lt;P&gt;&lt;BR&gt;Since your OPC server is raising events to your clients and using client callbacks, then you will also need to make the following changes to the default settings for your NT or Windows 2000 'Server' machine:&lt;/P&gt;
+&lt;P&gt;On the NT or Windows 2000 SERVER machine:&lt;/P&gt;
+&lt;P&gt;&lt;BR&gt;Using DCOMCNFG.EXE, select the Default Properties Tab.&lt;/P&gt;
+&lt;P&gt;&lt;BR&gt;Set the Default Authentication Level to "None."&lt;/P&gt;
+&lt;P&gt;&lt;BR&gt;Set the Default Impersonation Level to "Identify."&lt;/P&gt;
+&lt;P&gt;&amp;nbsp;&lt;/P&gt;
+&lt;P&gt;NOTE: Make sure you test your DCOM application where the client and the server are running under different user accounts.&lt;/P&gt;
+&lt;P&gt;If your application works at this point, then you should not need to make any configuration settings on the client machines.&lt;/P&gt;
+&lt;P&gt;If your client is receiving events raised from the server or has enabled the server to call it back, then the following steps might be necessary, depending upon your specific network:&lt;/P&gt;
+&lt;P&gt;To configure your OPC Clients:&lt;/P&gt;
+&lt;P&gt;On the NT or Windows CLIENT machines:&lt;/P&gt;
+&lt;P&gt;&lt;BR&gt;Using DCOMCNFG, select the Default Properties Tab.&lt;/P&gt;
+&lt;P&gt;&lt;BR&gt;Set the Default Authentication Level to "None."&lt;/P&gt;
+&lt;P&gt;&lt;BR&gt;Set the Default Impersonation Level to "Impersonate."&lt;/P&gt;
+&lt;P&gt;&amp;nbsp;&lt;/P&gt;
+&lt;P&gt;On the WIN95 CLIENT machines (if receiving events):&lt;/P&gt;
+&lt;P&gt;&lt;BR&gt;Using DCOMCNFG.EXE, select the Default Security Tab.&lt;/P&gt;
+&lt;P&gt;&lt;BR&gt;Click Edit Default.&lt;/P&gt;
+&lt;P&gt;&lt;BR&gt;Grant Access to "The World" user.&lt;/P&gt;
+&lt;P&gt;&amp;nbsp;&lt;/P&gt;
+&lt;P&gt;NOTE: Modifying and setting security settings should be done with caution and awareness. Before modifying security settings, be sure that you understand the security implications involved. The above client settings are only necessary in certain network situations and can be added via setup code to the clients registry. For more information about writing such code see the references in the Further Information section later in this article.&lt;/P&gt;
+&lt;P&gt;&amp;nbsp;&lt;/P&gt;
+&lt;H4&gt;Further Information&lt;/H4&gt;
+&lt;P&gt;There are many useful articles and sources of OPC/DCOM information available on the web, we are not going to repeat it all here. A few of them are listed below.&lt;/P&gt;
+&lt;P&gt;&lt;A href="http://www.opcconnect.com/dcomcnfg.php"&gt;OPC and DCOM Security&lt;/A&gt;: Information resource provided by the OPC Programmer's Connection&lt;/P&gt;
+&lt;P&gt;&lt;A href="http://www.microsoft.com/technet/prodtechnol/winxppro/maintain/sp2netwk.mspx#EIAA"&gt;Changes to Functionality in Microsoft Windows XP Service Pack 2&lt;/A&gt;: Microsoft TechNet article including note on changes to DCOM in Windows XP Service Pack 2&lt;/P&gt;
+&lt;P&gt;&lt;A href="http://www.technosoftware.ch/documents/Using OPC via DCOM with XP SP2.pdf"&gt;Using OPC via DCOM with Windows XP Service Pack 2&lt;/A&gt;: OPC Foundation article on the effect of changes to DCOM in Windows XP Service Pack 2&lt;/P&gt;
+&lt;P&gt;&lt;A href="http://www.technosoftware.ch/documents/dcom_performance.pdf"&gt;DCOM and OPC Performance Issues (by Al Chisholm)&lt;/A&gt;: DCOM, OPC and Performance Issues&amp;nbsp;&lt;/P&gt;
+&lt;P&gt;&lt;A href="http://www.technosoftware.ch/documents/opc_performance.pdf"&gt;Performance and Throughput of OPC (by Thomas Burke)&lt;/A&gt;: The Performance and Throughput of OPC&lt;/P&gt;
+&lt;P&gt;&lt;A href="http://www.technosoftware.ch/documents/opcspec/opc_security.pdf"&gt;OPC DCOM White Paper (by Richard Harrison)&lt;/A&gt;: OPC DCOM White Paper&lt;/P&gt;</Content>
+              </TopicSection>
+            </TopicSections>
+            <TopicLinks />
+            <TopicKeywords />
+            <PropertyDefinitionValues />
+            <ExcludedOtherFiles />
+          </Topic>
+        </Topics>
+      </TopicCategory>
+      <TopicCategory Id="CONTENTSNIPPETS" AutoIndex="false">
+        <Caption m="2012-05-09T20:36:47.899414Z">Content Snippets</Caption>
+        <ChildTopicCategories />
+        <Topics />
+      </TopicCategory>
+    </TopicCategories>
+    <CustomTopicPropertyDefinitions />
+    <PropertyDefinitionValues />
+    <AutoNameDigits>0</AutoNameDigits>
+    <AutoNameLastNumber>0</AutoNameLastNumber>
+    <AutoNameEnabled>false</AutoNameEnabled>
+    <AutoNamePrefix></AutoNamePrefix>
+    <IncludeTopicNameInTitle>false</IncludeTopicNameInTitle>
+    <TopicEditorState>
+      <Attributes>
+        <Attribute key="dtscrollpos" valuetype="integer">275</Attribute>
+        <Attribute key="scrollPosition" valuetype="integer">0</Attribute>
+      </Attributes>
+    </TopicEditorState>
+  </TopicsProjectPlugin>
+  <WidgetsProjectPlugin>
+    <WidgetTypes Version="2011.1" />
+  </WidgetsProjectPlugin>
+  <TemplateFileFeaturesProjectPlugin />
+  <ProjectSearchProjectPlugin>
+    <ProjectSearchDefinitions />
+  </ProjectSearchProjectPlugin>
+  <ContentSources>
+    <DefaultQuipAccessToken></DefaultQuipAccessToken>
+  </ContentSources>
+  <ShortFileNames IsSaveMappingsEnabled="false" MappingProvider="DEFAULT" IsLengthLimitationEnabled="false" LengthLimit="0" />
+  <VersionsAndEditions>
+    <ContentDiscoveryUrl></ContentDiscoveryUrl>
+    <NavigationUrl></NavigationUrl>
+    <Versions Id="version">
+      <Caption m="2018-12-07T11:53:00.5459098Z">Version</Caption>
+      <VersionDefinitions />
+    </Versions>
+    <Editions Id="edition">
+      <Caption m="2018-12-07T11:53:00.5459098Z">Edition</Caption>
+      <VersionDefinitions />
+    </Editions>
+  </VersionsAndEditions>
+  <Publishing />
+  <ProjectProfiles>
+    <ProjectProfile Id="{4120EBAF-EE7C-4C85-9C91-B66410AC8357}" Name="Default">
+      <DefaultItemQualifiedName>Overview</DefaultItemQualifiedName>
+      <StripMetadata>false</StripMetadata>
+      <AlwaysCopyTemplateFiles>true</AlwaysCopyTemplateFiles>
+      <OutputFileExtension>.html</OutputFileExtension>
+      <Title m="2021-01-16T08:14:03.5186145Z">OPC DA/AE/HDA Client Solution  NET</Title>
+      <ClearOutputDirectoryBeforeBuild>true</ClearOutputDirectoryBeforeBuild>
+      <IsNewIndicatorEnabled>false</IsNewIndicatorEnabled>
+      <IsNewDateTime>1899-12-30T00:00:00Z</IsNewDateTime>
+      <PublishingTargets />
+      <PropertyDefinitionValues>
+        <PropertyDefinitionValue PropertyDefinitionId="dadc4182-3687-4b09-b5da-2dd4432a12d7">
+          <PropertyValue m="2011-09-08T14:50:18.4189453Z">#FFFFFF</PropertyValue>
+        </PropertyDefinitionValue>
+        <PropertyDefinitionValue PropertyDefinitionId="08de2c63-c533-49c3-a1d7-52b3995b9bec">
+          <PropertyValue m="2021-01-16T08:14:38.4935684Z">Copyright © 2011-2021 Technosoftware GmbH</PropertyValue>
+        </PropertyDefinitionValue>
+        <PropertyDefinitionValue PropertyDefinitionId="76de16a8-8dcb-462c-b636-b20ff0b3c3a1">
+          <PropertyValue m="2021-01-16T08:14:36.6205125Z">&lt;a href="mailto:support@technosoftware.com?subject=OPC DAAEHDA Client Solution  NET Documentation Feedback: %%FileName%%"&gt;Send comments&lt;/a&gt; on this topic.</PropertyValue>
+        </PropertyDefinitionValue>
+        <PropertyDefinitionValue PropertyDefinitionId="dfae4477-6a1c-4fa6-82bb-d2f487f5b99b">
+          <PropertyValue m="2011-07-16T06:31:06.2851235Z">&amp;copy;%%year%%. Technosoftware GmbH. All Rights Reserved.</PropertyValue>
+        </PropertyDefinitionValue>
+        <PropertyDefinitionValue PropertyDefinitionId="fb0b069e-0e70-4bdb-8fc3-6fdb9ef927b3">
+          <PropertyValue m="2011-07-16T06:30:29.8950421Z">&amp;copy; %%year%% Technosoftware GmbH. All Rights Reserved.</PropertyValue>
+        </PropertyDefinitionValue>
+        <PropertyDefinitionValue PropertyDefinitionId="dbeb4471-eaea-4619-a8d7-85bbffe6f30b">
+          <PropertyValue m="2011-09-08T14:50:35.3398437Z">#000000</PropertyValue>
+        </PropertyDefinitionValue>
+        <PropertyDefinitionValue PropertyDefinitionId="ffde4c71-30f3-46bf-935f-8715acc6d6a2">
+          <PropertyValue m="2010-07-03T16:47:12.092291Z">#FFFFFF</PropertyValue>
+        </PropertyDefinitionValue>
+        <PropertyDefinitionValue PropertyDefinitionId="07c88d6e-bb8d-4e13-a386-8c9d49dadf1a">
+          <PropertyValue m="2010-07-03T16:47:33.8515355Z">#000000</PropertyValue>
+        </PropertyDefinitionValue>
+        <PropertyDefinitionValue PropertyDefinitionId="c912b10d-75f8-4566-99a3-61d661a6afe7">
+          <PropertyValue m="2011-07-22T20:07:21.2859984Z">#004420</PropertyValue>
+        </PropertyDefinitionValue>
+        <PropertyDefinitionValue PropertyDefinitionId="be14b1e3-a03a-4920-bb61-caca64ceb041">
+          <PropertyValue m="2011-07-22T20:07:44.0062979Z">#AACC51</PropertyValue>
+        </PropertyDefinitionValue>
+        <PropertyDefinitionValue PropertyDefinitionId="a3dbf170-4a46-4d3f-9571-9b10189c0037">
+          <PropertyValue m="2021-01-16T08:14:31.54858Z">&lt;a href="mailto:support@technosoftware.ch?subject=OPC DAAEHDA Client Solution  NET Documentation Feedback: %%FileName%%"&gt;Send comments&lt;/a&gt; on this topic.</PropertyValue>
+        </PropertyDefinitionValue>
+      </PropertyDefinitionValues>
+      <DefaultTemplateName>Classic</DefaultTemplateName>
+      <IsTidyXhtmlEnabled>false</IsTidyXhtmlEnabled>
+      <CommunityOptions UseLocalProxyUrl="false" Enabled="false">
+        <ServerType>PublicEvaluation</ServerType>
+        <LocalProxyUrl></LocalProxyUrl>
+        <HostingAccessKey></HostingAccessKey>
+        <PrivateServerUrl></PrivateServerUrl>
+        <PrivateServerAccessKey></PrivateServerAccessKey>
+        <ProjectKey />
+      </CommunityOptions>
+      <CommunityProjectProfilePlugin IsEnabled="false">
+        <IsCompiledHelpReadinessWarningDisabled>false</IsCompiledHelpReadinessWarningDisabled>
+      </CommunityProjectProfilePlugin>
+      <DotNet>
+        <IncludeRelationshipDiagrams>true</IncludeRelationshipDiagrams>
+        <IncludeInheritanceHierarchies>true</IncludeInheritanceHierarchies>
+        <IncludeSystemObjectMembers>false</IncludeSystemObjectMembers>
+        <InterfacesToIgnoreInSyntax>System.*</InterfacesToIgnoreInSyntax>
+        <NoInheritedMemberTopicsInternal>true</NoInheritedMemberTopicsInternal>
+        <LinkToExternalDocs>true</LinkToExternalDocs>
+        <UseXmlCommentFile>true</UseXmlCommentFile>
+        <UseExternalXmlCommentFiles>true</UseExternalXmlCommentFiles>
+        <NoInheritedMemberTopicsExternal>true</NoInheritedMemberTopicsExternal>
+        <NoInheritedInLists>false</NoInheritedInLists>
+        <ExcludeEditorBrowsable>true</ExcludeEditorBrowsable>
+        <ExcludeBrowsableFalse>false</ExcludeBrowsableFalse>
+        <ExcludeObsolete>true</ExcludeObsolete>
+        <ExcludeCompilerGenerated>false</ExcludeCompilerGenerated>
+        <ExcludeDebuggerNonUserCode>false</ExcludeDebuggerNonUserCode>
+        <GenerateXmlCommentFile>true</GenerateXmlCommentFile>
+        <IncludeBreadcrumbs>true</IncludeBreadcrumbs>
+        <IncludeAssemblyBreadcrumb>false</IncludeAssemblyBreadcrumb>
+        <IncludePrivateMembers>false</IncludePrivateMembers>
+        <IncludeFriendMembers>false</IncludeFriendMembers>
+        <IncludeProtectedFriendMembers>false</IncludeProtectedFriendMembers>
+        <IncludeProtectedMembers>false</IncludeProtectedMembers>
+        <IncludeAttributes>true</IncludeAttributes>
+        <AttributeFilterType>Exclude</AttributeFilterType>
+        <AttributeFilter></AttributeFilter>
+        <XmlIsland></XmlIsland>
+        <IdentifyAccessInTitles>false</IdentifyAccessInTitles>
+        <XmlCommentUsage>UseIfBlank</XmlCommentUsage>
+        <DiagramSettings OverviewNestingLevels="3" PageNestingLevels="2" DiagramStyleSource="Template">
+          <SuppressSingleObjectDiagrams>false</SuppressSingleObjectDiagrams>
+          <DiagramStyle>
+            <CommonStyle OuterMargin="4" ShareSize="false">
+              <IsNewBrush>#FFFF0000</IsNewBrush>
+              <IsNewSize>10</IsNewSize>
+              <UseDropShadow>false</UseDropShadow>
+              <DropShadowOpacity>0.3</DropShadowOpacity>
+              <DropShadowDepth>3</DropShadowDepth>
+              <DropShadowColor>#FF000000</DropShadowColor>
+              <DropShadowDirection>300</DropShadowDirection>
+              <Connector Brush="#FF808080" Thickness="1.5" StyleName="Solid" Indent="20" />
+            </CommonStyle>
+            <ObjectItemStyle Font="Tahoma" FontSize="12" FontBrush="#FF000000" FontWeight="Normal" FontStyle="Normal" TextPadding="5" HorizontalAlignment="Left" BackgroundBrush="#FF000000" BorderBrush="#FF000000" BorderThickness="0" EndCap="Rounded" />
+            <CollectionItemStyle Font="Tahoma" FontSize="12" FontBrush="#FF000000" FontWeight="Normal" FontStyle="Normal" TextPadding="5" HorizontalAlignment="Left" BackgroundBrush="#FF000000" BorderBrush="#FF000000" BorderThickness="-0" EndCap="Point" />
+          </DiagramStyle>
+          <DiagramRelationshipsFrom>PropertiesOnly</DiagramRelationshipsFrom>
+          <IncludeFields>false</IncludeFields>
+          <DiagramDefaultCollectionMemberOnly>true</DiagramDefaultCollectionMemberOnly>
+        </DiagramSettings>
+        <IncludeVbNetDefaultConstructor>false</IncludeVbNetDefaultConstructor>
+        <UseOverloadSummaryForMasterSummary>false</UseOverloadSummaryForMasterSummary>
+        <LinkOverriddenMembersToBaseImplementation>false</LinkOverriddenMembersToBaseImplementation>
+        <GenericIndicator>ArgumentsInBrackets</GenericIndicator>
+        <RootAssemblyName></RootAssemblyName>
+        <IncludeConstructorsOnAbstractTypes>false</IncludeConstructorsOnAbstractTypes>
+        <TemplateName>Classic</TemplateName>
+        <ExcludeAllPrivateTypes>true</ExcludeAllPrivateTypes>
+        <ExcludeAllFriendTypes>true</ExcludeAllFriendTypes>
+        <ExcludeAllProtectedTypes>true</ExcludeAllProtectedTypes>
+        <ExcludeAllProtectedFriendTypes>true</ExcludeAllProtectedFriendTypes>
+        <SyntaxSectionStyle>TemplateDefault</SyntaxSectionStyle>
+        <IsVbSyntaxMerged>true</IsVbSyntaxMerged>
+        <IncludeMemberIndexKeywords>false</IncludeMemberIndexKeywords>
+        <IncludeCodeContracts>false</IncludeCodeContracts>
+        <GroupExamples>false</GroupExamples>
+        <ColorizeSyntax>false</ColorizeSyntax>
+        <IncludeExtensionMethods>false</IncludeExtensionMethods>
+        <UseContentFromBaseMember>false</UseContentFromBaseMember>
+        <IsEnumValuesEnabled>false</IsEnumValuesEnabled>
+        <ExcludedLanguages>
+          <ExcludedLanguage>JScript</ExcludedLanguage>
+          <ExcludedLanguage>CPP</ExcludedLanguage>
+          <ExcludedLanguage>CPP2005</ExcludedLanguage>
+          <ExcludedLanguage>Delphi</ExcludedLanguage>
+        </ExcludedLanguages>
+      </DotNet>
+      <Javascript>
+        <IsBrowserCompatibilityIncluded>true</IsBrowserCompatibilityIncluded>
+        <IsBrowserCompatibilityIncludedOnEveryPage>true</IsBrowserCompatibilityIncludedOnEveryPage>
+        <UseDollarPrefix>true</UseDollarPrefix>
+        <WrapInDomReady>false</WrapInDomReady>
+        <IsIncludeParametersInUsageSyntaxEnabled>false</IsIncludeParametersInUsageSyntaxEnabled>
+        <IsGenerateTypeMemberPagesEnabled>false</IsGenerateTypeMemberPagesEnabled>
+        <SyntaxIndentParametersLength>60</SyntaxIndentParametersLength>
+        <IncludeRelationshipDiagrams>true</IncludeRelationshipDiagrams>
+        <IncludeInheritanceHierarchies>true</IncludeInheritanceHierarchies>
+        <NoInheritedMemberTopicsInternal>true</NoInheritedMemberTopicsInternal>
+        <UseXmlCommentFile>true</UseXmlCommentFile>
+        <NoInheritedInLists>false</NoInheritedInLists>
+        <IncludeBreadcrumbs>true</IncludeBreadcrumbs>
+        <IncludeComponentBreadcrumb>false</IncludeComponentBreadcrumb>
+        <IncludePrivateMembers>false</IncludePrivateMembers>
+        <XmlIsland></XmlIsland>
+        <XmlCommentUsage>Merge</XmlCommentUsage>
+        <DiagramSettings OverviewNestingLevels="0" PageNestingLevels="0" DiagramStyleSource="Template">
+          <SuppressSingleObjectDiagrams>true</SuppressSingleObjectDiagrams>
+          <DiagramStyle>
+            <CommonStyle OuterMargin="10" ShareSize="true">
+              <IsNewBrush>#FFFF0000</IsNewBrush>
+              <IsNewSize>10</IsNewSize>
+              <UseDropShadow>false</UseDropShadow>
+              <DropShadowOpacity>0.3</DropShadowOpacity>
+              <DropShadowDepth>3</DropShadowDepth>
+              <DropShadowColor>#FF000000</DropShadowColor>
+              <DropShadowDirection>300</DropShadowDirection>
+              <Connector Brush="#FF808080" Thickness="1.5" StyleName="Solid" Indent="30" />
+            </CommonStyle>
+            <ObjectItemStyle Font="Tahoma" FontSize="12" FontBrush="#FF000000" FontWeight="Normal" FontStyle="Normal" TextPadding="5" HorizontalAlignment="Left" BackgroundBrush="#FFADD8E6" BorderBrush="#FF808080" BorderThickness="0" EndCap="Rounded" />
+            <CollectionItemStyle Font="Tahoma" FontSize="12" FontBrush="#FF000000" FontWeight="Normal" FontStyle="Normal" TextPadding="5" HorizontalAlignment="Left" BackgroundBrush="#FFADD8E6" BorderBrush="#FF808080" BorderThickness="0" EndCap="Rounded" />
+          </DiagramStyle>
+          <DiagramRelationshipsFrom>All</DiagramRelationshipsFrom>
+          <IncludeFields>false</IncludeFields>
+          <DiagramDefaultCollectionMemberOnly>false</DiagramDefaultCollectionMemberOnly>
+        </DiagramSettings>
+        <RootComponentName></RootComponentName>
+        <IncludeConstructorsOnAbstractTypes>false</IncludeConstructorsOnAbstractTypes>
+        <TemplateName>Classic</TemplateName>
+        <ExcludeAllPrivateTypes>true</ExcludeAllPrivateTypes>
+        <ExcludeAllFriendTypes>true</ExcludeAllFriendTypes>
+        <ExcludeAllProtectedTypes>false</ExcludeAllProtectedTypes>
+        <ExcludeAllProtectedFriendTypes>false</ExcludeAllProtectedFriendTypes>
+        <IncludeMemberIndexKeywords>false</IncludeMemberIndexKeywords>
+        <GroupExamples>false</GroupExamples>
+        <ColorizeSyntax>true</ColorizeSyntax>
+      </Javascript>
+      <Ajax>
+        <IncludeRelationshipDiagrams>false</IncludeRelationshipDiagrams>
+        <IncludeInheritanceHierarchies>true</IncludeInheritanceHierarchies>
+        <NoInheritedMemberTopicsInternal>true</NoInheritedMemberTopicsInternal>
+        <UseXmlCommentFile>true</UseXmlCommentFile>
+        <NoInheritedInLists>false</NoInheritedInLists>
+        <IncludeBreadcrumbs>true</IncludeBreadcrumbs>
+        <IncludeComponentBreadcrumb>false</IncludeComponentBreadcrumb>
+        <IncludePrivateMembers>false</IncludePrivateMembers>
+        <XmlIsland></XmlIsland>
+        <XmlCommentUsage>Merge</XmlCommentUsage>
+        <DiagramSettings OverviewNestingLevels="0" PageNestingLevels="0" DiagramStyleSource="Template">
+          <SuppressSingleObjectDiagrams>false</SuppressSingleObjectDiagrams>
+          <DiagramStyle>
+            <CommonStyle OuterMargin="10" ShareSize="true">
+              <IsNewBrush>#FFFF0000</IsNewBrush>
+              <IsNewSize>10</IsNewSize>
+              <UseDropShadow>false</UseDropShadow>
+              <DropShadowOpacity>0.3</DropShadowOpacity>
+              <DropShadowDepth>3</DropShadowDepth>
+              <DropShadowColor>#FF000000</DropShadowColor>
+              <DropShadowDirection>300</DropShadowDirection>
+              <Connector Brush="#FF808080" Thickness="1.5" StyleName="Solid" Indent="30" />
+            </CommonStyle>
+            <ObjectItemStyle Font="Tahoma" FontSize="12" FontBrush="#FF000000" FontWeight="Normal" FontStyle="Normal" TextPadding="5" HorizontalAlignment="Left" BackgroundBrush="#FFADD8E6" BorderBrush="#FF808080" BorderThickness="0" EndCap="Rounded" />
+            <CollectionItemStyle Font="Tahoma" FontSize="12" FontBrush="#FF000000" FontWeight="Normal" FontStyle="Normal" TextPadding="5" HorizontalAlignment="Left" BackgroundBrush="#FFADD8E6" BorderBrush="#FF808080" BorderThickness="0" EndCap="Rounded" />
+          </DiagramStyle>
+          <DiagramRelationshipsFrom>All</DiagramRelationshipsFrom>
+          <IncludeFields>false</IncludeFields>
+          <DiagramDefaultCollectionMemberOnly>false</DiagramDefaultCollectionMemberOnly>
+        </DiagramSettings>
+        <RootComponentName></RootComponentName>
+        <IncludeConstructorsOnAbstractTypes>false</IncludeConstructorsOnAbstractTypes>
+        <TemplateName>Visual Studio 2008 Style</TemplateName>
+        <ExcludeAllPrivateTypes>true</ExcludeAllPrivateTypes>
+        <ExcludeAllFriendTypes>true</ExcludeAllFriendTypes>
+        <ExcludeAllProtectedTypes>false</ExcludeAllProtectedTypes>
+        <ExcludeAllProtectedFriendTypes>false</ExcludeAllProtectedFriendTypes>
+        <IncludeMemberIndexKeywords>true</IncludeMemberIndexKeywords>
+        <GroupExamples>false</GroupExamples>
+        <ColorizeSyntax>false</ColorizeSyntax>
+      </Ajax>
+      <Java>
+        <IncludeRelationshipDiagrams>true</IncludeRelationshipDiagrams>
+        <IncludeInheritanceHierarchies>true</IncludeInheritanceHierarchies>
+        <NoInheritedMemberTopicsInternal>true</NoInheritedMemberTopicsInternal>
+        <UseXmlCommentFile>true</UseXmlCommentFile>
+        <NoInheritedInLists>false</NoInheritedInLists>
+        <IncludeBreadcrumbs>true</IncludeBreadcrumbs>
+        <IncludeProjectBreadcrumb>false</IncludeProjectBreadcrumb>
+        <IncludePrivateMembers>false</IncludePrivateMembers>
+        <IncludeFriendMembers>false</IncludeFriendMembers>
+        <IncludeProtectedFriendMembers>false</IncludeProtectedFriendMembers>
+        <IncludeProtectedMembers>true</IncludeProtectedMembers>
+        <XmlIsland></XmlIsland>
+        <XmlCommentUsage>Merge</XmlCommentUsage>
+        <DiagramSettings OverviewNestingLevels="3" PageNestingLevels="2" DiagramStyleSource="Template">
+          <SuppressSingleObjectDiagrams>false</SuppressSingleObjectDiagrams>
+          <DiagramStyle>
+            <CommonStyle OuterMargin="10" ShareSize="true">
+              <IsNewBrush>#FFFF0000</IsNewBrush>
+              <IsNewSize>10</IsNewSize>
+              <UseDropShadow>false</UseDropShadow>
+              <DropShadowOpacity>0.3</DropShadowOpacity>
+              <DropShadowDepth>3</DropShadowDepth>
+              <DropShadowColor>#FF000000</DropShadowColor>
+              <DropShadowDirection>300</DropShadowDirection>
+              <Connector Brush="#FF808080" Thickness="1.5" StyleName="Solid" Indent="30" />
+            </CommonStyle>
+            <ObjectItemStyle Font="Tahoma" FontSize="12" FontBrush="#FF000000" FontWeight="Normal" FontStyle="Normal" TextPadding="5" HorizontalAlignment="Left" BackgroundBrush="#FFADD8E6" BorderBrush="#FF808080" BorderThickness="0" EndCap="Rounded" />
+            <CollectionItemStyle Font="Tahoma" FontSize="12" FontBrush="#FF000000" FontWeight="Normal" FontStyle="Normal" TextPadding="5" HorizontalAlignment="Left" BackgroundBrush="#FFADD8E6" BorderBrush="#FF808080" BorderThickness="0" EndCap="Rounded" />
+          </DiagramStyle>
+          <DiagramRelationshipsFrom>MethodsOnly</DiagramRelationshipsFrom>
+          <IncludeFields>false</IncludeFields>
+          <DiagramDefaultCollectionMemberOnly>false</DiagramDefaultCollectionMemberOnly>
+        </DiagramSettings>
+        <UseOverloadSummaryForMasterSummary>true</UseOverloadSummaryForMasterSummary>
+        <LinkOverriddenMembersToBaseImplementation>false</LinkOverriddenMembersToBaseImplementation>
+        <GenericIndicator>ArgumentsInBrackets</GenericIndicator>
+        <RootProjectName></RootProjectName>
+        <IncludeConstructorsOnAbstractTypes>false</IncludeConstructorsOnAbstractTypes>
+        <TemplateName>Visual Studio 2008 Style</TemplateName>
+        <ExcludeAllPrivateTypes>true</ExcludeAllPrivateTypes>
+        <ExcludeAllFriendTypes>true</ExcludeAllFriendTypes>
+        <ExcludeAllProtectedTypes>false</ExcludeAllProtectedTypes>
+        <ExcludeAllProtectedFriendTypes>false</ExcludeAllProtectedFriendTypes>
+        <IncludeMemberIndexKeywords>false</IncludeMemberIndexKeywords>
+        <IncludeCodeContracts>false</IncludeCodeContracts>
+        <GroupExamples>false</GroupExamples>
+        <ColorizeSyntax>false</ColorizeSyntax>
+      </Java>
+      <Com>
+        <IncludeRelationshipDiagrams>true</IncludeRelationshipDiagrams>
+        <UseHelpStrings>true</UseHelpStrings>
+        <IncludeBreadcrumbs>true</IncludeBreadcrumbs>
+        <IncludeProjectBreadcrumb>false</IncludeProjectBreadcrumb>
+        <IncludePrivateMembers>false</IncludePrivateMembers>
+        <HelpStringUsage>UseIfBlank</HelpStringUsage>
+        <DiagramSettings OverviewNestingLevels="3" PageNestingLevels="2" DiagramStyleSource="Template">
+          <SuppressSingleObjectDiagrams>false</SuppressSingleObjectDiagrams>
+          <DiagramStyle>
+            <CommonStyle OuterMargin="4" ShareSize="false">
+              <IsNewBrush>#FFFF0000</IsNewBrush>
+              <IsNewSize>10</IsNewSize>
+              <UseDropShadow>false</UseDropShadow>
+              <DropShadowOpacity>0.3</DropShadowOpacity>
+              <DropShadowDepth>3</DropShadowDepth>
+              <DropShadowColor>#FF000000</DropShadowColor>
+              <DropShadowDirection>300</DropShadowDirection>
+              <Connector Brush="#FF808080" Thickness="1.5" StyleName="Solid" Indent="20" />
+            </CommonStyle>
+            <ObjectItemStyle Font="Tahoma" FontSize="12" FontBrush="#FF000000" FontWeight="Normal" FontStyle="Normal" TextPadding="5" HorizontalAlignment="Left" BackgroundBrush="#FF000000" BorderBrush="#FF000000" BorderThickness="0" EndCap="Rounded" />
+            <CollectionItemStyle Font="Tahoma" FontSize="12" FontBrush="#FF000000" FontWeight="Normal" FontStyle="Normal" TextPadding="5" HorizontalAlignment="Left" BackgroundBrush="#FF000000" BorderBrush="#FF000000" BorderThickness="-0" EndCap="Point" />
+          </DiagramStyle>
+          <DiagramRelationshipsFrom>PropertiesOnly</DiagramRelationshipsFrom>
+          <IncludeFields>false</IncludeFields>
+          <DiagramDefaultCollectionMemberOnly>true</DiagramDefaultCollectionMemberOnly>
+        </DiagramSettings>
+        <RootProjectName></RootProjectName>
+        <IncludeConstructorsOnAbstractTypes>false</IncludeConstructorsOnAbstractTypes>
+        <TemplateName>Visual Studio 2008 Style</TemplateName>
+        <ExcludeAllPrivateTypes>true</ExcludeAllPrivateTypes>
+        <IncludeMemberIndexKeywords>true</IncludeMemberIndexKeywords>
+        <GroupExamples>false</GroupExamples>
+        <ColorizeSyntax>false</ColorizeSyntax>
+      </Com>
+      <Database>
+        <TemplateName>Visual Studio 2008 Style</TemplateName>
+        <IncludeSqlServerSystemObjects>false</IncludeSqlServerSystemObjects>
+        <IncludeSourceForViews>true</IncludeSourceForViews>
+        <IncludeSourceForTriggers>true</IncludeSourceForTriggers>
+        <IncludeSourceForUserDefinedFunctions>true</IncludeSourceForUserDefinedFunctions>
+        <IncludeSourceForStoredProcedures>true</IncludeSourceForStoredProcedures>
+        <IncludeScriptForTables>true</IncludeScriptForTables>
+        <IncludeScriptForOtherItems>true</IncludeScriptForOtherItems>
+        <RemoveTaggedCommentsFromSource>true</RemoveTaggedCommentsFromSource>
+        <IncludeBreadcrumbs>true</IncludeBreadcrumbs>
+        <IncludeSchemaInformation>true</IncludeSchemaInformation>
+        <CheckAllExtendedProperties>false</CheckAllExtendedProperties>
+        <SourceContentUsage>UseIfBlank</SourceContentUsage>
+        <UseSourceContent>true</UseSourceContent>
+        <MaximumDependencyLevel>5</MaximumDependencyLevel>
+        <UseSqlServerDataTypeNames>false</UseSqlServerDataTypeNames>
+      </Database>
+      <Xsd>
+        <TemplateName>Visual Studio 2008 Style</TemplateName>
+        <IncludeBreadcrumbs>true</IncludeBreadcrumbs>
+        <SourceContentUsage>Merge</SourceContentUsage>
+        <UseSourceContent>true</UseSourceContent>
+        <IncludeOverview>true</IncludeOverview>
+        <IncludeOverviewReferencedChildren>false</IncludeOverviewReferencedChildren>
+        <OverviewLevels>5</OverviewLevels>
+        <DiagramStyle>
+          <DefaultTextOptions></DefaultTextOptions>
+          <Options></Options>
+        </DiagramStyle>
+        <IncludeAttributesInDiagrams>true</IncludeAttributesInDiagrams>
+        <SuppressSingleObjectDiagrams>false</SuppressSingleObjectDiagrams>
+        <DiagramItemMaxExtendedRecurse>3</DiagramItemMaxExtendedRecurse>
+        <DiagramItemMaxRecurse>3</DiagramItemMaxRecurse>
+        <GenerateDiagrams>true</GenerateDiagrams>
+        <IsOverrideTemplateDiagramStyleEnabled>false</IsOverrideTemplateDiagramStyleEnabled>
+      </Xsd>
+      <Filters />
+      <WebService>
+        <TemplateName>Classic</TemplateName>
+        <IncludeBreadcrumbs>true</IncludeBreadcrumbs>
+        <SourceContentUsage>Merge</SourceContentUsage>
+        <UseSourceContent>true</UseSourceContent>
+        <GroupExamples>true</GroupExamples>
+        <IncludeRequestBodyDiagram>true</IncludeRequestBodyDiagram>
+        <IncludeResponseBodyDiagram>true</IncludeResponseBodyDiagram>
+        <IncludeRequestBodyOverview>true</IncludeRequestBodyOverview>
+        <IncludeResponseBodyOverview>true</IncludeResponseBodyOverview>
+        <IncludeRequestBodySampleData>true</IncludeRequestBodySampleData>
+        <IncludeResponseBodySampleData>true</IncludeResponseBodySampleData>
+        <IsSampleDataColorized>true</IsSampleDataColorized>
+        <ImplyJsonSchemas>true</ImplyJsonSchemas>
+        <IsGroupedByResource>false</IsGroupedByResource>
+        <IncludeFullResourceUriInOperationPages>true</IncludeFullResourceUriInOperationPages>
+        <UseAbsolutePathForResourcePaths>true</UseAbsolutePathForResourcePaths>
+      </WebService>
+      <HelpCompiler CompileHelpFile="true" IsWebOutputEnabled="true" IsMarkOfTheWebEnabled="false">
+        <MarkOfTheWebDomain>(0014)about:internet</MarkOfTheWebDomain>
+        <HelpFileVersion>HtmlHelp1</HelpFileVersion>
+        <Help2Namespace>OPCServerDeveloperStudio.NET</Help2Namespace>
+        <Help2FileId>Default</Help2FileId>
+        <Help2PluginToNamespaces></Help2PluginToNamespaces>
+        <Help2Plugin>false</Help2Plugin>
+        <RuntimeMerge></RuntimeMerge>
+        <IncludeTextPopupFile>false</IncludeTextPopupFile>
+        <Help3BuildIdentifier></Help3BuildIdentifier>
+        <Help3VendorName></Help3VendorName>
+        <Help3CatalogName>VS</Help3CatalogName>
+        <Help3CatalogVersion>100</Help3CatalogVersion>
+        <Help3CatalogLocaleText>en-US</Help3CatalogLocaleText>
+        <Help3TemplateName></Help3TemplateName>
+        <Help3ProductName></Help3ProductName>
+        <Help3BookName></Help3BookName>
+        <IsHelp3CreateRegistrationScriptEnabled>true</IsHelp3CreateRegistrationScriptEnabled>
+        <IsHelp3RegisterLocallyEnabled>true</IsHelp3RegisterLocallyEnabled>
+        <IsHelp3SigningEnabled>false</IsHelp3SigningEnabled>
+        <IsHelp3ValidationEnabled>false</IsHelp3ValidationEnabled>
+        <IsHelp3KeywordsEnabled>false</IsHelp3KeywordsEnabled>
+        <BrowserHelpTemplateName>Classic</BrowserHelpTemplateName>
+        <IsCustomHtmlHelpWindowSettings>false</IsCustomHtmlHelpWindowSettings>
+        <CustomHtmlHelpWindowSettings>
+          <IsExpandVisible>true</IsExpandVisible>
+          <IsBackVisible>true</IsBackVisible>
+          <IsForwardVisible>true</IsForwardVisible>
+          <IsStopVisible>false</IsStopVisible>
+          <IsRefreshVisible>false</IsRefreshVisible>
+          <IsHomeVisible>false</IsHomeVisible>
+          <IsLocateVisible>true</IsLocateVisible>
+          <IsOptionsVisible>true</IsOptionsVisible>
+          <IsPrintVisible>true</IsPrintVisible>
+          <IsZoomVisible>false</IsZoomVisible>
+          <IsPreviousVisible>false</IsPreviousVisible>
+          <IsNextVisible>false</IsNextVisible>
+          <NavigationPaneWidth>200</NavigationPaneWidth>
+          <IsNavigationPaneInitiallyClosed>false</IsNavigationPaneInitiallyClosed>
+          <IsAutoSyncWithTocEnabled>true</IsAutoSyncWithTocEnabled>
+          <IsSearchTabVisible>true</IsSearchTabVisible>
+          <IsHistoryTabVisible>false</IsHistoryTabVisible>
+          <IsFavoritesTabVisible>true</IsFavoritesTabVisible>
+          <DefaultTab>Contents</DefaultTab>
+          <IsSaveUserWindowSettingsEnabled>true</IsSaveUserWindowSettingsEnabled>
+          <WindowSizeHeight>400</WindowSizeHeight>
+          <WindowSizeWidth>600</WindowSizeWidth>
+          <WindowLocationLeft>0</WindowLocationLeft>
+          <WindowLocationTop>0</WindowLocationTop>
+        </CustomHtmlHelpWindowSettings>
+        <IsWebOutputRootPageLinkEnabled>false</IsWebOutputRootPageLinkEnabled>
+        <BrowserHelpRootPageFileName>index</BrowserHelpRootPageFileName>
+        <HelpFileName>OPC DAAEHDA Client Solution  NET.chm</HelpFileName>
+      </HelpCompiler>
+      <RuleEngine>
+        <Rules MatchType="All" Caption="" IsReadOnly="false" Id="root">
+          <Rules>
+            <RuleGroup MatchType="All" Caption="" IsReadOnly="false" Id="standard">
+              <Rules>
+                <Rule MatchType="All" Caption="" IsReadOnly="false" Id="outputtype">
+                  <Conditions>
+                    <RuleCondition Caption="" IsReadOnly="false" BuildFlagMatchType="None" Id="7bb453b4-e4c7-46a8-ab4a-e3cdbe22798a" Designer="BUILDFLAGS">
+                      <BuildFlags>{46CEF21D-3301-4517-A875-A0906828390E}</BuildFlags>
+                    </RuleCondition>
+                  </Conditions>
+                </Rule>
+              </Rules>
+            </RuleGroup>
+            <RuleGroup MatchType="All" Caption="" IsReadOnly="false" Id="custom">
+              <Rules />
+            </RuleGroup>
+          </Rules>
+        </Rules>
+      </RuleEngine>
+      <ShortFileNames GenerateShortFileNames="true" />
+      <TopicsProjectProfilePlugin>
+        <TemplateName>Classic</TemplateName>
+        <IncludeBreadcrumbs>false</IncludeBreadcrumbs>
+        <AutoGenerateTopicIndexEntries>false</AutoGenerateTopicIndexEntries>
+        <AutoGenerateCategoryIndexEntries>false</AutoGenerateCategoryIndexEntries>
+        <IncludeOnlyCompletedTopics>false</IncludeOnlyCompletedTopics>
+        <IsNewSource>CreationDateTime</IsNewSource>
+        <IsNewCustomTopicPropertyId></IsNewCustomTopicPropertyId>
+        <IsAnchorParsingEnabled>false</IsAnchorParsingEnabled>
+      </TopicsProjectProfilePlugin>
+      <BookletsProjectProfilePlugin>
+        <TemplateName></TemplateName>
+      </BookletsProjectProfilePlugin>
+      <WidgetsProjectProfilePlugin>
+        <IsIncludeInThisTopicWidgetEnabled>false</IsIncludeInThisTopicWidgetEnabled>
+        <InThisTopicWidgetHeadingsMinimum>5</InThisTopicWidgetHeadingsMinimum>
+        <InThisTopicWidgetTagName>H1</InThisTopicWidgetTagName>
+        <InThisTopicWidgetPrefix>$$In_This_Topic$$</InThisTopicWidgetPrefix>
+        <WidgetTypes Version="2011.1" />
+      </WidgetsProjectProfilePlugin>
+      <OtherFiles>
+        <IsLogoEnabled>true</IsLogoEnabled>
+        <LogoOtherFileName>images\Technosoftware.png</LogoOtherFileName>
+        <IsGoogleAnalyticsEnabled>false</IsGoogleAnalyticsEnabled>
+        <GoogleAnalyticsId></GoogleAnalyticsId>
+        <IsOtherHeadContentEnabled>false</IsOtherHeadContentEnabled>
+        <OtherHeadContent></OtherHeadContent>
+      </OtherFiles>
+      <VersionsAndEditions>
+        <EditionId></EditionId>
+      </VersionsAndEditions>
+      <Publishing />
+      <OutputDirectory>Build\Default</OutputDirectory>
+    </ProjectProfile>
+  </ProjectProfiles>
+  <HelpContextIDHeaderFile></HelpContextIDHeaderFile>
+  <PrimaryLocale CultureId="-">
+    <ExportDateTime></ExportDateTime>
+    <Dictionary></Dictionary>
+    <Notes></Notes>
+    <PhraseCultureId></PhraseCultureId>
+    <EncodingCulture></EncodingCulture>
+    <IsEnhancedWordBreakAnalysisEnabled>false</IsEnhancedWordBreakAnalysisEnabled>
+  </PrimaryLocale>
+</DocumentXProject>

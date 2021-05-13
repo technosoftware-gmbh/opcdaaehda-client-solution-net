@@ -1,0 +1,61 @@
+﻿/* This StyleSheet contains custom styles for this project */
+
+table.tstable {
+  border: 1px solid #5A81CB;
+  border-collapse: collapse;
+  background-color: white;
+  width: 98%;
+  color:#555555;
+  font-weight:normal;
+  margin: 5px;
+}
+
+table.tstable td {
+  border: 1px solid #5A81CB;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 2px;
+}
+
+.tstableheader {
+  background-color: #F4F6F7;
+  color: #333333;
+  vertical-align: middle;
+  text-align: center;
+  font-weight:bold;
+}
+
+/* Special list style ---*/
+ul.checklist li, ul.star li, ul.arrow li, ul.address li, ul.phone li, ul.email li {
+	background: none !important;
+	margin-left: 8px;
+	padding: 0 0 0 22px;
+	position: relative;
+	overflow: hidden;
+}
+
+ul.checklist span.icon, ul.star span.icon, ul.arrow span.icon, ul.address span.icon, ul.phone span.icon, ul.email span.icon {
+	background-image: url(images/icons-sprites-silk.png);
+	/*background-image: url(images/icons-sprites-tango.png);*/
+	background-repeat: no-repeat;
+	width: 18px;
+	height: 18px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+ul.arrow 		span.icon { background-position: left top; }
+ul.star 			span.icon { background-position: left -18px; }
+ul.checklist		span.icon {	background-position: left -36px; }
+ul.phone 		span.icon { background-position: right top; }
+ul.address 		span.icon { background-position: right -18px; }
+ul.email 		span.icon { background-position: right -36px; }
+
+ul.bookmark-links li {
+	background: url(images/arrow.png) no-repeat 0px 10px    !important;
+	border-bottom: 1px dotted #e6e6e6;
+	padding: 5px 0 5px 10px !important;
+}
+

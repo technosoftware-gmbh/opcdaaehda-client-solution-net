@@ -1,0 +1,75 @@
+﻿
+
+/* Standard url() references in stylesheets don't work in MSHV 2 so we have to use an alternate syntax 
+    in this stylesheet, which is loaded only when the content runs under MSHV 1 */
+
+.i-section-heading .i-section-heading-icon {
+    background-image: url("../template/packages/core-dotnet/images/i-collapse.png");
+}
+
+.i-section-heading.i-section-heading-collapsed .i-section-heading-icon {
+    background-image: url("../template/packages/core-dotnet/images/i-expand.png");
+}
+
+.i-after-header-content .i-popup-link,
+.i-after-header-content .i-function-link {
+    background-image: url("../template/packages/core-dotnet/images/i-dropdown.png");
+}
+
+a.i-glossary-link,
+a.i-glossary-link:link,
+a.i-glossary-link:visited,
+a.i-glossary-link:hover {
+    background-image: none;
+}
+
+.i-is-new {
+    background-image: url("../template/packages/core-dotnet/images/i-is-new.png");
+}
+
+.i-tab-container .ui-state-active {
+    background: transparent url('../template/packages/plugins-dotnet/images/uiTabsArrow.png') no-repeat bottom center;
+}
+
+.i-dropdown-heading,
+.i-show-all-dropdowns,
+.i-hide-all-dropdowns {
+    background-image: url('../template/packages/core-dotnet/images/i-content-collapsed.png');
+}
+
+.i-dropdown-heading-expanded,
+.i-hide-all-dropdowns {
+    background-image: url('../template/packages/core-dotnet/images/i-content-expanded.png');
+}
+
+.i-no-glyph {
+    background-image: none;
+}
+
+div.OH_topic {
+    display: none;
+}
+
+#lbCloseLink {
+    background-image: url("../template/packages/plugins-dotnet/images/i-slimbox-closelabel.png");
+}
+
+span.i-copy-code {
+    background-image: url("../template/packages/core-dotnet/images/i-copy-code.png");
+}
+
+.i-box-note {
+    background-image:	url('../template/packages/core-dotnet/images/i-note.png');
+}
+
+.i-box-tip {
+    background-image:	url('../template/packages/core-dotnet/images/i-tip.png');
+}
+
+.i-box-caution {
+    background-image:	url('../template/packages/core-dotnet/images/i-caution.png');
+}
+
+.qtip-titlebar {
+    overflow: visible;
+}
