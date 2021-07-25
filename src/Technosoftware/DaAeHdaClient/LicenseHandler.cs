@@ -112,6 +112,14 @@ namespace Technosoftware.DaAeHdaClient
         #endregion
 
         #region Properties
+        /// <summary>
+        /// This flag suppresses the conversion to local time done during marshalling.
+        /// </summary>
+        public bool TimeAsUtc
+        {
+            get => Com.Interop.PreserveUtc;
+            set => Com.Interop.PreserveUtc = value;
+        }
 
         /// <summary>
         /// Returns whether the product is a licensed product.
