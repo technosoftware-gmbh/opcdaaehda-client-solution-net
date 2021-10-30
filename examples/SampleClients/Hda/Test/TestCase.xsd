@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--============================================================================
+// TITLE: TestCase.xsd
+//
+// CONTENTS:
+// 
+// Defines a dataset for the main menu of the OPC website.
+//
+// (c) Copyright 2003 The OPC Foundation
+// ALL RIGHTS RESERVED.
+//
+// DISCLAIMER:
+//  This code is provided by the OPC Foundation solely to assist in 
+//  understanding and use of the appropriate OPC Specification(s) and may be 
+//  used as set forth in the License Grant section of the OPC Specification.
+//  This code is provided as-is and without warranty or support of any sort
+//  and is subject to the Warranty and Liability Disclaimers which appear
+//  in the printed OPC Specification.
+//
+// MODIFICATION LOG:
+//
+// Date       By    Notes
+// ========== ===   =====
+// 2003/08/02 RSA   Initial implementation.
+-->
+<xs:schema id="_DataSet" targetNamespace="http://opcfoundation.org/Hda/1.2/" elementFormDefault="qualified"
+  xmlns="http://opcfoundation.org/Hda/1.2/" xmlns:codegen="urn:schemas-microsoft-com:xml-msprop"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="_DataSet" msdata:IsDataSet="true">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="TestCase" codegen:typedName="TestCase" codegen:typedPlural="TestCases">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" type="xs:string" codegen:nullValue="_null" minOccurs="0" />
+              <xs:element name="AggregateID" type="xs:int" codegen:nullValue="0" minOccurs="0" />
+              <xs:element name="StartTime" type="xs:decimal" codegen:nullValue="0" minOccurs="0" />
+              <xs:element name="EndTime" type="xs:decimal" codegen:nullValue="0" minOccurs="0" />
+              <xs:element name="MaxValues" type="xs:int" codegen:nullValue="0" minOccurs="0" />
+              <xs:element name="IncludeBounds" type="xs:boolean" codegen:nullValue="false" minOccurs="0" />
+              <xs:element name="ResampleInterval" type="xs:decimal" codegen:nullValue="0" minOccurs="0" />
+              <xs:element name="ResultID" type="xs:string" codegen:nullValue="S_OK" minOccurs="0" />
+              <xs:element name="TsCHdaItemValue" type="TsCHdaItemValue" codegen:typedName="TsCHdaItemValue" codegen:typedPlural="ItemValues"
+                codegen:nullValue="_null" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="TsCHdaItemValue">
+    <xs:sequence>
+      <xs:element name="Value" type="xs:double" minOccurs="0" />
+      <xs:element name="Quality" type="xs:int" codegen:nullValue="0" minOccurs="0" />
+      <xs:element name="Timestamp" type="xs:decimal" codegen:nullValue="0" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

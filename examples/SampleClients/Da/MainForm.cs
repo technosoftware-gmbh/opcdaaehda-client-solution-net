@@ -36,7 +36,7 @@ using Technosoftware.DaAeHdaClient.Utilities;
 namespace SampleClients.Da
 {
     /// <summary>
-    /// The main application window for the OPC .NET API Sample Application.
+    /// The main application window for the OPC DA Sample Application.
     /// </summary>
     public class MainForm : Form
 	{
@@ -597,7 +597,7 @@ namespace SampleClients.Da
 		/// <summary>
 		/// The application configuration file path.
 		/// </summary>
-		private string ConfigFilePath => Application.StartupPath + "\\DaSampleClient.config";
+		private string ConfigFilePath => Application.StartupPath + "\\SampleClients.Da.config";
 
         /// <summary>
 		/// The default web proxy for the application - uses IE settings if null.
