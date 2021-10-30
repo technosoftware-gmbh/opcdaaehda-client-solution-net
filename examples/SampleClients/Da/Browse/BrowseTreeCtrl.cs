@@ -312,7 +312,7 @@ namespace SampleClients.Da.Browse
 		/// References to well-known root nodes.
 		/// </summary>
 		private TreeNode mLocalServers_ = null;
-		private TreeNode mLocalNetwork_ = null;
+		private TreeNode localNetwork_ = null;
 		private TreeNode mSingleServer_ = null;
 
 		/// <summary>
@@ -335,13 +335,13 @@ namespace SampleClients.Da.Browse
 			BrowseServers(mLocalServers_);
 			browseTv_.Nodes.Add(mLocalServers_);
 
-			mLocalNetwork_                    = new TreeNode("Local Network");
-			mLocalNetwork_.ImageIndex         = Resources.IMAGE_LOCAL_NETWORK;
-			mLocalNetwork_.SelectedImageIndex = Resources.IMAGE_LOCAL_NETWORK;
-			mLocalNetwork_.Tag                = null;
+			//localNetwork_                    = new TreeNode("Local Network");
+			//localNetwork_.ImageIndex         = Resources.IMAGE_LOCAL_NETWORK;
+			//localNetwork_.SelectedImageIndex = Resources.IMAGE_LOCAL_NETWORK;
+			//localNetwork_.Tag                = null;
 
-			BrowseNetwork(mLocalNetwork_);
-			browseTv_.Nodes.Add(mLocalNetwork_);
+			//BrowseNetwork(localNetwork_);
+			//browseTv_.Nodes.Add(localNetwork_);
 		}
 
 		/// <summary>
@@ -698,7 +698,7 @@ namespace SampleClients.Da.Browse
 		{
 			if (node == null) return false;
 			if (node == mLocalServers_ || node == mSingleServer_) return true;
-			if (node.Parent == mLocalNetwork_) return true;
+			if (node.Parent == localNetwork_) return true;
 			return false;
 		}
 
@@ -906,7 +906,7 @@ namespace SampleClients.Da.Browse
 			browseTv_.Nodes.Clear();
 
 			mLocalServers_ = null;
-			mLocalNetwork_ = null;
+			localNetwork_ = null;
 			mSingleServer_ = null;
 		}
 
@@ -936,7 +936,7 @@ namespace SampleClients.Da.Browse
 		{
 			TreeNode node = e.Node;
 
-			if (node != null && node.Parent == mLocalNetwork_)
+			if (node != null && node.Parent == localNetwork_)
 			{
 				// browse server if not already done.
 				if (node.Nodes.Count == 1 && node.Nodes[0].Text == "")
@@ -994,7 +994,7 @@ namespace SampleClients.Da.Browse
 			disconnectMi_.Enabled      = false;
 			viewComplexTypeMi_.Enabled = false;
 
-			if (clickedNode == mLocalNetwork_ || IsHostNode(clickedNode))
+			if (clickedNode == localNetwork_ || IsHostNode(clickedNode))
 			{
 				refreshMi_.Enabled  = true;
 				setLoginMi_.Enabled = true;
@@ -1073,7 +1073,7 @@ namespace SampleClients.Da.Browse
 		{
 			TreeNode node = browseTv_.SelectedNode;
 
-			if (node == mLocalNetwork_) { BrowseNetwork(node); return; }	
+			if (node == localNetwork_) { BrowseNetwork(node); return; }	
 			if (IsHostNode(node))       { BrowseServers(node); return; }
 
 			Browse(node);
@@ -1086,7 +1086,7 @@ namespace SampleClients.Da.Browse
 		{
 			TreeNode node = browseTv_.SelectedNode;
 
-			if (node == mLocalNetwork_ | IsHostNode(node))       
+			if (node == localNetwork_ | IsHostNode(node))       
 			{ 
 				OpcConnectData connectData = (OpcConnectData)node.Tag;
 

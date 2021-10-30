@@ -10,11 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{17BB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleClients.Common", "examples\SampleClients\Common\SampleClients.Common.csproj", "{6142E9A6-5B32-423D-AEE2-DD23EA5B9BAB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleClient.DA", "examples\SampleClients\Da\SampleClients.Da.csproj", "{93559F35-12E1-406A-B851-F34B31B4393F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleClients.Da", "examples\SampleClients\Da\SampleClients.Da.csproj", "{93559F35-12E1-406A-B851-F34B31B4393F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScPL Plotting Controls", "examples\SampleClients\ScPL\ScPL Plotting Controls.csproj", "{4511C3FC-4FDC-4D2C-9A98-8B086FE1E670}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScPL Plotting Controls", "examples\SampleClients\ScPL\ScPL Plotting Controls.csproj", "{4511C3FC-4FDC-4D2C-9A98-8B086FE1E670}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleClients.Hda", "examples\SampleClients\Hda\SampleClients.Hda.csproj", "{6CF23E4A-6088-4886-AFC5-83414D795270}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleClients.Hda", "examples\SampleClients\Hda\SampleClients.Hda.csproj", "{6CF23E4A-6088-4886-AFC5-83414D795270}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleClients.Ae", "examples\SampleClients\Ae\SampleClients.Ae.csproj", "{C5350C07-4FB2-4AD3-8E04-15544A506B4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +66,14 @@ Global
 		{6CF23E4A-6088-4886-AFC5-83414D795270}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6CF23E4A-6088-4886-AFC5-83414D795270}.Release|x86.ActiveCfg = Release|Any CPU
 		{6CF23E4A-6088-4886-AFC5-83414D795270}.Release|x86.Build.0 = Release|Any CPU
+		{C5350C07-4FB2-4AD3-8E04-15544A506B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5350C07-4FB2-4AD3-8E04-15544A506B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5350C07-4FB2-4AD3-8E04-15544A506B4F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C5350C07-4FB2-4AD3-8E04-15544A506B4F}.Debug|x86.Build.0 = Debug|Any CPU
+		{C5350C07-4FB2-4AD3-8E04-15544A506B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5350C07-4FB2-4AD3-8E04-15544A506B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5350C07-4FB2-4AD3-8E04-15544A506B4F}.Release|x86.ActiveCfg = Release|Any CPU
+		{C5350C07-4FB2-4AD3-8E04-15544A506B4F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +84,7 @@ Global
 		{93559F35-12E1-406A-B851-F34B31B4393F} = {857A6774-6F49-4220-AC55-D53D60FCCB3B}
 		{4511C3FC-4FDC-4D2C-9A98-8B086FE1E670} = {857A6774-6F49-4220-AC55-D53D60FCCB3B}
 		{6CF23E4A-6088-4886-AFC5-83414D795270} = {857A6774-6F49-4220-AC55-D53D60FCCB3B}
+		{C5350C07-4FB2-4AD3-8E04-15544A506B4F} = {857A6774-6F49-4220-AC55-D53D60FCCB3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {33FA5BCB-C827-4D44-AECF-F51342DFE64A}

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0-windows</TargetFramework>
     <ProjectType>Local</ProjectType>
@@ -13,7 +13,7 @@
     <DelaySign>false</DelaySign>
     <OutputType>WinExe</OutputType>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject>SampleClients.Da.MainForm</StartupObject>
+    <StartupObject>SampleClients.Ae.MainForm</StartupObject>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -70,38 +70,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Browse\BrowseTreeCtrl.cs">
+    <Compile Update="Browse\BitMaskCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Browse\PropertyFiltersCtrl.cs">
+    <Compile Update="Browse\BrowseCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Browse\PropertyListViewCtrl.cs">
+    <Compile Update="Browse\ConditionStateCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="ItemValue\ItemValueEditCtrl.cs">
+    <Compile Update="Server\ServerStatusCtrl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Subscription\AreaSourceListCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="ItemValue\ItemValueListEditCtrl.cs">
+    <Compile Update="Subscription\AttributesCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Item\ItemEditCtrl.cs">
+    <Compile Update="Subscription\CategoriesCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Item\ItemListEditCtrl.cs">
+    <Compile Update="Subscription\EventListCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="ResultListViewCtrl.cs">
+    <Compile Update="Subscription\NotificationCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Server\ServerStatusCtrl.cs" />
-    <Compile Update="Subscription\SubscriptionEditCtrl.cs">
+    <Compile Update="Subscription\SubscriptionFiltersEditCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Subscription\SubscriptionsTreeCtrl.cs">
+    <Compile Update="Subscription\SubscriptionsCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UpdatesListViewCtrl.cs">
+    <Compile Update="Subscription\SubscriptionStateEditCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Content Include="App.ico" />

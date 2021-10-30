@@ -176,12 +176,12 @@ namespace SampleClients.Hda
             this.helpMi_ = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMi_ = new System.Windows.Forms.ToolStripMenuItem();
             this.toolBar_ = new System.Windows.Forms.ToolStrip();
+            this.toolBarImageList_ = new System.Windows.Forms.ImageList(this.components);
             this.connectBtn_ = new System.Windows.Forms.ToolStripButton();
             this.disconnectBtn_ = new System.Windows.Forms.ToolStripButton();
             this.viewStatusBtn_ = new System.Windows.Forms.ToolStripButton();
             this.browseBtn_ = new System.Windows.Forms.ToolStripButton();
             this.aboutBtn_ = new System.Windows.Forms.ToolStripButton();
-            this.toolBarImageList_ = new System.Windows.Forms.ImageList(this.components);
             this.bottomPn_ = new System.Windows.Forms.Panel();
             this.outputCtrl_ = new System.Windows.Forms.RichTextBox();
             this.splitterH_ = new System.Windows.Forms.Splitter();
@@ -349,41 +349,6 @@ namespace SampleClients.Hda
             this.toolBar_.Size = new System.Drawing.Size(1016, 25);
             this.toolBar_.TabIndex = 0;
             // 
-            // connectBtn_
-            // 
-            this.connectBtn_.ImageIndex = 0;
-            this.connectBtn_.Name = "connectBtn_";
-            this.connectBtn_.Size = new System.Drawing.Size(23, 22);
-            this.connectBtn_.ToolTipText = "Connect to Server";
-            // 
-            // disconnectBtn_
-            // 
-            this.disconnectBtn_.ImageIndex = 1;
-            this.disconnectBtn_.Name = "disconnectBtn_";
-            this.disconnectBtn_.Size = new System.Drawing.Size(23, 22);
-            this.disconnectBtn_.ToolTipText = "Disconnect from Server";
-            // 
-            // viewStatusBtn_
-            // 
-            this.viewStatusBtn_.ImageIndex = 4;
-            this.viewStatusBtn_.Name = "viewStatusBtn_";
-            this.viewStatusBtn_.Size = new System.Drawing.Size(23, 22);
-            this.viewStatusBtn_.ToolTipText = "View Server Status";
-            // 
-            // browseBtn_
-            // 
-            this.browseBtn_.ImageIndex = 6;
-            this.browseBtn_.Name = "browseBtn_";
-            this.browseBtn_.Size = new System.Drawing.Size(23, 22);
-            this.browseBtn_.ToolTipText = "Browse Address Space";
-            // 
-            // aboutBtn_
-            // 
-            this.aboutBtn_.ImageIndex = 13;
-            this.aboutBtn_.Name = "aboutBtn_";
-            this.aboutBtn_.Size = new System.Drawing.Size(23, 22);
-            this.aboutBtn_.ToolTipText = "About";
-            // 
             // toolBarImageList_
             // 
             this.toolBarImageList_.ColorDepth = System.Windows.Forms.ColorDepth.Depth24Bit;
@@ -403,6 +368,46 @@ namespace SampleClients.Hda
             this.toolBarImageList_.Images.SetKeyName(11, "");
             this.toolBarImageList_.Images.SetKeyName(12, "");
             this.toolBarImageList_.Images.SetKeyName(13, "");
+            // 
+            // connectBtn_
+            // 
+            this.connectBtn_.ImageIndex = 0;
+            this.connectBtn_.Name = "connectBtn_";
+            this.connectBtn_.Size = new System.Drawing.Size(23, 22);
+            this.connectBtn_.ToolTipText = "Connect to Server";
+            this.connectBtn_.Click += new System.EventHandler(this.ConnectMI_Click);
+            // 
+            // disconnectBtn_
+            // 
+            this.disconnectBtn_.ImageIndex = 1;
+            this.disconnectBtn_.Name = "disconnectBtn_";
+            this.disconnectBtn_.Size = new System.Drawing.Size(23, 22);
+            this.disconnectBtn_.ToolTipText = "Disconnect from Server";
+            this.disconnectBtn_.Click += new System.EventHandler(this.DisconnectMI_Click);
+            // 
+            // viewStatusBtn_
+            // 
+            this.viewStatusBtn_.ImageIndex = 4;
+            this.viewStatusBtn_.Name = "viewStatusBtn_";
+            this.viewStatusBtn_.Size = new System.Drawing.Size(23, 22);
+            this.viewStatusBtn_.ToolTipText = "View Server Status";
+            this.viewStatusBtn_.Click += new System.EventHandler(this.ViewStatusMI_Click);
+            // 
+            // browseBtn_
+            // 
+            this.browseBtn_.ImageIndex = 6;
+            this.browseBtn_.Name = "browseBtn_";
+            this.browseBtn_.Size = new System.Drawing.Size(23, 22);
+            this.browseBtn_.ToolTipText = "Browse Address Space";
+            this.browseBtn_.Click += new System.EventHandler(this.BrowseMI_Click);
+            // 
+            // aboutBtn_
+            // 
+            this.aboutBtn_.ImageIndex = 13;
+            this.aboutBtn_.Name = "aboutBtn_";
+            this.aboutBtn_.Size = new System.Drawing.Size(23, 22);
+            this.aboutBtn_.ToolTipText = "About";
+            this.aboutBtn_.Click += new System.EventHandler(this.AboutMI_Click);
             // 
             // bottomPn_
             // 
