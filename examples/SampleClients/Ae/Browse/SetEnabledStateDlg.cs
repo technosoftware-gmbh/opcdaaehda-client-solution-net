@@ -67,91 +67,91 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.enabledLb_ = new System.Windows.Forms.Label();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.enabledChk_ = new System.Windows.Forms.CheckBox();
-			this.recursiveChk_ = new System.Windows.Forms.CheckBox();
-			this.recursiveLb_ = new System.Windows.Forms.Label();
-			this.buttonsPn_.SuspendLayout();
-			this.SuspendLayout();
+			enabledLb_ = new System.Windows.Forms.Label();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			okBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			enabledChk_ = new System.Windows.Forms.CheckBox();
+			recursiveChk_ = new System.Windows.Forms.CheckBox();
+			recursiveLb_ = new System.Windows.Forms.Label();
+			buttonsPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// EnabledLB
 			// 
-			this.enabledLb_.Location = new System.Drawing.Point(4, 4);
-			this.enabledLb_.Name = "enabledLb_";
-			this.enabledLb_.Size = new System.Drawing.Size(68, 20);
-			this.enabledLb_.TabIndex = 1;
-			this.enabledLb_.Text = "Enabled";
-			this.enabledLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			enabledLb_.Location = new System.Drawing.Point(4, 4);
+			enabledLb_.Name = "enabledLb_";
+			enabledLb_.Size = new System.Drawing.Size(68, 20);
+			enabledLb_.TabIndex = 1;
+			enabledLb_.Text = "Enabled";
+			enabledLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 50);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(216, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 50);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(216, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okBtn_.Location = new System.Drawing.Point(4, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
+			okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			okBtn_.Location = new System.Drawing.Point(4, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(136, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(136, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// EnabledCHK
 			// 
-			this.enabledChk_.Location = new System.Drawing.Point(80, 2);
-			this.enabledChk_.Name = "enabledChk_";
-			this.enabledChk_.Size = new System.Drawing.Size(24, 24);
-			this.enabledChk_.TabIndex = 2;
+			enabledChk_.Location = new System.Drawing.Point(80, 2);
+			enabledChk_.Name = "enabledChk_";
+			enabledChk_.Size = new System.Drawing.Size(24, 24);
+			enabledChk_.TabIndex = 2;
 			// 
 			// RecursiveCHK
 			// 
-			this.recursiveChk_.Location = new System.Drawing.Point(80, 26);
-			this.recursiveChk_.Name = "recursiveChk_";
-			this.recursiveChk_.Size = new System.Drawing.Size(24, 24);
-			this.recursiveChk_.TabIndex = 4;
+			recursiveChk_.Location = new System.Drawing.Point(80, 26);
+			recursiveChk_.Name = "recursiveChk_";
+			recursiveChk_.Size = new System.Drawing.Size(24, 24);
+			recursiveChk_.TabIndex = 4;
 			// 
 			// RecursiveLB
 			// 
-			this.recursiveLb_.Location = new System.Drawing.Point(4, 28);
-			this.recursiveLb_.Name = "recursiveLb_";
-			this.recursiveLb_.Size = new System.Drawing.Size(68, 20);
-			this.recursiveLb_.TabIndex = 3;
-			this.recursiveLb_.Text = "Recursive";
-			this.recursiveLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			recursiveLb_.Location = new System.Drawing.Point(4, 28);
+			recursiveLb_.Name = "recursiveLb_";
+			recursiveLb_.Size = new System.Drawing.Size(68, 20);
+			recursiveLb_.TabIndex = 3;
+			recursiveLb_.Text = "Recursive";
+			recursiveLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// SetEnabledStateDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.cancelBtn_;
-			this.ClientSize = new System.Drawing.Size(216, 86);
-			this.Controls.Add(this.recursiveChk_);
-			this.Controls.Add(this.recursiveLb_);
-			this.Controls.Add(this.enabledChk_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Controls.Add(this.enabledLb_);
-			this.MaximizeBox = false;
-			this.Name = "SetEnabledStateDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Set Enabled State";
-			this.buttonsPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = cancelBtn_;
+			ClientSize = new System.Drawing.Size(216, 86);
+			Controls.Add(recursiveChk_);
+			Controls.Add(recursiveLb_);
+			Controls.Add(enabledChk_);
+			Controls.Add(buttonsPn_);
+			Controls.Add(enabledLb_);
+			MaximizeBox = false;
+			Name = "SetEnabledStateDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Set Enabled State";
+			buttonsPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

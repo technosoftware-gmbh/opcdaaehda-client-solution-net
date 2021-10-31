@@ -79,213 +79,213 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.rightPn_ = new System.Windows.Forms.Panel();
-			this.areaSourcesListCtrl_ = new Technosoftware.AeSampleClient.AreaSourceListCtrl();
-			this.attributesCtrl_ = new Technosoftware.AeSampleClient.AttributesCtrl();
-			this.stateFiltersPn_ = new System.Windows.Forms.Panel();
-			this.categoriesCtrl_ = new Technosoftware.AeSampleClient.CategoriesCtrl();
-			this.filtersGb_ = new System.Windows.Forms.GroupBox();
-			this.filtersCtrl_ = new Technosoftware.AeSampleClient.SubscriptionFiltersEditCtrl();
-			this.stateGb_ = new System.Windows.Forms.GroupBox();
-			this.stateCtrl_ = new Technosoftware.AeSampleClient.SubscriptionStateEditCtrl();
-			this.leftPn_ = new System.Windows.Forms.Panel();
-			this.browseCtrl_ = new Technosoftware.AeSampleClient.BrowseCtrl();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.backBtn_ = new System.Windows.Forms.Button();
-			this.nextBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.doneBtn_ = new System.Windows.Forms.Button();
-			this.splitterV_ = new System.Windows.Forms.Splitter();
-			this.rightPn_.SuspendLayout();
-			this.stateFiltersPn_.SuspendLayout();
-			this.filtersGb_.SuspendLayout();
-			this.stateGb_.SuspendLayout();
-			this.leftPn_.SuspendLayout();
-			this.buttonsPn_.SuspendLayout();
-			this.SuspendLayout();
+			rightPn_ = new System.Windows.Forms.Panel();
+			areaSourcesListCtrl_ = new Technosoftware.AeSampleClient.AreaSourceListCtrl();
+			attributesCtrl_ = new Technosoftware.AeSampleClient.AttributesCtrl();
+			stateFiltersPn_ = new System.Windows.Forms.Panel();
+			categoriesCtrl_ = new Technosoftware.AeSampleClient.CategoriesCtrl();
+			filtersGb_ = new System.Windows.Forms.GroupBox();
+			filtersCtrl_ = new Technosoftware.AeSampleClient.SubscriptionFiltersEditCtrl();
+			stateGb_ = new System.Windows.Forms.GroupBox();
+			stateCtrl_ = new Technosoftware.AeSampleClient.SubscriptionStateEditCtrl();
+			leftPn_ = new System.Windows.Forms.Panel();
+			browseCtrl_ = new Technosoftware.AeSampleClient.BrowseCtrl();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			backBtn_ = new System.Windows.Forms.Button();
+			nextBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			doneBtn_ = new System.Windows.Forms.Button();
+			splitterV_ = new System.Windows.Forms.Splitter();
+			rightPn_.SuspendLayout();
+			stateFiltersPn_.SuspendLayout();
+			filtersGb_.SuspendLayout();
+			stateGb_.SuspendLayout();
+			leftPn_.SuspendLayout();
+			buttonsPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// RightPN
 			// 
-			this.rightPn_.Controls.Add(this.areaSourcesListCtrl_);
-			this.rightPn_.Controls.Add(this.attributesCtrl_);
-			this.rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rightPn_.DockPadding.Right = 4;
-			this.rightPn_.DockPadding.Top = 4;
-			this.rightPn_.Location = new System.Drawing.Point(283, 0);
-			this.rightPn_.Name = "rightPn_";
-			this.rightPn_.Size = new System.Drawing.Size(509, 490);
-			this.rightPn_.TabIndex = 6;
+			rightPn_.Controls.Add(areaSourcesListCtrl_);
+			rightPn_.Controls.Add(attributesCtrl_);
+			rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			rightPn_.DockPadding.Right = 4;
+			rightPn_.DockPadding.Top = 4;
+			rightPn_.Location = new System.Drawing.Point(283, 0);
+			rightPn_.Name = "rightPn_";
+			rightPn_.Size = new System.Drawing.Size(509, 490);
+			rightPn_.TabIndex = 6;
 			// 
 			// AreaSourcesListCTRL
 			// 
-			this.areaSourcesListCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.areaSourcesListCtrl_.Location = new System.Drawing.Point(0, 4);
-			this.areaSourcesListCtrl_.Name = "areaSourcesListCtrl_";
-			this.areaSourcesListCtrl_.Size = new System.Drawing.Size(505, 486);
-			this.areaSourcesListCtrl_.TabIndex = 1;
+			areaSourcesListCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			areaSourcesListCtrl_.Location = new System.Drawing.Point(0, 4);
+			areaSourcesListCtrl_.Name = "areaSourcesListCtrl_";
+			areaSourcesListCtrl_.Size = new System.Drawing.Size(505, 486);
+			areaSourcesListCtrl_.TabIndex = 1;
 			// 
 			// AttributesCTRL
 			// 
-			this.attributesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.attributesCtrl_.Location = new System.Drawing.Point(0, 4);
-			this.attributesCtrl_.Name = "attributesCtrl_";
-			this.attributesCtrl_.Size = new System.Drawing.Size(505, 486);
-			this.attributesCtrl_.TabIndex = 0;
+			attributesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			attributesCtrl_.Location = new System.Drawing.Point(0, 4);
+			attributesCtrl_.Name = "attributesCtrl_";
+			attributesCtrl_.Size = new System.Drawing.Size(505, 486);
+			attributesCtrl_.TabIndex = 0;
 			// 
 			// StateFiltersPN
 			// 
-			this.stateFiltersPn_.Controls.Add(this.categoriesCtrl_);
-			this.stateFiltersPn_.Controls.Add(this.filtersGb_);
-			this.stateFiltersPn_.Controls.Add(this.stateGb_);
-			this.stateFiltersPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.stateFiltersPn_.Location = new System.Drawing.Point(4, 4);
-			this.stateFiltersPn_.Name = "stateFiltersPn_";
-			this.stateFiltersPn_.Size = new System.Drawing.Size(272, 486);
-			this.stateFiltersPn_.TabIndex = 1;
+			stateFiltersPn_.Controls.Add(categoriesCtrl_);
+			stateFiltersPn_.Controls.Add(filtersGb_);
+			stateFiltersPn_.Controls.Add(stateGb_);
+			stateFiltersPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			stateFiltersPn_.Location = new System.Drawing.Point(4, 4);
+			stateFiltersPn_.Name = "stateFiltersPn_";
+			stateFiltersPn_.Size = new System.Drawing.Size(272, 486);
+			stateFiltersPn_.TabIndex = 1;
 			// 
 			// CategoriesCTRL
 			// 
-			this.categoriesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.categoriesCtrl_.Location = new System.Drawing.Point(0, 284);
-			this.categoriesCtrl_.Name = "categoriesCtrl_";
-			this.categoriesCtrl_.Size = new System.Drawing.Size(272, 202);
-			this.categoriesCtrl_.TabIndex = 1;
-			this.categoriesCtrl_.CategoryChecked += new Technosoftware.AeSampleClient.CategoriesCtrl.CategoryCheckedEventHandler(this.CategoriesCTRL_CategorySelected);
+			categoriesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			categoriesCtrl_.Location = new System.Drawing.Point(0, 284);
+			categoriesCtrl_.Name = "categoriesCtrl_";
+			categoriesCtrl_.Size = new System.Drawing.Size(272, 202);
+			categoriesCtrl_.TabIndex = 1;
+			categoriesCtrl_.CategoryChecked += new Technosoftware.AeSampleClient.CategoriesCtrl.CategoryCheckedEventHandler(CategoriesCTRL_CategorySelected);
 			// 
 			// FiltersGB
 			// 
-			this.filtersGb_.Controls.Add(this.filtersCtrl_);
-			this.filtersGb_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.filtersGb_.Location = new System.Drawing.Point(0, 140);
-			this.filtersGb_.Name = "filtersGb_";
-			this.filtersGb_.Size = new System.Drawing.Size(272, 144);
-			this.filtersGb_.TabIndex = 0;
-			this.filtersGb_.TabStop = false;
-			this.filtersGb_.Text = "Filtering Parameters";
+			filtersGb_.Controls.Add(filtersCtrl_);
+			filtersGb_.Dock = System.Windows.Forms.DockStyle.Top;
+			filtersGb_.Location = new System.Drawing.Point(0, 140);
+			filtersGb_.Name = "filtersGb_";
+			filtersGb_.Size = new System.Drawing.Size(272, 144);
+			filtersGb_.TabIndex = 0;
+			filtersGb_.TabStop = false;
+			filtersGb_.Text = "Filtering Parameters";
 			// 
 			// FiltersCTRL
 			// 
-			this.filtersCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.filtersCtrl_.Location = new System.Drawing.Point(3, 16);
-			this.filtersCtrl_.Name = "filtersCtrl_";
-			this.filtersCtrl_.Size = new System.Drawing.Size(266, 125);
-			this.filtersCtrl_.TabIndex = 1;
+			filtersCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			filtersCtrl_.Location = new System.Drawing.Point(3, 16);
+			filtersCtrl_.Name = "filtersCtrl_";
+			filtersCtrl_.Size = new System.Drawing.Size(266, 125);
+			filtersCtrl_.TabIndex = 1;
 			// 
 			// StateGB
 			// 
-			this.stateGb_.Controls.Add(this.stateCtrl_);
-			this.stateGb_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.stateGb_.Location = new System.Drawing.Point(0, 0);
-			this.stateGb_.Name = "stateGb_";
-			this.stateGb_.Size = new System.Drawing.Size(272, 140);
-			this.stateGb_.TabIndex = 0;
-			this.stateGb_.TabStop = false;
-			this.stateGb_.Text = "State Parameters";
+			stateGb_.Controls.Add(stateCtrl_);
+			stateGb_.Dock = System.Windows.Forms.DockStyle.Top;
+			stateGb_.Location = new System.Drawing.Point(0, 0);
+			stateGb_.Name = "stateGb_";
+			stateGb_.Size = new System.Drawing.Size(272, 140);
+			stateGb_.TabIndex = 0;
+			stateGb_.TabStop = false;
+			stateGb_.Text = "State Parameters";
 			// 
 			// StateCTRL
 			// 
-			this.stateCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.stateCtrl_.Location = new System.Drawing.Point(3, 16);
-			this.stateCtrl_.Name = "stateCtrl_";
-			this.stateCtrl_.Size = new System.Drawing.Size(266, 121);
-			this.stateCtrl_.TabIndex = 0;
+			stateCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			stateCtrl_.Location = new System.Drawing.Point(3, 16);
+			stateCtrl_.Name = "stateCtrl_";
+			stateCtrl_.Size = new System.Drawing.Size(266, 121);
+			stateCtrl_.TabIndex = 0;
 			// 
 			// LeftPN
 			// 
-			this.leftPn_.Controls.Add(this.stateFiltersPn_);
-			this.leftPn_.Controls.Add(this.browseCtrl_);
-			this.leftPn_.Dock = System.Windows.Forms.DockStyle.Left;
-			this.leftPn_.DockPadding.Left = 4;
-			this.leftPn_.DockPadding.Right = 4;
-			this.leftPn_.DockPadding.Top = 4;
-			this.leftPn_.Location = new System.Drawing.Point(0, 0);
-			this.leftPn_.Name = "leftPn_";
-			this.leftPn_.Size = new System.Drawing.Size(280, 490);
-			this.leftPn_.TabIndex = 11;
+			leftPn_.Controls.Add(stateFiltersPn_);
+			leftPn_.Controls.Add(browseCtrl_);
+			leftPn_.Dock = System.Windows.Forms.DockStyle.Left;
+			leftPn_.DockPadding.Left = 4;
+			leftPn_.DockPadding.Right = 4;
+			leftPn_.DockPadding.Top = 4;
+			leftPn_.Location = new System.Drawing.Point(0, 0);
+			leftPn_.Name = "leftPn_";
+			leftPn_.Size = new System.Drawing.Size(280, 490);
+			leftPn_.TabIndex = 11;
 			// 
 			// BrowseCTRL
 			// 
-			this.browseCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.browseCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.browseCtrl_.Name = "browseCtrl_";
-			this.browseCtrl_.Size = new System.Drawing.Size(272, 486);
-			this.browseCtrl_.TabIndex = 1;
-			this.browseCtrl_.NodeSelected += new Technosoftware.AeSampleClient.BrowseCtrl.NodeSelectedEventHandler(this.BrowseCTRL_NodeSelected);
+			browseCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			browseCtrl_.Location = new System.Drawing.Point(4, 4);
+			browseCtrl_.Name = "browseCtrl_";
+			browseCtrl_.Size = new System.Drawing.Size(272, 486);
+			browseCtrl_.TabIndex = 1;
+			browseCtrl_.NodeSelected += new Technosoftware.AeSampleClient.BrowseCtrl.NodeSelectedEventHandler(BrowseCTRL_NodeSelected);
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.backBtn_);
-			this.buttonsPn_.Controls.Add(this.doneBtn_);
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Controls.Add(this.nextBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 490);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(792, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(backBtn_);
+			buttonsPn_.Controls.Add(doneBtn_);
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Controls.Add(nextBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 490);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(792, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// BackBTN
 			// 
-			this.backBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.backBtn_.Location = new System.Drawing.Point(552, 8);
-			this.backBtn_.Name = "backBtn_";
-			this.backBtn_.TabIndex = 3;
-			this.backBtn_.Text = "< Back";
-			this.backBtn_.Click += new System.EventHandler(this.BackBTN_Click);
+			backBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			backBtn_.Location = new System.Drawing.Point(552, 8);
+			backBtn_.Name = "backBtn_";
+			backBtn_.TabIndex = 3;
+			backBtn_.Text = "< Back";
+			backBtn_.Click += new System.EventHandler(BackBTN_Click);
 			// 
 			// NextBTN
 			// 
-			this.nextBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.nextBtn_.Location = new System.Drawing.Point(632, 8);
-			this.nextBtn_.Name = "nextBtn_";
-			this.nextBtn_.TabIndex = 2;
-			this.nextBtn_.Text = "Next >";
-			this.nextBtn_.Click += new System.EventHandler(this.NextBTN_Click);
+			nextBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			nextBtn_.Location = new System.Drawing.Point(632, 8);
+			nextBtn_.Name = "nextBtn_";
+			nextBtn_.TabIndex = 2;
+			nextBtn_.Text = "Next >";
+			nextBtn_.Click += new System.EventHandler(NextBTN_Click);
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(712, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 4;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(712, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 4;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// DoneBTN
 			// 
-			this.doneBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.doneBtn_.Location = new System.Drawing.Point(632, 8);
-			this.doneBtn_.Name = "doneBtn_";
-			this.doneBtn_.TabIndex = 0;
-			this.doneBtn_.Text = "Done";
-			this.doneBtn_.Click += new System.EventHandler(this.DoneBTN_Click);
+			doneBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			doneBtn_.Location = new System.Drawing.Point(632, 8);
+			doneBtn_.Name = "doneBtn_";
+			doneBtn_.TabIndex = 0;
+			doneBtn_.Text = "Done";
+			doneBtn_.Click += new System.EventHandler(DoneBTN_Click);
 			// 
 			// SplitterV
 			// 
-			this.splitterV_.Location = new System.Drawing.Point(280, 0);
-			this.splitterV_.Name = "splitterV_";
-			this.splitterV_.Size = new System.Drawing.Size(3, 490);
-			this.splitterV_.TabIndex = 12;
-			this.splitterV_.TabStop = false;
+			splitterV_.Location = new System.Drawing.Point(280, 0);
+			splitterV_.Name = "splitterV_";
+			splitterV_.Size = new System.Drawing.Size(3, 490);
+			splitterV_.TabIndex = 12;
+			splitterV_.TabStop = false;
 			// 
 			// SubscriptionEditDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(792, 526);
-			this.Controls.Add(this.rightPn_);
-			this.Controls.Add(this.splitterV_);
-			this.Controls.Add(this.leftPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Name = "SubscriptionEditDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Create Subscription";
-			this.rightPn_.ResumeLayout(false);
-			this.stateFiltersPn_.ResumeLayout(false);
-			this.filtersGb_.ResumeLayout(false);
-			this.stateGb_.ResumeLayout(false);
-			this.leftPn_.ResumeLayout(false);
-			this.buttonsPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(792, 526);
+			Controls.Add(rightPn_);
+			Controls.Add(splitterV_);
+			Controls.Add(leftPn_);
+			Controls.Add(buttonsPn_);
+			Name = "SubscriptionEditDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Create Subscription";
+			rightPn_.ResumeLayout(false);
+			stateFiltersPn_.ResumeLayout(false);
+			filtersGb_.ResumeLayout(false);
+			stateGb_.ResumeLayout(false);
+			leftPn_.ResumeLayout(false);
+			buttonsPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

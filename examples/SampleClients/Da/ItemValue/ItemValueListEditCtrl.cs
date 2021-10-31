@@ -77,80 +77,80 @@ namespace SampleClients.Da.ItemValue
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.itemListLv_ = new System.Windows.Forms.ListView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.editMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.newMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.initMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.deleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator01_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.valuesOnlyMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			itemListLv_ = new System.Windows.Forms.ListView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			editMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			newMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			initMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			deleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator01_ = new System.Windows.Forms.ToolStripMenuItem();
+			valuesOnlyMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// ItemListLV
 			// 
-			this.itemListLv_.ContextMenuStrip = this.popupMenu_;
-			this.itemListLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.itemListLv_.FullRowSelect = true;
-			this.itemListLv_.Name = "itemListLv_";
-			this.itemListLv_.Size = new System.Drawing.Size(432, 272);
-			this.itemListLv_.TabIndex = 0;
-			this.itemListLv_.View = System.Windows.Forms.View.Details;
-			this.itemListLv_.DoubleClick += new System.EventHandler(this.EditMI_Click);
+			itemListLv_.ContextMenuStrip = popupMenu_;
+			itemListLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			itemListLv_.FullRowSelect = true;
+			itemListLv_.Name = "itemListLv_";
+			itemListLv_.Size = new System.Drawing.Size(432, 272);
+			itemListLv_.TabIndex = 0;
+			itemListLv_.View = System.Windows.Forms.View.Details;
+			itemListLv_.DoubleClick += new System.EventHandler(EditMI_Click);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.editMi_,
-																					  this.newMi_,
-																					  this.initMi_,
-																					  this.deleteMi_,
-																					  this.separator01_,
-																					  this.valuesOnlyMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  editMi_,
+																					  newMi_,
+																					  initMi_,
+																					  deleteMi_,
+																					  separator01_,
+																					  valuesOnlyMi_});
 			// 
 			// EditMI
 			// 
-			this.editMi_.ImageIndex = 0;
-			this.editMi_.Text = "&Edit...";
-			this.editMi_.Click += new System.EventHandler(this.EditMI_Click);
+			editMi_.ImageIndex = 0;
+			editMi_.Text = "&Edit...";
+			editMi_.Click += new System.EventHandler(EditMI_Click);
 			// 
 			// NewMI
 			// 
-			this.newMi_.ImageIndex = 1;
-			this.newMi_.Text = "&New...";
-			this.newMi_.Click += new System.EventHandler(this.NewMI_Click);
+			newMi_.ImageIndex = 1;
+			newMi_.Text = "&New...";
+			newMi_.Click += new System.EventHandler(NewMI_Click);
 			// 
 			// InitMI
 			// 
-			this.initMi_.ImageIndex = 2;
-			this.initMi_.Text = "&Initialize with Properties";
-			this.initMi_.Click += new System.EventHandler(this.InitMI_Click);
+			initMi_.ImageIndex = 2;
+			initMi_.Text = "&Initialize with Properties";
+			initMi_.Click += new System.EventHandler(InitMI_Click);
 			// 
 			// DeleteMI
 			// 
-			this.deleteMi_.ImageIndex = 3;
-			this.deleteMi_.Text = "&Delete";
-			this.deleteMi_.Click += new System.EventHandler(this.RemoveMI_Click);
+			deleteMi_.ImageIndex = 3;
+			deleteMi_.Text = "&Delete";
+			deleteMi_.Click += new System.EventHandler(RemoveMI_Click);
 			// 
 			// Separator01
 			// 
-			this.separator01_.ImageIndex = 4;
-			this.separator01_.Text = "-";
+			separator01_.ImageIndex = 4;
+			separator01_.Text = "-";
 			// 
 			// ValuesOnlyMI
 			// 
-			this.valuesOnlyMi_.Checked = true;
-			this.valuesOnlyMi_.ImageIndex = 5;
-			this.valuesOnlyMi_.Text = "&Values Only";
-			this.valuesOnlyMi_.Click += new System.EventHandler(this.ValuesOnlyMI_Click);
+			valuesOnlyMi_.Checked = true;
+			valuesOnlyMi_.ImageIndex = 5;
+			valuesOnlyMi_.Text = "&Values Only";
+			valuesOnlyMi_.Click += new System.EventHandler(ValuesOnlyMI_Click);
 			// 
 			// ItemValueListEditCtrl
 			// 
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
-																		  this.itemListLv_});
-			this.Name = "ItemValueListEditCtrl";
-			this.Size = new System.Drawing.Size(432, 272);
-			this.ResumeLayout(false);
+			Controls.AddRange(new System.Windows.Forms.Control[] {
+																		  itemListLv_});
+			Name = "ItemValueListEditCtrl";
+			Size = new System.Drawing.Size(432, 272);
+			ResumeLayout(false);
 
 		}
 		#endregion

@@ -51,14 +51,14 @@ namespace scpl
 	{
 		public Legend()
 		{
-			this.Font = new Font(new FontFamily("Arial"), 10, FontStyle.Regular, GraphicsUnit.Pixel);
+			Font = new Font(new FontFamily("Arial"), 10, FontStyle.Regular, GraphicsUnit.Pixel);
 		}
 
 		public RectangleF GetBoundingBox( int xPos, int yPos, ArrayList plots, float scale )
 		{
 			System.Drawing.Bitmap b = new System.Drawing.Bitmap(1,1);
 			Graphics g = Graphics.FromImage(b);
-			return this.Draw( g, xPos, yPos, plots, scale );
+			return Draw( g, xPos, yPos, plots, scale );
 		}
 
 		public RectangleF Draw( Graphics g, int xPos, int yPos, ArrayList plots, float scale )
@@ -70,8 +70,8 @@ namespace scpl
 			for (int i=0; i<plots.Count; ++i)
 			{
 				IPlot p = (IPlot)plots[i];
-				float lHt = g.MeasureString( p.Label, FontScaler.scaleFont(this.font_,scale) ).Height;
-				float lWd = g.MeasureString( p.Label, FontScaler.scaleFont(this.font_,scale) ).Width;
+				float lHt = g.MeasureString( p.Label, FontScaler.scaleFont(font_,scale) ).Height;
+				float lWd = g.MeasureString( p.Label, FontScaler.scaleFont(font_,scale) ).Width;
 				if ( lHt > maxHt )
 				{
 					maxHt = lHt;
@@ -93,12 +93,12 @@ namespace scpl
 			float totalHeight = boxHeight;
 
 			// draw box..
-			if ( this.BorderStyle == BorderType.Line )
+			if ( BorderStyle == BorderType.Line )
 			{
 				g.FillRectangle( new SolidBrush( Color.White ), xPos, yPos, boxWidth, boxHeight );
 				g.DrawRectangle( new Pen( Color.Black ), xPos, yPos, boxWidth, boxHeight );
 			}
-			else if ( this.BorderStyle == BorderType.Shadow )
+			else if ( BorderStyle == BorderType.Shadow )
 			{
 				float offset = 4.0f * (float)scale;
 				g.FillRectangle( new SolidBrush( Color.LightGray ), xPos+offset, yPos+offset, boxWidth, boxHeight );
@@ -135,7 +135,7 @@ namespace scpl
 					unnamedCount += 1;
 					label = "Series " + unnamedCount.ToString();
 				}
-				g.DrawString( label, FontScaler.scaleFont(this.Font,scale),
+				g.DrawString( label, FontScaler.scaleFont(Font,scale),
 					new SolidBrush( Color.Black ), textXPos, textYPos );
 			}
 
@@ -146,11 +146,11 @@ namespace scpl
 		{
 			get
 			{
-				return this.font_;
+				return font_;
 			}
 			set
 			{
-				this.font_ = value;
+				font_ = value;
 			}
 		}
 		private Font font_;

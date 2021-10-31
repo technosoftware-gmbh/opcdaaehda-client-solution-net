@@ -331,7 +331,7 @@ namespace scpl
 
 		private double DetermineScaleFactor( double w, double h )
 		{
-			if ( !this.autoScale_ )
+			if ( !autoScale_ )
 			{
 				return 1.0f;
 			}
@@ -388,53 +388,53 @@ namespace scpl
 
 			if ( xap == XAxisPosition.Bottom )
 			{
-				if (this.xAxis1_ == null)
+				if (xAxis1_ == null)
 				{
-					this.xAxis1_ = p.SuggestXAxis();
-					this.xAxis1_.TicksAngle = -Math.PI/2.0f;
+					xAxis1_ = p.SuggestXAxis();
+					xAxis1_.TicksAngle = -Math.PI/2.0f;
 				}
 				else
 				{
-					this.xAxis1_.LUB( p.SuggestXAxis() );
+					xAxis1_.LUB( p.SuggestXAxis() );
 				}
 			}
 
 			if ( xap == XAxisPosition.Top )
 			{
-				if (this.xAxis2_ == null)
+				if (xAxis2_ == null)
 				{
-					this.xAxis2_ = p.SuggestXAxis();
-					this.xAxis2_.TicksAngle = Math.PI/2.0f;
+					xAxis2_ = p.SuggestXAxis();
+					xAxis2_.TicksAngle = Math.PI/2.0f;
 				}
 				else
 				{
-					this.xAxis2_.LUB( p.SuggestXAxis() );
+					xAxis2_.LUB( p.SuggestXAxis() );
 				}
 			}
 
 			if ( yap == YAxisPosition.Left )
 			{
-				if ( this.yAxis1_ == null )
+				if ( yAxis1_ == null )
 				{
-					this.yAxis1_ = p.SuggestYAxis();
-					this.yAxis1_.TicksAngle = Math.PI/2.0f;
+					yAxis1_ = p.SuggestYAxis();
+					yAxis1_.TicksAngle = Math.PI/2.0f;
 				}
 				else
 				{
-					this.yAxis1_.LUB( p.SuggestYAxis() );
+					yAxis1_.LUB( p.SuggestYAxis() );
 				}
 			}
 
 			if ( yap == YAxisPosition.Right )
 			{
-				if (this.yAxis2_ == null )
+				if (yAxis2_ == null )
 				{
-					this.yAxis2_ = p.SuggestYAxis();
-					this.yAxis2_.TicksAngle = -Math.PI/2.0f;
+					yAxis2_ = p.SuggestYAxis();
+					yAxis2_.TicksAngle = -Math.PI/2.0f;
 				}
 				else
 				{
-					this.yAxis2_.LUB( p.SuggestYAxis() );
+					yAxis2_.LUB( p.SuggestYAxis() );
 				}
 			}
 		}
@@ -470,25 +470,25 @@ namespace scpl
 			if (pXAxis1.Axis.GridDetail == Axis.GridType.Fine)
 			{
 				System.Collections.ArrayList a = pXAxis1.Axis.SmallTickPositions;
-				DrawGridLines( g, pXAxis1, pYAxis1, a, true, this.MinorGridPen );
+				DrawGridLines( g, pXAxis1, pYAxis1, a, true, MinorGridPen );
 			}
 
 			if (pXAxis2.Axis.GridDetail == Axis.GridType.Fine)
 			{
 				System.Collections.ArrayList a = pXAxis2.Axis.SmallTickPositions;
-				DrawGridLines( g, pXAxis2, pYAxis1, a, true, this.MinorGridPen );
+				DrawGridLines( g, pXAxis2, pYAxis1, a, true, MinorGridPen );
 			}
 
 			if (pYAxis1.Axis.GridDetail == Axis.GridType.Fine)
 			{
 				System.Collections.ArrayList a = pYAxis1.Axis.SmallTickPositions;
-				DrawGridLines( g, pYAxis1, pXAxis1, a, false, this.MinorGridPen );
+				DrawGridLines( g, pYAxis1, pXAxis1, a, false, MinorGridPen );
 			}
 
 			if (pYAxis2.Axis.GridDetail == Axis.GridType.Fine)
 			{
 				System.Collections.ArrayList a = pYAxis2.Axis.SmallTickPositions;
-				DrawGridLines( g, pYAxis2, pXAxis1, a, false, this.MinorGridPen );
+				DrawGridLines( g, pYAxis2, pXAxis1, a, false, MinorGridPen );
 			}
 
 
@@ -496,25 +496,25 @@ namespace scpl
 			if (pXAxis1.Axis.GridDetail != Axis.GridType.None)
 			{
 				System.Collections.ArrayList a = pXAxis1.Axis.LargeTickPositions;
-				DrawGridLines( g, pXAxis1, pYAxis1, a, true, this.MajorGridPen );
+				DrawGridLines( g, pXAxis1, pYAxis1, a, true, MajorGridPen );
 			}
 
 			if (pXAxis2.Axis.GridDetail != Axis.GridType.None)
 			{
 				System.Collections.ArrayList a = pXAxis2.Axis.LargeTickPositions;
-				DrawGridLines( g, pXAxis2, pYAxis1, a, true, this.MajorGridPen );
+				DrawGridLines( g, pXAxis2, pYAxis1, a, true, MajorGridPen );
 			}
 
 			if (pYAxis1.Axis.GridDetail != Axis.GridType.None)
 			{
 				System.Collections.ArrayList a = pYAxis1.Axis.LargeTickPositions;
-				DrawGridLines( g, pYAxis1, pXAxis1, a, false, this.MajorGridPen );
+				DrawGridLines( g, pYAxis1, pXAxis1, a, false, MajorGridPen );
 			}
 
 			if (pYAxis2.Axis.GridDetail != Axis.GridType.None)
 			{
 				System.Collections.ArrayList a = pYAxis2.Axis.LargeTickPositions;
-				DrawGridLines( g, pYAxis2, pXAxis1, a, false, this.MajorGridPen );
+				DrawGridLines( g, pYAxis2, pXAxis1, a, false, MajorGridPen );
 			}
 
 		}
@@ -535,43 +535,43 @@ namespace scpl
 
 			float scale = (float)DetermineScaleFactor( bounds.Width, bounds.Height );
 
-			if (this.xAxis1_ == null)
+			if (xAxis1_ == null)
 			{
-				this.xAxis1_ = (Axis)this.xAxis2_.Clone();
-				this.xAxis1_.HideTickText = true;
-				this.xAxis1_.TicksAngle = -Math.PI/2.0f;
+				xAxis1_ = (Axis)xAxis2_.Clone();
+				xAxis1_.HideTickText = true;
+				xAxis1_.TicksAngle = -Math.PI/2.0f;
 			}
 
-			if (this.xAxis2_ == null)
+			if (xAxis2_ == null)
 			{
-				this.xAxis2_ = (Axis)this.xAxis1_.Clone();
-				this.xAxis2_.HideTickText = true;
-				this.xAxis2_.TicksAngle = Math.PI/2.0f;
+				xAxis2_ = (Axis)xAxis1_.Clone();
+				xAxis2_.HideTickText = true;
+				xAxis2_.TicksAngle = Math.PI/2.0f;
 			}
 
-			if (this.yAxis1_ == null)
+			if (yAxis1_ == null)
 			{
-				this.yAxis1_ = (Axis)this.yAxis2_.Clone();
-				this.yAxis1_.HideTickText = true;
-				this.yAxis1_.TicksAngle = Math.PI/2.0f;
+				yAxis1_ = (Axis)yAxis2_.Clone();
+				yAxis1_.HideTickText = true;
+				yAxis1_.TicksAngle = Math.PI/2.0f;
 			}
 
-			if (this.yAxis2_ == null)
+			if (yAxis2_ == null)
 			{
-				this.yAxis2_ = (Axis)this.yAxis1_.Clone();
-				this.yAxis2_.HideTickText = true;
-				this.yAxis2_.TicksAngle = -Math.PI/2.0f;
+				yAxis2_ = (Axis)yAxis1_.Clone();
+				yAxis2_.HideTickText = true;
+				yAxis2_.TicksAngle = -Math.PI/2.0f;
 			}
 
 			// TODO: fix this so these not automatically overwritten.
-			this.xAxis1_.TickScale = scale;
-			this.xAxis1_.FontScale = scale;
-			this.yAxis1_.TickScale = scale;
-			this.yAxis1_.FontScale = scale;
-			this.xAxis2_.TickScale = scale;
-			this.xAxis2_.FontScale = scale;
-			this.yAxis2_.TickScale = scale;
-			this.yAxis2_.FontScale = scale;
+			xAxis1_.TickScale = scale;
+			xAxis1_.FontScale = scale;
+			yAxis1_.TickScale = scale;
+			yAxis1_.FontScale = scale;
+			xAxis2_.TickScale = scale;
+			xAxis2_.FontScale = scale;
+			yAxis2_.TickScale = scale;
+			yAxis2_.FontScale = scale;
 
 			// now have axes world info. set physical limits.
 			// first guess axes positions, then find bounding box, then change
@@ -640,20 +640,20 @@ namespace scpl
 			Legend legend = null;
 			float lXPos = 0.0f;
 			float lYPos = 0.0f;
-			if ( this.showLegend_ )
+			if ( showLegend_ )
 			{
 				legend = new Legend();
-				legend.BorderStyle = this.LegendBorderStyle;
+				legend.BorderStyle = LegendBorderStyle;
 				RectangleF legendWidthHeight = legend.GetBoundingBox(0,0,plots_,scale);
 
 				// calculate legend position.
 
-				lYPos = this.legendOffsetY_;
+				lYPos = legendOffsetY_;
 				
-				if ( this.legendOffsetXAxis_ == XAxisPosition.Bottom )
+				if ( legendOffsetXAxis_ == XAxisPosition.Bottom )
 				{
 					lYPos += cb.Bottom-bottomIndent;
-					if ( this.horizontalEdgeLegendPlacement_ == Legend.Placement.Inside )
+					if ( horizontalEdgeLegendPlacement_ == Legend.Placement.Inside )
 					{
 						lYPos -= legendWidthHeight.Height;
 					}
@@ -661,17 +661,17 @@ namespace scpl
 				else
 				{
 					lYPos += cb.Top+topIndent;
-					if ( this.horizontalEdgeLegendPlacement_ == Legend.Placement.Outside )
+					if ( horizontalEdgeLegendPlacement_ == Legend.Placement.Outside )
 					{
 						lYPos -= legendWidthHeight.Height;
 					}
 				}
 				
-				lXPos = this.legendOffsetX_;
+				lXPos = legendOffsetX_;
 				
-				if ( this.legendOffsetYAxis_ == YAxisPosition.Left )
+				if ( legendOffsetYAxis_ == YAxisPosition.Left )
 				{
-					if ( this.verticalEdgeLegendPlacement_ == Legend.Placement.Outside ) 
+					if ( verticalEdgeLegendPlacement_ == Legend.Placement.Outside ) 
 					{
 						lXPos -= legendWidthHeight.Width;
 					}
@@ -679,7 +679,7 @@ namespace scpl
 				}
 				else
 				{
-					if ( this.verticalEdgeLegendPlacement_ == Legend.Placement.Inside )
+					if ( verticalEdgeLegendPlacement_ == Legend.Placement.Inside )
 					{
 						lXPos -= legendWidthHeight.Width;
 					}
@@ -769,9 +769,9 @@ namespace scpl
 
 
 			// Fill in the background. 
-			if ( this.plotBackColor_ != null )
+			if ( plotBackColor_ != null )
 			{
-				g.FillRectangle( new System.Drawing.SolidBrush( (Color)this.plotBackColor_ ), 
+				g.FillRectangle( new System.Drawing.SolidBrush( (Color)plotBackColor_ ), 
 					pYAxis1.PhysicalMin.X,
 					pXAxis2.PhysicalMax.Y,
 					pXAxis1.PhysicalMax.X - pXAxis1.PhysicalMin.X,
@@ -782,8 +782,8 @@ namespace scpl
 			StringFormat drawFormat = new StringFormat();
 			drawFormat.Alignment = StringAlignment.Center;
 			g.DrawString( title_, FontScaler.scaleFont(titleFont_,scale),
-				this.titleBrush_,
-				new PointF((pXAxis2.PhysicalMax.X + pXAxis2.PhysicalMin.X)/2.0f, cb.Top + this.padding_),
+				titleBrush_,
+				new PointF((pXAxis2.PhysicalMax.X + pXAxis2.PhysicalMin.X)/2.0f, cb.Top + padding_),
 				drawFormat );
 
 			// now draw grid.
@@ -831,15 +831,15 @@ namespace scpl
 				g.ResetClip();
 
 				// cache the physical axes we used on this draw;
-				this.pXAxis1Cache_ = pXAxis1;
-				this.pYAxis1Cache_ = pYAxis1;
-				this.pXAxis2Cache_ = pXAxis2;
-				this.pYAxis2Cache_ = pYAxis2;
+				pXAxis1Cache_ = pXAxis1;
+				pYAxis1Cache_ = pYAxis1;
+				pXAxis2Cache_ = pXAxis2;
+				pYAxis2Cache_ = pYAxis2;
 			}
 
 			if ( legend != null )
 			{
-				legend.Draw(g, (int)lXPos, (int)lYPos, this.plots_, scale );
+				legend.Draw(g, (int)lXPos, (int)lYPos, plots_, scale );
 			}
 
 		}
@@ -887,14 +887,14 @@ namespace scpl
 			}
 			System.Drawing.Rectangle MyRect = new System.Drawing.Rectangle(0, 0, width, height);
 			System.Drawing.Bitmap MyBitmap = new System.Drawing.Bitmap(width, height);
-			this.Draw(Graphics.FromImage(MyBitmap), MyRect);
+			Draw(Graphics.FromImage(MyBitmap), MyRect);
 			MyBitmap.Save(strFilePath, imageFormat);
 			return true;
 		}
 
 		public bool SaveAsFile( string strFilePath, int width, int height )
 		{
-			return this.SaveAsFile(strFilePath, width, height, imageFormat_);
+			return SaveAsFile(strFilePath, width, height, imageFormat_);
 		}
 		#endregion
 
@@ -918,7 +918,7 @@ namespace scpl
 			}
 			set
 			{
-				this.showLegend_ = value;
+				showLegend_ = value;
 			}
 		}
 		private bool showLegend_;

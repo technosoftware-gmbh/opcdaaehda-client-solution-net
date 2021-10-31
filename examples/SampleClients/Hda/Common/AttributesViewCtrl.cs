@@ -77,61 +77,61 @@ namespace SampleClients.Hda.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.attributesLv_ = new System.Windows.Forms.ListView();
-			this.copyMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.editMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.viewMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			attributesLv_ = new System.Windows.Forms.ListView();
+			copyMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			editMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			viewMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// AttributesLV
 			// 
-			this.attributesLv_.ContextMenuStrip = this.popupMenu_;
-			this.attributesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.attributesLv_.FullRowSelect = true;
-			this.attributesLv_.Location = new System.Drawing.Point(0, 0);
-			this.attributesLv_.MultiSelect = false;
-			this.attributesLv_.Name = "attributesLv_";
-			this.attributesLv_.Size = new System.Drawing.Size(432, 272);
-			this.attributesLv_.TabIndex = 0;
-			this.attributesLv_.View = System.Windows.Forms.View.Details;
-			this.attributesLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AttributesLV_MouseDown);
-			this.attributesLv_.DoubleClick += new System.EventHandler(this.ViewMI_Click);
+			attributesLv_.ContextMenuStrip = popupMenu_;
+			attributesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			attributesLv_.FullRowSelect = true;
+			attributesLv_.Location = new System.Drawing.Point(0, 0);
+			attributesLv_.MultiSelect = false;
+			attributesLv_.Name = "attributesLv_";
+			attributesLv_.Size = new System.Drawing.Size(432, 272);
+			attributesLv_.TabIndex = 0;
+			attributesLv_.View = System.Windows.Forms.View.Details;
+			attributesLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(AttributesLV_MouseDown);
+			attributesLv_.DoubleClick += new System.EventHandler(ViewMI_Click);
 			// 
 			// CopyMI
 			// 
-			this.copyMi_.ImageIndex = -1;
-			this.copyMi_.Text = "";
+			copyMi_.ImageIndex = -1;
+			copyMi_.Text = "";
 			// 
 			// EditMI
 			// 
-			this.editMi_.ImageIndex = -1;
-			this.editMi_.Text = "";
+			editMi_.ImageIndex = -1;
+			editMi_.Text = "";
 			// 
 			// RemoveMI
 			// 
-			this.removeMi_.ImageIndex = -1;
-			this.removeMi_.Text = "";
+			removeMi_.ImageIndex = -1;
+			removeMi_.Text = "";
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.viewMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  viewMi_});
 			// 
 			// ViewMI
 			// 
-			this.viewMi_.ImageIndex = 0;
-			this.viewMi_.Text = "View...";
-			this.viewMi_.Click += new System.EventHandler(this.ViewMI_Click);
+			viewMi_.ImageIndex = 0;
+			viewMi_.Text = "View...";
+			viewMi_.Click += new System.EventHandler(ViewMI_Click);
 			// 
 			// AttributesViewCtrl
 			// 
-			this.AllowDrop = true;
-			this.Controls.Add(this.attributesLv_);
+			AllowDrop = true;
+			Controls.Add(attributesLv_);
 			((Control)this).Name = "AttributesViewCtrl";
-			this.Size = new System.Drawing.Size(432, 272);
-			this.ResumeLayout(false);
+			Size = new System.Drawing.Size(432, 272);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -240,13 +240,13 @@ namespace SampleClients.Hda.Common
 		/// <summary>
 		/// Constants used to identify the list view columns.
 		/// </summary>
-		private const int Name         = 0;
-		private const int DataType    = 1;
-		private const int Description  = 2;
-		private const int NumValues   = 3;
-		private const int Timestamp    = 4;
-		private const int Value        = 5;
-		private const int Result       = 6;
+		private const int NumberName         = 0;
+		private const int NumberDataType     = 1;
+		private const int NumberDescription  = 2;
+		private const int NumberNumValues    = 3;
+		private const int NumberTimestamp    = 4;
+		private const int NumberValue        = 5;
+		private const int NumberResult       = 6;
 
 		/// <summary>
 		/// The list view column names.
@@ -320,7 +320,7 @@ namespace SampleClients.Hda.Common
 			{
 				switch (fieldId)
 				{								
-					case Result: { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection)attribute).Result; }
+					case NumberResult: { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValueCollection)attribute).Result; }
 				}
 			}
 
@@ -331,16 +331,16 @@ namespace SampleClients.Hda.Common
 				{
 					switch (fieldId)
 					{
-						case Name: { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute)attribute).Name; }
+						case NumberName: { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute)attribute).Name; }
 					}
 				}
 				else
 				{
 					switch (fieldId)
 					{
-						case Name:        { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute)attribute).Name;        }
-						case DataType:   { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute)attribute).DataType;    }
-						case Description: { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute)attribute).Description; }
+						case NumberName:        { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute)attribute).Name;        }
+						case NumberDataType:   { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute)attribute).DataType;    }
+						case NumberDescription: { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute)attribute).Description; }
 					}
 				}
 			}
@@ -352,7 +352,7 @@ namespace SampleClients.Hda.Common
 
 				switch (fieldId)
 				{					
-					case Name:        
+					case NumberName:        
 					{ 
 						Technosoftware.DaAeHdaClient.Hda.TsCHdaAttribute description =	mServer_.Attributes.Find(collection.AttributeID);
 
@@ -364,7 +364,7 @@ namespace SampleClients.Hda.Common
 						return null;
 					}
 
-					case NumValues:
+					case NumberNumValues:
 					{
 						if (collection.Count > 1)
 						{
@@ -374,7 +374,7 @@ namespace SampleClients.Hda.Common
 						return null;
 					}
                         
-					case Value:      
+					case NumberValue:      
 					{ 
 						if (collection.Count == 1)
 						{
@@ -391,8 +391,8 @@ namespace SampleClients.Hda.Common
 			{
 				switch (fieldId)
 				{					
-					case Timestamp: { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue)attribute).Timestamp; }
-					case Value:     { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue)attribute).Value;     }
+					case NumberTimestamp: { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue)attribute).Timestamp; }
+					case NumberValue:     { return ((Technosoftware.DaAeHdaClient.Hda.TsCHdaAttributeValue)attribute).Value;     }
 				}
 			}
 

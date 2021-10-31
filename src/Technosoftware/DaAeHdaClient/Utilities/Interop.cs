@@ -25,8 +25,9 @@ using System;
 using System.Net;
 using System.Globalization;
 using System.Runtime.InteropServices;
-using Technosoftware.DaAeHdaClient;
+
 using Technosoftware.DaAeHdaClient.Da;
+#pragma warning disable 618
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Utilities

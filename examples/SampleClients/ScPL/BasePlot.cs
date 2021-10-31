@@ -54,13 +54,13 @@ namespace scpl
 		public virtual void DrawLegendLine( Graphics g, RectangleF startEnd )
 		{
 			Pen	p;
-			if ( this.pen_ != null )
+			if ( pen_ != null )
 			{
-				p = (System.Drawing.Pen)this.pen_;
+				p = (System.Drawing.Pen)pen_;
 			}
 			else
 			{
-				p =	new	Pen(this.color_);
+				p =	new	Pen(color_);
 			}
 
 			g.DrawLine( p, startEnd.Left, (startEnd.Top + startEnd.Bottom)/2.0f, 
@@ -102,7 +102,7 @@ namespace scpl
 			}
 			set
 			{
-				this.label_ = value;
+				label_ = value;
 			}
 		}
 

@@ -88,186 +88,186 @@ namespace SampleClients.Hda.Test
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.mainPn_ = new System.Windows.Forms.Panel();
-			this.valuesLv_ = new System.Windows.Forms.ListView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.addMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.copyMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.editMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.deleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.clearMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.topPn_ = new System.Windows.Forms.Panel();
-			this.trendCtrl_ = new TrendEditCtrl();
-			this.resultIdlb_ = new System.Windows.Forms.Label();
-			this.resultIdtb_ = new System.Windows.Forms.TextBox();
-			this.acceptActualMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator01_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.buttonsPn_.SuspendLayout();
-			this.mainPn_.SuspendLayout();
-			this.topPn_.SuspendLayout();
-			this.SuspendLayout();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			okBtn_ = new System.Windows.Forms.Button();
+			mainPn_ = new System.Windows.Forms.Panel();
+			valuesLv_ = new System.Windows.Forms.ListView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			addMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			copyMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			editMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			deleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			clearMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			topPn_ = new System.Windows.Forms.Panel();
+			trendCtrl_ = new TrendEditCtrl();
+			resultIdlb_ = new System.Windows.Forms.Label();
+			resultIdtb_ = new System.Windows.Forms.TextBox();
+			acceptActualMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator01_ = new System.Windows.Forms.ToolStripMenuItem();
+			buttonsPn_.SuspendLayout();
+			mainPn_.SuspendLayout();
+			topPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(304, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(304, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 378);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(384, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 378);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(384, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okBtn_.Location = new System.Drawing.Point(4, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 0;
-			this.okBtn_.Text = "OK";
+			okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			okBtn_.Location = new System.Drawing.Point(4, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 0;
+			okBtn_.Text = "OK";
 			// 
 			// MainPN
 			// 
-			this.mainPn_.Controls.Add(this.valuesLv_);
-			this.mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPn_.DockPadding.Left = 4;
-			this.mainPn_.DockPadding.Right = 4;
-			this.mainPn_.DockPadding.Top = 4;
-			this.mainPn_.Location = new System.Drawing.Point(0, 192);
-			this.mainPn_.Name = "mainPn_";
-			this.mainPn_.Size = new System.Drawing.Size(384, 186);
-			this.mainPn_.TabIndex = 32;
+			mainPn_.Controls.Add(valuesLv_);
+			mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			mainPn_.DockPadding.Left = 4;
+			mainPn_.DockPadding.Right = 4;
+			mainPn_.DockPadding.Top = 4;
+			mainPn_.Location = new System.Drawing.Point(0, 192);
+			mainPn_.Name = "mainPn_";
+			mainPn_.Size = new System.Drawing.Size(384, 186);
+			mainPn_.TabIndex = 32;
 			// 
 			// ValuesLV
 			// 
-			this.valuesLv_.ContextMenuStrip = this.popupMenu_;
-			this.valuesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.valuesLv_.FullRowSelect = true;
-			this.valuesLv_.Location = new System.Drawing.Point(4, 4);
-			this.valuesLv_.MultiSelect = false;
-			this.valuesLv_.Name = "valuesLv_";
-			this.valuesLv_.Size = new System.Drawing.Size(376, 182);
-			this.valuesLv_.TabIndex = 0;
-			this.valuesLv_.View = System.Windows.Forms.View.Details;
-			this.valuesLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ValuesLV_MouseDown);
-			this.valuesLv_.DoubleClick += new System.EventHandler(this.EditMI_Click);
+			valuesLv_.ContextMenuStrip = popupMenu_;
+			valuesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			valuesLv_.FullRowSelect = true;
+			valuesLv_.Location = new System.Drawing.Point(4, 4);
+			valuesLv_.MultiSelect = false;
+			valuesLv_.Name = "valuesLv_";
+			valuesLv_.Size = new System.Drawing.Size(376, 182);
+			valuesLv_.TabIndex = 0;
+			valuesLv_.View = System.Windows.Forms.View.Details;
+			valuesLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(ValuesLV_MouseDown);
+			valuesLv_.DoubleClick += new System.EventHandler(EditMI_Click);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.addMi_,
-																					  this.copyMi_,
-																					  this.editMi_,
-																					  this.deleteMi_,
-																					  this.separator01_,
-																					  this.clearMi_,
-																					  this.acceptActualMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  addMi_,
+																					  copyMi_,
+																					  editMi_,
+																					  deleteMi_,
+																					  separator01_,
+																					  clearMi_,
+																					  acceptActualMi_});
 			// 
 			// AddMI
 			// 
-			this.addMi_.ImageIndex = 0;
-			this.addMi_.Text = "Add...";
-			this.addMi_.Click += new System.EventHandler(this.AddMI_Click);
+			addMi_.ImageIndex = 0;
+			addMi_.Text = "Add...";
+			addMi_.Click += new System.EventHandler(AddMI_Click);
 			// 
 			// CopyMI
 			// 
-			this.copyMi_.ImageIndex = 1;
-			this.copyMi_.Text = "Copy....";
-			this.copyMi_.Click += new System.EventHandler(this.CopyMI_Click);
+			copyMi_.ImageIndex = 1;
+			copyMi_.Text = "Copy....";
+			copyMi_.Click += new System.EventHandler(CopyMI_Click);
 			// 
 			// EditMI
 			// 
-			this.editMi_.ImageIndex = 2;
-			this.editMi_.Text = "Edit..";
-			this.editMi_.Click += new System.EventHandler(this.EditMI_Click);
+			editMi_.ImageIndex = 2;
+			editMi_.Text = "Edit..";
+			editMi_.Click += new System.EventHandler(EditMI_Click);
 			// 
 			// DeleteMI
 			// 
-			this.deleteMi_.ImageIndex = 3;
-			this.deleteMi_.Text = "Delete";
-			this.deleteMi_.Click += new System.EventHandler(this.DeleteMI_Click);
+			deleteMi_.ImageIndex = 3;
+			deleteMi_.Text = "Delete";
+			deleteMi_.Click += new System.EventHandler(DeleteMI_Click);
 			// 
 			// ClearMI
 			// 
-			this.clearMi_.ImageIndex = 5;
-			this.clearMi_.Text = "Clear";
-			this.clearMi_.Click += new System.EventHandler(this.ClearMI_Click);
+			clearMi_.ImageIndex = 5;
+			clearMi_.Text = "Clear";
+			clearMi_.Click += new System.EventHandler(ClearMI_Click);
 			// 
 			// TopPN
 			// 
-			this.topPn_.Controls.Add(this.trendCtrl_);
-			this.topPn_.Controls.Add(this.resultIdlb_);
-			this.topPn_.Controls.Add(this.resultIdtb_);
-			this.topPn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.topPn_.DockPadding.Left = 4;
-			this.topPn_.DockPadding.Right = 4;
-			this.topPn_.DockPadding.Top = 4;
-			this.topPn_.Location = new System.Drawing.Point(0, 0);
-			this.topPn_.Name = "topPn_";
-			this.topPn_.Size = new System.Drawing.Size(384, 192);
-			this.topPn_.TabIndex = 33;
+			topPn_.Controls.Add(trendCtrl_);
+			topPn_.Controls.Add(resultIdlb_);
+			topPn_.Controls.Add(resultIdtb_);
+			topPn_.Dock = System.Windows.Forms.DockStyle.Top;
+			topPn_.DockPadding.Left = 4;
+			topPn_.DockPadding.Right = 4;
+			topPn_.DockPadding.Top = 4;
+			topPn_.Location = new System.Drawing.Point(0, 0);
+			topPn_.Name = "topPn_";
+			topPn_.Size = new System.Drawing.Size(384, 192);
+			topPn_.TabIndex = 33;
 			// 
 			// TrendCTRL
 			// 
-			this.trendCtrl_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.trendCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.trendCtrl_.Name = "trendCtrl_";
-			this.trendCtrl_.Size = new System.Drawing.Size(376, 168);
-			this.trendCtrl_.TabIndex = 1;
+			trendCtrl_.Dock = System.Windows.Forms.DockStyle.Top;
+			trendCtrl_.Location = new System.Drawing.Point(4, 4);
+			trendCtrl_.Name = "trendCtrl_";
+			trendCtrl_.Size = new System.Drawing.Size(376, 168);
+			trendCtrl_.TabIndex = 1;
 			// 
 			// ResultIDLB
 			// 
-			this.resultIdlb_.Location = new System.Drawing.Point(4, 172);
-			this.resultIdlb_.Name = "resultIdlb_";
-			this.resultIdlb_.Size = new System.Drawing.Size(96, 23);
-			this.resultIdlb_.TabIndex = 0;
-			this.resultIdlb_.Text = "Result ID";
-			this.resultIdlb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			resultIdlb_.Location = new System.Drawing.Point(4, 172);
+			resultIdlb_.Name = "resultIdlb_";
+			resultIdlb_.Size = new System.Drawing.Size(96, 23);
+			resultIdlb_.TabIndex = 0;
+			resultIdlb_.Text = "Result ID";
+			resultIdlb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ResultIDTB
 			// 
-			this.resultIdtb_.Location = new System.Drawing.Point(100, 172);
-			this.resultIdtb_.Name = "resultIdtb_";
-			this.resultIdtb_.Size = new System.Drawing.Size(204, 20);
-			this.resultIdtb_.TabIndex = 0;
-			this.resultIdtb_.Text = "";
+			resultIdtb_.Location = new System.Drawing.Point(100, 172);
+			resultIdtb_.Name = "resultIdtb_";
+			resultIdtb_.Size = new System.Drawing.Size(204, 20);
+			resultIdtb_.TabIndex = 0;
+			resultIdtb_.Text = "";
 			// 
 			// AcceptActualMI
 			// 
-			this.acceptActualMi_.ImageIndex = 6;
-			this.acceptActualMi_.Text = "Accept Actual Values...";
-			this.acceptActualMi_.Click += new System.EventHandler(this.AcceptActualMI_Click);
+			acceptActualMi_.ImageIndex = 6;
+			acceptActualMi_.Text = "Accept Actual Values...";
+			acceptActualMi_.Click += new System.EventHandler(AcceptActualMI_Click);
 			// 
 			// Separator01
 			// 
-			this.separator01_.ImageIndex = 4;
-			this.separator01_.Text = "-";
+			separator01_.ImageIndex = 4;
+			separator01_.Text = "-";
 			// 
 			// TestEditDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(384, 414);
-			this.Controls.Add(this.mainPn_);
-			this.Controls.Add(this.topPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Name = "TestEditDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Edit Test Case";
-			this.buttonsPn_.ResumeLayout(false);
-			this.mainPn_.ResumeLayout(false);
-			this.topPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(384, 414);
+			Controls.Add(mainPn_);
+			Controls.Add(topPn_);
+			Controls.Add(buttonsPn_);
+			Name = "TestEditDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Edit Test Case";
+			buttonsPn_.ResumeLayout(false);
+			mainPn_.ResumeLayout(false);
+			topPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

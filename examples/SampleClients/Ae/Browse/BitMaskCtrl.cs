@@ -56,27 +56,27 @@ namespace Technosoftware.DaAeHdaClient.SampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.bitMaskLv_ = new System.Windows.Forms.ListView();
-			this.SuspendLayout();
+			bitMaskLv_ = new System.Windows.Forms.ListView();
+			SuspendLayout();
 			// 
 			// BitMaskLV
 			// 
-			this.bitMaskLv_.BackColor = System.Drawing.SystemColors.Window;
-			this.bitMaskLv_.CheckBoxes = true;
-			this.bitMaskLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.bitMaskLv_.FullRowSelect = true;
-			this.bitMaskLv_.Location = new System.Drawing.Point(0, 0);
-			this.bitMaskLv_.Name = "bitMaskLv_";
-			this.bitMaskLv_.Size = new System.Drawing.Size(400, 304);
-			this.bitMaskLv_.TabIndex = 0;
-			this.bitMaskLv_.View = System.Windows.Forms.View.List;
+			bitMaskLv_.BackColor = System.Drawing.SystemColors.Window;
+			bitMaskLv_.CheckBoxes = true;
+			bitMaskLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			bitMaskLv_.FullRowSelect = true;
+			bitMaskLv_.Location = new System.Drawing.Point(0, 0);
+			bitMaskLv_.Name = "bitMaskLv_";
+			bitMaskLv_.Size = new System.Drawing.Size(400, 304);
+			bitMaskLv_.TabIndex = 0;
+			bitMaskLv_.View = System.Windows.Forms.View.List;
 			// 
 			// BitMaskCtrl
 			// 
-			this.Controls.Add(this.bitMaskLv_);
-			this.Name = "BitMaskCtrl";
-			this.Size = new System.Drawing.Size(400, 304);
-			this.ResumeLayout(false);
+			Controls.Add(bitMaskLv_);
+			Name = "BitMaskCtrl";
+			Size = new System.Drawing.Size(400, 304);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -160,12 +160,13 @@ namespace Technosoftware.DaAeHdaClient.SampleClient
 					case 0x4000:
 					case 0x8000:
 					{
-						ListViewItem item = new ListViewItem(enumValue.ToString());
-					
-						item.Tag       = enumValue;				
-						item.BackColor = (ReadOnly)?SystemColors.Control:SystemColors.Window;
+                            ListViewItem item = new ListViewItem(enumValue.ToString())
+                            {
+                                Tag = enumValue,
+                                BackColor = (ReadOnly) ? SystemColors.Control : SystemColors.Window
+                            };
 
-						bitMaskLv_.Items.Add(item);
+                            bitMaskLv_.Items.Add(item);
 						break;
 					}
 				}

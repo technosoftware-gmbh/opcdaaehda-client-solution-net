@@ -71,54 +71,54 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.itemUrlsLv_ = new System.Windows.Forms.ListView();
-			this.buttonsPn_.SuspendLayout();
-			this.SuspendLayout();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			itemUrlsLv_ = new System.Windows.Forms.ListView();
+			buttonsPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 258);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(592, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 258);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(592, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(259, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Close";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(259, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Close";
 			// 
 			// ItemUrlsLV
 			// 
-			this.itemUrlsLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.itemUrlsLv_.Location = new System.Drawing.Point(0, 0);
-			this.itemUrlsLv_.Name = "itemUrlsLv_";
-			this.itemUrlsLv_.Size = new System.Drawing.Size(592, 258);
-			this.itemUrlsLv_.TabIndex = 1;
-			this.itemUrlsLv_.View = System.Windows.Forms.View.Details;
+			itemUrlsLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			itemUrlsLv_.Location = new System.Drawing.Point(0, 0);
+			itemUrlsLv_.Name = "itemUrlsLv_";
+			itemUrlsLv_.Size = new System.Drawing.Size(592, 258);
+			itemUrlsLv_.TabIndex = 1;
+			itemUrlsLv_.View = System.Windows.Forms.View.Details;
 			// 
 			// ItemIDsViewDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.cancelBtn_;
-			this.ClientSize = new System.Drawing.Size(592, 294);
-			this.Controls.Add(this.itemUrlsLv_);
-			this.Controls.Add(this.buttonsPn_);
-			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(600, 400);
-			this.MinimumSize = new System.Drawing.Size(300, 180);
-			this.Name = "ItemIDsViewDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Translate Item IDs";
-			this.buttonsPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = cancelBtn_;
+			ClientSize = new System.Drawing.Size(592, 294);
+			Controls.Add(itemUrlsLv_);
+			Controls.Add(buttonsPn_);
+			MaximizeBox = false;
+			MaximumSize = new System.Drawing.Size(600, 400);
+			MinimumSize = new System.Drawing.Size(300, 180);
+			Name = "ItemIDsViewDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Translate Item IDs";
+			buttonsPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -188,7 +188,7 @@ namespace Technosoftware.AeSampleClient
 			}
 			catch (Exception e)
 			{
-				MessageBox.Show(e.Message, this.Text);
+				MessageBox.Show(e.Message, Text);
 			}
 
 			// show dialog.
@@ -202,9 +202,11 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void AddHeader(string name)
 		{
-			ColumnHeader header = new ColumnHeader();
-			header.Text = name;
-			itemUrlsLv_.Columns.Add(header);
+            ColumnHeader header = new ColumnHeader
+            {
+                Text = name
+            };
+            itemUrlsLv_.Columns.Add(header);
 		}
 
 		/// <summary>

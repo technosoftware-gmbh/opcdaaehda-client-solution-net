@@ -100,414 +100,414 @@ namespace SampleClients.Da.Item
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.itemNameLb_ = new System.Windows.Forms.Label();
-			this.activeLb_ = new System.Windows.Forms.Label();
-			this.reqTypeLb_ = new System.Windows.Forms.Label();
-			this.samplingRateLb_ = new System.Windows.Forms.Label();
-			this.deadbandLb_ = new System.Windows.Forms.Label();
-			this.enableBufferingLb_ = new System.Windows.Forms.Label();
-			this.itemNameTb_ = new System.Windows.Forms.TextBox();
-			this.activeCb_ = new System.Windows.Forms.CheckBox();
-			this.samplingRateCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.deadbandCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.enableBufferingCb_ = new System.Windows.Forms.CheckBox();
-			this.deadbandSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.activeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.samplingRateSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.enableBufferSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.reqTypeCtrl_ = new DataTypeCtrl();
-			this.itemPathTb_ = new System.Windows.Forms.TextBox();
-			this.itemPathLb_ = new System.Windows.Forms.Label();
-			this.maxAgeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.maxAgeCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.maxAgeLb_ = new System.Windows.Forms.Label();
-			this.reqTypeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.subscribePn_ = new System.Windows.Forms.Panel();
-			this.readPn_ = new System.Windows.Forms.Panel();
-			this.topPn_ = new System.Windows.Forms.Panel();
-			this.typeConversionLb_ = new System.Windows.Forms.Label();
-			this.typeConversionCb_ = new System.Windows.Forms.ComboBox();
-			this.dataFilterLn_ = new System.Windows.Forms.Label();
-			this.dataFilterTb_ = new System.Windows.Forms.TextBox();
-			this.complexItemPn_ = new System.Windows.Forms.Panel();
-			this.dataFilterSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.typeConversionSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.reqTypePn_ = new System.Windows.Forms.Panel();
-			((System.ComponentModel.ISupportInitialize)(this.samplingRateCtrl_)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.deadbandCtrl_)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxAgeCtrl_)).BeginInit();
-			this.subscribePn_.SuspendLayout();
-			this.readPn_.SuspendLayout();
-			this.topPn_.SuspendLayout();
-			this.complexItemPn_.SuspendLayout();
-			this.reqTypePn_.SuspendLayout();
-			this.SuspendLayout();
+			itemNameLb_ = new System.Windows.Forms.Label();
+			activeLb_ = new System.Windows.Forms.Label();
+			reqTypeLb_ = new System.Windows.Forms.Label();
+			samplingRateLb_ = new System.Windows.Forms.Label();
+			deadbandLb_ = new System.Windows.Forms.Label();
+			enableBufferingLb_ = new System.Windows.Forms.Label();
+			itemNameTb_ = new System.Windows.Forms.TextBox();
+			activeCb_ = new System.Windows.Forms.CheckBox();
+			samplingRateCtrl_ = new System.Windows.Forms.NumericUpDown();
+			deadbandCtrl_ = new System.Windows.Forms.NumericUpDown();
+			enableBufferingCb_ = new System.Windows.Forms.CheckBox();
+			deadbandSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			activeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			samplingRateSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			enableBufferSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			reqTypeCtrl_ = new DataTypeCtrl();
+			itemPathTb_ = new System.Windows.Forms.TextBox();
+			itemPathLb_ = new System.Windows.Forms.Label();
+			maxAgeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			maxAgeCtrl_ = new System.Windows.Forms.NumericUpDown();
+			maxAgeLb_ = new System.Windows.Forms.Label();
+			reqTypeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			subscribePn_ = new System.Windows.Forms.Panel();
+			readPn_ = new System.Windows.Forms.Panel();
+			topPn_ = new System.Windows.Forms.Panel();
+			typeConversionLb_ = new System.Windows.Forms.Label();
+			typeConversionCb_ = new System.Windows.Forms.ComboBox();
+			dataFilterLn_ = new System.Windows.Forms.Label();
+			dataFilterTb_ = new System.Windows.Forms.TextBox();
+			complexItemPn_ = new System.Windows.Forms.Panel();
+			dataFilterSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			typeConversionSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			reqTypePn_ = new System.Windows.Forms.Panel();
+			((System.ComponentModel.ISupportInitialize)(samplingRateCtrl_)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(deadbandCtrl_)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(maxAgeCtrl_)).BeginInit();
+			subscribePn_.SuspendLayout();
+			readPn_.SuspendLayout();
+			topPn_.SuspendLayout();
+			complexItemPn_.SuspendLayout();
+			reqTypePn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ItemNameLB
 			// 
-			this.itemNameLb_.Location = new System.Drawing.Point(0, 0);
-			this.itemNameLb_.Name = "itemNameLb_";
-			this.itemNameLb_.TabIndex = 0;
-			this.itemNameLb_.Text = "Item Name";
-			this.itemNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			itemNameLb_.Location = new System.Drawing.Point(0, 0);
+			itemNameLb_.Name = "itemNameLb_";
+			itemNameLb_.TabIndex = 0;
+			itemNameLb_.Text = "Item Name";
+			itemNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ActiveLB
 			// 
-			this.activeLb_.Location = new System.Drawing.Point(0, 0);
-			this.activeLb_.Name = "activeLb_";
-			this.activeLb_.TabIndex = 1;
-			this.activeLb_.Text = "Active";
-			this.activeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			activeLb_.Location = new System.Drawing.Point(0, 0);
+			activeLb_.Name = "activeLb_";
+			activeLb_.TabIndex = 1;
+			activeLb_.Text = "Active";
+			activeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ReqTypeLB
 			// 
-			this.reqTypeLb_.Location = new System.Drawing.Point(0, 0);
-			this.reqTypeLb_.Name = "reqTypeLb_";
-			this.reqTypeLb_.TabIndex = 3;
-			this.reqTypeLb_.Text = "Requested Type";
-			this.reqTypeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			reqTypeLb_.Location = new System.Drawing.Point(0, 0);
+			reqTypeLb_.Name = "reqTypeLb_";
+			reqTypeLb_.TabIndex = 3;
+			reqTypeLb_.Text = "Requested Type";
+			reqTypeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// SamplingRateLB
 			// 
-			this.samplingRateLb_.Location = new System.Drawing.Point(0, 48);
-			this.samplingRateLb_.Name = "samplingRateLb_";
-			this.samplingRateLb_.TabIndex = 5;
-			this.samplingRateLb_.Text = "Sampling Rate";
-			this.samplingRateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			samplingRateLb_.Location = new System.Drawing.Point(0, 48);
+			samplingRateLb_.Name = "samplingRateLb_";
+			samplingRateLb_.TabIndex = 5;
+			samplingRateLb_.Text = "Sampling Rate";
+			samplingRateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// DeadbandLB
 			// 
-			this.deadbandLb_.Location = new System.Drawing.Point(0, 24);
-			this.deadbandLb_.Name = "deadbandLb_";
-			this.deadbandLb_.TabIndex = 6;
-			this.deadbandLb_.Text = "Deadband";
-			this.deadbandLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			deadbandLb_.Location = new System.Drawing.Point(0, 24);
+			deadbandLb_.Name = "deadbandLb_";
+			deadbandLb_.TabIndex = 6;
+			deadbandLb_.Text = "Deadband";
+			deadbandLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// EnableBufferingLB
 			// 
-			this.enableBufferingLb_.Location = new System.Drawing.Point(0, 72);
-			this.enableBufferingLb_.Name = "enableBufferingLb_";
-			this.enableBufferingLb_.TabIndex = 7;
-			this.enableBufferingLb_.Text = "Enable Buffering";
-			this.enableBufferingLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			enableBufferingLb_.Location = new System.Drawing.Point(0, 72);
+			enableBufferingLb_.Name = "enableBufferingLb_";
+			enableBufferingLb_.TabIndex = 7;
+			enableBufferingLb_.Text = "Enable Buffering";
+			enableBufferingLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ItemNameTB
 			// 
-			this.itemNameTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			itemNameTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.itemNameTb_.Location = new System.Drawing.Point(104, 0);
-			this.itemNameTb_.Name = "itemNameTb_";
-			this.itemNameTb_.ReadOnly = true;
-			this.itemNameTb_.Size = new System.Drawing.Size(280, 20);
-			this.itemNameTb_.TabIndex = 8;
-			this.itemNameTb_.Text = "";
+			itemNameTb_.Location = new System.Drawing.Point(104, 0);
+			itemNameTb_.Name = "itemNameTb_";
+			itemNameTb_.ReadOnly = true;
+			itemNameTb_.Size = new System.Drawing.Size(280, 20);
+			itemNameTb_.TabIndex = 8;
+			itemNameTb_.Text = "";
 			// 
 			// ActiveCB
 			// 
-			this.activeCb_.Location = new System.Drawing.Point(104, 0);
-			this.activeCb_.Name = "activeCb_";
-			this.activeCb_.Size = new System.Drawing.Size(16, 24);
-			this.activeCb_.TabIndex = 9;
+			activeCb_.Location = new System.Drawing.Point(104, 0);
+			activeCb_.Name = "activeCb_";
+			activeCb_.Size = new System.Drawing.Size(16, 24);
+			activeCb_.TabIndex = 9;
 			// 
 			// SamplingRateCTRL
 			// 
-			this.samplingRateCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			samplingRateCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.samplingRateCtrl_.Increment = new System.Decimal(new int[] {
+			samplingRateCtrl_.Increment = new System.Decimal(new int[] {
 																			   100,
 																			   0,
 																			   0,
 																			   0});
-			this.samplingRateCtrl_.Location = new System.Drawing.Point(104, 50);
-			this.samplingRateCtrl_.Maximum = new System.Decimal(new int[] {
+			samplingRateCtrl_.Location = new System.Drawing.Point(104, 50);
+			samplingRateCtrl_.Maximum = new System.Decimal(new int[] {
 																			 1000000000,
 																			 0,
 																			 0,
 																			 0});
-			this.samplingRateCtrl_.Name = "samplingRateCtrl_";
-			this.samplingRateCtrl_.Size = new System.Drawing.Size(168, 20);
-			this.samplingRateCtrl_.TabIndex = 12;
+			samplingRateCtrl_.Name = "samplingRateCtrl_";
+			samplingRateCtrl_.Size = new System.Drawing.Size(168, 20);
+			samplingRateCtrl_.TabIndex = 12;
 			// 
 			// DeadbandCTRL
 			// 
-			this.deadbandCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			deadbandCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.deadbandCtrl_.DecimalPlaces = 1;
-			this.deadbandCtrl_.Location = new System.Drawing.Point(104, 26);
-			this.deadbandCtrl_.Name = "deadbandCtrl_";
-			this.deadbandCtrl_.Size = new System.Drawing.Size(168, 20);
-			this.deadbandCtrl_.TabIndex = 14;
+			deadbandCtrl_.DecimalPlaces = 1;
+			deadbandCtrl_.Location = new System.Drawing.Point(104, 26);
+			deadbandCtrl_.Name = "deadbandCtrl_";
+			deadbandCtrl_.Size = new System.Drawing.Size(168, 20);
+			deadbandCtrl_.TabIndex = 14;
 			// 
 			// EnableBufferingCB
 			// 
-			this.enableBufferingCb_.Location = new System.Drawing.Point(104, 72);
-			this.enableBufferingCb_.Name = "enableBufferingCb_";
-			this.enableBufferingCb_.Size = new System.Drawing.Size(16, 24);
-			this.enableBufferingCb_.TabIndex = 15;
+			enableBufferingCb_.Location = new System.Drawing.Point(104, 72);
+			enableBufferingCb_.Name = "enableBufferingCb_";
+			enableBufferingCb_.Size = new System.Drawing.Size(16, 24);
+			enableBufferingCb_.TabIndex = 15;
 			// 
 			// DeadbandSpecifiedCB
 			// 
-			this.deadbandSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.deadbandSpecifiedCb_.Checked = true;
-			this.deadbandSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.deadbandSpecifiedCb_.Location = new System.Drawing.Point(368, 24);
-			this.deadbandSpecifiedCb_.Name = "deadbandSpecifiedCb_";
-			this.deadbandSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.deadbandSpecifiedCb_.TabIndex = 18;
-			this.deadbandSpecifiedCb_.CheckedChanged += new System.EventHandler(this.Specified_CheckedChanged);
+			deadbandSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			deadbandSpecifiedCb_.Checked = true;
+			deadbandSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			deadbandSpecifiedCb_.Location = new System.Drawing.Point(368, 24);
+			deadbandSpecifiedCb_.Name = "deadbandSpecifiedCb_";
+			deadbandSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			deadbandSpecifiedCb_.TabIndex = 18;
+			deadbandSpecifiedCb_.CheckedChanged += new System.EventHandler(Specified_CheckedChanged);
 			// 
 			// ActiveSpecifiedCB
 			// 
-			this.activeSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.activeSpecifiedCb_.Checked = true;
-			this.activeSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.activeSpecifiedCb_.Location = new System.Drawing.Point(368, 0);
-			this.activeSpecifiedCb_.Name = "activeSpecifiedCb_";
-			this.activeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.activeSpecifiedCb_.TabIndex = 20;
-			this.activeSpecifiedCb_.CheckedChanged += new System.EventHandler(this.Specified_CheckedChanged);
+			activeSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			activeSpecifiedCb_.Checked = true;
+			activeSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			activeSpecifiedCb_.Location = new System.Drawing.Point(368, 0);
+			activeSpecifiedCb_.Name = "activeSpecifiedCb_";
+			activeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			activeSpecifiedCb_.TabIndex = 20;
+			activeSpecifiedCb_.CheckedChanged += new System.EventHandler(Specified_CheckedChanged);
 			// 
 			// SamplingRateSpecifiedCB
 			// 
-			this.samplingRateSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.samplingRateSpecifiedCb_.Checked = true;
-			this.samplingRateSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.samplingRateSpecifiedCb_.Location = new System.Drawing.Point(368, 48);
-			this.samplingRateSpecifiedCb_.Name = "samplingRateSpecifiedCb_";
-			this.samplingRateSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.samplingRateSpecifiedCb_.TabIndex = 21;
-			this.samplingRateSpecifiedCb_.CheckedChanged += new System.EventHandler(this.Specified_CheckedChanged);
+			samplingRateSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			samplingRateSpecifiedCb_.Checked = true;
+			samplingRateSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			samplingRateSpecifiedCb_.Location = new System.Drawing.Point(368, 48);
+			samplingRateSpecifiedCb_.Name = "samplingRateSpecifiedCb_";
+			samplingRateSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			samplingRateSpecifiedCb_.TabIndex = 21;
+			samplingRateSpecifiedCb_.CheckedChanged += new System.EventHandler(Specified_CheckedChanged);
 			// 
 			// EnableBufferSpecifiedCB
 			// 
-			this.enableBufferSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.enableBufferSpecifiedCb_.Checked = true;
-			this.enableBufferSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.enableBufferSpecifiedCb_.Location = new System.Drawing.Point(368, 72);
-			this.enableBufferSpecifiedCb_.Name = "enableBufferSpecifiedCb_";
-			this.enableBufferSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.enableBufferSpecifiedCb_.TabIndex = 22;
-			this.enableBufferSpecifiedCb_.CheckedChanged += new System.EventHandler(this.Specified_CheckedChanged);
+			enableBufferSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			enableBufferSpecifiedCb_.Checked = true;
+			enableBufferSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			enableBufferSpecifiedCb_.Location = new System.Drawing.Point(368, 72);
+			enableBufferSpecifiedCb_.Name = "enableBufferSpecifiedCb_";
+			enableBufferSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			enableBufferSpecifiedCb_.TabIndex = 22;
+			enableBufferSpecifiedCb_.CheckedChanged += new System.EventHandler(Specified_CheckedChanged);
 			// 
 			// ReqTypeCTRL
 			// 
-			this.reqTypeCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			reqTypeCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.reqTypeCtrl_.Location = new System.Drawing.Point(104, 0);
-			this.reqTypeCtrl_.Name = "reqTypeCtrl_";
-			this.reqTypeCtrl_.SelectedType = null;
-			this.reqTypeCtrl_.Size = new System.Drawing.Size(208, 24);
-			this.reqTypeCtrl_.TabIndex = 23;
+			reqTypeCtrl_.Location = new System.Drawing.Point(104, 0);
+			reqTypeCtrl_.Name = "reqTypeCtrl_";
+			reqTypeCtrl_.SelectedType = null;
+			reqTypeCtrl_.Size = new System.Drawing.Size(208, 24);
+			reqTypeCtrl_.TabIndex = 23;
 			// 
 			// ItemPathTB
 			// 
-			this.itemPathTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			itemPathTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.itemPathTb_.Location = new System.Drawing.Point(104, 24);
-			this.itemPathTb_.Name = "itemPathTb_";
-			this.itemPathTb_.ReadOnly = true;
-			this.itemPathTb_.Size = new System.Drawing.Size(280, 20);
-			this.itemPathTb_.TabIndex = 27;
-			this.itemPathTb_.Text = "";
+			itemPathTb_.Location = new System.Drawing.Point(104, 24);
+			itemPathTb_.Name = "itemPathTb_";
+			itemPathTb_.ReadOnly = true;
+			itemPathTb_.Size = new System.Drawing.Size(280, 20);
+			itemPathTb_.TabIndex = 27;
+			itemPathTb_.Text = "";
 			// 
 			// ItemPathLB
 			// 
-			this.itemPathLb_.Location = new System.Drawing.Point(0, 24);
-			this.itemPathLb_.Name = "itemPathLb_";
-			this.itemPathLb_.TabIndex = 26;
-			this.itemPathLb_.Text = "Item Path";
-			this.itemPathLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			itemPathLb_.Location = new System.Drawing.Point(0, 24);
+			itemPathLb_.Name = "itemPathLb_";
+			itemPathLb_.TabIndex = 26;
+			itemPathLb_.Text = "Item Path";
+			itemPathLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// MaxAgeSpecifiedCB
 			// 
-			this.maxAgeSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.maxAgeSpecifiedCb_.Checked = true;
-			this.maxAgeSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.maxAgeSpecifiedCb_.Location = new System.Drawing.Point(368, 0);
-			this.maxAgeSpecifiedCb_.Name = "maxAgeSpecifiedCb_";
-			this.maxAgeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.maxAgeSpecifiedCb_.TabIndex = 30;
-			this.maxAgeSpecifiedCb_.CheckedChanged += new System.EventHandler(this.Specified_CheckedChanged);
+			maxAgeSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			maxAgeSpecifiedCb_.Checked = true;
+			maxAgeSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			maxAgeSpecifiedCb_.Location = new System.Drawing.Point(368, 0);
+			maxAgeSpecifiedCb_.Name = "maxAgeSpecifiedCb_";
+			maxAgeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			maxAgeSpecifiedCb_.TabIndex = 30;
+			maxAgeSpecifiedCb_.CheckedChanged += new System.EventHandler(Specified_CheckedChanged);
 			// 
 			// MaxAgeCTRL
 			// 
-			this.maxAgeCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			maxAgeCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.maxAgeCtrl_.DecimalPlaces = 3;
-			this.maxAgeCtrl_.Location = new System.Drawing.Point(104, 2);
-			this.maxAgeCtrl_.Maximum = new System.Decimal(new int[] {
+			maxAgeCtrl_.DecimalPlaces = 3;
+			maxAgeCtrl_.Location = new System.Drawing.Point(104, 2);
+			maxAgeCtrl_.Maximum = new System.Decimal(new int[] {
 																	   1000000000,
 																	   0,
 																	   0,
 																	   0});
-			this.maxAgeCtrl_.Name = "maxAgeCtrl_";
-			this.maxAgeCtrl_.Size = new System.Drawing.Size(168, 20);
-			this.maxAgeCtrl_.TabIndex = 29;
+			maxAgeCtrl_.Name = "maxAgeCtrl_";
+			maxAgeCtrl_.Size = new System.Drawing.Size(168, 20);
+			maxAgeCtrl_.TabIndex = 29;
 			// 
 			// MaxAgeLB
 			// 
-			this.maxAgeLb_.Location = new System.Drawing.Point(0, 0);
-			this.maxAgeLb_.Name = "maxAgeLb_";
-			this.maxAgeLb_.TabIndex = 28;
-			this.maxAgeLb_.Text = "Maximum Age";
-			this.maxAgeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			maxAgeLb_.Location = new System.Drawing.Point(0, 0);
+			maxAgeLb_.Name = "maxAgeLb_";
+			maxAgeLb_.TabIndex = 28;
+			maxAgeLb_.Text = "Maximum Age";
+			maxAgeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ReqTypeSpecifiedCB
 			// 
-			this.reqTypeSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.reqTypeSpecifiedCb_.Checked = true;
-			this.reqTypeSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.reqTypeSpecifiedCb_.Location = new System.Drawing.Point(368, 0);
-			this.reqTypeSpecifiedCb_.Name = "reqTypeSpecifiedCb_";
-			this.reqTypeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.reqTypeSpecifiedCb_.TabIndex = 31;
-			this.reqTypeSpecifiedCb_.CheckedChanged += new System.EventHandler(this.Specified_CheckedChanged);
+			reqTypeSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			reqTypeSpecifiedCb_.Checked = true;
+			reqTypeSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			reqTypeSpecifiedCb_.Location = new System.Drawing.Point(368, 0);
+			reqTypeSpecifiedCb_.Name = "reqTypeSpecifiedCb_";
+			reqTypeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			reqTypeSpecifiedCb_.TabIndex = 31;
+			reqTypeSpecifiedCb_.CheckedChanged += new System.EventHandler(Specified_CheckedChanged);
 			// 
 			// SubscribePN
 			// 
-			this.subscribePn_.Controls.Add(this.activeLb_);
-			this.subscribePn_.Controls.Add(this.deadbandCtrl_);
-			this.subscribePn_.Controls.Add(this.activeCb_);
-			this.subscribePn_.Controls.Add(this.samplingRateLb_);
-			this.subscribePn_.Controls.Add(this.enableBufferSpecifiedCb_);
-			this.subscribePn_.Controls.Add(this.deadbandSpecifiedCb_);
-			this.subscribePn_.Controls.Add(this.samplingRateCtrl_);
-			this.subscribePn_.Controls.Add(this.activeSpecifiedCb_);
-			this.subscribePn_.Controls.Add(this.enableBufferingLb_);
-			this.subscribePn_.Controls.Add(this.samplingRateSpecifiedCb_);
-			this.subscribePn_.Controls.Add(this.deadbandLb_);
-			this.subscribePn_.Controls.Add(this.enableBufferingCb_);
-			this.subscribePn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.subscribePn_.Location = new System.Drawing.Point(0, 144);
-			this.subscribePn_.Name = "subscribePn_";
-			this.subscribePn_.Size = new System.Drawing.Size(384, 96);
-			this.subscribePn_.TabIndex = 32;
-			this.subscribePn_.Visible = false;
+			subscribePn_.Controls.Add(activeLb_);
+			subscribePn_.Controls.Add(deadbandCtrl_);
+			subscribePn_.Controls.Add(activeCb_);
+			subscribePn_.Controls.Add(samplingRateLb_);
+			subscribePn_.Controls.Add(enableBufferSpecifiedCb_);
+			subscribePn_.Controls.Add(deadbandSpecifiedCb_);
+			subscribePn_.Controls.Add(samplingRateCtrl_);
+			subscribePn_.Controls.Add(activeSpecifiedCb_);
+			subscribePn_.Controls.Add(enableBufferingLb_);
+			subscribePn_.Controls.Add(samplingRateSpecifiedCb_);
+			subscribePn_.Controls.Add(deadbandLb_);
+			subscribePn_.Controls.Add(enableBufferingCb_);
+			subscribePn_.Dock = System.Windows.Forms.DockStyle.Top;
+			subscribePn_.Location = new System.Drawing.Point(0, 144);
+			subscribePn_.Name = "subscribePn_";
+			subscribePn_.Size = new System.Drawing.Size(384, 96);
+			subscribePn_.TabIndex = 32;
+			subscribePn_.Visible = false;
 			// 
 			// ReadPN
 			// 
-			this.readPn_.Controls.Add(this.maxAgeSpecifiedCb_);
-			this.readPn_.Controls.Add(this.maxAgeLb_);
-			this.readPn_.Controls.Add(this.maxAgeCtrl_);
-			this.readPn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.readPn_.Location = new System.Drawing.Point(0, 120);
-			this.readPn_.Name = "readPn_";
-			this.readPn_.Size = new System.Drawing.Size(384, 24);
-			this.readPn_.TabIndex = 33;
+			readPn_.Controls.Add(maxAgeSpecifiedCb_);
+			readPn_.Controls.Add(maxAgeLb_);
+			readPn_.Controls.Add(maxAgeCtrl_);
+			readPn_.Dock = System.Windows.Forms.DockStyle.Top;
+			readPn_.Location = new System.Drawing.Point(0, 120);
+			readPn_.Name = "readPn_";
+			readPn_.Size = new System.Drawing.Size(384, 24);
+			readPn_.TabIndex = 33;
 			// 
 			// TopPN
 			// 
-			this.topPn_.Controls.Add(this.itemNameLb_);
-			this.topPn_.Controls.Add(this.itemPathLb_);
-			this.topPn_.Controls.Add(this.itemPathTb_);
-			this.topPn_.Controls.Add(this.itemNameTb_);
-			this.topPn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.topPn_.Location = new System.Drawing.Point(0, 0);
-			this.topPn_.Name = "topPn_";
-			this.topPn_.Size = new System.Drawing.Size(384, 48);
-			this.topPn_.TabIndex = 34;
+			topPn_.Controls.Add(itemNameLb_);
+			topPn_.Controls.Add(itemPathLb_);
+			topPn_.Controls.Add(itemPathTb_);
+			topPn_.Controls.Add(itemNameTb_);
+			topPn_.Dock = System.Windows.Forms.DockStyle.Top;
+			topPn_.Location = new System.Drawing.Point(0, 0);
+			topPn_.Name = "topPn_";
+			topPn_.Size = new System.Drawing.Size(384, 48);
+			topPn_.TabIndex = 34;
 			// 
 			// TypeConversionLB
 			// 
-			this.typeConversionLb_.Location = new System.Drawing.Point(0, 0);
-			this.typeConversionLb_.Name = "typeConversionLb_";
-			this.typeConversionLb_.TabIndex = 4;
-			this.typeConversionLb_.Text = "Type Conversion";
-			this.typeConversionLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			typeConversionLb_.Location = new System.Drawing.Point(0, 0);
+			typeConversionLb_.Name = "typeConversionLb_";
+			typeConversionLb_.TabIndex = 4;
+			typeConversionLb_.Text = "Type Conversion";
+			typeConversionLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// TypeConversionCB
 			// 
-			this.typeConversionCb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			typeConversionCb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.typeConversionCb_.Location = new System.Drawing.Point(104, 0);
-			this.typeConversionCb_.Name = "typeConversionCb_";
-			this.typeConversionCb_.Size = new System.Drawing.Size(208, 21);
-			this.typeConversionCb_.TabIndex = 5;
-			this.typeConversionCb_.SelectedIndexChanged += new System.EventHandler(this.TypeConversionCB_SelectedIndexChanged);
+			typeConversionCb_.Location = new System.Drawing.Point(104, 0);
+			typeConversionCb_.Name = "typeConversionCb_";
+			typeConversionCb_.Size = new System.Drawing.Size(208, 21);
+			typeConversionCb_.TabIndex = 5;
+			typeConversionCb_.SelectedIndexChanged += new System.EventHandler(TypeConversionCB_SelectedIndexChanged);
 			// 
 			// DataFilterLN
 			// 
-			this.dataFilterLn_.Location = new System.Drawing.Point(0, 24);
-			this.dataFilterLn_.Name = "dataFilterLn_";
-			this.dataFilterLn_.TabIndex = 6;
-			this.dataFilterLn_.Text = "Data Filter";
-			this.dataFilterLn_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			dataFilterLn_.Location = new System.Drawing.Point(0, 24);
+			dataFilterLn_.Name = "dataFilterLn_";
+			dataFilterLn_.TabIndex = 6;
+			dataFilterLn_.Text = "Data Filter";
+			dataFilterLn_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// DataFilterTB
 			// 
-			this.dataFilterTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			dataFilterTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.dataFilterTb_.Location = new System.Drawing.Point(104, 24);
-			this.dataFilterTb_.Name = "dataFilterTb_";
-			this.dataFilterTb_.Size = new System.Drawing.Size(256, 20);
-			this.dataFilterTb_.TabIndex = 36;
-			this.dataFilterTb_.Text = "";
+			dataFilterTb_.Location = new System.Drawing.Point(104, 24);
+			dataFilterTb_.Name = "dataFilterTb_";
+			dataFilterTb_.Size = new System.Drawing.Size(256, 20);
+			dataFilterTb_.TabIndex = 36;
+			dataFilterTb_.Text = "";
 			// 
 			// ComplexItemPN
 			// 
-			this.complexItemPn_.Controls.Add(this.dataFilterLn_);
-			this.complexItemPn_.Controls.Add(this.typeConversionLb_);
-			this.complexItemPn_.Controls.Add(this.dataFilterTb_);
-			this.complexItemPn_.Controls.Add(this.typeConversionCb_);
-			this.complexItemPn_.Controls.Add(this.dataFilterSpecifiedCb_);
-			this.complexItemPn_.Controls.Add(this.typeConversionSpecifiedCb_);
-			this.complexItemPn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.complexItemPn_.Location = new System.Drawing.Point(0, 72);
-			this.complexItemPn_.Name = "complexItemPn_";
-			this.complexItemPn_.Size = new System.Drawing.Size(384, 48);
-			this.complexItemPn_.TabIndex = 37;
+			complexItemPn_.Controls.Add(dataFilterLn_);
+			complexItemPn_.Controls.Add(typeConversionLb_);
+			complexItemPn_.Controls.Add(dataFilterTb_);
+			complexItemPn_.Controls.Add(typeConversionCb_);
+			complexItemPn_.Controls.Add(dataFilterSpecifiedCb_);
+			complexItemPn_.Controls.Add(typeConversionSpecifiedCb_);
+			complexItemPn_.Dock = System.Windows.Forms.DockStyle.Top;
+			complexItemPn_.Location = new System.Drawing.Point(0, 72);
+			complexItemPn_.Name = "complexItemPn_";
+			complexItemPn_.Size = new System.Drawing.Size(384, 48);
+			complexItemPn_.TabIndex = 37;
 			// 
 			// DataFilterSpecifiedCB
 			// 
-			this.dataFilterSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.dataFilterSpecifiedCb_.Checked = true;
-			this.dataFilterSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.dataFilterSpecifiedCb_.Location = new System.Drawing.Point(368, 24);
-			this.dataFilterSpecifiedCb_.Name = "dataFilterSpecifiedCb_";
-			this.dataFilterSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.dataFilterSpecifiedCb_.TabIndex = 37;
-			this.dataFilterSpecifiedCb_.CheckedChanged += new System.EventHandler(this.Specified_CheckedChanged);
+			dataFilterSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			dataFilterSpecifiedCb_.Checked = true;
+			dataFilterSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			dataFilterSpecifiedCb_.Location = new System.Drawing.Point(368, 24);
+			dataFilterSpecifiedCb_.Name = "dataFilterSpecifiedCb_";
+			dataFilterSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			dataFilterSpecifiedCb_.TabIndex = 37;
+			dataFilterSpecifiedCb_.CheckedChanged += new System.EventHandler(Specified_CheckedChanged);
 			// 
 			// TypeConversionSpecifiedCB
 			// 
-			this.typeConversionSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.typeConversionSpecifiedCb_.Checked = true;
-			this.typeConversionSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.typeConversionSpecifiedCb_.Location = new System.Drawing.Point(368, 0);
-			this.typeConversionSpecifiedCb_.Name = "typeConversionSpecifiedCb_";
-			this.typeConversionSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.typeConversionSpecifiedCb_.TabIndex = 38;
-			this.typeConversionSpecifiedCb_.CheckedChanged += new System.EventHandler(this.TypeConversionCB_SelectedIndexChanged);
+			typeConversionSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			typeConversionSpecifiedCb_.Checked = true;
+			typeConversionSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			typeConversionSpecifiedCb_.Location = new System.Drawing.Point(368, 0);
+			typeConversionSpecifiedCb_.Name = "typeConversionSpecifiedCb_";
+			typeConversionSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			typeConversionSpecifiedCb_.TabIndex = 38;
+			typeConversionSpecifiedCb_.CheckedChanged += new System.EventHandler(TypeConversionCB_SelectedIndexChanged);
 			// 
 			// ReqTypePN
 			// 
-			this.reqTypePn_.Controls.Add(this.reqTypeLb_);
-			this.reqTypePn_.Controls.Add(this.reqTypeSpecifiedCb_);
-			this.reqTypePn_.Controls.Add(this.reqTypeCtrl_);
-			this.reqTypePn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.reqTypePn_.Location = new System.Drawing.Point(0, 48);
-			this.reqTypePn_.Name = "reqTypePn_";
-			this.reqTypePn_.Size = new System.Drawing.Size(384, 24);
-			this.reqTypePn_.TabIndex = 38;
+			reqTypePn_.Controls.Add(reqTypeLb_);
+			reqTypePn_.Controls.Add(reqTypeSpecifiedCb_);
+			reqTypePn_.Controls.Add(reqTypeCtrl_);
+			reqTypePn_.Dock = System.Windows.Forms.DockStyle.Top;
+			reqTypePn_.Location = new System.Drawing.Point(0, 48);
+			reqTypePn_.Name = "reqTypePn_";
+			reqTypePn_.Size = new System.Drawing.Size(384, 24);
+			reqTypePn_.TabIndex = 38;
 			// 
 			// ItemEditCtrl
 			// 
-			this.Controls.Add(this.subscribePn_);
-			this.Controls.Add(this.readPn_);
-			this.Controls.Add(this.complexItemPn_);
-			this.Controls.Add(this.reqTypePn_);
-			this.Controls.Add(this.topPn_);
-			this.Name = "ItemEditCtrl";
-			this.Size = new System.Drawing.Size(384, 240);
-			((System.ComponentModel.ISupportInitialize)(this.samplingRateCtrl_)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.deadbandCtrl_)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxAgeCtrl_)).EndInit();
-			this.subscribePn_.ResumeLayout(false);
-			this.readPn_.ResumeLayout(false);
-			this.topPn_.ResumeLayout(false);
-			this.complexItemPn_.ResumeLayout(false);
-			this.reqTypePn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			Controls.Add(subscribePn_);
+			Controls.Add(readPn_);
+			Controls.Add(complexItemPn_);
+			Controls.Add(reqTypePn_);
+			Controls.Add(topPn_);
+			Name = "ItemEditCtrl";
+			Size = new System.Drawing.Size(384, 240);
+			((System.ComponentModel.ISupportInitialize)(samplingRateCtrl_)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(deadbandCtrl_)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(maxAgeCtrl_)).EndInit();
+			subscribePn_.ResumeLayout(false);
+			readPn_.ResumeLayout(false);
+			topPn_.ResumeLayout(false);
+			complexItemPn_.ResumeLayout(false);
+			reqTypePn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

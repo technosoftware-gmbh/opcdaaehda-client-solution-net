@@ -181,13 +181,13 @@ namespace scpl
 		internal void Draw( Graphics g, int x, int y)
 		{
 			Pen p;
-			if (this.pen_ != null)
+			if (pen_ != null)
 			{
-				p = this.pen_;
+				p = pen_;
 			}
 			else
 			{
-				p =	new	Pen(this.color_);
+				p =	new	Pen(color_);
 			}
 
 			// Instance a new SolidBrush for filling

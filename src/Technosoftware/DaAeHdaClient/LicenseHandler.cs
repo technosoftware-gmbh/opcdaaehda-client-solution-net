@@ -15,7 +15,6 @@
 #region Using Directives
 
 using System;
-using System.Linq;
 
 using Technosoftware.DaAeHdaClient.Utilities;
 

@@ -71,66 +71,66 @@ namespace SampleClients.Hda.Server
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.mainPn_ = new System.Windows.Forms.Panel();
-			this.browseItemsTv_ = new BrowseTreeCtrl();
-			this.buttonsPn_.SuspendLayout();
-			this.mainPn_.SuspendLayout();
-			this.SuspendLayout();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			mainPn_ = new System.Windows.Forms.Panel();
+			browseItemsTv_ = new BrowseTreeCtrl();
+			buttonsPn_.SuspendLayout();
+			mainPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 378);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(536, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 378);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(536, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(231, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Close";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(231, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Close";
 			// 
 			// MainPN
 			// 
-			this.mainPn_.Controls.Add(this.browseItemsTv_);
-			this.mainPn_.Cursor = System.Windows.Forms.Cursors.Default;
-			this.mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPn_.DockPadding.All = 4;
-			this.mainPn_.Location = new System.Drawing.Point(0, 0);
-			this.mainPn_.Name = "mainPn_";
-			this.mainPn_.Size = new System.Drawing.Size(536, 378);
-			this.mainPn_.TabIndex = 1;
+			mainPn_.Controls.Add(browseItemsTv_);
+			mainPn_.Cursor = System.Windows.Forms.Cursors.Default;
+			mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			mainPn_.DockPadding.All = 4;
+			mainPn_.Location = new System.Drawing.Point(0, 0);
+			mainPn_.Name = "mainPn_";
+			mainPn_.Size = new System.Drawing.Size(536, 378);
+			mainPn_.TabIndex = 1;
 			// 
 			// BrowseItemsTV
 			// 
-			this.browseItemsTv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.browseItemsTv_.Location = new System.Drawing.Point(4, 4);
-			this.browseItemsTv_.Name = "browseItemsTv_";
-			this.browseItemsTv_.Size = new System.Drawing.Size(528, 370);
-			this.browseItemsTv_.TabIndex = 0;
+			browseItemsTv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			browseItemsTv_.Location = new System.Drawing.Point(4, 4);
+			browseItemsTv_.Name = "browseItemsTv_";
+			browseItemsTv_.Size = new System.Drawing.Size(528, 370);
+			browseItemsTv_.TabIndex = 0;
 			// 
 			// BrowseItemsDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.cancelBtn_;
-			this.ClientSize = new System.Drawing.Size(536, 414);
-			this.Controls.Add(this.mainPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.MaximizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(350, 0);
-			this.Name = "BrowseItemsDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Browse Address Space";
-			this.buttonsPn_.ResumeLayout(false);
-			this.mainPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = cancelBtn_;
+			ClientSize = new System.Drawing.Size(536, 414);
+			Controls.Add(mainPn_);
+			Controls.Add(buttonsPn_);
+			MaximizeBox = false;
+			MinimumSize = new System.Drawing.Size(350, 0);
+			Name = "BrowseItemsDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Browse Address Space";
+			buttonsPn_.ResumeLayout(false);
+			mainPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

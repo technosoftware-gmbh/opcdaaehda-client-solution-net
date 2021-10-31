@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0-windows</TargetFramework>
+	<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <ProjectType>Local</ProjectType>
     <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
@@ -33,27 +34,27 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
+  <PropertyGroup>
+	<AnalysisMode>AllDisabledByDefault</AnalysisMode>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <BaseAddress>285212672</BaseAddress>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>NU5125;RCS1138;RCS1139;CA1416</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <BaseAddress>285212672</BaseAddress>
     <DebugType>
     </DebugType>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\x86\Debug\</OutputPath>
     <BaseAddress>285212672</BaseAddress>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\x86\Release\</OutputPath>
     <BaseAddress>285212672</BaseAddress>
     <DebugType>
     </DebugType>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Update="System">
@@ -64,9 +65,6 @@
     </Reference>
     <Reference Update="System.Drawing">
       <Name>System.Drawing</Name>
-    </Reference>
-    <Reference Include="System.Web.Services">
-      <Name>System.Web.Services</Name>
     </Reference>
     <Reference Update="System.Xml">
       <Name>System.XML</Name>
@@ -159,5 +157,7 @@
     <ProjectReference Include="..\Common\SampleClients.Common.csproj" />
     <ProjectReference Include="..\ScPL\ScPL Plotting Controls.csproj" />
   </ItemGroup>
-  <PropertyGroup />
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
 </Project>

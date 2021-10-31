@@ -68,75 +68,75 @@ namespace SampleClients.Hda.Trend
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.mainPn_ = new System.Windows.Forms.Panel();
-			this.trendCtrl_ = new TrendEditCtrl();
-			this.buttonsPn_.SuspendLayout();
-			this.mainPn_.SuspendLayout();
-			this.SuspendLayout();
+			okBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			mainPn_ = new System.Windows.Forms.Panel();
+			trendCtrl_ = new TrendEditCtrl();
+			buttonsPn_.SuspendLayout();
+			mainPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okBtn_.Location = new System.Drawing.Point(4, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
+			okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			okBtn_.Location = new System.Drawing.Point(4, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(264, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(264, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 242);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(344, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 242);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(344, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// MainPN
 			// 
-			this.mainPn_.Controls.Add(this.trendCtrl_);
-			this.mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPn_.DockPadding.Left = 4;
-			this.mainPn_.DockPadding.Right = 4;
-			this.mainPn_.DockPadding.Top = 4;
-			this.mainPn_.Location = new System.Drawing.Point(0, 0);
-			this.mainPn_.Name = "mainPn_";
-			this.mainPn_.Size = new System.Drawing.Size(344, 242);
-			this.mainPn_.TabIndex = 32;
+			mainPn_.Controls.Add(trendCtrl_);
+			mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			mainPn_.DockPadding.Left = 4;
+			mainPn_.DockPadding.Right = 4;
+			mainPn_.DockPadding.Top = 4;
+			mainPn_.Location = new System.Drawing.Point(0, 0);
+			mainPn_.Name = "mainPn_";
+			mainPn_.Size = new System.Drawing.Size(344, 242);
+			mainPn_.TabIndex = 32;
 			// 
 			// TrendCTRL
 			// 
-			this.trendCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.trendCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.trendCtrl_.Name = "trendCtrl_";
-			this.trendCtrl_.Size = new System.Drawing.Size(336, 238);
-			this.trendCtrl_.TabIndex = 0;
+			trendCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			trendCtrl_.Location = new System.Drawing.Point(4, 4);
+			trendCtrl_.Name = "trendCtrl_";
+			trendCtrl_.Size = new System.Drawing.Size(336, 238);
+			trendCtrl_.TabIndex = 0;
 			// 
 			// TrendEditDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(344, 278);
-			this.Controls.Add(this.mainPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Name = "TrendEditDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Edit Trend";
-			this.buttonsPn_.ResumeLayout(false);
-			this.mainPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(344, 278);
+			Controls.Add(mainPn_);
+			Controls.Add(buttonsPn_);
+			Name = "TrendEditDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Edit Trend";
+			buttonsPn_.ResumeLayout(false);
+			mainPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

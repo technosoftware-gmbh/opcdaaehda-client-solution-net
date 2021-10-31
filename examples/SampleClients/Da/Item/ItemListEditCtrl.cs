@@ -73,56 +73,56 @@ namespace SampleClients.Da.Item
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.itemListLv_ = new System.Windows.Forms.ListView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.editMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.newMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.deleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			itemListLv_ = new System.Windows.Forms.ListView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			editMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			newMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			deleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// ItemListLV
 			// 
-			this.itemListLv_.ContextMenuStrip = this.popupMenu_;
-			this.itemListLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.itemListLv_.FullRowSelect = true;
-			this.itemListLv_.Name = "itemListLv_";
-			this.itemListLv_.Size = new System.Drawing.Size(432, 272);
-			this.itemListLv_.TabIndex = 0;
-			this.itemListLv_.View = System.Windows.Forms.View.Details;
-			this.itemListLv_.DoubleClick += new System.EventHandler(this.EditMI_Click);
+			itemListLv_.ContextMenuStrip = popupMenu_;
+			itemListLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			itemListLv_.FullRowSelect = true;
+			itemListLv_.Name = "itemListLv_";
+			itemListLv_.Size = new System.Drawing.Size(432, 272);
+			itemListLv_.TabIndex = 0;
+			itemListLv_.View = System.Windows.Forms.View.Details;
+			itemListLv_.DoubleClick += new System.EventHandler(EditMI_Click);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.editMi_,
-																					  this.newMi_,
-																					  this.deleteMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  editMi_,
+																					  newMi_,
+																					  deleteMi_});
 			// 
 			// EditMI
 			// 
-			this.editMi_.ImageIndex = 0;
-			this.editMi_.Text = "&Edit...";
-			this.editMi_.Click += new System.EventHandler(this.EditMI_Click);
+			editMi_.ImageIndex = 0;
+			editMi_.Text = "&Edit...";
+			editMi_.Click += new System.EventHandler(EditMI_Click);
 			// 
 			// NewMI
 			// 
-			this.newMi_.ImageIndex = 1;
-			this.newMi_.Text = "&New...";
-			this.newMi_.Click += new System.EventHandler(this.NewMI_Click);
+			newMi_.ImageIndex = 1;
+			newMi_.Text = "&New...";
+			newMi_.Click += new System.EventHandler(NewMI_Click);
 			// 
 			// DeleteMI
 			// 
-			this.deleteMi_.ImageIndex = 2;
-			this.deleteMi_.Text = "&Delete";
-			this.deleteMi_.Click += new System.EventHandler(this.RemoveMI_Click);
+			deleteMi_.ImageIndex = 2;
+			deleteMi_.Text = "&Delete";
+			deleteMi_.Click += new System.EventHandler(RemoveMI_Click);
 			// 
 			// ItemListEditCtrl
 			// 
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
-																		  this.itemListLv_});
-			this.Name = "ItemListEditCtrl";
-			this.Size = new System.Drawing.Size(432, 272);
-			this.ResumeLayout(false);
+			Controls.AddRange(new System.Windows.Forms.Control[] {
+																		  itemListLv_});
+			Name = "ItemListEditCtrl";
+			Size = new System.Drawing.Size(432, 272);
+			ResumeLayout(false);
 
 		}
 		#endregion

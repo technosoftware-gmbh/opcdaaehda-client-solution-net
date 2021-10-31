@@ -77,200 +77,200 @@ namespace SampleClients.Da.Subscription
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.nameLb_ = new System.Windows.Forms.Label();
-			this.activeLb_ = new System.Windows.Forms.Label();
-			this.updateRateLb_ = new System.Windows.Forms.Label();
-			this.keepAliveRateLb_ = new System.Windows.Forms.Label();
-			this.deadbandLb_ = new System.Windows.Forms.Label();
-			this.nameTb_ = new System.Windows.Forms.TextBox();
-			this.activeCb_ = new System.Windows.Forms.CheckBox();
-			this.updateRateCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.keepAliveRateCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.deadbandCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.keepAliveSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.deadbandSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.localeLb_ = new System.Windows.Forms.Label();
-			this.localeCtrl_ = new LocaleCtrl();
-			this.localeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			((System.ComponentModel.ISupportInitialize)(this.updateRateCtrl_)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.keepAliveRateCtrl_)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.deadbandCtrl_)).BeginInit();
-			this.SuspendLayout();
+			nameLb_ = new System.Windows.Forms.Label();
+			activeLb_ = new System.Windows.Forms.Label();
+			updateRateLb_ = new System.Windows.Forms.Label();
+			keepAliveRateLb_ = new System.Windows.Forms.Label();
+			deadbandLb_ = new System.Windows.Forms.Label();
+			nameTb_ = new System.Windows.Forms.TextBox();
+			activeCb_ = new System.Windows.Forms.CheckBox();
+			updateRateCtrl_ = new System.Windows.Forms.NumericUpDown();
+			keepAliveRateCtrl_ = new System.Windows.Forms.NumericUpDown();
+			deadbandCtrl_ = new System.Windows.Forms.NumericUpDown();
+			keepAliveSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			deadbandSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			localeLb_ = new System.Windows.Forms.Label();
+			localeCtrl_ = new LocaleCtrl();
+			localeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			((System.ComponentModel.ISupportInitialize)(updateRateCtrl_)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(keepAliveRateCtrl_)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(deadbandCtrl_)).BeginInit();
+			SuspendLayout();
 			// 
 			// NameLB
 			// 
-			this.nameLb_.Location = new System.Drawing.Point(0, 0);
-			this.nameLb_.Name = "nameLb_";
-			this.nameLb_.TabIndex = 0;
-			this.nameLb_.Text = "Name";
-			this.nameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			nameLb_.Location = new System.Drawing.Point(0, 0);
+			nameLb_.Name = "nameLb_";
+			nameLb_.TabIndex = 0;
+			nameLb_.Text = "Name";
+			nameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ActiveLB
 			// 
-			this.activeLb_.Location = new System.Drawing.Point(0, 24);
-			this.activeLb_.Name = "activeLb_";
-			this.activeLb_.TabIndex = 1;
-			this.activeLb_.Text = "Active";
-			this.activeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			activeLb_.Location = new System.Drawing.Point(0, 24);
+			activeLb_.Name = "activeLb_";
+			activeLb_.TabIndex = 1;
+			activeLb_.Text = "Active";
+			activeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// UpdateRateLB
 			// 
-			this.updateRateLb_.Location = new System.Drawing.Point(0, 48);
-			this.updateRateLb_.Name = "updateRateLb_";
-			this.updateRateLb_.TabIndex = 4;
-			this.updateRateLb_.Text = "Update Rate";
-			this.updateRateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			updateRateLb_.Location = new System.Drawing.Point(0, 48);
+			updateRateLb_.Name = "updateRateLb_";
+			updateRateLb_.TabIndex = 4;
+			updateRateLb_.Text = "Update Rate";
+			updateRateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// KeepAliveRateLB
 			// 
-			this.keepAliveRateLb_.Location = new System.Drawing.Point(0, 72);
-			this.keepAliveRateLb_.Name = "keepAliveRateLb_";
-			this.keepAliveRateLb_.TabIndex = 5;
-			this.keepAliveRateLb_.Text = "Keep Alive Rate";
-			this.keepAliveRateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			keepAliveRateLb_.Location = new System.Drawing.Point(0, 72);
+			keepAliveRateLb_.Name = "keepAliveRateLb_";
+			keepAliveRateLb_.TabIndex = 5;
+			keepAliveRateLb_.Text = "Keep Alive Rate";
+			keepAliveRateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// DeadbandLB
 			// 
-			this.deadbandLb_.Location = new System.Drawing.Point(0, 96);
-			this.deadbandLb_.Name = "deadbandLb_";
-			this.deadbandLb_.TabIndex = 6;
-			this.deadbandLb_.Text = "Deadband";
-			this.deadbandLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			deadbandLb_.Location = new System.Drawing.Point(0, 96);
+			deadbandLb_.Name = "deadbandLb_";
+			deadbandLb_.TabIndex = 6;
+			deadbandLb_.Text = "Deadband";
+			deadbandLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// NameTB
 			// 
-			this.nameTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			nameTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.nameTb_.Location = new System.Drawing.Point(104, 0);
-			this.nameTb_.Name = "nameTb_";
-			this.nameTb_.Size = new System.Drawing.Size(128, 20);
-			this.nameTb_.TabIndex = 8;
-			this.nameTb_.Text = "";
+			nameTb_.Location = new System.Drawing.Point(104, 0);
+			nameTb_.Name = "nameTb_";
+			nameTb_.Size = new System.Drawing.Size(128, 20);
+			nameTb_.TabIndex = 8;
+			nameTb_.Text = "";
 			// 
 			// ActiveCB
 			// 
-			this.activeCb_.Location = new System.Drawing.Point(104, 24);
-			this.activeCb_.Name = "activeCb_";
-			this.activeCb_.Size = new System.Drawing.Size(16, 24);
-			this.activeCb_.TabIndex = 9;
+			activeCb_.Location = new System.Drawing.Point(104, 24);
+			activeCb_.Name = "activeCb_";
+			activeCb_.Size = new System.Drawing.Size(16, 24);
+			activeCb_.TabIndex = 9;
 			// 
 			// UpdateRateCTRL
 			// 
-			this.updateRateCtrl_.Increment = new System.Decimal(new int[] {
+			updateRateCtrl_.Increment = new System.Decimal(new int[] {
 																			 100,
 																			 0,
 																			 0,
 																			 0});
-			this.updateRateCtrl_.Location = new System.Drawing.Point(104, 48);
-			this.updateRateCtrl_.Maximum = new System.Decimal(new int[] {
+			updateRateCtrl_.Location = new System.Drawing.Point(104, 48);
+			updateRateCtrl_.Maximum = new System.Decimal(new int[] {
 																		   1000000000,
 																		   0,
 																		   0,
 																		   0});
-			this.updateRateCtrl_.Name = "updateRateCtrl_";
-			this.updateRateCtrl_.Size = new System.Drawing.Size(72, 20);
-			this.updateRateCtrl_.TabIndex = 11;
+			updateRateCtrl_.Name = "updateRateCtrl_";
+			updateRateCtrl_.Size = new System.Drawing.Size(72, 20);
+			updateRateCtrl_.TabIndex = 11;
 			// 
 			// KeepAliveRateCTRL
 			// 
-			this.keepAliveRateCtrl_.Increment = new System.Decimal(new int[] {
+			keepAliveRateCtrl_.Increment = new System.Decimal(new int[] {
 																				100,
 																				0,
 																				0,
 																				0});
-			this.keepAliveRateCtrl_.Location = new System.Drawing.Point(104, 72);
-			this.keepAliveRateCtrl_.Maximum = new System.Decimal(new int[] {
+			keepAliveRateCtrl_.Location = new System.Drawing.Point(104, 72);
+			keepAliveRateCtrl_.Maximum = new System.Decimal(new int[] {
 																			  1000000000,
 																			  0,
 																			  0,
 																			  0});
-			this.keepAliveRateCtrl_.Name = "keepAliveRateCtrl_";
-			this.keepAliveRateCtrl_.Size = new System.Drawing.Size(72, 20);
-			this.keepAliveRateCtrl_.TabIndex = 12;
+			keepAliveRateCtrl_.Name = "keepAliveRateCtrl_";
+			keepAliveRateCtrl_.Size = new System.Drawing.Size(72, 20);
+			keepAliveRateCtrl_.TabIndex = 12;
 			// 
 			// DeadbandCTRL
 			// 
-			this.deadbandCtrl_.DecimalPlaces = 1;
-			this.deadbandCtrl_.Location = new System.Drawing.Point(104, 96);
-			this.deadbandCtrl_.Name = "deadbandCtrl_";
-			this.deadbandCtrl_.Size = new System.Drawing.Size(72, 20);
-			this.deadbandCtrl_.TabIndex = 14;
+			deadbandCtrl_.DecimalPlaces = 1;
+			deadbandCtrl_.Location = new System.Drawing.Point(104, 96);
+			deadbandCtrl_.Name = "deadbandCtrl_";
+			deadbandCtrl_.Size = new System.Drawing.Size(72, 20);
+			deadbandCtrl_.TabIndex = 14;
 			// 
 			// KeepAliveSpecifiedCB
 			// 
-			this.keepAliveSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.keepAliveSpecifiedCb_.Checked = true;
-			this.keepAliveSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.keepAliveSpecifiedCb_.Location = new System.Drawing.Point(216, 72);
-			this.keepAliveSpecifiedCb_.Name = "keepAliveSpecifiedCb_";
-			this.keepAliveSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.keepAliveSpecifiedCb_.TabIndex = 20;
-			this.keepAliveSpecifiedCb_.CheckedChanged += new System.EventHandler(this.Specified_CheckedChanged);
+			keepAliveSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			keepAliveSpecifiedCb_.Checked = true;
+			keepAliveSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			keepAliveSpecifiedCb_.Location = new System.Drawing.Point(216, 72);
+			keepAliveSpecifiedCb_.Name = "keepAliveSpecifiedCb_";
+			keepAliveSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			keepAliveSpecifiedCb_.TabIndex = 20;
+			keepAliveSpecifiedCb_.CheckedChanged += new System.EventHandler(Specified_CheckedChanged);
 			// 
 			// DeadbandSpecifiedCB
 			// 
-			this.deadbandSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.deadbandSpecifiedCb_.Checked = true;
-			this.deadbandSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.deadbandSpecifiedCb_.Location = new System.Drawing.Point(216, 96);
-			this.deadbandSpecifiedCb_.Name = "deadbandSpecifiedCb_";
-			this.deadbandSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.deadbandSpecifiedCb_.TabIndex = 21;
-			this.deadbandSpecifiedCb_.CheckedChanged += new System.EventHandler(this.Specified_CheckedChanged);
+			deadbandSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			deadbandSpecifiedCb_.Checked = true;
+			deadbandSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			deadbandSpecifiedCb_.Location = new System.Drawing.Point(216, 96);
+			deadbandSpecifiedCb_.Name = "deadbandSpecifiedCb_";
+			deadbandSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			deadbandSpecifiedCb_.TabIndex = 21;
+			deadbandSpecifiedCb_.CheckedChanged += new System.EventHandler(Specified_CheckedChanged);
 			// 
 			// LocaleLB
 			// 
-			this.localeLb_.Location = new System.Drawing.Point(0, 120);
-			this.localeLb_.Name = "localeLb_";
-			this.localeLb_.TabIndex = 22;
-			this.localeLb_.Text = "Locale";
-			this.localeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			localeLb_.Location = new System.Drawing.Point(0, 120);
+			localeLb_.Name = "localeLb_";
+			localeLb_.TabIndex = 22;
+			localeLb_.Text = "Locale";
+			localeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// LocaleCTRL
 			// 
-			this.localeCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			localeCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.localeCtrl_.Enabled = false;
-			this.localeCtrl_.Locale = "";
-			this.localeCtrl_.Location = new System.Drawing.Point(104, 120);
-			this.localeCtrl_.Name = "localeCtrl_";
-			this.localeCtrl_.Size = new System.Drawing.Size(104, 24);
-			this.localeCtrl_.TabIndex = 23;
+			localeCtrl_.Enabled = false;
+			localeCtrl_.Locale = "";
+			localeCtrl_.Location = new System.Drawing.Point(104, 120);
+			localeCtrl_.Name = "localeCtrl_";
+			localeCtrl_.Size = new System.Drawing.Size(104, 24);
+			localeCtrl_.TabIndex = 23;
 			// 
 			// LocaleSpecifiedCB
 			// 
-			this.localeSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.localeSpecifiedCb_.Checked = true;
-			this.localeSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.localeSpecifiedCb_.Location = new System.Drawing.Point(216, 120);
-			this.localeSpecifiedCb_.Name = "localeSpecifiedCb_";
-			this.localeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.localeSpecifiedCb_.TabIndex = 24;
-			this.localeSpecifiedCb_.CheckedChanged += new System.EventHandler(this.Specified_CheckedChanged);
+			localeSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			localeSpecifiedCb_.Checked = true;
+			localeSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			localeSpecifiedCb_.Location = new System.Drawing.Point(216, 120);
+			localeSpecifiedCb_.Name = "localeSpecifiedCb_";
+			localeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			localeSpecifiedCb_.TabIndex = 24;
+			localeSpecifiedCb_.CheckedChanged += new System.EventHandler(Specified_CheckedChanged);
 			// 
 			// SubscriptionEditCtrl
 			// 
-			this.Controls.Add(this.localeSpecifiedCb_);
-			this.Controls.Add(this.localeCtrl_);
-			this.Controls.Add(this.localeLb_);
-			this.Controls.Add(this.deadbandSpecifiedCb_);
-			this.Controls.Add(this.keepAliveSpecifiedCb_);
-			this.Controls.Add(this.deadbandCtrl_);
-			this.Controls.Add(this.keepAliveRateCtrl_);
-			this.Controls.Add(this.updateRateCtrl_);
-			this.Controls.Add(this.activeCb_);
-			this.Controls.Add(this.nameTb_);
-			this.Controls.Add(this.keepAliveRateLb_);
-			this.Controls.Add(this.activeLb_);
-			this.Controls.Add(this.nameLb_);
-			this.Controls.Add(this.updateRateLb_);
-			this.Controls.Add(this.deadbandLb_);
-			this.Name = "SubscriptionEditCtrl";
-			this.Size = new System.Drawing.Size(232, 144);
-			((System.ComponentModel.ISupportInitialize)(this.updateRateCtrl_)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.keepAliveRateCtrl_)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.deadbandCtrl_)).EndInit();
-			this.ResumeLayout(false);
+			Controls.Add(localeSpecifiedCb_);
+			Controls.Add(localeCtrl_);
+			Controls.Add(localeLb_);
+			Controls.Add(deadbandSpecifiedCb_);
+			Controls.Add(keepAliveSpecifiedCb_);
+			Controls.Add(deadbandCtrl_);
+			Controls.Add(keepAliveRateCtrl_);
+			Controls.Add(updateRateCtrl_);
+			Controls.Add(activeCb_);
+			Controls.Add(nameTb_);
+			Controls.Add(keepAliveRateLb_);
+			Controls.Add(activeLb_);
+			Controls.Add(nameLb_);
+			Controls.Add(updateRateLb_);
+			Controls.Add(deadbandLb_);
+			Name = "SubscriptionEditCtrl";
+			Size = new System.Drawing.Size(232, 144);
+			((System.ComponentModel.ISupportInitialize)(updateRateCtrl_)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(keepAliveRateCtrl_)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(deadbandCtrl_)).EndInit();
+			ResumeLayout(false);
 
 		}
 		#endregion

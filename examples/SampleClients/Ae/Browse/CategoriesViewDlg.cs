@@ -63,54 +63,54 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.categoriesLv_ = new System.Windows.Forms.ListView();
-			this.buttonsPn_.SuspendLayout();
-			this.SuspendLayout();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			categoriesLv_ = new System.Windows.Forms.ListView();
+			buttonsPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 202);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(292, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 202);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(292, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(109, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Close";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(109, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Close";
 			// 
 			// CategoriesLV
 			// 
-			this.categoriesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.categoriesLv_.Location = new System.Drawing.Point(0, 0);
-			this.categoriesLv_.Name = "categoriesLv_";
-			this.categoriesLv_.Size = new System.Drawing.Size(292, 202);
-			this.categoriesLv_.TabIndex = 1;
-			this.categoriesLv_.View = System.Windows.Forms.View.Details;
+			categoriesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			categoriesLv_.Location = new System.Drawing.Point(0, 0);
+			categoriesLv_.Name = "categoriesLv_";
+			categoriesLv_.Size = new System.Drawing.Size(292, 202);
+			categoriesLv_.TabIndex = 1;
+			categoriesLv_.View = System.Windows.Forms.View.Details;
 			// 
 			// CategoriesViewDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.cancelBtn_;
-			this.ClientSize = new System.Drawing.Size(292, 238);
-			this.Controls.Add(this.categoriesLv_);
-			this.Controls.Add(this.buttonsPn_);
-			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(600, 400);
-			this.MinimumSize = new System.Drawing.Size(300, 180);
-			this.Name = "CategoriesViewDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Available Event Categories";
-			this.buttonsPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = cancelBtn_;
+			ClientSize = new System.Drawing.Size(292, 238);
+			Controls.Add(categoriesLv_);
+			Controls.Add(buttonsPn_);
+			MaximizeBox = false;
+			MaximumSize = new System.Drawing.Size(600, 400);
+			MinimumSize = new System.Drawing.Size(300, 180);
+			Name = "CategoriesViewDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Available Event Categories";
+			buttonsPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -143,7 +143,7 @@ namespace Technosoftware.AeSampleClient
 			}
 			catch (Exception e)
 			{
-				MessageBox.Show(e.Message, this.Text);
+				MessageBox.Show(e.Message, Text);
 			}
 
 			// adjust column widths.
@@ -160,9 +160,11 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void AddHeader(string name)
 		{
-			ColumnHeader header = new ColumnHeader();
-			header.Text = name;
-			categoriesLv_.Columns.Add(header);
+            ColumnHeader header = new ColumnHeader
+            {
+                Text = name
+            };
+            categoriesLv_.Columns.Add(header);
 		}
 
 		/// <summary>

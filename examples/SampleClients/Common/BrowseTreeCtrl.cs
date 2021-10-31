@@ -101,113 +101,113 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.BrowseTV = new System.Windows.Forms.TreeView();
-			this.PopupMenu = new System.Windows.Forms.ContextMenuStrip();
-			this.PickMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.PickChildrenMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.Separator01 = new System.Windows.Forms.ToolStripMenuItem();
-			this.EditFiltersMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.RefreshMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.Separator02 = new System.Windows.Forms.ToolStripMenuItem();
-			this.SetLoginMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.ConnectMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.DisconnectMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.menuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.ViewComplexTypeMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			BrowseTV = new System.Windows.Forms.TreeView();
+			PopupMenu = new System.Windows.Forms.ContextMenuStrip();
+			PickMI = new System.Windows.Forms.ToolStripMenuItem();
+			PickChildrenMI = new System.Windows.Forms.ToolStripMenuItem();
+			Separator01 = new System.Windows.Forms.ToolStripMenuItem();
+			EditFiltersMI = new System.Windows.Forms.ToolStripMenuItem();
+			RefreshMI = new System.Windows.Forms.ToolStripMenuItem();
+			Separator02 = new System.Windows.Forms.ToolStripMenuItem();
+			SetLoginMI = new System.Windows.Forms.ToolStripMenuItem();
+			ConnectMI = new System.Windows.Forms.ToolStripMenuItem();
+			DisconnectMI = new System.Windows.Forms.ToolStripMenuItem();
+			menuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			ViewComplexTypeMI = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// BrowseTV
 			// 
-			this.BrowseTV.ContextMenuStrip = this.PopupMenu;
-			this.BrowseTV.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.BrowseTV.ImageIndex = -1;
-			this.BrowseTV.Location = new System.Drawing.Point(0, 0);
-			this.BrowseTV.Name = "BrowseTV";
-			this.BrowseTV.SelectedImageIndex = -1;
-			this.BrowseTV.Size = new System.Drawing.Size(400, 400);
-			this.BrowseTV.TabIndex = 0;
-			this.BrowseTV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BrowseTV_MouseDown);
-			this.BrowseTV.DoubleClick += new System.EventHandler(this.PickMI_Click);
-			this.BrowseTV.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.BrowseTV_AfterSelect);
-			this.BrowseTV.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.BrowseTV_BeforeExpand);
+			BrowseTV.ContextMenuStrip = PopupMenu;
+			BrowseTV.Dock = System.Windows.Forms.DockStyle.Fill;
+			BrowseTV.ImageIndex = -1;
+			BrowseTV.Location = new System.Drawing.Point(0, 0);
+			BrowseTV.Name = "BrowseTV";
+			BrowseTV.SelectedImageIndex = -1;
+			BrowseTV.Size = new System.Drawing.Size(400, 400);
+			BrowseTV.TabIndex = 0;
+			BrowseTV.MouseDown += new System.Windows.Forms.MouseEventHandler(BrowseTV_MouseDown);
+			BrowseTV.DoubleClick += new System.EventHandler(PickMI_Click);
+			BrowseTV.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(BrowseTV_AfterSelect);
+			BrowseTV.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(BrowseTV_BeforeExpand);
 			// 
 			// PopupMenu
 			// 
-			this.PopupMenu.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.PickMI,
-																					  this.PickChildrenMI,
-																					  this.Separator01,
-																					  this.EditFiltersMI,
-																					  this.RefreshMI,
-																					  this.Separator02,
-																					  this.SetLoginMI,
-																					  this.ConnectMI,
-																					  this.DisconnectMI,
-																					  this.menuItem1,
-																					  this.ViewComplexTypeMI});
+			PopupMenu.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  PickMI,
+																					  PickChildrenMI,
+																					  Separator01,
+																					  EditFiltersMI,
+																					  RefreshMI,
+																					  Separator02,
+																					  SetLoginMI,
+																					  ConnectMI,
+																					  DisconnectMI,
+																					  menuItem1,
+																					  ViewComplexTypeMI});
 			// 
 			// PickMI
 			// 
-			this.PickMI.ImageIndex = 0;
-			this.PickMI.Text = "&Select";
-			this.PickMI.Click += new System.EventHandler(this.PickMI_Click);
+			PickMI.ImageIndex = 0;
+			PickMI.Text = "&Select";
+			PickMI.Click += new System.EventHandler(PickMI_Click);
 			// 
 			// PickChildrenMI
 			// 
-			this.PickChildrenMI.ImageIndex = 1;
-			this.PickChildrenMI.Text = "Select Chil&dren";
-			this.PickChildrenMI.Click += new System.EventHandler(this.PickChildrenMI_Click);
+			PickChildrenMI.ImageIndex = 1;
+			PickChildrenMI.Text = "Select Chil&dren";
+			PickChildrenMI.Click += new System.EventHandler(PickChildrenMI_Click);
 			// 
 			// Separator01
 			// 
-			this.Separator01.ImageIndex = 2;
-			this.Separator01.Text = "-";
+			Separator01.ImageIndex = 2;
+			Separator01.Text = "-";
 			// 
 			// RefreshMI
 			// 
-			this.RefreshMI.ImageIndex = 4;
-			this.RefreshMI.Text = "&Refresh";
+			RefreshMI.ImageIndex = 4;
+			RefreshMI.Text = "&Refresh";
 			// 
 			// Separator02
 			// 
-			this.Separator02.ImageIndex = 5;
-			this.Separator02.Text = "-";
+			Separator02.ImageIndex = 5;
+			Separator02.Text = "-";
 			// 
 			// SetLoginMI
 			// 
-			this.SetLoginMI.ImageIndex = 6;
-			this.SetLoginMI.Text = "Set &Login...";
-			this.SetLoginMI.Click += new System.EventHandler(this.SetLoginMI_Click);
+			SetLoginMI.ImageIndex = 6;
+			SetLoginMI.Text = "Set &Login...";
+			SetLoginMI.Click += new System.EventHandler(SetLoginMI_Click);
 			// 
 			// ConnectMI
 			// 
-			this.ConnectMI.ImageIndex = 7;
-			this.ConnectMI.Text = "&Connect...";
-			this.ConnectMI.Click += new System.EventHandler(this.ConnectMI_Click);
+			ConnectMI.ImageIndex = 7;
+			ConnectMI.Text = "&Connect...";
+			ConnectMI.Click += new System.EventHandler(ConnectMI_Click);
 			// 
 			// DisconnectMI
 			// 
-			this.DisconnectMI.ImageIndex = 8;
-			this.DisconnectMI.Text = "&Disconnect";
-			this.DisconnectMI.Click += new System.EventHandler(this.DisconnectMI_Click);
+			DisconnectMI.ImageIndex = 8;
+			DisconnectMI.Text = "&Disconnect";
+			DisconnectMI.Click += new System.EventHandler(DisconnectMI_Click);
 			// 
 			// menuItem1
 			// 
-			this.menuItem1.ImageIndex = 9;
-			this.menuItem1.Text = "-";
+			menuItem1.ImageIndex = 9;
+			menuItem1.Text = "-";
 			// 
 			// ViewComplexTypeMI
 			// 
-			this.ViewComplexTypeMI.ImageIndex = 10;
-			this.ViewComplexTypeMI.Text = "&View Complex Type...";
-			this.ViewComplexTypeMI.Click += new System.EventHandler(this.ViewComplexTypeMI_Click);
+			ViewComplexTypeMI.ImageIndex = 10;
+			ViewComplexTypeMI.Text = "&View Complex Type...";
+			ViewComplexTypeMI.Click += new System.EventHandler(ViewComplexTypeMI_Click);
 			// 
 			// BrowseTreeCtrl
 			// 
-			this.Controls.Add(this.BrowseTV);
-			this.Name = "BrowseTreeCtrl";
-			this.Size = new System.Drawing.Size(400, 400);
-			this.ResumeLayout(false);
+			Controls.Add(BrowseTV);
+			Name = "BrowseTreeCtrl";
+			Size = new System.Drawing.Size(400, 400);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -461,7 +461,7 @@ namespace SampleClients.Common
 					node.Expand();
 				}
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				//MessageBox.Show(e.Message);
 			}

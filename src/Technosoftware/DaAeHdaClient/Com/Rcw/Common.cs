@@ -22,8 +22,6 @@
 
 #region Using Directives
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Runtime.InteropServices;
 #endregion
 
@@ -87,25 +85,35 @@ namespace OpcRcw.Comn
     [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
     public interface IConnectionPoint
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPoint.GetConnectionInterface(out Guid)'
         void GetConnectionInterface(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPoint.GetConnectionInterface(out Guid)'
             [Out]
             out Guid pIID);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPoint.GetConnectionPointContainer(out IConnectionPointContainer)'
         void GetConnectionPointContainer(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPoint.GetConnectionPointContainer(out IConnectionPointContainer)'
             [Out]
             out IConnectionPointContainer ppCPC);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPoint.Advise(object, out int)'
         void Advise(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPoint.Advise(object, out int)'
             [MarshalAs(UnmanagedType.IUnknown)]
             object pUnkSink,
             [Out][MarshalAs(UnmanagedType.I4)]
             out int pdwCookie);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPoint.Unadvise(int)'
         void Unadvise(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPoint.Unadvise(int)'
             [MarshalAs(UnmanagedType.I4)]
             int dwCookie);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPoint.EnumConnections(out IEnumConnections)'
         void EnumConnections(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPoint.EnumConnections(out IEnumConnections)'
             [Out]
             out IEnumConnections ppEnum);
     }
@@ -116,7 +124,9 @@ namespace OpcRcw.Comn
     [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
     public interface IEnumConnectionPoints 
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumConnectionPoints.RemoteNext(int, IntPtr, out int)'
         void RemoteNext(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumConnectionPoints.RemoteNext(int, IntPtr, out int)'
             [MarshalAs(UnmanagedType.I4)]
             int cConnections,
             [Out]
@@ -124,13 +134,19 @@ namespace OpcRcw.Comn
             [Out][MarshalAs(UnmanagedType.I4)]
             out int pcFetched);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumConnectionPoints.Skip(int)'
         void Skip(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumConnectionPoints.Skip(int)'
             [MarshalAs(UnmanagedType.I4)]
             int cConnections);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumConnectionPoints.Reset()'
         void Reset();
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumConnectionPoints.Reset()'
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumConnectionPoints.Clone(out IEnumConnectionPoints)'
         void Clone(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumConnectionPoints.Clone(out IEnumConnectionPoints)'
             [Out]
             out IEnumConnectionPoints ppEnum);
     }
@@ -141,11 +157,15 @@ namespace OpcRcw.Comn
     [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
     public interface IConnectionPointContainer
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPointContainer.EnumConnectionPoints(out IEnumConnectionPoints)'
         void EnumConnectionPoints(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPointContainer.EnumConnectionPoints(out IEnumConnectionPoints)'
             [Out]
             out IEnumConnectionPoints ppEnum);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPointContainer.FindConnectionPoint(ref Guid, out IConnectionPoint)'
         void FindConnectionPoint(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IConnectionPointContainer.FindConnectionPoint(ref Guid, out IConnectionPoint)'
             ref Guid riid,
             [Out]
             out IConnectionPoint ppCP);
@@ -157,7 +177,9 @@ namespace OpcRcw.Comn
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
     public interface IOPCShutdown
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IOPCShutdown.ShutdownRequest(string)'
         void ShutdownRequest(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IOPCShutdown.ShutdownRequest(string)'
 			[MarshalAs(UnmanagedType.LPWStr)]
 			string szReason);
     }
@@ -168,26 +190,48 @@ namespace OpcRcw.Comn
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
 	public interface IOPCCommon 
 	{
+		/// <summary>
+		/// Set the default LocaleID for this server/client session. This localeid will be used by the GetErrorString method on this interface. It should also be used as the ‘default’ localeid by any other server functions that are affected by localid. Other OPC interfaces may provide additional LocaleID capability by allowing this LocalID to be overridden either via a parameter to a method or via a property on a child object.
+		/// </summary>
+		/// <param name="dwLcid">The default LocaleID for this server/client session</param>
 		void SetLocaleID(
 			[MarshalAs(UnmanagedType.I4)]
 			int dwLcid);
 
+		/// <summary>
+		/// Return the default LocaleID for this server/client session. 
+		/// </summary>
+		/// <param name="pdwLcid">Where to return the default LocaleID for this server/client session</param>
 		void GetLocaleID(
 			[Out][MarshalAs(UnmanagedType.I4)]
 			out int pdwLcid);
 
+		/// <summary>
+		/// Return the available LocaleIDs for this server/client session. 
+		/// </summary>
+		/// <param name="pdwCount">Where to return the LocaleID count</param>
+		/// <param name="pdwLcid">Where to return the LocaleID list.</param>
 		void QueryAvailableLocaleIDs( 
 			[Out][MarshalAs(UnmanagedType.I4)]
 			out int pdwCount,	
 			[Out]
 			out IntPtr pdwLcid);
 
+		/// <summary>
+		/// Returns the error string for a server specific error code.
+		/// </summary>
+		/// <param name="dwError">A server specific error code that the client application had returned from an interface function from the server, and for which the client application is requesting the server’s textual representation. </param>
+		/// <param name="ppString">Pointer to pointer where server supplied result will be saved</param>
 		void GetErrorString( 
 			[MarshalAs(UnmanagedType.I4)]
 			int dwError,
 			[Out][MarshalAs(UnmanagedType.LPWStr)]
 			out String ppString);
 
+		/// <summary>
+		/// Allows the client to optionally register a client name with the server. This is included primarily for debugging purposes. The recommended behavior is that the client set his Node name and EXE name here. 
+		/// </summary>
+		/// <param name="szName">An arbitrary string containing information about the client task.</param>
 		void SetClientName(
 			[MarshalAs(UnmanagedType.LPWStr)] 
 			String szName);
@@ -199,7 +243,9 @@ namespace OpcRcw.Comn
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
 	public interface IOPCServerList 
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IOPCServerList.EnumClassesOfCategories(int, Guid[], int, Guid[], out object)'
         void EnumClassesOfCategories(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IOPCServerList.EnumClassesOfCategories(int, Guid[], int, Guid[], out object)'
 		    [MarshalAs(UnmanagedType.I4)]
             int cImplemented,
             [MarshalAs(UnmanagedType.LPArray, ArraySubType=UnmanagedType.LPStruct, SizeParamIndex=0)]
@@ -211,14 +257,18 @@ namespace OpcRcw.Comn
 		    [Out][MarshalAs(UnmanagedType.IUnknown)]
             out object ppenumClsid);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IOPCServerList.GetClassDetails(ref Guid, out string, out string)'
         void GetClassDetails(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IOPCServerList.GetClassDetails(ref Guid, out string, out string)'
             ref Guid clsid, 
             [Out][MarshalAs(UnmanagedType.LPWStr)]
             out string ppszProgID,
             [Out][MarshalAs(UnmanagedType.LPWStr)]
             out string ppszUserType);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IOPCServerList.CLSIDFromProgID(string, out Guid)'
         void CLSIDFromProgID(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IOPCServerList.CLSIDFromProgID(string, out Guid)'
 		    [MarshalAs(UnmanagedType.LPWStr)]
             string szProgId,
             [Out]
@@ -231,7 +281,9 @@ namespace OpcRcw.Comn
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
     public interface IOPCEnumGUID 
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IOPCEnumGUID.Next(int, IntPtr, out int)'
         void Next(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IOPCEnumGUID.Next(int, IntPtr, out int)'
 		    [MarshalAs(UnmanagedType.I4)]
             int celt,
             [Out]
@@ -239,13 +291,19 @@ namespace OpcRcw.Comn
             [Out][MarshalAs(UnmanagedType.I4)]
             out int pceltFetched);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IOPCEnumGUID.Skip(int)'
         void Skip(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IOPCEnumGUID.Skip(int)'
 		    [MarshalAs(UnmanagedType.I4)]
             int celt);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IOPCEnumGUID.Reset()'
         void Reset();
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IOPCEnumGUID.Reset()'
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IOPCEnumGUID.Clone(out IOPCEnumGUID)'
         void Clone(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IOPCEnumGUID.Clone(out IOPCEnumGUID)'
             [Out]
             out IOPCEnumGUID ppenum);
     }
@@ -256,7 +314,9 @@ namespace OpcRcw.Comn
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
     public interface IEnumGUID 
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumGUID.Next(int, IntPtr, out int)'
         void Next(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumGUID.Next(int, IntPtr, out int)'
 		    [MarshalAs(UnmanagedType.I4)]
             int celt,
             [Out]
@@ -264,13 +324,19 @@ namespace OpcRcw.Comn
             [Out][MarshalAs(UnmanagedType.I4)]
             out int pceltFetched);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumGUID.Skip(int)'
         void Skip(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumGUID.Skip(int)'
 		    [MarshalAs(UnmanagedType.I4)]
             int celt);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumGUID.Reset()'
         void Reset();
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumGUID.Reset()'
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumGUID.Clone(out IEnumGUID)'
         void Clone(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumGUID.Clone(out IEnumGUID)'
             [Out]
             out IEnumGUID ppenum);
     }
@@ -281,7 +347,9 @@ namespace OpcRcw.Comn
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
     public interface IEnumUnknown 
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumUnknown.RemoteNext(int, IntPtr, out int)'
         void RemoteNext(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumUnknown.RemoteNext(int, IntPtr, out int)'
 		    [MarshalAs(UnmanagedType.I4)]
             int celt,
             [Out]
@@ -289,13 +357,19 @@ namespace OpcRcw.Comn
             [Out][MarshalAs(UnmanagedType.I4)]
             out int pceltFetched);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumUnknown.Skip(int)'
         void Skip(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumUnknown.Skip(int)'
 		    [MarshalAs(UnmanagedType.I4)]
             int celt);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumUnknown.Reset()'
         void Reset();
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumUnknown.Reset()'
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumUnknown.Clone(out IEnumUnknown)'
         void Clone(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumUnknown.Clone(out IEnumUnknown)'
             [Out]
             out IEnumUnknown ppenum);
     }
@@ -306,20 +380,28 @@ namespace OpcRcw.Comn
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
     public interface IEnumString 
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumString.RemoteNext(int, IntPtr, out int)'
         void RemoteNext(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumString.RemoteNext(int, IntPtr, out int)'
 		    [MarshalAs(UnmanagedType.I4)]
             int celt,
             IntPtr rgelt,
             [Out][MarshalAs(UnmanagedType.I4)]
             out int pceltFetched);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumString.Skip(int)'
         void Skip(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumString.Skip(int)'
 		    [MarshalAs(UnmanagedType.I4)]
             int celt);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumString.Reset()'
         void Reset();
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumString.Reset()'
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IEnumString.Clone(out IEnumString)'
         void Clone(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IEnumString.Clone(out IEnumString)'
             [Out]
             out IEnumString ppenum);
     }
@@ -330,7 +412,9 @@ namespace OpcRcw.Comn
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
     public interface IOPCServerList2
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IOPCServerList2.EnumClassesOfCategories(int, Guid[], int, Guid[], out IOPCEnumGUID)'
         void EnumClassesOfCategories(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IOPCServerList2.EnumClassesOfCategories(int, Guid[], int, Guid[], out IOPCEnumGUID)'
             [MarshalAs(UnmanagedType.I4)]
             int cImplemented,
             [MarshalAs(UnmanagedType.LPArray, ArraySubType=UnmanagedType.LPStruct, SizeParamIndex=0)]
@@ -342,7 +426,9 @@ namespace OpcRcw.Comn
             [Out]
             out IOPCEnumGUID ppenumClsid);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IOPCServerList2.GetClassDetails(ref Guid, out string, out string, out string)'
         void GetClassDetails(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IOPCServerList2.GetClassDetails(ref Guid, out string, out string, out string)'
             ref Guid clsid, 
 		    [Out][MarshalAs(UnmanagedType.LPWStr)]
             out string ppszProgID,
@@ -351,7 +437,9 @@ namespace OpcRcw.Comn
             [Out][MarshalAs(UnmanagedType.LPWStr)]
             out string ppszVerIndProgID);
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'IOPCServerList2.CLSIDFromProgID(string, out Guid)'
         void CLSIDFromProgID(
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'IOPCServerList2.CLSIDFromProgID(string, out Guid)'
 		    [MarshalAs(UnmanagedType.LPWStr)]
             string szProgId,
             [Out]

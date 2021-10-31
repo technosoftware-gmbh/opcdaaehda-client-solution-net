@@ -70,27 +70,27 @@ namespace SampleClients.Da.Subscription
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.objectCtrl_ = new SubscriptionEditCtrl();
-			this.SuspendLayout();
+			objectCtrl_ = new SubscriptionEditCtrl();
+			SuspendLayout();
 			// 
 			// ObjectCTRL
 			// 
-			this.objectCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			objectCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.objectCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.objectCtrl_.Name = "objectCtrl_";
-			this.objectCtrl_.Size = new System.Drawing.Size(228, 148);
-			this.objectCtrl_.TabIndex = 2;
+			objectCtrl_.Location = new System.Drawing.Point(4, 4);
+			objectCtrl_.Name = "objectCtrl_";
+			objectCtrl_.Size = new System.Drawing.Size(228, 148);
+			objectCtrl_.TabIndex = 2;
 			// 
 			// SubscriptionListEditDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(320, 166);
-			this.Controls.Add(this.objectCtrl_);
-			this.Name = "SubscriptionListEditDlg";
-			this.Text = "Edit Subscription";
-			this.Controls.SetChildIndex(this.objectCtrl_, 0);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(320, 166);
+			Controls.Add(objectCtrl_);
+			Name = "SubscriptionListEditDlg";
+			Text = "Edit Subscription";
+			Controls.SetChildIndex(objectCtrl_, 0);
+			ResumeLayout(false);
 
 		}
 		#endregion

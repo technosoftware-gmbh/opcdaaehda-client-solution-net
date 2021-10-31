@@ -81,92 +81,92 @@ namespace SampleClients.Hda.Item
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.timesLv_ = new System.Windows.Forms.ListView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.addMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.copyMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.editMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator02_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.importTimesMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.mainPn_ = new System.Windows.Forms.Panel();
-			this.mainPn_.SuspendLayout();
-			this.SuspendLayout();
+			timesLv_ = new System.Windows.Forms.ListView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			addMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			copyMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			editMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator02_ = new System.Windows.Forms.ToolStripMenuItem();
+			importTimesMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			mainPn_ = new System.Windows.Forms.Panel();
+			mainPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// TimesLV
 			// 
-			this.timesLv_.ContextMenuStrip = this.popupMenu_;
-			this.timesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.timesLv_.FullRowSelect = true;
-			this.timesLv_.Location = new System.Drawing.Point(0, 0);
-			this.timesLv_.Name = "timesLv_";
-			this.timesLv_.Size = new System.Drawing.Size(544, 360);
-			this.timesLv_.TabIndex = 1;
-			this.timesLv_.View = System.Windows.Forms.View.Details;
-			this.timesLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TimesLV_MouseDown);
-			this.timesLv_.DoubleClick += new System.EventHandler(this.EditMI_Click);
+			timesLv_.ContextMenuStrip = popupMenu_;
+			timesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			timesLv_.FullRowSelect = true;
+			timesLv_.Location = new System.Drawing.Point(0, 0);
+			timesLv_.Name = "timesLv_";
+			timesLv_.Size = new System.Drawing.Size(544, 360);
+			timesLv_.TabIndex = 1;
+			timesLv_.View = System.Windows.Forms.View.Details;
+			timesLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(TimesLV_MouseDown);
+			timesLv_.DoubleClick += new System.EventHandler(EditMI_Click);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.addMi_,
-																					  this.copyMi_,
-																					  this.editMi_,
-																					  this.removeMi_,
-																					  this.separator02_,
-																					  this.importTimesMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  addMi_,
+																					  copyMi_,
+																					  editMi_,
+																					  removeMi_,
+																					  separator02_,
+																					  importTimesMi_});
 			// 
 			// AddMI
 			// 
-			this.addMi_.ImageIndex = 0;
-			this.addMi_.Text = "Add...";
-			this.addMi_.Click += new System.EventHandler(this.AddMI_Click);
+			addMi_.ImageIndex = 0;
+			addMi_.Text = "Add...";
+			addMi_.Click += new System.EventHandler(AddMI_Click);
 			// 
 			// CopyMI
 			// 
-			this.copyMi_.ImageIndex = 1;
-			this.copyMi_.Text = "Copy...";
-			this.copyMi_.Click += new System.EventHandler(this.CopyMI_Click);
+			copyMi_.ImageIndex = 1;
+			copyMi_.Text = "Copy...";
+			copyMi_.Click += new System.EventHandler(CopyMI_Click);
 			// 
 			// EditMI
 			// 
-			this.editMi_.ImageIndex = 2;
-			this.editMi_.Text = "Edit...";
-			this.editMi_.Click += new System.EventHandler(this.EditMI_Click);
+			editMi_.ImageIndex = 2;
+			editMi_.Text = "Edit...";
+			editMi_.Click += new System.EventHandler(EditMI_Click);
 			// 
 			// RemoveMI
 			// 
-			this.removeMi_.ImageIndex = 3;
-			this.removeMi_.Text = "Remove";
-			this.removeMi_.Click += new System.EventHandler(this.RemoveMI_Click);
+			removeMi_.ImageIndex = 3;
+			removeMi_.Text = "Remove";
+			removeMi_.Click += new System.EventHandler(RemoveMI_Click);
 			// 
 			// Separator02
 			// 
-			this.separator02_.ImageIndex = 4;
-			this.separator02_.Text = "-";
+			separator02_.ImageIndex = 4;
+			separator02_.Text = "-";
 			// 
 			// ImportTimesMI
 			// 
-			this.importTimesMi_.ImageIndex = 5;
-			this.importTimesMi_.Text = "Import Times...";
-			this.importTimesMi_.Click += new System.EventHandler(this.ImportTimesMI_Click);
+			importTimesMi_.ImageIndex = 5;
+			importTimesMi_.Text = "Import Times...";
+			importTimesMi_.Click += new System.EventHandler(ImportTimesMI_Click);
 			// 
 			// MainPN
 			// 
-			this.mainPn_.Controls.Add(this.timesLv_);
-			this.mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPn_.Location = new System.Drawing.Point(0, 0);
-			this.mainPn_.Name = "mainPn_";
-			this.mainPn_.Size = new System.Drawing.Size(544, 360);
-			this.mainPn_.TabIndex = 2;
+			mainPn_.Controls.Add(timesLv_);
+			mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			mainPn_.Location = new System.Drawing.Point(0, 0);
+			mainPn_.Name = "mainPn_";
+			mainPn_.Size = new System.Drawing.Size(544, 360);
+			mainPn_.TabIndex = 2;
 			// 
 			// ItemTimesCtrl
 			// 
-			this.Controls.Add(this.mainPn_);
-			this.Name = "ItemTimesCtrl";
-			this.Size = new System.Drawing.Size(544, 360);
-			this.mainPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			Controls.Add(mainPn_);
+			Name = "ItemTimesCtrl";
+			Size = new System.Drawing.Size(544, 360);
+			mainPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

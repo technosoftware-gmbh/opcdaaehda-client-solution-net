@@ -69,78 +69,78 @@ namespace SampleClients.Hda.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.mainPn_ = new System.Windows.Forms.Panel();
-			this.attributesCtrl_ = new AttributesSelectCtrl();
-			this.buttonsPn_.SuspendLayout();
-			this.mainPn_.SuspendLayout();
-			this.SuspendLayout();
+			okBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			mainPn_ = new System.Windows.Forms.Panel();
+			attributesCtrl_ = new AttributesSelectCtrl();
+			buttonsPn_.SuspendLayout();
+			mainPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okBtn_.Location = new System.Drawing.Point(4, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
+			okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			okBtn_.Location = new System.Drawing.Point(4, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(184, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(184, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 378);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(264, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 378);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(264, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// MainPN
 			// 
-			this.mainPn_.Controls.Add(this.attributesCtrl_);
-			this.mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPn_.DockPadding.Left = 4;
-			this.mainPn_.DockPadding.Right = 4;
-			this.mainPn_.DockPadding.Top = 4;
-			this.mainPn_.Location = new System.Drawing.Point(0, 0);
-			this.mainPn_.Name = "mainPn_";
-			this.mainPn_.Size = new System.Drawing.Size(264, 378);
-			this.mainPn_.TabIndex = 32;
+			mainPn_.Controls.Add(attributesCtrl_);
+			mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			mainPn_.DockPadding.Left = 4;
+			mainPn_.DockPadding.Right = 4;
+			mainPn_.DockPadding.Top = 4;
+			mainPn_.Location = new System.Drawing.Point(0, 0);
+			mainPn_.Name = "mainPn_";
+			mainPn_.Size = new System.Drawing.Size(264, 378);
+			mainPn_.TabIndex = 32;
 			// 
 			// AttributesCTRL
 			// 
-			this.attributesCtrl_.AllowDrop = true;
-			this.attributesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.attributesCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.attributesCtrl_.Name = "attributesCtrl_";
-			this.attributesCtrl_.ReadOnly = false;
-			this.attributesCtrl_.Size = new System.Drawing.Size(256, 374);
-			this.attributesCtrl_.TabIndex = 0;
-			this.attributesCtrl_.AttributePicked += new AttributesSelectCtrl.AttributePickedEventHandler(this.AttributesCTRL_AttributePicked);
+			attributesCtrl_.AllowDrop = true;
+			attributesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			attributesCtrl_.Location = new System.Drawing.Point(4, 4);
+			attributesCtrl_.Name = "attributesCtrl_";
+			attributesCtrl_.ReadOnly = false;
+			attributesCtrl_.Size = new System.Drawing.Size(256, 374);
+			attributesCtrl_.TabIndex = 0;
+			attributesCtrl_.AttributePicked += new AttributesSelectCtrl.AttributePickedEventHandler(AttributesCTRL_AttributePicked);
 			// 
 			// AttributesSelectDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(264, 414);
-			this.Controls.Add(this.mainPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Name = "AttributesSelectDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Select Attributes";
-			this.buttonsPn_.ResumeLayout(false);
-			this.mainPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(264, 414);
+			Controls.Add(mainPn_);
+			Controls.Add(buttonsPn_);
+			Name = "AttributesSelectDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Select Attributes";
+			buttonsPn_.ResumeLayout(false);
+			mainPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

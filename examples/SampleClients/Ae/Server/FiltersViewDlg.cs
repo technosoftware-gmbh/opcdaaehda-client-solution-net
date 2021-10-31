@@ -62,55 +62,55 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.filtersCtrl_ = new Technosoftware.DaAeHdaClient.SampleClient.BitMaskCtrl();
-			this.buttonsPn_.SuspendLayout();
-			this.SuspendLayout();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			filtersCtrl_ = new Technosoftware.DaAeHdaClient.SampleClient.BitMaskCtrl();
+			buttonsPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 110);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(242, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 110);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(242, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(84, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Close";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(84, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Close";
 			// 
 			// FiltersCTRL
 			// 
-			this.filtersCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.filtersCtrl_.Location = new System.Drawing.Point(0, 0);
-			this.filtersCtrl_.Name = "filtersCtrl_";
-			this.filtersCtrl_.Size = new System.Drawing.Size(242, 110);
-			this.filtersCtrl_.TabIndex = 1;
-			this.filtersCtrl_.Type = null;
-			this.filtersCtrl_.Value = 0;
+			filtersCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			filtersCtrl_.Location = new System.Drawing.Point(0, 0);
+			filtersCtrl_.Name = "filtersCtrl_";
+			filtersCtrl_.Size = new System.Drawing.Size(242, 110);
+			filtersCtrl_.TabIndex = 1;
+			filtersCtrl_.Type = null;
+			filtersCtrl_.Value = 0;
 			// 
 			// FiltersViewDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.cancelBtn_;
-			this.ClientSize = new System.Drawing.Size(242, 146);
-			this.Controls.Add(this.filtersCtrl_);
-			this.Controls.Add(this.buttonsPn_);
-			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(600, 216);
-			this.MinimumSize = new System.Drawing.Size(250, 180);
-			this.Name = "FiltersViewDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Available Event Filters";
-			this.buttonsPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = cancelBtn_;
+			ClientSize = new System.Drawing.Size(242, 146);
+			Controls.Add(filtersCtrl_);
+			Controls.Add(buttonsPn_);
+			MaximizeBox = false;
+			MaximumSize = new System.Drawing.Size(600, 216);
+			MinimumSize = new System.Drawing.Size(250, 180);
+			Name = "FiltersViewDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Available Event Filters";
+			buttonsPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

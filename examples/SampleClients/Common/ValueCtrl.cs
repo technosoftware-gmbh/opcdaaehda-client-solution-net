@@ -80,101 +80,101 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.ValueTB = new System.Windows.Forms.TextBox();
-			this.DateTimeCTRL = new System.Windows.Forms.DateTimePicker();
-			this.EditBTN = new System.Windows.Forms.Button();
-			this.LeftPN = new System.Windows.Forms.Panel();
-			this.EditPN = new System.Windows.Forms.Panel();
-			this.MainPN = new System.Windows.Forms.Panel();
-			this.DataTypeCTRL = new DataTypeCtrl();
-			this.LeftPN.SuspendLayout();
-			this.EditPN.SuspendLayout();
-			this.MainPN.SuspendLayout();
-			this.SuspendLayout();
+			ValueTB = new System.Windows.Forms.TextBox();
+			DateTimeCTRL = new System.Windows.Forms.DateTimePicker();
+			EditBTN = new System.Windows.Forms.Button();
+			LeftPN = new System.Windows.Forms.Panel();
+			EditPN = new System.Windows.Forms.Panel();
+			MainPN = new System.Windows.Forms.Panel();
+			DataTypeCTRL = new DataTypeCtrl();
+			LeftPN.SuspendLayout();
+			EditPN.SuspendLayout();
+			MainPN.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ValueTB
 			// 
-			this.ValueTB.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.ValueTB.Location = new System.Drawing.Point(0, 0);
-			this.ValueTB.Name = "ValueTB";
-			this.ValueTB.Size = new System.Drawing.Size(120, 20);
-			this.ValueTB.TabIndex = 0;
-			this.ValueTB.Text = "";
+			ValueTB.Dock = System.Windows.Forms.DockStyle.Fill;
+			ValueTB.Location = new System.Drawing.Point(0, 0);
+			ValueTB.Name = "ValueTB";
+			ValueTB.Size = new System.Drawing.Size(120, 20);
+			ValueTB.TabIndex = 0;
+			ValueTB.Text = "";
 			// 
 			// DateTimeCTRL
 			// 
-			this.DateTimeCTRL.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-			this.DateTimeCTRL.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.DateTimeCTRL.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.DateTimeCTRL.Location = new System.Drawing.Point(0, 0);
-			this.DateTimeCTRL.Name = "DateTimeCTRL";
-			this.DateTimeCTRL.ShowUpDown = true;
-			this.DateTimeCTRL.Size = new System.Drawing.Size(120, 20);
-			this.DateTimeCTRL.TabIndex = 1;
-			this.DateTimeCTRL.Visible = false;
+			DateTimeCTRL.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+			DateTimeCTRL.Dock = System.Windows.Forms.DockStyle.Fill;
+			DateTimeCTRL.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			DateTimeCTRL.Location = new System.Drawing.Point(0, 0);
+			DateTimeCTRL.Name = "DateTimeCTRL";
+			DateTimeCTRL.ShowUpDown = true;
+			DateTimeCTRL.Size = new System.Drawing.Size(120, 20);
+			DateTimeCTRL.TabIndex = 1;
+			DateTimeCTRL.Visible = false;
 			// 
 			// EditBTN
 			// 
-			this.EditBTN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.EditBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.EditBTN.Location = new System.Drawing.Point(4, 0);
-			this.EditBTN.Name = "EditBTN";
-			this.EditBTN.Size = new System.Drawing.Size(24, 20);
-			this.EditBTN.TabIndex = 0;
-			this.EditBTN.Text = "...";
-			this.EditBTN.Click += new System.EventHandler(this.EditBTN_Click);
+			EditBTN.Dock = System.Windows.Forms.DockStyle.Fill;
+			EditBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			EditBTN.Location = new System.Drawing.Point(4, 0);
+			EditBTN.Name = "EditBTN";
+			EditBTN.Size = new System.Drawing.Size(24, 20);
+			EditBTN.TabIndex = 0;
+			EditBTN.Text = "...";
+			EditBTN.Click += new System.EventHandler(EditBTN_Click);
 			// 
 			// LeftPN
 			// 
-			this.LeftPN.Controls.Add(this.DateTimeCTRL);
-			this.LeftPN.Controls.Add(this.ValueTB);
-			this.LeftPN.Controls.Add(this.EditPN);
-			this.LeftPN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LeftPN.Location = new System.Drawing.Point(0, 0);
-			this.LeftPN.Name = "LeftPN";
-			this.LeftPN.Size = new System.Drawing.Size(152, 20);
-			this.LeftPN.TabIndex = 0;
+			LeftPN.Controls.Add(DateTimeCTRL);
+			LeftPN.Controls.Add(ValueTB);
+			LeftPN.Controls.Add(EditPN);
+			LeftPN.Dock = System.Windows.Forms.DockStyle.Fill;
+			LeftPN.Location = new System.Drawing.Point(0, 0);
+			LeftPN.Name = "LeftPN";
+			LeftPN.Size = new System.Drawing.Size(152, 20);
+			LeftPN.TabIndex = 0;
 			// 
 			// EditPN
 			// 
-			this.EditPN.Controls.Add(this.EditBTN);
-			this.EditPN.Dock = System.Windows.Forms.DockStyle.Right;
-			this.EditPN.DockPadding.Left = 4;
-			this.EditPN.DockPadding.Right = 4;
-			this.EditPN.Location = new System.Drawing.Point(120, 0);
-			this.EditPN.Name = "EditPN";
-			this.EditPN.Size = new System.Drawing.Size(32, 20);
-			this.EditPN.TabIndex = 2;
-			this.EditPN.Visible = false;
+			EditPN.Controls.Add(EditBTN);
+			EditPN.Dock = System.Windows.Forms.DockStyle.Right;
+			EditPN.DockPadding.Left = 4;
+			EditPN.DockPadding.Right = 4;
+			EditPN.Location = new System.Drawing.Point(120, 0);
+			EditPN.Name = "EditPN";
+			EditPN.Size = new System.Drawing.Size(32, 20);
+			EditPN.TabIndex = 2;
+			EditPN.Visible = false;
 			// 
 			// MainPN
 			// 
-			this.MainPN.Controls.Add(this.LeftPN);
-			this.MainPN.Controls.Add(this.DataTypeCTRL);
-			this.MainPN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.MainPN.Location = new System.Drawing.Point(0, 0);
-			this.MainPN.Name = "MainPN";
-			this.MainPN.Size = new System.Drawing.Size(240, 20);
-			this.MainPN.TabIndex = 27;
+			MainPN.Controls.Add(LeftPN);
+			MainPN.Controls.Add(DataTypeCTRL);
+			MainPN.Dock = System.Windows.Forms.DockStyle.Fill;
+			MainPN.Location = new System.Drawing.Point(0, 0);
+			MainPN.Name = "MainPN";
+			MainPN.Size = new System.Drawing.Size(240, 20);
+			MainPN.TabIndex = 27;
 			// 
 			// DataTypeCTRL
 			// 
-			this.DataTypeCTRL.Dock = System.Windows.Forms.DockStyle.Right;
-			this.DataTypeCTRL.Location = new System.Drawing.Point(152, 0);
-			this.DataTypeCTRL.Name = "DataTypeCTRL";
-			this.DataTypeCTRL.SelectedType = null;
-			this.DataTypeCTRL.Size = new System.Drawing.Size(88, 20);
-			this.DataTypeCTRL.TabIndex = 1;
+			DataTypeCTRL.Dock = System.Windows.Forms.DockStyle.Right;
+			DataTypeCTRL.Location = new System.Drawing.Point(152, 0);
+			DataTypeCTRL.Name = "DataTypeCTRL";
+			DataTypeCTRL.SelectedType = null;
+			DataTypeCTRL.Size = new System.Drawing.Size(88, 20);
+			DataTypeCTRL.TabIndex = 1;
 			// 
 			// ValueCtrl
 			// 
-			this.Controls.Add(this.MainPN);
-			this.Name = "ValueCtrl";
-			this.Size = new System.Drawing.Size(240, 20);
-			this.LeftPN.ResumeLayout(false);
-			this.EditPN.ResumeLayout(false);
-			this.MainPN.ResumeLayout(false);
-			this.ResumeLayout(false);
+			Controls.Add(MainPN);
+			Name = "ValueCtrl";
+			Size = new System.Drawing.Size(240, 20);
+			LeftPN.ResumeLayout(false);
+			EditPN.ResumeLayout(false);
+			MainPN.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

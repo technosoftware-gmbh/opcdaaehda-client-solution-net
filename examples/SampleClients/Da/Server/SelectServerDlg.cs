@@ -85,97 +85,97 @@ namespace SampleClients.Da.Server
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.buttonsPn_ = new System.Windows.Forms.Panel();
-            this.cancelBtn_ = new System.Windows.Forms.Button();
-            this.okBtn_ = new System.Windows.Forms.Button();
-            this.specificationLb_ = new System.Windows.Forms.Label();
-            this.serversCtrl_ = new SampleClients.Da.Browse.BrowseTreeCtrl();
-            this.topPn_ = new System.Windows.Forms.Panel();
-            this.specificationCb_ = new System.Windows.Forms.ComboBox();
-            this.buttonsPn_.SuspendLayout();
-            this.topPn_.SuspendLayout();
-            this.SuspendLayout();
+            buttonsPn_ = new System.Windows.Forms.Panel();
+            cancelBtn_ = new System.Windows.Forms.Button();
+            okBtn_ = new System.Windows.Forms.Button();
+            specificationLb_ = new System.Windows.Forms.Label();
+            serversCtrl_ = new SampleClients.Da.Browse.BrowseTreeCtrl();
+            topPn_ = new System.Windows.Forms.Panel();
+            specificationCb_ = new System.Windows.Forms.ComboBox();
+            buttonsPn_.SuspendLayout();
+            topPn_.SuspendLayout();
+            SuspendLayout();
             // 
             // buttonsPn_
             // 
-            this.buttonsPn_.Controls.Add(this.cancelBtn_);
-            this.buttonsPn_.Controls.Add(this.okBtn_);
-            this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonsPn_.Location = new System.Drawing.Point(0, 194);
-            this.buttonsPn_.Name = "buttonsPn_";
-            this.buttonsPn_.Size = new System.Drawing.Size(336, 44);
-            this.buttonsPn_.TabIndex = 1;
+            buttonsPn_.Controls.Add(cancelBtn_);
+            buttonsPn_.Controls.Add(okBtn_);
+            buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+            buttonsPn_.Location = new System.Drawing.Point(0, 194);
+            buttonsPn_.Name = "buttonsPn_";
+            buttonsPn_.Size = new System.Drawing.Size(336, 44);
+            buttonsPn_.TabIndex = 1;
             // 
             // cancelBtn_
             // 
-            this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelBtn_.Location = new System.Drawing.Point(240, 10);
-            this.cancelBtn_.Name = "cancelBtn_";
-            this.cancelBtn_.Size = new System.Drawing.Size(90, 28);
-            this.cancelBtn_.TabIndex = 0;
-            this.cancelBtn_.Text = "Cancel";
+            cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            cancelBtn_.Location = new System.Drawing.Point(240, 10);
+            cancelBtn_.Name = "cancelBtn_";
+            cancelBtn_.Size = new System.Drawing.Size(90, 28);
+            cancelBtn_.TabIndex = 0;
+            cancelBtn_.Text = "Cancel";
             // 
             // okBtn_
             // 
-            this.okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okBtn_.Location = new System.Drawing.Point(144, 10);
-            this.okBtn_.Name = "okBtn_";
-            this.okBtn_.Size = new System.Drawing.Size(90, 28);
-            this.okBtn_.TabIndex = 1;
-            this.okBtn_.Text = "OK";
+            okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+            okBtn_.Location = new System.Drawing.Point(144, 10);
+            okBtn_.Name = "okBtn_";
+            okBtn_.Size = new System.Drawing.Size(90, 28);
+            okBtn_.TabIndex = 1;
+            okBtn_.Text = "OK";
             // 
             // specificationLb_
             // 
-            this.specificationLb_.Location = new System.Drawing.Point(5, 5);
-            this.specificationLb_.Name = "specificationLb_";
-            this.specificationLb_.Size = new System.Drawing.Size(87, 28);
-            this.specificationLb_.TabIndex = 2;
-            this.specificationLb_.Text = "Specification";
-            this.specificationLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            specificationLb_.Location = new System.Drawing.Point(5, 5);
+            specificationLb_.Name = "specificationLb_";
+            specificationLb_.Size = new System.Drawing.Size(87, 28);
+            specificationLb_.TabIndex = 2;
+            specificationLb_.Text = "Specification";
+            specificationLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // serversCtrl_
             // 
-            this.serversCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.serversCtrl_.Location = new System.Drawing.Point(0, 39);
-            this.serversCtrl_.Name = "serversCtrl_";
-            this.serversCtrl_.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.serversCtrl_.Size = new System.Drawing.Size(336, 155);
-            this.serversCtrl_.TabIndex = 4;
+            serversCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+            serversCtrl_.Location = new System.Drawing.Point(0, 39);
+            serversCtrl_.Name = "serversCtrl_";
+            serversCtrl_.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            serversCtrl_.Size = new System.Drawing.Size(336, 155);
+            serversCtrl_.TabIndex = 4;
             // 
             // topPn_
             // 
-            this.topPn_.Controls.Add(this.specificationCb_);
-            this.topPn_.Controls.Add(this.specificationLb_);
-            this.topPn_.Dock = System.Windows.Forms.DockStyle.Top;
-            this.topPn_.Location = new System.Drawing.Point(0, 0);
-            this.topPn_.Name = "topPn_";
-            this.topPn_.Size = new System.Drawing.Size(336, 39);
-            this.topPn_.TabIndex = 5;
+            topPn_.Controls.Add(specificationCb_);
+            topPn_.Controls.Add(specificationLb_);
+            topPn_.Dock = System.Windows.Forms.DockStyle.Top;
+            topPn_.Location = new System.Drawing.Point(0, 0);
+            topPn_.Name = "topPn_";
+            topPn_.Size = new System.Drawing.Size(336, 39);
+            topPn_.TabIndex = 5;
             // 
             // specificationCb_
             // 
-            this.specificationCb_.Location = new System.Drawing.Point(88, 5);
-            this.specificationCb_.Name = "specificationCb_";
-            this.specificationCb_.Size = new System.Drawing.Size(243, 23);
-            this.specificationCb_.TabIndex = 3;
-            this.specificationCb_.SelectedIndexChanged += new System.EventHandler(this.SpecificationCB_SelectedIndexChanged);
+            specificationCb_.Location = new System.Drawing.Point(88, 5);
+            specificationCb_.Name = "specificationCb_";
+            specificationCb_.Size = new System.Drawing.Size(243, 23);
+            specificationCb_.TabIndex = 3;
+            specificationCb_.SelectedIndexChanged += new System.EventHandler(SpecificationCB_SelectedIndexChanged);
             // 
             // SelectServerDlg
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(6, 16);
-            this.CancelButton = this.cancelBtn_;
-            this.ClientSize = new System.Drawing.Size(336, 238);
-            this.Controls.Add(this.serversCtrl_);
-            this.Controls.Add(this.topPn_);
-            this.Controls.Add(this.buttonsPn_);
-            this.Name = "SelectServerDlg";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Select Server";
-            this.buttonsPn_.ResumeLayout(false);
-            this.topPn_.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AutoScaleBaseSize = new System.Drawing.Size(6, 16);
+            CancelButton = cancelBtn_;
+            ClientSize = new System.Drawing.Size(336, 238);
+            Controls.Add(serversCtrl_);
+            Controls.Add(topPn_);
+            Controls.Add(buttonsPn_);
+            Name = "SelectServerDlg";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "Select Server";
+            buttonsPn_.ResumeLayout(false);
+            topPn_.ResumeLayout(false);
+            ResumeLayout(false);
 
 		}
 		#endregion

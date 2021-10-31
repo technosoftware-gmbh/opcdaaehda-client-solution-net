@@ -83,207 +83,207 @@ namespace SampleClients.Da.Browse
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.applyBtn_ = new System.Windows.Forms.Button();
-			this.propertyFiltersCtrl_ = new PropertyFiltersCtrl();
-			this.maxElementsReturnedCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.elementNameFilterTb_ = new System.Windows.Forms.TextBox();
-			this.returnPropertiesLb_ = new System.Windows.Forms.Label();
-			this.elementNameFilterLb_ = new System.Windows.Forms.Label();
-			this.returnPropertiesCb_ = new System.Windows.Forms.CheckBox();
-			this.vendorFilterLb_ = new System.Windows.Forms.Label();
-			this.vendorFilterTb_ = new System.Windows.Forms.TextBox();
-			this.browseFilterLb_ = new System.Windows.Forms.Label();
-			this.browseFilterCtrl_ = new EnumCtrl();
-			this.maxElementsReturnedLb_ = new System.Windows.Forms.Label();
-			this.topPn_ = new System.Windows.Forms.Panel();
-			this.buttonsPn_.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.maxElementsReturnedCtrl_)).BeginInit();
-			this.topPn_.SuspendLayout();
-			this.SuspendLayout();
+			okBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			applyBtn_ = new System.Windows.Forms.Button();
+			propertyFiltersCtrl_ = new PropertyFiltersCtrl();
+			maxElementsReturnedCtrl_ = new System.Windows.Forms.NumericUpDown();
+			elementNameFilterTb_ = new System.Windows.Forms.TextBox();
+			returnPropertiesLb_ = new System.Windows.Forms.Label();
+			elementNameFilterLb_ = new System.Windows.Forms.Label();
+			returnPropertiesCb_ = new System.Windows.Forms.CheckBox();
+			vendorFilterLb_ = new System.Windows.Forms.Label();
+			vendorFilterTb_ = new System.Windows.Forms.TextBox();
+			browseFilterLb_ = new System.Windows.Forms.Label();
+			browseFilterCtrl_ = new EnumCtrl();
+			maxElementsReturnedLb_ = new System.Windows.Forms.Label();
+			topPn_ = new System.Windows.Forms.Panel();
+			buttonsPn_.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(maxElementsReturnedCtrl_)).BeginInit();
+			topPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// OkBTN
 			// 
-            this.okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.okBtn_.Location = new System.Drawing.Point(118, 6);
-			this.okBtn_.Name = "okBtn_";
-            this.okBtn_.Size = new System.Drawing.Size(75, 23);
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
-			this.okBtn_.Click += new System.EventHandler(this.OkBTN_Click);
+            okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            okBtn_.Location = new System.Drawing.Point(118, 6);
+			okBtn_.Name = "okBtn_";
+            okBtn_.Size = new System.Drawing.Size(75, 23);
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
+			okBtn_.Click += new System.EventHandler(OkBTN_Click);
 			// 
 			// CancelBTN
 			// 
-            this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelBtn_.Location = new System.Drawing.Point(280, 6);
-			this.cancelBtn_.Name = "cancelBtn_";
-            this.cancelBtn_.Size = new System.Drawing.Size(75, 23);
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
-			this.cancelBtn_.Click += new System.EventHandler(this.CancelBTN_Click);
+            cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            cancelBtn_.Location = new System.Drawing.Point(280, 6);
+			cancelBtn_.Name = "cancelBtn_";
+            cancelBtn_.Size = new System.Drawing.Size(75, 23);
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
+			cancelBtn_.Click += new System.EventHandler(CancelBTN_Click);
 			// 
 			// ButtonsPN
 			// 
-            this.buttonsPn_.Controls.Add(this.applyBtn_);
-            this.buttonsPn_.Controls.Add(this.cancelBtn_);
-            this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(4, 274);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(360, 36);
-			this.buttonsPn_.TabIndex = 0;
+            buttonsPn_.Controls.Add(applyBtn_);
+            buttonsPn_.Controls.Add(cancelBtn_);
+            buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(4, 274);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(360, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// ApplyBTN
 			// 
-            this.applyBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.applyBtn_.Location = new System.Drawing.Point(199, 6);
-			this.applyBtn_.Name = "applyBtn_";
-            this.applyBtn_.Size = new System.Drawing.Size(75, 23);
-			this.applyBtn_.TabIndex = 2;
-			this.applyBtn_.Text = "Apply";
-			this.applyBtn_.Click += new System.EventHandler(this.ApplyBTN_Click);
+            applyBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            applyBtn_.Location = new System.Drawing.Point(199, 6);
+			applyBtn_.Name = "applyBtn_";
+            applyBtn_.Size = new System.Drawing.Size(75, 23);
+			applyBtn_.TabIndex = 2;
+			applyBtn_.Text = "Apply";
+			applyBtn_.Click += new System.EventHandler(ApplyBTN_Click);
 			// 
 			// PropertyFiltersCTRL
 			// 
-			this.propertyFiltersCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.propertyFiltersCtrl_.Location = new System.Drawing.Point(4, 124);
-			this.propertyFiltersCtrl_.Name = "propertyFiltersCtrl_";
-			this.propertyFiltersCtrl_.PropertyIDs = new TsDaPropertyID[0];
-			this.propertyFiltersCtrl_.ReturnAllProperties = true;
-			this.propertyFiltersCtrl_.ReturnPropertyValues = true;
-			this.propertyFiltersCtrl_.Size = new System.Drawing.Size(360, 150);
-			this.propertyFiltersCtrl_.TabIndex = 0;
+			propertyFiltersCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			propertyFiltersCtrl_.Location = new System.Drawing.Point(4, 124);
+			propertyFiltersCtrl_.Name = "propertyFiltersCtrl_";
+			propertyFiltersCtrl_.PropertyIDs = new TsDaPropertyID[0];
+			propertyFiltersCtrl_.ReturnAllProperties = true;
+			propertyFiltersCtrl_.ReturnPropertyValues = true;
+			propertyFiltersCtrl_.Size = new System.Drawing.Size(360, 150);
+			propertyFiltersCtrl_.TabIndex = 0;
 			// 
 			// MaxElementsReturnedCTRL
 			// 
-			this.maxElementsReturnedCtrl_.Location = new System.Drawing.Point(112, 24);
-			this.maxElementsReturnedCtrl_.Maximum = new System.Decimal(new int[] {
+			maxElementsReturnedCtrl_.Location = new System.Drawing.Point(112, 24);
+			maxElementsReturnedCtrl_.Maximum = new System.Decimal(new int[] {
 																					10000,
 																					0,
 																					0,
 																					0});
-			this.maxElementsReturnedCtrl_.Name = "maxElementsReturnedCtrl_";
-			this.maxElementsReturnedCtrl_.Size = new System.Drawing.Size(72, 20);
-			this.maxElementsReturnedCtrl_.TabIndex = 3;
+			maxElementsReturnedCtrl_.Name = "maxElementsReturnedCtrl_";
+			maxElementsReturnedCtrl_.Size = new System.Drawing.Size(72, 20);
+			maxElementsReturnedCtrl_.TabIndex = 3;
 			// 
 			// ElementNameFilterTB
 			// 
-            this.elementNameFilterTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            elementNameFilterTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.elementNameFilterTb_.Location = new System.Drawing.Point(112, 48);
-			this.elementNameFilterTb_.Name = "elementNameFilterTb_";
-			this.elementNameFilterTb_.Size = new System.Drawing.Size(240, 20);
-			this.elementNameFilterTb_.TabIndex = 5;
+			elementNameFilterTb_.Location = new System.Drawing.Point(112, 48);
+			elementNameFilterTb_.Name = "elementNameFilterTb_";
+			elementNameFilterTb_.Size = new System.Drawing.Size(240, 20);
+			elementNameFilterTb_.TabIndex = 5;
 			// 
 			// ReturnPropertiesLB
 			// 
-			this.returnPropertiesLb_.Location = new System.Drawing.Point(0, 96);
-			this.returnPropertiesLb_.Name = "returnPropertiesLb_";
-			this.returnPropertiesLb_.Size = new System.Drawing.Size(112, 23);
-			this.returnPropertiesLb_.TabIndex = 8;
-			this.returnPropertiesLb_.Text = "Return Properties";
-			this.returnPropertiesLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			returnPropertiesLb_.Location = new System.Drawing.Point(0, 96);
+			returnPropertiesLb_.Name = "returnPropertiesLb_";
+			returnPropertiesLb_.Size = new System.Drawing.Size(112, 23);
+			returnPropertiesLb_.TabIndex = 8;
+			returnPropertiesLb_.Text = "Return Properties";
+			returnPropertiesLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ElementNameFilterLB
 			// 
-			this.elementNameFilterLb_.Location = new System.Drawing.Point(0, 48);
-			this.elementNameFilterLb_.Name = "elementNameFilterLb_";
-			this.elementNameFilterLb_.Size = new System.Drawing.Size(112, 23);
-			this.elementNameFilterLb_.TabIndex = 4;
-			this.elementNameFilterLb_.Text = "Element Name Filter";
-			this.elementNameFilterLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			elementNameFilterLb_.Location = new System.Drawing.Point(0, 48);
+			elementNameFilterLb_.Name = "elementNameFilterLb_";
+			elementNameFilterLb_.Size = new System.Drawing.Size(112, 23);
+			elementNameFilterLb_.TabIndex = 4;
+			elementNameFilterLb_.Text = "Element Name Filter";
+			elementNameFilterLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ReturnPropertiesCB
 			// 
-			this.returnPropertiesCb_.Checked = true;
-			this.returnPropertiesCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.returnPropertiesCb_.Location = new System.Drawing.Point(112, 96);
-			this.returnPropertiesCb_.Name = "returnPropertiesCb_";
-			this.returnPropertiesCb_.Size = new System.Drawing.Size(16, 24);
-			this.returnPropertiesCb_.TabIndex = 9;
-			this.returnPropertiesCb_.CheckedChanged += new System.EventHandler(this.ReturnPropertiesCB_CheckedChanged);
+			returnPropertiesCb_.Checked = true;
+			returnPropertiesCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			returnPropertiesCb_.Location = new System.Drawing.Point(112, 96);
+			returnPropertiesCb_.Name = "returnPropertiesCb_";
+			returnPropertiesCb_.Size = new System.Drawing.Size(16, 24);
+			returnPropertiesCb_.TabIndex = 9;
+			returnPropertiesCb_.CheckedChanged += new System.EventHandler(ReturnPropertiesCB_CheckedChanged);
 			// 
 			// VendorFilterLB
 			// 
-			this.vendorFilterLb_.Location = new System.Drawing.Point(0, 72);
-			this.vendorFilterLb_.Name = "vendorFilterLb_";
-			this.vendorFilterLb_.Size = new System.Drawing.Size(112, 23);
-			this.vendorFilterLb_.TabIndex = 6;
-			this.vendorFilterLb_.Text = "Vendor Filter";
-			this.vendorFilterLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			vendorFilterLb_.Location = new System.Drawing.Point(0, 72);
+			vendorFilterLb_.Name = "vendorFilterLb_";
+			vendorFilterLb_.Size = new System.Drawing.Size(112, 23);
+			vendorFilterLb_.TabIndex = 6;
+			vendorFilterLb_.Text = "Vendor Filter";
+			vendorFilterLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// VendorFilterTB
 			// 
-            this.vendorFilterTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            vendorFilterTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.vendorFilterTb_.Location = new System.Drawing.Point(112, 72);
-			this.vendorFilterTb_.Name = "vendorFilterTb_";
-			this.vendorFilterTb_.Size = new System.Drawing.Size(240, 20);
-			this.vendorFilterTb_.TabIndex = 7;
+			vendorFilterTb_.Location = new System.Drawing.Point(112, 72);
+			vendorFilterTb_.Name = "vendorFilterTb_";
+			vendorFilterTb_.Size = new System.Drawing.Size(240, 20);
+			vendorFilterTb_.TabIndex = 7;
 			// 
 			// BrowseFilterLB
 			// 
-            this.browseFilterLb_.Location = new System.Drawing.Point(0, 0);
-			this.browseFilterLb_.Name = "browseFilterLb_";
-			this.browseFilterLb_.Size = new System.Drawing.Size(112, 23);
-			this.browseFilterLb_.TabIndex = 0;
-			this.browseFilterLb_.Text = "Browse Filter";
-			this.browseFilterLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            browseFilterLb_.Location = new System.Drawing.Point(0, 0);
+			browseFilterLb_.Name = "browseFilterLb_";
+			browseFilterLb_.Size = new System.Drawing.Size(112, 23);
+			browseFilterLb_.TabIndex = 0;
+			browseFilterLb_.Text = "Browse Filter";
+			browseFilterLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// BrowseFilterCTRL
 			// 
-			this.browseFilterCtrl_.Location = new System.Drawing.Point(112, 0);
-			this.browseFilterCtrl_.Name = "browseFilterCtrl_";
-			this.browseFilterCtrl_.Size = new System.Drawing.Size(152, 24);
-			this.browseFilterCtrl_.TabIndex = 1;
-            this.browseFilterCtrl_.Value = null;
+			browseFilterCtrl_.Location = new System.Drawing.Point(112, 0);
+			browseFilterCtrl_.Name = "browseFilterCtrl_";
+			browseFilterCtrl_.Size = new System.Drawing.Size(152, 24);
+			browseFilterCtrl_.TabIndex = 1;
+            browseFilterCtrl_.Value = null;
 			// 
 			// MaxElementsReturnedLB
 			// 
-			this.maxElementsReturnedLb_.Location = new System.Drawing.Point(0, 24);
-			this.maxElementsReturnedLb_.Name = "maxElementsReturnedLb_";
-			this.maxElementsReturnedLb_.Size = new System.Drawing.Size(112, 23);
-			this.maxElementsReturnedLb_.TabIndex = 2;
-			this.maxElementsReturnedLb_.Text = "Maximum Returned";
-			this.maxElementsReturnedLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			maxElementsReturnedLb_.Location = new System.Drawing.Point(0, 24);
+			maxElementsReturnedLb_.Name = "maxElementsReturnedLb_";
+			maxElementsReturnedLb_.Size = new System.Drawing.Size(112, 23);
+			maxElementsReturnedLb_.TabIndex = 2;
+			maxElementsReturnedLb_.Text = "Maximum Returned";
+			maxElementsReturnedLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// TopPN
 			// 
-            this.topPn_.Controls.Add(this.elementNameFilterTb_);
-            this.topPn_.Controls.Add(this.maxElementsReturnedCtrl_);
-            this.topPn_.Controls.Add(this.browseFilterCtrl_);
-            this.topPn_.Controls.Add(this.browseFilterLb_);
-            this.topPn_.Controls.Add(this.returnPropertiesLb_);
-            this.topPn_.Controls.Add(this.vendorFilterLb_);
-            this.topPn_.Controls.Add(this.maxElementsReturnedLb_);
-            this.topPn_.Controls.Add(this.returnPropertiesCb_);
-            this.topPn_.Controls.Add(this.elementNameFilterLb_);
-            this.topPn_.Controls.Add(this.vendorFilterTb_);
-			this.topPn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.topPn_.Location = new System.Drawing.Point(4, 4);
-			this.topPn_.Name = "topPn_";
-			this.topPn_.Size = new System.Drawing.Size(360, 120);
-			this.topPn_.TabIndex = 32;
+            topPn_.Controls.Add(elementNameFilterTb_);
+            topPn_.Controls.Add(maxElementsReturnedCtrl_);
+            topPn_.Controls.Add(browseFilterCtrl_);
+            topPn_.Controls.Add(browseFilterLb_);
+            topPn_.Controls.Add(returnPropertiesLb_);
+            topPn_.Controls.Add(vendorFilterLb_);
+            topPn_.Controls.Add(maxElementsReturnedLb_);
+            topPn_.Controls.Add(returnPropertiesCb_);
+            topPn_.Controls.Add(elementNameFilterLb_);
+            topPn_.Controls.Add(vendorFilterTb_);
+			topPn_.Dock = System.Windows.Forms.DockStyle.Top;
+			topPn_.Location = new System.Drawing.Point(4, 4);
+			topPn_.Name = "topPn_";
+			topPn_.Size = new System.Drawing.Size(360, 120);
+			topPn_.TabIndex = 32;
 			// 
 			// BrowseFiltersDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(368, 310);
-            this.Controls.Add(this.propertyFiltersCtrl_);
-            this.Controls.Add(this.buttonsPn_);
-            this.Controls.Add(this.topPn_);
-			this.Name = "BrowseFiltersDlg";
-            this.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Browse Filters";
-			this.buttonsPn_.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.maxElementsReturnedCtrl_)).EndInit();
-			this.topPn_.ResumeLayout(false);
-            this.topPn_.PerformLayout();
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(368, 310);
+            Controls.Add(propertyFiltersCtrl_);
+            Controls.Add(buttonsPn_);
+            Controls.Add(topPn_);
+			Name = "BrowseFiltersDlg";
+            Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Browse Filters";
+			buttonsPn_.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(maxElementsReturnedCtrl_)).EndInit();
+			topPn_.ResumeLayout(false);
+            topPn_.PerformLayout();
+			ResumeLayout(false);
 
 		}
 		#endregion

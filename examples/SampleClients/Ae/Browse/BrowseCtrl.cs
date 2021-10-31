@@ -37,7 +37,7 @@ namespace Technosoftware.AeSampleClient
 		private System.Windows.Forms.ToolStripMenuItem getConditionStateMi_;
 		private System.Windows.Forms.ToolStripMenuItem getDaItemIDsMi_;
 		private System.Windows.Forms.ToolStripMenuItem setEnabledStateMi_;
-		private System.ComponentModel.IContainer components = null;
+		private System.ComponentModel.IContainer components_ = null;
 
 		public BrowseCtrl()
 		{
@@ -54,9 +54,9 @@ namespace Technosoftware.AeSampleClient
 		{
 			if (disposing)
 			{
-				if(components != null)
+				if(components_ != null)
 				{
-					components.Dispose();
+					components_.Dispose();
 				}
 			}
 		
@@ -70,95 +70,95 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.browseTv_ = new System.Windows.Forms.TreeView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.applyFiltersMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator01_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.selectNodeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator02_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.setEnabledStateMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.getEnabledStateMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator03_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.getConditionStateMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.getDaItemIDsMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			browseTv_ = new System.Windows.Forms.TreeView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			applyFiltersMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator01_ = new System.Windows.Forms.ToolStripMenuItem();
+			selectNodeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator02_ = new System.Windows.Forms.ToolStripMenuItem();
+			setEnabledStateMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			getEnabledStateMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator03_ = new System.Windows.Forms.ToolStripMenuItem();
+			getConditionStateMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			getDaItemIDsMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// BrowseTV
 			// 
-			this.browseTv_.ContextMenuStrip = this.popupMenu_;
-			this.browseTv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.browseTv_.ImageIndex = -1;
-			this.browseTv_.Location = new System.Drawing.Point(0, 0);
-			this.browseTv_.Name = "browseTv_";
-			this.browseTv_.SelectedImageIndex = -1;
-			this.browseTv_.Size = new System.Drawing.Size(400, 304);
-			this.browseTv_.TabIndex = 0;
-			this.browseTv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BrowseTV_MouseDown);
-			this.browseTv_.DoubleClick += new System.EventHandler(this.BrowseTV_DoubleClick);
-			this.browseTv_.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.BrowseTV_AfterSelect);
-			this.browseTv_.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.BrowseTV_BeforeExpand);
+			browseTv_.ContextMenuStrip = popupMenu_;
+			browseTv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			browseTv_.ImageIndex = -1;
+			browseTv_.Location = new System.Drawing.Point(0, 0);
+			browseTv_.Name = "browseTv_";
+			browseTv_.SelectedImageIndex = -1;
+			browseTv_.Size = new System.Drawing.Size(400, 304);
+			browseTv_.TabIndex = 0;
+			browseTv_.MouseDown += new System.Windows.Forms.MouseEventHandler(BrowseTV_MouseDown);
+			browseTv_.DoubleClick += new System.EventHandler(BrowseTV_DoubleClick);
+			browseTv_.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(BrowseTV_AfterSelect);
+			browseTv_.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(BrowseTV_BeforeExpand);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.applyFiltersMi_,
-																					  this.separator01_,
-																					  this.selectNodeMi_,
-																					  this.separator02_,
-																					  this.getEnabledStateMi_,
-																					  this.setEnabledStateMi_,
-																					  this.separator03_,
-																					  this.getConditionStateMi_,
-																					  this.getDaItemIDsMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  applyFiltersMi_,
+																					  separator01_,
+																					  selectNodeMi_,
+																					  separator02_,
+																					  getEnabledStateMi_,
+																					  setEnabledStateMi_,
+																					  separator03_,
+																					  getConditionStateMi_,
+																					  getDaItemIDsMi_});
 			// 
 			// ApplyFiltersMI
 			// 
-			this.applyFiltersMi_.Text = "Apply Filters...";
-			this.applyFiltersMi_.Click += new System.EventHandler(this.ApplyFiltersMI_Click);
+			applyFiltersMi_.Text = "Apply Filters...";
+			applyFiltersMi_.Click += new System.EventHandler(ApplyFiltersMI_Click);
 			// 
 			// Separator01
 			// 
-			this.separator01_.Text = "-";
+			separator01_.Text = "-";
 			// 
 			// SelectNodeMI
 			// 
-			this.selectNodeMi_.Text = "Select";
-			this.selectNodeMi_.Click += new System.EventHandler(this.SelectNodeMI_Click);
+			selectNodeMi_.Text = "Select";
+			selectNodeMi_.Click += new System.EventHandler(SelectNodeMI_Click);
 			// 
 			// Separator02
 			// 
-			this.separator02_.Text = "-";
+			separator02_.Text = "-";
 			// 
 			// SetEnabledStateMI
 			// 
-			this.setEnabledStateMi_.Text = "Set Enabled State...";
-			this.setEnabledStateMi_.Click += new System.EventHandler(this.SetEnabledStateMI_Click);
+			setEnabledStateMi_.Text = "Set Enabled State...";
+			setEnabledStateMi_.Click += new System.EventHandler(SetEnabledStateMI_Click);
 			// 
 			// GetEnabledStateMI
 			// 
-			this.getEnabledStateMi_.Text = "Get Enabled State...";
-			this.getEnabledStateMi_.Click += new System.EventHandler(this.GetEnabledStateMI_Click);
+			getEnabledStateMi_.Text = "Get Enabled State...";
+			getEnabledStateMi_.Click += new System.EventHandler(GetEnabledStateMI_Click);
 			// 
 			// Separator03
 			// 
-			this.separator03_.Text = "-";
+			separator03_.Text = "-";
 			// 
 			// GetConditionStateMI
 			// 
-			this.getConditionStateMi_.Text = "Get Condition State...";
-			this.getConditionStateMi_.Click += new System.EventHandler(this.GetConditionStateMI_Click);
+			getConditionStateMi_.Text = "Get Condition State...";
+			getConditionStateMi_.Click += new System.EventHandler(GetConditionStateMI_Click);
 			// 
 			// GetDAItemIDsMI
 			// 
-			this.getDaItemIDsMi_.Text = "Get DA ItemIDs...";
-			this.getDaItemIDsMi_.Click += new System.EventHandler(this.GetDAItemIDsMI_Click);
+			getDaItemIDsMi_.Text = "Get DA ItemIDs...";
+			getDaItemIDsMi_.Click += new System.EventHandler(GetDAItemIDsMI_Click);
 			// 
 			// BrowseCtrl
 			// 
-			this.Controls.Add(this.browseTv_);
-			this.Name = "BrowseCtrl";
-			this.Size = new System.Drawing.Size(400, 304);
-			this.ResumeLayout(false);
+			Controls.Add(browseTv_);
+			Name = "BrowseCtrl";
+			Size = new System.Drawing.Size(400, 304);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -170,8 +170,8 @@ namespace Technosoftware.AeSampleClient
 		private bool mRecursive_ = false;
 		private event NodeSelectedEventHandler MNodeSelected = null;
 
-		private const string Events = "Events";
-		private const string Areas  = "Areas";
+		private const string EventsText = "Events";
+		private const string AreasText  = "Areas";
 		#endregion
 		
 		#region Public Interface
@@ -204,14 +204,15 @@ namespace Technosoftware.AeSampleClient
 				return;
 			}
 
-			// create root node.
-			TreeNode root = new TreeNode(mServer_.ServerName);
+            // create root node.
+            TreeNode root = new TreeNode(mServer_.ServerName)
+            {
+                ImageIndex = Resources.IMAGE_LOCAL_SERVER,
+                SelectedImageIndex = Resources.IMAGE_LOCAL_SERVER,
+                Tag = mServer_
+            };
 
-			root.ImageIndex         = Resources.IMAGE_LOCAL_SERVER;
-			root.SelectedImageIndex = Resources.IMAGE_LOCAL_SERVER;
-			root.Tag                = mServer_;
-
-			browseTv_.Nodes.Add(root);	
+            browseTv_.Nodes.Add(root);	
 
 			// browse top level areas.
 			BrowseArea(root.Nodes, Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Area, null);
@@ -239,37 +240,40 @@ namespace Technosoftware.AeSampleClient
 				return;
 			}
 
-			// create root node.
-            TreeNode root = new TreeNode(mServer_.ServerName);
+            // create root node.
+            TreeNode root = new TreeNode(mServer_.ServerName)
+            {
+                ImageIndex = Resources.IMAGE_LOCAL_SERVER,
+                SelectedImageIndex = Resources.IMAGE_LOCAL_SERVER,
+                Tag = mServer_
+            };
 
-			root.ImageIndex         = Resources.IMAGE_LOCAL_SERVER;
-			root.SelectedImageIndex = Resources.IMAGE_LOCAL_SERVER;
-			root.Tag                = mServer_;
+            browseTv_.Nodes.Add(root);
 
-			browseTv_.Nodes.Add(root);
+            // create events node.
+            TreeNode events = new TreeNode(EventsText)
+            {
+                ImageIndex = Resources.IMAGE_OPEN_YELLOW_FOLDER,
+                SelectedImageIndex = Resources.IMAGE_CLOSED_YELLOW_FOLDER,
+                Tag = EventsText
+            };
 
-			// create events node.
-			TreeNode events = new TreeNode(Events);
-
-			events.ImageIndex         = Resources.IMAGE_OPEN_YELLOW_FOLDER;
-			events.SelectedImageIndex = Resources.IMAGE_CLOSED_YELLOW_FOLDER;
-			events.Tag                = Events;
-
-			// browse event categories
-			BrowseEvents(events.Nodes, TsCAeEventType.Simple);
+            // browse event categories
+            BrowseEvents(events.Nodes, TsCAeEventType.Simple);
 			BrowseEvents(events.Nodes, TsCAeEventType.Tracking);
 			BrowseEvents(events.Nodes, TsCAeEventType.Condition);
 
 			root.Nodes.Add(events);
 
-			// create areas node.
-			TreeNode areas = new TreeNode(Areas);
+            // create areas node.
+            TreeNode areas = new TreeNode(AreasText)
+            {
+                ImageIndex = Resources.IMAGE_OPEN_YELLOW_FOLDER,
+                SelectedImageIndex = Resources.IMAGE_CLOSED_YELLOW_FOLDER,
+                Tag = AreasText
+            };
 
-			areas.ImageIndex         = Resources.IMAGE_OPEN_YELLOW_FOLDER;
-			areas.SelectedImageIndex = Resources.IMAGE_CLOSED_YELLOW_FOLDER;
-			areas.Tag                = Areas;
-
-			root.Nodes.Add(areas);
+            root.Nodes.Add(areas);
 
 			// browse top level areas.
 			BrowseArea(areas.Nodes, Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Area, null);
@@ -373,27 +377,29 @@ namespace Technosoftware.AeSampleClient
 				return;
 			}
 
-			// create event type node.
-			TreeNode root = new TreeNode(eventType.ToString());
+            // create event type node.
+            TreeNode root = new TreeNode(eventType.ToString())
+            {
+                ImageIndex = Resources.IMAGE_OPEN_YELLOW_FOLDER,
+                SelectedImageIndex = Resources.IMAGE_CLOSED_YELLOW_FOLDER,
+                Tag = eventType
+            };
 
-			root.ImageIndex         = Resources.IMAGE_OPEN_YELLOW_FOLDER;
-			root.SelectedImageIndex = Resources.IMAGE_CLOSED_YELLOW_FOLDER;
-			root.Tag                = eventType;
-
-			nodes.Add(root);
+            nodes.Add(root);
 
 			// add categories to tree.
 			foreach (Technosoftware.DaAeHdaClient.Ae.TsCAeCategory category in categories)
 			{
-				// create node.
-				TreeNode node = new TreeNode(category.Name);
+                // create node.
+                TreeNode node = new TreeNode(category.Name)
+                {
+                    ImageIndex = Resources.IMAGE_ENVELOPE,
+                    SelectedImageIndex = Resources.IMAGE_ENVELOPE,
+                    Tag = category
+                };
 
-				node.ImageIndex         = Resources.IMAGE_ENVELOPE;
-				node.SelectedImageIndex = Resources.IMAGE_ENVELOPE;
-				node.Tag                = category;
-
-				// add dummy child to ensure '+' sign is visible.
-				if (eventType == TsCAeEventType.Condition)
+                // add dummy child to ensure '+' sign is visible.
+                if (eventType == TsCAeEventType.Condition)
 				{
 					node.Nodes.Add(new TreeNode());
 				}
@@ -414,7 +420,7 @@ namespace Technosoftware.AeSampleClient
 			{
 				// fetch first batch of elements.
                 Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement[] elements = mServer_.Browse(
-                    (area != null) ? area.QualifiedName : null,
+                    area?.QualifiedName,
                     browseType,
                     mBrowseFilter_,
                     mMaxElements_,
@@ -426,15 +432,16 @@ namespace Technosoftware.AeSampleClient
 					// add elements to tree.
 					for (int ii = 0; ii < elements.Length; ii++)
 					{
-						// create node.
-						TreeNode node = new TreeNode(elements[ii].Name);
+                        // create node.
+                        TreeNode node = new TreeNode(elements[ii].Name)
+                        {
+                            ImageIndex = (browseType == Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Area) ? Resources.IMAGE_CLOSED_BLUE_FOLDER : Resources.IMAGE_GREEN_SCROLL,
+                            SelectedImageIndex = (browseType == Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Area) ? Resources.IMAGE_OPEN_BLUE_FOLDER : Resources.IMAGE_GREEN_SCROLL,
+                            Tag = elements[ii]
+                        };
 
-						node.ImageIndex         = (browseType == Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Area)?Resources.IMAGE_CLOSED_BLUE_FOLDER:Resources.IMAGE_GREEN_SCROLL;
-						node.SelectedImageIndex = (browseType == Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Area)?Resources.IMAGE_OPEN_BLUE_FOLDER:Resources.IMAGE_GREEN_SCROLL;
-						node.Tag                = elements[ii];
-
-						// add dummy child to ensure '+' sign is visible.
-						node.Nodes.Add(new TreeNode());
+                        // add dummy child to ensure '+' sign is visible.
+                        node.Nodes.Add(new TreeNode());
 
 						// add to tree.
 						nodes.Add(node);
@@ -484,15 +491,16 @@ namespace Technosoftware.AeSampleClient
 			// add conditions to tree.
 			for (int ii = 0; ii < conditions.Length; ii++)
 			{
-				// create node.
-				TreeNode node = new TreeNode(conditions[ii]);
+                // create node.
+                TreeNode node = new TreeNode(conditions[ii])
+                {
+                    ImageIndex = Resources.IMAGE_EXPLODING_BOX,
+                    SelectedImageIndex = Resources.IMAGE_EXPLODING_BOX,
+                    Tag = new Condition(conditions[ii])
+                };
 
-				node.ImageIndex         = Resources.IMAGE_EXPLODING_BOX;
-				node.SelectedImageIndex = Resources.IMAGE_EXPLODING_BOX;
-				node.Tag                = new Condition(conditions[ii]);
-
-				// add dummy child to ensure '+' sign is visible.
-				node.Nodes.Add(new TreeNode());
+                // add dummy child to ensure '+' sign is visible.
+                node.Nodes.Add(new TreeNode());
 
 				// add to tree.
 				nodes.Add(node);
@@ -510,15 +518,16 @@ namespace Technosoftware.AeSampleClient
 			// add conditions to tree.
 			for (int ii = 0; ii < subconditions.Length; ii++)
 			{
-				// create node.
-				TreeNode node = new TreeNode(subconditions[ii]);
+                // create node.
+                TreeNode node = new TreeNode(subconditions[ii])
+                {
+                    ImageIndex = Resources.IMAGE_LIST_BOX,
+                    SelectedImageIndex = Resources.IMAGE_LIST_BOX,
+                    Tag = subconditions[ii]
+                };
 
-				node.ImageIndex         = Resources.IMAGE_LIST_BOX;
-				node.SelectedImageIndex = Resources.IMAGE_LIST_BOX;
-				node.Tag                = subconditions[ii];
-
-				// add to tree.
-				nodes.Add(node);
+                // add to tree.
+                nodes.Add(node);
 			}
 		}
 
@@ -533,15 +542,16 @@ namespace Technosoftware.AeSampleClient
 			// add conditions to tree.
 			for (int ii = 0; ii < conditions.Length; ii++)
 			{
-				// create node.
-				TreeNode node = new TreeNode(conditions[ii]);
+                // create node.
+                TreeNode node = new TreeNode(conditions[ii])
+                {
+                    ImageIndex = Resources.IMAGE_EXPLODING_BOX,
+                    SelectedImageIndex = Resources.IMAGE_EXPLODING_BOX,
+                    Tag = new Condition(conditions[ii])
+                };
 
-				node.ImageIndex         = Resources.IMAGE_EXPLODING_BOX;
-				node.SelectedImageIndex = Resources.IMAGE_EXPLODING_BOX;
-				node.Tag                = new Condition(conditions[ii]);
-
-				// add dummy child to ensure '+' sign is visible.
-				node.Nodes.Add(new TreeNode());
+                // add dummy child to ensure '+' sign is visible.
+                node.Nodes.Add(new TreeNode());
 
 				// add to tree.
 				nodes.Add(node);

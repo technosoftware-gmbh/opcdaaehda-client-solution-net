@@ -66,89 +66,89 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.OkBTN = new System.Windows.Forms.Button();
-			this.CancelBTN = new System.Windows.Forms.Button();
-			this.ButtonsPN = new System.Windows.Forms.Panel();
-			this.UserNameLB = new System.Windows.Forms.Label();
-			this.TopPN = new System.Windows.Forms.Panel();
-			this.AddressTB = new System.Windows.Forms.TextBox();
-			this.ButtonsPN.SuspendLayout();
-			this.TopPN.SuspendLayout();
-			this.SuspendLayout();
+			OkBTN = new System.Windows.Forms.Button();
+			CancelBTN = new System.Windows.Forms.Button();
+			ButtonsPN = new System.Windows.Forms.Panel();
+			UserNameLB = new System.Windows.Forms.Label();
+			TopPN = new System.Windows.Forms.Panel();
+			AddressTB = new System.Windows.Forms.TextBox();
+			ButtonsPN.SuspendLayout();
+			TopPN.SuspendLayout();
+			SuspendLayout();
 			// 
 			// OkBTN
 			// 
-			this.OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.OkBTN.Location = new System.Drawing.Point(111, 8);
-			this.OkBTN.Name = "OkBTN";
-            this.OkBTN.Size = new System.Drawing.Size(75, 23);
-			this.OkBTN.TabIndex = 1;
-			this.OkBTN.Text = "OK";
+			OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
+            OkBTN.Location = new System.Drawing.Point(111, 8);
+			OkBTN.Name = "OkBTN";
+            OkBTN.Size = new System.Drawing.Size(75, 23);
+			OkBTN.TabIndex = 1;
+			OkBTN.Text = "OK";
 			// 
 			// CancelBTN
 			// 
-			this.CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelBTN.Location = new System.Drawing.Point(192, 8);
-			this.CancelBTN.Name = "CancelBTN";
-            this.CancelBTN.Size = new System.Drawing.Size(75, 23);
-			this.CancelBTN.TabIndex = 0;
-			this.CancelBTN.Text = "Cancel";
+			CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			CancelBTN.Location = new System.Drawing.Point(192, 8);
+			CancelBTN.Name = "CancelBTN";
+            CancelBTN.Size = new System.Drawing.Size(75, 23);
+			CancelBTN.TabIndex = 0;
+			CancelBTN.Text = "Cancel";
 			// 
 			// ButtonsPN
 			// 
-			this.ButtonsPN.Controls.Add(this.CancelBTN);
-			this.ButtonsPN.Controls.Add(this.OkBTN);
-			this.ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.ButtonsPN.Location = new System.Drawing.Point(0, 26);
-			this.ButtonsPN.Name = "ButtonsPN";
-			this.ButtonsPN.Size = new System.Drawing.Size(272, 36);
-			this.ButtonsPN.TabIndex = 0;
+			ButtonsPN.Controls.Add(CancelBTN);
+			ButtonsPN.Controls.Add(OkBTN);
+			ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
+			ButtonsPN.Location = new System.Drawing.Point(0, 26);
+			ButtonsPN.Name = "ButtonsPN";
+			ButtonsPN.Size = new System.Drawing.Size(272, 36);
+			ButtonsPN.TabIndex = 0;
 			// 
 			// UserNameLB
 			// 
-			this.UserNameLB.Location = new System.Drawing.Point(4, 4);
-			this.UserNameLB.Name = "UserNameLB";
-			this.UserNameLB.Size = new System.Drawing.Size(28, 23);
-			this.UserNameLB.TabIndex = 0;
-			this.UserNameLB.Text = "URL";
-			this.UserNameLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			UserNameLB.Location = new System.Drawing.Point(4, 4);
+			UserNameLB.Name = "UserNameLB";
+			UserNameLB.Size = new System.Drawing.Size(28, 23);
+			UserNameLB.TabIndex = 0;
+			UserNameLB.Text = "URL";
+			UserNameLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// TopPN
 			// 
-			this.TopPN.Controls.Add(this.AddressTB);
-			this.TopPN.Controls.Add(this.UserNameLB);
-			this.TopPN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.TopPN.Location = new System.Drawing.Point(0, 0);
-			this.TopPN.Name = "TopPN";
-            this.TopPN.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
-			this.TopPN.Size = new System.Drawing.Size(272, 62);
-			this.TopPN.TabIndex = 1;
+			TopPN.Controls.Add(AddressTB);
+			TopPN.Controls.Add(UserNameLB);
+			TopPN.Dock = System.Windows.Forms.DockStyle.Fill;
+			TopPN.Location = new System.Drawing.Point(0, 0);
+			TopPN.Name = "TopPN";
+            TopPN.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
+			TopPN.Size = new System.Drawing.Size(272, 62);
+			TopPN.TabIndex = 1;
 			// 
 			// AddressTB
 			// 
-			this.AddressTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			AddressTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.AddressTB.Location = new System.Drawing.Point(36, 5);
-			this.AddressTB.Name = "AddressTB";
-			this.AddressTB.Size = new System.Drawing.Size(232, 20);
-			this.AddressTB.TabIndex = 1;
+			AddressTB.Location = new System.Drawing.Point(36, 5);
+			AddressTB.Name = "AddressTB";
+			AddressTB.Size = new System.Drawing.Size(232, 20);
+			AddressTB.TabIndex = 1;
 			// 
 			// ProxyServerDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.CancelBTN;
-			this.ClientSize = new System.Drawing.Size(272, 62);
-			this.Controls.Add(this.ButtonsPN);
-			this.Controls.Add(this.TopPN);
-			this.Name = "ProxyServerDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Set Proxy Server";
-			this.ButtonsPN.ResumeLayout(false);
-			this.TopPN.ResumeLayout(false);
-            this.TopPN.PerformLayout();
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = CancelBTN;
+			ClientSize = new System.Drawing.Size(272, 62);
+			Controls.Add(ButtonsPN);
+			Controls.Add(TopPN);
+			Name = "ProxyServerDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Set Proxy Server";
+			ButtonsPN.ResumeLayout(false);
+			TopPN.ResumeLayout(false);
+            TopPN.PerformLayout();
+			ResumeLayout(false);
 
 		}
 		#endregion

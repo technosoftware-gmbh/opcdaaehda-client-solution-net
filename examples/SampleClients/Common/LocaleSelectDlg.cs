@@ -64,77 +64,77 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.OkBTN = new System.Windows.Forms.Button();
-			this.CancelBTN = new System.Windows.Forms.Button();
-			this.ButtonsPN = new System.Windows.Forms.Panel();
-			this.TopPN = new System.Windows.Forms.Panel();
-			this.SupportedLocalesLB = new System.Windows.Forms.ListBox();
-			this.ButtonsPN.SuspendLayout();
-			this.TopPN.SuspendLayout();
-			this.SuspendLayout();
+			OkBTN = new System.Windows.Forms.Button();
+			CancelBTN = new System.Windows.Forms.Button();
+			ButtonsPN = new System.Windows.Forms.Panel();
+			TopPN = new System.Windows.Forms.Panel();
+			SupportedLocalesLB = new System.Windows.Forms.ListBox();
+			ButtonsPN.SuspendLayout();
+			TopPN.SuspendLayout();
+			SuspendLayout();
 			// 
 			// OkBTN
 			// 
-			this.OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.OkBTN.Location = new System.Drawing.Point(71, 3);
-			this.OkBTN.Name = "OkBTN";
-            this.OkBTN.Size = new System.Drawing.Size(75, 23);
-			this.OkBTN.TabIndex = 1;
-			this.OkBTN.Text = "OK";
+			OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
+            OkBTN.Location = new System.Drawing.Point(71, 3);
+			OkBTN.Name = "OkBTN";
+            OkBTN.Size = new System.Drawing.Size(75, 23);
+			OkBTN.TabIndex = 1;
+			OkBTN.Text = "OK";
 			// 
 			// CancelBTN
 			// 
-			this.CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelBTN.Location = new System.Drawing.Point(152, 4);
-			this.CancelBTN.Name = "CancelBTN";
-            this.CancelBTN.Size = new System.Drawing.Size(75, 23);
-			this.CancelBTN.TabIndex = 0;
-			this.CancelBTN.Text = "Cancel";
+			CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			CancelBTN.Location = new System.Drawing.Point(152, 4);
+			CancelBTN.Name = "CancelBTN";
+            CancelBTN.Size = new System.Drawing.Size(75, 23);
+			CancelBTN.TabIndex = 0;
+			CancelBTN.Text = "Cancel";
 			// 
 			// ButtonsPN
 			// 
-			this.ButtonsPN.Controls.Add(this.CancelBTN);
-			this.ButtonsPN.Controls.Add(this.OkBTN);
-			this.ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.ButtonsPN.Location = new System.Drawing.Point(0, 118);
-			this.ButtonsPN.Name = "ButtonsPN";
-			this.ButtonsPN.Size = new System.Drawing.Size(232, 32);
-			this.ButtonsPN.TabIndex = 0;
+			ButtonsPN.Controls.Add(CancelBTN);
+			ButtonsPN.Controls.Add(OkBTN);
+			ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
+			ButtonsPN.Location = new System.Drawing.Point(0, 118);
+			ButtonsPN.Name = "ButtonsPN";
+			ButtonsPN.Size = new System.Drawing.Size(232, 32);
+			ButtonsPN.TabIndex = 0;
 			// 
 			// TopPN
 			// 
-			this.TopPN.Controls.Add(this.SupportedLocalesLB);
-			this.TopPN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.TopPN.Location = new System.Drawing.Point(0, 0);
-			this.TopPN.Name = "TopPN";
-            this.TopPN.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
-			this.TopPN.Size = new System.Drawing.Size(232, 118);
-			this.TopPN.TabIndex = 1;
+			TopPN.Controls.Add(SupportedLocalesLB);
+			TopPN.Dock = System.Windows.Forms.DockStyle.Fill;
+			TopPN.Location = new System.Drawing.Point(0, 0);
+			TopPN.Name = "TopPN";
+            TopPN.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
+			TopPN.Size = new System.Drawing.Size(232, 118);
+			TopPN.TabIndex = 1;
 			// 
 			// SupportedLocalesLB
 			// 
-			this.SupportedLocalesLB.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.SupportedLocalesLB.Location = new System.Drawing.Point(4, 4);
-			this.SupportedLocalesLB.Name = "SupportedLocalesLB";
-            this.SupportedLocalesLB.Size = new System.Drawing.Size(224, 114);
-			this.SupportedLocalesLB.TabIndex = 6;
-            this.SupportedLocalesLB.SelectedIndexChanged += new System.EventHandler(this.SupportedLocalesLB_SelectedIndexChanged);
-			this.SupportedLocalesLB.DoubleClick += new System.EventHandler(this.SupportedLocalesLB_DoubleClick);
+			SupportedLocalesLB.Dock = System.Windows.Forms.DockStyle.Fill;
+			SupportedLocalesLB.Location = new System.Drawing.Point(4, 4);
+			SupportedLocalesLB.Name = "SupportedLocalesLB";
+            SupportedLocalesLB.Size = new System.Drawing.Size(224, 114);
+			SupportedLocalesLB.TabIndex = 6;
+            SupportedLocalesLB.SelectedIndexChanged += new System.EventHandler(SupportedLocalesLB_SelectedIndexChanged);
+			SupportedLocalesLB.DoubleClick += new System.EventHandler(SupportedLocalesLB_DoubleClick);
 			// 
 			// LocaleSelectDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(232, 150);
-			this.Controls.Add(this.TopPN);
-			this.Controls.Add(this.ButtonsPN);
-			this.Name = "LocaleSelectDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Select Locale";
-			this.ButtonsPN.ResumeLayout(false);
-			this.TopPN.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(232, 150);
+			Controls.Add(TopPN);
+			Controls.Add(ButtonsPN);
+			Name = "LocaleSelectDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Select Locale";
+			ButtonsPN.ResumeLayout(false);
+			TopPN.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

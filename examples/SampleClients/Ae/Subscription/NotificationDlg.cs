@@ -65,79 +65,79 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.acknowledgeBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.leftPn_ = new System.Windows.Forms.Panel();
-			this.notificationCtrl_ = new Technosoftware.AeSampleClient.NotificationCtrl();
-			this.buttonsPn_.SuspendLayout();
-			this.leftPn_.SuspendLayout();
-			this.SuspendLayout();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			acknowledgeBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			leftPn_ = new System.Windows.Forms.Panel();
+			notificationCtrl_ = new Technosoftware.AeSampleClient.NotificationCtrl();
+			buttonsPn_.SuspendLayout();
+			leftPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.acknowledgeBtn_);
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 474);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(552, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(acknowledgeBtn_);
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 474);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(552, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// AcknowledgeBTN
 			// 
-			this.acknowledgeBtn_.Location = new System.Drawing.Point(4, 8);
-			this.acknowledgeBtn_.Name = "acknowledgeBtn_";
-			this.acknowledgeBtn_.Size = new System.Drawing.Size(92, 23);
-			this.acknowledgeBtn_.TabIndex = 0;
-			this.acknowledgeBtn_.Text = "Acknowledge";
-			this.acknowledgeBtn_.Click += new System.EventHandler(this.AcknowledgeBTN_Click);
+			acknowledgeBtn_.Location = new System.Drawing.Point(4, 8);
+			acknowledgeBtn_.Name = "acknowledgeBtn_";
+			acknowledgeBtn_.Size = new System.Drawing.Size(92, 23);
+			acknowledgeBtn_.TabIndex = 0;
+			acknowledgeBtn_.Text = "Acknowledge";
+			acknowledgeBtn_.Click += new System.EventHandler(AcknowledgeBTN_Click);
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(472, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 1;
-			this.cancelBtn_.Text = "Close";
-			this.cancelBtn_.Click += new System.EventHandler(this.CancelBTN_Click);
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(472, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 1;
+			cancelBtn_.Text = "Close";
+			cancelBtn_.Click += new System.EventHandler(CancelBTN_Click);
 			// 
 			// LeftPN
 			// 
-			this.leftPn_.Controls.Add(this.notificationCtrl_);
-			this.leftPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.leftPn_.DockPadding.Left = 4;
-			this.leftPn_.DockPadding.Right = 4;
-			this.leftPn_.DockPadding.Top = 4;
-			this.leftPn_.Location = new System.Drawing.Point(0, 0);
-			this.leftPn_.Name = "leftPn_";
-			this.leftPn_.Size = new System.Drawing.Size(552, 474);
-			this.leftPn_.TabIndex = 1;
+			leftPn_.Controls.Add(notificationCtrl_);
+			leftPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			leftPn_.DockPadding.Left = 4;
+			leftPn_.DockPadding.Right = 4;
+			leftPn_.DockPadding.Top = 4;
+			leftPn_.Location = new System.Drawing.Point(0, 0);
+			leftPn_.Name = "leftPn_";
+			leftPn_.Size = new System.Drawing.Size(552, 474);
+			leftPn_.TabIndex = 1;
 			// 
 			// NotificationCTRL
 			// 
-			this.notificationCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.notificationCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.notificationCtrl_.Name = "notificationCtrl_";
-			this.notificationCtrl_.Size = new System.Drawing.Size(544, 470);
-			this.notificationCtrl_.TabIndex = 0;
+			notificationCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			notificationCtrl_.Location = new System.Drawing.Point(4, 4);
+			notificationCtrl_.Name = "notificationCtrl_";
+			notificationCtrl_.Size = new System.Drawing.Size(544, 470);
+			notificationCtrl_.TabIndex = 0;
 			// 
 			// NotificationDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.cancelBtn_;
-			this.ClientSize = new System.Drawing.Size(552, 510);
-			this.Controls.Add(this.leftPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.MaximizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(0, 180);
-			this.Name = "NotificationDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "View Condition State";
-			this.buttonsPn_.ResumeLayout(false);
-			this.leftPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = cancelBtn_;
+			ClientSize = new System.Drawing.Size(552, 510);
+			Controls.Add(leftPn_);
+			Controls.Add(buttonsPn_);
+			MaximizeBox = false;
+			MinimumSize = new System.Drawing.Size(0, 180);
+			Name = "NotificationDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "View Condition State";
+			buttonsPn_.ResumeLayout(false);
+			leftPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

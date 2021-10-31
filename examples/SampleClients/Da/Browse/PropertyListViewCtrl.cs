@@ -75,61 +75,61 @@ namespace SampleClients.Da.Browse
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.propertiesLv_ = new System.Windows.Forms.ListView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.viewMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.copyMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.editMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			propertiesLv_ = new System.Windows.Forms.ListView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			viewMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			copyMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			editMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// PropertiesLV
 			// 
-			this.propertiesLv_.ContextMenuStrip = this.popupMenu_;
-			this.propertiesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.propertiesLv_.FullRowSelect = true;
-			this.propertiesLv_.MultiSelect = false;
-			this.propertiesLv_.Name = "propertiesLv_";
-			this.propertiesLv_.Size = new System.Drawing.Size(432, 272);
-			this.propertiesLv_.TabIndex = 0;
-			this.propertiesLv_.View = System.Windows.Forms.View.Details;
-			this.propertiesLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PropertiesLV_MouseDown);
-			this.propertiesLv_.DoubleClick += new System.EventHandler(this.ViewMI_Click);
+			propertiesLv_.ContextMenuStrip = popupMenu_;
+			propertiesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			propertiesLv_.FullRowSelect = true;
+			propertiesLv_.MultiSelect = false;
+			propertiesLv_.Name = "propertiesLv_";
+			propertiesLv_.Size = new System.Drawing.Size(432, 272);
+			propertiesLv_.TabIndex = 0;
+			propertiesLv_.View = System.Windows.Forms.View.Details;
+			propertiesLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(PropertiesLV_MouseDown);
+			propertiesLv_.DoubleClick += new System.EventHandler(ViewMI_Click);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.viewMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  viewMi_});
 			// 
 			// ViewMI
 			// 
-			this.viewMi_.ImageIndex = 0;
-			this.viewMi_.Text = "&View...";
-			this.viewMi_.Click += new System.EventHandler(this.ViewMI_Click);
+			viewMi_.ImageIndex = 0;
+			viewMi_.Text = "&View...";
+			viewMi_.Click += new System.EventHandler(ViewMI_Click);
 			// 
 			// CopyMI
 			// 
-			this.copyMi_.ImageIndex = -1;
-			this.copyMi_.Text = "";
+			copyMi_.ImageIndex = -1;
+			copyMi_.Text = "";
 			// 
 			// EditMI
 			// 
-			this.editMi_.ImageIndex = -1;
-			this.editMi_.Text = "";
+			editMi_.ImageIndex = -1;
+			editMi_.Text = "";
 			// 
 			// RemoveMI
 			// 
-			this.removeMi_.ImageIndex = -1;
-			this.removeMi_.Text = "";
+			removeMi_.ImageIndex = -1;
+			removeMi_.Text = "";
 			// 
 			// PropertyListViewCtrl
 			// 
-			this.AllowDrop = true;
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
-																		  this.propertiesLv_});
-			this.Name = "PropertyListViewCtrl";
-			this.Size = new System.Drawing.Size(432, 272);
-			this.ResumeLayout(false);
+			AllowDrop = true;
+			Controls.AddRange(new System.Windows.Forms.Control[] {
+																		  propertiesLv_});
+			Name = "PropertyListViewCtrl";
+			Size = new System.Drawing.Size(432, 272);
+			ResumeLayout(false);
 
 		}
 		#endregion

@@ -65,37 +65,37 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.lowSeverityCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.highSeverityCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.lowSeverityLb_ = new System.Windows.Forms.Label();
-			this.highSeverityLb_ = new System.Windows.Forms.Label();
-			this.simpleEventsLb_ = new System.Windows.Forms.Label();
-			this.simpleEventChk_ = new System.Windows.Forms.CheckBox();
-			this.trackingEventsChk_ = new System.Windows.Forms.CheckBox();
-			this.trackingEventsLb_ = new System.Windows.Forms.Label();
-			this.conditionEventsChk_ = new System.Windows.Forms.CheckBox();
-			this.conditionEventsLb_ = new System.Windows.Forms.Label();
-			((System.ComponentModel.ISupportInitialize)(this.lowSeverityCtrl_)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.highSeverityCtrl_)).BeginInit();
-			this.SuspendLayout();
+			lowSeverityCtrl_ = new System.Windows.Forms.NumericUpDown();
+			highSeverityCtrl_ = new System.Windows.Forms.NumericUpDown();
+			lowSeverityLb_ = new System.Windows.Forms.Label();
+			highSeverityLb_ = new System.Windows.Forms.Label();
+			simpleEventsLb_ = new System.Windows.Forms.Label();
+			simpleEventChk_ = new System.Windows.Forms.CheckBox();
+			trackingEventsChk_ = new System.Windows.Forms.CheckBox();
+			trackingEventsLb_ = new System.Windows.Forms.Label();
+			conditionEventsChk_ = new System.Windows.Forms.CheckBox();
+			conditionEventsLb_ = new System.Windows.Forms.Label();
+			((System.ComponentModel.ISupportInitialize)(lowSeverityCtrl_)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(highSeverityCtrl_)).BeginInit();
+			SuspendLayout();
 			// 
 			// LowSeverityCTRL
 			// 
-			this.lowSeverityCtrl_.Location = new System.Drawing.Point(104, 97);
-			this.lowSeverityCtrl_.Maximum = new System.Decimal(new int[] {
+			lowSeverityCtrl_.Location = new System.Drawing.Point(104, 97);
+			lowSeverityCtrl_.Maximum = new System.Decimal(new int[] {
 																			1000,
 																			0,
 																			0,
 																			0});
-			this.lowSeverityCtrl_.Minimum = new System.Decimal(new int[] {
+			lowSeverityCtrl_.Minimum = new System.Decimal(new int[] {
 																			1,
 																			0,
 																			0,
 																			0});
-			this.lowSeverityCtrl_.Name = "lowSeverityCtrl_";
-			this.lowSeverityCtrl_.Size = new System.Drawing.Size(72, 20);
-			this.lowSeverityCtrl_.TabIndex = 23;
-			this.lowSeverityCtrl_.Value = new System.Decimal(new int[] {
+			lowSeverityCtrl_.Name = "lowSeverityCtrl_";
+			lowSeverityCtrl_.Size = new System.Drawing.Size(72, 20);
+			lowSeverityCtrl_.TabIndex = 23;
+			lowSeverityCtrl_.Value = new System.Decimal(new int[] {
 																		  1,
 																		  0,
 																		  0,
@@ -103,21 +103,21 @@ namespace Technosoftware.AeSampleClient
 			// 
 			// HighSeverityCTRL
 			// 
-			this.highSeverityCtrl_.Location = new System.Drawing.Point(104, 73);
-			this.highSeverityCtrl_.Maximum = new System.Decimal(new int[] {
+			highSeverityCtrl_.Location = new System.Drawing.Point(104, 73);
+			highSeverityCtrl_.Maximum = new System.Decimal(new int[] {
 																			 1000,
 																			 0,
 																			 0,
 																			 0});
-			this.highSeverityCtrl_.Minimum = new System.Decimal(new int[] {
+			highSeverityCtrl_.Minimum = new System.Decimal(new int[] {
 																			 1,
 																			 0,
 																			 0,
 																			 0});
-			this.highSeverityCtrl_.Name = "highSeverityCtrl_";
-			this.highSeverityCtrl_.Size = new System.Drawing.Size(72, 20);
-			this.highSeverityCtrl_.TabIndex = 22;
-			this.highSeverityCtrl_.Value = new System.Decimal(new int[] {
+			highSeverityCtrl_.Name = "highSeverityCtrl_";
+			highSeverityCtrl_.Size = new System.Drawing.Size(72, 20);
+			highSeverityCtrl_.TabIndex = 22;
+			highSeverityCtrl_.Value = new System.Decimal(new int[] {
 																		   1,
 																		   0,
 																		   0,
@@ -125,82 +125,82 @@ namespace Technosoftware.AeSampleClient
 			// 
 			// LowSeverityLB
 			// 
-			this.lowSeverityLb_.Location = new System.Drawing.Point(0, 96);
-			this.lowSeverityLb_.Name = "lowSeverityLb_";
-			this.lowSeverityLb_.TabIndex = 18;
-			this.lowSeverityLb_.Text = "Low Severity";
-			this.lowSeverityLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			lowSeverityLb_.Location = new System.Drawing.Point(0, 96);
+			lowSeverityLb_.Name = "lowSeverityLb_";
+			lowSeverityLb_.TabIndex = 18;
+			lowSeverityLb_.Text = "Low Severity";
+			lowSeverityLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// HighSeverityLB
 			// 
-			this.highSeverityLb_.Location = new System.Drawing.Point(0, 72);
-			this.highSeverityLb_.Name = "highSeverityLb_";
-			this.highSeverityLb_.TabIndex = 17;
-			this.highSeverityLb_.Text = "High Severity";
-			this.highSeverityLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			highSeverityLb_.Location = new System.Drawing.Point(0, 72);
+			highSeverityLb_.Name = "highSeverityLb_";
+			highSeverityLb_.TabIndex = 17;
+			highSeverityLb_.Text = "High Severity";
+			highSeverityLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// SimpleEventsLB
 			// 
-			this.simpleEventsLb_.Location = new System.Drawing.Point(0, 0);
-			this.simpleEventsLb_.Name = "simpleEventsLb_";
-			this.simpleEventsLb_.TabIndex = 24;
-			this.simpleEventsLb_.Text = "Simple Events";
-			this.simpleEventsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			simpleEventsLb_.Location = new System.Drawing.Point(0, 0);
+			simpleEventsLb_.Name = "simpleEventsLb_";
+			simpleEventsLb_.TabIndex = 24;
+			simpleEventsLb_.Text = "Simple Events";
+			simpleEventsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// SimpleEventCHK
 			// 
-			this.simpleEventChk_.Location = new System.Drawing.Point(104, -1);
-			this.simpleEventChk_.Name = "simpleEventChk_";
-			this.simpleEventChk_.Size = new System.Drawing.Size(16, 24);
-			this.simpleEventChk_.TabIndex = 25;
+			simpleEventChk_.Location = new System.Drawing.Point(104, -1);
+			simpleEventChk_.Name = "simpleEventChk_";
+			simpleEventChk_.Size = new System.Drawing.Size(16, 24);
+			simpleEventChk_.TabIndex = 25;
 			// 
 			// TrackingEventsCHK
 			// 
-			this.trackingEventsChk_.Location = new System.Drawing.Point(104, 23);
-			this.trackingEventsChk_.Name = "trackingEventsChk_";
-			this.trackingEventsChk_.Size = new System.Drawing.Size(16, 24);
-			this.trackingEventsChk_.TabIndex = 27;
+			trackingEventsChk_.Location = new System.Drawing.Point(104, 23);
+			trackingEventsChk_.Name = "trackingEventsChk_";
+			trackingEventsChk_.Size = new System.Drawing.Size(16, 24);
+			trackingEventsChk_.TabIndex = 27;
 			// 
 			// TrackingEventsLB
 			// 
-			this.trackingEventsLb_.Location = new System.Drawing.Point(0, 24);
-			this.trackingEventsLb_.Name = "trackingEventsLb_";
-			this.trackingEventsLb_.TabIndex = 26;
-			this.trackingEventsLb_.Text = "Tracking Events";
-			this.trackingEventsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			trackingEventsLb_.Location = new System.Drawing.Point(0, 24);
+			trackingEventsLb_.Name = "trackingEventsLb_";
+			trackingEventsLb_.TabIndex = 26;
+			trackingEventsLb_.Text = "Tracking Events";
+			trackingEventsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ConditionEventsCHK
 			// 
-			this.conditionEventsChk_.Location = new System.Drawing.Point(104, 47);
-			this.conditionEventsChk_.Name = "conditionEventsChk_";
-			this.conditionEventsChk_.Size = new System.Drawing.Size(16, 24);
-			this.conditionEventsChk_.TabIndex = 29;
+			conditionEventsChk_.Location = new System.Drawing.Point(104, 47);
+			conditionEventsChk_.Name = "conditionEventsChk_";
+			conditionEventsChk_.Size = new System.Drawing.Size(16, 24);
+			conditionEventsChk_.TabIndex = 29;
 			// 
 			// ConditionEventsLB
 			// 
-			this.conditionEventsLb_.Location = new System.Drawing.Point(0, 48);
-			this.conditionEventsLb_.Name = "conditionEventsLb_";
-			this.conditionEventsLb_.TabIndex = 28;
-			this.conditionEventsLb_.Text = "Condition Events";
-			this.conditionEventsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			conditionEventsLb_.Location = new System.Drawing.Point(0, 48);
+			conditionEventsLb_.Name = "conditionEventsLb_";
+			conditionEventsLb_.TabIndex = 28;
+			conditionEventsLb_.Text = "Condition Events";
+			conditionEventsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// SubscriptionFiltersEditCtrl
 			// 
-			this.Controls.Add(this.conditionEventsChk_);
-			this.Controls.Add(this.conditionEventsLb_);
-			this.Controls.Add(this.trackingEventsChk_);
-			this.Controls.Add(this.trackingEventsLb_);
-			this.Controls.Add(this.simpleEventChk_);
-			this.Controls.Add(this.simpleEventsLb_);
-			this.Controls.Add(this.lowSeverityCtrl_);
-			this.Controls.Add(this.highSeverityCtrl_);
-			this.Controls.Add(this.lowSeverityLb_);
-			this.Controls.Add(this.highSeverityLb_);
-			this.Name = "SubscriptionFiltersEditCtrl";
-			this.Size = new System.Drawing.Size(176, 120);
-			((System.ComponentModel.ISupportInitialize)(this.lowSeverityCtrl_)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.highSeverityCtrl_)).EndInit();
-			this.ResumeLayout(false);
+			Controls.Add(conditionEventsChk_);
+			Controls.Add(conditionEventsLb_);
+			Controls.Add(trackingEventsChk_);
+			Controls.Add(trackingEventsLb_);
+			Controls.Add(simpleEventChk_);
+			Controls.Add(simpleEventsLb_);
+			Controls.Add(lowSeverityCtrl_);
+			Controls.Add(highSeverityCtrl_);
+			Controls.Add(lowSeverityLb_);
+			Controls.Add(highSeverityLb_);
+			Name = "SubscriptionFiltersEditCtrl";
+			Size = new System.Drawing.Size(176, 120);
+			((System.ComponentModel.ISupportInitialize)(lowSeverityCtrl_)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(highSeverityCtrl_)).EndInit();
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -223,11 +223,12 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		public object Get()
 		{
-			TsCAeSubscriptionFilters filters = new TsCAeSubscriptionFilters();
+            TsCAeSubscriptionFilters filters = new TsCAeSubscriptionFilters
+            {
+                EventTypes = 0
+            };
 
-			filters.EventTypes = 0;
-
-			if (simpleEventChk_.Checked)     filters.EventTypes |= (int)TsCAeEventType.Simple;
+            if (simpleEventChk_.Checked)     filters.EventTypes |= (int)TsCAeEventType.Simple;
 			if (trackingEventsChk_.Checked)  filters.EventTypes |= (int)TsCAeEventType.Tracking;
 			if (conditionEventsChk_.Checked) filters.EventTypes |= (int)TsCAeEventType.Condition;
 
@@ -259,9 +260,11 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		public object Create()
 		{
-			TsCAeSubscriptionFilters filters = new TsCAeSubscriptionFilters();
-			filters.EventTypes = (int)TsCAeEventType.All;
-			return filters;
+            TsCAeSubscriptionFilters filters = new TsCAeSubscriptionFilters
+            {
+                EventTypes = (int)TsCAeEventType.All
+            };
+            return filters;
 		}
 		#endregion
 	}

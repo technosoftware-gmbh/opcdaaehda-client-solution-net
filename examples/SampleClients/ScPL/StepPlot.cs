@@ -46,8 +46,8 @@ namespace scpl
 	{
 		public StepPlot( ISequenceAdapter data )
 		{
-			this.Data = data;
-			this.Center = false;
+			Data = data;
+			Center = false;
 		}
 
 		#region get/set Data
@@ -69,13 +69,13 @@ namespace scpl
 		public virtual void Draw( Graphics g, PhysicalAxis xAxis, PhysicalAxis yAxis )
 		{
 			Pen	p;
-			if ( this.pen_ != null )
+			if ( pen_ != null )
 			{
-				p = (System.Drawing.Pen)this.pen_;
+				p = (System.Drawing.Pen)pen_;
 			}
 			else
 			{
-				p =	new	Pen( this.color_ );
+				p =	new	Pen( color_ );
 			}
 
 			for ( int i=0; i<data_.Count; ++i )

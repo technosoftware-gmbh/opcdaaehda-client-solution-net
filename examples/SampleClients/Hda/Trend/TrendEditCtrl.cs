@@ -101,466 +101,466 @@ namespace SampleClients.Hda.Trend
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.startTimeLb_ = new System.Windows.Forms.Label();
-			this.endTimeLb_ = new System.Windows.Forms.Label();
-			this.maxValuesLb_ = new System.Windows.Forms.Label();
-			this.includeBoundsLb_ = new System.Windows.Forms.Label();
-			this.maxValuesCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.includeBoundsCb_ = new System.Windows.Forms.CheckBox();
-			this.startTimeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.endTimeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.startTimeCtrl_ = new TimeCtrl();
-			this.endTimeCtrl_ = new TimeCtrl();
-			this.aggregateLb_ = new System.Windows.Forms.Label();
-			this.aggregateCb_ = new System.Windows.Forms.ComboBox();
-			this.nameLb_ = new System.Windows.Forms.Label();
-			this.nameTb_ = new System.Windows.Forms.TextBox();
-			this.resampleIntervalCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.resampleIntervalLb_ = new System.Windows.Forms.Label();
-			this.aggregateSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.updateIntervalCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.updateIntervalLb_ = new System.Windows.Forms.Label();
-			this.playbackDurationCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.playbackDurationLb_ = new System.Windows.Forms.Label();
-			this.updateIntervalUnitsLb_ = new System.Windows.Forms.Label();
-			this.playbackDurationUnitsLb_ = new System.Windows.Forms.Label();
-			this.resampleIntervalUnitsLb_ = new System.Windows.Forms.Label();
-			this.playbackIntervalUnitsLb_ = new System.Windows.Forms.Label();
-			this.playbackIntervalCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.playbackIntervalLb_ = new System.Windows.Forms.Label();
-			this.playbackPn_ = new System.Windows.Forms.Panel();
-			this.subscribePn_ = new System.Windows.Forms.Panel();
-			this.processedPn_ = new System.Windows.Forms.Panel();
-			this.rawPn_ = new System.Windows.Forms.Panel();
-			this.maxValuesPn_ = new System.Windows.Forms.Panel();
-			this.endTimePn_ = new System.Windows.Forms.Panel();
-			this.namePn_ = new System.Windows.Forms.Panel();
-			this.aggregatePn_ = new System.Windows.Forms.Panel();
-			this.startTimePn_ = new System.Windows.Forms.Panel();
-			this.timestampsPn_ = new System.Windows.Forms.Panel();
-			this.timestampsCtrl_ = new ItemTimesCtrl();
-			((System.ComponentModel.ISupportInitialize)(this.maxValuesCtrl_)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.resampleIntervalCtrl_)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.updateIntervalCtrl_)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.playbackDurationCtrl_)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.playbackIntervalCtrl_)).BeginInit();
-			this.playbackPn_.SuspendLayout();
-			this.subscribePn_.SuspendLayout();
-			this.processedPn_.SuspendLayout();
-			this.rawPn_.SuspendLayout();
-			this.maxValuesPn_.SuspendLayout();
-			this.endTimePn_.SuspendLayout();
-			this.namePn_.SuspendLayout();
-			this.aggregatePn_.SuspendLayout();
-			this.startTimePn_.SuspendLayout();
-			this.timestampsPn_.SuspendLayout();
-			this.SuspendLayout();
+			startTimeLb_ = new System.Windows.Forms.Label();
+			endTimeLb_ = new System.Windows.Forms.Label();
+			maxValuesLb_ = new System.Windows.Forms.Label();
+			includeBoundsLb_ = new System.Windows.Forms.Label();
+			maxValuesCtrl_ = new System.Windows.Forms.NumericUpDown();
+			includeBoundsCb_ = new System.Windows.Forms.CheckBox();
+			startTimeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			endTimeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			startTimeCtrl_ = new TimeCtrl();
+			endTimeCtrl_ = new TimeCtrl();
+			aggregateLb_ = new System.Windows.Forms.Label();
+			aggregateCb_ = new System.Windows.Forms.ComboBox();
+			nameLb_ = new System.Windows.Forms.Label();
+			nameTb_ = new System.Windows.Forms.TextBox();
+			resampleIntervalCtrl_ = new System.Windows.Forms.NumericUpDown();
+			resampleIntervalLb_ = new System.Windows.Forms.Label();
+			aggregateSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			updateIntervalCtrl_ = new System.Windows.Forms.NumericUpDown();
+			updateIntervalLb_ = new System.Windows.Forms.Label();
+			playbackDurationCtrl_ = new System.Windows.Forms.NumericUpDown();
+			playbackDurationLb_ = new System.Windows.Forms.Label();
+			updateIntervalUnitsLb_ = new System.Windows.Forms.Label();
+			playbackDurationUnitsLb_ = new System.Windows.Forms.Label();
+			resampleIntervalUnitsLb_ = new System.Windows.Forms.Label();
+			playbackIntervalUnitsLb_ = new System.Windows.Forms.Label();
+			playbackIntervalCtrl_ = new System.Windows.Forms.NumericUpDown();
+			playbackIntervalLb_ = new System.Windows.Forms.Label();
+			playbackPn_ = new System.Windows.Forms.Panel();
+			subscribePn_ = new System.Windows.Forms.Panel();
+			processedPn_ = new System.Windows.Forms.Panel();
+			rawPn_ = new System.Windows.Forms.Panel();
+			maxValuesPn_ = new System.Windows.Forms.Panel();
+			endTimePn_ = new System.Windows.Forms.Panel();
+			namePn_ = new System.Windows.Forms.Panel();
+			aggregatePn_ = new System.Windows.Forms.Panel();
+			startTimePn_ = new System.Windows.Forms.Panel();
+			timestampsPn_ = new System.Windows.Forms.Panel();
+			timestampsCtrl_ = new ItemTimesCtrl();
+			((System.ComponentModel.ISupportInitialize)(maxValuesCtrl_)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(resampleIntervalCtrl_)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(updateIntervalCtrl_)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(playbackDurationCtrl_)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(playbackIntervalCtrl_)).BeginInit();
+			playbackPn_.SuspendLayout();
+			subscribePn_.SuspendLayout();
+			processedPn_.SuspendLayout();
+			rawPn_.SuspendLayout();
+			maxValuesPn_.SuspendLayout();
+			endTimePn_.SuspendLayout();
+			namePn_.SuspendLayout();
+			aggregatePn_.SuspendLayout();
+			startTimePn_.SuspendLayout();
+			timestampsPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// StartTimeLB
 			// 
-			this.startTimeLb_.Location = new System.Drawing.Point(0, 0);
-			this.startTimeLb_.Name = "startTimeLb_";
-			this.startTimeLb_.Size = new System.Drawing.Size(96, 23);
-			this.startTimeLb_.TabIndex = 0;
-			this.startTimeLb_.Text = "Start Time";
-			this.startTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			startTimeLb_.Location = new System.Drawing.Point(0, 0);
+			startTimeLb_.Name = "startTimeLb_";
+			startTimeLb_.Size = new System.Drawing.Size(96, 23);
+			startTimeLb_.TabIndex = 0;
+			startTimeLb_.Text = "Start Time";
+			startTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// EndTimeLB
 			// 
-			this.endTimeLb_.Location = new System.Drawing.Point(0, 0);
-			this.endTimeLb_.Name = "endTimeLb_";
-			this.endTimeLb_.Size = new System.Drawing.Size(96, 23);
-			this.endTimeLb_.TabIndex = 1;
-			this.endTimeLb_.Text = "End Time";
-			this.endTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			endTimeLb_.Location = new System.Drawing.Point(0, 0);
+			endTimeLb_.Name = "endTimeLb_";
+			endTimeLb_.Size = new System.Drawing.Size(96, 23);
+			endTimeLb_.TabIndex = 1;
+			endTimeLb_.Text = "End Time";
+			endTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// MaxValuesLB
 			// 
-			this.maxValuesLb_.Location = new System.Drawing.Point(0, 0);
-			this.maxValuesLb_.Name = "maxValuesLb_";
-			this.maxValuesLb_.Size = new System.Drawing.Size(96, 23);
-			this.maxValuesLb_.TabIndex = 2;
-			this.maxValuesLb_.Text = "Max Values";
-			this.maxValuesLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			maxValuesLb_.Location = new System.Drawing.Point(0, 0);
+			maxValuesLb_.Name = "maxValuesLb_";
+			maxValuesLb_.Size = new System.Drawing.Size(96, 23);
+			maxValuesLb_.TabIndex = 2;
+			maxValuesLb_.Text = "Max Values";
+			maxValuesLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// IncludeBoundsLB
 			// 
-			this.includeBoundsLb_.Location = new System.Drawing.Point(0, 0);
-			this.includeBoundsLb_.Name = "includeBoundsLb_";
-			this.includeBoundsLb_.Size = new System.Drawing.Size(96, 23);
-			this.includeBoundsLb_.TabIndex = 3;
-			this.includeBoundsLb_.Text = "Include Bounds";
-			this.includeBoundsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			includeBoundsLb_.Location = new System.Drawing.Point(0, 0);
+			includeBoundsLb_.Name = "includeBoundsLb_";
+			includeBoundsLb_.Size = new System.Drawing.Size(96, 23);
+			includeBoundsLb_.TabIndex = 3;
+			includeBoundsLb_.Text = "Include Bounds";
+			includeBoundsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// MaxValuesCTRL
 			// 
-			this.maxValuesCtrl_.Location = new System.Drawing.Point(96, 1);
-			this.maxValuesCtrl_.Maximum = new System.Decimal(new int[] {
+			maxValuesCtrl_.Location = new System.Drawing.Point(96, 1);
+			maxValuesCtrl_.Maximum = new System.Decimal(new int[] {
 																		  2147483647,
 																		  0,
 																		  0,
 																		  0});
-			this.maxValuesCtrl_.Name = "maxValuesCtrl_";
-			this.maxValuesCtrl_.Size = new System.Drawing.Size(72, 20);
-			this.maxValuesCtrl_.TabIndex = 6;
+			maxValuesCtrl_.Name = "maxValuesCtrl_";
+			maxValuesCtrl_.Size = new System.Drawing.Size(72, 20);
+			maxValuesCtrl_.TabIndex = 6;
 			// 
 			// IncludeBoundsCB
 			// 
-			this.includeBoundsCb_.Location = new System.Drawing.Point(96, -1);
-			this.includeBoundsCb_.Name = "includeBoundsCb_";
-			this.includeBoundsCb_.Size = new System.Drawing.Size(16, 24);
-			this.includeBoundsCb_.TabIndex = 7;
+			includeBoundsCb_.Location = new System.Drawing.Point(96, -1);
+			includeBoundsCb_.Name = "includeBoundsCb_";
+			includeBoundsCb_.Size = new System.Drawing.Size(16, 24);
+			includeBoundsCb_.TabIndex = 7;
 			// 
 			// StartTimeSpecifiedCB
 			// 
-			this.startTimeSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.startTimeSpecifiedCb_.Location = new System.Drawing.Point(300, -1);
-			this.startTimeSpecifiedCb_.Name = "startTimeSpecifiedCb_";
-			this.startTimeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.startTimeSpecifiedCb_.TabIndex = 8;
-			this.startTimeSpecifiedCb_.CheckedChanged += new System.EventHandler(this.TimeSpecifiedCB_CheckedChanged);
+			startTimeSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			startTimeSpecifiedCb_.Location = new System.Drawing.Point(300, -1);
+			startTimeSpecifiedCb_.Name = "startTimeSpecifiedCb_";
+			startTimeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			startTimeSpecifiedCb_.TabIndex = 8;
+			startTimeSpecifiedCb_.CheckedChanged += new System.EventHandler(TimeSpecifiedCB_CheckedChanged);
 			// 
 			// EndTimeSpecifiedCB
 			// 
-			this.endTimeSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.endTimeSpecifiedCb_.Location = new System.Drawing.Point(300, -1);
-			this.endTimeSpecifiedCb_.Name = "endTimeSpecifiedCb_";
-			this.endTimeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.endTimeSpecifiedCb_.TabIndex = 9;
-			this.endTimeSpecifiedCb_.CheckedChanged += new System.EventHandler(this.TimeSpecifiedCB_CheckedChanged);
+			endTimeSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			endTimeSpecifiedCb_.Location = new System.Drawing.Point(300, -1);
+			endTimeSpecifiedCb_.Name = "endTimeSpecifiedCb_";
+			endTimeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			endTimeSpecifiedCb_.TabIndex = 9;
+			endTimeSpecifiedCb_.CheckedChanged += new System.EventHandler(TimeSpecifiedCB_CheckedChanged);
 			// 
 			// StartTimeCTRL
 			// 
-			this.startTimeCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			startTimeCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.startTimeCtrl_.Enabled = false;
-			this.startTimeCtrl_.Location = new System.Drawing.Point(96, 0);
-			this.startTimeCtrl_.Name = "startTimeCtrl_";
-			this.startTimeCtrl_.Size = new System.Drawing.Size(200, 24);
-			this.startTimeCtrl_.TabIndex = 10;
+			startTimeCtrl_.Enabled = false;
+			startTimeCtrl_.Location = new System.Drawing.Point(96, 0);
+			startTimeCtrl_.Name = "startTimeCtrl_";
+			startTimeCtrl_.Size = new System.Drawing.Size(200, 24);
+			startTimeCtrl_.TabIndex = 10;
 			// 
 			// EndTimeCTRL
 			// 
-			this.endTimeCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			endTimeCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.endTimeCtrl_.Enabled = false;
-			this.endTimeCtrl_.Location = new System.Drawing.Point(96, 0);
-			this.endTimeCtrl_.Name = "endTimeCtrl_";
-			this.endTimeCtrl_.Size = new System.Drawing.Size(200, 24);
-			this.endTimeCtrl_.TabIndex = 11;
+			endTimeCtrl_.Enabled = false;
+			endTimeCtrl_.Location = new System.Drawing.Point(96, 0);
+			endTimeCtrl_.Name = "endTimeCtrl_";
+			endTimeCtrl_.Size = new System.Drawing.Size(200, 24);
+			endTimeCtrl_.TabIndex = 11;
 			// 
 			// AggregateLB
 			// 
-			this.aggregateLb_.Location = new System.Drawing.Point(0, 0);
-			this.aggregateLb_.Name = "aggregateLb_";
-			this.aggregateLb_.Size = new System.Drawing.Size(96, 23);
-			this.aggregateLb_.TabIndex = 12;
-			this.aggregateLb_.Text = "Aggregate";
-			this.aggregateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			aggregateLb_.Location = new System.Drawing.Point(0, 0);
+			aggregateLb_.Name = "aggregateLb_";
+			aggregateLb_.Size = new System.Drawing.Size(96, 23);
+			aggregateLb_.TabIndex = 12;
+			aggregateLb_.Text = "Aggregate";
+			aggregateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// AggregateCB
 			// 
-			this.aggregateCb_.Enabled = false;
-			this.aggregateCb_.Location = new System.Drawing.Point(96, 0);
-			this.aggregateCb_.Name = "aggregateCb_";
-			this.aggregateCb_.Size = new System.Drawing.Size(204, 21);
-			this.aggregateCb_.TabIndex = 13;
+			aggregateCb_.Enabled = false;
+			aggregateCb_.Location = new System.Drawing.Point(96, 0);
+			aggregateCb_.Name = "aggregateCb_";
+			aggregateCb_.Size = new System.Drawing.Size(204, 21);
+			aggregateCb_.TabIndex = 13;
 			// 
 			// NameLB
 			// 
-			this.nameLb_.Location = new System.Drawing.Point(0, 0);
-			this.nameLb_.Name = "nameLb_";
-			this.nameLb_.Size = new System.Drawing.Size(96, 23);
-			this.nameLb_.TabIndex = 14;
-			this.nameLb_.Text = "Name";
-			this.nameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			nameLb_.Location = new System.Drawing.Point(0, 0);
+			nameLb_.Name = "nameLb_";
+			nameLb_.Size = new System.Drawing.Size(96, 23);
+			nameLb_.TabIndex = 14;
+			nameLb_.Text = "Name";
+			nameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// NameTB
 			// 
-			this.nameTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			nameTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.nameTb_.Location = new System.Drawing.Point(96, 0);
-			this.nameTb_.Name = "nameTb_";
-			this.nameTb_.Size = new System.Drawing.Size(216, 20);
-			this.nameTb_.TabIndex = 15;
-			this.nameTb_.Text = "";
+			nameTb_.Location = new System.Drawing.Point(96, 0);
+			nameTb_.Name = "nameTb_";
+			nameTb_.Size = new System.Drawing.Size(216, 20);
+			nameTb_.TabIndex = 15;
+			nameTb_.Text = "";
 			// 
 			// ResampleIntervalCTRL
 			// 
-			this.resampleIntervalCtrl_.DecimalPlaces = 6;
-			this.resampleIntervalCtrl_.Enabled = false;
-			this.resampleIntervalCtrl_.Location = new System.Drawing.Point(96, 1);
-			this.resampleIntervalCtrl_.Maximum = new System.Decimal(new int[] {
+			resampleIntervalCtrl_.DecimalPlaces = 6;
+			resampleIntervalCtrl_.Enabled = false;
+			resampleIntervalCtrl_.Location = new System.Drawing.Point(96, 1);
+			resampleIntervalCtrl_.Maximum = new System.Decimal(new int[] {
 																				 -1,
 																				 2147483647,
 																				 0,
 																				 0});
-			this.resampleIntervalCtrl_.Name = "resampleIntervalCtrl_";
-			this.resampleIntervalCtrl_.TabIndex = 17;
+			resampleIntervalCtrl_.Name = "resampleIntervalCtrl_";
+			resampleIntervalCtrl_.TabIndex = 17;
 			// 
 			// ResampleIntervalLB
 			// 
-			this.resampleIntervalLb_.Location = new System.Drawing.Point(0, 0);
-			this.resampleIntervalLb_.Name = "resampleIntervalLb_";
-			this.resampleIntervalLb_.Size = new System.Drawing.Size(96, 23);
-			this.resampleIntervalLb_.TabIndex = 16;
-			this.resampleIntervalLb_.Text = "Resample Interval";
-			this.resampleIntervalLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			resampleIntervalLb_.Location = new System.Drawing.Point(0, 0);
+			resampleIntervalLb_.Name = "resampleIntervalLb_";
+			resampleIntervalLb_.Size = new System.Drawing.Size(96, 23);
+			resampleIntervalLb_.TabIndex = 16;
+			resampleIntervalLb_.Text = "Resample Interval";
+			resampleIntervalLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// AggregateSpecifiedCB
 			// 
-			this.aggregateSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.aggregateSpecifiedCb_.Location = new System.Drawing.Point(300, -1);
-			this.aggregateSpecifiedCb_.Name = "aggregateSpecifiedCb_";
-			this.aggregateSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.aggregateSpecifiedCb_.TabIndex = 18;
-			this.aggregateSpecifiedCb_.CheckedChanged += new System.EventHandler(this.AggregateSpecifiedCB_CheckedChanged);
+			aggregateSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			aggregateSpecifiedCb_.Location = new System.Drawing.Point(300, -1);
+			aggregateSpecifiedCb_.Name = "aggregateSpecifiedCb_";
+			aggregateSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			aggregateSpecifiedCb_.TabIndex = 18;
+			aggregateSpecifiedCb_.CheckedChanged += new System.EventHandler(AggregateSpecifiedCB_CheckedChanged);
 			// 
 			// UpdateIntervalCTRL
 			// 
-			this.updateIntervalCtrl_.DecimalPlaces = 6;
-			this.updateIntervalCtrl_.Location = new System.Drawing.Point(96, 1);
-			this.updateIntervalCtrl_.Maximum = new System.Decimal(new int[] {
+			updateIntervalCtrl_.DecimalPlaces = 6;
+			updateIntervalCtrl_.Location = new System.Drawing.Point(96, 1);
+			updateIntervalCtrl_.Maximum = new System.Decimal(new int[] {
 																			   -1,
 																			   2147483647,
 																			   0,
 																			   0});
-			this.updateIntervalCtrl_.Name = "updateIntervalCtrl_";
-			this.updateIntervalCtrl_.TabIndex = 20;
+			updateIntervalCtrl_.Name = "updateIntervalCtrl_";
+			updateIntervalCtrl_.TabIndex = 20;
 			// 
 			// UpdateIntervalLB
 			// 
-			this.updateIntervalLb_.Location = new System.Drawing.Point(0, 0);
-			this.updateIntervalLb_.Name = "updateIntervalLb_";
-			this.updateIntervalLb_.Size = new System.Drawing.Size(96, 23);
-			this.updateIntervalLb_.TabIndex = 19;
-			this.updateIntervalLb_.Text = "Update Interval";
-			this.updateIntervalLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			updateIntervalLb_.Location = new System.Drawing.Point(0, 0);
+			updateIntervalLb_.Name = "updateIntervalLb_";
+			updateIntervalLb_.Size = new System.Drawing.Size(96, 23);
+			updateIntervalLb_.TabIndex = 19;
+			updateIntervalLb_.Text = "Update Interval";
+			updateIntervalLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// PlaybackDurationCTRL
 			// 
-			this.playbackDurationCtrl_.DecimalPlaces = 6;
-			this.playbackDurationCtrl_.Location = new System.Drawing.Point(96, 25);
-			this.playbackDurationCtrl_.Maximum = new System.Decimal(new int[] {
+			playbackDurationCtrl_.DecimalPlaces = 6;
+			playbackDurationCtrl_.Location = new System.Drawing.Point(96, 25);
+			playbackDurationCtrl_.Maximum = new System.Decimal(new int[] {
 																				 -1,
 																				 2147483647,
 																				 0,
 																				 0});
-			this.playbackDurationCtrl_.Name = "playbackDurationCtrl_";
-			this.playbackDurationCtrl_.TabIndex = 22;
+			playbackDurationCtrl_.Name = "playbackDurationCtrl_";
+			playbackDurationCtrl_.TabIndex = 22;
 			// 
 			// PlaybackDurationLB
 			// 
-			this.playbackDurationLb_.Location = new System.Drawing.Point(0, 24);
-			this.playbackDurationLb_.Name = "playbackDurationLb_";
-			this.playbackDurationLb_.Size = new System.Drawing.Size(96, 23);
-			this.playbackDurationLb_.TabIndex = 21;
-			this.playbackDurationLb_.Text = "Playback Duration";
-			this.playbackDurationLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			playbackDurationLb_.Location = new System.Drawing.Point(0, 24);
+			playbackDurationLb_.Name = "playbackDurationLb_";
+			playbackDurationLb_.Size = new System.Drawing.Size(96, 23);
+			playbackDurationLb_.TabIndex = 21;
+			playbackDurationLb_.Text = "Playback Duration";
+			playbackDurationLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// UpdateIntervalUnitsLB
 			// 
-			this.updateIntervalUnitsLb_.Location = new System.Drawing.Point(220, 0);
-			this.updateIntervalUnitsLb_.Name = "updateIntervalUnitsLb_";
-			this.updateIntervalUnitsLb_.Size = new System.Drawing.Size(52, 23);
-			this.updateIntervalUnitsLb_.TabIndex = 23;
-			this.updateIntervalUnitsLb_.Text = "Seconds";
-			this.updateIntervalUnitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			updateIntervalUnitsLb_.Location = new System.Drawing.Point(220, 0);
+			updateIntervalUnitsLb_.Name = "updateIntervalUnitsLb_";
+			updateIntervalUnitsLb_.Size = new System.Drawing.Size(52, 23);
+			updateIntervalUnitsLb_.TabIndex = 23;
+			updateIntervalUnitsLb_.Text = "Seconds";
+			updateIntervalUnitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// PlaybackDurationUnitsLB
 			// 
-			this.playbackDurationUnitsLb_.Location = new System.Drawing.Point(220, 24);
-			this.playbackDurationUnitsLb_.Name = "playbackDurationUnitsLb_";
-			this.playbackDurationUnitsLb_.Size = new System.Drawing.Size(52, 23);
-			this.playbackDurationUnitsLb_.TabIndex = 24;
-			this.playbackDurationUnitsLb_.Text = "Seconds";
-			this.playbackDurationUnitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			playbackDurationUnitsLb_.Location = new System.Drawing.Point(220, 24);
+			playbackDurationUnitsLb_.Name = "playbackDurationUnitsLb_";
+			playbackDurationUnitsLb_.Size = new System.Drawing.Size(52, 23);
+			playbackDurationUnitsLb_.TabIndex = 24;
+			playbackDurationUnitsLb_.Text = "Seconds";
+			playbackDurationUnitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ResampleIntervalUnitsLB
 			// 
-			this.resampleIntervalUnitsLb_.Location = new System.Drawing.Point(220, 0);
-			this.resampleIntervalUnitsLb_.Name = "resampleIntervalUnitsLb_";
-			this.resampleIntervalUnitsLb_.Size = new System.Drawing.Size(52, 23);
-			this.resampleIntervalUnitsLb_.TabIndex = 25;
-			this.resampleIntervalUnitsLb_.Text = "Seconds";
-			this.resampleIntervalUnitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			resampleIntervalUnitsLb_.Location = new System.Drawing.Point(220, 0);
+			resampleIntervalUnitsLb_.Name = "resampleIntervalUnitsLb_";
+			resampleIntervalUnitsLb_.Size = new System.Drawing.Size(52, 23);
+			resampleIntervalUnitsLb_.TabIndex = 25;
+			resampleIntervalUnitsLb_.Text = "Seconds";
+			resampleIntervalUnitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// PlaybackIntervalUnitsLB
 			// 
-			this.playbackIntervalUnitsLb_.Location = new System.Drawing.Point(220, 0);
-			this.playbackIntervalUnitsLb_.Name = "playbackIntervalUnitsLb_";
-			this.playbackIntervalUnitsLb_.Size = new System.Drawing.Size(52, 23);
-			this.playbackIntervalUnitsLb_.TabIndex = 28;
-			this.playbackIntervalUnitsLb_.Text = "Seconds";
-			this.playbackIntervalUnitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			playbackIntervalUnitsLb_.Location = new System.Drawing.Point(220, 0);
+			playbackIntervalUnitsLb_.Name = "playbackIntervalUnitsLb_";
+			playbackIntervalUnitsLb_.Size = new System.Drawing.Size(52, 23);
+			playbackIntervalUnitsLb_.TabIndex = 28;
+			playbackIntervalUnitsLb_.Text = "Seconds";
+			playbackIntervalUnitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// PlaybackIntervalCTRL
 			// 
-			this.playbackIntervalCtrl_.DecimalPlaces = 6;
-			this.playbackIntervalCtrl_.Location = new System.Drawing.Point(96, 1);
-			this.playbackIntervalCtrl_.Maximum = new System.Decimal(new int[] {
+			playbackIntervalCtrl_.DecimalPlaces = 6;
+			playbackIntervalCtrl_.Location = new System.Drawing.Point(96, 1);
+			playbackIntervalCtrl_.Maximum = new System.Decimal(new int[] {
 																				 -1,
 																				 2147483647,
 																				 0,
 																				 0});
-			this.playbackIntervalCtrl_.Name = "playbackIntervalCtrl_";
-			this.playbackIntervalCtrl_.TabIndex = 27;
+			playbackIntervalCtrl_.Name = "playbackIntervalCtrl_";
+			playbackIntervalCtrl_.TabIndex = 27;
 			// 
 			// PlaybackIntervalLB
 			// 
-			this.playbackIntervalLb_.Location = new System.Drawing.Point(0, 0);
-			this.playbackIntervalLb_.Name = "playbackIntervalLb_";
-			this.playbackIntervalLb_.Size = new System.Drawing.Size(96, 23);
-			this.playbackIntervalLb_.TabIndex = 26;
-			this.playbackIntervalLb_.Text = "Playback Interval";
-			this.playbackIntervalLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			playbackIntervalLb_.Location = new System.Drawing.Point(0, 0);
+			playbackIntervalLb_.Name = "playbackIntervalLb_";
+			playbackIntervalLb_.Size = new System.Drawing.Size(96, 23);
+			playbackIntervalLb_.TabIndex = 26;
+			playbackIntervalLb_.Text = "Playback Interval";
+			playbackIntervalLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// PlaybackPN
 			// 
-			this.playbackPn_.Controls.Add(this.playbackDurationLb_);
-			this.playbackPn_.Controls.Add(this.playbackDurationCtrl_);
-			this.playbackPn_.Controls.Add(this.playbackDurationUnitsLb_);
-			this.playbackPn_.Controls.Add(this.playbackIntervalUnitsLb_);
-			this.playbackPn_.Controls.Add(this.playbackIntervalCtrl_);
-			this.playbackPn_.Controls.Add(this.playbackIntervalLb_);
-			this.playbackPn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.playbackPn_.Location = new System.Drawing.Point(0, 192);
-			this.playbackPn_.Name = "playbackPn_";
-			this.playbackPn_.Size = new System.Drawing.Size(316, 48);
-			this.playbackPn_.TabIndex = 29;
+			playbackPn_.Controls.Add(playbackDurationLb_);
+			playbackPn_.Controls.Add(playbackDurationCtrl_);
+			playbackPn_.Controls.Add(playbackDurationUnitsLb_);
+			playbackPn_.Controls.Add(playbackIntervalUnitsLb_);
+			playbackPn_.Controls.Add(playbackIntervalCtrl_);
+			playbackPn_.Controls.Add(playbackIntervalLb_);
+			playbackPn_.Dock = System.Windows.Forms.DockStyle.Top;
+			playbackPn_.Location = new System.Drawing.Point(0, 192);
+			playbackPn_.Name = "playbackPn_";
+			playbackPn_.Size = new System.Drawing.Size(316, 48);
+			playbackPn_.TabIndex = 29;
 			// 
 			// SubscribePN
 			// 
-			this.subscribePn_.Controls.Add(this.updateIntervalLb_);
-			this.subscribePn_.Controls.Add(this.updateIntervalUnitsLb_);
-			this.subscribePn_.Controls.Add(this.updateIntervalCtrl_);
-			this.subscribePn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.subscribePn_.Location = new System.Drawing.Point(0, 168);
-			this.subscribePn_.Name = "subscribePn_";
-			this.subscribePn_.Size = new System.Drawing.Size(316, 24);
-			this.subscribePn_.TabIndex = 30;
+			subscribePn_.Controls.Add(updateIntervalLb_);
+			subscribePn_.Controls.Add(updateIntervalUnitsLb_);
+			subscribePn_.Controls.Add(updateIntervalCtrl_);
+			subscribePn_.Dock = System.Windows.Forms.DockStyle.Top;
+			subscribePn_.Location = new System.Drawing.Point(0, 168);
+			subscribePn_.Name = "subscribePn_";
+			subscribePn_.Size = new System.Drawing.Size(316, 24);
+			subscribePn_.TabIndex = 30;
 			// 
 			// ProcessedPN
 			// 
-			this.processedPn_.Controls.Add(this.resampleIntervalLb_);
-			this.processedPn_.Controls.Add(this.resampleIntervalCtrl_);
-			this.processedPn_.Controls.Add(this.resampleIntervalUnitsLb_);
-			this.processedPn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.processedPn_.Location = new System.Drawing.Point(0, 144);
-			this.processedPn_.Name = "processedPn_";
-			this.processedPn_.Size = new System.Drawing.Size(316, 24);
-			this.processedPn_.TabIndex = 31;
+			processedPn_.Controls.Add(resampleIntervalLb_);
+			processedPn_.Controls.Add(resampleIntervalCtrl_);
+			processedPn_.Controls.Add(resampleIntervalUnitsLb_);
+			processedPn_.Dock = System.Windows.Forms.DockStyle.Top;
+			processedPn_.Location = new System.Drawing.Point(0, 144);
+			processedPn_.Name = "processedPn_";
+			processedPn_.Size = new System.Drawing.Size(316, 24);
+			processedPn_.TabIndex = 31;
 			// 
 			// RawPN
 			// 
-			this.rawPn_.Controls.Add(this.includeBoundsCb_);
-			this.rawPn_.Controls.Add(this.includeBoundsLb_);
-			this.rawPn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.rawPn_.Location = new System.Drawing.Point(0, 120);
-			this.rawPn_.Name = "rawPn_";
-			this.rawPn_.Size = new System.Drawing.Size(316, 24);
-			this.rawPn_.TabIndex = 32;
+			rawPn_.Controls.Add(includeBoundsCb_);
+			rawPn_.Controls.Add(includeBoundsLb_);
+			rawPn_.Dock = System.Windows.Forms.DockStyle.Top;
+			rawPn_.Location = new System.Drawing.Point(0, 120);
+			rawPn_.Name = "rawPn_";
+			rawPn_.Size = new System.Drawing.Size(316, 24);
+			rawPn_.TabIndex = 32;
 			// 
 			// MaxValuesPN
 			// 
-			this.maxValuesPn_.Controls.Add(this.maxValuesCtrl_);
-			this.maxValuesPn_.Controls.Add(this.maxValuesLb_);
-			this.maxValuesPn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.maxValuesPn_.Location = new System.Drawing.Point(0, 96);
-			this.maxValuesPn_.Name = "maxValuesPn_";
-			this.maxValuesPn_.Size = new System.Drawing.Size(316, 24);
-			this.maxValuesPn_.TabIndex = 33;
+			maxValuesPn_.Controls.Add(maxValuesCtrl_);
+			maxValuesPn_.Controls.Add(maxValuesLb_);
+			maxValuesPn_.Dock = System.Windows.Forms.DockStyle.Top;
+			maxValuesPn_.Location = new System.Drawing.Point(0, 96);
+			maxValuesPn_.Name = "maxValuesPn_";
+			maxValuesPn_.Size = new System.Drawing.Size(316, 24);
+			maxValuesPn_.TabIndex = 33;
 			// 
 			// EndTimePN
 			// 
-			this.endTimePn_.Controls.Add(this.endTimeSpecifiedCb_);
-			this.endTimePn_.Controls.Add(this.endTimeLb_);
-			this.endTimePn_.Controls.Add(this.endTimeCtrl_);
-			this.endTimePn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.endTimePn_.Location = new System.Drawing.Point(0, 72);
-			this.endTimePn_.Name = "endTimePn_";
-			this.endTimePn_.Size = new System.Drawing.Size(316, 24);
-			this.endTimePn_.TabIndex = 34;
+			endTimePn_.Controls.Add(endTimeSpecifiedCb_);
+			endTimePn_.Controls.Add(endTimeLb_);
+			endTimePn_.Controls.Add(endTimeCtrl_);
+			endTimePn_.Dock = System.Windows.Forms.DockStyle.Top;
+			endTimePn_.Location = new System.Drawing.Point(0, 72);
+			endTimePn_.Name = "endTimePn_";
+			endTimePn_.Size = new System.Drawing.Size(316, 24);
+			endTimePn_.TabIndex = 34;
 			// 
 			// NamePN
 			// 
-			this.namePn_.Controls.Add(this.nameLb_);
-			this.namePn_.Controls.Add(this.nameTb_);
-			this.namePn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.namePn_.Location = new System.Drawing.Point(0, 0);
-			this.namePn_.Name = "namePn_";
-			this.namePn_.Size = new System.Drawing.Size(316, 24);
-			this.namePn_.TabIndex = 36;
+			namePn_.Controls.Add(nameLb_);
+			namePn_.Controls.Add(nameTb_);
+			namePn_.Dock = System.Windows.Forms.DockStyle.Top;
+			namePn_.Location = new System.Drawing.Point(0, 0);
+			namePn_.Name = "namePn_";
+			namePn_.Size = new System.Drawing.Size(316, 24);
+			namePn_.TabIndex = 36;
 			// 
 			// AggregatePN
 			// 
-			this.aggregatePn_.Controls.Add(this.aggregateLb_);
-			this.aggregatePn_.Controls.Add(this.aggregateCb_);
-			this.aggregatePn_.Controls.Add(this.aggregateSpecifiedCb_);
-			this.aggregatePn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.aggregatePn_.Location = new System.Drawing.Point(0, 24);
-			this.aggregatePn_.Name = "aggregatePn_";
-			this.aggregatePn_.Size = new System.Drawing.Size(316, 24);
-			this.aggregatePn_.TabIndex = 37;
+			aggregatePn_.Controls.Add(aggregateLb_);
+			aggregatePn_.Controls.Add(aggregateCb_);
+			aggregatePn_.Controls.Add(aggregateSpecifiedCb_);
+			aggregatePn_.Dock = System.Windows.Forms.DockStyle.Top;
+			aggregatePn_.Location = new System.Drawing.Point(0, 24);
+			aggregatePn_.Name = "aggregatePn_";
+			aggregatePn_.Size = new System.Drawing.Size(316, 24);
+			aggregatePn_.TabIndex = 37;
 			// 
 			// StartTimePN
 			// 
-			this.startTimePn_.Controls.Add(this.startTimeSpecifiedCb_);
-			this.startTimePn_.Controls.Add(this.startTimeCtrl_);
-			this.startTimePn_.Controls.Add(this.startTimeLb_);
-			this.startTimePn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.startTimePn_.Location = new System.Drawing.Point(0, 48);
-			this.startTimePn_.Name = "startTimePn_";
-			this.startTimePn_.Size = new System.Drawing.Size(316, 24);
-			this.startTimePn_.TabIndex = 38;
+			startTimePn_.Controls.Add(startTimeSpecifiedCb_);
+			startTimePn_.Controls.Add(startTimeCtrl_);
+			startTimePn_.Controls.Add(startTimeLb_);
+			startTimePn_.Dock = System.Windows.Forms.DockStyle.Top;
+			startTimePn_.Location = new System.Drawing.Point(0, 48);
+			startTimePn_.Name = "startTimePn_";
+			startTimePn_.Size = new System.Drawing.Size(316, 24);
+			startTimePn_.TabIndex = 38;
 			// 
 			// TimestampsPN
 			// 
-			this.timestampsPn_.Controls.Add(this.timestampsCtrl_);
-			this.timestampsPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.timestampsPn_.Location = new System.Drawing.Point(0, 240);
-			this.timestampsPn_.Name = "timestampsPn_";
-			this.timestampsPn_.Size = new System.Drawing.Size(316, 256);
-			this.timestampsPn_.TabIndex = 39;
+			timestampsPn_.Controls.Add(timestampsCtrl_);
+			timestampsPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			timestampsPn_.Location = new System.Drawing.Point(0, 240);
+			timestampsPn_.Name = "timestampsPn_";
+			timestampsPn_.Size = new System.Drawing.Size(316, 256);
+			timestampsPn_.TabIndex = 39;
 			// 
 			// TimestampsCTRL
 			// 
-			this.timestampsCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.timestampsCtrl_.Location = new System.Drawing.Point(0, 0);
-			this.timestampsCtrl_.Name = "timestampsCtrl_";
-			this.timestampsCtrl_.Size = new System.Drawing.Size(316, 256);
-			this.timestampsCtrl_.TabIndex = 0;
+			timestampsCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			timestampsCtrl_.Location = new System.Drawing.Point(0, 0);
+			timestampsCtrl_.Name = "timestampsCtrl_";
+			timestampsCtrl_.Size = new System.Drawing.Size(316, 256);
+			timestampsCtrl_.TabIndex = 0;
 			// 
 			// TrendEditCtrl
 			// 
-			this.Controls.Add(this.timestampsPn_);
-			this.Controls.Add(this.playbackPn_);
-			this.Controls.Add(this.subscribePn_);
-			this.Controls.Add(this.processedPn_);
-			this.Controls.Add(this.rawPn_);
-			this.Controls.Add(this.maxValuesPn_);
-			this.Controls.Add(this.endTimePn_);
-			this.Controls.Add(this.startTimePn_);
-			this.Controls.Add(this.aggregatePn_);
-			this.Controls.Add(this.namePn_);
-			this.Name = "TrendEditCtrl";
-			this.Size = new System.Drawing.Size(316, 496);
-			((System.ComponentModel.ISupportInitialize)(this.maxValuesCtrl_)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.resampleIntervalCtrl_)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.updateIntervalCtrl_)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.playbackDurationCtrl_)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.playbackIntervalCtrl_)).EndInit();
-			this.playbackPn_.ResumeLayout(false);
-			this.subscribePn_.ResumeLayout(false);
-			this.processedPn_.ResumeLayout(false);
-			this.rawPn_.ResumeLayout(false);
-			this.maxValuesPn_.ResumeLayout(false);
-			this.endTimePn_.ResumeLayout(false);
-			this.namePn_.ResumeLayout(false);
-			this.aggregatePn_.ResumeLayout(false);
-			this.startTimePn_.ResumeLayout(false);
-			this.timestampsPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			Controls.Add(timestampsPn_);
+			Controls.Add(playbackPn_);
+			Controls.Add(subscribePn_);
+			Controls.Add(processedPn_);
+			Controls.Add(rawPn_);
+			Controls.Add(maxValuesPn_);
+			Controls.Add(endTimePn_);
+			Controls.Add(startTimePn_);
+			Controls.Add(aggregatePn_);
+			Controls.Add(namePn_);
+			Name = "TrendEditCtrl";
+			Size = new System.Drawing.Size(316, 496);
+			((System.ComponentModel.ISupportInitialize)(maxValuesCtrl_)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(resampleIntervalCtrl_)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(updateIntervalCtrl_)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(playbackDurationCtrl_)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(playbackIntervalCtrl_)).EndInit();
+			playbackPn_.ResumeLayout(false);
+			subscribePn_.ResumeLayout(false);
+			processedPn_.ResumeLayout(false);
+			rawPn_.ResumeLayout(false);
+			maxValuesPn_.ResumeLayout(false);
+			endTimePn_.ResumeLayout(false);
+			namePn_.ResumeLayout(false);
+			aggregatePn_.ResumeLayout(false);
+			startTimePn_.ResumeLayout(false);
+			timestampsPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

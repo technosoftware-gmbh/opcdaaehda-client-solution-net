@@ -113,27 +113,27 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			this.EnumCB = new System.Windows.Forms.ComboBox();
-			this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
-			this.SuspendLayout();
+			components = new System.ComponentModel.Container();
+			EnumCB = new System.Windows.Forms.ComboBox();
+			ToolTips = new System.Windows.Forms.ToolTip(components);
+			SuspendLayout();
 			// 
 			// EnumCB
 			// 
-			this.EnumCB.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.EnumCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.EnumCB.Location = new System.Drawing.Point(0, 0);
-			this.EnumCB.Name = "EnumCB";
-			this.EnumCB.Size = new System.Drawing.Size(152, 21);
-			this.EnumCB.TabIndex = 0;
-			this.EnumCB.SelectedIndexChanged += new System.EventHandler(this.EnumCB_SelectedIndexChanged);
+			EnumCB.Dock = System.Windows.Forms.DockStyle.Fill;
+			EnumCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			EnumCB.Location = new System.Drawing.Point(0, 0);
+			EnumCB.Name = "EnumCB";
+			EnumCB.Size = new System.Drawing.Size(152, 21);
+			EnumCB.TabIndex = 0;
+			EnumCB.SelectedIndexChanged += new System.EventHandler(EnumCB_SelectedIndexChanged);
 			// 
 			// EnumCtrl
 			// 
-			this.Controls.Add(this.EnumCB);
-			this.Name = "EnumCtrl";
-			this.Size = new System.Drawing.Size(152, 24);
-			this.ResumeLayout(false);
+			Controls.Add(EnumCB);
+			Name = "EnumCtrl";
+			Size = new System.Drawing.Size(152, 24);
+			ResumeLayout(false);
 
 		}
 		#endregion

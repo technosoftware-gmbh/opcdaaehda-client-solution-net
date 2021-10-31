@@ -88,153 +88,153 @@ namespace SampleClients.Da.Subscription
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.rightPn_ = new System.Windows.Forms.Panel();
-			this.resultsCtrl_ = new ResultListViewCtrl();
-			this.itemsCtrl_ = new ItemListEditCtrl();
-			this.leftPn_ = new System.Windows.Forms.Panel();
-			this.browseCtrl_ = new BrowseTreeCtrl();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.optionsBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.backBtn_ = new System.Windows.Forms.Button();
-			this.nextBtn_ = new System.Windows.Forms.Button();
-			this.doneBtn_ = new System.Windows.Forms.Button();
-			this.splitterV_ = new System.Windows.Forms.Splitter();
-			this.rightPn_.SuspendLayout();
-			this.leftPn_.SuspendLayout();
-			this.buttonsPn_.SuspendLayout();
-			this.SuspendLayout();
+			rightPn_ = new System.Windows.Forms.Panel();
+			resultsCtrl_ = new ResultListViewCtrl();
+			itemsCtrl_ = new ItemListEditCtrl();
+			leftPn_ = new System.Windows.Forms.Panel();
+			browseCtrl_ = new BrowseTreeCtrl();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			optionsBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			backBtn_ = new System.Windows.Forms.Button();
+			nextBtn_ = new System.Windows.Forms.Button();
+			doneBtn_ = new System.Windows.Forms.Button();
+			splitterV_ = new System.Windows.Forms.Splitter();
+			rightPn_.SuspendLayout();
+			leftPn_.SuspendLayout();
+			buttonsPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// RightPN
 			// 
-			this.rightPn_.Controls.Add(this.resultsCtrl_);
-			this.rightPn_.Controls.Add(this.itemsCtrl_);
-			this.rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rightPn_.DockPadding.Right = 4;
-			this.rightPn_.DockPadding.Top = 4;
-			this.rightPn_.Location = new System.Drawing.Point(253, 0);
-			this.rightPn_.Name = "rightPn_";
-			this.rightPn_.Size = new System.Drawing.Size(539, 272);
-			this.rightPn_.TabIndex = 6;
+			rightPn_.Controls.Add(resultsCtrl_);
+			rightPn_.Controls.Add(itemsCtrl_);
+			rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			rightPn_.DockPadding.Right = 4;
+			rightPn_.DockPadding.Top = 4;
+			rightPn_.Location = new System.Drawing.Point(253, 0);
+			rightPn_.Name = "rightPn_";
+			rightPn_.Size = new System.Drawing.Size(539, 272);
+			rightPn_.TabIndex = 6;
 			// 
 			// ResultsCTRL
 			// 
-			this.resultsCtrl_.AllowDrop = true;
-			this.resultsCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.resultsCtrl_.Location = new System.Drawing.Point(0, 4);
-			this.resultsCtrl_.Name = "resultsCtrl_";
-			this.resultsCtrl_.Size = new System.Drawing.Size(535, 268);
-			this.resultsCtrl_.TabIndex = 1;
+			resultsCtrl_.AllowDrop = true;
+			resultsCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			resultsCtrl_.Location = new System.Drawing.Point(0, 4);
+			resultsCtrl_.Name = "resultsCtrl_";
+			resultsCtrl_.Size = new System.Drawing.Size(535, 268);
+			resultsCtrl_.TabIndex = 1;
 			// 
 			// ItemsCTRL
 			// 
-			this.itemsCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.itemsCtrl_.Location = new System.Drawing.Point(0, 4);
-			this.itemsCtrl_.Name = "itemsCtrl_";
-			this.itemsCtrl_.Size = new System.Drawing.Size(535, 268);
-			this.itemsCtrl_.TabIndex = 0;
+			itemsCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			itemsCtrl_.Location = new System.Drawing.Point(0, 4);
+			itemsCtrl_.Name = "itemsCtrl_";
+			itemsCtrl_.Size = new System.Drawing.Size(535, 268);
+			itemsCtrl_.TabIndex = 0;
 			// 
 			// LeftPN
 			// 
-			this.leftPn_.Controls.Add(this.browseCtrl_);
-			this.leftPn_.Dock = System.Windows.Forms.DockStyle.Left;
-			this.leftPn_.DockPadding.Left = 4;
-			this.leftPn_.DockPadding.Top = 4;
-			this.leftPn_.Location = new System.Drawing.Point(0, 0);
-			this.leftPn_.Name = "leftPn_";
-			this.leftPn_.Size = new System.Drawing.Size(250, 272);
-			this.leftPn_.TabIndex = 11;
+			leftPn_.Controls.Add(browseCtrl_);
+			leftPn_.Dock = System.Windows.Forms.DockStyle.Left;
+			leftPn_.DockPadding.Left = 4;
+			leftPn_.DockPadding.Top = 4;
+			leftPn_.Location = new System.Drawing.Point(0, 0);
+			leftPn_.Name = "leftPn_";
+			leftPn_.Size = new System.Drawing.Size(250, 272);
+			leftPn_.TabIndex = 11;
 			// 
 			// BrowseCTRL
 			// 
-			this.browseCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.browseCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.browseCtrl_.Name = "browseCtrl_";
-			this.browseCtrl_.Size = new System.Drawing.Size(246, 268);
-			this.browseCtrl_.TabIndex = 0;
+			browseCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			browseCtrl_.Location = new System.Drawing.Point(4, 4);
+			browseCtrl_.Name = "browseCtrl_";
+			browseCtrl_.Size = new System.Drawing.Size(246, 268);
+			browseCtrl_.TabIndex = 0;
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.optionsBtn_);
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Controls.Add(this.backBtn_);
-			this.buttonsPn_.Controls.Add(this.nextBtn_);
-			this.buttonsPn_.Controls.Add(this.doneBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 272);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(792, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(optionsBtn_);
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Controls.Add(backBtn_);
+			buttonsPn_.Controls.Add(nextBtn_);
+			buttonsPn_.Controls.Add(doneBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 272);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(792, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// OptionsBTN
 			// 
-			this.optionsBtn_.Location = new System.Drawing.Point(5, 8);
-			this.optionsBtn_.Name = "optionsBtn_";
-			this.optionsBtn_.TabIndex = 7;
-			this.optionsBtn_.Text = "Options...";
-			this.optionsBtn_.Click += new System.EventHandler(this.OptionsBTN_Click);
+			optionsBtn_.Location = new System.Drawing.Point(5, 8);
+			optionsBtn_.Name = "optionsBtn_";
+			optionsBtn_.TabIndex = 7;
+			optionsBtn_.Text = "Options...";
+			optionsBtn_.Click += new System.EventHandler(OptionsBTN_Click);
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(712, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 4;
-			this.cancelBtn_.Text = "Cancel";
-			this.cancelBtn_.Click += new System.EventHandler(this.DoneBTN_Click);
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(712, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 4;
+			cancelBtn_.Text = "Cancel";
+			cancelBtn_.Click += new System.EventHandler(DoneBTN_Click);
 			// 
 			// BackBTN
 			// 
-			this.backBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.backBtn_.Location = new System.Drawing.Point(552, 8);
-			this.backBtn_.Name = "backBtn_";
-			this.backBtn_.TabIndex = 3;
-			this.backBtn_.Text = "< Back";
-			this.backBtn_.Click += new System.EventHandler(this.BackBTN_Click);
+			backBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			backBtn_.Location = new System.Drawing.Point(552, 8);
+			backBtn_.Name = "backBtn_";
+			backBtn_.TabIndex = 3;
+			backBtn_.Text = "< Back";
+			backBtn_.Click += new System.EventHandler(BackBTN_Click);
 			// 
 			// NextBTN
 			// 
-			this.nextBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.nextBtn_.Location = new System.Drawing.Point(632, 8);
-			this.nextBtn_.Name = "nextBtn_";
-			this.nextBtn_.TabIndex = 2;
-			this.nextBtn_.Text = "Next >";
-			this.nextBtn_.Click += new System.EventHandler(this.NextBTN_Click);
+			nextBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			nextBtn_.Location = new System.Drawing.Point(632, 8);
+			nextBtn_.Name = "nextBtn_";
+			nextBtn_.TabIndex = 2;
+			nextBtn_.Text = "Next >";
+			nextBtn_.Click += new System.EventHandler(NextBTN_Click);
 			// 
 			// DoneBTN
 			// 
-			this.doneBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.doneBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.doneBtn_.Location = new System.Drawing.Point(712, 8);
-			this.doneBtn_.Name = "doneBtn_";
-			this.doneBtn_.TabIndex = 0;
-			this.doneBtn_.Text = "Done";
-			this.doneBtn_.Click += new System.EventHandler(this.DoneBTN_Click);
+			doneBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			doneBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			doneBtn_.Location = new System.Drawing.Point(712, 8);
+			doneBtn_.Name = "doneBtn_";
+			doneBtn_.TabIndex = 0;
+			doneBtn_.Text = "Done";
+			doneBtn_.Click += new System.EventHandler(DoneBTN_Click);
 			// 
 			// SplitterV
 			// 
-			this.splitterV_.Location = new System.Drawing.Point(250, 0);
-			this.splitterV_.Name = "splitterV_";
-			this.splitterV_.Size = new System.Drawing.Size(3, 272);
-			this.splitterV_.TabIndex = 12;
-			this.splitterV_.TabStop = false;
+			splitterV_.Location = new System.Drawing.Point(250, 0);
+			splitterV_.Name = "splitterV_";
+			splitterV_.Size = new System.Drawing.Size(3, 272);
+			splitterV_.TabIndex = 12;
+			splitterV_.TabStop = false;
 			// 
 			// SubscriptionAddItemsDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(792, 308);
-			this.Controls.Add(this.rightPn_);
-			this.Controls.Add(this.splitterV_);
-			this.Controls.Add(this.leftPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Name = "SubscriptionAddItemsDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Add Subscription Items";
-			this.rightPn_.ResumeLayout(false);
-			this.leftPn_.ResumeLayout(false);
-			this.buttonsPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(792, 308);
+			Controls.Add(rightPn_);
+			Controls.Add(splitterV_);
+			Controls.Add(leftPn_);
+			Controls.Add(buttonsPn_);
+			Name = "SubscriptionAddItemsDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Add Subscription Items";
+			rightPn_.ResumeLayout(false);
+			leftPn_.ResumeLayout(false);
+			buttonsPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

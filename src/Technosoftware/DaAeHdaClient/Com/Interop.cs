@@ -639,10 +639,6 @@ namespace Technosoftware.DaAeHdaClient.Com
                     licenseKey,
                     out instance);
             }
-            catch (Exception e)
-            {
-                throw e;
-            }
             finally
             {
                 serverInfo.Deallocate();

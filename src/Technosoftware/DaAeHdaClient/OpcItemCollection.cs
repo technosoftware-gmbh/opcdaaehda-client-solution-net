@@ -79,7 +79,7 @@ namespace Technosoftware.DaAeHdaClient
                     }
                 }
 
-                this.itemIds_ = (OpcItem[])itemIds.ToArray(typeof(OpcItem));
+                itemIds_ = (OpcItem[])itemIds.ToArray(typeof(OpcItem));
             }
         }
 

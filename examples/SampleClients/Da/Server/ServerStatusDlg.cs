@@ -84,207 +84,207 @@ namespace SampleClients.Da.Server
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.startTimeTb_ = new System.Windows.Forms.TextBox();
-			this.startTimeLb_ = new System.Windows.Forms.Label();
-			this.productVersionLb_ = new System.Windows.Forms.Label();
-			this.productVersionTb_ = new System.Windows.Forms.TextBox();
-			this.serverStateLb_ = new System.Windows.Forms.Label();
-			this.serverStateTb_ = new System.Windows.Forms.TextBox();
-			this.vendorInfoLb_ = new System.Windows.Forms.Label();
-			this.currentTimeLb_ = new System.Windows.Forms.Label();
-			this.vendorInfoTb_ = new System.Windows.Forms.TextBox();
-			this.currentTimeTb_ = new System.Windows.Forms.TextBox();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.updateBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.statusInfoTb_ = new System.Windows.Forms.TextBox();
-			this.statusInfoLb_ = new System.Windows.Forms.Label();
-			this.label1_ = new System.Windows.Forms.Label();
-			this.lastUpdateTimeTb_ = new System.Windows.Forms.TextBox();
-			this.buttonsPn_.SuspendLayout();
-			this.SuspendLayout();
+			startTimeTb_ = new System.Windows.Forms.TextBox();
+			startTimeLb_ = new System.Windows.Forms.Label();
+			productVersionLb_ = new System.Windows.Forms.Label();
+			productVersionTb_ = new System.Windows.Forms.TextBox();
+			serverStateLb_ = new System.Windows.Forms.Label();
+			serverStateTb_ = new System.Windows.Forms.TextBox();
+			vendorInfoLb_ = new System.Windows.Forms.Label();
+			currentTimeLb_ = new System.Windows.Forms.Label();
+			vendorInfoTb_ = new System.Windows.Forms.TextBox();
+			currentTimeTb_ = new System.Windows.Forms.TextBox();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			updateBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			statusInfoTb_ = new System.Windows.Forms.TextBox();
+			statusInfoLb_ = new System.Windows.Forms.Label();
+			label1_ = new System.Windows.Forms.Label();
+			lastUpdateTimeTb_ = new System.Windows.Forms.TextBox();
+			buttonsPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// StartTimeTB
 			// 
-			this.startTimeTb_.Location = new System.Drawing.Point(100, 84);
-			this.startTimeTb_.Name = "startTimeTb_";
-			this.startTimeTb_.ReadOnly = true;
-			this.startTimeTb_.Size = new System.Drawing.Size(136, 20);
-			this.startTimeTb_.TabIndex = 12;
+			startTimeTb_.Location = new System.Drawing.Point(100, 84);
+			startTimeTb_.Name = "startTimeTb_";
+			startTimeTb_.ReadOnly = true;
+			startTimeTb_.Size = new System.Drawing.Size(136, 20);
+			startTimeTb_.TabIndex = 12;
 			// 
 			// StartTimeLB
 			// 
-			this.startTimeLb_.Location = new System.Drawing.Point(4, 84);
-			this.startTimeLb_.Name = "startTimeLb_";
-			this.startTimeLb_.Size = new System.Drawing.Size(96, 20);
-			this.startTimeLb_.TabIndex = 11;
-			this.startTimeLb_.Text = "Start Time";
-			this.startTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			startTimeLb_.Location = new System.Drawing.Point(4, 84);
+			startTimeLb_.Name = "startTimeLb_";
+			startTimeLb_.Size = new System.Drawing.Size(96, 20);
+			startTimeLb_.TabIndex = 11;
+			startTimeLb_.Text = "Start Time";
+			startTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ProductVersionLB
 			// 
-			this.productVersionLb_.Location = new System.Drawing.Point(4, 24);
-			this.productVersionLb_.Name = "productVersionLb_";
-			this.productVersionLb_.Size = new System.Drawing.Size(96, 20);
-			this.productVersionLb_.TabIndex = 3;
-			this.productVersionLb_.Text = "Product Version";
-			this.productVersionLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			productVersionLb_.Location = new System.Drawing.Point(4, 24);
+			productVersionLb_.Name = "productVersionLb_";
+			productVersionLb_.Size = new System.Drawing.Size(96, 20);
+			productVersionLb_.TabIndex = 3;
+			productVersionLb_.Text = "Product Version";
+			productVersionLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ProductVersionTB
 			// 
-			this.productVersionTb_.Location = new System.Drawing.Point(100, 24);
-			this.productVersionTb_.Name = "productVersionTb_";
-			this.productVersionTb_.ReadOnly = true;
-			this.productVersionTb_.Size = new System.Drawing.Size(136, 20);
-			this.productVersionTb_.TabIndex = 4;
+			productVersionTb_.Location = new System.Drawing.Point(100, 24);
+			productVersionTb_.Name = "productVersionTb_";
+			productVersionTb_.ReadOnly = true;
+			productVersionTb_.Size = new System.Drawing.Size(136, 20);
+			productVersionTb_.TabIndex = 4;
 			// 
 			// ServerStateLB
 			// 
-			this.serverStateLb_.Location = new System.Drawing.Point(4, 44);
-			this.serverStateLb_.Name = "serverStateLb_";
-			this.serverStateLb_.Size = new System.Drawing.Size(96, 20);
-			this.serverStateLb_.TabIndex = 5;
-			this.serverStateLb_.Text = "Server State";
-			this.serverStateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			serverStateLb_.Location = new System.Drawing.Point(4, 44);
+			serverStateLb_.Name = "serverStateLb_";
+			serverStateLb_.Size = new System.Drawing.Size(96, 20);
+			serverStateLb_.TabIndex = 5;
+			serverStateLb_.Text = "Server State";
+			serverStateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ServerStateTB
 			// 
-			this.serverStateTb_.Location = new System.Drawing.Point(100, 44);
-			this.serverStateTb_.Name = "serverStateTb_";
-			this.serverStateTb_.ReadOnly = true;
-			this.serverStateTb_.Size = new System.Drawing.Size(136, 20);
-			this.serverStateTb_.TabIndex = 6;
+			serverStateTb_.Location = new System.Drawing.Point(100, 44);
+			serverStateTb_.Name = "serverStateTb_";
+			serverStateTb_.ReadOnly = true;
+			serverStateTb_.Size = new System.Drawing.Size(136, 20);
+			serverStateTb_.TabIndex = 6;
 			// 
 			// VendorInfoLB
 			// 
-			this.vendorInfoLb_.Location = new System.Drawing.Point(4, 4);
-			this.vendorInfoLb_.Name = "vendorInfoLb_";
-			this.vendorInfoLb_.Size = new System.Drawing.Size(96, 20);
-			this.vendorInfoLb_.TabIndex = 1;
-			this.vendorInfoLb_.Text = "Vendor Info";
-			this.vendorInfoLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			vendorInfoLb_.Location = new System.Drawing.Point(4, 4);
+			vendorInfoLb_.Name = "vendorInfoLb_";
+			vendorInfoLb_.Size = new System.Drawing.Size(96, 20);
+			vendorInfoLb_.TabIndex = 1;
+			vendorInfoLb_.Text = "Vendor Info";
+			vendorInfoLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// CurrentTimeLB
 			// 
-			this.currentTimeLb_.Location = new System.Drawing.Point(4, 104);
-			this.currentTimeLb_.Name = "currentTimeLb_";
-			this.currentTimeLb_.Size = new System.Drawing.Size(96, 20);
-			this.currentTimeLb_.TabIndex = 13;
-			this.currentTimeLb_.Text = "Current Time";
-			this.currentTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			currentTimeLb_.Location = new System.Drawing.Point(4, 104);
+			currentTimeLb_.Name = "currentTimeLb_";
+			currentTimeLb_.Size = new System.Drawing.Size(96, 20);
+			currentTimeLb_.TabIndex = 13;
+			currentTimeLb_.Text = "Current Time";
+			currentTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// VendorInfoTB
 			// 
-            this.vendorInfoTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            vendorInfoTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.vendorInfoTb_.Location = new System.Drawing.Point(100, 4);
-			this.vendorInfoTb_.Name = "vendorInfoTb_";
-			this.vendorInfoTb_.ReadOnly = true;
-			this.vendorInfoTb_.Size = new System.Drawing.Size(238, 20);
-			this.vendorInfoTb_.TabIndex = 2;
+			vendorInfoTb_.Location = new System.Drawing.Point(100, 4);
+			vendorInfoTb_.Name = "vendorInfoTb_";
+			vendorInfoTb_.ReadOnly = true;
+			vendorInfoTb_.Size = new System.Drawing.Size(238, 20);
+			vendorInfoTb_.TabIndex = 2;
 			// 
 			// CurrentTimeTB
 			// 
-			this.currentTimeTb_.Location = new System.Drawing.Point(100, 104);
-			this.currentTimeTb_.Name = "currentTimeTb_";
-			this.currentTimeTb_.ReadOnly = true;
-			this.currentTimeTb_.Size = new System.Drawing.Size(136, 20);
-			this.currentTimeTb_.TabIndex = 14;
+			currentTimeTb_.Location = new System.Drawing.Point(100, 104);
+			currentTimeTb_.Name = "currentTimeTb_";
+			currentTimeTb_.ReadOnly = true;
+			currentTimeTb_.Size = new System.Drawing.Size(136, 20);
+			currentTimeTb_.TabIndex = 14;
 			// 
 			// ButtonsPN
 			// 
-            this.buttonsPn_.Controls.Add(this.updateBtn_);
-            this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonsPn_.Location = new System.Drawing.Point(0, 142);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(342, 36);
-			this.buttonsPn_.TabIndex = 0;
+            buttonsPn_.Controls.Add(updateBtn_);
+            buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+            buttonsPn_.Location = new System.Drawing.Point(0, 142);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(342, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// UpdateBTN
 			// 
-            this.updateBtn_.Location = new System.Drawing.Point(181, 8);
-			this.updateBtn_.Name = "updateBtn_";
-            this.updateBtn_.Size = new System.Drawing.Size(75, 23);
-			this.updateBtn_.TabIndex = 1;
-			this.updateBtn_.Text = "Update";
-			this.updateBtn_.Click += new System.EventHandler(this.UpdateBTN_Click);
+            updateBtn_.Location = new System.Drawing.Point(181, 8);
+			updateBtn_.Name = "updateBtn_";
+            updateBtn_.Size = new System.Drawing.Size(75, 23);
+			updateBtn_.TabIndex = 1;
+			updateBtn_.Text = "Update";
+			updateBtn_.Click += new System.EventHandler(UpdateBTN_Click);
 			// 
 			// CancelBTN
 			// 
-            this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(262, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-            this.cancelBtn_.Size = new System.Drawing.Size(75, 23);
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Close";
+            cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(262, 8);
+			cancelBtn_.Name = "cancelBtn_";
+            cancelBtn_.Size = new System.Drawing.Size(75, 23);
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Close";
 			// 
 			// StatusInfoTB
 			// 
-            this.statusInfoTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            statusInfoTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.statusInfoTb_.Location = new System.Drawing.Point(100, 64);
-			this.statusInfoTb_.Name = "statusInfoTb_";
-			this.statusInfoTb_.ReadOnly = true;
-			this.statusInfoTb_.Size = new System.Drawing.Size(238, 20);
-			this.statusInfoTb_.TabIndex = 17;
+			statusInfoTb_.Location = new System.Drawing.Point(100, 64);
+			statusInfoTb_.Name = "statusInfoTb_";
+			statusInfoTb_.ReadOnly = true;
+			statusInfoTb_.Size = new System.Drawing.Size(238, 20);
+			statusInfoTb_.TabIndex = 17;
 			// 
 			// StatusInfoLB
 			// 
-			this.statusInfoLb_.Location = new System.Drawing.Point(4, 64);
-			this.statusInfoLb_.Name = "statusInfoLb_";
-			this.statusInfoLb_.Size = new System.Drawing.Size(96, 20);
-			this.statusInfoLb_.TabIndex = 18;
-			this.statusInfoLb_.Text = "Status Info";
-			this.statusInfoLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			statusInfoLb_.Location = new System.Drawing.Point(4, 64);
+			statusInfoLb_.Name = "statusInfoLb_";
+			statusInfoLb_.Size = new System.Drawing.Size(96, 20);
+			statusInfoLb_.TabIndex = 18;
+			statusInfoLb_.Text = "Status Info";
+			statusInfoLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// label1
 			// 
-			this.label1_.Location = new System.Drawing.Point(4, 124);
-			this.label1_.Name = "label1_";
-			this.label1_.Size = new System.Drawing.Size(96, 20);
-			this.label1_.TabIndex = 19;
-			this.label1_.Text = "Last Update Time";
-			this.label1_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			label1_.Location = new System.Drawing.Point(4, 124);
+			label1_.Name = "label1_";
+			label1_.Size = new System.Drawing.Size(96, 20);
+			label1_.TabIndex = 19;
+			label1_.Text = "Last Update Time";
+			label1_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// LastUpdateTimeTB
 			// 
-			this.lastUpdateTimeTb_.Location = new System.Drawing.Point(100, 124);
-			this.lastUpdateTimeTb_.Name = "lastUpdateTimeTb_";
-			this.lastUpdateTimeTb_.ReadOnly = true;
-			this.lastUpdateTimeTb_.Size = new System.Drawing.Size(136, 20);
-			this.lastUpdateTimeTb_.TabIndex = 20;
+			lastUpdateTimeTb_.Location = new System.Drawing.Point(100, 124);
+			lastUpdateTimeTb_.Name = "lastUpdateTimeTb_";
+			lastUpdateTimeTb_.ReadOnly = true;
+			lastUpdateTimeTb_.Size = new System.Drawing.Size(136, 20);
+			lastUpdateTimeTb_.TabIndex = 20;
 			// 
 			// ServerStatusDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.cancelBtn_;
-            this.ClientSize = new System.Drawing.Size(342, 178);
-            this.Controls.Add(this.lastUpdateTimeTb_);
-            this.Controls.Add(this.label1_);
-            this.Controls.Add(this.statusInfoLb_);
-            this.Controls.Add(this.statusInfoTb_);
-            this.Controls.Add(this.buttonsPn_);
-            this.Controls.Add(this.startTimeTb_);
-            this.Controls.Add(this.startTimeLb_);
-            this.Controls.Add(this.productVersionLb_);
-            this.Controls.Add(this.productVersionTb_);
-            this.Controls.Add(this.serverStateLb_);
-            this.Controls.Add(this.serverStateTb_);
-            this.Controls.Add(this.vendorInfoLb_);
-            this.Controls.Add(this.currentTimeLb_);
-            this.Controls.Add(this.vendorInfoTb_);
-            this.Controls.Add(this.currentTimeTb_);
-			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(600, 216);
-			this.MinimumSize = new System.Drawing.Size(350, 216);
-			this.Name = "ServerStatusDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Server Status";
-			this.buttonsPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
-            this.PerformLayout();
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = cancelBtn_;
+            ClientSize = new System.Drawing.Size(342, 178);
+            Controls.Add(lastUpdateTimeTb_);
+            Controls.Add(label1_);
+            Controls.Add(statusInfoLb_);
+            Controls.Add(statusInfoTb_);
+            Controls.Add(buttonsPn_);
+            Controls.Add(startTimeTb_);
+            Controls.Add(startTimeLb_);
+            Controls.Add(productVersionLb_);
+            Controls.Add(productVersionTb_);
+            Controls.Add(serverStateLb_);
+            Controls.Add(serverStateTb_);
+            Controls.Add(vendorInfoLb_);
+            Controls.Add(currentTimeLb_);
+            Controls.Add(vendorInfoTb_);
+            Controls.Add(currentTimeTb_);
+			MaximizeBox = false;
+			MaximumSize = new System.Drawing.Size(600, 216);
+			MinimumSize = new System.Drawing.Size(350, 216);
+			Name = "ServerStatusDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Server Status";
+			buttonsPn_.ResumeLayout(false);
+			ResumeLayout(false);
+            PerformLayout();
 
 		}
 		#endregion

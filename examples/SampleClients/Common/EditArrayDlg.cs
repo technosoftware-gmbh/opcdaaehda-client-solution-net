@@ -80,148 +80,148 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.ButtonsPN = new System.Windows.Forms.Panel();
-			this.CancelBTN = new System.Windows.Forms.Button();
-			this.OkBTN = new System.Windows.Forms.Button();
-            this.ValueCTRL = new ValueCtrl();
-			this.MainPN = new System.Windows.Forms.Panel();
-			this.ArrayLV = new System.Windows.Forms.ListView();
-            this.IndexCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ValueCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.PopupMenu = new System.Windows.Forms.ContextMenuStrip();
-			this.ViewMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.Separator01 = new System.Windows.Forms.ToolStripMenuItem();
-			this.InsertMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.DeleteMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.ButtonsPN.SuspendLayout();
-			this.MainPN.SuspendLayout();
-			this.SuspendLayout();
+			ButtonsPN = new System.Windows.Forms.Panel();
+			CancelBTN = new System.Windows.Forms.Button();
+			OkBTN = new System.Windows.Forms.Button();
+            ValueCTRL = new ValueCtrl();
+			MainPN = new System.Windows.Forms.Panel();
+			ArrayLV = new System.Windows.Forms.ListView();
+            IndexCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            ValueCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			PopupMenu = new System.Windows.Forms.ContextMenuStrip();
+			ViewMI = new System.Windows.Forms.ToolStripMenuItem();
+			Separator01 = new System.Windows.Forms.ToolStripMenuItem();
+			InsertMI = new System.Windows.Forms.ToolStripMenuItem();
+			DeleteMI = new System.Windows.Forms.ToolStripMenuItem();
+			ButtonsPN.SuspendLayout();
+			MainPN.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ButtonsPN
 			// 
-			this.ButtonsPN.Controls.Add(this.CancelBTN);
-			this.ButtonsPN.Controls.Add(this.OkBTN);
-			this.ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.ButtonsPN.Location = new System.Drawing.Point(0, 146);
-			this.ButtonsPN.Name = "ButtonsPN";
-			this.ButtonsPN.Size = new System.Drawing.Size(296, 36);
-			this.ButtonsPN.TabIndex = 0;
+			ButtonsPN.Controls.Add(CancelBTN);
+			ButtonsPN.Controls.Add(OkBTN);
+			ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
+			ButtonsPN.Location = new System.Drawing.Point(0, 146);
+			ButtonsPN.Name = "ButtonsPN";
+			ButtonsPN.Size = new System.Drawing.Size(296, 36);
+			ButtonsPN.TabIndex = 0;
 			// 
 			// CancelBTN
 			// 
-			this.CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelBTN.Location = new System.Drawing.Point(216, 8);
-			this.CancelBTN.Name = "CancelBTN";
-            this.CancelBTN.Size = new System.Drawing.Size(75, 23);
-			this.CancelBTN.TabIndex = 0;
-			this.CancelBTN.Text = "Cancel";
-			this.CancelBTN.Click += new System.EventHandler(this.CancelBTN_Click);
+			CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			CancelBTN.Location = new System.Drawing.Point(216, 8);
+			CancelBTN.Name = "CancelBTN";
+            CancelBTN.Size = new System.Drawing.Size(75, 23);
+			CancelBTN.TabIndex = 0;
+			CancelBTN.Text = "Cancel";
+			CancelBTN.Click += new System.EventHandler(CancelBTN_Click);
 			// 
 			// OkBTN
 			// 
-			this.OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.OkBTN.Location = new System.Drawing.Point(135, 6);
-			this.OkBTN.Name = "OkBTN";
-            this.OkBTN.Size = new System.Drawing.Size(75, 23);
-			this.OkBTN.TabIndex = 1;
-			this.OkBTN.Text = "OK";
-			this.OkBTN.Click += new System.EventHandler(this.OkBTN_Click);
+			OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            OkBTN.Location = new System.Drawing.Point(135, 6);
+			OkBTN.Name = "OkBTN";
+            OkBTN.Size = new System.Drawing.Size(75, 23);
+			OkBTN.TabIndex = 1;
+			OkBTN.Text = "OK";
+			OkBTN.Click += new System.EventHandler(OkBTN_Click);
 			// 
 			// ValueCTRL
 			// 
-			this.ValueCTRL.Dock = System.Windows.Forms.DockStyle.Top;
-			this.ValueCTRL.ItemID = null;
-			this.ValueCTRL.Location = new System.Drawing.Point(0, 0);
-			this.ValueCTRL.Name = "ValueCTRL";
-            this.ValueCTRL.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
-			this.ValueCTRL.Size = new System.Drawing.Size(296, 28);
-			this.ValueCTRL.TabIndex = 1;
-            this.ValueCTRL.Value = null;
+			ValueCTRL.Dock = System.Windows.Forms.DockStyle.Top;
+			ValueCTRL.ItemID = null;
+			ValueCTRL.Location = new System.Drawing.Point(0, 0);
+			ValueCTRL.Name = "ValueCTRL";
+            ValueCTRL.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
+			ValueCTRL.Size = new System.Drawing.Size(296, 28);
+			ValueCTRL.TabIndex = 1;
+            ValueCTRL.Value = null;
 			// 
 			// MainPN
 			// 
-			this.MainPN.Controls.Add(this.ArrayLV);
-			this.MainPN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.MainPN.Location = new System.Drawing.Point(0, 28);
-			this.MainPN.Name = "MainPN";
-            this.MainPN.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
-			this.MainPN.Size = new System.Drawing.Size(296, 118);
-			this.MainPN.TabIndex = 2;
+			MainPN.Controls.Add(ArrayLV);
+			MainPN.Dock = System.Windows.Forms.DockStyle.Fill;
+			MainPN.Location = new System.Drawing.Point(0, 28);
+			MainPN.Name = "MainPN";
+            MainPN.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
+			MainPN.Size = new System.Drawing.Size(296, 118);
+			MainPN.TabIndex = 2;
 			// 
 			// ArrayLV
 			// 
-			this.ArrayLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-																					  this.IndexCH,
-																					  this.ValueCH});
-			this.ArrayLV.ContextMenuStrip = this.PopupMenu;
-			this.ArrayLV.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.ArrayLV.FullRowSelect = true;
-			this.ArrayLV.GridLines = true;
-			this.ArrayLV.Location = new System.Drawing.Point(4, 4);
-			this.ArrayLV.Name = "ArrayLV";
-			this.ArrayLV.Size = new System.Drawing.Size(288, 114);
-			this.ArrayLV.TabIndex = 0;
-            this.ArrayLV.UseCompatibleStateImageBehavior = false;
-			this.ArrayLV.View = System.Windows.Forms.View.Details;
-            this.ArrayLV.SelectedIndexChanged += new System.EventHandler(this.ArrayLV_SelectedIndexChanged);
-            this.ArrayLV.DoubleClick += new System.EventHandler(this.ViewMI_Click);
-			this.ArrayLV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrayLV_MouseDown);
+			ArrayLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+																					  IndexCH,
+																					  ValueCH});
+			ArrayLV.ContextMenuStrip = PopupMenu;
+			ArrayLV.Dock = System.Windows.Forms.DockStyle.Fill;
+			ArrayLV.FullRowSelect = true;
+			ArrayLV.GridLines = true;
+			ArrayLV.Location = new System.Drawing.Point(4, 4);
+			ArrayLV.Name = "ArrayLV";
+			ArrayLV.Size = new System.Drawing.Size(288, 114);
+			ArrayLV.TabIndex = 0;
+            ArrayLV.UseCompatibleStateImageBehavior = false;
+			ArrayLV.View = System.Windows.Forms.View.Details;
+            ArrayLV.SelectedIndexChanged += new System.EventHandler(ArrayLV_SelectedIndexChanged);
+            ArrayLV.DoubleClick += new System.EventHandler(ViewMI_Click);
+			ArrayLV.MouseDown += new System.Windows.Forms.MouseEventHandler(ArrayLV_MouseDown);
 			// 
 			// IndexCH
 			// 
-			this.IndexCH.Text = "Index";
-			this.IndexCH.Width = 38;
+			IndexCH.Text = "Index";
+			IndexCH.Width = 38;
 			// 
 			// ValueCH
 			// 
-			this.ValueCH.Text = "Value";
-			this.ValueCH.Width = 246;
+			ValueCH.Text = "Value";
+			ValueCH.Width = 246;
 			// 
 			// PopupMenu
 			// 
-			this.PopupMenu.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.ViewMI,
-																					  this.Separator01,
-																					  this.InsertMI,
-																					  this.DeleteMI});
+			PopupMenu.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  ViewMI,
+																					  Separator01,
+																					  InsertMI,
+																					  DeleteMI});
 			// 
 			// ViewMI
 			// 
-			this.ViewMI.ImageIndex = 0;
-			this.ViewMI.Text = "&View...";
-			this.ViewMI.Click += new System.EventHandler(this.ViewMI_Click);
+			ViewMI.ImageIndex = 0;
+			ViewMI.Text = "&View...";
+			ViewMI.Click += new System.EventHandler(ViewMI_Click);
 			// 
 			// Separator01
 			// 
-			this.Separator01.ImageIndex = 1;
-			this.Separator01.Text = "-";
+			Separator01.ImageIndex = 1;
+			Separator01.Text = "-";
 			// 
 			// InsertMI
 			// 
-			this.InsertMI.ImageIndex = 2;
-			this.InsertMI.Text = "&Insert";
-			this.InsertMI.Click += new System.EventHandler(this.InsertMI_Click);
+			InsertMI.ImageIndex = 2;
+			InsertMI.Text = "&Insert";
+			InsertMI.Click += new System.EventHandler(InsertMI_Click);
 			// 
 			// DeleteMI
 			// 
-			this.DeleteMI.ImageIndex = 3;
-			this.DeleteMI.Text = "&Delete";
-			this.DeleteMI.Click += new System.EventHandler(this.DeleteMI_Click);
+			DeleteMI.ImageIndex = 3;
+			DeleteMI.Text = "&Delete";
+			DeleteMI.Click += new System.EventHandler(DeleteMI_Click);
 			// 
 			// EditArrayDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(296, 182);
-			this.Controls.Add(this.MainPN);
-			this.Controls.Add(this.ValueCTRL);
-			this.Controls.Add(this.ButtonsPN);
-			this.Name = "EditArrayDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Edit Array";
-			this.ButtonsPN.ResumeLayout(false);
-			this.MainPN.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(296, 182);
+			Controls.Add(MainPN);
+			Controls.Add(ValueCTRL);
+			Controls.Add(ButtonsPN);
+			Name = "EditArrayDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Edit Array";
+			ButtonsPN.ResumeLayout(false);
+			MainPN.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

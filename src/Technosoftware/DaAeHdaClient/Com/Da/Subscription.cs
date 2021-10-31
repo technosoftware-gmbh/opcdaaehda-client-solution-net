@@ -25,7 +25,6 @@ using System;
 using System.Collections;
 using System.Runtime.InteropServices;
 using Technosoftware.DaAeHdaClient.Da;
-using Technosoftware.DaAeHdaClient.Com;
 using Technosoftware.DaAeHdaClient.Utilities;
 using OpcRcw.Da;
 #endregion
@@ -816,10 +815,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 {
                     results = BeginRead(itemIDs, items, internalRequest.RequestID, out cancelID);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     callback_.EndRequest(internalRequest);
-                    throw e;
+                    throw;
                 }
 
                 // apply request options.
@@ -907,10 +906,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 {
                     results = BeginWrite(itemIDs, items, internalRequest.RequestID, out cancelID);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     callback_.EndRequest(internalRequest);
-                    throw e;
+                    throw;
                 }
 
                 // apply request options.

@@ -75,142 +75,142 @@ namespace SampleClients.Hda.Item
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.itemNameLb_ = new System.Windows.Forms.Label();
-			this.mainPn_ = new System.Windows.Forms.Panel();
-			this.itemPathTb_ = new System.Windows.Forms.TextBox();
-			this.itemPathLb_ = new System.Windows.Forms.Label();
-			this.aggregateCb_ = new System.Windows.Forms.ComboBox();
-			this.aggregateLb_ = new System.Windows.Forms.Label();
-			this.itemNameTb_ = new System.Windows.Forms.TextBox();
-			this.aggregateSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.buttonsPn_.SuspendLayout();
-			this.mainPn_.SuspendLayout();
-			this.SuspendLayout();
+			okBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			itemNameLb_ = new System.Windows.Forms.Label();
+			mainPn_ = new System.Windows.Forms.Panel();
+			itemPathTb_ = new System.Windows.Forms.TextBox();
+			itemPathLb_ = new System.Windows.Forms.Label();
+			aggregateCb_ = new System.Windows.Forms.ComboBox();
+			aggregateLb_ = new System.Windows.Forms.Label();
+			itemNameTb_ = new System.Windows.Forms.TextBox();
+			aggregateSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			buttonsPn_.SuspendLayout();
+			mainPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okBtn_.Location = new System.Drawing.Point(4, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
+			okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			okBtn_.Location = new System.Drawing.Point(4, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(192, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(192, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 74);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(272, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 74);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(272, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// ItemNameLB
 			// 
-			this.itemNameLb_.Location = new System.Drawing.Point(4, 4);
-			this.itemNameLb_.Name = "itemNameLb_";
-			this.itemNameLb_.Size = new System.Drawing.Size(60, 23);
-			this.itemNameLb_.TabIndex = 0;
-			this.itemNameLb_.Text = "Item Name";
-			this.itemNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			itemNameLb_.Location = new System.Drawing.Point(4, 4);
+			itemNameLb_.Name = "itemNameLb_";
+			itemNameLb_.Size = new System.Drawing.Size(60, 23);
+			itemNameLb_.TabIndex = 0;
+			itemNameLb_.Text = "Item Name";
+			itemNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// MainPN
 			// 
-			this.mainPn_.Controls.Add(this.aggregateSpecifiedCb_);
-			this.mainPn_.Controls.Add(this.itemPathTb_);
-			this.mainPn_.Controls.Add(this.itemPathLb_);
-			this.mainPn_.Controls.Add(this.aggregateCb_);
-			this.mainPn_.Controls.Add(this.aggregateLb_);
-			this.mainPn_.Controls.Add(this.itemNameTb_);
-			this.mainPn_.Controls.Add(this.itemNameLb_);
-			this.mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPn_.DockPadding.Right = 4;
-			this.mainPn_.DockPadding.Top = 4;
-			this.mainPn_.Location = new System.Drawing.Point(0, 0);
-			this.mainPn_.Name = "mainPn_";
-			this.mainPn_.Size = new System.Drawing.Size(272, 74);
-			this.mainPn_.TabIndex = 1;
+			mainPn_.Controls.Add(aggregateSpecifiedCb_);
+			mainPn_.Controls.Add(itemPathTb_);
+			mainPn_.Controls.Add(itemPathLb_);
+			mainPn_.Controls.Add(aggregateCb_);
+			mainPn_.Controls.Add(aggregateLb_);
+			mainPn_.Controls.Add(itemNameTb_);
+			mainPn_.Controls.Add(itemNameLb_);
+			mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			mainPn_.DockPadding.Right = 4;
+			mainPn_.DockPadding.Top = 4;
+			mainPn_.Location = new System.Drawing.Point(0, 0);
+			mainPn_.Name = "mainPn_";
+			mainPn_.Size = new System.Drawing.Size(272, 74);
+			mainPn_.TabIndex = 1;
 			// 
 			// ItemPathTB
 			// 
-			this.itemPathTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			itemPathTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.itemPathTb_.Location = new System.Drawing.Point(64, 28);
-			this.itemPathTb_.Name = "itemPathTb_";
-			this.itemPathTb_.Size = new System.Drawing.Size(204, 20);
-			this.itemPathTb_.TabIndex = 3;
-			this.itemPathTb_.Text = "";
+			itemPathTb_.Location = new System.Drawing.Point(64, 28);
+			itemPathTb_.Name = "itemPathTb_";
+			itemPathTb_.Size = new System.Drawing.Size(204, 20);
+			itemPathTb_.TabIndex = 3;
+			itemPathTb_.Text = "";
 			// 
 			// ItemPathLB
 			// 
-			this.itemPathLb_.Location = new System.Drawing.Point(4, 28);
-			this.itemPathLb_.Name = "itemPathLb_";
-			this.itemPathLb_.Size = new System.Drawing.Size(60, 23);
-			this.itemPathLb_.TabIndex = 2;
-			this.itemPathLb_.Text = "Item Path";
-			this.itemPathLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			itemPathLb_.Location = new System.Drawing.Point(4, 28);
+			itemPathLb_.Name = "itemPathLb_";
+			itemPathLb_.Size = new System.Drawing.Size(60, 23);
+			itemPathLb_.TabIndex = 2;
+			itemPathLb_.Text = "Item Path";
+			itemPathLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// AggregateCB
 			// 
-			this.aggregateCb_.Enabled = false;
-			this.aggregateCb_.Location = new System.Drawing.Point(64, 52);
-			this.aggregateCb_.Name = "aggregateCb_";
-			this.aggregateCb_.Size = new System.Drawing.Size(121, 21);
-			this.aggregateCb_.TabIndex = 5;
+			aggregateCb_.Enabled = false;
+			aggregateCb_.Location = new System.Drawing.Point(64, 52);
+			aggregateCb_.Name = "aggregateCb_";
+			aggregateCb_.Size = new System.Drawing.Size(121, 21);
+			aggregateCb_.TabIndex = 5;
 			// 
 			// AggregateLB
 			// 
-			this.aggregateLb_.Location = new System.Drawing.Point(4, 52);
-			this.aggregateLb_.Name = "aggregateLb_";
-			this.aggregateLb_.Size = new System.Drawing.Size(60, 23);
-			this.aggregateLb_.TabIndex = 4;
-			this.aggregateLb_.Text = "Aggregate";
-			this.aggregateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			aggregateLb_.Location = new System.Drawing.Point(4, 52);
+			aggregateLb_.Name = "aggregateLb_";
+			aggregateLb_.Size = new System.Drawing.Size(60, 23);
+			aggregateLb_.TabIndex = 4;
+			aggregateLb_.Text = "Aggregate";
+			aggregateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ItemNameTB
 			// 
-			this.itemNameTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			itemNameTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.itemNameTb_.Location = new System.Drawing.Point(64, 4);
-			this.itemNameTb_.Name = "itemNameTb_";
-			this.itemNameTb_.Size = new System.Drawing.Size(204, 20);
-			this.itemNameTb_.TabIndex = 1;
-			this.itemNameTb_.Text = "";
+			itemNameTb_.Location = new System.Drawing.Point(64, 4);
+			itemNameTb_.Name = "itemNameTb_";
+			itemNameTb_.Size = new System.Drawing.Size(204, 20);
+			itemNameTb_.TabIndex = 1;
+			itemNameTb_.Text = "";
 			// 
 			// AggregateSpecifiedCB
 			// 
-			this.aggregateSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.aggregateSpecifiedCb_.Location = new System.Drawing.Point(192, 50);
-			this.aggregateSpecifiedCb_.Name = "aggregateSpecifiedCb_";
-			this.aggregateSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.aggregateSpecifiedCb_.TabIndex = 6;
-			this.aggregateSpecifiedCb_.CheckedChanged += new System.EventHandler(this.AggregateSpecifiedCB_CheckedChanged);
+			aggregateSpecifiedCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			aggregateSpecifiedCb_.Location = new System.Drawing.Point(192, 50);
+			aggregateSpecifiedCb_.Name = "aggregateSpecifiedCb_";
+			aggregateSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			aggregateSpecifiedCb_.TabIndex = 6;
+			aggregateSpecifiedCb_.CheckedChanged += new System.EventHandler(AggregateSpecifiedCB_CheckedChanged);
 			// 
 			// ItemEditDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(272, 110);
-			this.Controls.Add(this.mainPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Name = "ItemEditDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Edit Item";
-			this.buttonsPn_.ResumeLayout(false);
-			this.mainPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(272, 110);
+			Controls.Add(mainPn_);
+			Controls.Add(buttonsPn_);
+			Name = "ItemEditDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Edit Item";
+			buttonsPn_.ResumeLayout(false);
+			mainPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

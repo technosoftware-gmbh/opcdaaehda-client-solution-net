@@ -63,41 +63,41 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.categoriesLv_ = new System.Windows.Forms.ListView();
-			this.categoriesGb_ = new System.Windows.Forms.GroupBox();
-			this.categoriesGb_.SuspendLayout();
-			this.SuspendLayout();
+			categoriesLv_ = new System.Windows.Forms.ListView();
+			categoriesGb_ = new System.Windows.Forms.GroupBox();
+			categoriesGb_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// CategoriesLV
 			// 
-			this.categoriesLv_.CheckBoxes = true;
-			this.categoriesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.categoriesLv_.FullRowSelect = true;
-			this.categoriesLv_.Location = new System.Drawing.Point(3, 16);
-			this.categoriesLv_.Name = "categoriesLv_";
-			this.categoriesLv_.Size = new System.Drawing.Size(370, 181);
-			this.categoriesLv_.TabIndex = 16;
-			this.categoriesLv_.View = System.Windows.Forms.View.Details;
-			this.categoriesLv_.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CategoriesLV_ItemCheck);
+			categoriesLv_.CheckBoxes = true;
+			categoriesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			categoriesLv_.FullRowSelect = true;
+			categoriesLv_.Location = new System.Drawing.Point(3, 16);
+			categoriesLv_.Name = "categoriesLv_";
+			categoriesLv_.Size = new System.Drawing.Size(370, 181);
+			categoriesLv_.TabIndex = 16;
+			categoriesLv_.View = System.Windows.Forms.View.Details;
+			categoriesLv_.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(CategoriesLV_ItemCheck);
 			// 
 			// CategoriesGB
 			// 
-			this.categoriesGb_.Controls.Add(this.categoriesLv_);
-			this.categoriesGb_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.categoriesGb_.Location = new System.Drawing.Point(0, 0);
-			this.categoriesGb_.Name = "categoriesGb_";
-			this.categoriesGb_.Size = new System.Drawing.Size(376, 200);
-			this.categoriesGb_.TabIndex = 17;
-			this.categoriesGb_.TabStop = false;
-			this.categoriesGb_.Text = "Categories";
+			categoriesGb_.Controls.Add(categoriesLv_);
+			categoriesGb_.Dock = System.Windows.Forms.DockStyle.Top;
+			categoriesGb_.Location = new System.Drawing.Point(0, 0);
+			categoriesGb_.Name = "categoriesGb_";
+			categoriesGb_.Size = new System.Drawing.Size(376, 200);
+			categoriesGb_.TabIndex = 17;
+			categoriesGb_.TabStop = false;
+			categoriesGb_.Text = "Categories";
 			// 
 			// CategoriesCtrl
 			// 
-			this.Controls.Add(this.categoriesGb_);
-			this.Name = "CategoriesCtrl";
-			this.Size = new System.Drawing.Size(376, 200);
-			this.categoriesGb_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			Controls.Add(categoriesGb_);
+			Name = "CategoriesCtrl";
+			Size = new System.Drawing.Size(376, 200);
+			categoriesGb_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -223,9 +223,11 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void AddHeader(ListView listview, string name)
 		{
-			ColumnHeader header = new ColumnHeader();
-			header.Text = name;
-			listview.Columns.Add(header);
+            ColumnHeader header = new ColumnHeader
+            {
+                Text = name
+            };
+            listview.Columns.Add(header);
 		}
 
 		/// <summary>

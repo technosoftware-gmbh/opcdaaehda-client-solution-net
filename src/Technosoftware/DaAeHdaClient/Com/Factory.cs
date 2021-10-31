@@ -22,11 +22,9 @@
 
 #region Using Directives
 using System;
-using System.Net;
 using System.Text;
 using System.Runtime.Serialization;
 
-using OpcRcw.Security;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Com
@@ -145,7 +143,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                     throw new NotSupportedException(String.Format("The URL scheme '{0}' is not supported.", url.Scheme));
                 }
             }
-            catch (NotSupportedException e)
+            catch (NotSupportedException)
             {
                 Utilities.Interop.ReleaseServer(server);
                 server = null;
@@ -164,14 +162,14 @@ namespace Technosoftware.DaAeHdaClient.Com
                     throw new NotSupportedException(message.ToString());
                 }
 
-                throw e;
+                throw;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Utilities.Interop.ReleaseServer(server);
                 server = null;
 
-                throw e;
+                throw;
             }
 
             // initialize the wrapper object.

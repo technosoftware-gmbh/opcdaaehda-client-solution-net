@@ -102,7 +102,7 @@ namespace Technosoftware.DaAeHdaClient
         /// Sets the username and password.
         /// </summary>
         /// <param name="domainName">The windows domain name</param>
-        /// <param name="username">The user name</param>
+        /// <param name="userName">The user name</param>
         /// <param name="password">The password</param>
         public OpcUserIdentity(string domainName, string userName, string password)
             : this(userName, password)
@@ -124,7 +124,7 @@ namespace Technosoftware.DaAeHdaClient
         /// Sets the username and password.
         /// </summary>
         /// <param name="domainName">The windows domain name</param>
-        /// <param name="username">The user name</param>
+        /// <param name="userName">The user name</param>
         /// <param name="password">The password</param>
         /// <param name="clientCertificateName">The Client Certificate name</param>
         /// <param name="serverCertificateName">The Server Certificate name</param>
@@ -230,7 +230,7 @@ namespace Technosoftware.DaAeHdaClient
                             return ByteConverter.GetString(passwordBytes);
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         throw new OpcResultException(OpcResult.E_FAIL, "The user info object has been corrupted.");
                     }
@@ -263,7 +263,7 @@ namespace Technosoftware.DaAeHdaClient
                             return ByteConverter.GetString(clientCertificateBytes);
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         throw new OpcResultException(OpcResult.E_FAIL, "The user info object has been corrupted.");
                     }
@@ -291,7 +291,7 @@ namespace Technosoftware.DaAeHdaClient
                             return ByteConverter.GetString(serverCertificateBytes);
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         throw new OpcResultException(OpcResult.E_FAIL, "The user info object has been corrupted.");
                     }

@@ -21,7 +21,7 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
+
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Cpx

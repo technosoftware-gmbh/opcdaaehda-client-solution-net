@@ -73,43 +73,43 @@ namespace SampleClients.Hda.Item
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.itemsLv_ = new System.Windows.Forms.ListView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.viewMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			itemsLv_ = new System.Windows.Forms.ListView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			viewMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// ItemsLV
 			// 
-			this.itemsLv_.ContextMenuStrip = this.popupMenu_;
-			this.itemsLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.itemsLv_.FullRowSelect = true;
-			this.itemsLv_.Location = new System.Drawing.Point(0, 0);
-			this.itemsLv_.MultiSelect = false;
-			this.itemsLv_.Name = "itemsLv_";
-			this.itemsLv_.Size = new System.Drawing.Size(432, 272);
-			this.itemsLv_.TabIndex = 0;
-			this.itemsLv_.View = System.Windows.Forms.View.Details;
-			this.itemsLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ItemsLV_MouseDown);
-			this.itemsLv_.DoubleClick += new System.EventHandler(this.ViewMI_Click);
+			itemsLv_.ContextMenuStrip = popupMenu_;
+			itemsLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			itemsLv_.FullRowSelect = true;
+			itemsLv_.Location = new System.Drawing.Point(0, 0);
+			itemsLv_.MultiSelect = false;
+			itemsLv_.Name = "itemsLv_";
+			itemsLv_.Size = new System.Drawing.Size(432, 272);
+			itemsLv_.TabIndex = 0;
+			itemsLv_.View = System.Windows.Forms.View.Details;
+			itemsLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(ItemsLV_MouseDown);
+			itemsLv_.DoubleClick += new System.EventHandler(ViewMI_Click);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.viewMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  viewMi_});
 			// 
 			// ViewMI
 			// 
-			this.viewMi_.ImageIndex = 0;
-			this.viewMi_.Text = "View...";
-			this.viewMi_.Click += new System.EventHandler(this.ViewMI_Click);
+			viewMi_.ImageIndex = 0;
+			viewMi_.Text = "View...";
+			viewMi_.Click += new System.EventHandler(ViewMI_Click);
 			// 
 			// ResultListCtrl
 			// 
-			this.AllowDrop = true;
-			this.Controls.Add(this.itemsLv_);
-			this.Name = "ResultListCtrl";
-			this.Size = new System.Drawing.Size(432, 272);
-			this.ResumeLayout(false);
+			AllowDrop = true;
+			Controls.Add(itemsLv_);
+			Name = "ResultListCtrl";
+			Size = new System.Drawing.Size(432, 272);
+			ResumeLayout(false);
 
 		}
 		#endregion

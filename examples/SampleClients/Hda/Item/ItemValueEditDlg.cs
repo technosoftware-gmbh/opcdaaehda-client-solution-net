@@ -95,195 +95,195 @@ namespace SampleClients.Hda.Item
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.mainPn_ = new System.Windows.Forms.Panel();
-			this.valueSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.timestampCtrl_ = new System.Windows.Forms.DateTimePicker();
-			this.timestampLb_ = new System.Windows.Forms.Label();
-			this.qualityCb_ = new System.Windows.Forms.ComboBox();
-			this.limitBitsCb_ = new System.Windows.Forms.ComboBox();
-			this.vendorBitsCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.vendorBitsLb_ = new System.Windows.Forms.Label();
-			this.limitBitsLb_ = new System.Windows.Forms.Label();
-			this.qualityLb_ = new System.Windows.Forms.Label();
-			this.valueLb_ = new System.Windows.Forms.Label();
-			this.valueCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.buttonsPn_.SuspendLayout();
-			this.mainPn_.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.vendorBitsCtrl_)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.valueCtrl_)).BeginInit();
-			this.SuspendLayout();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			okBtn_ = new System.Windows.Forms.Button();
+			mainPn_ = new System.Windows.Forms.Panel();
+			valueSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			timestampCtrl_ = new System.Windows.Forms.DateTimePicker();
+			timestampLb_ = new System.Windows.Forms.Label();
+			qualityCb_ = new System.Windows.Forms.ComboBox();
+			limitBitsCb_ = new System.Windows.Forms.ComboBox();
+			vendorBitsCtrl_ = new System.Windows.Forms.NumericUpDown();
+			vendorBitsLb_ = new System.Windows.Forms.Label();
+			limitBitsLb_ = new System.Windows.Forms.Label();
+			qualityLb_ = new System.Windows.Forms.Label();
+			valueLb_ = new System.Windows.Forms.Label();
+			valueCtrl_ = new System.Windows.Forms.NumericUpDown();
+			buttonsPn_.SuspendLayout();
+			mainPn_.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(vendorBitsCtrl_)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(valueCtrl_)).BeginInit();
+			SuspendLayout();
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(192, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(192, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 122);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(272, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 122);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(272, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okBtn_.Location = new System.Drawing.Point(4, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
+			okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			okBtn_.Location = new System.Drawing.Point(4, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
 			// 
 			// MainPN
 			// 
-			this.mainPn_.Controls.Add(this.valueSpecifiedCb_);
-			this.mainPn_.Controls.Add(this.timestampCtrl_);
-			this.mainPn_.Controls.Add(this.timestampLb_);
-			this.mainPn_.Controls.Add(this.qualityCb_);
-			this.mainPn_.Controls.Add(this.limitBitsCb_);
-			this.mainPn_.Controls.Add(this.vendorBitsCtrl_);
-			this.mainPn_.Controls.Add(this.vendorBitsLb_);
-			this.mainPn_.Controls.Add(this.limitBitsLb_);
-			this.mainPn_.Controls.Add(this.qualityLb_);
-			this.mainPn_.Controls.Add(this.valueLb_);
-			this.mainPn_.Controls.Add(this.valueCtrl_);
-			this.mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPn_.DockPadding.Left = 4;
-			this.mainPn_.DockPadding.Right = 4;
-			this.mainPn_.DockPadding.Top = 4;
-			this.mainPn_.Location = new System.Drawing.Point(0, 0);
-			this.mainPn_.Name = "mainPn_";
-			this.mainPn_.Size = new System.Drawing.Size(272, 122);
-			this.mainPn_.TabIndex = 1;
+			mainPn_.Controls.Add(valueSpecifiedCb_);
+			mainPn_.Controls.Add(timestampCtrl_);
+			mainPn_.Controls.Add(timestampLb_);
+			mainPn_.Controls.Add(qualityCb_);
+			mainPn_.Controls.Add(limitBitsCb_);
+			mainPn_.Controls.Add(vendorBitsCtrl_);
+			mainPn_.Controls.Add(vendorBitsLb_);
+			mainPn_.Controls.Add(limitBitsLb_);
+			mainPn_.Controls.Add(qualityLb_);
+			mainPn_.Controls.Add(valueLb_);
+			mainPn_.Controls.Add(valueCtrl_);
+			mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			mainPn_.DockPadding.Left = 4;
+			mainPn_.DockPadding.Right = 4;
+			mainPn_.DockPadding.Top = 4;
+			mainPn_.Location = new System.Drawing.Point(0, 0);
+			mainPn_.Name = "mainPn_";
+			mainPn_.Size = new System.Drawing.Size(272, 122);
+			mainPn_.TabIndex = 1;
 			// 
 			// ValueSpecifiedCB
 			// 
-			this.valueSpecifiedCb_.Location = new System.Drawing.Point(252, 3);
-			this.valueSpecifiedCb_.Name = "valueSpecifiedCb_";
-			this.valueSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.valueSpecifiedCb_.TabIndex = 2;
-			this.valueSpecifiedCb_.CheckedChanged += new System.EventHandler(this.ValueSpecifiedCB_CheckedChanged);
+			valueSpecifiedCb_.Location = new System.Drawing.Point(252, 3);
+			valueSpecifiedCb_.Name = "valueSpecifiedCb_";
+			valueSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			valueSpecifiedCb_.TabIndex = 2;
+			valueSpecifiedCb_.CheckedChanged += new System.EventHandler(ValueSpecifiedCB_CheckedChanged);
 			// 
 			// TimestampCTRL
 			// 
-			this.timestampCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			timestampCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.timestampCtrl_.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-			this.timestampCtrl_.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.timestampCtrl_.Location = new System.Drawing.Point(96, 28);
-			this.timestampCtrl_.Name = "timestampCtrl_";
-			this.timestampCtrl_.Size = new System.Drawing.Size(148, 20);
-			this.timestampCtrl_.TabIndex = 4;
+			timestampCtrl_.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+			timestampCtrl_.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			timestampCtrl_.Location = new System.Drawing.Point(96, 28);
+			timestampCtrl_.Name = "timestampCtrl_";
+			timestampCtrl_.Size = new System.Drawing.Size(148, 20);
+			timestampCtrl_.TabIndex = 4;
 			// 
 			// TimestampLB
 			// 
-			this.timestampLb_.Location = new System.Drawing.Point(4, 28);
-			this.timestampLb_.Name = "timestampLb_";
-			this.timestampLb_.Size = new System.Drawing.Size(92, 23);
-			this.timestampLb_.TabIndex = 3;
-			this.timestampLb_.Text = "Timestamp";
-			this.timestampLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			timestampLb_.Location = new System.Drawing.Point(4, 28);
+			timestampLb_.Name = "timestampLb_";
+			timestampLb_.Size = new System.Drawing.Size(92, 23);
+			timestampLb_.TabIndex = 3;
+			timestampLb_.Text = "Timestamp";
+			timestampLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// QualityCB
 			// 
-			this.qualityCb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			qualityCb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.qualityCb_.Location = new System.Drawing.Point(96, 52);
-			this.qualityCb_.Name = "qualityCb_";
-			this.qualityCb_.Size = new System.Drawing.Size(172, 21);
-			this.qualityCb_.TabIndex = 6;
+			qualityCb_.Location = new System.Drawing.Point(96, 52);
+			qualityCb_.Name = "qualityCb_";
+			qualityCb_.Size = new System.Drawing.Size(172, 21);
+			qualityCb_.TabIndex = 6;
 			// 
 			// LimitBitsCB
 			// 
-			this.limitBitsCb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			limitBitsCb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.limitBitsCb_.Location = new System.Drawing.Point(96, 76);
-			this.limitBitsCb_.Name = "limitBitsCb_";
-			this.limitBitsCb_.Size = new System.Drawing.Size(172, 21);
-			this.limitBitsCb_.TabIndex = 8;
+			limitBitsCb_.Location = new System.Drawing.Point(96, 76);
+			limitBitsCb_.Name = "limitBitsCb_";
+			limitBitsCb_.Size = new System.Drawing.Size(172, 21);
+			limitBitsCb_.TabIndex = 8;
 			// 
 			// VendorBitsCTRL
 			// 
-			this.vendorBitsCtrl_.Location = new System.Drawing.Point(96, 100);
-			this.vendorBitsCtrl_.Maximum = new System.Decimal(new int[] {
+			vendorBitsCtrl_.Location = new System.Drawing.Point(96, 100);
+			vendorBitsCtrl_.Maximum = new System.Decimal(new int[] {
 																		   255,
 																		   0,
 																		   0,
 																		   0});
-			this.vendorBitsCtrl_.Name = "vendorBitsCtrl_";
-			this.vendorBitsCtrl_.Size = new System.Drawing.Size(60, 20);
-			this.vendorBitsCtrl_.TabIndex = 10;
+			vendorBitsCtrl_.Name = "vendorBitsCtrl_";
+			vendorBitsCtrl_.Size = new System.Drawing.Size(60, 20);
+			vendorBitsCtrl_.TabIndex = 10;
 			// 
 			// VendorBitsLB
 			// 
-			this.vendorBitsLb_.Location = new System.Drawing.Point(4, 100);
-			this.vendorBitsLb_.Name = "vendorBitsLb_";
-			this.vendorBitsLb_.Size = new System.Drawing.Size(92, 23);
-			this.vendorBitsLb_.TabIndex = 9;
-			this.vendorBitsLb_.Text = "Vendor Bits";
-			this.vendorBitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			vendorBitsLb_.Location = new System.Drawing.Point(4, 100);
+			vendorBitsLb_.Name = "vendorBitsLb_";
+			vendorBitsLb_.Size = new System.Drawing.Size(92, 23);
+			vendorBitsLb_.TabIndex = 9;
+			vendorBitsLb_.Text = "Vendor Bits";
+			vendorBitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// LimitBitsLB
 			// 
-			this.limitBitsLb_.Location = new System.Drawing.Point(4, 76);
-			this.limitBitsLb_.Name = "limitBitsLb_";
-			this.limitBitsLb_.Size = new System.Drawing.Size(92, 23);
-			this.limitBitsLb_.TabIndex = 7;
-			this.limitBitsLb_.Text = "Limit Bits";
-			this.limitBitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			limitBitsLb_.Location = new System.Drawing.Point(4, 76);
+			limitBitsLb_.Name = "limitBitsLb_";
+			limitBitsLb_.Size = new System.Drawing.Size(92, 23);
+			limitBitsLb_.TabIndex = 7;
+			limitBitsLb_.Text = "Limit Bits";
+			limitBitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// QualityLB
 			// 
-			this.qualityLb_.Location = new System.Drawing.Point(4, 52);
-			this.qualityLb_.Name = "qualityLb_";
-			this.qualityLb_.Size = new System.Drawing.Size(92, 23);
-			this.qualityLb_.TabIndex = 5;
-			this.qualityLb_.Text = "Quality";
-			this.qualityLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			qualityLb_.Location = new System.Drawing.Point(4, 52);
+			qualityLb_.Name = "qualityLb_";
+			qualityLb_.Size = new System.Drawing.Size(92, 23);
+			qualityLb_.TabIndex = 5;
+			qualityLb_.Text = "Quality";
+			qualityLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ValueLB
 			// 
-			this.valueLb_.Location = new System.Drawing.Point(4, 4);
-			this.valueLb_.Name = "valueLb_";
-			this.valueLb_.Size = new System.Drawing.Size(92, 23);
-			this.valueLb_.TabIndex = 0;
-			this.valueLb_.Text = "Value";
-			this.valueLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			valueLb_.Location = new System.Drawing.Point(4, 4);
+			valueLb_.Name = "valueLb_";
+			valueLb_.Size = new System.Drawing.Size(92, 23);
+			valueLb_.TabIndex = 0;
+			valueLb_.Text = "Value";
+			valueLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ValueCTRL
 			// 
-			this.valueCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			valueCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.valueCtrl_.DecimalPlaces = 15;
-			this.valueCtrl_.Enabled = false;
-			this.valueCtrl_.Location = new System.Drawing.Point(96, 4);
-			this.valueCtrl_.Name = "valueCtrl_";
-			this.valueCtrl_.Size = new System.Drawing.Size(152, 20);
-			this.valueCtrl_.TabIndex = 1;
+			valueCtrl_.DecimalPlaces = 15;
+			valueCtrl_.Enabled = false;
+			valueCtrl_.Location = new System.Drawing.Point(96, 4);
+			valueCtrl_.Name = "valueCtrl_";
+			valueCtrl_.Size = new System.Drawing.Size(152, 20);
+			valueCtrl_.TabIndex = 1;
 			// 
 			// ItemValueEditDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(272, 158);
-			this.Controls.Add(this.mainPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Name = "ItemValueEditDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Edit Item Value";
-			this.buttonsPn_.ResumeLayout(false);
-			this.mainPn_.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.vendorBitsCtrl_)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.valueCtrl_)).EndInit();
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(272, 158);
+			Controls.Add(mainPn_);
+			Controls.Add(buttonsPn_);
+			Name = "ItemValueEditDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Edit Item Value";
+			buttonsPn_.ResumeLayout(false);
+			mainPn_.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(vendorBitsCtrl_)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(valueCtrl_)).EndInit();
+			ResumeLayout(false);
 
 		}
 		#endregion

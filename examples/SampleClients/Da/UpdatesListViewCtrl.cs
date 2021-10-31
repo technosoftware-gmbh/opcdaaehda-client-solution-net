@@ -114,92 +114,92 @@ namespace SampleClients.Da
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.itemListLv_ = new System.Windows.Forms.ListView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.viewMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.showErrorTextMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.copyMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.editMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.keepValuesMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.clearMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator01_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			itemListLv_ = new System.Windows.Forms.ListView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			viewMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			showErrorTextMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			copyMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			editMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			keepValuesMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			clearMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator01_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// ItemListLV
 			// 
-			this.itemListLv_.ContextMenuStrip = this.popupMenu_;
-			this.itemListLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.itemListLv_.FullRowSelect = true;
-			this.itemListLv_.MultiSelect = false;
-			this.itemListLv_.Name = "itemListLv_";
-			this.itemListLv_.Size = new System.Drawing.Size(432, 272);
-			this.itemListLv_.TabIndex = 0;
-			this.itemListLv_.View = System.Windows.Forms.View.Details;
-			this.itemListLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ItemListLV_MouseDown);
-			this.itemListLv_.DoubleClick += new System.EventHandler(this.ViewMI_Click);
+			itemListLv_.ContextMenuStrip = popupMenu_;
+			itemListLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			itemListLv_.FullRowSelect = true;
+			itemListLv_.MultiSelect = false;
+			itemListLv_.Name = "itemListLv_";
+			itemListLv_.Size = new System.Drawing.Size(432, 272);
+			itemListLv_.TabIndex = 0;
+			itemListLv_.View = System.Windows.Forms.View.Details;
+			itemListLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(ItemListLV_MouseDown);
+			itemListLv_.DoubleClick += new System.EventHandler(ViewMI_Click);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.viewMi_,
-																					  this.showErrorTextMi_,
-																					  this.separator01_,
-																					  this.keepValuesMi_,
-																					  this.clearMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  viewMi_,
+																					  showErrorTextMi_,
+																					  separator01_,
+																					  keepValuesMi_,
+																					  clearMi_});
 			// 
 			// ViewMI
 			// 
-			this.viewMi_.ImageIndex = 0;
-			this.viewMi_.Text = "&View...";
-			this.viewMi_.Click += new System.EventHandler(this.ViewMI_Click);
+			viewMi_.ImageIndex = 0;
+			viewMi_.Text = "&View...";
+			viewMi_.Click += new System.EventHandler(ViewMI_Click);
 			// 
 			// ShowErrorTextMI
 			// 
-			this.showErrorTextMi_.ImageIndex = 1;
-			this.showErrorTextMi_.Text = "&Show Error Text";
-			this.showErrorTextMi_.Click += new System.EventHandler(this.ShowErrorTextMI_Click);
+			showErrorTextMi_.ImageIndex = 1;
+			showErrorTextMi_.Text = "&Show Error Text";
+			showErrorTextMi_.Click += new System.EventHandler(ShowErrorTextMI_Click);
 			// 
 			// CopyMI
 			// 
-			this.copyMi_.ImageIndex = -1;
-			this.copyMi_.Text = "";
+			copyMi_.ImageIndex = -1;
+			copyMi_.Text = "";
 			// 
 			// EditMI
 			// 
-			this.editMi_.ImageIndex = -1;
-			this.editMi_.Text = "";
+			editMi_.ImageIndex = -1;
+			editMi_.Text = "";
 			// 
 			// RemoveMI
 			// 
-			this.removeMi_.ImageIndex = -1;
-			this.removeMi_.Text = "";
+			removeMi_.ImageIndex = -1;
+			removeMi_.Text = "";
 			// 
 			// KeepValuesMI
 			// 
-			this.keepValuesMi_.ImageIndex = 3;
-			this.keepValuesMi_.Text = "&Keep Old Values";
-			this.keepValuesMi_.Click += new System.EventHandler(this.KeepValuesMI_Click);
+			keepValuesMi_.ImageIndex = 3;
+			keepValuesMi_.Text = "&Keep Old Values";
+			keepValuesMi_.Click += new System.EventHandler(KeepValuesMI_Click);
 			// 
 			// ClearMI
 			// 
-			this.clearMi_.ImageIndex = 4;
-			this.clearMi_.Text = "&Clear";
-			this.clearMi_.Click += new System.EventHandler(this.ClearMI_Click);
+			clearMi_.ImageIndex = 4;
+			clearMi_.Text = "&Clear";
+			clearMi_.Click += new System.EventHandler(ClearMI_Click);
 			// 
 			// Separator01
 			// 
-			this.separator01_.ImageIndex = 2;
-			this.separator01_.Text = "-";
+			separator01_.ImageIndex = 2;
+			separator01_.Text = "-";
 			// 
 			// UpdatesListViewCtrl
 			// 
-			this.AllowDrop = true;
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
-																		  this.itemListLv_});
-			this.Name = "UpdatesListViewCtrl";
-			this.Size = new System.Drawing.Size(432, 272);
-			this.ResumeLayout(false);
+			AllowDrop = true;
+			Controls.AddRange(new System.Windows.Forms.Control[] {
+																		  itemListLv_});
+			Name = "UpdatesListViewCtrl";
+			Size = new System.Drawing.Size(432, 272);
+			ResumeLayout(false);
 
 		}
 		#endregion

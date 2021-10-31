@@ -73,79 +73,79 @@ namespace SampleClients.Da.Browse
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.returnAllPropertiesCb_ = new System.Windows.Forms.CheckBox();
-			this.returnPropertyValuesCb_ = new System.Windows.Forms.CheckBox();
-			this.propertyNamesLb_ = new System.Windows.Forms.CheckedListBox();
-			this.returnAllPropertiesLb_ = new System.Windows.Forms.Label();
-			this.returnPropertyValuesLb_ = new System.Windows.Forms.Label();
-			this.topPn_ = new System.Windows.Forms.Panel();
-			this.topPn_.SuspendLayout();
-			this.SuspendLayout();
+			returnAllPropertiesCb_ = new System.Windows.Forms.CheckBox();
+			returnPropertyValuesCb_ = new System.Windows.Forms.CheckBox();
+			propertyNamesLb_ = new System.Windows.Forms.CheckedListBox();
+			returnAllPropertiesLb_ = new System.Windows.Forms.Label();
+			returnPropertyValuesLb_ = new System.Windows.Forms.Label();
+			topPn_ = new System.Windows.Forms.Panel();
+			topPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ReturnAllPropertiesCB
 			// 
-			this.returnAllPropertiesCb_.Location = new System.Drawing.Point(112, 0);
-			this.returnAllPropertiesCb_.Name = "returnAllPropertiesCb_";
-			this.returnAllPropertiesCb_.Size = new System.Drawing.Size(16, 24);
-			this.returnAllPropertiesCb_.TabIndex = 1;
-			this.returnAllPropertiesCb_.CheckedChanged += new System.EventHandler(this.ReturnAllPropertiesCB_CheckedChanged);
+			returnAllPropertiesCb_.Location = new System.Drawing.Point(112, 0);
+			returnAllPropertiesCb_.Name = "returnAllPropertiesCb_";
+			returnAllPropertiesCb_.Size = new System.Drawing.Size(16, 24);
+			returnAllPropertiesCb_.TabIndex = 1;
+			returnAllPropertiesCb_.CheckedChanged += new System.EventHandler(ReturnAllPropertiesCB_CheckedChanged);
 			// 
 			// ReturnPropertyValuesCB
 			// 
-            this.returnPropertyValuesCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.returnPropertyValuesCb_.Location = new System.Drawing.Point(352, 0);
-			this.returnPropertyValuesCb_.Name = "returnPropertyValuesCb_";
-			this.returnPropertyValuesCb_.Size = new System.Drawing.Size(16, 24);
-			this.returnPropertyValuesCb_.TabIndex = 3;
+            returnPropertyValuesCb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			returnPropertyValuesCb_.Location = new System.Drawing.Point(352, 0);
+			returnPropertyValuesCb_.Name = "returnPropertyValuesCb_";
+			returnPropertyValuesCb_.Size = new System.Drawing.Size(16, 24);
+			returnPropertyValuesCb_.TabIndex = 3;
 			// 
 			// PropertyNamesLB
 			// 
-			this.propertyNamesLb_.CheckOnClick = true;
-			this.propertyNamesLb_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.propertyNamesLb_.Location = new System.Drawing.Point(0, 24);
-			this.propertyNamesLb_.Name = "propertyNamesLb_";
-            this.propertyNamesLb_.Size = new System.Drawing.Size(368, 160);
-			this.propertyNamesLb_.TabIndex = 0;
+			propertyNamesLb_.CheckOnClick = true;
+			propertyNamesLb_.Dock = System.Windows.Forms.DockStyle.Fill;
+			propertyNamesLb_.Location = new System.Drawing.Point(0, 24);
+			propertyNamesLb_.Name = "propertyNamesLb_";
+            propertyNamesLb_.Size = new System.Drawing.Size(368, 160);
+			propertyNamesLb_.TabIndex = 0;
 			// 
 			// ReturnAllPropertiesLB
 			// 
-            this.returnAllPropertiesLb_.Location = new System.Drawing.Point(0, 0);
-			this.returnAllPropertiesLb_.Name = "returnAllPropertiesLb_";
-			this.returnAllPropertiesLb_.Size = new System.Drawing.Size(112, 23);
-			this.returnAllPropertiesLb_.TabIndex = 0;
-			this.returnAllPropertiesLb_.Text = "Return All Properties";
-			this.returnAllPropertiesLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            returnAllPropertiesLb_.Location = new System.Drawing.Point(0, 0);
+			returnAllPropertiesLb_.Name = "returnAllPropertiesLb_";
+			returnAllPropertiesLb_.Size = new System.Drawing.Size(112, 23);
+			returnAllPropertiesLb_.TabIndex = 0;
+			returnAllPropertiesLb_.Text = "Return All Properties";
+			returnAllPropertiesLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ReturnPropertyValuesLB
 			// 
-            this.returnPropertyValuesLb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.returnPropertyValuesLb_.Location = new System.Drawing.Point(224, 0);
-			this.returnPropertyValuesLb_.Name = "returnPropertyValuesLb_";
-			this.returnPropertyValuesLb_.Size = new System.Drawing.Size(128, 23);
-			this.returnPropertyValuesLb_.TabIndex = 2;
-			this.returnPropertyValuesLb_.Text = "Return Property Values";
-			this.returnPropertyValuesLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            returnPropertyValuesLb_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			returnPropertyValuesLb_.Location = new System.Drawing.Point(224, 0);
+			returnPropertyValuesLb_.Name = "returnPropertyValuesLb_";
+			returnPropertyValuesLb_.Size = new System.Drawing.Size(128, 23);
+			returnPropertyValuesLb_.TabIndex = 2;
+			returnPropertyValuesLb_.Text = "Return Property Values";
+			returnPropertyValuesLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// TopPN
 			// 
-            this.topPn_.Controls.Add(this.returnAllPropertiesLb_);
-            this.topPn_.Controls.Add(this.returnAllPropertiesCb_);
-            this.topPn_.Controls.Add(this.returnPropertyValuesLb_);
-            this.topPn_.Controls.Add(this.returnPropertyValuesCb_);
-			this.topPn_.Dock = System.Windows.Forms.DockStyle.Top;
-            this.topPn_.Location = new System.Drawing.Point(0, 0);
-			this.topPn_.Name = "topPn_";
-			this.topPn_.Size = new System.Drawing.Size(368, 24);
-			this.topPn_.TabIndex = 29;
+            topPn_.Controls.Add(returnAllPropertiesLb_);
+            topPn_.Controls.Add(returnAllPropertiesCb_);
+            topPn_.Controls.Add(returnPropertyValuesLb_);
+            topPn_.Controls.Add(returnPropertyValuesCb_);
+			topPn_.Dock = System.Windows.Forms.DockStyle.Top;
+            topPn_.Location = new System.Drawing.Point(0, 0);
+			topPn_.Name = "topPn_";
+			topPn_.Size = new System.Drawing.Size(368, 24);
+			topPn_.TabIndex = 29;
 			// 
 			// PropertyFiltersCtrl
 			// 
-            this.Controls.Add(this.propertyNamesLb_);
-            this.Controls.Add(this.topPn_);
-			this.Name = "PropertyFiltersCtrl";
-			this.Size = new System.Drawing.Size(368, 184);
-			this.topPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+            Controls.Add(propertyNamesLb_);
+            Controls.Add(topPn_);
+			Name = "PropertyFiltersCtrl";
+			Size = new System.Drawing.Size(368, 184);
+			topPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

@@ -78,71 +78,71 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.notificationsLv_ = new System.Windows.Forms.ListView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.viewMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.acknowledgeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.deleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator01_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.clearAllMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			notificationsLv_ = new System.Windows.Forms.ListView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			viewMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			acknowledgeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			deleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator01_ = new System.Windows.Forms.ToolStripMenuItem();
+			clearAllMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// NotificationsLV
 			// 
-			this.notificationsLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.notificationsLv_.FullRowSelect = true;
-			this.notificationsLv_.Location = new System.Drawing.Point(0, 0);
-			this.notificationsLv_.Name = "notificationsLv_";
-			this.notificationsLv_.Size = new System.Drawing.Size(376, 200);
-			this.notificationsLv_.TabIndex = 16;
-			this.notificationsLv_.View = System.Windows.Forms.View.Details;
-			this.notificationsLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.NotificationsLV_MouseDown);
+			notificationsLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			notificationsLv_.FullRowSelect = true;
+			notificationsLv_.Location = new System.Drawing.Point(0, 0);
+			notificationsLv_.Name = "notificationsLv_";
+			notificationsLv_.Size = new System.Drawing.Size(376, 200);
+			notificationsLv_.TabIndex = 16;
+			notificationsLv_.View = System.Windows.Forms.View.Details;
+			notificationsLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(NotificationsLV_MouseDown);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.viewMi_,
-																					  this.acknowledgeMi_,
-																					  this.deleteMi_,
-																					  this.separator01_,
-																					  this.clearAllMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  viewMi_,
+																					  acknowledgeMi_,
+																					  deleteMi_,
+																					  separator01_,
+																					  clearAllMi_});
 			// 
 			// ViewMI
 			// 
-			this.viewMi_.ImageIndex = 0;
-			this.viewMi_.Text = "View...";
-			this.viewMi_.Click += new System.EventHandler(this.ViewMI_Click);
+			viewMi_.ImageIndex = 0;
+			viewMi_.Text = "View...";
+			viewMi_.Click += new System.EventHandler(ViewMI_Click);
 			// 
 			// AcknowledgeMI
 			// 
-			this.acknowledgeMi_.ImageIndex = 1;
-			this.acknowledgeMi_.Text = "Acknowledge...";
-			this.acknowledgeMi_.Click += new System.EventHandler(this.AcknowledgeMI_Click);
+			acknowledgeMi_.ImageIndex = 1;
+			acknowledgeMi_.Text = "Acknowledge...";
+			acknowledgeMi_.Click += new System.EventHandler(AcknowledgeMI_Click);
 			// 
 			// DeleteMI
 			// 
-			this.deleteMi_.ImageIndex = 2;
-			this.deleteMi_.Text = "Delete";
-			this.deleteMi_.Click += new System.EventHandler(this.DeleteMI_Click);
+			deleteMi_.ImageIndex = 2;
+			deleteMi_.Text = "Delete";
+			deleteMi_.Click += new System.EventHandler(DeleteMI_Click);
 			// 
 			// Separator01
 			// 
-			this.separator01_.ImageIndex = 3;
-			this.separator01_.Text = "-";
+			separator01_.ImageIndex = 3;
+			separator01_.Text = "-";
 			// 
 			// ClearAllMI
 			// 
-			this.clearAllMi_.ImageIndex = 4;
-			this.clearAllMi_.Text = "Clear All";
-			this.clearAllMi_.Click += new System.EventHandler(this.ClearAllMI_Click);
+			clearAllMi_.ImageIndex = 4;
+			clearAllMi_.Text = "Clear All";
+			clearAllMi_.Click += new System.EventHandler(ClearAllMI_Click);
 			// 
 			// EventListCtrl
 			// 
-			this.ContextMenuStrip = this.popupMenu_;
-			this.Controls.Add(this.notificationsLv_);
-			this.Name = "EventListCtrl";
-			this.Size = new System.Drawing.Size(376, 200);
-			this.ResumeLayout(false);
+			ContextMenuStrip = popupMenu_;
+			Controls.Add(notificationsLv_);
+			Name = "EventListCtrl";
+			Size = new System.Drawing.Size(376, 200);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -173,10 +173,11 @@ namespace Technosoftware.AeSampleClient
 				mServer_ = subscription.Server;
 			}
 
-			State state = new State();
-
-			state.Subscription = subscription;
-            state.EventHandler = new TsCAeDataChangedEventHandler(Subscription_EventChanged);
+            State state = new State
+            {
+                Subscription = subscription,
+                EventHandler = new TsCAeDataChangedEventHandler(Subscription_EventChanged)
+            };
 
             subscription.DataChangedEvent += new TsCAeDataChangedEventHandler(Subscription_EventChanged);
 
@@ -265,9 +266,11 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void AddHeader(ListView listview, string name)
 		{
-			ColumnHeader header = new ColumnHeader();
-			header.Text = name;
-			listview.Columns.Add(header);
+            ColumnHeader header = new ColumnHeader
+            {
+                Text = name
+            };
+            listview.Columns.Add(header);
 		}
 
 		/// <summary>

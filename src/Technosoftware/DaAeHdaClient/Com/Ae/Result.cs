@@ -21,8 +21,7 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
-using System.Runtime.InteropServices;
+
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Com.Ae

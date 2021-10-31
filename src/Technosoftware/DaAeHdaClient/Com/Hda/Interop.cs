@@ -22,12 +22,8 @@
 
 #region Using Directives
 using System;
-using System.Threading;
-using System.Collections;
-using System.Globalization;
 using System.Runtime.InteropServices;
-using System.Reflection;
-using Technosoftware.DaAeHdaClient;
+
 using Technosoftware.DaAeHdaClient.Da;
 using Technosoftware.DaAeHdaClient.Hda;
 #endregion

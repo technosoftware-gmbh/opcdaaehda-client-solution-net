@@ -59,11 +59,11 @@ namespace scpl
 		{
 			LinearAxis a = new LinearAxis();
 			// ensure that this isn't being called on a derived type. If it is, then oh no!
-			if (this.GetType() != a.GetType())
+			if (GetType() != a.GetType())
 			{
 				throw new System.Exception( "Clone not defined in derived type. Help!" );
 			}
-			this.DoClone( this, a );
+			DoClone( this, a );
 			return a;
 		}
 
@@ -145,10 +145,10 @@ namespace scpl
 		private ArrayList DrawTicks( Graphics g, PointF physicalMin, PointF physicalMax )
 		{
 			// large ticks X position is in l1
-			ArrayList l1 = this.LargeTickPositions;
+			ArrayList l1 = LargeTickPositions;
 			double dOffset = 0;	//this.Offset;
 			double dScale = 1;	//this.Scale;
-			string strFormat = this.NumberFormat;
+			string strFormat = NumberFormat;
 
 			PointF offset = new PointF( 0.0f, 0.0f );
 			object bb = null;
@@ -159,7 +159,7 @@ namespace scpl
 
 				// do google search for "format specifier writeline" for help on this.
 				label.AppendFormat(strFormat, dVal);
-				ArrayList r = this.DrawTick( g, (double)l1[0], this.LargeTickSize, label.ToString(),
+				ArrayList r = DrawTick( g, (double)l1[0], LargeTickSize, label.ToString(),
 					new Point(0,0), physicalMin, physicalMax );
 
 				// determining largest label offset.
@@ -191,7 +191,7 @@ namespace scpl
 					// do google search for "format specifier writeline" for help on this.
 					label.AppendFormat(strFormat, dVal);
 
-					ArrayList r = this.DrawTick( g, (double)l1[i], this.LargeTickSize, label.ToString(),
+					ArrayList r = DrawTick( g, (double)l1[i], LargeTickSize, label.ToString(),
 						new Point(0,0), physicalMin, physicalMax );
 
 					// determining largest label offset.
@@ -215,11 +215,11 @@ namespace scpl
 				}
 			}
 
-			ArrayList stp = this.SmallTickPositions;
+			ArrayList stp = SmallTickPositions;
 
 			for (int i = 0; i < stp.Count; ++i)
 			{
-				ArrayList r = this.DrawTick( g, (double)stp[i], this.SmallTickSize,
+				ArrayList r = DrawTick( g, (double)stp[i], SmallTickSize,
 					"", new Point(0,0), physicalMin, physicalMax );
 				// ignore r for now - assume bb unchanged by small tick bounds.
 			}
@@ -239,17 +239,17 @@ namespace scpl
 			{
 				ArrayList toRet = new ArrayList();
 
-				ArrayList l1 = this.LargeTickPositions;
+				ArrayList l1 = LargeTickPositions;
 
-				double bigTickSpacing = this.DetermineTickSpacing();
-				int nSmall = this.DetermineNumberSmallTicks( bigTickSpacing );
+				double bigTickSpacing = DetermineTickSpacing();
+				int nSmall = DetermineNumberSmallTicks( bigTickSpacing );
 				double smallTickSpacing = bigTickSpacing / nSmall;
 
 				// if there is at least one big tick
 				if (l1.Count > 0)
 				{
 					double pos1 = (double)l1[0];
-					while (pos1 > this.WorldMin)
+					while (pos1 > WorldMin)
 					{
 						pos1 -= smallTickSpacing;
 						toRet.Add(pos1);
@@ -288,9 +288,9 @@ namespace scpl
 				double first = 0.0f;
 
 				// if the user hasn't specified a large tick position.
-				if (this.largeTickStep_ != null)
+				if (largeTickStep_ != null)
 				{
-					roundTickDist = (double)this.largeTickStep_;
+					roundTickDist = (double)largeTickStep_;
 					first = roundTickDist;
 
 					// TODO: check here not too much different.
@@ -305,9 +305,9 @@ namespace scpl
 						first -= roundTickDist;
 					}
 				}
-				else if (this.largeTickValue_ != null) 
+				else if (largeTickValue_ != null) 
 				{
-					roundTickDist = (double)this.largeTickValue_;
+					roundTickDist = (double)largeTickValue_;
 					first = roundTickDist;
 
 					// TODO: check here not too much different.
@@ -324,7 +324,7 @@ namespace scpl
 				}
 				else
 				{
-					roundTickDist = this.DetermineTickSpacing( );
+					roundTickDist = DetermineTickSpacing( );
 					if( WorldMin > 0.0 )
 					{
 						double nToFirst = Math.Floor(WorldMin / roundTickDist) + 1.0f;
@@ -345,8 +345,8 @@ namespace scpl
 					// the user has specified one place they would like a large tick placed.
 
 				double mark = first;
-				double worldMax = (double)this.worldMax_;
-				double worldMin = (double)this.worldMin_;
+				double worldMax = (double)worldMax_;
+				double worldMin = (double)worldMin_;
 				if (mark < worldMax)
 				{
 					// Range test in case the User's Tick value (largeTickValue_, largeTickStep_) is out of range
@@ -377,14 +377,14 @@ namespace scpl
 				throw new System.Exception( "world extent of axis not set." );
 			}
 
-			if (this.largeTickStep_ != null)
+			if (largeTickStep_ != null)
 			{
-				if ( (double)this.largeTickStep_ <= 0.0f )
+				if ( (double)largeTickStep_ <= 0.0f )
 				{
 					throw new System.Exception( "can't have negative tick step - reverse WorldMin WorldMax instead." );
 				}
 
-				return (double)this.largeTickStep_;
+				return (double)largeTickStep_;
 			}
 
 			double range = WorldMax - WorldMin;
@@ -449,9 +449,9 @@ namespace scpl
 		#region DetermineNumberSmallTicks
 		private int DetermineNumberSmallTicks( double bigTickDist )
 		{
-			if (this.numberSmallTicks_ != null)
+			if (numberSmallTicks_ != null)
 			{
-				return (int)this.numberSmallTicks_+1;
+				return (int)numberSmallTicks_+1;
 			}
 
 			if( bigTickDist>0.0f)

@@ -81,228 +81,228 @@ namespace SampleClients.Da
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.itemTimeLb_ = new System.Windows.Forms.Label();
-			this.itemNameLb_ = new System.Windows.Forms.Label();
-			this.itemTimeCb_ = new System.Windows.Forms.CheckBox();
-			this.itemPathLb_ = new System.Windows.Forms.Label();
-			this.topPn_ = new System.Windows.Forms.Panel();
-			this.localeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.localeCtrl_ = new LocaleCtrl();
-			this.localeLb_ = new System.Windows.Forms.Label();
-			this.clientHandleCb_ = new System.Windows.Forms.CheckBox();
-			this.itemPathCb_ = new System.Windows.Forms.CheckBox();
-			this.itemNameCb_ = new System.Windows.Forms.CheckBox();
-			this.diagnosticInfoCb_ = new System.Windows.Forms.CheckBox();
-			this.errorTextCb_ = new System.Windows.Forms.CheckBox();
-			this.clientHandleLb_ = new System.Windows.Forms.Label();
-			this.diagnosticInfoLb_ = new System.Windows.Forms.Label();
-			this.errorTextLb_ = new System.Windows.Forms.Label();
-			this.buttonsPn_.SuspendLayout();
-			this.topPn_.SuspendLayout();
-			this.SuspendLayout();
+			okBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			itemTimeLb_ = new System.Windows.Forms.Label();
+			itemNameLb_ = new System.Windows.Forms.Label();
+			itemTimeCb_ = new System.Windows.Forms.CheckBox();
+			itemPathLb_ = new System.Windows.Forms.Label();
+			topPn_ = new System.Windows.Forms.Panel();
+			localeSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			localeCtrl_ = new LocaleCtrl();
+			localeLb_ = new System.Windows.Forms.Label();
+			clientHandleCb_ = new System.Windows.Forms.CheckBox();
+			itemPathCb_ = new System.Windows.Forms.CheckBox();
+			itemNameCb_ = new System.Windows.Forms.CheckBox();
+			diagnosticInfoCb_ = new System.Windows.Forms.CheckBox();
+			errorTextCb_ = new System.Windows.Forms.CheckBox();
+			clientHandleLb_ = new System.Windows.Forms.Label();
+			diagnosticInfoLb_ = new System.Windows.Forms.Label();
+			errorTextLb_ = new System.Windows.Forms.Label();
+			buttonsPn_.SuspendLayout();
+			topPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okBtn_.Location = new System.Drawing.Point(5, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
+			okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			okBtn_.Location = new System.Drawing.Point(5, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(176, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(176, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 170);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(256, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 170);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(256, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// ItemTimeLB
 			// 
-			this.itemTimeLb_.Location = new System.Drawing.Point(4, 100);
-			this.itemTimeLb_.Name = "itemTimeLb_";
-			this.itemTimeLb_.Size = new System.Drawing.Size(128, 23);
-			this.itemTimeLb_.TabIndex = 8;
-			this.itemTimeLb_.Text = "Return Timestamp";
-			this.itemTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			itemTimeLb_.Location = new System.Drawing.Point(4, 100);
+			itemTimeLb_.Name = "itemTimeLb_";
+			itemTimeLb_.Size = new System.Drawing.Size(128, 23);
+			itemTimeLb_.TabIndex = 8;
+			itemTimeLb_.Text = "Return Timestamp";
+			itemTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ItemNameLB
 			// 
-			this.itemNameLb_.Location = new System.Drawing.Point(4, 28);
-			this.itemNameLb_.Name = "itemNameLb_";
-			this.itemNameLb_.Size = new System.Drawing.Size(128, 23);
-			this.itemNameLb_.TabIndex = 0;
-			this.itemNameLb_.Text = "Return Item Name";
-			this.itemNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			itemNameLb_.Location = new System.Drawing.Point(4, 28);
+			itemNameLb_.Name = "itemNameLb_";
+			itemNameLb_.Size = new System.Drawing.Size(128, 23);
+			itemNameLb_.TabIndex = 0;
+			itemNameLb_.Text = "Return Item Name";
+			itemNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ItemTimeCB
 			// 
-			this.itemTimeCb_.Checked = true;
-			this.itemTimeCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.itemTimeCb_.Location = new System.Drawing.Point(132, 100);
-			this.itemTimeCb_.Name = "itemTimeCb_";
-			this.itemTimeCb_.Size = new System.Drawing.Size(96, 24);
-			this.itemTimeCb_.TabIndex = 9;
+			itemTimeCb_.Checked = true;
+			itemTimeCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			itemTimeCb_.Location = new System.Drawing.Point(132, 100);
+			itemTimeCb_.Name = "itemTimeCb_";
+			itemTimeCb_.Size = new System.Drawing.Size(96, 24);
+			itemTimeCb_.TabIndex = 9;
 			// 
 			// ItemPathLB
 			// 
-			this.itemPathLb_.Location = new System.Drawing.Point(4, 52);
-			this.itemPathLb_.Name = "itemPathLb_";
-			this.itemPathLb_.Size = new System.Drawing.Size(128, 23);
-			this.itemPathLb_.TabIndex = 2;
-			this.itemPathLb_.Text = "Return Item Path";
-			this.itemPathLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			itemPathLb_.Location = new System.Drawing.Point(4, 52);
+			itemPathLb_.Name = "itemPathLb_";
+			itemPathLb_.Size = new System.Drawing.Size(128, 23);
+			itemPathLb_.TabIndex = 2;
+			itemPathLb_.Text = "Return Item Path";
+			itemPathLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// TopPN
 			// 
-			this.topPn_.Controls.Add(this.localeSpecifiedCb_);
-			this.topPn_.Controls.Add(this.localeCtrl_);
-			this.topPn_.Controls.Add(this.localeLb_);
-			this.topPn_.Controls.Add(this.clientHandleCb_);
-			this.topPn_.Controls.Add(this.itemPathCb_);
-			this.topPn_.Controls.Add(this.itemNameCb_);
-			this.topPn_.Controls.Add(this.diagnosticInfoCb_);
-			this.topPn_.Controls.Add(this.errorTextCb_);
-			this.topPn_.Controls.Add(this.itemTimeCb_);
-			this.topPn_.Controls.Add(this.clientHandleLb_);
-			this.topPn_.Controls.Add(this.diagnosticInfoLb_);
-			this.topPn_.Controls.Add(this.errorTextLb_);
-			this.topPn_.Controls.Add(this.itemTimeLb_);
-			this.topPn_.Controls.Add(this.itemPathLb_);
-			this.topPn_.Controls.Add(this.itemNameLb_);
-			this.topPn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.topPn_.DockPadding.Left = 4;
-			this.topPn_.DockPadding.Right = 4;
-			this.topPn_.Location = new System.Drawing.Point(0, 0);
-			this.topPn_.Name = "topPn_";
-			this.topPn_.Size = new System.Drawing.Size(256, 460);
-			this.topPn_.TabIndex = 1;
+			topPn_.Controls.Add(localeSpecifiedCb_);
+			topPn_.Controls.Add(localeCtrl_);
+			topPn_.Controls.Add(localeLb_);
+			topPn_.Controls.Add(clientHandleCb_);
+			topPn_.Controls.Add(itemPathCb_);
+			topPn_.Controls.Add(itemNameCb_);
+			topPn_.Controls.Add(diagnosticInfoCb_);
+			topPn_.Controls.Add(errorTextCb_);
+			topPn_.Controls.Add(itemTimeCb_);
+			topPn_.Controls.Add(clientHandleLb_);
+			topPn_.Controls.Add(diagnosticInfoLb_);
+			topPn_.Controls.Add(errorTextLb_);
+			topPn_.Controls.Add(itemTimeLb_);
+			topPn_.Controls.Add(itemPathLb_);
+			topPn_.Controls.Add(itemNameLb_);
+			topPn_.Dock = System.Windows.Forms.DockStyle.Top;
+			topPn_.DockPadding.Left = 4;
+			topPn_.DockPadding.Right = 4;
+			topPn_.Location = new System.Drawing.Point(0, 0);
+			topPn_.Name = "topPn_";
+			topPn_.Size = new System.Drawing.Size(256, 460);
+			topPn_.TabIndex = 1;
 			// 
 			// LocaleSpecifiedCB
 			// 
-			this.localeSpecifiedCb_.Location = new System.Drawing.Point(236, 4);
-			this.localeSpecifiedCb_.Name = "localeSpecifiedCb_";
-			this.localeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.localeSpecifiedCb_.TabIndex = 16;
-			this.localeSpecifiedCb_.CheckedChanged += new System.EventHandler(this.LocaleSpecifiedCB_CheckedChanged);
+			localeSpecifiedCb_.Location = new System.Drawing.Point(236, 4);
+			localeSpecifiedCb_.Name = "localeSpecifiedCb_";
+			localeSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			localeSpecifiedCb_.TabIndex = 16;
+			localeSpecifiedCb_.CheckedChanged += new System.EventHandler(LocaleSpecifiedCB_CheckedChanged);
 			// 
 			// LocaleCTRL
 			// 
-			this.localeCtrl_.Enabled = false;
-			this.localeCtrl_.Locale = "";
-			this.localeCtrl_.Location = new System.Drawing.Point(132, 4);
-			this.localeCtrl_.Name = "localeCtrl_";
-			this.localeCtrl_.Size = new System.Drawing.Size(96, 24);
-			this.localeCtrl_.TabIndex = 15;
+			localeCtrl_.Enabled = false;
+			localeCtrl_.Locale = "";
+			localeCtrl_.Location = new System.Drawing.Point(132, 4);
+			localeCtrl_.Name = "localeCtrl_";
+			localeCtrl_.Size = new System.Drawing.Size(96, 24);
+			localeCtrl_.TabIndex = 15;
 			// 
 			// LocaleLB
 			// 
-			this.localeLb_.Location = new System.Drawing.Point(4, 4);
-			this.localeLb_.Name = "localeLb_";
-			this.localeLb_.Size = new System.Drawing.Size(128, 23);
-			this.localeLb_.TabIndex = 14;
-			this.localeLb_.Text = "Locale";
-			this.localeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			localeLb_.Location = new System.Drawing.Point(4, 4);
+			localeLb_.Name = "localeLb_";
+			localeLb_.Size = new System.Drawing.Size(128, 23);
+			localeLb_.TabIndex = 14;
+			localeLb_.Text = "Locale";
+			localeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ClientHandleCB
 			// 
-			this.clientHandleCb_.Checked = true;
-			this.clientHandleCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.clientHandleCb_.Location = new System.Drawing.Point(132, 76);
-			this.clientHandleCb_.Name = "clientHandleCb_";
-			this.clientHandleCb_.Size = new System.Drawing.Size(96, 24);
-			this.clientHandleCb_.TabIndex = 5;
+			clientHandleCb_.Checked = true;
+			clientHandleCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			clientHandleCb_.Location = new System.Drawing.Point(132, 76);
+			clientHandleCb_.Name = "clientHandleCb_";
+			clientHandleCb_.Size = new System.Drawing.Size(96, 24);
+			clientHandleCb_.TabIndex = 5;
 			// 
 			// ItemPathCB
 			// 
-			this.itemPathCb_.Checked = true;
-			this.itemPathCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.itemPathCb_.Location = new System.Drawing.Point(132, 52);
-			this.itemPathCb_.Name = "itemPathCb_";
-			this.itemPathCb_.Size = new System.Drawing.Size(96, 24);
-			this.itemPathCb_.TabIndex = 3;
+			itemPathCb_.Checked = true;
+			itemPathCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			itemPathCb_.Location = new System.Drawing.Point(132, 52);
+			itemPathCb_.Name = "itemPathCb_";
+			itemPathCb_.Size = new System.Drawing.Size(96, 24);
+			itemPathCb_.TabIndex = 3;
 			// 
 			// ItemNameCB
 			// 
-			this.itemNameCb_.Checked = true;
-			this.itemNameCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.itemNameCb_.Location = new System.Drawing.Point(132, 28);
-			this.itemNameCb_.Name = "itemNameCb_";
-			this.itemNameCb_.Size = new System.Drawing.Size(96, 24);
-			this.itemNameCb_.TabIndex = 1;
+			itemNameCb_.Checked = true;
+			itemNameCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			itemNameCb_.Location = new System.Drawing.Point(132, 28);
+			itemNameCb_.Name = "itemNameCb_";
+			itemNameCb_.Size = new System.Drawing.Size(96, 24);
+			itemNameCb_.TabIndex = 1;
 			// 
 			// DiagnosticInfoCB
 			// 
-			this.diagnosticInfoCb_.Checked = true;
-			this.diagnosticInfoCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.diagnosticInfoCb_.Location = new System.Drawing.Point(132, 148);
-			this.diagnosticInfoCb_.Name = "diagnosticInfoCb_";
-			this.diagnosticInfoCb_.Size = new System.Drawing.Size(96, 24);
-			this.diagnosticInfoCb_.TabIndex = 13;
+			diagnosticInfoCb_.Checked = true;
+			diagnosticInfoCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			diagnosticInfoCb_.Location = new System.Drawing.Point(132, 148);
+			diagnosticInfoCb_.Name = "diagnosticInfoCb_";
+			diagnosticInfoCb_.Size = new System.Drawing.Size(96, 24);
+			diagnosticInfoCb_.TabIndex = 13;
 			// 
 			// ErrorTextCB
 			// 
-			this.errorTextCb_.Checked = true;
-			this.errorTextCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.errorTextCb_.Location = new System.Drawing.Point(132, 124);
-			this.errorTextCb_.Name = "errorTextCb_";
-			this.errorTextCb_.Size = new System.Drawing.Size(96, 24);
-			this.errorTextCb_.TabIndex = 11;
+			errorTextCb_.Checked = true;
+			errorTextCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			errorTextCb_.Location = new System.Drawing.Point(132, 124);
+			errorTextCb_.Name = "errorTextCb_";
+			errorTextCb_.Size = new System.Drawing.Size(96, 24);
+			errorTextCb_.TabIndex = 11;
 			// 
 			// ClientHandleLB
 			// 
-			this.clientHandleLb_.Location = new System.Drawing.Point(4, 76);
-			this.clientHandleLb_.Name = "clientHandleLb_";
-			this.clientHandleLb_.Size = new System.Drawing.Size(128, 23);
-			this.clientHandleLb_.TabIndex = 4;
-			this.clientHandleLb_.Text = "Return Client Handle";
-			this.clientHandleLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			clientHandleLb_.Location = new System.Drawing.Point(4, 76);
+			clientHandleLb_.Name = "clientHandleLb_";
+			clientHandleLb_.Size = new System.Drawing.Size(128, 23);
+			clientHandleLb_.TabIndex = 4;
+			clientHandleLb_.Text = "Return Client Handle";
+			clientHandleLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// DiagnosticInfoLB
 			// 
-			this.diagnosticInfoLb_.Location = new System.Drawing.Point(4, 148);
-			this.diagnosticInfoLb_.Name = "diagnosticInfoLb_";
-			this.diagnosticInfoLb_.Size = new System.Drawing.Size(128, 23);
-			this.diagnosticInfoLb_.TabIndex = 12;
-			this.diagnosticInfoLb_.Text = "Return Diagnostic Info";
-			this.diagnosticInfoLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			diagnosticInfoLb_.Location = new System.Drawing.Point(4, 148);
+			diagnosticInfoLb_.Name = "diagnosticInfoLb_";
+			diagnosticInfoLb_.Size = new System.Drawing.Size(128, 23);
+			diagnosticInfoLb_.TabIndex = 12;
+			diagnosticInfoLb_.Text = "Return Diagnostic Info";
+			diagnosticInfoLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ErrorTextLB
 			// 
-			this.errorTextLb_.Location = new System.Drawing.Point(4, 124);
-			this.errorTextLb_.Name = "errorTextLb_";
-			this.errorTextLb_.Size = new System.Drawing.Size(128, 23);
-			this.errorTextLb_.TabIndex = 10;
-			this.errorTextLb_.Text = "Return Error Text";
-			this.errorTextLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			errorTextLb_.Location = new System.Drawing.Point(4, 124);
+			errorTextLb_.Name = "errorTextLb_";
+			errorTextLb_.Size = new System.Drawing.Size(128, 23);
+			errorTextLb_.TabIndex = 10;
+			errorTextLb_.Text = "Return Error Text";
+			errorTextLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// OptionsEditDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(256, 206);
-			this.Controls.Add(this.buttonsPn_);
-			this.Controls.Add(this.topPn_);
-			this.Name = "OptionsEditDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Edit Options";
-			this.buttonsPn_.ResumeLayout(false);
-			this.topPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(256, 206);
+			Controls.Add(buttonsPn_);
+			Controls.Add(topPn_);
+			Name = "OptionsEditDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Edit Options";
+			buttonsPn_.ResumeLayout(false);
+			topPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

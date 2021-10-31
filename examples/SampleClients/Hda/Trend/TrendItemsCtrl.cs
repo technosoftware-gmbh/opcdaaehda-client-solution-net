@@ -79,75 +79,75 @@ namespace SampleClients.Hda.Trend
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.itemsLv_ = new System.Windows.Forms.ListView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.addMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.editMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator01_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.copyDataMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			itemsLv_ = new System.Windows.Forms.ListView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			addMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			editMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator01_ = new System.Windows.Forms.ToolStripMenuItem();
+			copyDataMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// ItemsLV
 			// 
-			this.itemsLv_.ContextMenuStrip = this.popupMenu_;
-			this.itemsLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.itemsLv_.FullRowSelect = true;
-			this.itemsLv_.Location = new System.Drawing.Point(0, 0);
-			this.itemsLv_.MultiSelect = false;
-			this.itemsLv_.Name = "itemsLv_";
-			this.itemsLv_.Size = new System.Drawing.Size(432, 272);
-			this.itemsLv_.TabIndex = 0;
-			this.itemsLv_.View = System.Windows.Forms.View.Details;
-			this.itemsLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ItemsLV_MouseDown);
-			this.itemsLv_.DoubleClick += new System.EventHandler(this.ItemsLV_DoubleClick);
-			this.itemsLv_.SelectedIndexChanged += new System.EventHandler(this.ItemsLV_SelectedIndexChanged);
+			itemsLv_.ContextMenuStrip = popupMenu_;
+			itemsLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			itemsLv_.FullRowSelect = true;
+			itemsLv_.Location = new System.Drawing.Point(0, 0);
+			itemsLv_.MultiSelect = false;
+			itemsLv_.Name = "itemsLv_";
+			itemsLv_.Size = new System.Drawing.Size(432, 272);
+			itemsLv_.TabIndex = 0;
+			itemsLv_.View = System.Windows.Forms.View.Details;
+			itemsLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(ItemsLV_MouseDown);
+			itemsLv_.DoubleClick += new System.EventHandler(ItemsLV_DoubleClick);
+			itemsLv_.SelectedIndexChanged += new System.EventHandler(ItemsLV_SelectedIndexChanged);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.addMi_,
-																					  this.editMi_,
-																					  this.removeMi_,
-																					  this.separator01_,
-																					  this.copyDataMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  addMi_,
+																					  editMi_,
+																					  removeMi_,
+																					  separator01_,
+																					  copyDataMi_});
 			// 
 			// AddMI
 			// 
-			this.addMi_.ImageIndex = 0;
-			this.addMi_.Text = "Add...";
-			this.addMi_.Click += new System.EventHandler(this.AddMI_Click);
+			addMi_.ImageIndex = 0;
+			addMi_.Text = "Add...";
+			addMi_.Click += new System.EventHandler(AddMI_Click);
 			// 
 			// EditMI
 			// 
-			this.editMi_.ImageIndex = 1;
-			this.editMi_.Text = "Edit...";
-			this.editMi_.Click += new System.EventHandler(this.EditMI_Click);
+			editMi_.ImageIndex = 1;
+			editMi_.Text = "Edit...";
+			editMi_.Click += new System.EventHandler(EditMI_Click);
 			// 
 			// RemoveMI
 			// 
-			this.removeMi_.ImageIndex = 2;
-			this.removeMi_.Text = "Remove...";
-			this.removeMi_.Click += new System.EventHandler(this.RemoveMI_Click);
+			removeMi_.ImageIndex = 2;
+			removeMi_.Text = "Remove...";
+			removeMi_.Click += new System.EventHandler(RemoveMI_Click);
 			// 
 			// Separator01
 			// 
-			this.separator01_.ImageIndex = 3;
-			this.separator01_.Text = "-";
+			separator01_.ImageIndex = 3;
+			separator01_.Text = "-";
 			// 
 			// CopyDataMI
 			// 
-			this.copyDataMi_.ImageIndex = 4;
-			this.copyDataMi_.Text = "Copy Data...";
-			this.copyDataMi_.Click += new System.EventHandler(this.CopyDataMI_Click);
+			copyDataMi_.ImageIndex = 4;
+			copyDataMi_.Text = "Copy Data...";
+			copyDataMi_.Click += new System.EventHandler(CopyDataMI_Click);
 			// 
 			// TrendItemsCtrl
 			// 
-			this.AllowDrop = true;
-			this.Controls.Add(this.itemsLv_);
-			this.Name = "TrendItemsCtrl";
-			this.Size = new System.Drawing.Size(432, 272);
-			this.ResumeLayout(false);
+			AllowDrop = true;
+			Controls.Add(itemsLv_);
+			Name = "TrendItemsCtrl";
+			Size = new System.Drawing.Size(432, 272);
+			ResumeLayout(false);
 
 		}
 		#endregion

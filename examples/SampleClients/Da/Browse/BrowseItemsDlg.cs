@@ -79,99 +79,99 @@ namespace SampleClients.Da.Browse
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.browseCtrl_ = new BrowseTreeCtrl();
-			this.leftPn_ = new System.Windows.Forms.Panel();
-			this.rightPn_ = new System.Windows.Forms.Panel();
-			this.propertiesCtrl_ = new PropertyListViewCtrl();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.doneBtn_ = new System.Windows.Forms.Button();
-			this.splitterV_ = new System.Windows.Forms.Splitter();
-			this.leftPn_.SuspendLayout();
-			this.rightPn_.SuspendLayout();
-			this.buttonsPn_.SuspendLayout();
-			this.SuspendLayout();
+			browseCtrl_ = new BrowseTreeCtrl();
+			leftPn_ = new System.Windows.Forms.Panel();
+			rightPn_ = new System.Windows.Forms.Panel();
+			propertiesCtrl_ = new PropertyListViewCtrl();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			doneBtn_ = new System.Windows.Forms.Button();
+			splitterV_ = new System.Windows.Forms.Splitter();
+			leftPn_.SuspendLayout();
+			rightPn_.SuspendLayout();
+			buttonsPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// BrowseCTRL
 			// 
-			this.browseCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.browseCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.browseCtrl_.Name = "browseCtrl_";
-			this.browseCtrl_.Size = new System.Drawing.Size(220, 296);
-			this.browseCtrl_.TabIndex = 1;
+			browseCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			browseCtrl_.Location = new System.Drawing.Point(4, 4);
+			browseCtrl_.Name = "browseCtrl_";
+			browseCtrl_.Size = new System.Drawing.Size(220, 296);
+			browseCtrl_.TabIndex = 1;
 			// 
 			// LeftPN
 			// 
-			this.leftPn_.Controls.Add(this.browseCtrl_);
-			this.leftPn_.Dock = System.Windows.Forms.DockStyle.Left;
-			this.leftPn_.DockPadding.Left = 4;
-			this.leftPn_.DockPadding.Top = 4;
-			this.leftPn_.Location = new System.Drawing.Point(0, 0);
-			this.leftPn_.Name = "leftPn_";
-			this.leftPn_.Size = new System.Drawing.Size(224, 300);
-			this.leftPn_.TabIndex = 6;
+			leftPn_.Controls.Add(browseCtrl_);
+			leftPn_.Dock = System.Windows.Forms.DockStyle.Left;
+			leftPn_.DockPadding.Left = 4;
+			leftPn_.DockPadding.Top = 4;
+			leftPn_.Location = new System.Drawing.Point(0, 0);
+			leftPn_.Name = "leftPn_";
+			leftPn_.Size = new System.Drawing.Size(224, 300);
+			leftPn_.TabIndex = 6;
 			// 
 			// RightPN
 			// 
-			this.rightPn_.Controls.Add(this.propertiesCtrl_);
-			this.rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rightPn_.DockPadding.Right = 4;
-			this.rightPn_.DockPadding.Top = 4;
-			this.rightPn_.Location = new System.Drawing.Point(228, 0);
-			this.rightPn_.Name = "rightPn_";
-			this.rightPn_.Size = new System.Drawing.Size(564, 300);
-			this.rightPn_.TabIndex = 8;
+			rightPn_.Controls.Add(propertiesCtrl_);
+			rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			rightPn_.DockPadding.Right = 4;
+			rightPn_.DockPadding.Top = 4;
+			rightPn_.Location = new System.Drawing.Point(228, 0);
+			rightPn_.Name = "rightPn_";
+			rightPn_.Size = new System.Drawing.Size(564, 300);
+			rightPn_.TabIndex = 8;
 			// 
 			// PropertiesCTRL
 			// 
-			this.propertiesCtrl_.AllowDrop = true;
-			this.propertiesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.propertiesCtrl_.Location = new System.Drawing.Point(0, 4);
-			this.propertiesCtrl_.Name = "propertiesCtrl_";
-			this.propertiesCtrl_.Size = new System.Drawing.Size(560, 296);
-			this.propertiesCtrl_.TabIndex = 0;
+			propertiesCtrl_.AllowDrop = true;
+			propertiesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			propertiesCtrl_.Location = new System.Drawing.Point(0, 4);
+			propertiesCtrl_.Name = "propertiesCtrl_";
+			propertiesCtrl_.Size = new System.Drawing.Size(560, 296);
+			propertiesCtrl_.TabIndex = 0;
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.doneBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 300);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(792, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(doneBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 300);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(792, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// DoneBTN
 			// 
-			this.doneBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-			this.doneBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.doneBtn_.Location = new System.Drawing.Point(359, 8);
-			this.doneBtn_.Name = "doneBtn_";
-			this.doneBtn_.TabIndex = 0;
-			this.doneBtn_.Text = "Done";
-			this.doneBtn_.Click += new System.EventHandler(this.DoneBTN_Click);
+			doneBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			doneBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			doneBtn_.Location = new System.Drawing.Point(359, 8);
+			doneBtn_.Name = "doneBtn_";
+			doneBtn_.TabIndex = 0;
+			doneBtn_.Text = "Done";
+			doneBtn_.Click += new System.EventHandler(DoneBTN_Click);
 			// 
 			// SplitterV
 			// 
-			this.splitterV_.Location = new System.Drawing.Point(224, 0);
-			this.splitterV_.Name = "splitterV_";
-			this.splitterV_.Size = new System.Drawing.Size(4, 300);
-			this.splitterV_.TabIndex = 9;
-			this.splitterV_.TabStop = false;
+			splitterV_.Location = new System.Drawing.Point(224, 0);
+			splitterV_.Name = "splitterV_";
+			splitterV_.Size = new System.Drawing.Size(4, 300);
+			splitterV_.TabIndex = 9;
+			splitterV_.TabStop = false;
 			// 
 			// BrowseItemsDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(792, 336);
-			this.Controls.Add(this.rightPn_);
-			this.Controls.Add(this.splitterV_);
-			this.Controls.Add(this.leftPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Name = "BrowseItemsDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Browse Address Space";
-			this.leftPn_.ResumeLayout(false);
-			this.rightPn_.ResumeLayout(false);
-			this.buttonsPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(792, 336);
+			Controls.Add(rightPn_);
+			Controls.Add(splitterV_);
+			Controls.Add(leftPn_);
+			Controls.Add(buttonsPn_);
+			Name = "BrowseItemsDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Browse Address Space";
+			leftPn_.ResumeLayout(false);
+			rightPn_.ResumeLayout(false);
+			buttonsPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

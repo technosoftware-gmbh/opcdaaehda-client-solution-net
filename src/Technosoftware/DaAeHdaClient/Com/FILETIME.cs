@@ -21,9 +21,7 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Com

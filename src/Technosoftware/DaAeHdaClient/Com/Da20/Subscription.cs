@@ -23,12 +23,11 @@
 #region Using Directives
 using System;
 using System.Collections;
-using Technosoftware.DaAeHdaClient;
+
 using Technosoftware.DaAeHdaClient.Da;
-using Technosoftware.DaAeHdaClient.Com;
 using Technosoftware.DaAeHdaClient.Com.Da;
 using OpcRcw.Da;
-using OpcRcw.Comn;
+
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Com.Da20
@@ -58,7 +57,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 		/// Returns the current state of the subscription.
 		/// </summary>
 		/// <returns>The current state of the subscription.</returns>
+#pragma warning disable CS0108 // 'Subscription.GetState()' hides inherited member 'Subscription.GetState()'. Use the new keyword if hiding was intended.
 		public TsCDaSubscriptionState GetState() 
+#pragma warning restore CS0108 // 'Subscription.GetState()' hides inherited member 'Subscription.GetState()'. Use the new keyword if hiding was intended.
 		{
 			lock (this)
 			{ 

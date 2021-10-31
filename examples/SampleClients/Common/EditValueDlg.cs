@@ -68,65 +68,65 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.ButtonsPN = new System.Windows.Forms.Panel();
-			this.CancelBTN = new System.Windows.Forms.Button();
-			this.OkBTN = new System.Windows.Forms.Button();
-            this.ValueCTRL = new ValueCtrl();
-			this.ButtonsPN.SuspendLayout();
-			this.SuspendLayout();
+			ButtonsPN = new System.Windows.Forms.Panel();
+			CancelBTN = new System.Windows.Forms.Button();
+			OkBTN = new System.Windows.Forms.Button();
+            ValueCTRL = new ValueCtrl();
+			ButtonsPN.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ButtonsPN
 			// 
-			this.ButtonsPN.Controls.Add(this.CancelBTN);
-			this.ButtonsPN.Controls.Add(this.OkBTN);
-			this.ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.ButtonsPN.Location = new System.Drawing.Point(0, 26);
-			this.ButtonsPN.Name = "ButtonsPN";
-			this.ButtonsPN.Size = new System.Drawing.Size(296, 36);
-			this.ButtonsPN.TabIndex = 0;
+			ButtonsPN.Controls.Add(CancelBTN);
+			ButtonsPN.Controls.Add(OkBTN);
+			ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
+			ButtonsPN.Location = new System.Drawing.Point(0, 26);
+			ButtonsPN.Name = "ButtonsPN";
+			ButtonsPN.Size = new System.Drawing.Size(296, 36);
+			ButtonsPN.TabIndex = 0;
 			// 
 			// CancelBTN
 			// 
-			this.CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelBTN.Location = new System.Drawing.Point(216, 8);
-			this.CancelBTN.Name = "CancelBTN";
-            this.CancelBTN.Size = new System.Drawing.Size(75, 23);
-			this.CancelBTN.TabIndex = 0;
-			this.CancelBTN.Text = "Cancel";
+			CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			CancelBTN.Location = new System.Drawing.Point(216, 8);
+			CancelBTN.Name = "CancelBTN";
+            CancelBTN.Size = new System.Drawing.Size(75, 23);
+			CancelBTN.TabIndex = 0;
+			CancelBTN.Text = "Cancel";
 			// 
 			// OkBTN
 			// 
-			this.OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.OkBTN.Location = new System.Drawing.Point(135, 8);
-			this.OkBTN.Name = "OkBTN";
-            this.OkBTN.Size = new System.Drawing.Size(75, 23);
-			this.OkBTN.TabIndex = 1;
-			this.OkBTN.Text = "OK";
+			OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
+            OkBTN.Location = new System.Drawing.Point(135, 8);
+			OkBTN.Name = "OkBTN";
+            OkBTN.Size = new System.Drawing.Size(75, 23);
+			OkBTN.TabIndex = 1;
+			OkBTN.Text = "OK";
 			// 
 			// ValueCTRL
 			// 
-			this.ValueCTRL.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.ValueCTRL.ItemID = null;
-			this.ValueCTRL.Location = new System.Drawing.Point(0, 0);
-			this.ValueCTRL.Name = "ValueCTRL";
-            this.ValueCTRL.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
-			this.ValueCTRL.Size = new System.Drawing.Size(296, 26);
-			this.ValueCTRL.TabIndex = 1;
-            this.ValueCTRL.Value = null;
+			ValueCTRL.Dock = System.Windows.Forms.DockStyle.Fill;
+			ValueCTRL.ItemID = null;
+			ValueCTRL.Location = new System.Drawing.Point(0, 0);
+			ValueCTRL.Name = "ValueCTRL";
+            ValueCTRL.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
+			ValueCTRL.Size = new System.Drawing.Size(296, 26);
+			ValueCTRL.TabIndex = 1;
+            ValueCTRL.Value = null;
 			// 
 			// EditValueDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(296, 62);
-			this.Controls.Add(this.ValueCTRL);
-			this.Controls.Add(this.ButtonsPN);
-			this.Name = "EditValueDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Edit Value";
-			this.ButtonsPN.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(296, 62);
+			Controls.Add(ValueCTRL);
+			Controls.Add(ButtonsPN);
+			Name = "EditValueDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Edit Value";
+			ButtonsPN.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

@@ -22,15 +22,10 @@
 
 #region Using Directives
 using System;
-using System.Xml;
-using System.Net;
-using System.Threading;
 using System.Collections;
-using System.Globalization;
 using System.Runtime.InteropServices;
-using Technosoftware.DaAeHdaClient;
+
 using Technosoftware.DaAeHdaClient.Da;
-using Technosoftware.DaAeHdaClient.Com;
 using Technosoftware.DaAeHdaClient.Com.Da;
 using OpcRcw.Da;
 using OpcRcw.Comn;
@@ -61,7 +56,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// <summary>
         /// This must be called explicitly by clients to ensure the COM server is released.
         /// </summary>
+#pragma warning disable CS0108 // 'Server.Dispose()' hides inherited member 'Server.Dispose()'. Use the new keyword if hiding was intended.
         public void Dispose()
+#pragma warning restore CS0108 // 'Server.Dispose()' hides inherited member 'Server.Dispose()'. Use the new keyword if hiding was intended.
         {
             lock (this)
             {
@@ -919,7 +916,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
                 properties[ii].ID = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetPropertyID(propertyIDs[ii]);
                 properties[ii].Description = descriptions[ii];
+#pragma warning disable CS0618 // 'VarEnum' is obsolete: 'Marshalling VARIANTs may be unavailable in future releases.'
                 properties[ii].DataType = Utilities.Interop.GetType((VarEnum)datatypes[ii]);
+#pragma warning restore CS0618 // 'VarEnum' is obsolete: 'Marshalling VARIANTs may be unavailable in future releases.'
                 properties[ii].ItemName = null;
                 properties[ii].ItemPath = null;
                 properties[ii].Result = OpcResult.S_OK;
@@ -1147,7 +1146,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                             {
                                 browser.ChangeBrowsePosition(OPCBROWSEDIRECTION.OPC_BROWSE_UP, String.Empty);
                             }
-                            catch (Exception e3)
+                            catch (Exception)
                             {
                                 break;
                             }
@@ -1164,7 +1163,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         {
                             browser.ChangeBrowsePosition(OPCBROWSEDIRECTION.OPC_BROWSE_TO, id);
                         }
-                        catch (Exception e1)
+                        catch (Exception)
                         {
                             browseToSupported_ = false;
                         }
@@ -1176,7 +1175,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         {
                             browser.ChangeBrowsePosition(OPCBROWSEDIRECTION.OPC_BROWSE_DOWN, id);
                         }
-                        catch (Exception e2)
+                        catch (Exception)
                         {
 
                             // browse to root.
@@ -1186,7 +1185,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                                 {
                                     browser.ChangeBrowsePosition(OPCBROWSEDIRECTION.OPC_BROWSE_UP, String.Empty);
                                 }
-                                catch (Exception e3)
+                                catch (Exception)
                                 {
                                     break;
                                 }
@@ -1219,7 +1218,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                                 {
                                     browser.ChangeBrowsePosition(OPCBROWSEDIRECTION.OPC_BROWSE_DOWN, paths[ii]);
                                 }
-                                catch (Exception e)
+                                catch (Exception)
                                 {
                                     throw new OpcResultException(OpcResult.Da.E_UNKNOWN_ITEM_NAME);
                                 }
@@ -1244,14 +1243,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 browser.BrowseOPCItemIDs(
                     browseType,
                     (filters.ElementNameFilter != null) ? filters.ElementNameFilter : "",
+#pragma warning disable CS0618 // 'VarEnum' is obsolete: 'Marshalling VARIANTs may be unavailable in future releases.'
                     (short)VarEnum.VT_EMPTY,
+#pragma warning restore CS0618 // 'VarEnum' is obsolete: 'Marshalling VARIANTs may be unavailable in future releases.'
                     0,
                     out enumerator);
 
                 // return the enumerator.
                 return new EnumString(enumerator);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new OpcResultException(OpcResult.Da.E_UNKNOWN_ITEM_NAME);
             }
@@ -1354,7 +1355,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 definition.szAccessPath = null;
                 definition.hClient = 0;
                 definition.bActive = 0;
+#pragma warning disable CS0618 // 'VarEnum' is obsolete: 'Marshalling VARIANTs may be unavailable in future releases.'
                 definition.vtRequestedDataType = (short)VarEnum.VT_EMPTY;
+#pragma warning restore CS0618 // 'VarEnum' is obsolete: 'Marshalling VARIANTs may be unavailable in future releases.'
                 definition.dwBlobSize = 0;
                 definition.pBlob = IntPtr.Zero;
 

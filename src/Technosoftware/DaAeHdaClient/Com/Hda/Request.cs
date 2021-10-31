@@ -22,17 +22,10 @@
 
 #region Using Directives
 using System;
-using System.Xml;
-using System.Net;
-using System.Threading;
 using System.Collections;
-using System.Globalization;
-using System.Resources;
-using System.Runtime.InteropServices;
-using Technosoftware.DaAeHdaClient;
+
 using Technosoftware.DaAeHdaClient.Hda;
-using OpcRcw.Hda;
-using OpcRcw.Comn;
+
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Com.Hda

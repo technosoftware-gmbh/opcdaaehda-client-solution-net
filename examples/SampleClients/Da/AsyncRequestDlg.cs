@@ -70,99 +70,99 @@ namespace SampleClients.Da
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.goBtn_ = new System.Windows.Forms.Button();
-			this.stopBtn_ = new System.Windows.Forms.Button();
-			this.topPn_ = new System.Windows.Forms.Panel();
-			this.resultsCtrl_ = new ResultListViewCtrl();
-			this.buttonsPn_.SuspendLayout();
-			this.topPn_.SuspendLayout();
-			this.SuspendLayout();
+			okBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			goBtn_ = new System.Windows.Forms.Button();
+			stopBtn_ = new System.Windows.Forms.Button();
+			topPn_ = new System.Windows.Forms.Panel();
+			resultsCtrl_ = new ResultListViewCtrl();
+			buttonsPn_.SuspendLayout();
+			topPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okBtn_.Location = new System.Drawing.Point(5, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
+			okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			okBtn_.Location = new System.Drawing.Point(5, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(392, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(392, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Controls.Add(this.goBtn_);
-			this.buttonsPn_.Controls.Add(this.stopBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 202);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(472, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Controls.Add(goBtn_);
+			buttonsPn_.Controls.Add(stopBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 202);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(472, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// GoBTN
 			// 
-			this.goBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-			this.goBtn_.Location = new System.Drawing.Point(200, 8);
-			this.goBtn_.Name = "goBtn_";
-			this.goBtn_.TabIndex = 2;
-			this.goBtn_.Text = "Go";
-			this.goBtn_.Click += new System.EventHandler(this.GoBTN_Click);
+			goBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			goBtn_.Location = new System.Drawing.Point(200, 8);
+			goBtn_.Name = "goBtn_";
+			goBtn_.TabIndex = 2;
+			goBtn_.Text = "Go";
+			goBtn_.Click += new System.EventHandler(GoBTN_Click);
 			// 
 			// StopBTN
 			// 
-			this.stopBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-			this.stopBtn_.Location = new System.Drawing.Point(200, 8);
-			this.stopBtn_.Name = "stopBtn_";
-			this.stopBtn_.TabIndex = 3;
-			this.stopBtn_.Text = "Stop";
-			this.stopBtn_.Click += new System.EventHandler(this.StopBTN_Click);
+			stopBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			stopBtn_.Location = new System.Drawing.Point(200, 8);
+			stopBtn_.Name = "stopBtn_";
+			stopBtn_.TabIndex = 3;
+			stopBtn_.Text = "Stop";
+			stopBtn_.Click += new System.EventHandler(StopBTN_Click);
 			// 
 			// TopPN
 			// 
-			this.topPn_.Controls.Add(this.resultsCtrl_);
-			this.topPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.topPn_.DockPadding.Bottom = 4;
-			this.topPn_.DockPadding.Left = 4;
-			this.topPn_.DockPadding.Right = 4;
-			this.topPn_.DockPadding.Top = 4;
-			this.topPn_.Location = new System.Drawing.Point(0, 0);
-			this.topPn_.Name = "topPn_";
-			this.topPn_.Size = new System.Drawing.Size(472, 202);
-			this.topPn_.TabIndex = 1;
+			topPn_.Controls.Add(resultsCtrl_);
+			topPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			topPn_.DockPadding.Bottom = 4;
+			topPn_.DockPadding.Left = 4;
+			topPn_.DockPadding.Right = 4;
+			topPn_.DockPadding.Top = 4;
+			topPn_.Location = new System.Drawing.Point(0, 0);
+			topPn_.Name = "topPn_";
+			topPn_.Size = new System.Drawing.Size(472, 202);
+			topPn_.TabIndex = 1;
 			// 
 			// ResultsCTRL
 			// 
-			this.resultsCtrl_.AllowDrop = true;
-			this.resultsCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.resultsCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.resultsCtrl_.Name = "resultsCtrl_";
-			this.resultsCtrl_.Size = new System.Drawing.Size(464, 194);
-			this.resultsCtrl_.TabIndex = 0;
+			resultsCtrl_.AllowDrop = true;
+			resultsCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			resultsCtrl_.Location = new System.Drawing.Point(4, 4);
+			resultsCtrl_.Name = "resultsCtrl_";
+			resultsCtrl_.Size = new System.Drawing.Size(464, 194);
+			resultsCtrl_.TabIndex = 0;
 			// 
 			// AsyncRequestDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(472, 238);
-			this.Controls.Add(this.topPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Name = "AsyncRequestDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Asynchronous Request";
-			this.buttonsPn_.ResumeLayout(false);
-			this.topPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(472, 238);
+			Controls.Add(topPn_);
+			Controls.Add(buttonsPn_);
+			Name = "AsyncRequestDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Asynchronous Request";
+			buttonsPn_.ResumeLayout(false);
+			topPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

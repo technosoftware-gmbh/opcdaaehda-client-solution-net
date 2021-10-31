@@ -78,7 +78,7 @@ namespace scpl
 					// this is probably not needed, but
 					// it's probably a good practice to redraw 
 					// the control when a property changed
-					this.Invalidate();
+					Invalidate();
 				}
 			}
 			#endregion
@@ -122,8 +122,8 @@ namespace scpl
 				// 
 				// PlotSurface2D
 				// 
-				this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-				this.Name = "PlotSurface2D";
+				BackColor = System.Drawing.SystemColors.ControlLightLight;
+				Name = "PlotSurface2D";
 			}
 			#endregion
 
@@ -132,7 +132,7 @@ namespace scpl
 			protected override void OnPaint( PaintEventArgs pe )
 			{
 				Graphics g = pe.Graphics;
-				Rectangle border = new Rectangle(0,0,this.Width,this.Height);
+				Rectangle border = new Rectangle(0,0,Width,Height);
 				ps_.Draw( g, border );
 				base.OnPaint(pe);
 			}
@@ -469,11 +469,11 @@ namespace scpl
 					// ok, we can delete the previous box
 					if ( endPoint_ != unset_ )
 					{
-						this.DrawRubberBand( startPoint_, endPoint_ );
+						DrawRubberBand( startPoint_, endPoint_ );
 					}
 					endPoint_ = here;
 					// and redraw the last one
-					this.DrawRubberBand( startPoint_, here );
+					DrawRubberBand( startPoint_, here );
 				}
 				// don't fail to call the base method!
 				base.OnMouseMove( e );
@@ -489,7 +489,7 @@ namespace scpl
 					mouseActionInitiated_=false;
 					if(endPoint_ != unset_)
 					{
-						this.DrawRubberBand(startPoint_,endPoint_);
+						DrawRubberBand(startPoint_,endPoint_);
 					}
 					
 					Point minPoint = new Point( 0, 0 );
@@ -500,15 +500,15 @@ namespace scpl
 					maxPoint.X = Math.Max( startPoint_.X, endPoint_.X );
 					maxPoint.Y = Math.Max( startPoint_.Y, endPoint_.Y );
 
-					Rectangle r=this.ps_.PlotAreaBoundingBoxCache;
+					Rectangle r=ps_.PlotAreaBoundingBoxCache;
 					if(minPoint !=maxPoint && (r.Contains(minPoint) || r.Contains(maxPoint)))
 					{
 						if ( xAxis1Cache_ == null )
 						{
-							xAxis1Cache_ = (Axis)this.XAxis1.Clone();
-							xAxis2Cache_ = (Axis)this.XAxis2.Clone();
-							yAxis1Cache_ = (Axis)this.YAxis1.Clone();
-							yAxis2Cache_ = (Axis)this.YAxis2.Clone();
+							xAxis1Cache_ = (Axis)XAxis1.Clone();
+							xAxis2Cache_ = (Axis)XAxis2.Clone();
+							yAxis1Cache_ = (Axis)YAxis1.Clone();
+							yAxis2Cache_ = (Axis)YAxis2.Clone();
 						}
 
 						// TODO: these bugger up if min/max point reversed.
@@ -522,63 +522,63 @@ namespace scpl
 						if (XAxis1 != null)
 						{
 							double tempMin = 
-								this.PhysicalXAxis1Cache.PhysicalToWorld(minPoint,true);
+								PhysicalXAxis1Cache.PhysicalToWorld(minPoint,true);
 							
-							this.XAxis1.WorldMax = 
-								this.PhysicalXAxis1Cache.PhysicalToWorld(maxPoint,true);
+							XAxis1.WorldMax = 
+								PhysicalXAxis1Cache.PhysicalToWorld(maxPoint,true);
 
-							this.XAxis1.WorldMin = tempMin;
+							XAxis1.WorldMin = tempMin;
 						}
 					
 						if (XAxis2 != null)
 						{
 							double tempMin = 
-								this.PhysicalXAxis2Cache.PhysicalToWorld(minPoint,true);
+								PhysicalXAxis2Cache.PhysicalToWorld(minPoint,true);
 							
-							this.XAxis2.WorldMax = 
-								this.PhysicalXAxis2Cache.PhysicalToWorld(maxPoint,true);
+							XAxis2.WorldMax = 
+								PhysicalXAxis2Cache.PhysicalToWorld(maxPoint,true);
 							
-							this.XAxis2.WorldMin = tempMin;
+							XAxis2.WorldMin = tempMin;
 						}
 
 						if (YAxis1 != null)
 						{
 
 							double tempMin = 
-								this.PhysicalYAxis1Cache.PhysicalToWorld(maxPoint,true);
+								PhysicalYAxis1Cache.PhysicalToWorld(maxPoint,true);
 
-							this.YAxis1.WorldMax = 
-								this.PhysicalYAxis1Cache.PhysicalToWorld(minPoint,true);
+							YAxis1.WorldMax = 
+								PhysicalYAxis1Cache.PhysicalToWorld(minPoint,true);
 							
-							this.YAxis1.WorldMin = tempMin;
+							YAxis1.WorldMin = tempMin;
 						}
 				
 						if (YAxis2 != null)
 						{
 							double tempMin =
-								this.PhysicalYAxis2Cache.PhysicalToWorld(maxPoint,true);
+								PhysicalYAxis2Cache.PhysicalToWorld(maxPoint,true);
 
-							this.YAxis2.WorldMax = 
-								this.PhysicalYAxis2Cache.PhysicalToWorld(minPoint,true);
+							YAxis2.WorldMax = 
+								PhysicalYAxis2Cache.PhysicalToWorld(minPoint,true);
 							
-							this.YAxis2.WorldMin = tempMin;
+							YAxis2.WorldMin = tempMin;
 						}
 
 						// reset the start/end points
 						startPoint_ = unset_;
 						endPoint_ = unset_;
 
-						this.Refresh();
+						Refresh();
 					}
 				}
 				else if (e.Button == MouseButtons.Right)
 				{
 					if ( xAxis1Cache_ != null )
 					{
-						this.XAxis1 = xAxis1Cache_;
-						this.XAxis2 = xAxis2Cache_;
-						this.YAxis1 = yAxis1Cache_;
-						this.YAxis2 = yAxis2Cache_;
+						XAxis1 = xAxis1Cache_;
+						XAxis2 = xAxis2Cache_;
+						YAxis1 = yAxis1Cache_;
+						YAxis2 = yAxis2Cache_;
 
 						xAxis1Cache_ = null;
 						xAxis2Cache_ = null;
@@ -586,7 +586,7 @@ namespace scpl
 						yAxis2Cache_ = null;
 					}					
 
-					this.Refresh();
+					Refresh();
 				}
 				
 				// don't fail to call the base method!
@@ -597,7 +597,7 @@ namespace scpl
 			{
 				Rectangle rect = new Rectangle();
 				// the clipping rectangle in screen coordinates
-				Rectangle clip = this.RectangleToScreen( ps_.PlotAreaBoundingBoxCache );
+				Rectangle clip = RectangleToScreen( ps_.PlotAreaBoundingBoxCache );
 				// convert to screen coords
 				start = PointToScreen( start );
 				end = PointToScreen( end );
@@ -636,12 +636,12 @@ namespace scpl
 
 			public bool SaveAsFile( string strFilePath, System.Drawing.Imaging.ImageFormat imageFormat ) 
 			{
-				return ps_.SaveAsFile(strFilePath, this.Width, this.Height, imageFormat);
+				return ps_.SaveAsFile(strFilePath, Width, Height, imageFormat);
 			}
 
 			public bool SaveAsFile( string strFilePath ) 
 			{
-				return ps_.SaveAsFile(strFilePath, this.Width, this.Height);
+				return ps_.SaveAsFile(strFilePath, Width, Height);
 			}
 
 			#endregion

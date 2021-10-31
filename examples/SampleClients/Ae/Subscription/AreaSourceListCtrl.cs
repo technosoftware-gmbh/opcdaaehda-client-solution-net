@@ -72,72 +72,72 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.areaSourceLv_ = new System.Windows.Forms.ListView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.addAreaMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.addSourceMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator01_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.editMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.deleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			areaSourceLv_ = new System.Windows.Forms.ListView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			addAreaMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			addSourceMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator01_ = new System.Windows.Forms.ToolStripMenuItem();
+			editMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			deleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// AreaSourceLV
 			// 
-			this.areaSourceLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.areaSourceLv_.FullRowSelect = true;
-			this.areaSourceLv_.Location = new System.Drawing.Point(0, 0);
-			this.areaSourceLv_.MultiSelect = false;
-			this.areaSourceLv_.Name = "areaSourceLv_";
-			this.areaSourceLv_.Size = new System.Drawing.Size(376, 200);
-			this.areaSourceLv_.TabIndex = 16;
-			this.areaSourceLv_.View = System.Windows.Forms.View.Details;
-			this.areaSourceLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AreaSourceLV_MouseDown);
+			areaSourceLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			areaSourceLv_.FullRowSelect = true;
+			areaSourceLv_.Location = new System.Drawing.Point(0, 0);
+			areaSourceLv_.MultiSelect = false;
+			areaSourceLv_.Name = "areaSourceLv_";
+			areaSourceLv_.Size = new System.Drawing.Size(376, 200);
+			areaSourceLv_.TabIndex = 16;
+			areaSourceLv_.View = System.Windows.Forms.View.Details;
+			areaSourceLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(AreaSourceLV_MouseDown);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.addAreaMi_,
-																					  this.addSourceMi_,
-																					  this.separator01_,
-																					  this.editMi_,
-																					  this.deleteMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  addAreaMi_,
+																					  addSourceMi_,
+																					  separator01_,
+																					  editMi_,
+																					  deleteMi_});
 			// 
 			// AddAreaMI
 			// 
-			this.addAreaMi_.ImageIndex = 0;
-			this.addAreaMi_.Text = "Add Area,,,";
-			this.addAreaMi_.Click += new System.EventHandler(this.AddAreaMI_Click);
+			addAreaMi_.ImageIndex = 0;
+			addAreaMi_.Text = "Add Area,,,";
+			addAreaMi_.Click += new System.EventHandler(AddAreaMI_Click);
 			// 
 			// AddSourceMI
 			// 
-			this.addSourceMi_.ImageIndex = 1;
-			this.addSourceMi_.Text = "Add Source...";
-			this.addSourceMi_.Click += new System.EventHandler(this.AddSourceMI_Click);
+			addSourceMi_.ImageIndex = 1;
+			addSourceMi_.Text = "Add Source...";
+			addSourceMi_.Click += new System.EventHandler(AddSourceMI_Click);
 			// 
 			// Separator01
 			// 
-			this.separator01_.ImageIndex = 2;
-			this.separator01_.Text = "-";
+			separator01_.ImageIndex = 2;
+			separator01_.Text = "-";
 			// 
 			// EditMI
 			// 
-			this.editMi_.ImageIndex = 3;
-			this.editMi_.Text = "Edit..";
-			this.editMi_.Click += new System.EventHandler(this.EditMI_Click);
+			editMi_.ImageIndex = 3;
+			editMi_.Text = "Edit..";
+			editMi_.Click += new System.EventHandler(EditMI_Click);
 			// 
 			// DeleteMI
 			// 
-			this.deleteMi_.ImageIndex = 4;
-			this.deleteMi_.Text = "Delete";
-			this.deleteMi_.Click += new System.EventHandler(this.DeleteMI_Click);
+			deleteMi_.ImageIndex = 4;
+			deleteMi_.Text = "Delete";
+			deleteMi_.Click += new System.EventHandler(DeleteMI_Click);
 			// 
 			// AreaSourceListCtrl
 			// 
-			this.ContextMenuStrip = this.popupMenu_;
-			this.Controls.Add(this.areaSourceLv_);
-			this.Name = "AreaSourceListCtrl";
-			this.Size = new System.Drawing.Size(376, 200);
-			this.ResumeLayout(false);
+			ContextMenuStrip = popupMenu_;
+			Controls.Add(areaSourceLv_);
+			Name = "AreaSourceListCtrl";
+			Size = new System.Drawing.Size(376, 200);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -195,12 +195,13 @@ namespace Technosoftware.AeSampleClient
 			{
 				for (int ii = 0; ii < areas.Length; ii++)
 				{
-					Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement element = new Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement();
+                    Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement element = new Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement
+                    {
+                        QualifiedName = areas[ii],
+                        NodeType = Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Area
+                    };
 
-					element.QualifiedName = areas[ii];
-					element.NodeType      = Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Area;
-
-					Add(element);
+                    Add(element);
 				}
 				
 				AdjustColumns(areaSourceLv_);
@@ -216,12 +217,13 @@ namespace Technosoftware.AeSampleClient
 			{
 				for (int ii = 0; ii < sources.Length; ii++)
 				{
-					Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement element = new Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement();
+                    Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement element = new Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement
+                    {
+                        QualifiedName = sources[ii],
+                        NodeType = Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Source
+                    };
 
-					element.QualifiedName = sources[ii];
-					element.NodeType      = Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Source;
-
-					Add(element);
+                    Add(element);
 				}
 
 				AdjustColumns(areaSourceLv_);
@@ -250,9 +252,11 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void AddHeader(ListView listview, string name)
 		{
-			ColumnHeader header = new ColumnHeader();
-			header.Text = name;
-			listview.Columns.Add(header);
+            ColumnHeader header = new ColumnHeader
+            {
+                Text = name
+            };
+            listview.Columns.Add(header);
 		}
 
 		/// <summary>
@@ -344,12 +348,13 @@ namespace Technosoftware.AeSampleClient
 					return;
 				}
 
-				Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement element = new Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement();
+                Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement element = new Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement
+                {
+                    QualifiedName = qualifiedName,
+                    NodeType = Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Area
+                };
 
-				element.QualifiedName = qualifiedName;
-				element.NodeType      = Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Area;
-			
-				Add(element);
+                Add(element);
 				AdjustColumns(areaSourceLv_);
 			}
 			catch (Exception exception)
@@ -372,12 +377,13 @@ namespace Technosoftware.AeSampleClient
 					return;
 				}
 
-				Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement element = new Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement();
+                Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement element = new Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseElement
+                {
+                    QualifiedName = qualifiedName,
+                    NodeType = Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Source
+                };
 
-				element.QualifiedName = qualifiedName;
-				element.NodeType      = Technosoftware.DaAeHdaClient.Ae.TsCAeBrowseType.Source;
-			
-				Add(element);
+                Add(element);
 				AdjustColumns(areaSourceLv_);
 			}
 			catch (Exception exception)

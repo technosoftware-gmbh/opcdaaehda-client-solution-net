@@ -72,42 +72,42 @@ namespace SampleClients.Hda.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.aggregatesLv_ = new System.Windows.Forms.ListView();
-			this.copyMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.editMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			aggregatesLv_ = new System.Windows.Forms.ListView();
+			copyMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			editMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// AggregatesLV
 			// 
-			this.aggregatesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.aggregatesLv_.FullRowSelect = true;
-			this.aggregatesLv_.Location = new System.Drawing.Point(0, 0);
-			this.aggregatesLv_.MultiSelect = false;
-			this.aggregatesLv_.Name = "aggregatesLv_";
-			this.aggregatesLv_.Size = new System.Drawing.Size(432, 272);
-			this.aggregatesLv_.TabIndex = 0;
-			this.aggregatesLv_.View = System.Windows.Forms.View.Details;
+			aggregatesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			aggregatesLv_.FullRowSelect = true;
+			aggregatesLv_.Location = new System.Drawing.Point(0, 0);
+			aggregatesLv_.MultiSelect = false;
+			aggregatesLv_.Name = "aggregatesLv_";
+			aggregatesLv_.Size = new System.Drawing.Size(432, 272);
+			aggregatesLv_.TabIndex = 0;
+			aggregatesLv_.View = System.Windows.Forms.View.Details;
 			// 
 			// CopyMI
 			// 
-			this.copyMi_.Text = "";
+			copyMi_.Text = "";
 			// 
 			// EditMI
 			// 
-			this.editMi_.Text = "";
+			editMi_.Text = "";
 			// 
 			// RemoveMI
 			// 
-			this.removeMi_.Text = "";
+			removeMi_.Text = "";
 			// 
 			// AggregateListViewCtrl
 			// 
-			this.AllowDrop = true;
-			this.Controls.Add(this.aggregatesLv_);
+			AllowDrop = true;
+			Controls.Add(aggregatesLv_);
 			((Control)this).Name = "AggregateListViewCtrl";
-			this.Size = new System.Drawing.Size(432, 272);
-			this.ResumeLayout(false);
+			Size = new System.Drawing.Size(432, 272);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -115,9 +115,9 @@ namespace SampleClients.Hda.Common
 		/// <summary>
 		/// Constants used to identify the list view columns.
 		/// </summary>
-		private const int Id          = 0;
-		private const int Name        = 1;
-		private const int Description = 2;
+		private const int NumberId          = 0;
+		private const int NumberName        = 1;
+		private const int NumberDescription = 2;
 
 		/// <summary>
 		/// The list view column names.
@@ -181,7 +181,7 @@ namespace SampleClients.Hda.Common
 			for (int ii = 0; ii < aggregatesLv_.Columns.Count; ii++)
 			{
 				// always show the aggregate id and value column.
-				if (ii == Id)
+				if (ii == NumberId)
 				{
 					aggregatesLv_.Columns[ii].Width = -2;
 					continue;
@@ -212,9 +212,9 @@ namespace SampleClients.Hda.Common
 		{
 			switch (fieldId)
 			{
-				case Id:          { return aggregate.Id; }
-				case Name:        { return aggregate.Name; }
-				case Description: { return aggregate.Description; }
+				case NumberId:          { return aggregate.Id; }
+				case NumberName:        { return aggregate.Name; }
+				case NumberDescription: { return aggregate.Description; }
 			}
 
 			return null;

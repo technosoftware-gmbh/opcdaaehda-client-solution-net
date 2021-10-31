@@ -90,7 +90,7 @@ namespace scpl
 		{
 			Axis a = new Axis();
 			// ensure that this isn't being called on a derived type. If it is, then oh no!
-			if (this.GetType() != a.GetType())
+			if (GetType() != a.GetType())
 			{
 				throw new System.Exception( "Clone not defined in derived type. Help!" );
 			}
@@ -162,30 +162,30 @@ namespace scpl
 		/// </summary>
 		private void Init()
 		{
-			this.worldMax_ = null;
-			this.worldMin_ = null;
-			this.Hidden = false;
-			this.SmallTickSize = 2.0f;
-			this.LargeTickSize = 5.0f;
-			this.fontScale_ = 1.0f;
-			this.tickScale_ = 1.0f;
-			this.tickTextNextToAxis_ = true;
-			this.hideTickText_ = false;
-			this.drawPositions_ = new System.Collections.ArrayList();
+			worldMax_ = null;
+			worldMin_ = null;
+			Hidden = false;
+			SmallTickSize = 2.0f;
+			LargeTickSize = 5.0f;
+			fontScale_ = 1.0f;
+			tickScale_ = 1.0f;
+			tickTextNextToAxis_ = true;
+			hideTickText_ = false;
+			drawPositions_ = new System.Collections.ArrayList();
 
-			this.label_ = "" ;
-			this.numFormat_ = "{0:g5}";
-			this.reversed_ = false;
+			label_ = "" ;
+			numFormat_ = "{0:g5}";
+			reversed_ = false;
 
 			//UpdateMantissaLogs();
 
 			FontFamily fontFamily = new FontFamily("Arial");
-			this.TickTextFont = new Font(fontFamily, 10, FontStyle.Regular, GraphicsUnit.Pixel);
-			this.LabelFont = new Font(fontFamily, 12, FontStyle.Regular, GraphicsUnit.Pixel);
-			this.LabelBrush = new SolidBrush( Color.Black );
-			this.tickTextBrush_ = new SolidBrush( Color.Black );
-			this.linePen_ = new Pen( Color.Black );
-			this.linePen_.Width = 1.0f;
+			TickTextFont = new Font(fontFamily, 10, FontStyle.Regular, GraphicsUnit.Pixel);
+			LabelFont = new Font(fontFamily, 12, FontStyle.Regular, GraphicsUnit.Pixel);
+			LabelBrush = new SolidBrush( Color.Black );
+			tickTextBrush_ = new SolidBrush( Color.Black );
+			linePen_ = new Pen( Color.Black );
+			linePen_.Width = 1.0f;
 		}
 
 		/// <summary>
@@ -193,7 +193,7 @@ namespace scpl
 		/// </summary>
 		public Axis( )
 		{
-			this.Init();
+			Init();
 		}
 		/// <summary>
 		/// Constructor that takes only world min and max values
@@ -202,9 +202,9 @@ namespace scpl
 		/// <param name="worldMax">The maximum world coordinate</param>
 		public Axis( double worldMin, double worldMax )
 		{
-			this.Init();
-			this.WorldMin = worldMin;
-			this.WorldMax = worldMax;
+			Init();
+			WorldMin = worldMin;
+			WorldMax = worldMax;
 		}
 
 		public Axis( Axis a )
@@ -225,7 +225,7 @@ namespace scpl
 				return true;
 			}
 
-			if (coord > this.WorldMax || coord < this.WorldMin)
+			if (coord > WorldMax || coord < WorldMin)
 			{
 				return true;
 			}
@@ -237,10 +237,10 @@ namespace scpl
 
 		public void setColor( Color c )
 		{
-			this.linePen_.Color = c;
+			linePen_.Color = c;
 			// change color only makes sense for solid brush.
-			this.labelBrush_ = new SolidBrush(c);
-			this.tickTextBrush_ = new SolidBrush(c);
+			labelBrush_ = new SolidBrush(c);
+			tickTextBrush_ = new SolidBrush(c);
 		}
 
 		public void LUB( Axis a )
@@ -285,7 +285,7 @@ namespace scpl
 			PointF physicalMin;
 			PointF physicalMax;
 
-			if ( this.reversed_ == true )
+			if ( reversed_ == true )
 			{
 				physicalMin = physicalMaxTmp;
 				physicalMax = physicalMinTmp;
@@ -323,7 +323,7 @@ namespace scpl
 			PointF physicalMin;
 			PointF physicalMax;
 
-			if ( this.reversed_ == true )
+			if ( reversed_ == true )
 			{
 				physicalMin = physicalMaxTmp;
 				physicalMax = physicalMinTmp;
@@ -348,13 +348,13 @@ namespace scpl
 			// dist of point projection on axis, normalised.
 			double prop = (axisX*pointX + axisY*pointY) / len;
 
-			double ret = prop * (this.WorldMax-this.WorldMin) + this.WorldMin;
+			double ret = prop * (WorldMax-WorldMin) + WorldMin;
 
 			// if want clipped value, return extrema if outside range.
 			if (clip)
 			{
-				ret=Math.Max(ret,this.WorldMin);
-				ret=Math.Min(ret,this.WorldMax);
+				ret=Math.Max(ret,WorldMin);
+				ret=Math.Min(ret,WorldMax);
 			}
 			return ret;
 		}
@@ -398,8 +398,8 @@ namespace scpl
 
 				StringFormat drawFormat = new StringFormat();
 				drawFormat.Alignment = StringAlignment.Center;
-				g.DrawString( label_, FontScaler.scaleFont(this.LabelFont,this.FontScale),
-					this.labelBrush_, drawRect, drawFormat);
+				g.DrawString( label_, FontScaler.scaleFont(LabelFont,FontScale),
+					labelBrush_, drawRect, drawFormat);
 
 				// now work out physical bounds of label. and return.
 				Matrix m = g.Transform;
@@ -442,17 +442,17 @@ namespace scpl
 			PointF s = WorldToPhysical( w, axisPhysMin, axisPhysMax, true );
 
 			// determine offset from start point.
-			PointF dir=this.AxisNormVector(axisPhysMin,axisPhysMax);
+			PointF dir=AxisNormVector(axisPhysMin,axisPhysMax);
 
 			// rotate clockwise by angle radians.
-			double x1 = Math.Cos( -this.TicksAngle ) * dir.X + Math.Sin( -this.TicksAngle ) * dir.Y;
-			double y1 = -Math.Sin( -this.TicksAngle ) * dir.X + Math.Cos( -this.TicksAngle ) * dir.Y;
+			double x1 = Math.Cos( -TicksAngle ) * dir.X + Math.Sin( -TicksAngle ) * dir.Y;
+			double y1 = -Math.Sin( -TicksAngle ) * dir.X + Math.Cos( -TicksAngle ) * dir.Y;
 
 			// scaling tick.
-			dir = new PointF( (float)(this.TickScale * size * x1), (float)(this.TickScale * size * y1) );
+			dir = new PointF( (float)(TickScale * size * x1), (float)(TickScale * size * y1) );
 
 			// draw it!
-			g.DrawLine( this.linePen_, s.X, s.Y, s.X + dir.X, s.Y + dir.Y );
+			g.DrawLine( linePen_, s.X, s.Y, s.X + dir.X, s.Y + dir.Y );
 
 			// calculate bounds.
 			double minx = Math.Min(s.X,s.X+dir.X);
@@ -465,14 +465,14 @@ namespace scpl
 			// now draw associated text.
 			if (text != "" && !HideTickText )
 			{
-				double lHt = g.MeasureString( text, FontScaler.scaleFont(font_,this.FontScale) ).Height;
-				double lWd = g.MeasureString( text, FontScaler.scaleFont(font_,this.FontScale) ).Width;
+				double lHt = g.MeasureString( text, FontScaler.scaleFont(font_,FontScale) ).Height;
+				double lWd = g.MeasureString( text, FontScaler.scaleFont(font_,FontScale) ).Width;
 
 				double textCenterX;
 				double textCenterY;
 
 				// if text is at pointy end of tick.
-				if (!this.TickTextNextToAxis)
+				if (!TickTextNextToAxis)
 				{
 					// offset due to tick.
 					textCenterX = s.X + dir.X*1.2f;
@@ -513,8 +513,8 @@ namespace scpl
 
 				StringFormat drawFormat = new StringFormat();
 				drawFormat.Alignment = StringAlignment.Center;
-				g.DrawString( text, FontScaler.scaleFont(this.TickTextFont,this.FontScale),
-					this.tickTextBrush_, drawRect, drawFormat);
+				g.DrawString( text, FontScaler.scaleFont(TickTextFont,FontScale),
+					tickTextBrush_, drawRect, drawFormat);
 
 				textCenterX -= s.X;
 				textCenterY -= s.Y;
@@ -541,7 +541,7 @@ namespace scpl
 		/// <returns>TODO:fill in.</returns>
 		public virtual object Draw( System.Drawing.Graphics g, PointF physicalMin, PointF physicalMax )
 		{
-			return this.DoDraw( g, new PointF( 0.0f, 0.0f ), physicalMin, physicalMax );
+			return DoDraw( g, new PointF( 0.0f, 0.0f ), physicalMin, physicalMax );
 		}
 
 		protected virtual RectangleF DoDraw( System.Drawing.Graphics g, PointF labelOffset,
@@ -555,11 +555,11 @@ namespace scpl
 
 			if (!Hidden)
 			{
-				g.DrawLine( this.linePen_, physicalMin.X, physicalMin.Y, physicalMax.X, physicalMax.Y );
+				g.DrawLine( linePen_, physicalMin.X, physicalMin.Y, physicalMax.X, physicalMax.Y );
 
-				if (!this.hideTickText_)
+				if (!hideTickText_)
 				{
-					object labelBounds = this.DrawLabel(g, labelOffset, physicalMin, physicalMax );
+					object labelBounds = DrawLabel(g, labelOffset, physicalMin, physicalMax );
 					if (labelBounds != null)
 					{
 						bounds = RectangleF.Union( bounds, (RectangleF)labelBounds );
@@ -608,18 +608,18 @@ namespace scpl
 		{
 			get
 			{
-				if (this.worldMax_ == null)
+				if (worldMax_ == null)
 				{
 					return (double)worldMax_;
 				}
 				else
 				{
-					return (double)this.worldMax_; // unbox.
+					return (double)worldMax_; // unbox.
 				}
 			}
 			set
 			{
-				this.worldMax_ = value; // box (or set to null)
+				worldMax_ = value; // box (or set to null)
 			}
 		}
 
@@ -627,11 +627,11 @@ namespace scpl
 		{
 			get
 			{
-				return (double)this.worldMin_; // un box
+				return (double)worldMin_; // un box
 			}
 			set
 			{
-				this.worldMin_ = value; // box (or set to null).
+				worldMin_ = value; // box (or set to null).
 			}
 		}
 
@@ -639,11 +639,11 @@ namespace scpl
 		{
 			get
 			{
-				return this.font_;
+				return font_;
 			}
 			set
 			{
-				this.font_ = value;
+				font_ = value;
 			}
 		}
 
@@ -651,11 +651,11 @@ namespace scpl
 		{
 			get
 			{
-				return this.labelFont_;
+				return labelFont_;
 			}
 			set
 			{
-				this.labelFont_ = value;
+				labelFont_ = value;
 			}
 		}
 
@@ -687,11 +687,11 @@ namespace scpl
 		{
 			get
 			{
-				return this.label_;
+				return label_;
 			}
 			set
 			{
-				this.label_ = value;
+				label_ = value;
 			}
 		}
 
@@ -699,11 +699,11 @@ namespace scpl
 		{
 			get
 			{
-				return this.fontScale_;
+				return fontScale_;
 			}
 			set
 			{
-				this.fontScale_ = value;
+				fontScale_ = value;
 			}
 		}
 
@@ -722,11 +722,11 @@ namespace scpl
 		{
 			get
 			{
-				return this.tickScale_;
+				return tickScale_;
 			}
 			set
 			{
-				this.tickScale_ = value;
+				tickScale_ = value;
 			}
 		}
 
@@ -751,11 +751,11 @@ namespace scpl
 		{
 			get
 			{
-				return this.hidden_;
+				return hidden_;
 			}
 			set
 			{
-				this.hidden_ = value;
+				hidden_ = value;
 			}
 		}
 
@@ -768,11 +768,11 @@ namespace scpl
 		{
 			get
 			{
-				return this.reversed_;
+				return reversed_;
 			}
 			set
 			{
-				this.reversed_ = value;
+				reversed_ = value;
 			}
 		}
 
@@ -782,11 +782,11 @@ namespace scpl
 		{
 			get
 			{
-				return this.hideTickText_;
+				return hideTickText_;
 			}
 			set
 			{
-				this.hideTickText_ = value;
+				hideTickText_ = value;
 			}
 		}
 
@@ -794,11 +794,11 @@ namespace scpl
 		{
 			get
 			{
-				return this.linePen_;
+				return linePen_;
 			}
 			set
 			{
-				this.linePen_ = value;
+				linePen_ = value;
 			}
 		}
 		private System.Drawing.Pen linePen_;

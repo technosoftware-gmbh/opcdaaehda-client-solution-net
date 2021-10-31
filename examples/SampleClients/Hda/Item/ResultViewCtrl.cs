@@ -71,102 +71,102 @@ namespace SampleClients.Hda.Item
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.endTimeLb_ = new System.Windows.Forms.Label();
-			this.resultLb_ = new System.Windows.Forms.Label();
-			this.startTimeLb_ = new System.Windows.Forms.Label();
-			this.itemNameLb_ = new System.Windows.Forms.Label();
-			this.itemNameCb_ = new System.Windows.Forms.ComboBox();
-			this.startTimeTb_ = new System.Windows.Forms.TextBox();
-			this.endTimeTb_ = new System.Windows.Forms.TextBox();
-			this.resultTb_ = new System.Windows.Forms.TextBox();
-			this.SuspendLayout();
+			endTimeLb_ = new System.Windows.Forms.Label();
+			resultLb_ = new System.Windows.Forms.Label();
+			startTimeLb_ = new System.Windows.Forms.Label();
+			itemNameLb_ = new System.Windows.Forms.Label();
+			itemNameCb_ = new System.Windows.Forms.ComboBox();
+			startTimeTb_ = new System.Windows.Forms.TextBox();
+			endTimeTb_ = new System.Windows.Forms.TextBox();
+			resultTb_ = new System.Windows.Forms.TextBox();
+			SuspendLayout();
 			// 
 			// EndTimeLB
 			// 
-			this.endTimeLb_.Location = new System.Drawing.Point(0, 48);
-			this.endTimeLb_.Name = "endTimeLb_";
-			this.endTimeLb_.Size = new System.Drawing.Size(64, 23);
-			this.endTimeLb_.TabIndex = 0;
-			this.endTimeLb_.Text = "End Time";
-			this.endTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			endTimeLb_.Location = new System.Drawing.Point(0, 48);
+			endTimeLb_.Name = "endTimeLb_";
+			endTimeLb_.Size = new System.Drawing.Size(64, 23);
+			endTimeLb_.TabIndex = 0;
+			endTimeLb_.Text = "End Time";
+			endTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ResultLB
 			// 
-			this.resultLb_.Location = new System.Drawing.Point(0, 72);
-			this.resultLb_.Name = "resultLb_";
-			this.resultLb_.Size = new System.Drawing.Size(64, 23);
-			this.resultLb_.TabIndex = 1;
-			this.resultLb_.Text = "Result";
-			this.resultLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			resultLb_.Location = new System.Drawing.Point(0, 72);
+			resultLb_.Name = "resultLb_";
+			resultLb_.Size = new System.Drawing.Size(64, 23);
+			resultLb_.TabIndex = 1;
+			resultLb_.Text = "Result";
+			resultLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// StartTimeLB
 			// 
-			this.startTimeLb_.Location = new System.Drawing.Point(0, 24);
-			this.startTimeLb_.Name = "startTimeLb_";
-			this.startTimeLb_.Size = new System.Drawing.Size(64, 23);
-			this.startTimeLb_.TabIndex = 11;
-			this.startTimeLb_.Text = "Start Time";
-			this.startTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			startTimeLb_.Location = new System.Drawing.Point(0, 24);
+			startTimeLb_.Name = "startTimeLb_";
+			startTimeLb_.Size = new System.Drawing.Size(64, 23);
+			startTimeLb_.TabIndex = 11;
+			startTimeLb_.Text = "Start Time";
+			startTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ItemNameLB
 			// 
-			this.itemNameLb_.Location = new System.Drawing.Point(0, 0);
-			this.itemNameLb_.Name = "itemNameLb_";
-			this.itemNameLb_.Size = new System.Drawing.Size(64, 23);
-			this.itemNameLb_.TabIndex = 10;
-			this.itemNameLb_.Text = "Item Name";
-			this.itemNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			itemNameLb_.Location = new System.Drawing.Point(0, 0);
+			itemNameLb_.Name = "itemNameLb_";
+			itemNameLb_.Size = new System.Drawing.Size(64, 23);
+			itemNameLb_.TabIndex = 10;
+			itemNameLb_.Text = "Item Name";
+			itemNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ItemNameCB
 			// 
-			this.itemNameCb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			itemNameCb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.itemNameCb_.Location = new System.Drawing.Point(64, 0);
-			this.itemNameCb_.Name = "itemNameCb_";
-			this.itemNameCb_.Size = new System.Drawing.Size(208, 21);
-			this.itemNameCb_.TabIndex = 12;
-			this.itemNameCb_.SelectedIndexChanged += new System.EventHandler(this.ItemNameCB_SelectedIndexChanged);
+			itemNameCb_.Location = new System.Drawing.Point(64, 0);
+			itemNameCb_.Name = "itemNameCb_";
+			itemNameCb_.Size = new System.Drawing.Size(208, 21);
+			itemNameCb_.TabIndex = 12;
+			itemNameCb_.SelectedIndexChanged += new System.EventHandler(ItemNameCB_SelectedIndexChanged);
 			// 
 			// StartTimeTB
 			// 
-			this.startTimeTb_.Location = new System.Drawing.Point(64, 28);
-			this.startTimeTb_.Name = "startTimeTb_";
-			this.startTimeTb_.ReadOnly = true;
-			this.startTimeTb_.Size = new System.Drawing.Size(112, 20);
-			this.startTimeTb_.TabIndex = 13;
-			this.startTimeTb_.Text = "2005-01-01 00:00:00";
+			startTimeTb_.Location = new System.Drawing.Point(64, 28);
+			startTimeTb_.Name = "startTimeTb_";
+			startTimeTb_.ReadOnly = true;
+			startTimeTb_.Size = new System.Drawing.Size(112, 20);
+			startTimeTb_.TabIndex = 13;
+			startTimeTb_.Text = "2005-01-01 00:00:00";
 			// 
 			// EndTimeTB
 			// 
-			this.endTimeTb_.Location = new System.Drawing.Point(64, 52);
-			this.endTimeTb_.Name = "endTimeTb_";
-			this.endTimeTb_.ReadOnly = true;
-			this.endTimeTb_.Size = new System.Drawing.Size(112, 20);
-			this.endTimeTb_.TabIndex = 14;
-			this.endTimeTb_.Text = "2005-01-01 00:00:00";
+			endTimeTb_.Location = new System.Drawing.Point(64, 52);
+			endTimeTb_.Name = "endTimeTb_";
+			endTimeTb_.ReadOnly = true;
+			endTimeTb_.Size = new System.Drawing.Size(112, 20);
+			endTimeTb_.TabIndex = 14;
+			endTimeTb_.Text = "2005-01-01 00:00:00";
 			// 
 			// ResultTB
 			// 
-			this.resultTb_.Location = new System.Drawing.Point(64, 76);
-			this.resultTb_.Name = "resultTb_";
-			this.resultTb_.ReadOnly = true;
-			this.resultTb_.Size = new System.Drawing.Size(156, 20);
-			this.resultTb_.TabIndex = 15;
-			this.resultTb_.Text = "S_OK";
+			resultTb_.Location = new System.Drawing.Point(64, 76);
+			resultTb_.Name = "resultTb_";
+			resultTb_.ReadOnly = true;
+			resultTb_.Size = new System.Drawing.Size(156, 20);
+			resultTb_.TabIndex = 15;
+			resultTb_.Text = "S_OK";
 			// 
 			// ResultViewCtrl
 			// 
-			this.Controls.Add(this.resultTb_);
-			this.Controls.Add(this.endTimeTb_);
-			this.Controls.Add(this.startTimeTb_);
-			this.Controls.Add(this.itemNameCb_);
-			this.Controls.Add(this.startTimeLb_);
-			this.Controls.Add(this.itemNameLb_);
-			this.Controls.Add(this.resultLb_);
-			this.Controls.Add(this.endTimeLb_);
-			this.Name = "ResultViewCtrl";
-			this.Size = new System.Drawing.Size(272, 96);
-			this.ResumeLayout(false);
+			Controls.Add(resultTb_);
+			Controls.Add(endTimeTb_);
+			Controls.Add(startTimeTb_);
+			Controls.Add(itemNameCb_);
+			Controls.Add(startTimeLb_);
+			Controls.Add(itemNameLb_);
+			Controls.Add(resultLb_);
+			Controls.Add(endTimeLb_);
+			Name = "ResultViewCtrl";
+			Size = new System.Drawing.Size(272, 96);
+			ResumeLayout(false);
 
 		}
 		#endregion

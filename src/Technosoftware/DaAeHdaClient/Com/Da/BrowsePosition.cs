@@ -22,9 +22,7 @@
 
 #region Using Directives
 using System;
-using System.Xml;
-using System.Collections;
-using Technosoftware.DaAeHdaClient;
+
 using Technosoftware.DaAeHdaClient.Da;
 #endregion
 

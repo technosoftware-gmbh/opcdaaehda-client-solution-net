@@ -83,132 +83,132 @@ namespace SampleClients.Hda.Edit
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.rightPn_ = new System.Windows.Forms.Panel();
-			this.asyncResultsCtrl_ = new ResultListCtrl();
-			this.browseCtrl_ = new BrowseTreeCtrl();
-			this.valuesCtrl_ = new AnnotationValuesCtrl();
-			this.resultsCtrl_ = new ResultListCtrl();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.backBtn_ = new System.Windows.Forms.Button();
-			this.nextBtn_ = new System.Windows.Forms.Button();
-			this.doneBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.rightPn_.SuspendLayout();
-			this.buttonsPn_.SuspendLayout();
-			this.SuspendLayout();
+			rightPn_ = new System.Windows.Forms.Panel();
+			asyncResultsCtrl_ = new ResultListCtrl();
+			browseCtrl_ = new BrowseTreeCtrl();
+			valuesCtrl_ = new AnnotationValuesCtrl();
+			resultsCtrl_ = new ResultListCtrl();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			backBtn_ = new System.Windows.Forms.Button();
+			nextBtn_ = new System.Windows.Forms.Button();
+			doneBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			rightPn_.SuspendLayout();
+			buttonsPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// RightPN
 			// 
-			this.rightPn_.Controls.Add(this.asyncResultsCtrl_);
-			this.rightPn_.Controls.Add(this.browseCtrl_);
-			this.rightPn_.Controls.Add(this.valuesCtrl_);
-			this.rightPn_.Controls.Add(this.resultsCtrl_);
-			this.rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rightPn_.DockPadding.Left = 4;
-			this.rightPn_.DockPadding.Right = 4;
-			this.rightPn_.DockPadding.Top = 4;
-			this.rightPn_.Location = new System.Drawing.Point(0, 0);
-			this.rightPn_.Name = "rightPn_";
-			this.rightPn_.Size = new System.Drawing.Size(552, 386);
-			this.rightPn_.TabIndex = 13;
+			rightPn_.Controls.Add(asyncResultsCtrl_);
+			rightPn_.Controls.Add(browseCtrl_);
+			rightPn_.Controls.Add(valuesCtrl_);
+			rightPn_.Controls.Add(resultsCtrl_);
+			rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			rightPn_.DockPadding.Left = 4;
+			rightPn_.DockPadding.Right = 4;
+			rightPn_.DockPadding.Top = 4;
+			rightPn_.Location = new System.Drawing.Point(0, 0);
+			rightPn_.Name = "rightPn_";
+			rightPn_.Size = new System.Drawing.Size(552, 386);
+			rightPn_.TabIndex = 13;
 			// 
 			// AsyncResultsCTRL
 			// 
-			this.asyncResultsCtrl_.AllowDrop = true;
-			this.asyncResultsCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.asyncResultsCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.asyncResultsCtrl_.Name = "asyncResultsCtrl_";
-			this.asyncResultsCtrl_.Size = new System.Drawing.Size(544, 382);
-			this.asyncResultsCtrl_.TabIndex = 4;
+			asyncResultsCtrl_.AllowDrop = true;
+			asyncResultsCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			asyncResultsCtrl_.Location = new System.Drawing.Point(4, 4);
+			asyncResultsCtrl_.Name = "asyncResultsCtrl_";
+			asyncResultsCtrl_.Size = new System.Drawing.Size(544, 382);
+			asyncResultsCtrl_.TabIndex = 4;
 			// 
 			// BrowseCTRL
 			// 
-			this.browseCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.browseCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.browseCtrl_.Name = "browseCtrl_";
-			this.browseCtrl_.Size = new System.Drawing.Size(544, 382);
-			this.browseCtrl_.TabIndex = 1;
-			this.browseCtrl_.ItemSelected += new BrowseTreeCtrl.ItemSelectedEventHandler(this.BrowseCTRL_ItemSelected);
-			this.browseCtrl_.ItemPicked += new BrowseTreeCtrl.ItemPickedEventHandler(this.BrowseCTRL_ItemPicked);
+			browseCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			browseCtrl_.Location = new System.Drawing.Point(4, 4);
+			browseCtrl_.Name = "browseCtrl_";
+			browseCtrl_.Size = new System.Drawing.Size(544, 382);
+			browseCtrl_.TabIndex = 1;
+			browseCtrl_.ItemSelected += new BrowseTreeCtrl.ItemSelectedEventHandler(BrowseCTRL_ItemSelected);
+			browseCtrl_.ItemPicked += new BrowseTreeCtrl.ItemPickedEventHandler(BrowseCTRL_ItemPicked);
 			// 
 			// ValuesCTRL
 			// 
-			this.valuesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.valuesCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.valuesCtrl_.Name = "valuesCtrl_";
-			this.valuesCtrl_.ReadOnly = false;
-			this.valuesCtrl_.Size = new System.Drawing.Size(544, 382);
-			this.valuesCtrl_.TabIndex = 2;
+			valuesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			valuesCtrl_.Location = new System.Drawing.Point(4, 4);
+			valuesCtrl_.Name = "valuesCtrl_";
+			valuesCtrl_.ReadOnly = false;
+			valuesCtrl_.Size = new System.Drawing.Size(544, 382);
+			valuesCtrl_.TabIndex = 2;
 			// 
 			// ResultsCTRL
 			// 
-			this.resultsCtrl_.AllowDrop = true;
-			this.resultsCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.resultsCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.resultsCtrl_.Name = "resultsCtrl_";
-			this.resultsCtrl_.Size = new System.Drawing.Size(544, 382);
-			this.resultsCtrl_.TabIndex = 3;
+			resultsCtrl_.AllowDrop = true;
+			resultsCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			resultsCtrl_.Location = new System.Drawing.Point(4, 4);
+			resultsCtrl_.Name = "resultsCtrl_";
+			resultsCtrl_.Size = new System.Drawing.Size(544, 382);
+			resultsCtrl_.TabIndex = 3;
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.backBtn_);
-			this.buttonsPn_.Controls.Add(this.nextBtn_);
-			this.buttonsPn_.Controls.Add(this.doneBtn_);
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 386);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(552, 36);
-			this.buttonsPn_.TabIndex = 15;
+			buttonsPn_.Controls.Add(backBtn_);
+			buttonsPn_.Controls.Add(nextBtn_);
+			buttonsPn_.Controls.Add(doneBtn_);
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 386);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(552, 36);
+			buttonsPn_.TabIndex = 15;
 			// 
 			// BackBTN
 			// 
-			this.backBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.backBtn_.Location = new System.Drawing.Point(312, 8);
-			this.backBtn_.Name = "backBtn_";
-			this.backBtn_.TabIndex = 3;
-			this.backBtn_.Text = "< Back";
-			this.backBtn_.Click += new System.EventHandler(this.BackBTN_Click);
+			backBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			backBtn_.Location = new System.Drawing.Point(312, 8);
+			backBtn_.Name = "backBtn_";
+			backBtn_.TabIndex = 3;
+			backBtn_.Text = "< Back";
+			backBtn_.Click += new System.EventHandler(BackBTN_Click);
 			// 
 			// NextBTN
 			// 
-			this.nextBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.nextBtn_.Location = new System.Drawing.Point(392, 8);
-			this.nextBtn_.Name = "nextBtn_";
-			this.nextBtn_.TabIndex = 2;
-			this.nextBtn_.Text = "Next >";
-			this.nextBtn_.Click += new System.EventHandler(this.NextBTN_Click);
+			nextBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			nextBtn_.Location = new System.Drawing.Point(392, 8);
+			nextBtn_.Name = "nextBtn_";
+			nextBtn_.TabIndex = 2;
+			nextBtn_.Text = "Next >";
+			nextBtn_.Click += new System.EventHandler(NextBTN_Click);
 			// 
 			// DoneBTN
 			// 
-			this.doneBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.doneBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.doneBtn_.Location = new System.Drawing.Point(472, 8);
-			this.doneBtn_.Name = "doneBtn_";
-			this.doneBtn_.TabIndex = 0;
-			this.doneBtn_.Text = "Done";
+			doneBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			doneBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			doneBtn_.Location = new System.Drawing.Point(472, 8);
+			doneBtn_.Name = "doneBtn_";
+			doneBtn_.TabIndex = 0;
+			doneBtn_.Text = "Done";
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(472, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 5;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(472, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 5;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// InsertAnnotationsDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(552, 422);
-			this.Controls.Add(this.rightPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Name = "InsertAnnotationsDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Insert Annotations";
-			this.rightPn_.ResumeLayout(false);
-			this.buttonsPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(552, 422);
+			Controls.Add(rightPn_);
+			Controls.Add(buttonsPn_);
+			Name = "InsertAnnotationsDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Insert Annotations";
+			rightPn_.ResumeLayout(false);
+			buttonsPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

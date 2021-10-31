@@ -57,9 +57,9 @@ namespace scpl
 		/// </summary>
 		private void init()
 		{
-			this.axis_ = null;
-			this.physicalMax_ = null;
-			this.physicalMin_ = null;
+			axis_ = null;
+			physicalMax_ = null;
+			physicalMin_ = null;
 		}
 		#endregion
 		#region constructors
@@ -70,9 +70,9 @@ namespace scpl
 
 		public PhysicalAxis( Axis a, PointF physicalMin, PointF physicalMax )
 		{
-			this.axis_ = a;
-			this.physicalMin_ = physicalMin;
-			this.physicalMax_ = physicalMax;
+			axis_ = a;
+			physicalMin_ = physicalMin;
+			physicalMax_ = physicalMax;
 		}
 		#endregion
 		#region GetBoundingBox
@@ -80,13 +80,13 @@ namespace scpl
 		{
 			System.Drawing.Bitmap b = new System.Drawing.Bitmap(1,1);
 			Graphics g = Graphics.FromImage(b);
-			return (RectangleF)this.Draw(g);
+			return (RectangleF)Draw(g);
 		}
 		#endregion
 		#region Draw
 		public virtual object Draw( System.Drawing.Graphics g )
 		{
-			return this.axis_.Draw( g, (PointF)physicalMin_, (PointF)physicalMax_ );
+			return axis_.Draw( g, (PointF)physicalMin_, (PointF)physicalMax_ );
 		}
 		#endregion
 		#region WorldToPhysical
@@ -132,11 +132,11 @@ namespace scpl
 		{
 			get
 			{
-				return this.axis_;
+				return axis_;
 			}
 			set
 			{
-				this.axis_ = value;
+				axis_ = value;
 			}
 		}
 		#endregion

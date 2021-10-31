@@ -52,7 +52,7 @@ namespace scpl
 		{
 			LabelAxis a = new LabelAxis();
 			// ensure that this isn't being called on a derived type. If it is, then oh no!
-			if (this.GetType() != a.GetType())
+			if (GetType() != a.GetType())
 			{
 				throw new System.Exception( "Clone not defined in derived type. Help!" );
 			}
@@ -113,7 +113,7 @@ namespace scpl
 				if ((double)numbers_[i] > WorldMin && (double)numbers_[i] < WorldMax)
 				{
 
-					ArrayList r = this.DrawTick( g, (double)numbers_[i], this.LargeTickSize, (string)labels_[i],
+					ArrayList r = DrawTick( g, (double)numbers_[i], LargeTickSize, (string)labels_[i],
 						new Point(0,0), physicalMin, physicalMax );
 
 					// determining largest label offset.

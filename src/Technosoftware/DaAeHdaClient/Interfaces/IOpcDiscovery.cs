@@ -22,7 +22,7 @@
 
 #region Using Directives
 using System;
-using System.Net;
+
 #endregion
 
 namespace Technosoftware.DaAeHdaClient

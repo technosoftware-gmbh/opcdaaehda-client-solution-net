@@ -110,260 +110,260 @@ namespace SampleClients.Da.Subscription
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.subscriptionTv_ = new System.Windows.Forms.TreeView();
-			this.serverPopupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.serverViewStatusMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.editOptionsMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.serverDisconnectMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator01_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.serverBrowseItemsMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscriptionCreateMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator02_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.serverReadItemsMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.serverWriteItemsMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscriptionPopupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.subscriptionEditMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscriptionDeleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscriptionAddItemsMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscriptionEditItemsMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separatorS1_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscriptionActiveMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscriptionEnabledMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separatorS2_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscriptionReadMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscriptionWriteMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separatorS3_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscriptionAsyncReadMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscriptionAsyncWriteMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscriptionRefreshMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.itemPopupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.itemEditMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.itemRemoveMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separatorI1_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.itemActiveMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscriptionEditOptionsMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			subscriptionTv_ = new System.Windows.Forms.TreeView();
+			serverPopupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			serverViewStatusMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			editOptionsMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			serverDisconnectMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator01_ = new System.Windows.Forms.ToolStripMenuItem();
+			serverBrowseItemsMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscriptionCreateMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator02_ = new System.Windows.Forms.ToolStripMenuItem();
+			serverReadItemsMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			serverWriteItemsMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscriptionPopupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			subscriptionEditMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscriptionDeleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscriptionAddItemsMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscriptionEditItemsMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separatorS1_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscriptionActiveMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscriptionEnabledMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separatorS2_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscriptionReadMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscriptionWriteMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separatorS3_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscriptionAsyncReadMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscriptionAsyncWriteMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscriptionRefreshMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			itemPopupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			itemEditMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			itemRemoveMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separatorI1_ = new System.Windows.Forms.ToolStripMenuItem();
+			itemActiveMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscriptionEditOptionsMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// SubscriptionTV
 			// 
-			this.subscriptionTv_.ContextMenuStrip = this.serverPopupMenu_;
-			this.subscriptionTv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.subscriptionTv_.ImageIndex = -1;
-			this.subscriptionTv_.Location = new System.Drawing.Point(0, 0);
-			this.subscriptionTv_.Name = "subscriptionTv_";
-			this.subscriptionTv_.SelectedImageIndex = -1;
-			this.subscriptionTv_.Size = new System.Drawing.Size(360, 400);
-			this.subscriptionTv_.TabIndex = 0;
-			this.subscriptionTv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SubscriptionTV_MouseDown);
+			subscriptionTv_.ContextMenuStrip = serverPopupMenu_;
+			subscriptionTv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			subscriptionTv_.ImageIndex = -1;
+			subscriptionTv_.Location = new System.Drawing.Point(0, 0);
+			subscriptionTv_.Name = "subscriptionTv_";
+			subscriptionTv_.SelectedImageIndex = -1;
+			subscriptionTv_.Size = new System.Drawing.Size(360, 400);
+			subscriptionTv_.TabIndex = 0;
+			subscriptionTv_.MouseDown += new System.Windows.Forms.MouseEventHandler(SubscriptionTV_MouseDown);
 			// 
 			// Server_PopupMenu
 			// 
-			this.serverPopupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																							 this.serverViewStatusMi_,
-																							 this.editOptionsMi_,
-																							 this.serverDisconnectMi_,
-																							 this.separator01_,
-																							 this.serverBrowseItemsMi_,
-																							 this.subscriptionCreateMi_,
-																							 this.separator02_,
-																							 this.serverReadItemsMi_,
-																							 this.serverWriteItemsMi_});
+			serverPopupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																							 serverViewStatusMi_,
+																							 editOptionsMi_,
+																							 serverDisconnectMi_,
+																							 separator01_,
+																							 serverBrowseItemsMi_,
+																							 subscriptionCreateMi_,
+																							 separator02_,
+																							 serverReadItemsMi_,
+																							 serverWriteItemsMi_});
 			// 
 			// ServerViewStatusMI
 			// 
-			this.serverViewStatusMi_.ImageIndex = 0;
-			this.serverViewStatusMi_.Text = "&View Status...";
-			this.serverViewStatusMi_.Click += new System.EventHandler(this.ServerViewStatusMI_Click);
+			serverViewStatusMi_.ImageIndex = 0;
+			serverViewStatusMi_.Text = "&View Status...";
+			serverViewStatusMi_.Click += new System.EventHandler(ServerViewStatusMI_Click);
 			// 
 			// EditOptionsMI
 			// 
-			this.editOptionsMi_.ImageIndex = 1;
-			this.editOptionsMi_.Text = "Edit &Options...";
-			this.editOptionsMi_.Click += new System.EventHandler(this.EditOptionsMI_Click);
+			editOptionsMi_.ImageIndex = 1;
+			editOptionsMi_.Text = "Edit &Options...";
+			editOptionsMi_.Click += new System.EventHandler(EditOptionsMI_Click);
 			// 
 			// ServerDisconnectMI
 			// 
-			this.serverDisconnectMi_.ImageIndex = 2;
-			this.serverDisconnectMi_.Text = "&Disconnect";
-			this.serverDisconnectMi_.Click += new System.EventHandler(this.ServerDisconnectMI_Click);
+			serverDisconnectMi_.ImageIndex = 2;
+			serverDisconnectMi_.Text = "&Disconnect";
+			serverDisconnectMi_.Click += new System.EventHandler(ServerDisconnectMI_Click);
 			// 
 			// Separator01
 			// 
-			this.separator01_.ImageIndex = 3;
-			this.separator01_.Text = "-";
+			separator01_.ImageIndex = 3;
+			separator01_.Text = "-";
 			// 
 			// ServerBrowseItemsMI
 			// 
-			this.serverBrowseItemsMi_.ImageIndex = 4;
-			this.serverBrowseItemsMi_.Text = "&Browse Items...";
-			this.serverBrowseItemsMi_.Click += new System.EventHandler(this.ServerBrowseItemsMI_Click);
+			serverBrowseItemsMi_.ImageIndex = 4;
+			serverBrowseItemsMi_.Text = "&Browse Items...";
+			serverBrowseItemsMi_.Click += new System.EventHandler(ServerBrowseItemsMI_Click);
 			// 
 			// SubscriptionCreateMI
 			// 
-			this.subscriptionCreateMi_.ImageIndex = 5;
-			this.subscriptionCreateMi_.Text = "&Create Subscription...";
-			this.subscriptionCreateMi_.Click += new System.EventHandler(this.CreateSubscriptionMI_Click);
+			subscriptionCreateMi_.ImageIndex = 5;
+			subscriptionCreateMi_.Text = "&Create Subscription...";
+			subscriptionCreateMi_.Click += new System.EventHandler(CreateSubscriptionMI_Click);
 			// 
 			// Separator02
 			// 
-			this.separator02_.ImageIndex = 6;
-			this.separator02_.Text = "-";
+			separator02_.ImageIndex = 6;
+			separator02_.Text = "-";
 			// 
 			// ServerReadItemsMI
 			// 
-			this.serverReadItemsMi_.ImageIndex = 7;
-			this.serverReadItemsMi_.Text = "&Read...";
-			this.serverReadItemsMi_.Click += new System.EventHandler(this.ServerReadItemsMI_Click);
+			serverReadItemsMi_.ImageIndex = 7;
+			serverReadItemsMi_.Text = "&Read...";
+			serverReadItemsMi_.Click += new System.EventHandler(ServerReadItemsMI_Click);
 			// 
 			// ServerWriteItemsMI
 			// 
-			this.serverWriteItemsMi_.ImageIndex = 8;
-			this.serverWriteItemsMi_.Text = "&Write...";
-			this.serverWriteItemsMi_.Click += new System.EventHandler(this.ServerWriteItemsMI_Click);
+			serverWriteItemsMi_.ImageIndex = 8;
+			serverWriteItemsMi_.Text = "&Write...";
+			serverWriteItemsMi_.Click += new System.EventHandler(ServerWriteItemsMI_Click);
 			// 
 			// Subscription_PopupMenu
 			// 
-			this.subscriptionPopupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																								   this.subscriptionEditMi_,
-																								   this.subscriptionEditOptionsMi_,
-																								   this.subscriptionDeleteMi_,
-																								   this.subscriptionAddItemsMi_,
-																								   this.subscriptionEditItemsMi_,
-																								   this.separatorS1_,
-																								   this.subscriptionActiveMi_,
-																								   this.subscriptionEnabledMi_,
-																								   this.separatorS2_,
-																								   this.subscriptionReadMi_,
-																								   this.subscriptionWriteMi_,
-																								   this.separatorS3_,
-																								   this.subscriptionAsyncReadMi_,
-																								   this.subscriptionAsyncWriteMi_,
-																								   this.subscriptionRefreshMi_});
+			subscriptionPopupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																								   subscriptionEditMi_,
+																								   subscriptionEditOptionsMi_,
+																								   subscriptionDeleteMi_,
+																								   subscriptionAddItemsMi_,
+																								   subscriptionEditItemsMi_,
+																								   separatorS1_,
+																								   subscriptionActiveMi_,
+																								   subscriptionEnabledMi_,
+																								   separatorS2_,
+																								   subscriptionReadMi_,
+																								   subscriptionWriteMi_,
+																								   separatorS3_,
+																								   subscriptionAsyncReadMi_,
+																								   subscriptionAsyncWriteMi_,
+																								   subscriptionRefreshMi_});
 			// 
 			// SubscriptionEditMI
 			// 
-			this.subscriptionEditMi_.ImageIndex = 0;
-			this.subscriptionEditMi_.Text = "&Edit State...";
-			this.subscriptionEditMi_.Click += new System.EventHandler(this.SubscriptionEditMI_Click);
+			subscriptionEditMi_.ImageIndex = 0;
+			subscriptionEditMi_.Text = "&Edit State...";
+			subscriptionEditMi_.Click += new System.EventHandler(SubscriptionEditMI_Click);
 			// 
 			// SubscriptionDeleteMI
 			// 
-			this.subscriptionDeleteMi_.ImageIndex = 2;
-			this.subscriptionDeleteMi_.Text = "&Delete";
-			this.subscriptionDeleteMi_.Click += new System.EventHandler(this.SubscriptionDeleteMI_Click);
+			subscriptionDeleteMi_.ImageIndex = 2;
+			subscriptionDeleteMi_.Text = "&Delete";
+			subscriptionDeleteMi_.Click += new System.EventHandler(SubscriptionDeleteMI_Click);
 			// 
 			// SubscriptionAddItemsMI
 			// 
-			this.subscriptionAddItemsMi_.ImageIndex = 3;
-			this.subscriptionAddItemsMi_.Text = "&Add Items..";
-			this.subscriptionAddItemsMi_.Click += new System.EventHandler(this.SubscriptionAddItemsMI_Click);
+			subscriptionAddItemsMi_.ImageIndex = 3;
+			subscriptionAddItemsMi_.Text = "&Add Items..";
+			subscriptionAddItemsMi_.Click += new System.EventHandler(SubscriptionAddItemsMI_Click);
 			// 
 			// SubscriptionEditItemsMI
 			// 
-			this.subscriptionEditItemsMi_.ImageIndex = 4;
-			this.subscriptionEditItemsMi_.Text = "E&dit Items...";
-			this.subscriptionEditItemsMi_.Click += new System.EventHandler(this.SubscriptionEditItemsMI_Click);
+			subscriptionEditItemsMi_.ImageIndex = 4;
+			subscriptionEditItemsMi_.Text = "E&dit Items...";
+			subscriptionEditItemsMi_.Click += new System.EventHandler(SubscriptionEditItemsMI_Click);
 			// 
 			// SeparatorS1
 			// 
-			this.separatorS1_.ImageIndex = 5;
-			this.separatorS1_.Text = "-";
+			separatorS1_.ImageIndex = 5;
+			separatorS1_.Text = "-";
 			// 
 			// SubscriptionActiveMI
 			// 
-			this.subscriptionActiveMi_.ImageIndex = 6;
-			this.subscriptionActiveMi_.Text = "Acti&ve";
-			this.subscriptionActiveMi_.Click += new System.EventHandler(this.SubscriptionActiveMI_Click);
+			subscriptionActiveMi_.ImageIndex = 6;
+			subscriptionActiveMi_.Text = "Acti&ve";
+			subscriptionActiveMi_.Click += new System.EventHandler(SubscriptionActiveMI_Click);
 			// 
 			// SubscriptionEnabledMI
 			// 
-			this.subscriptionEnabledMi_.ImageIndex = 7;
-			this.subscriptionEnabledMi_.Text = "E&nabled";
-			this.subscriptionEnabledMi_.Click += new System.EventHandler(this.SubscriptionEnabledMI_Click);
+			subscriptionEnabledMi_.ImageIndex = 7;
+			subscriptionEnabledMi_.Text = "E&nabled";
+			subscriptionEnabledMi_.Click += new System.EventHandler(SubscriptionEnabledMI_Click);
 			// 
 			// SeparatorS2
 			// 
-			this.separatorS2_.ImageIndex = 8;
-			this.separatorS2_.Text = "-";
+			separatorS2_.ImageIndex = 8;
+			separatorS2_.Text = "-";
 			// 
 			// SubscriptionReadMI
 			// 
-			this.subscriptionReadMi_.ImageIndex = 9;
-			this.subscriptionReadMi_.Text = "&Read...";
-			this.subscriptionReadMi_.Click += new System.EventHandler(this.SubscriptionReadMI_Click);
+			subscriptionReadMi_.ImageIndex = 9;
+			subscriptionReadMi_.Text = "&Read...";
+			subscriptionReadMi_.Click += new System.EventHandler(SubscriptionReadMI_Click);
 			// 
 			// SubscriptionWriteMI
 			// 
-			this.subscriptionWriteMi_.ImageIndex = 10;
-			this.subscriptionWriteMi_.Text = "&Write...";
-			this.subscriptionWriteMi_.Click += new System.EventHandler(this.SubscriptionWriteMI_Click);
+			subscriptionWriteMi_.ImageIndex = 10;
+			subscriptionWriteMi_.Text = "&Write...";
+			subscriptionWriteMi_.Click += new System.EventHandler(SubscriptionWriteMI_Click);
 			// 
 			// SeparatorS3
 			// 
-			this.separatorS3_.ImageIndex = 11;
-			this.separatorS3_.Text = "-";
+			separatorS3_.ImageIndex = 11;
+			separatorS3_.Text = "-";
 			// 
 			// SubscriptionAsyncReadMI
 			// 
-			this.subscriptionAsyncReadMi_.ImageIndex = 12;
-			this.subscriptionAsyncReadMi_.Text = "Async Read...";
-			this.subscriptionAsyncReadMi_.Click += new System.EventHandler(this.SubscriptionAsyncReadMI_Click);
+			subscriptionAsyncReadMi_.ImageIndex = 12;
+			subscriptionAsyncReadMi_.Text = "Async Read...";
+			subscriptionAsyncReadMi_.Click += new System.EventHandler(SubscriptionAsyncReadMI_Click);
 			// 
 			// SubscriptionAsyncWriteMI
 			// 
-			this.subscriptionAsyncWriteMi_.ImageIndex = 13;
-			this.subscriptionAsyncWriteMi_.Text = "Async Write...";
-			this.subscriptionAsyncWriteMi_.Click += new System.EventHandler(this.SubscriptionAsyncWriteMI_Click);
+			subscriptionAsyncWriteMi_.ImageIndex = 13;
+			subscriptionAsyncWriteMi_.Text = "Async Write...";
+			subscriptionAsyncWriteMi_.Click += new System.EventHandler(SubscriptionAsyncWriteMI_Click);
 			// 
 			// SubscriptionRefreshMI
 			// 
-			this.subscriptionRefreshMi_.ImageIndex = 14;
-			this.subscriptionRefreshMi_.Text = "Refre&sh";
-			this.subscriptionRefreshMi_.Click += new System.EventHandler(this.SubscriptionRefreshMI_Click);
+			subscriptionRefreshMi_.ImageIndex = 14;
+			subscriptionRefreshMi_.Text = "Refre&sh";
+			subscriptionRefreshMi_.Click += new System.EventHandler(SubscriptionRefreshMI_Click);
 			// 
 			// Item_PopupMenu
 			// 
-			this.itemPopupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																						   this.itemEditMi_,
-																						   this.itemRemoveMi_,
-																						   this.separatorI1_,
-																						   this.itemActiveMi_});
+			itemPopupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																						   itemEditMi_,
+																						   itemRemoveMi_,
+																						   separatorI1_,
+																						   itemActiveMi_});
 			// 
 			// ItemEditMI
 			// 
-			this.itemEditMi_.ImageIndex = 0;
-			this.itemEditMi_.Text = "&Edit...";
-			this.itemEditMi_.Click += new System.EventHandler(this.ItemEditMI_Click);
+			itemEditMi_.ImageIndex = 0;
+			itemEditMi_.Text = "&Edit...";
+			itemEditMi_.Click += new System.EventHandler(ItemEditMI_Click);
 			// 
 			// ItemRemoveMI
 			// 
-			this.itemRemoveMi_.ImageIndex = 1;
-			this.itemRemoveMi_.Text = "&Delete";
-			this.itemRemoveMi_.Click += new System.EventHandler(this.ItemRemoveMI_Click);
+			itemRemoveMi_.ImageIndex = 1;
+			itemRemoveMi_.Text = "&Delete";
+			itemRemoveMi_.Click += new System.EventHandler(ItemRemoveMI_Click);
 			// 
 			// SeparatorI1
 			// 
-			this.separatorI1_.ImageIndex = 2;
-			this.separatorI1_.Text = "-";
+			separatorI1_.ImageIndex = 2;
+			separatorI1_.Text = "-";
 			// 
 			// ItemActiveMI
 			// 
-			this.itemActiveMi_.ImageIndex = 3;
-			this.itemActiveMi_.Text = "&Active";
-			this.itemActiveMi_.Click += new System.EventHandler(this.ItemActiveMI_Click);
+			itemActiveMi_.ImageIndex = 3;
+			itemActiveMi_.Text = "&Active";
+			itemActiveMi_.Click += new System.EventHandler(ItemActiveMI_Click);
 			// 
 			// SubscriptionEditOptionsMI
 			// 
-			this.subscriptionEditOptionsMi_.ImageIndex = 1;
-			this.subscriptionEditOptionsMi_.Text = "Edit &Options...";
-			this.subscriptionEditOptionsMi_.Click += new System.EventHandler(this.SubscriptionEditOptionsMI_Click);
+			subscriptionEditOptionsMi_.ImageIndex = 1;
+			subscriptionEditOptionsMi_.Text = "Edit &Options...";
+			subscriptionEditOptionsMi_.Click += new System.EventHandler(SubscriptionEditOptionsMI_Click);
 			// 
 			// SubscriptionsTreeCtrl
 			// 
-			this.Controls.Add(this.subscriptionTv_);
-			this.Name = "SubscriptionsTreeCtrl";
-			this.Size = new System.Drawing.Size(360, 400);
-			this.ResumeLayout(false);
+			Controls.Add(subscriptionTv_);
+			Name = "SubscriptionsTreeCtrl";
+			Size = new System.Drawing.Size(360, 400);
+			ResumeLayout(false);
 
 		}
 		#endregion

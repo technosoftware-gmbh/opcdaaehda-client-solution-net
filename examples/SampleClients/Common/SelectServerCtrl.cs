@@ -71,53 +71,53 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.ConnectBTN = new System.Windows.Forms.Button();
-            this.ServerUrlLB = new System.Windows.Forms.Label();
-            this.ServerUrlCB = new System.Windows.Forms.ComboBox();
-            this.SuspendLayout();
+            ConnectBTN = new System.Windows.Forms.Button();
+            ServerUrlLB = new System.Windows.Forms.Label();
+            ServerUrlCB = new System.Windows.Forms.ComboBox();
+            SuspendLayout();
             // 
             // ConnectBTN
             // 
-            this.ConnectBTN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            ConnectBTN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
                 | System.Windows.Forms.AnchorStyles.Right)));
-            this.ConnectBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConnectBTN.Location = new System.Drawing.Point(712, 0);
-            this.ConnectBTN.Name = "ConnectBTN";
-            this.ConnectBTN.Size = new System.Drawing.Size(75, 21);
-            this.ConnectBTN.TabIndex = 0;
-            this.ConnectBTN.Text = "Connect";
-            this.ConnectBTN.Click += new System.EventHandler(this.ConnectBTN_Click);
+            ConnectBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            ConnectBTN.Location = new System.Drawing.Point(712, 0);
+            ConnectBTN.Name = "ConnectBTN";
+            ConnectBTN.Size = new System.Drawing.Size(75, 21);
+            ConnectBTN.TabIndex = 0;
+            ConnectBTN.Text = "Connect";
+            ConnectBTN.Click += new System.EventHandler(ConnectBTN_Click);
             // 
             // ServerUrlLB
             // 
-            this.ServerUrlLB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            ServerUrlLB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
                 | System.Windows.Forms.AnchorStyles.Left)));
-            this.ServerUrlLB.Location = new System.Drawing.Point(0, 0);
-            this.ServerUrlLB.Name = "ServerUrlLB";
-            this.ServerUrlLB.Size = new System.Drawing.Size(40, 21);
-            this.ServerUrlLB.TabIndex = 1;
-            this.ServerUrlLB.Text = "Server";
-            this.ServerUrlLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            ServerUrlLB.Location = new System.Drawing.Point(0, 0);
+            ServerUrlLB.Name = "ServerUrlLB";
+            ServerUrlLB.Size = new System.Drawing.Size(40, 21);
+            ServerUrlLB.TabIndex = 1;
+            ServerUrlLB.Text = "Server";
+            ServerUrlLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ServerUrlCB
             // 
-            this.ServerUrlCB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            ServerUrlCB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
                 | System.Windows.Forms.AnchorStyles.Left) 
                 | System.Windows.Forms.AnchorStyles.Right)));
-            this.ServerUrlCB.Location = new System.Drawing.Point(48, 0);
-            this.ServerUrlCB.Name = "ServerUrlCB";
-            this.ServerUrlCB.Size = new System.Drawing.Size(656, 21);
-            this.ServerUrlCB.TabIndex = 2;
-            this.ServerUrlCB.SelectedIndexChanged += new System.EventHandler(this.ServerUrlCB_SelectedIndexChanged);
+            ServerUrlCB.Location = new System.Drawing.Point(48, 0);
+            ServerUrlCB.Name = "ServerUrlCB";
+            ServerUrlCB.Size = new System.Drawing.Size(656, 21);
+            ServerUrlCB.TabIndex = 2;
+            ServerUrlCB.SelectedIndexChanged += new System.EventHandler(ServerUrlCB_SelectedIndexChanged);
             // 
             // SelectServerCtrl
             // 
-            this.Controls.Add(this.ServerUrlCB);
-            this.Controls.Add(this.ServerUrlLB);
-            this.Controls.Add(this.ConnectBTN);
-            this.Name = "SelectServerCtrl";
-            this.Size = new System.Drawing.Size(788, 22);
-            this.ResumeLayout(false);
+            Controls.Add(ServerUrlCB);
+            Controls.Add(ServerUrlLB);
+            Controls.Add(ConnectBTN);
+            Name = "SelectServerCtrl";
+            Size = new System.Drawing.Size(788, 22);
+            ResumeLayout(false);
 
         }
 		#endregion

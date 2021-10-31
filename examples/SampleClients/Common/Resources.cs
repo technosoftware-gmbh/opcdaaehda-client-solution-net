@@ -61,31 +61,31 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components_ = new System.ComponentModel.Container();
+			components_ = new System.ComponentModel.Container();
 			System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(Resources));
-			this.ImageList = new System.Windows.Forms.ImageList(this.components_);
-			this.ToolBarImageList = new System.Windows.Forms.ImageList(this.components_);
+			ImageList = new System.Windows.Forms.ImageList(components_);
+			ToolBarImageList = new System.Windows.Forms.ImageList(components_);
 			// 
 			// ImageList
 			// 
-			this.ImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth24Bit;
-			this.ImageList.ImageSize = new System.Drawing.Size(16, 16);
-			this.ImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageList.ImageStream")));
-			this.ImageList.TransparentColor = System.Drawing.Color.Teal;
+			ImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth24Bit;
+			ImageList.ImageSize = new System.Drawing.Size(16, 16);
+			ImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageList.ImageStream")));
+			ImageList.TransparentColor = System.Drawing.Color.Teal;
 			// 
 			// ToolBarImageList
 			// 
-			this.ToolBarImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth24Bit;
-			this.ToolBarImageList.ImageSize = new System.Drawing.Size(16, 18);
-			this.ToolBarImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ToolBarImageList.ImageStream")));
-			this.ToolBarImageList.TransparentColor = System.Drawing.Color.Teal;
+			ToolBarImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth24Bit;
+			ToolBarImageList.ImageSize = new System.Drawing.Size(16, 18);
+			ToolBarImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ToolBarImageList.ImageStream")));
+			ToolBarImageList.TransparentColor = System.Drawing.Color.Teal;
 			// 
 			// Resources
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(292, 273);
-			this.Name = "Resources";
-			this.Text = "Resources";
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(292, 273);
+			Name = "Resources";
+			Text = "Resources";
 
 		}
 		#endregion

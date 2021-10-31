@@ -65,39 +65,39 @@ namespace SampleClients.Da.Server
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			this.updateTimer_ = new System.Windows.Forms.Timer(this.components);
-			this.infoPn_ = new System.Windows.Forms.ToolStripStatusLabel();
-			this.statePn_ = new System.Windows.Forms.ToolStripStatusLabel();
-			this.timePn_ = new System.Windows.Forms.ToolStripStatusLabel();
+			components = new System.ComponentModel.Container();
+			updateTimer_ = new System.Windows.Forms.Timer(components);
+			infoPn_ = new System.Windows.Forms.ToolStripStatusLabel();
+			statePn_ = new System.Windows.Forms.ToolStripStatusLabel();
+			timePn_ = new System.Windows.Forms.ToolStripStatusLabel();
             // 
 			// UpdateTimer
 			// 
-			this.updateTimer_.Interval = 30000;
-			this.updateTimer_.Tick += new System.EventHandler(this.UpdateTimer_Tick);
+			updateTimer_.Interval = 30000;
+			updateTimer_.Tick += new System.EventHandler(UpdateTimer_Tick);
 			// 
 			// InfoPN
 			// 
 			//this.InfoPN.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
 			//this.InfoPN.BorderStyle = System.Windows.Forms.StatusBarPanelBorderStyle.None;
-			this.infoPn_.Width = 10;
+			infoPn_.Width = 10;
 			// 
 			// StatePN
 			// 
 			//this.StatePN.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-			this.statePn_.Width = 10;
+			statePn_.Width = 10;
 			// 
 			// TimePN
 			// 
 			//this.TimePN.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents;
-			this.timePn_.Width = 10;
+			timePn_.Width = 10;
 			// 
 			// ServerStatusCtrl
 			// 
-			this.Items.AddRange(new System.Windows.Forms.ToolStripStatusLabel[] {
-																			   this.infoPn_,
-																			   this.statePn_,
-																			   this.timePn_});
+			Items.AddRange(new System.Windows.Forms.ToolStripStatusLabel[] {
+																			   infoPn_,
+																			   statePn_,
+																			   timePn_});
 
         }
 		#endregion

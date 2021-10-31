@@ -22,7 +22,6 @@
 
 #region Using Directives
 using System;
-using System.Collections;
 using System.Runtime.InteropServices;
 using OpcRcw.Comn;
 #endregion

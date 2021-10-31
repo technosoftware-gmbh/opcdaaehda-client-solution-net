@@ -73,108 +73,108 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.maxElementsLb_ = new System.Windows.Forms.Label();
-			this.nameFilterLb_ = new System.Windows.Forms.Label();
-			this.nameFilterTb_ = new System.Windows.Forms.TextBox();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.applyBtn_ = new System.Windows.Forms.Button();
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.maxElementsCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.buttonsPn_.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.maxElementsCtrl_)).BeginInit();
-			this.SuspendLayout();
+			maxElementsLb_ = new System.Windows.Forms.Label();
+			nameFilterLb_ = new System.Windows.Forms.Label();
+			nameFilterTb_ = new System.Windows.Forms.TextBox();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			applyBtn_ = new System.Windows.Forms.Button();
+			okBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			maxElementsCtrl_ = new System.Windows.Forms.NumericUpDown();
+			buttonsPn_.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(maxElementsCtrl_)).BeginInit();
+			SuspendLayout();
 			// 
 			// MaxElementsLB
 			// 
-			this.maxElementsLb_.Location = new System.Drawing.Point(4, 32);
-			this.maxElementsLb_.Name = "maxElementsLb_";
-			this.maxElementsLb_.Size = new System.Drawing.Size(76, 20);
-			this.maxElementsLb_.TabIndex = 3;
-			this.maxElementsLb_.Text = "Max Elements";
-			this.maxElementsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			maxElementsLb_.Location = new System.Drawing.Point(4, 32);
+			maxElementsLb_.Name = "maxElementsLb_";
+			maxElementsLb_.Size = new System.Drawing.Size(76, 20);
+			maxElementsLb_.TabIndex = 3;
+			maxElementsLb_.Text = "Max Elements";
+			maxElementsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// NameFilterLB
 			// 
-			this.nameFilterLb_.Location = new System.Drawing.Point(4, 4);
-			this.nameFilterLb_.Name = "nameFilterLb_";
-			this.nameFilterLb_.Size = new System.Drawing.Size(76, 20);
-			this.nameFilterLb_.TabIndex = 1;
-			this.nameFilterLb_.Text = "Name Filter";
-			this.nameFilterLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			nameFilterLb_.Location = new System.Drawing.Point(4, 4);
+			nameFilterLb_.Name = "nameFilterLb_";
+			nameFilterLb_.Size = new System.Drawing.Size(76, 20);
+			nameFilterLb_.TabIndex = 1;
+			nameFilterLb_.Text = "Name Filter";
+			nameFilterLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// NameFilterTB
 			// 
-			this.nameFilterTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			nameFilterTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.nameFilterTb_.Location = new System.Drawing.Point(80, 4);
-			this.nameFilterTb_.Name = "nameFilterTb_";
-			this.nameFilterTb_.Size = new System.Drawing.Size(216, 20);
-			this.nameFilterTb_.TabIndex = 2;
-			this.nameFilterTb_.Text = "";
+			nameFilterTb_.Location = new System.Drawing.Point(80, 4);
+			nameFilterTb_.Name = "nameFilterTb_";
+			nameFilterTb_.Size = new System.Drawing.Size(216, 20);
+			nameFilterTb_.TabIndex = 2;
+			nameFilterTb_.Text = "";
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.applyBtn_);
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 58);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(304, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(applyBtn_);
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 58);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(304, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// ApplyBTN
 			// 
-			this.applyBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-			this.applyBtn_.Location = new System.Drawing.Point(115, 8);
-			this.applyBtn_.Name = "applyBtn_";
-			this.applyBtn_.TabIndex = 2;
-			this.applyBtn_.Text = "Apply";
-			this.applyBtn_.Click += new System.EventHandler(this.ApplyBTN_Click);
+			applyBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			applyBtn_.Location = new System.Drawing.Point(115, 8);
+			applyBtn_.Name = "applyBtn_";
+			applyBtn_.TabIndex = 2;
+			applyBtn_.Text = "Apply";
+			applyBtn_.Click += new System.EventHandler(ApplyBTN_Click);
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okBtn_.Location = new System.Drawing.Point(4, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
+			okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			okBtn_.Location = new System.Drawing.Point(4, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(224, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(224, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// MaxElementsCTRL
 			// 
-			this.maxElementsCtrl_.Location = new System.Drawing.Point(80, 32);
-			this.maxElementsCtrl_.Name = "maxElementsCtrl_";
-			this.maxElementsCtrl_.TabIndex = 4;
+			maxElementsCtrl_.Location = new System.Drawing.Point(80, 32);
+			maxElementsCtrl_.Name = "maxElementsCtrl_";
+			maxElementsCtrl_.TabIndex = 4;
 			// 
 			// BrowseFiltersDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.cancelBtn_;
-			this.ClientSize = new System.Drawing.Size(304, 94);
-			this.Controls.Add(this.maxElementsCtrl_);
-			this.Controls.Add(this.nameFilterTb_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Controls.Add(this.maxElementsLb_);
-			this.Controls.Add(this.nameFilterLb_);
-			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(312, 128);
-			this.MinimumSize = new System.Drawing.Size(312, 128);
-			this.Name = "BrowseFiltersDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Browse Filters";
-			this.buttonsPn_.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.maxElementsCtrl_)).EndInit();
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = cancelBtn_;
+			ClientSize = new System.Drawing.Size(304, 94);
+			Controls.Add(maxElementsCtrl_);
+			Controls.Add(nameFilterTb_);
+			Controls.Add(buttonsPn_);
+			Controls.Add(maxElementsLb_);
+			Controls.Add(nameFilterLb_);
+			MaximizeBox = false;
+			MaximumSize = new System.Drawing.Size(312, 128);
+			MinimumSize = new System.Drawing.Size(312, 128);
+			Name = "BrowseFiltersDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Browse Filters";
+			buttonsPn_.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(maxElementsCtrl_)).EndInit();
+			ResumeLayout(false);
 
 		}
 		#endregion

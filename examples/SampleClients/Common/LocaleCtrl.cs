@@ -67,38 +67,38 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.SelectBTN = new System.Windows.Forms.Button();
-			this.LocaleTB = new System.Windows.Forms.TextBox();
-			this.SuspendLayout();
+			SelectBTN = new System.Windows.Forms.Button();
+			LocaleTB = new System.Windows.Forms.TextBox();
+			SuspendLayout();
 			// 
 			// SelectBTN
 			// 
-			this.SelectBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.SelectBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.SelectBTN.Location = new System.Drawing.Point(160, 0);
-			this.SelectBTN.Name = "SelectBTN";
-			this.SelectBTN.Size = new System.Drawing.Size(28, 21);
-			this.SelectBTN.TabIndex = 1;
-			this.SelectBTN.Text = "...";
-			this.SelectBTN.Click += new System.EventHandler(this.SelectBTN_Click);
+			SelectBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			SelectBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			SelectBTN.Location = new System.Drawing.Point(160, 0);
+			SelectBTN.Name = "SelectBTN";
+			SelectBTN.Size = new System.Drawing.Size(28, 21);
+			SelectBTN.TabIndex = 1;
+			SelectBTN.Text = "...";
+			SelectBTN.Click += new System.EventHandler(SelectBTN_Click);
 			// 
 			// LocaleTB
 			// 
-			this.LocaleTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			LocaleTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.LocaleTB.Location = new System.Drawing.Point(0, 0);
-			this.LocaleTB.Name = "LocaleTB";
-			this.LocaleTB.Size = new System.Drawing.Size(156, 20);
-			this.LocaleTB.TabIndex = 2;
-			this.LocaleTB.Text = "";
+			LocaleTB.Location = new System.Drawing.Point(0, 0);
+			LocaleTB.Name = "LocaleTB";
+			LocaleTB.Size = new System.Drawing.Size(156, 20);
+			LocaleTB.TabIndex = 2;
+			LocaleTB.Text = "";
 			// 
 			// LocaleCtrl
 			// 
-			this.Controls.Add(this.LocaleTB);
-			this.Controls.Add(this.SelectBTN);
-			this.Name = "LocaleCtrl";
-			this.Size = new System.Drawing.Size(188, 24);
-			this.ResumeLayout(false);
+			Controls.Add(LocaleTB);
+			Controls.Add(SelectBTN);
+			Name = "LocaleCtrl";
+			Size = new System.Drawing.Size(188, 24);
+			ResumeLayout(false);
 
 		}
 		#endregion

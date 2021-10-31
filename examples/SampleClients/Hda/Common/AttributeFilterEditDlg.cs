@@ -84,154 +84,154 @@ namespace SampleClients.Hda.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.mainPn_ = new System.Windows.Forms.Panel();
-			this.descriptionLb_ = new System.Windows.Forms.Label();
-			this.nameLb_ = new System.Windows.Forms.Label();
-			this.attributeCb_ = new System.Windows.Forms.ComboBox();
-			this.topPn_ = new System.Windows.Forms.Panel();
-			this.operatorCtrl_ = new SampleClients.Common.EnumCtrl();
-			this.filterValueCtrl_ = new SampleClients.Common.ValueCtrl();
-			this.operatorLb_ = new System.Windows.Forms.Label();
-			this.filterValueLb_ = new System.Windows.Forms.Label();
-			this.buttonsPn_.SuspendLayout();
-			this.mainPn_.SuspendLayout();
-			this.topPn_.SuspendLayout();
-			this.SuspendLayout();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			okBtn_ = new System.Windows.Forms.Button();
+			mainPn_ = new System.Windows.Forms.Panel();
+			descriptionLb_ = new System.Windows.Forms.Label();
+			nameLb_ = new System.Windows.Forms.Label();
+			attributeCb_ = new System.Windows.Forms.ComboBox();
+			topPn_ = new System.Windows.Forms.Panel();
+			operatorCtrl_ = new SampleClients.Common.EnumCtrl();
+			filterValueCtrl_ = new SampleClients.Common.ValueCtrl();
+			operatorLb_ = new System.Windows.Forms.Label();
+			filterValueLb_ = new System.Windows.Forms.Label();
+			buttonsPn_.SuspendLayout();
+			mainPn_.SuspendLayout();
+			topPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 138);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(304, 36);
-			this.buttonsPn_.TabIndex = 1;
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 138);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(304, 36);
+			buttonsPn_.TabIndex = 1;
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(224, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(224, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okBtn_.Location = new System.Drawing.Point(4, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
+			okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			okBtn_.Location = new System.Drawing.Point(4, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
 			// 
 			// MainPN
 			// 
-			this.mainPn_.Controls.Add(this.descriptionLb_);
-			this.mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPn_.DockPadding.Left = 4;
-			this.mainPn_.DockPadding.Right = 4;
-			this.mainPn_.DockPadding.Top = 4;
-			this.mainPn_.Location = new System.Drawing.Point(0, 76);
-			this.mainPn_.Name = "mainPn_";
-			this.mainPn_.Size = new System.Drawing.Size(304, 62);
-			this.mainPn_.TabIndex = 5;
+			mainPn_.Controls.Add(descriptionLb_);
+			mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			mainPn_.DockPadding.Left = 4;
+			mainPn_.DockPadding.Right = 4;
+			mainPn_.DockPadding.Top = 4;
+			mainPn_.Location = new System.Drawing.Point(0, 76);
+			mainPn_.Name = "mainPn_";
+			mainPn_.Size = new System.Drawing.Size(304, 62);
+			mainPn_.TabIndex = 5;
 			// 
 			// DescriptionLB
 			// 
-			this.descriptionLb_.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.descriptionLb_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.descriptionLb_.Location = new System.Drawing.Point(4, 4);
-			this.descriptionLb_.Name = "descriptionLb_";
-			this.descriptionLb_.Size = new System.Drawing.Size(296, 58);
-			this.descriptionLb_.TabIndex = 2;
-			this.descriptionLb_.Text = "Description";
+			descriptionLb_.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			descriptionLb_.Dock = System.Windows.Forms.DockStyle.Fill;
+			descriptionLb_.Location = new System.Drawing.Point(4, 4);
+			descriptionLb_.Name = "descriptionLb_";
+			descriptionLb_.Size = new System.Drawing.Size(296, 58);
+			descriptionLb_.TabIndex = 2;
+			descriptionLb_.Text = "Description";
 			// 
 			// NameLB
 			// 
-			this.nameLb_.Location = new System.Drawing.Point(4, 4);
-			this.nameLb_.Name = "nameLb_";
-			this.nameLb_.Size = new System.Drawing.Size(68, 23);
-			this.nameLb_.TabIndex = 0;
-			this.nameLb_.Text = "Attribute";
-			this.nameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			nameLb_.Location = new System.Drawing.Point(4, 4);
+			nameLb_.Name = "nameLb_";
+			nameLb_.Size = new System.Drawing.Size(68, 23);
+			nameLb_.TabIndex = 0;
+			nameLb_.Text = "Attribute";
+			nameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// AttributeCB
 			// 
-			this.attributeCb_.Location = new System.Drawing.Point(72, 4);
-			this.attributeCb_.Name = "attributeCb_";
-			this.attributeCb_.Size = new System.Drawing.Size(228, 21);
-			this.attributeCb_.TabIndex = 3;
-			this.attributeCb_.SelectedIndexChanged += new System.EventHandler(this.AttributeCB_SelectedIndexChanged);
+			attributeCb_.Location = new System.Drawing.Point(72, 4);
+			attributeCb_.Name = "attributeCb_";
+			attributeCb_.Size = new System.Drawing.Size(228, 21);
+			attributeCb_.TabIndex = 3;
+			attributeCb_.SelectedIndexChanged += new System.EventHandler(AttributeCB_SelectedIndexChanged);
 			// 
 			// TopPN
 			// 
-			this.topPn_.Controls.Add(this.operatorCtrl_);
-			this.topPn_.Controls.Add(this.filterValueCtrl_);
-			this.topPn_.Controls.Add(this.operatorLb_);
-			this.topPn_.Controls.Add(this.filterValueLb_);
-			this.topPn_.Controls.Add(this.attributeCb_);
-			this.topPn_.Controls.Add(this.nameLb_);
-			this.topPn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.topPn_.Location = new System.Drawing.Point(0, 0);
-			this.topPn_.Name = "topPn_";
-			this.topPn_.Size = new System.Drawing.Size(304, 76);
-			this.topPn_.TabIndex = 6;
+			topPn_.Controls.Add(operatorCtrl_);
+			topPn_.Controls.Add(filterValueCtrl_);
+			topPn_.Controls.Add(operatorLb_);
+			topPn_.Controls.Add(filterValueLb_);
+			topPn_.Controls.Add(attributeCb_);
+			topPn_.Controls.Add(nameLb_);
+			topPn_.Dock = System.Windows.Forms.DockStyle.Top;
+			topPn_.Location = new System.Drawing.Point(0, 0);
+			topPn_.Name = "topPn_";
+			topPn_.Size = new System.Drawing.Size(304, 76);
+			topPn_.TabIndex = 6;
 			// 
 			// OperatorCTRL
 			// 
-			this.operatorCtrl_.Location = new System.Drawing.Point(72, 28);
-			this.operatorCtrl_.Name = "operatorCtrl_";
-			this.operatorCtrl_.Size = new System.Drawing.Size(144, 24);
-			this.operatorCtrl_.TabIndex = 13;
+			operatorCtrl_.Location = new System.Drawing.Point(72, 28);
+			operatorCtrl_.Name = "operatorCtrl_";
+			operatorCtrl_.Size = new System.Drawing.Size(144, 24);
+			operatorCtrl_.TabIndex = 13;
 			// 
 			// FilterValueCTRL
 			// 
-			this.filterValueCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			filterValueCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.filterValueCtrl_.ItemID = null;
-			this.filterValueCtrl_.Location = new System.Drawing.Point(72, 52);
-			this.filterValueCtrl_.Name = "filterValueCtrl_";
-			this.filterValueCtrl_.Size = new System.Drawing.Size(228, 20);
-			this.filterValueCtrl_.TabIndex = 12;
+			filterValueCtrl_.ItemID = null;
+			filterValueCtrl_.Location = new System.Drawing.Point(72, 52);
+			filterValueCtrl_.Name = "filterValueCtrl_";
+			filterValueCtrl_.Size = new System.Drawing.Size(228, 20);
+			filterValueCtrl_.TabIndex = 12;
 			// 
 			// OperatorLB
 			// 
-			this.operatorLb_.Location = new System.Drawing.Point(4, 28);
-			this.operatorLb_.Name = "operatorLb_";
-			this.operatorLb_.Size = new System.Drawing.Size(68, 23);
-			this.operatorLb_.TabIndex = 10;
-			this.operatorLb_.Text = "Operator";
-			this.operatorLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			operatorLb_.Location = new System.Drawing.Point(4, 28);
+			operatorLb_.Name = "operatorLb_";
+			operatorLb_.Size = new System.Drawing.Size(68, 23);
+			operatorLb_.TabIndex = 10;
+			operatorLb_.Text = "Operator";
+			operatorLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// FilterValueLB
 			// 
-			this.filterValueLb_.Location = new System.Drawing.Point(4, 52);
-			this.filterValueLb_.Name = "filterValueLb_";
-			this.filterValueLb_.Size = new System.Drawing.Size(68, 23);
-			this.filterValueLb_.TabIndex = 11;
-			this.filterValueLb_.Text = "Filter Value";
-			this.filterValueLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			filterValueLb_.Location = new System.Drawing.Point(4, 52);
+			filterValueLb_.Name = "filterValueLb_";
+			filterValueLb_.Size = new System.Drawing.Size(68, 23);
+			filterValueLb_.TabIndex = 11;
+			filterValueLb_.Text = "Filter Value";
+			filterValueLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// AttributeFilterEditDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.cancelBtn_;
-			this.ClientSize = new System.Drawing.Size(304, 174);
-			this.Controls.Add(this.mainPn_);
-			this.Controls.Add(this.topPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Name = "AttributeFilterEditDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Set Attribute Filter";
-			this.buttonsPn_.ResumeLayout(false);
-			this.mainPn_.ResumeLayout(false);
-			this.topPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = cancelBtn_;
+			ClientSize = new System.Drawing.Size(304, 174);
+			Controls.Add(mainPn_);
+			Controls.Add(topPn_);
+			Controls.Add(buttonsPn_);
+			Name = "AttributeFilterEditDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Set Attribute Filter";
+			buttonsPn_.ResumeLayout(false);
+			mainPn_.ResumeLayout(false);
+			topPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

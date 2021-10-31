@@ -59,42 +59,42 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.attributesTv_ = new System.Windows.Forms.TreeView();
-			this.attributesGb_ = new System.Windows.Forms.GroupBox();
-			this.attributesGb_.SuspendLayout();
-			this.SuspendLayout();
+			attributesTv_ = new System.Windows.Forms.TreeView();
+			attributesGb_ = new System.Windows.Forms.GroupBox();
+			attributesGb_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// AttributesTV
 			// 
-			this.attributesTv_.CheckBoxes = true;
-			this.attributesTv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.attributesTv_.ImageIndex = -1;
-			this.attributesTv_.Location = new System.Drawing.Point(3, 16);
-			this.attributesTv_.Name = "attributesTv_";
-			this.attributesTv_.SelectedImageIndex = -1;
-			this.attributesTv_.Size = new System.Drawing.Size(394, 285);
-			this.attributesTv_.TabIndex = 0;
-			this.attributesTv_.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.AttributesTV_AfterCheck);
-			this.attributesTv_.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.AttributesTV_BeforeExpand);
+			attributesTv_.CheckBoxes = true;
+			attributesTv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			attributesTv_.ImageIndex = -1;
+			attributesTv_.Location = new System.Drawing.Point(3, 16);
+			attributesTv_.Name = "attributesTv_";
+			attributesTv_.SelectedImageIndex = -1;
+			attributesTv_.Size = new System.Drawing.Size(394, 285);
+			attributesTv_.TabIndex = 0;
+			attributesTv_.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(AttributesTV_AfterCheck);
+			attributesTv_.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(AttributesTV_BeforeExpand);
 			// 
 			// AttributesGB
 			// 
-			this.attributesGb_.Controls.Add(this.attributesTv_);
-			this.attributesGb_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.attributesGb_.Location = new System.Drawing.Point(0, 0);
-			this.attributesGb_.Name = "attributesGb_";
-			this.attributesGb_.Size = new System.Drawing.Size(400, 304);
-			this.attributesGb_.TabIndex = 1;
-			this.attributesGb_.TabStop = false;
-			this.attributesGb_.Text = "Attributes";
+			attributesGb_.Controls.Add(attributesTv_);
+			attributesGb_.Dock = System.Windows.Forms.DockStyle.Fill;
+			attributesGb_.Location = new System.Drawing.Point(0, 0);
+			attributesGb_.Name = "attributesGb_";
+			attributesGb_.Size = new System.Drawing.Size(400, 304);
+			attributesGb_.TabIndex = 1;
+			attributesGb_.TabStop = false;
+			attributesGb_.Text = "Attributes";
 			// 
 			// AttributesCtrl
 			// 
-			this.Controls.Add(this.attributesGb_);
-			this.Name = "AttributesCtrl";
-			this.Size = new System.Drawing.Size(400, 304);
-			this.attributesGb_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			Controls.Add(attributesGb_);
+			Name = "AttributesCtrl";
+			Size = new System.Drawing.Size(400, 304);
+			attributesGb_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -331,27 +331,29 @@ namespace Technosoftware.AeSampleClient
 				return;
 			}
 
-			// create event type node.
-			TreeNode root = new TreeNode(eventType.ToString());
+            // create event type node.
+            TreeNode root = new TreeNode(eventType.ToString())
+            {
+                ImageIndex = Resources.IMAGE_OPEN_YELLOW_FOLDER,
+                SelectedImageIndex = Resources.IMAGE_CLOSED_YELLOW_FOLDER,
+                Tag = eventType
+            };
 
-			root.ImageIndex         = Resources.IMAGE_OPEN_YELLOW_FOLDER;
-			root.SelectedImageIndex = Resources.IMAGE_CLOSED_YELLOW_FOLDER;
-			root.Tag                = eventType;
-
-			nodes.Add(root);
+            nodes.Add(root);
 
 			// add categories to tree.
 			foreach (Technosoftware.DaAeHdaClient.Ae.TsCAeCategory category in categories)
 			{
-				// create node.
-				TreeNode node = new TreeNode(category.Name);
+                // create node.
+                TreeNode node = new TreeNode(category.Name)
+                {
+                    ImageIndex = Resources.IMAGE_ENVELOPE,
+                    SelectedImageIndex = Resources.IMAGE_ENVELOPE,
+                    Tag = category
+                };
 
-				node.ImageIndex         = Resources.IMAGE_ENVELOPE;
-				node.SelectedImageIndex = Resources.IMAGE_ENVELOPE;
-				node.Tag                = category;
-
-				// add dummy child to ensure '+' sign is visible.
-				node.Nodes.Add(new TreeNode());
+                // add dummy child to ensure '+' sign is visible.
+                node.Nodes.Add(new TreeNode());
 
 				// add to tree.
 				root.Nodes.Add(node);
@@ -379,15 +381,16 @@ namespace Technosoftware.AeSampleClient
 			// add attributes to tree.
 			foreach (Technosoftware.DaAeHdaClient.Ae.TsCAeAttribute attribute in attributes)
 			{
-				// create node.
-				TreeNode node = new TreeNode(attribute.Name);
+                // create node.
+                TreeNode node = new TreeNode(attribute.Name)
+                {
+                    ImageIndex = Resources.IMAGE_EXPLODING_BOX,
+                    SelectedImageIndex = Resources.IMAGE_EXPLODING_BOX,
+                    Tag = attribute
+                };
 
-				node.ImageIndex         = Resources.IMAGE_EXPLODING_BOX;
-				node.SelectedImageIndex = Resources.IMAGE_EXPLODING_BOX;
-				node.Tag                = attribute;
-
-				// add to tree.
-				nodes.Add(node);
+                // add to tree.
+                nodes.Add(node);
 			}
 		}
 		#endregion

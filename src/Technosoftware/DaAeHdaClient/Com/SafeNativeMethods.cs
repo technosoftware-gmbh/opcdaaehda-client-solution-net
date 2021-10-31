@@ -23,21 +23,14 @@
 #region Using Directives
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
 using System.Reflection;
-using System.Text;
-using System.Threading;
-using System.Xml;
-using System.Xml.Serialization;
 using System.Net;
-using System.Net.Sockets;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Security;
-using System.Security.Principal;
 
 using Technosoftware.DaAeHdaClient.Utilities;
+#pragma warning disable 618
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Com

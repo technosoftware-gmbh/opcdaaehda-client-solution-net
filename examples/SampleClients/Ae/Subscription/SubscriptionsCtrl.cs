@@ -69,87 +69,87 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.subscriptionsLv_ = new System.Windows.Forms.ListView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.addSubscriptionMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator01_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.editMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.activeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.deleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator02_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.refreshMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			subscriptionsLv_ = new System.Windows.Forms.ListView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			addSubscriptionMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator01_ = new System.Windows.Forms.ToolStripMenuItem();
+			editMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			activeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			deleteMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator02_ = new System.Windows.Forms.ToolStripMenuItem();
+			refreshMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// SubscriptionsLV
 			// 
-			this.subscriptionsLv_.ContextMenuStrip = this.popupMenu_;
-			this.subscriptionsLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.subscriptionsLv_.FullRowSelect = true;
-			this.subscriptionsLv_.Location = new System.Drawing.Point(0, 0);
-			this.subscriptionsLv_.MultiSelect = false;
-			this.subscriptionsLv_.Name = "subscriptionsLv_";
-			this.subscriptionsLv_.Size = new System.Drawing.Size(400, 304);
-			this.subscriptionsLv_.TabIndex = 0;
-			this.subscriptionsLv_.View = System.Windows.Forms.View.Details;
-			this.subscriptionsLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SubscriptionsLV_MouseDown);
+			subscriptionsLv_.ContextMenuStrip = popupMenu_;
+			subscriptionsLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			subscriptionsLv_.FullRowSelect = true;
+			subscriptionsLv_.Location = new System.Drawing.Point(0, 0);
+			subscriptionsLv_.MultiSelect = false;
+			subscriptionsLv_.Name = "subscriptionsLv_";
+			subscriptionsLv_.Size = new System.Drawing.Size(400, 304);
+			subscriptionsLv_.TabIndex = 0;
+			subscriptionsLv_.View = System.Windows.Forms.View.Details;
+			subscriptionsLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(SubscriptionsLV_MouseDown);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.addSubscriptionMi_,
-																					  this.separator01_,
-																					  this.editMi_,
-																					  this.activeMi_,
-																					  this.deleteMi_,
-																					  this.separator02_,
-																					  this.refreshMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  addSubscriptionMi_,
+																					  separator01_,
+																					  editMi_,
+																					  activeMi_,
+																					  deleteMi_,
+																					  separator02_,
+																					  refreshMi_});
 			// 
 			// AddSubscriptionMI
 			// 
-			this.addSubscriptionMi_.ImageIndex = 0;
-			this.addSubscriptionMi_.Text = "Add Subscription...";
-			this.addSubscriptionMi_.Click += new System.EventHandler(this.AddSubscriptionMI_Click);
+			addSubscriptionMi_.ImageIndex = 0;
+			addSubscriptionMi_.Text = "Add Subscription...";
+			addSubscriptionMi_.Click += new System.EventHandler(AddSubscriptionMI_Click);
 			// 
 			// Separator01
 			// 
-			this.separator01_.ImageIndex = 1;
-			this.separator01_.Text = "-";
+			separator01_.ImageIndex = 1;
+			separator01_.Text = "-";
 			// 
 			// EditMI
 			// 
-			this.editMi_.ImageIndex = 2;
-			this.editMi_.Text = "Edit...";
-			this.editMi_.Click += new System.EventHandler(this.EditMI_Click);
+			editMi_.ImageIndex = 2;
+			editMi_.Text = "Edit...";
+			editMi_.Click += new System.EventHandler(EditMI_Click);
 			// 
 			// ActiveMI
 			// 
-			this.activeMi_.ImageIndex = 3;
-			this.activeMi_.Text = "Active";
-			this.activeMi_.Click += new System.EventHandler(this.ActiveMI_Click);
+			activeMi_.ImageIndex = 3;
+			activeMi_.Text = "Active";
+			activeMi_.Click += new System.EventHandler(ActiveMI_Click);
 			// 
 			// DeleteMI
 			// 
-			this.deleteMi_.ImageIndex = 4;
-			this.deleteMi_.Text = "Delete";
-			this.deleteMi_.Click += new System.EventHandler(this.DeleteMI_Click);
+			deleteMi_.ImageIndex = 4;
+			deleteMi_.Text = "Delete";
+			deleteMi_.Click += new System.EventHandler(DeleteMI_Click);
 			// 
 			// Separator02
 			// 
-			this.separator02_.ImageIndex = 5;
-			this.separator02_.Text = "-";
+			separator02_.ImageIndex = 5;
+			separator02_.Text = "-";
 			// 
 			// RefreshMI
 			// 
-			this.refreshMi_.ImageIndex = 6;
-			this.refreshMi_.Text = "Refresh";
-			this.refreshMi_.Click += new System.EventHandler(this.RefreshMI_Click);
+			refreshMi_.ImageIndex = 6;
+			refreshMi_.Text = "Refresh";
+			refreshMi_.Click += new System.EventHandler(RefreshMI_Click);
 			// 
 			// SubscriptionsCtrl
 			// 
-			this.Controls.Add(this.subscriptionsLv_);
-			this.Name = "SubscriptionsCtrl";
-			this.Size = new System.Drawing.Size(400, 304);
-			this.ResumeLayout(false);
+			Controls.Add(subscriptionsLv_);
+			Name = "SubscriptionsCtrl";
+			Size = new System.Drawing.Size(400, 304);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -275,9 +275,11 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void AddHeader(ListView listview, string name)
 		{
-			ColumnHeader header = new ColumnHeader();
-			header.Text = name;
-			listview.Columns.Add(header);
+            ColumnHeader header = new ColumnHeader
+            {
+                Text = name
+            };
+            listview.Columns.Add(header);
 		}
 
 		/// <summary>
@@ -395,10 +397,12 @@ namespace Technosoftware.AeSampleClient
 				ListViewItem item = subscriptionsLv_.SelectedItems[0];
 				TsCAeSubscription subscription = (TsCAeSubscription)item.Tag;
 
-				TsCAeSubscriptionState state = new TsCAeSubscriptionState();
-				state.Active = !activeMi_.Checked;
+                TsCAeSubscriptionState state = new TsCAeSubscriptionState
+                {
+                    Active = !activeMi_.Checked
+                };
 
-				subscription.ModifyState((int)TsCAeStateMask.Active, state);
+                subscription.ModifyState((int)TsCAeStateMask.Active, state);
 				
 				// toggle checkbox.
 				activeMi_.Checked = !activeMi_.Checked;

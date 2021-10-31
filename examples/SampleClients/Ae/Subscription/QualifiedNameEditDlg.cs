@@ -63,75 +63,75 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.qualifiedNameLb_ = new System.Windows.Forms.Label();
-			this.qualifiedNameTb_ = new System.Windows.Forms.TextBox();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.buttonsPn_.SuspendLayout();
-			this.SuspendLayout();
+			qualifiedNameLb_ = new System.Windows.Forms.Label();
+			qualifiedNameTb_ = new System.Windows.Forms.TextBox();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			okBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			buttonsPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// QualifiedNameLB
 			// 
-			this.qualifiedNameLb_.Location = new System.Drawing.Point(4, 4);
-			this.qualifiedNameLb_.Name = "qualifiedNameLb_";
-			this.qualifiedNameLb_.Size = new System.Drawing.Size(100, 20);
-			this.qualifiedNameLb_.TabIndex = 1;
-			this.qualifiedNameLb_.Text = "Qualified Name";
-			this.qualifiedNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			qualifiedNameLb_.Location = new System.Drawing.Point(4, 4);
+			qualifiedNameLb_.Name = "qualifiedNameLb_";
+			qualifiedNameLb_.Size = new System.Drawing.Size(100, 20);
+			qualifiedNameLb_.TabIndex = 1;
+			qualifiedNameLb_.Text = "Qualified Name";
+			qualifiedNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// QualifiedNameTB
 			// 
-			this.qualifiedNameTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			qualifiedNameTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.qualifiedNameTb_.Location = new System.Drawing.Point(88, 4);
-			this.qualifiedNameTb_.Name = "qualifiedNameTb_";
-			this.qualifiedNameTb_.Size = new System.Drawing.Size(232, 20);
-			this.qualifiedNameTb_.TabIndex = 2;
-			this.qualifiedNameTb_.Text = "";
+			qualifiedNameTb_.Location = new System.Drawing.Point(88, 4);
+			qualifiedNameTb_.Name = "qualifiedNameTb_";
+			qualifiedNameTb_.Size = new System.Drawing.Size(232, 20);
+			qualifiedNameTb_.TabIndex = 2;
+			qualifiedNameTb_.Text = "";
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 26);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(328, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 26);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(328, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okBtn_.Location = new System.Drawing.Point(4, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
+			okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			okBtn_.Location = new System.Drawing.Point(4, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(248, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(248, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// QualifiedNameEditDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.cancelBtn_;
-			this.ClientSize = new System.Drawing.Size(328, 62);
-			this.Controls.Add(this.qualifiedNameTb_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Controls.Add(this.qualifiedNameLb_);
-			this.MaximizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(312, 0);
-			this.Name = "QualifiedNameEditDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Edit Qualified Name";
-			this.buttonsPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = cancelBtn_;
+			ClientSize = new System.Drawing.Size(328, 62);
+			Controls.Add(qualifiedNameTb_);
+			Controls.Add(buttonsPn_);
+			Controls.Add(qualifiedNameLb_);
+			MaximizeBox = false;
+			MinimumSize = new System.Drawing.Size(312, 0);
+			Name = "QualifiedNameEditDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Edit Qualified Name";
+			buttonsPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

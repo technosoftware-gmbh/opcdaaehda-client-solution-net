@@ -69,105 +69,105 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.conditionsTv_ = new System.Windows.Forms.TreeView();
-			this.leftPn_ = new System.Windows.Forms.Panel();
-			this.splitter01_ = new System.Windows.Forms.Splitter();
-			this.rightPn_ = new System.Windows.Forms.Panel();
-			this.conditionCtrl_ = new Technosoftware.AeSampleClient.ConditionStateCtrl();
-			this.buttonsPn_.SuspendLayout();
-			this.leftPn_.SuspendLayout();
-			this.rightPn_.SuspendLayout();
-			this.SuspendLayout();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			conditionsTv_ = new System.Windows.Forms.TreeView();
+			leftPn_ = new System.Windows.Forms.Panel();
+			splitter01_ = new System.Windows.Forms.Splitter();
+			rightPn_ = new System.Windows.Forms.Panel();
+			conditionCtrl_ = new Technosoftware.AeSampleClient.ConditionStateCtrl();
+			buttonsPn_.SuspendLayout();
+			leftPn_.SuspendLayout();
+			rightPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 458);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(712, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 458);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(712, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(319, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Close";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(319, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Close";
 			// 
 			// ConditionsTV
 			// 
-			this.conditionsTv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.conditionsTv_.ImageIndex = -1;
-			this.conditionsTv_.Location = new System.Drawing.Point(4, 4);
-			this.conditionsTv_.Name = "conditionsTv_";
-			this.conditionsTv_.SelectedImageIndex = -1;
-			this.conditionsTv_.ShowRootLines = false;
-			this.conditionsTv_.Size = new System.Drawing.Size(192, 454);
-			this.conditionsTv_.TabIndex = 1;
-			this.conditionsTv_.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.ConditionsTV_AfterSelect);
+			conditionsTv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			conditionsTv_.ImageIndex = -1;
+			conditionsTv_.Location = new System.Drawing.Point(4, 4);
+			conditionsTv_.Name = "conditionsTv_";
+			conditionsTv_.SelectedImageIndex = -1;
+			conditionsTv_.ShowRootLines = false;
+			conditionsTv_.Size = new System.Drawing.Size(192, 454);
+			conditionsTv_.TabIndex = 1;
+			conditionsTv_.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(ConditionsTV_AfterSelect);
 			// 
 			// LeftPN
 			// 
-			this.leftPn_.Controls.Add(this.conditionsTv_);
-			this.leftPn_.Dock = System.Windows.Forms.DockStyle.Left;
-			this.leftPn_.DockPadding.Left = 4;
-			this.leftPn_.DockPadding.Right = 4;
-			this.leftPn_.DockPadding.Top = 4;
-			this.leftPn_.Location = new System.Drawing.Point(0, 0);
-			this.leftPn_.Name = "leftPn_";
-			this.leftPn_.Size = new System.Drawing.Size(200, 458);
-			this.leftPn_.TabIndex = 2;
+			leftPn_.Controls.Add(conditionsTv_);
+			leftPn_.Dock = System.Windows.Forms.DockStyle.Left;
+			leftPn_.DockPadding.Left = 4;
+			leftPn_.DockPadding.Right = 4;
+			leftPn_.DockPadding.Top = 4;
+			leftPn_.Location = new System.Drawing.Point(0, 0);
+			leftPn_.Name = "leftPn_";
+			leftPn_.Size = new System.Drawing.Size(200, 458);
+			leftPn_.TabIndex = 2;
 			// 
 			// Splitter01
 			// 
-			this.splitter01_.Location = new System.Drawing.Point(200, 0);
-			this.splitter01_.Name = "splitter01_";
-			this.splitter01_.Size = new System.Drawing.Size(3, 458);
-			this.splitter01_.TabIndex = 3;
-			this.splitter01_.TabStop = false;
+			splitter01_.Location = new System.Drawing.Point(200, 0);
+			splitter01_.Name = "splitter01_";
+			splitter01_.Size = new System.Drawing.Size(3, 458);
+			splitter01_.TabIndex = 3;
+			splitter01_.TabStop = false;
 			// 
 			// RightPN
 			// 
-			this.rightPn_.Controls.Add(this.conditionCtrl_);
-			this.rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rightPn_.DockPadding.Right = 4;
-			this.rightPn_.DockPadding.Top = 4;
-			this.rightPn_.Location = new System.Drawing.Point(203, 0);
-			this.rightPn_.Name = "rightPn_";
-			this.rightPn_.Size = new System.Drawing.Size(509, 458);
-			this.rightPn_.TabIndex = 4;
+			rightPn_.Controls.Add(conditionCtrl_);
+			rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			rightPn_.DockPadding.Right = 4;
+			rightPn_.DockPadding.Top = 4;
+			rightPn_.Location = new System.Drawing.Point(203, 0);
+			rightPn_.Name = "rightPn_";
+			rightPn_.Size = new System.Drawing.Size(509, 458);
+			rightPn_.TabIndex = 4;
 			// 
 			// ConditionCTRL
 			// 
-			this.conditionCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.conditionCtrl_.Location = new System.Drawing.Point(0, 4);
-			this.conditionCtrl_.Name = "conditionCtrl_";
-			this.conditionCtrl_.Size = new System.Drawing.Size(505, 454);
-			this.conditionCtrl_.TabIndex = 0;
+			conditionCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			conditionCtrl_.Location = new System.Drawing.Point(0, 4);
+			conditionCtrl_.Name = "conditionCtrl_";
+			conditionCtrl_.Size = new System.Drawing.Size(505, 454);
+			conditionCtrl_.TabIndex = 0;
 			// 
 			// ConditionsViewDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.cancelBtn_;
-			this.ClientSize = new System.Drawing.Size(712, 494);
-			this.Controls.Add(this.rightPn_);
-			this.Controls.Add(this.splitter01_);
-			this.Controls.Add(this.leftPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.MaximizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(0, 180);
-			this.Name = "ConditionsViewDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Event Conditions";
-			this.buttonsPn_.ResumeLayout(false);
-			this.leftPn_.ResumeLayout(false);
-			this.rightPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = cancelBtn_;
+			ClientSize = new System.Drawing.Size(712, 494);
+			Controls.Add(rightPn_);
+			Controls.Add(splitter01_);
+			Controls.Add(leftPn_);
+			Controls.Add(buttonsPn_);
+			MaximizeBox = false;
+			MinimumSize = new System.Drawing.Size(0, 180);
+			Name = "ConditionsViewDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Event Conditions";
+			buttonsPn_.ResumeLayout(false);
+			leftPn_.ResumeLayout(false);
+			rightPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -189,12 +189,13 @@ namespace Technosoftware.AeSampleClient
 			// fetch and populate conditions and sub-conditions.
 			try
 			{
-				TreeNode root = new TreeNode("Categories");
+                TreeNode root = new TreeNode("Categories")
+                {
+                    ImageIndex = Resources.IMAGE_CLOSED_YELLOW_FOLDER,
+                    SelectedImageIndex = Resources.IMAGE_OPEN_YELLOW_FOLDER
+                };
 
-				root.ImageIndex         = Resources.IMAGE_CLOSED_YELLOW_FOLDER;
-				root.SelectedImageIndex = Resources.IMAGE_OPEN_YELLOW_FOLDER;
-
-				conditionsTv_.Nodes.Add(root);
+                conditionsTv_.Nodes.Add(root);
 				root.Expand();
 
 				// add categories.
@@ -202,29 +203,32 @@ namespace Technosoftware.AeSampleClient
 			
 				foreach (Technosoftware.DaAeHdaClient.Ae.TsCAeCategory category in categories)
 				{
-					TreeNode node = new TreeNode(category.Name);
+                    TreeNode node = new TreeNode(category.Name)
+                    {
+                        ImageIndex = Resources.IMAGE_LIST_BOX,
+                        SelectedImageIndex = Resources.IMAGE_LIST_BOX,
+                        Tag = category
+                    };
 
-					node.ImageIndex         = Resources.IMAGE_LIST_BOX;
-					node.SelectedImageIndex = Resources.IMAGE_LIST_BOX;
-					node.Tag                = category;
+                    // add conditions.
+                    TreeNode folder = new TreeNode("Conditions")
+                    {
+                        ImageIndex = Resources.IMAGE_CLOSED_YELLOW_FOLDER,
+                        SelectedImageIndex = Resources.IMAGE_OPEN_YELLOW_FOLDER
+                    };
 
-					// add conditions.
-					TreeNode folder = new TreeNode("Conditions");
-
-					folder.ImageIndex         = Resources.IMAGE_CLOSED_YELLOW_FOLDER;
-					folder.SelectedImageIndex = Resources.IMAGE_OPEN_YELLOW_FOLDER;
-
-					node.Nodes.Add(folder);
+                    node.Nodes.Add(folder);
 
 					FetchConditions(folder, server, category.ID);
 
-					// add attributes.
-					folder = new TreeNode("Attributes");
+                    // add attributes.
+                    folder = new TreeNode("Attributes")
+                    {
+                        ImageIndex = Resources.IMAGE_CLOSED_YELLOW_FOLDER,
+                        SelectedImageIndex = Resources.IMAGE_OPEN_YELLOW_FOLDER
+                    };
 
-					folder.ImageIndex         = Resources.IMAGE_CLOSED_YELLOW_FOLDER;
-					folder.SelectedImageIndex = Resources.IMAGE_OPEN_YELLOW_FOLDER;
-
-					node.Nodes.Add(folder);
+                    node.Nodes.Add(folder);
 
 					FetchAttributes(folder, server, category.ID);
 
@@ -234,7 +238,7 @@ namespace Technosoftware.AeSampleClient
 			}
 			catch (Exception e)
 			{
-				MessageBox.Show(e.Message, this.Text);
+				MessageBox.Show(e.Message, Text);
 			}
 
 			// show dialog.
@@ -252,14 +256,15 @@ namespace Technosoftware.AeSampleClient
             
 			for (int ii = 0; ii < conditions.Length; ii++)
 			{
-				TreeNode node = new TreeNode(conditions[ii]);
-				
-				node.ImageIndex         = Resources.IMAGE_YELLOW_SCROLL;
-				node.SelectedImageIndex = Resources.IMAGE_YELLOW_SCROLL;
-				node.Tag                = conditions[ii];
+                TreeNode node = new TreeNode(conditions[ii])
+                {
+                    ImageIndex = Resources.IMAGE_YELLOW_SCROLL,
+                    SelectedImageIndex = Resources.IMAGE_YELLOW_SCROLL,
+                    Tag = conditions[ii]
+                };
 
-				// add sub-conditions.
-				FetchSubConditions(node, server, conditions[ii]);
+                // add sub-conditions.
+                FetchSubConditions(node, server, conditions[ii]);
 
 				parent.Nodes.Add(node);
 			}
@@ -280,13 +285,14 @@ namespace Technosoftware.AeSampleClient
 					attribute.Name, 
 					Technosoftware.DaAeHdaClient.OpcConvert.ToString(attribute.DataType));
 
-				TreeNode node = new TreeNode(label);
-				
-				node.ImageIndex         = Resources.IMAGE_EXPLODING_BOX;
-				node.SelectedImageIndex = Resources.IMAGE_EXPLODING_BOX;
-				node.Tag                = attribute;
+                TreeNode node = new TreeNode(label)
+                {
+                    ImageIndex = Resources.IMAGE_EXPLODING_BOX,
+                    SelectedImageIndex = Resources.IMAGE_EXPLODING_BOX,
+                    Tag = attribute
+                };
 
-				parent.Nodes.Add(node);
+                parent.Nodes.Add(node);
 			}
 		}
 
@@ -299,13 +305,14 @@ namespace Technosoftware.AeSampleClient
             
 			for (int ii = 0; ii < subconditions.Length; ii++)
 			{
-				TreeNode node = new TreeNode(subconditions[ii]);
+                TreeNode node = new TreeNode(subconditions[ii])
+                {
+                    ImageIndex = Resources.IMAGE_YELLOW_SCROLL,
+                    SelectedImageIndex = Resources.IMAGE_YELLOW_SCROLL,
+                    Tag = subconditions[ii]
+                };
 
-				node.ImageIndex         = Resources.IMAGE_YELLOW_SCROLL;
-				node.SelectedImageIndex = Resources.IMAGE_YELLOW_SCROLL;
-				node.Tag                = subconditions[ii];
-
-				parent.Nodes.Add(node);
+                parent.Nodes.Add(node);
 			}
 		}
 		#endregion

@@ -98,231 +98,231 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
-			this.ButtonsPN = new System.Windows.Forms.Panel();
-			this.CancelBTN = new System.Windows.Forms.Button();
-			this.OkBTN = new System.Windows.Forms.Button();
-			this.TypeTV = new System.Windows.Forms.TreeView();
-			this.PopupMenu = new System.Windows.Forms.ContextMenuStrip();
-			this.EditMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.FormattedPN = new System.Windows.Forms.Panel();
-			this.FieldsLV = new System.Windows.Forms.ListView();
-			this.Splitter01 = new System.Windows.Forms.Splitter();
-			this.RawPN = new System.Windows.Forms.Panel();
-            this.RawTB = new System.Windows.Forms.RichTextBox();
-            this.MainMenu = new System.Windows.Forms.MenuStrip();
-			this.ViewMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.FormattedMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.RawMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.TypeDictionaryMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.TypeDescriptionMI = new System.Windows.Forms.ToolStripMenuItem();
-			this.SchemaPN = new System.Windows.Forms.Panel();
-			this.TypeDictionaryTB = new System.Windows.Forms.TextBox();
-			this.TypeDescriptionTB = new System.Windows.Forms.TextBox();
-			this.ButtonsPN.SuspendLayout();
-			this.FormattedPN.SuspendLayout();
-			this.RawPN.SuspendLayout();
-			this.SchemaPN.SuspendLayout();
-			this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+			ButtonsPN = new System.Windows.Forms.Panel();
+			CancelBTN = new System.Windows.Forms.Button();
+			OkBTN = new System.Windows.Forms.Button();
+			TypeTV = new System.Windows.Forms.TreeView();
+			PopupMenu = new System.Windows.Forms.ContextMenuStrip();
+			EditMI = new System.Windows.Forms.ToolStripMenuItem();
+			FormattedPN = new System.Windows.Forms.Panel();
+			FieldsLV = new System.Windows.Forms.ListView();
+			Splitter01 = new System.Windows.Forms.Splitter();
+			RawPN = new System.Windows.Forms.Panel();
+            RawTB = new System.Windows.Forms.RichTextBox();
+            MainMenu = new System.Windows.Forms.MenuStrip();
+			ViewMI = new System.Windows.Forms.ToolStripMenuItem();
+			FormattedMI = new System.Windows.Forms.ToolStripMenuItem();
+			RawMI = new System.Windows.Forms.ToolStripMenuItem();
+			TypeDictionaryMI = new System.Windows.Forms.ToolStripMenuItem();
+			TypeDescriptionMI = new System.Windows.Forms.ToolStripMenuItem();
+			SchemaPN = new System.Windows.Forms.Panel();
+			TypeDictionaryTB = new System.Windows.Forms.TextBox();
+			TypeDescriptionTB = new System.Windows.Forms.TextBox();
+			ButtonsPN.SuspendLayout();
+			FormattedPN.SuspendLayout();
+			RawPN.SuspendLayout();
+			SchemaPN.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ButtonsPN
 			// 
-			this.ButtonsPN.Controls.Add(this.CancelBTN);
-			this.ButtonsPN.Controls.Add(this.OkBTN);
-			this.ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.ButtonsPN.Location = new System.Drawing.Point(0, 418);
-			this.ButtonsPN.Name = "ButtonsPN";
-			this.ButtonsPN.Size = new System.Drawing.Size(592, 36);
-			this.ButtonsPN.TabIndex = 1;
+			ButtonsPN.Controls.Add(CancelBTN);
+			ButtonsPN.Controls.Add(OkBTN);
+			ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
+			ButtonsPN.Location = new System.Drawing.Point(0, 418);
+			ButtonsPN.Name = "ButtonsPN";
+			ButtonsPN.Size = new System.Drawing.Size(592, 36);
+			ButtonsPN.TabIndex = 1;
 			// 
 			// CancelBTN
 			// 
-			this.CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelBTN.Location = new System.Drawing.Point(512, 8);
-			this.CancelBTN.Name = "CancelBTN";
-            this.CancelBTN.Size = new System.Drawing.Size(75, 23);
-			this.CancelBTN.TabIndex = 0;
-			this.CancelBTN.Text = "Close";
-			this.CancelBTN.Click += new System.EventHandler(this.CancelBTN_Click);
+			CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			CancelBTN.Location = new System.Drawing.Point(512, 8);
+			CancelBTN.Name = "CancelBTN";
+            CancelBTN.Size = new System.Drawing.Size(75, 23);
+			CancelBTN.TabIndex = 0;
+			CancelBTN.Text = "Close";
+			CancelBTN.Click += new System.EventHandler(CancelBTN_Click);
 			// 
 			// OkBTN
 			// 
-			this.OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.OkBTN.Location = new System.Drawing.Point(431, 8);
-			this.OkBTN.Name = "OkBTN";
-            this.OkBTN.Size = new System.Drawing.Size(75, 23);
-			this.OkBTN.TabIndex = 1;
-			this.OkBTN.Text = "OK";
+			OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
+            OkBTN.Location = new System.Drawing.Point(431, 8);
+			OkBTN.Name = "OkBTN";
+            OkBTN.Size = new System.Drawing.Size(75, 23);
+			OkBTN.TabIndex = 1;
+			OkBTN.Text = "OK";
 			// 
 			// TypeTV
 			// 
-			this.TypeTV.ContextMenuStrip = this.PopupMenu;
-			this.TypeTV.Dock = System.Windows.Forms.DockStyle.Left;
-			this.TypeTV.Location = new System.Drawing.Point(4, 4);
-			this.TypeTV.Name = "TypeTV";
-			this.TypeTV.Size = new System.Drawing.Size(228, 410);
-			this.TypeTV.TabIndex = 2;
-            this.TypeTV.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TypeTV_AfterSelect);
-			this.TypeTV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TypeTV_MouseDown);
+			TypeTV.ContextMenuStrip = PopupMenu;
+			TypeTV.Dock = System.Windows.Forms.DockStyle.Left;
+			TypeTV.Location = new System.Drawing.Point(4, 4);
+			TypeTV.Name = "TypeTV";
+			TypeTV.Size = new System.Drawing.Size(228, 410);
+			TypeTV.TabIndex = 2;
+            TypeTV.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(TypeTV_AfterSelect);
+			TypeTV.MouseDown += new System.Windows.Forms.MouseEventHandler(TypeTV_MouseDown);
 			// 
 			// PopupMenu
 			// 
-			this.PopupMenu.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.EditMI});
+			PopupMenu.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  EditMI});
 			// 
 			// EditMI
 			// 
-			this.EditMI.ImageIndex = 0;
-			this.EditMI.Text = "Edit...";
-			this.EditMI.Click += new System.EventHandler(this.EditMI_Click);
+			EditMI.ImageIndex = 0;
+			EditMI.Text = "Edit...";
+			EditMI.Click += new System.EventHandler(EditMI_Click);
 			// 
 			// FormattedPN
 			// 
-			this.FormattedPN.Controls.Add(this.FieldsLV);
-			this.FormattedPN.Controls.Add(this.Splitter01);
-			this.FormattedPN.Controls.Add(this.TypeTV);
-			this.FormattedPN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.FormattedPN.Location = new System.Drawing.Point(0, 0);
-			this.FormattedPN.Name = "FormattedPN";
-            this.FormattedPN.Padding = new System.Windows.Forms.Padding(4);
-			this.FormattedPN.Size = new System.Drawing.Size(592, 418);
-			this.FormattedPN.TabIndex = 3;
+			FormattedPN.Controls.Add(FieldsLV);
+			FormattedPN.Controls.Add(Splitter01);
+			FormattedPN.Controls.Add(TypeTV);
+			FormattedPN.Dock = System.Windows.Forms.DockStyle.Fill;
+			FormattedPN.Location = new System.Drawing.Point(0, 0);
+			FormattedPN.Name = "FormattedPN";
+            FormattedPN.Padding = new System.Windows.Forms.Padding(4);
+			FormattedPN.Size = new System.Drawing.Size(592, 418);
+			FormattedPN.TabIndex = 3;
 			// 
 			// FieldsLV
 			// 
-			this.FieldsLV.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.FieldsLV.FullRowSelect = true;
-			this.FieldsLV.Location = new System.Drawing.Point(236, 4);
-			this.FieldsLV.MultiSelect = false;
-			this.FieldsLV.Name = "FieldsLV";
-			this.FieldsLV.Size = new System.Drawing.Size(352, 410);
-			this.FieldsLV.TabIndex = 6;
-            this.FieldsLV.UseCompatibleStateImageBehavior = false;
-			this.FieldsLV.View = System.Windows.Forms.View.Details;
+			FieldsLV.Dock = System.Windows.Forms.DockStyle.Fill;
+			FieldsLV.FullRowSelect = true;
+			FieldsLV.Location = new System.Drawing.Point(236, 4);
+			FieldsLV.MultiSelect = false;
+			FieldsLV.Name = "FieldsLV";
+			FieldsLV.Size = new System.Drawing.Size(352, 410);
+			FieldsLV.TabIndex = 6;
+            FieldsLV.UseCompatibleStateImageBehavior = false;
+			FieldsLV.View = System.Windows.Forms.View.Details;
 			// 
 			// Splitter01
 			// 
-			this.Splitter01.Location = new System.Drawing.Point(232, 4);
-			this.Splitter01.Name = "Splitter01";
-			this.Splitter01.Size = new System.Drawing.Size(4, 410);
-			this.Splitter01.TabIndex = 7;
-			this.Splitter01.TabStop = false;
+			Splitter01.Location = new System.Drawing.Point(232, 4);
+			Splitter01.Name = "Splitter01";
+			Splitter01.Size = new System.Drawing.Size(4, 410);
+			Splitter01.TabIndex = 7;
+			Splitter01.TabStop = false;
 			// 
 			// RawPN
 			// 
-			this.RawPN.Controls.Add(this.RawTB);
-			this.RawPN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.RawPN.Location = new System.Drawing.Point(0, 0);
-			this.RawPN.Name = "RawPN";
-            this.RawPN.Padding = new System.Windows.Forms.Padding(4);
-			this.RawPN.Size = new System.Drawing.Size(592, 418);
-			this.RawPN.TabIndex = 5;
-			this.RawPN.Visible = false;
+			RawPN.Controls.Add(RawTB);
+			RawPN.Dock = System.Windows.Forms.DockStyle.Fill;
+			RawPN.Location = new System.Drawing.Point(0, 0);
+			RawPN.Name = "RawPN";
+            RawPN.Padding = new System.Windows.Forms.Padding(4);
+			RawPN.Size = new System.Drawing.Size(592, 418);
+			RawPN.TabIndex = 5;
+			RawPN.Visible = false;
 			// 
             // RawTB
             // 
-            this.RawTB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RawTB.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RawTB.Location = new System.Drawing.Point(4, 4);
-            this.RawTB.Name = "RawTB";
-            this.RawTB.Size = new System.Drawing.Size(584, 410);
-            this.RawTB.TabIndex = 1;
-            this.RawTB.Text = "0000 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 10 123456789ABCDEF0";
+            RawTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            RawTB.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            RawTB.Location = new System.Drawing.Point(4, 4);
+            RawTB.Name = "RawTB";
+            RawTB.Size = new System.Drawing.Size(584, 410);
+            RawTB.TabIndex = 1;
+            RawTB.Text = "0000 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 10 123456789ABCDEF0";
             // 
 			// MainMenu
 			// 
-			this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					 this.ViewMI});
+			MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					 ViewMI});
 			// 
 			// ViewMI
 			// 
-			this.ViewMI.ImageIndex = 0;
-			this.ViewMI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																				   this.FormattedMI,
-																				   this.RawMI,
-																				   this.TypeDictionaryMI,
-																				   this.TypeDescriptionMI});
-			this.ViewMI.Text = "&View";
+			ViewMI.ImageIndex = 0;
+			ViewMI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																				   FormattedMI,
+																				   RawMI,
+																				   TypeDictionaryMI,
+																				   TypeDescriptionMI});
+			ViewMI.Text = "&View";
 			// 
 			// FormattedMI
 			// 
-			this.FormattedMI.ImageIndex = 0;
-			this.FormattedMI.Text = "&Formatted Value";
-			this.FormattedMI.Click += new System.EventHandler(this.ViewMI_Click);
+			FormattedMI.ImageIndex = 0;
+			FormattedMI.Text = "&Formatted Value";
+			FormattedMI.Click += new System.EventHandler(ViewMI_Click);
 			// 
 			// RawMI
 			// 
-			this.RawMI.ImageIndex = 1;
-			this.RawMI.Text = "&Raw Value";
-			this.RawMI.Click += new System.EventHandler(this.ViewMI_Click);
+			RawMI.ImageIndex = 1;
+			RawMI.Text = "&Raw Value";
+			RawMI.Click += new System.EventHandler(ViewMI_Click);
 			// 
 			// TypeDictionaryMI
 			// 
-			this.TypeDictionaryMI.ImageIndex = 2;
-            this.TypeDictionaryMI.Text = "BuiltInTypes Type";
-			this.TypeDictionaryMI.Click += new System.EventHandler(this.ViewMI_Click);
+			TypeDictionaryMI.ImageIndex = 2;
+            TypeDictionaryMI.Text = "BuiltInTypes Type";
+			TypeDictionaryMI.Click += new System.EventHandler(ViewMI_Click);
 			// 
 			// TypeDescriptionMI
 			// 
-			this.TypeDescriptionMI.ImageIndex = 3;
-			this.TypeDescriptionMI.Text = "Type Description";
-			this.TypeDescriptionMI.Click += new System.EventHandler(this.ViewMI_Click);
+			TypeDescriptionMI.ImageIndex = 3;
+			TypeDescriptionMI.Text = "Type Description";
+			TypeDescriptionMI.Click += new System.EventHandler(ViewMI_Click);
 			// 
 			// SchemaPN
 			// 
-			this.SchemaPN.Controls.Add(this.TypeDictionaryTB);
-			this.SchemaPN.Controls.Add(this.TypeDescriptionTB);
-			this.SchemaPN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.SchemaPN.Location = new System.Drawing.Point(0, 0);
-			this.SchemaPN.Name = "SchemaPN";
-            this.SchemaPN.Padding = new System.Windows.Forms.Padding(4);
-			this.SchemaPN.Size = new System.Drawing.Size(592, 418);
-			this.SchemaPN.TabIndex = 1;
-			this.SchemaPN.Visible = false;
+			SchemaPN.Controls.Add(TypeDictionaryTB);
+			SchemaPN.Controls.Add(TypeDescriptionTB);
+			SchemaPN.Dock = System.Windows.Forms.DockStyle.Fill;
+			SchemaPN.Location = new System.Drawing.Point(0, 0);
+			SchemaPN.Name = "SchemaPN";
+            SchemaPN.Padding = new System.Windows.Forms.Padding(4);
+			SchemaPN.Size = new System.Drawing.Size(592, 418);
+			SchemaPN.TabIndex = 1;
+			SchemaPN.Visible = false;
 			// 
 			// TypeDictionaryTB
 			// 
-			this.TypeDictionaryTB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TypeDictionaryTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TypeDictionaryTB.Location = new System.Drawing.Point(4, 4);
-			this.TypeDictionaryTB.Multiline = true;
-			this.TypeDictionaryTB.Name = "TypeDictionaryTB";
-			this.TypeDictionaryTB.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.TypeDictionaryTB.Size = new System.Drawing.Size(584, 410);
-			this.TypeDictionaryTB.TabIndex = 1;
-			this.TypeDictionaryTB.WordWrap = false;
+			TypeDictionaryTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            TypeDictionaryTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			TypeDictionaryTB.Location = new System.Drawing.Point(4, 4);
+			TypeDictionaryTB.Multiline = true;
+			TypeDictionaryTB.Name = "TypeDictionaryTB";
+			TypeDictionaryTB.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			TypeDictionaryTB.Size = new System.Drawing.Size(584, 410);
+			TypeDictionaryTB.TabIndex = 1;
+			TypeDictionaryTB.WordWrap = false;
 			// 
 			// TypeDescriptionTB
 			// 
-			this.TypeDescriptionTB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TypeDescriptionTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TypeDescriptionTB.Location = new System.Drawing.Point(4, 4);
-			this.TypeDescriptionTB.Multiline = true;
-			this.TypeDescriptionTB.Name = "TypeDescriptionTB";
-			this.TypeDescriptionTB.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.TypeDescriptionTB.Size = new System.Drawing.Size(584, 410);
-			this.TypeDescriptionTB.TabIndex = 2;
-			this.TypeDescriptionTB.WordWrap = false;
+			TypeDescriptionTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            TypeDescriptionTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			TypeDescriptionTB.Location = new System.Drawing.Point(4, 4);
+			TypeDescriptionTB.Multiline = true;
+			TypeDescriptionTB.Name = "TypeDescriptionTB";
+			TypeDescriptionTB.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			TypeDescriptionTB.Size = new System.Drawing.Size(584, 410);
+			TypeDescriptionTB.TabIndex = 2;
+			TypeDescriptionTB.WordWrap = false;
 			// 
 			// EditComplexValueDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(592, 454);
-			this.Controls.Add(this.RawPN);
-			this.Controls.Add(this.FormattedPN);
-			this.Controls.Add(this.SchemaPN);
-			this.Controls.Add(this.ButtonsPN);
-            this.Name = "EditComplexValueDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "View Complex Data";
-			this.ButtonsPN.ResumeLayout(false);
-			this.FormattedPN.ResumeLayout(false);
-			this.RawPN.ResumeLayout(false);
-			this.SchemaPN.ResumeLayout(false);
-            this.SchemaPN.PerformLayout();
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(592, 454);
+			Controls.Add(RawPN);
+			Controls.Add(FormattedPN);
+			Controls.Add(SchemaPN);
+			Controls.Add(ButtonsPN);
+            Name = "EditComplexValueDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "View Complex Data";
+			ButtonsPN.ResumeLayout(false);
+			FormattedPN.ResumeLayout(false);
+			RawPN.ResumeLayout(false);
+			SchemaPN.ResumeLayout(false);
+            SchemaPN.PerformLayout();
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -853,7 +853,7 @@ namespace SampleClients.Common
 		/// </summary>
 		private void CancelBTN_Click(object sender, System.EventArgs e)
 		{
-			this.Close();
+			Close();
 		}
 
 		/// <summary>

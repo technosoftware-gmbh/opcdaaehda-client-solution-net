@@ -71,77 +71,77 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.ButtonsPN = new System.Windows.Forms.Panel();
-			this.CancelBTN = new System.Windows.Forms.Button();
-			this.OkBTN = new System.Windows.Forms.Button();
-			this.MainPN = new System.Windows.Forms.Panel();
-			this.DataTB = new System.Windows.Forms.RichTextBox();
-			this.ButtonsPN.SuspendLayout();
-			this.MainPN.SuspendLayout();
-			this.SuspendLayout();
+			ButtonsPN = new System.Windows.Forms.Panel();
+			CancelBTN = new System.Windows.Forms.Button();
+			OkBTN = new System.Windows.Forms.Button();
+			MainPN = new System.Windows.Forms.Panel();
+			DataTB = new System.Windows.Forms.RichTextBox();
+			ButtonsPN.SuspendLayout();
+			MainPN.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ButtonsPN
 			// 
-			this.ButtonsPN.Controls.Add(this.CancelBTN);
-			this.ButtonsPN.Controls.Add(this.OkBTN);
-			this.ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.ButtonsPN.Location = new System.Drawing.Point(0, 258);
-			this.ButtonsPN.Name = "ButtonsPN";
-			this.ButtonsPN.Size = new System.Drawing.Size(416, 36);
-			this.ButtonsPN.TabIndex = 0;
+			ButtonsPN.Controls.Add(CancelBTN);
+			ButtonsPN.Controls.Add(OkBTN);
+			ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
+			ButtonsPN.Location = new System.Drawing.Point(0, 258);
+			ButtonsPN.Name = "ButtonsPN";
+			ButtonsPN.Size = new System.Drawing.Size(416, 36);
+			ButtonsPN.TabIndex = 0;
 			// 
 			// CancelBTN
 			// 
-			this.CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelBTN.Location = new System.Drawing.Point(336, 8);
-			this.CancelBTN.Name = "CancelBTN";
-            this.CancelBTN.Size = new System.Drawing.Size(75, 23);
-			this.CancelBTN.TabIndex = 0;
-			this.CancelBTN.Text = "Cancel";
+			CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			CancelBTN.Location = new System.Drawing.Point(336, 8);
+			CancelBTN.Name = "CancelBTN";
+            CancelBTN.Size = new System.Drawing.Size(75, 23);
+			CancelBTN.TabIndex = 0;
+			CancelBTN.Text = "Cancel";
 			// 
 			// OkBTN
 			// 
-			this.OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.OkBTN.Location = new System.Drawing.Point(255, 8);
-			this.OkBTN.Name = "OkBTN";
-            this.OkBTN.Size = new System.Drawing.Size(75, 23);
-			this.OkBTN.TabIndex = 1;
-			this.OkBTN.Text = "OK";
+			OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
+            OkBTN.Location = new System.Drawing.Point(255, 8);
+			OkBTN.Name = "OkBTN";
+            OkBTN.Size = new System.Drawing.Size(75, 23);
+			OkBTN.TabIndex = 1;
+			OkBTN.Text = "OK";
 			// 
 			// MainPN
 			// 
-			this.MainPN.Controls.Add(this.DataTB);
-			this.MainPN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.MainPN.Location = new System.Drawing.Point(0, 0);
-			this.MainPN.Name = "MainPN";
-            this.MainPN.Padding = new System.Windows.Forms.Padding(4);
-			this.MainPN.Size = new System.Drawing.Size(416, 258);
-			this.MainPN.TabIndex = 3;
+			MainPN.Controls.Add(DataTB);
+			MainPN.Dock = System.Windows.Forms.DockStyle.Fill;
+			MainPN.Location = new System.Drawing.Point(0, 0);
+			MainPN.Name = "MainPN";
+            MainPN.Padding = new System.Windows.Forms.Padding(4);
+			MainPN.Size = new System.Drawing.Size(416, 258);
+			MainPN.TabIndex = 3;
 			// 
 			// DataTB
 			// 
-			this.DataTB.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.DataTB.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.DataTB.Location = new System.Drawing.Point(4, 4);
-			this.DataTB.Name = "DataTB";
-			this.DataTB.Size = new System.Drawing.Size(408, 250);
-			this.DataTB.TabIndex = 0;
-			this.DataTB.Text = "01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 10";
+			DataTB.Dock = System.Windows.Forms.DockStyle.Fill;
+			DataTB.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
+			DataTB.Location = new System.Drawing.Point(4, 4);
+			DataTB.Name = "DataTB";
+			DataTB.Size = new System.Drawing.Size(408, 250);
+			DataTB.TabIndex = 0;
+			DataTB.Text = "01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 10";
 			// 
 			// EditBinaryDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(416, 294);
-			this.Controls.Add(this.MainPN);
-			this.Controls.Add(this.ButtonsPN);
-			this.Name = "EditBinaryDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Edit Binary Value";
-			this.ButtonsPN.ResumeLayout(false);
-			this.MainPN.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(416, 294);
+			Controls.Add(MainPN);
+			Controls.Add(ButtonsPN);
+			Name = "EditBinaryDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Edit Binary Value";
+			ButtonsPN.ResumeLayout(false);
+			MainPN.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

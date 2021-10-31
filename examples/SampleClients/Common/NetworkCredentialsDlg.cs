@@ -70,134 +70,134 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.OkBTN = new System.Windows.Forms.Button();
-			this.CancelBTN = new System.Windows.Forms.Button();
-			this.ButtonsPN = new System.Windows.Forms.Panel();
-			this.DomainTB = new System.Windows.Forms.TextBox();
-			this.DomainLB = new System.Windows.Forms.Label();
-			this.UserNameLB = new System.Windows.Forms.Label();
-			this.PasswordLB = new System.Windows.Forms.Label();
-			this.TopPN = new System.Windows.Forms.Panel();
-			this.PasswordTB = new System.Windows.Forms.TextBox();
-			this.UserNameTB = new System.Windows.Forms.TextBox();
-			this.ButtonsPN.SuspendLayout();
-			this.TopPN.SuspendLayout();
-			this.SuspendLayout();
+			OkBTN = new System.Windows.Forms.Button();
+			CancelBTN = new System.Windows.Forms.Button();
+			ButtonsPN = new System.Windows.Forms.Panel();
+			DomainTB = new System.Windows.Forms.TextBox();
+			DomainLB = new System.Windows.Forms.Label();
+			UserNameLB = new System.Windows.Forms.Label();
+			PasswordLB = new System.Windows.Forms.Label();
+			TopPN = new System.Windows.Forms.Panel();
+			PasswordTB = new System.Windows.Forms.TextBox();
+			UserNameTB = new System.Windows.Forms.TextBox();
+			ButtonsPN.SuspendLayout();
+			TopPN.SuspendLayout();
+			SuspendLayout();
 			// 
 			// OkBTN
 			// 
-			this.OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.OkBTN.Location = new System.Drawing.Point(47, 8);
-			this.OkBTN.Name = "OkBTN";
-            this.OkBTN.Size = new System.Drawing.Size(75, 23);
-			this.OkBTN.TabIndex = 0;
-			this.OkBTN.Text = "OK";
+			OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
+            OkBTN.Location = new System.Drawing.Point(47, 8);
+			OkBTN.Name = "OkBTN";
+            OkBTN.Size = new System.Drawing.Size(75, 23);
+			OkBTN.TabIndex = 0;
+			OkBTN.Text = "OK";
 			// 
 			// CancelBTN
 			// 
-			this.CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelBTN.Location = new System.Drawing.Point(128, 8);
-			this.CancelBTN.Name = "CancelBTN";
-            this.CancelBTN.Size = new System.Drawing.Size(75, 23);
-			this.CancelBTN.TabIndex = 1;
-			this.CancelBTN.Text = "Cancel";
+			CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			CancelBTN.Location = new System.Drawing.Point(128, 8);
+			CancelBTN.Name = "CancelBTN";
+            CancelBTN.Size = new System.Drawing.Size(75, 23);
+			CancelBTN.TabIndex = 1;
+			CancelBTN.Text = "Cancel";
 			// 
 			// ButtonsPN
 			// 
-			this.ButtonsPN.Controls.Add(this.CancelBTN);
-			this.ButtonsPN.Controls.Add(this.OkBTN);
-			this.ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.ButtonsPN.Location = new System.Drawing.Point(0, 74);
-			this.ButtonsPN.Name = "ButtonsPN";
-			this.ButtonsPN.Size = new System.Drawing.Size(208, 36);
-			this.ButtonsPN.TabIndex = 0;
+			ButtonsPN.Controls.Add(CancelBTN);
+			ButtonsPN.Controls.Add(OkBTN);
+			ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
+			ButtonsPN.Location = new System.Drawing.Point(0, 74);
+			ButtonsPN.Name = "ButtonsPN";
+			ButtonsPN.Size = new System.Drawing.Size(208, 36);
+			ButtonsPN.TabIndex = 0;
 			// 
 			// DomainTB
 			// 
-			this.DomainTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			DomainTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.DomainTB.Location = new System.Drawing.Point(68, 52);
-			this.DomainTB.Name = "DomainTB";
-			this.DomainTB.Size = new System.Drawing.Size(136, 20);
-			this.DomainTB.TabIndex = 5;
+			DomainTB.Location = new System.Drawing.Point(68, 52);
+			DomainTB.Name = "DomainTB";
+			DomainTB.Size = new System.Drawing.Size(136, 20);
+			DomainTB.TabIndex = 5;
 			// 
 			// DomainLB
 			// 
-			this.DomainLB.Location = new System.Drawing.Point(4, 52);
-			this.DomainLB.Name = "DomainLB";
-			this.DomainLB.Size = new System.Drawing.Size(64, 23);
-			this.DomainLB.TabIndex = 4;
-			this.DomainLB.Text = "Domain";
-			this.DomainLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			DomainLB.Location = new System.Drawing.Point(4, 52);
+			DomainLB.Name = "DomainLB";
+			DomainLB.Size = new System.Drawing.Size(64, 23);
+			DomainLB.TabIndex = 4;
+			DomainLB.Text = "Domain";
+			DomainLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// UserNameLB
 			// 
-			this.UserNameLB.Location = new System.Drawing.Point(4, 4);
-			this.UserNameLB.Name = "UserNameLB";
-			this.UserNameLB.Size = new System.Drawing.Size(64, 23);
-			this.UserNameLB.TabIndex = 0;
-			this.UserNameLB.Text = "User Name";
-			this.UserNameLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			UserNameLB.Location = new System.Drawing.Point(4, 4);
+			UserNameLB.Name = "UserNameLB";
+			UserNameLB.Size = new System.Drawing.Size(64, 23);
+			UserNameLB.TabIndex = 0;
+			UserNameLB.Text = "User Name";
+			UserNameLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// PasswordLB
 			// 
-			this.PasswordLB.Location = new System.Drawing.Point(4, 28);
-			this.PasswordLB.Name = "PasswordLB";
-			this.PasswordLB.Size = new System.Drawing.Size(64, 23);
-			this.PasswordLB.TabIndex = 2;
-			this.PasswordLB.Text = "Password";
-			this.PasswordLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			PasswordLB.Location = new System.Drawing.Point(4, 28);
+			PasswordLB.Name = "PasswordLB";
+			PasswordLB.Size = new System.Drawing.Size(64, 23);
+			PasswordLB.TabIndex = 2;
+			PasswordLB.Text = "Password";
+			PasswordLB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// TopPN
 			// 
-			this.TopPN.Controls.Add(this.PasswordTB);
-			this.TopPN.Controls.Add(this.UserNameTB);
-			this.TopPN.Controls.Add(this.DomainTB);
-			this.TopPN.Controls.Add(this.UserNameLB);
-			this.TopPN.Controls.Add(this.PasswordLB);
-			this.TopPN.Controls.Add(this.DomainLB);
-			this.TopPN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.TopPN.Location = new System.Drawing.Point(0, 0);
-			this.TopPN.Name = "TopPN";
-            this.TopPN.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
-			this.TopPN.Size = new System.Drawing.Size(208, 110);
-			this.TopPN.TabIndex = 1;
+			TopPN.Controls.Add(PasswordTB);
+			TopPN.Controls.Add(UserNameTB);
+			TopPN.Controls.Add(DomainTB);
+			TopPN.Controls.Add(UserNameLB);
+			TopPN.Controls.Add(PasswordLB);
+			TopPN.Controls.Add(DomainLB);
+			TopPN.Dock = System.Windows.Forms.DockStyle.Fill;
+			TopPN.Location = new System.Drawing.Point(0, 0);
+			TopPN.Name = "TopPN";
+            TopPN.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
+			TopPN.Size = new System.Drawing.Size(208, 110);
+			TopPN.TabIndex = 1;
 			// 
 			// PasswordTB
 			// 
-			this.PasswordTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			PasswordTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.PasswordTB.Location = new System.Drawing.Point(68, 28);
-			this.PasswordTB.Name = "PasswordTB";
-			this.PasswordTB.PasswordChar = '*';
-			this.PasswordTB.Size = new System.Drawing.Size(136, 20);
-			this.PasswordTB.TabIndex = 3;
+			PasswordTB.Location = new System.Drawing.Point(68, 28);
+			PasswordTB.Name = "PasswordTB";
+			PasswordTB.PasswordChar = '*';
+			PasswordTB.Size = new System.Drawing.Size(136, 20);
+			PasswordTB.TabIndex = 3;
 			// 
 			// UserNameTB
 			// 
-			this.UserNameTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			UserNameTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.UserNameTB.Location = new System.Drawing.Point(68, 4);
-			this.UserNameTB.Name = "UserNameTB";
-			this.UserNameTB.Size = new System.Drawing.Size(136, 20);
-			this.UserNameTB.TabIndex = 1;
+			UserNameTB.Location = new System.Drawing.Point(68, 4);
+			UserNameTB.Name = "UserNameTB";
+			UserNameTB.Size = new System.Drawing.Size(136, 20);
+			UserNameTB.TabIndex = 1;
 			// 
 			// NetworkCredentialsDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.CancelBTN;
-			this.ClientSize = new System.Drawing.Size(208, 110);
-			this.Controls.Add(this.ButtonsPN);
-			this.Controls.Add(this.TopPN);
-			this.Name = "NetworkCredentialsDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Set Login";
-			this.ButtonsPN.ResumeLayout(false);
-			this.TopPN.ResumeLayout(false);
-            this.TopPN.PerformLayout();
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = CancelBTN;
+			ClientSize = new System.Drawing.Size(208, 110);
+			Controls.Add(ButtonsPN);
+			Controls.Add(TopPN);
+			Name = "NetworkCredentialsDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Set Login";
+			ButtonsPN.ResumeLayout(false);
+			TopPN.ResumeLayout(false);
+            TopPN.PerformLayout();
+			ResumeLayout(false);
 
 		}
 		#endregion

@@ -109,275 +109,275 @@ namespace SampleClients.Hda.Trend
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.trendTv_ = new System.Windows.Forms.TreeView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.addTrendMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.editTrendMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.removeTrendMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator01_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.addItemsMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.editItemMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.removeItemMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator02_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.useAsyncMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator03_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.readRawMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.readProcessedMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.readModifiedMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.readAtTimeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.readAttributesMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.readAnnotationsMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator04_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.insertMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.insertReplaceMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.replaceMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.deleteRawMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.deleteAtTimeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.insertAnnotationsMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator05_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscribeRawMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscribeProcessedMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.subscribeCancelMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator06_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.playbackRawMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.playbackProcessedMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.playbackCancelMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			trendTv_ = new System.Windows.Forms.TreeView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			addTrendMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			editTrendMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			removeTrendMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator01_ = new System.Windows.Forms.ToolStripMenuItem();
+			addItemsMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			editItemMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			removeItemMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator02_ = new System.Windows.Forms.ToolStripMenuItem();
+			useAsyncMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator03_ = new System.Windows.Forms.ToolStripMenuItem();
+			readRawMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			readProcessedMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			readModifiedMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			readAtTimeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			readAttributesMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			readAnnotationsMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator04_ = new System.Windows.Forms.ToolStripMenuItem();
+			insertMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			insertReplaceMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			replaceMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			deleteRawMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			deleteAtTimeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			insertAnnotationsMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator05_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscribeRawMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscribeProcessedMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			subscribeCancelMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator06_ = new System.Windows.Forms.ToolStripMenuItem();
+			playbackRawMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			playbackProcessedMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			playbackCancelMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// TrendTV
 			// 
-			this.trendTv_.ContextMenuStrip = this.popupMenu_;
-			this.trendTv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.trendTv_.ImageIndex = -1;
-			this.trendTv_.Location = new System.Drawing.Point(0, 0);
-			this.trendTv_.Name = "trendTv_";
-			this.trendTv_.SelectedImageIndex = -1;
-			this.trendTv_.Size = new System.Drawing.Size(400, 400);
-			this.trendTv_.TabIndex = 0;
-			this.trendTv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TrendTV_MouseDown);
-			this.trendTv_.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TrendTV_AfterSelect);
+			trendTv_.ContextMenuStrip = popupMenu_;
+			trendTv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			trendTv_.ImageIndex = -1;
+			trendTv_.Location = new System.Drawing.Point(0, 0);
+			trendTv_.Name = "trendTv_";
+			trendTv_.SelectedImageIndex = -1;
+			trendTv_.Size = new System.Drawing.Size(400, 400);
+			trendTv_.TabIndex = 0;
+			trendTv_.MouseDown += new System.Windows.Forms.MouseEventHandler(TrendTV_MouseDown);
+			trendTv_.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(TrendTV_AfterSelect);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.addTrendMi_,
-																					  this.editTrendMi_,
-																					  this.removeTrendMi_,
-																					  this.separator01_,
-																					  this.addItemsMi_,
-																					  this.editItemMi_,
-																					  this.removeItemMi_,
-																					  this.separator02_,
-																					  this.useAsyncMi_,
-																					  this.separator03_,
-																					  this.readRawMi_,
-																					  this.readProcessedMi_,
-																					  this.readModifiedMi_,
-																					  this.readAtTimeMi_,
-																					  this.readAttributesMi_,
-																					  this.readAnnotationsMi_,
-																					  this.separator04_,
-																					  this.insertMi_,
-																					  this.insertReplaceMi_,
-																					  this.replaceMi_,
-																					  this.deleteRawMi_,
-																					  this.deleteAtTimeMi_,
-																					  this.insertAnnotationsMi_,
-																					  this.separator05_,
-																					  this.subscribeRawMi_,
-																					  this.subscribeProcessedMi_,
-																					  this.subscribeCancelMi_,
-																					  this.separator06_,
-																					  this.playbackRawMi_,
-																					  this.playbackProcessedMi_,
-																					  this.playbackCancelMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  addTrendMi_,
+																					  editTrendMi_,
+																					  removeTrendMi_,
+																					  separator01_,
+																					  addItemsMi_,
+																					  editItemMi_,
+																					  removeItemMi_,
+																					  separator02_,
+																					  useAsyncMi_,
+																					  separator03_,
+																					  readRawMi_,
+																					  readProcessedMi_,
+																					  readModifiedMi_,
+																					  readAtTimeMi_,
+																					  readAttributesMi_,
+																					  readAnnotationsMi_,
+																					  separator04_,
+																					  insertMi_,
+																					  insertReplaceMi_,
+																					  replaceMi_,
+																					  deleteRawMi_,
+																					  deleteAtTimeMi_,
+																					  insertAnnotationsMi_,
+																					  separator05_,
+																					  subscribeRawMi_,
+																					  subscribeProcessedMi_,
+																					  subscribeCancelMi_,
+																					  separator06_,
+																					  playbackRawMi_,
+																					  playbackProcessedMi_,
+																					  playbackCancelMi_});
 			// 
 			// AddTrendMI
 			// 
-			this.addTrendMi_.ImageIndex = 0;
-			this.addTrendMi_.Text = "&Add Trend...";
-			this.addTrendMi_.Click += new System.EventHandler(this.AddTrendMI_Click);
+			addTrendMi_.ImageIndex = 0;
+			addTrendMi_.Text = "&Add Trend...";
+			addTrendMi_.Click += new System.EventHandler(AddTrendMI_Click);
 			// 
 			// EditTrendMI
 			// 
-			this.editTrendMi_.ImageIndex = 1;
-			this.editTrendMi_.Text = "&Edit Trend...";
-			this.editTrendMi_.Click += new System.EventHandler(this.EditTrendMI_Click);
+			editTrendMi_.ImageIndex = 1;
+			editTrendMi_.Text = "&Edit Trend...";
+			editTrendMi_.Click += new System.EventHandler(EditTrendMI_Click);
 			// 
 			// RemoveTrendMI
 			// 
-			this.removeTrendMi_.ImageIndex = 2;
-			this.removeTrendMi_.Text = "&Remove Trend";
-			this.removeTrendMi_.Click += new System.EventHandler(this.RemoveTrendMI_Click);
+			removeTrendMi_.ImageIndex = 2;
+			removeTrendMi_.Text = "&Remove Trend";
+			removeTrendMi_.Click += new System.EventHandler(RemoveTrendMI_Click);
 			// 
 			// Separator01
 			// 
-			this.separator01_.ImageIndex = 3;
-			this.separator01_.Text = "-";
+			separator01_.ImageIndex = 3;
+			separator01_.Text = "-";
 			// 
 			// AddItemsMI
 			// 
-			this.addItemsMi_.ImageIndex = 4;
-			this.addItemsMi_.Text = "&Add Items...";
-			this.addItemsMi_.Click += new System.EventHandler(this.AddItemsMI_Click);
+			addItemsMi_.ImageIndex = 4;
+			addItemsMi_.Text = "&Add Items...";
+			addItemsMi_.Click += new System.EventHandler(AddItemsMI_Click);
 			// 
 			// EditItemMI
 			// 
-			this.editItemMi_.ImageIndex = 5;
-			this.editItemMi_.Text = "&Edit Item...";
-			this.editItemMi_.Click += new System.EventHandler(this.EditItemMI_Click);
+			editItemMi_.ImageIndex = 5;
+			editItemMi_.Text = "&Edit Item...";
+			editItemMi_.Click += new System.EventHandler(EditItemMI_Click);
 			// 
 			// RemoveItemMI
 			// 
-			this.removeItemMi_.ImageIndex = 6;
-			this.removeItemMi_.Text = "&Remove Item";
-			this.removeItemMi_.Click += new System.EventHandler(this.RemoveItemMI_Click);
+			removeItemMi_.ImageIndex = 6;
+			removeItemMi_.Text = "&Remove Item";
+			removeItemMi_.Click += new System.EventHandler(RemoveItemMI_Click);
 			// 
 			// Separator02
 			// 
-			this.separator02_.ImageIndex = 7;
-			this.separator02_.Text = "-";
+			separator02_.ImageIndex = 7;
+			separator02_.Text = "-";
 			// 
 			// UseAsyncMI
 			// 
-			this.useAsyncMi_.ImageIndex = 8;
-			this.useAsyncMi_.Text = "Asynchronous";
-			this.useAsyncMi_.Click += new System.EventHandler(this.UseAsyncMI_Click);
+			useAsyncMi_.ImageIndex = 8;
+			useAsyncMi_.Text = "Asynchronous";
+			useAsyncMi_.Click += new System.EventHandler(UseAsyncMI_Click);
 			// 
 			// Separator03
 			// 
-			this.separator03_.ImageIndex = 9;
-			this.separator03_.Text = "-";
+			separator03_.ImageIndex = 9;
+			separator03_.Text = "-";
 			// 
 			// ReadRawMI
 			// 
-			this.readRawMi_.ImageIndex = 10;
-			this.readRawMi_.Text = "&Read Raw...";
-			this.readRawMi_.Click += new System.EventHandler(this.ReadRawMI_Click);
+			readRawMi_.ImageIndex = 10;
+			readRawMi_.Text = "&Read Raw...";
+			readRawMi_.Click += new System.EventHandler(ReadRawMI_Click);
 			// 
 			// ReadProcessedMI
 			// 
-			this.readProcessedMi_.ImageIndex = 11;
-			this.readProcessedMi_.Text = "Read Processed...";
-			this.readProcessedMi_.Click += new System.EventHandler(this.ReadProcessedMI_Click);
+			readProcessedMi_.ImageIndex = 11;
+			readProcessedMi_.Text = "Read Processed...";
+			readProcessedMi_.Click += new System.EventHandler(ReadProcessedMI_Click);
 			// 
 			// ReadModifiedMI
 			// 
-			this.readModifiedMi_.ImageIndex = 12;
-			this.readModifiedMi_.Text = "Read &Modified...";
-			this.readModifiedMi_.Click += new System.EventHandler(this.ReadModifiedMI_Click);
+			readModifiedMi_.ImageIndex = 12;
+			readModifiedMi_.Text = "Read &Modified...";
+			readModifiedMi_.Click += new System.EventHandler(ReadModifiedMI_Click);
 			// 
 			// ReadAtTimeMI
 			// 
-			this.readAtTimeMi_.ImageIndex = 13;
-			this.readAtTimeMi_.Text = "Read At &Time...";
-			this.readAtTimeMi_.Click += new System.EventHandler(this.ReadAtTimeMI_Click);
+			readAtTimeMi_.ImageIndex = 13;
+			readAtTimeMi_.Text = "Read At &Time...";
+			readAtTimeMi_.Click += new System.EventHandler(ReadAtTimeMI_Click);
 			// 
 			// ReadAttributesMI
 			// 
-			this.readAttributesMi_.ImageIndex = 14;
-			this.readAttributesMi_.Text = "Read &Attributes...";
-			this.readAttributesMi_.Click += new System.EventHandler(this.ReadAttributesMI_Click);
+			readAttributesMi_.ImageIndex = 14;
+			readAttributesMi_.Text = "Read &Attributes...";
+			readAttributesMi_.Click += new System.EventHandler(ReadAttributesMI_Click);
 			// 
 			// ReadAnnotationsMI
 			// 
-			this.readAnnotationsMi_.ImageIndex = 15;
-			this.readAnnotationsMi_.Text = "Read A&nnotations...";
-			this.readAnnotationsMi_.Click += new System.EventHandler(this.ReadAnnotationsMI_Click);
+			readAnnotationsMi_.ImageIndex = 15;
+			readAnnotationsMi_.Text = "Read A&nnotations...";
+			readAnnotationsMi_.Click += new System.EventHandler(ReadAnnotationsMI_Click);
 			// 
 			// Separator04
 			// 
-			this.separator04_.ImageIndex = 16;
-			this.separator04_.Text = "-";
+			separator04_.ImageIndex = 16;
+			separator04_.Text = "-";
 			// 
 			// InsertMI
 			// 
-			this.insertMi_.ImageIndex = 17;
-			this.insertMi_.Text = "&Insert...";
-			this.insertMi_.Click += new System.EventHandler(this.InsertMI_Click);
+			insertMi_.ImageIndex = 17;
+			insertMi_.Text = "&Insert...";
+			insertMi_.Click += new System.EventHandler(InsertMI_Click);
 			// 
 			// InsertReplaceMI
 			// 
-			this.insertReplaceMi_.ImageIndex = 18;
-			this.insertReplaceMi_.Text = "I&nsert/Replace...";
-			this.insertReplaceMi_.Click += new System.EventHandler(this.InsertReplaceMI_Click);
+			insertReplaceMi_.ImageIndex = 18;
+			insertReplaceMi_.Text = "I&nsert/Replace...";
+			insertReplaceMi_.Click += new System.EventHandler(InsertReplaceMI_Click);
 			// 
 			// ReplaceMI
 			// 
-			this.replaceMi_.ImageIndex = 19;
-			this.replaceMi_.Text = "&Replace...";
-			this.replaceMi_.Click += new System.EventHandler(this.ReplaceMI_Click);
+			replaceMi_.ImageIndex = 19;
+			replaceMi_.Text = "&Replace...";
+			replaceMi_.Click += new System.EventHandler(ReplaceMI_Click);
 			// 
 			// DeleteRawMI
 			// 
-			this.deleteRawMi_.ImageIndex = 20;
-			this.deleteRawMi_.Text = "&Delete...";
-			this.deleteRawMi_.Click += new System.EventHandler(this.DeleteRawMI_Click);
+			deleteRawMi_.ImageIndex = 20;
+			deleteRawMi_.Text = "&Delete...";
+			deleteRawMi_.Click += new System.EventHandler(DeleteRawMI_Click);
 			// 
 			// DeleteAtTimeMI
 			// 
-			this.deleteAtTimeMi_.ImageIndex = 21;
-			this.deleteAtTimeMi_.Text = "Delete At &Time...";
-			this.deleteAtTimeMi_.Click += new System.EventHandler(this.DeleteAtTimeMI_Click);
+			deleteAtTimeMi_.ImageIndex = 21;
+			deleteAtTimeMi_.Text = "Delete At &Time...";
+			deleteAtTimeMi_.Click += new System.EventHandler(DeleteAtTimeMI_Click);
 			// 
 			// InsertAnnotationsMI
 			// 
-			this.insertAnnotationsMi_.ImageIndex = 22;
-			this.insertAnnotationsMi_.Text = "Insert Annotations...";
-			this.insertAnnotationsMi_.Click += new System.EventHandler(this.InsertAnnotationsMI_Click);
+			insertAnnotationsMi_.ImageIndex = 22;
+			insertAnnotationsMi_.Text = "Insert Annotations...";
+			insertAnnotationsMi_.Click += new System.EventHandler(InsertAnnotationsMI_Click);
 			// 
 			// Separator05
 			// 
-			this.separator05_.ImageIndex = 23;
-			this.separator05_.Text = "-";
+			separator05_.ImageIndex = 23;
+			separator05_.Text = "-";
 			// 
 			// SubscribeRawMI
 			// 
-			this.subscribeRawMi_.ImageIndex = 24;
-			this.subscribeRawMi_.Text = "Subscribe Raw...";
-			this.subscribeRawMi_.Click += new System.EventHandler(this.SubscribeRawMI_Click);
+			subscribeRawMi_.ImageIndex = 24;
+			subscribeRawMi_.Text = "Subscribe Raw...";
+			subscribeRawMi_.Click += new System.EventHandler(SubscribeRawMI_Click);
 			// 
 			// SubscribeProcessedMI
 			// 
-			this.subscribeProcessedMi_.ImageIndex = 25;
-			this.subscribeProcessedMi_.Text = "Subscribe Processed...";
-			this.subscribeProcessedMi_.Click += new System.EventHandler(this.SubscribeProcessedMI_Click);
+			subscribeProcessedMi_.ImageIndex = 25;
+			subscribeProcessedMi_.Text = "Subscribe Processed...";
+			subscribeProcessedMi_.Click += new System.EventHandler(SubscribeProcessedMI_Click);
 			// 
 			// SubscribeCancelMI
 			// 
-			this.subscribeCancelMi_.ImageIndex = 26;
-			this.subscribeCancelMi_.Text = "Cancel Subscription";
-			this.subscribeCancelMi_.Click += new System.EventHandler(this.SubscribeCancelMI_Click);
+			subscribeCancelMi_.ImageIndex = 26;
+			subscribeCancelMi_.Text = "Cancel Subscription";
+			subscribeCancelMi_.Click += new System.EventHandler(SubscribeCancelMI_Click);
 			// 
 			// Separator06
 			// 
-			this.separator06_.ImageIndex = 27;
-			this.separator06_.Text = "-";
+			separator06_.ImageIndex = 27;
+			separator06_.Text = "-";
 			// 
 			// PlaybackRawMI
 			// 
-			this.playbackRawMi_.ImageIndex = 28;
-			this.playbackRawMi_.Text = "Playback Raw...";
-			this.playbackRawMi_.Click += new System.EventHandler(this.PlaybackRawMI_Click);
+			playbackRawMi_.ImageIndex = 28;
+			playbackRawMi_.Text = "Playback Raw...";
+			playbackRawMi_.Click += new System.EventHandler(PlaybackRawMI_Click);
 			// 
 			// PlaybackProcessedMI
 			// 
-			this.playbackProcessedMi_.ImageIndex = 29;
-			this.playbackProcessedMi_.Text = "Playback Processed...";
-			this.playbackProcessedMi_.Click += new System.EventHandler(this.PlaybackProcessedMI_Click);
+			playbackProcessedMi_.ImageIndex = 29;
+			playbackProcessedMi_.Text = "Playback Processed...";
+			playbackProcessedMi_.Click += new System.EventHandler(PlaybackProcessedMI_Click);
 			// 
 			// PlaybackCancelMI
 			// 
-			this.playbackCancelMi_.ImageIndex = 30;
-			this.playbackCancelMi_.Text = "Cancel Playback";
-			this.playbackCancelMi_.Click += new System.EventHandler(this.PlaybackCancelMI_Click);
+			playbackCancelMi_.ImageIndex = 30;
+			playbackCancelMi_.Text = "Cancel Playback";
+			playbackCancelMi_.Click += new System.EventHandler(PlaybackCancelMI_Click);
 			// 
 			// TrendTreeCtrl
 			// 
-			this.Controls.Add(this.trendTv_);
-			this.Name = "TrendTreeCtrl";
-			this.Size = new System.Drawing.Size(400, 400);
-			this.ResumeLayout(false);
+			Controls.Add(trendTv_);
+			Name = "TrendTreeCtrl";
+			Size = new System.Drawing.Size(400, 400);
+			ResumeLayout(false);
 
 		}
 		#endregion

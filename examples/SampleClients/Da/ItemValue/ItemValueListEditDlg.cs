@@ -70,27 +70,27 @@ namespace SampleClients.Da.ItemValue
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.objectCtrl_ = new ItemValueEditCtrl();
-			this.SuspendLayout();
+			objectCtrl_ = new ItemValueEditCtrl();
+			SuspendLayout();
 			// 
 			// ObjectCTRL
 			// 
-			this.objectCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			objectCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right);
-			this.objectCtrl_.Location = new System.Drawing.Point(4, 4);
-			this.objectCtrl_.Name = "objectCtrl_";
-			this.objectCtrl_.Size = new System.Drawing.Size(356, 168);
-			this.objectCtrl_.TabIndex = 2;
+			objectCtrl_.Location = new System.Drawing.Point(4, 4);
+			objectCtrl_.Name = "objectCtrl_";
+			objectCtrl_.Size = new System.Drawing.Size(356, 168);
+			objectCtrl_.TabIndex = 2;
 			// 
 			// ItemValueListEditDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(448, 190);
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
-																		  this.objectCtrl_});
-			this.Name = "ItemValueListEditDlg";
-			this.Text = "Edit Item Values";
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(448, 190);
+			Controls.AddRange(new System.Windows.Forms.Control[] {
+																		  objectCtrl_});
+			Name = "ItemValueListEditDlg";
+			Text = "Edit Item Values";
+			ResumeLayout(false);
 
 		}
 		#endregion

@@ -76,26 +76,26 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.DataTypeCB = new System.Windows.Forms.ComboBox();
-			this.SuspendLayout();
+			DataTypeCB = new System.Windows.Forms.ComboBox();
+			SuspendLayout();
 			// 
 			// DataTypeCB
 			// 
-			this.DataTypeCB.Anchor = (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			DataTypeCB.Anchor = (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 				| System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right);
-			this.DataTypeCB.Name = "DataTypeCB";
-			this.DataTypeCB.Size = new System.Drawing.Size(112, 21);
-			this.DataTypeCB.TabIndex = 0;
-			this.DataTypeCB.SelectedValueChanged += new System.EventHandler(this.DataTypeCB_SelectedValueChanged);
+			DataTypeCB.Name = "DataTypeCB";
+			DataTypeCB.Size = new System.Drawing.Size(112, 21);
+			DataTypeCB.TabIndex = 0;
+			DataTypeCB.SelectedValueChanged += new System.EventHandler(DataTypeCB_SelectedValueChanged);
 			// 
 			// DataTypeCtrl
 			// 
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
-																		  this.DataTypeCB});
-			this.Name = "DataTypeCtrl";
-			this.Size = new System.Drawing.Size(112, 24);
-			this.ResumeLayout(false);
+			Controls.AddRange(new System.Windows.Forms.Control[] {
+																		  DataTypeCB});
+			Name = "DataTypeCtrl";
+			Size = new System.Drawing.Size(112, 24);
+			ResumeLayout(false);
 
 		}
 		#endregion

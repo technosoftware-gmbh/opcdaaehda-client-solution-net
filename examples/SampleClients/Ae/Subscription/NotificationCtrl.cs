@@ -87,321 +87,321 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.attributesGb_ = new System.Windows.Forms.GroupBox();
-			this.attributesLv_ = new System.Windows.Forms.ListView();
-			this.generalGb_ = new System.Windows.Forms.Panel();
-			this.activeTimeTb_ = new System.Windows.Forms.TextBox();
-			this.activeTimeLb_ = new System.Windows.Forms.Label();
-			this.qualityTb_ = new System.Windows.Forms.TextBox();
-			this.qualityLb_ = new System.Windows.Forms.Label();
-			this.newStateTb_ = new System.Windows.Forms.TextBox();
-			this.newStateLb_ = new System.Windows.Forms.Label();
-			this.subConditionNameLb_ = new System.Windows.Forms.Label();
-			this.subConditionNameTb_ = new System.Windows.Forms.TextBox();
-			this.conditionNameLb_ = new System.Windows.Forms.Label();
-			this.conditionNameTb_ = new System.Windows.Forms.TextBox();
-			this.eventCategoryLb_ = new System.Windows.Forms.Label();
-			this.eventCategoryTb_ = new System.Windows.Forms.TextBox();
-			this.eventTypeLb_ = new System.Windows.Forms.Label();
-			this.eventTypeTb_ = new System.Windows.Forms.TextBox();
-			this.timeTb_ = new System.Windows.Forms.TextBox();
-			this.timeLb_ = new System.Windows.Forms.Label();
-			this.actorTb_ = new System.Windows.Forms.TextBox();
-			this.messageTb_ = new System.Windows.Forms.TextBox();
-			this.ackRequiredTb_ = new System.Windows.Forms.TextBox();
-			this.actorLb_ = new System.Windows.Forms.Label();
-			this.sourceLb_ = new System.Windows.Forms.Label();
-			this.ackRequiredLb_ = new System.Windows.Forms.Label();
-			this.messageLb_ = new System.Windows.Forms.Label();
-			this.sourceTb_ = new System.Windows.Forms.TextBox();
-			this.attributesGb_.SuspendLayout();
-			this.generalGb_.SuspendLayout();
-			this.SuspendLayout();
+			attributesGb_ = new System.Windows.Forms.GroupBox();
+			attributesLv_ = new System.Windows.Forms.ListView();
+			generalGb_ = new System.Windows.Forms.Panel();
+			activeTimeTb_ = new System.Windows.Forms.TextBox();
+			activeTimeLb_ = new System.Windows.Forms.Label();
+			qualityTb_ = new System.Windows.Forms.TextBox();
+			qualityLb_ = new System.Windows.Forms.Label();
+			newStateTb_ = new System.Windows.Forms.TextBox();
+			newStateLb_ = new System.Windows.Forms.Label();
+			subConditionNameLb_ = new System.Windows.Forms.Label();
+			subConditionNameTb_ = new System.Windows.Forms.TextBox();
+			conditionNameLb_ = new System.Windows.Forms.Label();
+			conditionNameTb_ = new System.Windows.Forms.TextBox();
+			eventCategoryLb_ = new System.Windows.Forms.Label();
+			eventCategoryTb_ = new System.Windows.Forms.TextBox();
+			eventTypeLb_ = new System.Windows.Forms.Label();
+			eventTypeTb_ = new System.Windows.Forms.TextBox();
+			timeTb_ = new System.Windows.Forms.TextBox();
+			timeLb_ = new System.Windows.Forms.Label();
+			actorTb_ = new System.Windows.Forms.TextBox();
+			messageTb_ = new System.Windows.Forms.TextBox();
+			ackRequiredTb_ = new System.Windows.Forms.TextBox();
+			actorLb_ = new System.Windows.Forms.Label();
+			sourceLb_ = new System.Windows.Forms.Label();
+			ackRequiredLb_ = new System.Windows.Forms.Label();
+			messageLb_ = new System.Windows.Forms.Label();
+			sourceTb_ = new System.Windows.Forms.TextBox();
+			attributesGb_.SuspendLayout();
+			generalGb_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// AttributesGB
 			// 
-			this.attributesGb_.Controls.Add(this.attributesLv_);
-			this.attributesGb_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.attributesGb_.Location = new System.Drawing.Point(0, 284);
-			this.attributesGb_.Name = "attributesGb_";
-			this.attributesGb_.Size = new System.Drawing.Size(544, 184);
-			this.attributesGb_.TabIndex = 0;
-			this.attributesGb_.TabStop = false;
-			this.attributesGb_.Text = "Attributes";
+			attributesGb_.Controls.Add(attributesLv_);
+			attributesGb_.Dock = System.Windows.Forms.DockStyle.Fill;
+			attributesGb_.Location = new System.Drawing.Point(0, 284);
+			attributesGb_.Name = "attributesGb_";
+			attributesGb_.Size = new System.Drawing.Size(544, 184);
+			attributesGb_.TabIndex = 0;
+			attributesGb_.TabStop = false;
+			attributesGb_.Text = "Attributes";
 			// 
 			// AttributesLV
 			// 
-			this.attributesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.attributesLv_.FullRowSelect = true;
-			this.attributesLv_.Location = new System.Drawing.Point(3, 16);
-			this.attributesLv_.MultiSelect = false;
-			this.attributesLv_.Name = "attributesLv_";
-			this.attributesLv_.Size = new System.Drawing.Size(538, 165);
-			this.attributesLv_.TabIndex = 0;
-			this.attributesLv_.View = System.Windows.Forms.View.Details;
+			attributesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			attributesLv_.FullRowSelect = true;
+			attributesLv_.Location = new System.Drawing.Point(3, 16);
+			attributesLv_.MultiSelect = false;
+			attributesLv_.Name = "attributesLv_";
+			attributesLv_.Size = new System.Drawing.Size(538, 165);
+			attributesLv_.TabIndex = 0;
+			attributesLv_.View = System.Windows.Forms.View.Details;
 			// 
 			// GeneralGB
 			// 
-			this.generalGb_.Controls.Add(this.activeTimeTb_);
-			this.generalGb_.Controls.Add(this.activeTimeLb_);
-			this.generalGb_.Controls.Add(this.qualityTb_);
-			this.generalGb_.Controls.Add(this.qualityLb_);
-			this.generalGb_.Controls.Add(this.newStateTb_);
-			this.generalGb_.Controls.Add(this.newStateLb_);
-			this.generalGb_.Controls.Add(this.subConditionNameLb_);
-			this.generalGb_.Controls.Add(this.subConditionNameTb_);
-			this.generalGb_.Controls.Add(this.conditionNameLb_);
-			this.generalGb_.Controls.Add(this.conditionNameTb_);
-			this.generalGb_.Controls.Add(this.eventCategoryLb_);
-			this.generalGb_.Controls.Add(this.eventCategoryTb_);
-			this.generalGb_.Controls.Add(this.eventTypeLb_);
-			this.generalGb_.Controls.Add(this.eventTypeTb_);
-			this.generalGb_.Controls.Add(this.timeTb_);
-			this.generalGb_.Controls.Add(this.timeLb_);
-			this.generalGb_.Controls.Add(this.actorTb_);
-			this.generalGb_.Controls.Add(this.messageTb_);
-			this.generalGb_.Controls.Add(this.ackRequiredTb_);
-			this.generalGb_.Controls.Add(this.actorLb_);
-			this.generalGb_.Controls.Add(this.sourceLb_);
-			this.generalGb_.Controls.Add(this.ackRequiredLb_);
-			this.generalGb_.Controls.Add(this.messageLb_);
-			this.generalGb_.Controls.Add(this.sourceTb_);
-			this.generalGb_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.generalGb_.Location = new System.Drawing.Point(0, 0);
-			this.generalGb_.Name = "generalGb_";
-			this.generalGb_.Size = new System.Drawing.Size(544, 284);
-			this.generalGb_.TabIndex = 13;
-			this.generalGb_.Text = "General";
+			generalGb_.Controls.Add(activeTimeTb_);
+			generalGb_.Controls.Add(activeTimeLb_);
+			generalGb_.Controls.Add(qualityTb_);
+			generalGb_.Controls.Add(qualityLb_);
+			generalGb_.Controls.Add(newStateTb_);
+			generalGb_.Controls.Add(newStateLb_);
+			generalGb_.Controls.Add(subConditionNameLb_);
+			generalGb_.Controls.Add(subConditionNameTb_);
+			generalGb_.Controls.Add(conditionNameLb_);
+			generalGb_.Controls.Add(conditionNameTb_);
+			generalGb_.Controls.Add(eventCategoryLb_);
+			generalGb_.Controls.Add(eventCategoryTb_);
+			generalGb_.Controls.Add(eventTypeLb_);
+			generalGb_.Controls.Add(eventTypeTb_);
+			generalGb_.Controls.Add(timeTb_);
+			generalGb_.Controls.Add(timeLb_);
+			generalGb_.Controls.Add(actorTb_);
+			generalGb_.Controls.Add(messageTb_);
+			generalGb_.Controls.Add(ackRequiredTb_);
+			generalGb_.Controls.Add(actorLb_);
+			generalGb_.Controls.Add(sourceLb_);
+			generalGb_.Controls.Add(ackRequiredLb_);
+			generalGb_.Controls.Add(messageLb_);
+			generalGb_.Controls.Add(sourceTb_);
+			generalGb_.Dock = System.Windows.Forms.DockStyle.Top;
+			generalGb_.Location = new System.Drawing.Point(0, 0);
+			generalGb_.Name = "generalGb_";
+			generalGb_.Size = new System.Drawing.Size(544, 284);
+			generalGb_.TabIndex = 13;
+			generalGb_.Text = "General";
 			// 
 			// ActiveTimeTB
 			// 
-			this.activeTimeTb_.Location = new System.Drawing.Point(132, 240);
-			this.activeTimeTb_.Name = "activeTimeTb_";
-			this.activeTimeTb_.ReadOnly = true;
-			this.activeTimeTb_.Size = new System.Drawing.Size(132, 20);
-			this.activeTimeTb_.TabIndex = 21;
-			this.activeTimeTb_.Text = "";
+			activeTimeTb_.Location = new System.Drawing.Point(132, 240);
+			activeTimeTb_.Name = "activeTimeTb_";
+			activeTimeTb_.ReadOnly = true;
+			activeTimeTb_.Size = new System.Drawing.Size(132, 20);
+			activeTimeTb_.TabIndex = 21;
+			activeTimeTb_.Text = "";
 			// 
 			// ActiveTimeLB
 			// 
-			this.activeTimeLb_.Location = new System.Drawing.Point(0, 240);
-			this.activeTimeLb_.Name = "activeTimeLb_";
-			this.activeTimeLb_.Size = new System.Drawing.Size(128, 23);
-			this.activeTimeLb_.TabIndex = 20;
-			this.activeTimeLb_.Text = "Active Time";
-			this.activeTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			activeTimeLb_.Location = new System.Drawing.Point(0, 240);
+			activeTimeLb_.Name = "activeTimeLb_";
+			activeTimeLb_.Size = new System.Drawing.Size(128, 23);
+			activeTimeLb_.TabIndex = 20;
+			activeTimeLb_.Text = "Active Time";
+			activeTimeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// QualityTB
 			// 
-			this.qualityTb_.Location = new System.Drawing.Point(132, 216);
-			this.qualityTb_.Name = "qualityTb_";
-			this.qualityTb_.ReadOnly = true;
-			this.qualityTb_.Size = new System.Drawing.Size(132, 20);
-			this.qualityTb_.TabIndex = 19;
-			this.qualityTb_.Text = "";
+			qualityTb_.Location = new System.Drawing.Point(132, 216);
+			qualityTb_.Name = "qualityTb_";
+			qualityTb_.ReadOnly = true;
+			qualityTb_.Size = new System.Drawing.Size(132, 20);
+			qualityTb_.TabIndex = 19;
+			qualityTb_.Text = "";
 			// 
 			// QualityLB
 			// 
-			this.qualityLb_.Location = new System.Drawing.Point(0, 216);
-			this.qualityLb_.Name = "qualityLb_";
-			this.qualityLb_.Size = new System.Drawing.Size(128, 23);
-			this.qualityLb_.TabIndex = 18;
-			this.qualityLb_.Text = "Quality";
-			this.qualityLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			qualityLb_.Location = new System.Drawing.Point(0, 216);
+			qualityLb_.Name = "qualityLb_";
+			qualityLb_.Size = new System.Drawing.Size(128, 23);
+			qualityLb_.TabIndex = 18;
+			qualityLb_.Text = "Quality";
+			qualityLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// NewStateTB
 			// 
-			this.newStateTb_.Location = new System.Drawing.Point(132, 168);
-			this.newStateTb_.Name = "newStateTb_";
-			this.newStateTb_.ReadOnly = true;
-			this.newStateTb_.Size = new System.Drawing.Size(212, 20);
-			this.newStateTb_.TabIndex = 15;
-			this.newStateTb_.Text = "";
+			newStateTb_.Location = new System.Drawing.Point(132, 168);
+			newStateTb_.Name = "newStateTb_";
+			newStateTb_.ReadOnly = true;
+			newStateTb_.Size = new System.Drawing.Size(212, 20);
+			newStateTb_.TabIndex = 15;
+			newStateTb_.Text = "";
 			// 
 			// NewStateLB
 			// 
-			this.newStateLb_.Location = new System.Drawing.Point(0, 168);
-			this.newStateLb_.Name = "newStateLb_";
-			this.newStateLb_.Size = new System.Drawing.Size(128, 23);
-			this.newStateLb_.TabIndex = 14;
-			this.newStateLb_.Text = "New State";
-			this.newStateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			newStateLb_.Location = new System.Drawing.Point(0, 168);
+			newStateLb_.Name = "newStateLb_";
+			newStateLb_.Size = new System.Drawing.Size(128, 23);
+			newStateLb_.TabIndex = 14;
+			newStateLb_.Text = "New State";
+			newStateLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// SubConditionNameLB
 			// 
-			this.subConditionNameLb_.Location = new System.Drawing.Point(0, 144);
-			this.subConditionNameLb_.Name = "subConditionNameLb_";
-			this.subConditionNameLb_.Size = new System.Drawing.Size(128, 23);
-			this.subConditionNameLb_.TabIndex = 12;
-			this.subConditionNameLb_.Text = "Subcondition Name";
-			this.subConditionNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			subConditionNameLb_.Location = new System.Drawing.Point(0, 144);
+			subConditionNameLb_.Name = "subConditionNameLb_";
+			subConditionNameLb_.Size = new System.Drawing.Size(128, 23);
+			subConditionNameLb_.TabIndex = 12;
+			subConditionNameLb_.Text = "Subcondition Name";
+			subConditionNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// SubConditionNameTB
 			// 
-			this.subConditionNameTb_.Location = new System.Drawing.Point(132, 144);
-			this.subConditionNameTb_.Name = "subConditionNameTb_";
-			this.subConditionNameTb_.ReadOnly = true;
-			this.subConditionNameTb_.Size = new System.Drawing.Size(212, 20);
-			this.subConditionNameTb_.TabIndex = 13;
-			this.subConditionNameTb_.Text = "";
+			subConditionNameTb_.Location = new System.Drawing.Point(132, 144);
+			subConditionNameTb_.Name = "subConditionNameTb_";
+			subConditionNameTb_.ReadOnly = true;
+			subConditionNameTb_.Size = new System.Drawing.Size(212, 20);
+			subConditionNameTb_.TabIndex = 13;
+			subConditionNameTb_.Text = "";
 			// 
 			// ConditionNameLB
 			// 
-			this.conditionNameLb_.Location = new System.Drawing.Point(0, 120);
-			this.conditionNameLb_.Name = "conditionNameLb_";
-			this.conditionNameLb_.Size = new System.Drawing.Size(128, 23);
-			this.conditionNameLb_.TabIndex = 10;
-			this.conditionNameLb_.Text = "Condition Name";
-			this.conditionNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			conditionNameLb_.Location = new System.Drawing.Point(0, 120);
+			conditionNameLb_.Name = "conditionNameLb_";
+			conditionNameLb_.Size = new System.Drawing.Size(128, 23);
+			conditionNameLb_.TabIndex = 10;
+			conditionNameLb_.Text = "Condition Name";
+			conditionNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ConditionNameTB
 			// 
-			this.conditionNameTb_.Location = new System.Drawing.Point(132, 120);
-			this.conditionNameTb_.Name = "conditionNameTb_";
-			this.conditionNameTb_.ReadOnly = true;
-			this.conditionNameTb_.Size = new System.Drawing.Size(212, 20);
-			this.conditionNameTb_.TabIndex = 11;
-			this.conditionNameTb_.Text = "";
+			conditionNameTb_.Location = new System.Drawing.Point(132, 120);
+			conditionNameTb_.Name = "conditionNameTb_";
+			conditionNameTb_.ReadOnly = true;
+			conditionNameTb_.Size = new System.Drawing.Size(212, 20);
+			conditionNameTb_.TabIndex = 11;
+			conditionNameTb_.Text = "";
 			// 
 			// EventCategoryLB
 			// 
-			this.eventCategoryLb_.Location = new System.Drawing.Point(0, 96);
-			this.eventCategoryLb_.Name = "eventCategoryLb_";
-			this.eventCategoryLb_.Size = new System.Drawing.Size(128, 23);
-			this.eventCategoryLb_.TabIndex = 8;
-			this.eventCategoryLb_.Text = "Event Category";
-			this.eventCategoryLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			eventCategoryLb_.Location = new System.Drawing.Point(0, 96);
+			eventCategoryLb_.Name = "eventCategoryLb_";
+			eventCategoryLb_.Size = new System.Drawing.Size(128, 23);
+			eventCategoryLb_.TabIndex = 8;
+			eventCategoryLb_.Text = "Event Category";
+			eventCategoryLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// EventCategoryTB
 			// 
-			this.eventCategoryTb_.Location = new System.Drawing.Point(132, 96);
-			this.eventCategoryTb_.Name = "eventCategoryTb_";
-			this.eventCategoryTb_.ReadOnly = true;
-			this.eventCategoryTb_.Size = new System.Drawing.Size(212, 20);
-			this.eventCategoryTb_.TabIndex = 9;
-			this.eventCategoryTb_.Text = "";
+			eventCategoryTb_.Location = new System.Drawing.Point(132, 96);
+			eventCategoryTb_.Name = "eventCategoryTb_";
+			eventCategoryTb_.ReadOnly = true;
+			eventCategoryTb_.Size = new System.Drawing.Size(212, 20);
+			eventCategoryTb_.TabIndex = 9;
+			eventCategoryTb_.Text = "";
 			// 
 			// EventTypeLB
 			// 
-			this.eventTypeLb_.Location = new System.Drawing.Point(0, 72);
-			this.eventTypeLb_.Name = "eventTypeLb_";
-			this.eventTypeLb_.Size = new System.Drawing.Size(128, 23);
-			this.eventTypeLb_.TabIndex = 6;
-			this.eventTypeLb_.Text = "Event Type";
-			this.eventTypeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			eventTypeLb_.Location = new System.Drawing.Point(0, 72);
+			eventTypeLb_.Name = "eventTypeLb_";
+			eventTypeLb_.Size = new System.Drawing.Size(128, 23);
+			eventTypeLb_.TabIndex = 6;
+			eventTypeLb_.Text = "Event Type";
+			eventTypeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// EventTypeTB
 			// 
-			this.eventTypeTb_.Location = new System.Drawing.Point(132, 72);
-			this.eventTypeTb_.Name = "eventTypeTb_";
-			this.eventTypeTb_.ReadOnly = true;
-			this.eventTypeTb_.Size = new System.Drawing.Size(212, 20);
-			this.eventTypeTb_.TabIndex = 7;
-			this.eventTypeTb_.Text = "";
+			eventTypeTb_.Location = new System.Drawing.Point(132, 72);
+			eventTypeTb_.Name = "eventTypeTb_";
+			eventTypeTb_.ReadOnly = true;
+			eventTypeTb_.Size = new System.Drawing.Size(212, 20);
+			eventTypeTb_.TabIndex = 7;
+			eventTypeTb_.Text = "";
 			// 
 			// TimeTB
 			// 
-			this.timeTb_.Location = new System.Drawing.Point(132, 24);
-			this.timeTb_.Name = "timeTb_";
-			this.timeTb_.ReadOnly = true;
-			this.timeTb_.Size = new System.Drawing.Size(132, 20);
-			this.timeTb_.TabIndex = 3;
-			this.timeTb_.Text = "";
+			timeTb_.Location = new System.Drawing.Point(132, 24);
+			timeTb_.Name = "timeTb_";
+			timeTb_.ReadOnly = true;
+			timeTb_.Size = new System.Drawing.Size(132, 20);
+			timeTb_.TabIndex = 3;
+			timeTb_.Text = "";
 			// 
 			// TimeLB
 			// 
-			this.timeLb_.Location = new System.Drawing.Point(0, 24);
-			this.timeLb_.Name = "timeLb_";
-			this.timeLb_.Size = new System.Drawing.Size(128, 23);
-			this.timeLb_.TabIndex = 2;
-			this.timeLb_.Text = "Time";
-			this.timeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			timeLb_.Location = new System.Drawing.Point(0, 24);
+			timeLb_.Name = "timeLb_";
+			timeLb_.Size = new System.Drawing.Size(128, 23);
+			timeLb_.TabIndex = 2;
+			timeLb_.Text = "Time";
+			timeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ActorTB
 			// 
-			this.actorTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			actorTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.actorTb_.Location = new System.Drawing.Point(132, 264);
-			this.actorTb_.Name = "actorTb_";
-			this.actorTb_.ReadOnly = true;
-			this.actorTb_.Size = new System.Drawing.Size(404, 20);
-			this.actorTb_.TabIndex = 23;
-			this.actorTb_.Text = "";
+			actorTb_.Location = new System.Drawing.Point(132, 264);
+			actorTb_.Name = "actorTb_";
+			actorTb_.ReadOnly = true;
+			actorTb_.Size = new System.Drawing.Size(404, 20);
+			actorTb_.TabIndex = 23;
+			actorTb_.Text = "";
 			// 
 			// MessageTB
 			// 
-			this.messageTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			messageTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.messageTb_.Location = new System.Drawing.Point(132, 48);
-			this.messageTb_.Name = "messageTb_";
-			this.messageTb_.ReadOnly = true;
-			this.messageTb_.Size = new System.Drawing.Size(404, 20);
-			this.messageTb_.TabIndex = 5;
-			this.messageTb_.Text = "";
+			messageTb_.Location = new System.Drawing.Point(132, 48);
+			messageTb_.Name = "messageTb_";
+			messageTb_.ReadOnly = true;
+			messageTb_.Size = new System.Drawing.Size(404, 20);
+			messageTb_.TabIndex = 5;
+			messageTb_.Text = "";
 			// 
 			// AckRequiredTB
 			// 
-			this.ackRequiredTb_.Location = new System.Drawing.Point(132, 192);
-			this.ackRequiredTb_.Name = "ackRequiredTb_";
-			this.ackRequiredTb_.ReadOnly = true;
-			this.ackRequiredTb_.Size = new System.Drawing.Size(132, 20);
-			this.ackRequiredTb_.TabIndex = 17;
-			this.ackRequiredTb_.Text = "";
+			ackRequiredTb_.Location = new System.Drawing.Point(132, 192);
+			ackRequiredTb_.Name = "ackRequiredTb_";
+			ackRequiredTb_.ReadOnly = true;
+			ackRequiredTb_.Size = new System.Drawing.Size(132, 20);
+			ackRequiredTb_.TabIndex = 17;
+			ackRequiredTb_.Text = "";
 			// 
 			// ActorLB
 			// 
-			this.actorLb_.Location = new System.Drawing.Point(0, 264);
-			this.actorLb_.Name = "actorLb_";
-			this.actorLb_.Size = new System.Drawing.Size(128, 23);
-			this.actorLb_.TabIndex = 22;
-			this.actorLb_.Text = "Actor ID";
-			this.actorLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			actorLb_.Location = new System.Drawing.Point(0, 264);
+			actorLb_.Name = "actorLb_";
+			actorLb_.Size = new System.Drawing.Size(128, 23);
+			actorLb_.TabIndex = 22;
+			actorLb_.Text = "Actor ID";
+			actorLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// SourceLB
 			// 
-			this.sourceLb_.Location = new System.Drawing.Point(0, 0);
-			this.sourceLb_.Name = "sourceLb_";
-			this.sourceLb_.Size = new System.Drawing.Size(128, 23);
-			this.sourceLb_.TabIndex = 0;
-			this.sourceLb_.Text = "Source";
-			this.sourceLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			sourceLb_.Location = new System.Drawing.Point(0, 0);
+			sourceLb_.Name = "sourceLb_";
+			sourceLb_.Size = new System.Drawing.Size(128, 23);
+			sourceLb_.TabIndex = 0;
+			sourceLb_.Text = "Source";
+			sourceLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// AckRequiredLB
 			// 
-			this.ackRequiredLb_.Location = new System.Drawing.Point(0, 192);
-			this.ackRequiredLb_.Name = "ackRequiredLb_";
-			this.ackRequiredLb_.Size = new System.Drawing.Size(128, 23);
-			this.ackRequiredLb_.TabIndex = 16;
-			this.ackRequiredLb_.Text = "Ack Requried";
-			this.ackRequiredLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			ackRequiredLb_.Location = new System.Drawing.Point(0, 192);
+			ackRequiredLb_.Name = "ackRequiredLb_";
+			ackRequiredLb_.Size = new System.Drawing.Size(128, 23);
+			ackRequiredLb_.TabIndex = 16;
+			ackRequiredLb_.Text = "Ack Requried";
+			ackRequiredLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// MessageLB
 			// 
-			this.messageLb_.Location = new System.Drawing.Point(0, 48);
-			this.messageLb_.Name = "messageLb_";
-			this.messageLb_.Size = new System.Drawing.Size(128, 23);
-			this.messageLb_.TabIndex = 4;
-			this.messageLb_.Text = "Message";
-			this.messageLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			messageLb_.Location = new System.Drawing.Point(0, 48);
+			messageLb_.Name = "messageLb_";
+			messageLb_.Size = new System.Drawing.Size(128, 23);
+			messageLb_.TabIndex = 4;
+			messageLb_.Text = "Message";
+			messageLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// SourceTB
 			// 
-			this.sourceTb_.Location = new System.Drawing.Point(132, 0);
-			this.sourceTb_.Name = "sourceTb_";
-			this.sourceTb_.ReadOnly = true;
-			this.sourceTb_.Size = new System.Drawing.Size(212, 20);
-			this.sourceTb_.TabIndex = 1;
-			this.sourceTb_.Text = "";
+			sourceTb_.Location = new System.Drawing.Point(132, 0);
+			sourceTb_.Name = "sourceTb_";
+			sourceTb_.ReadOnly = true;
+			sourceTb_.Size = new System.Drawing.Size(212, 20);
+			sourceTb_.TabIndex = 1;
+			sourceTb_.Text = "";
 			// 
 			// NotificationCtrl
 			// 
-			this.Controls.Add(this.attributesGb_);
-			this.Controls.Add(this.generalGb_);
-			this.Name = "NotificationCtrl";
-			this.Size = new System.Drawing.Size(544, 468);
-			this.attributesGb_.ResumeLayout(false);
-			this.generalGb_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			Controls.Add(attributesGb_);
+			Controls.Add(generalGb_);
+			Name = "NotificationCtrl";
+			Size = new System.Drawing.Size(544, 468);
+			attributesGb_.ResumeLayout(false);
+			generalGb_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -543,9 +543,11 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void AddHeader(ListView listview, string name)
 		{
-			ColumnHeader header = new ColumnHeader();
-			header.Text = name;
-			listview.Columns.Add(header);
+            ColumnHeader header = new ColumnHeader
+            {
+                Text = name
+            };
+            listview.Columns.Add(header);
 		}
 
 		/// <summary>

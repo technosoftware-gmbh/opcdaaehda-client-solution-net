@@ -67,88 +67,88 @@ namespace SampleClients.Hda.Item
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.mainPn_ = new System.Windows.Forms.Panel();
-			this.timestampCtrl_ = new System.Windows.Forms.DateTimePicker();
-			this.timestampLb_ = new System.Windows.Forms.Label();
-			this.buttonsPn_.SuspendLayout();
-			this.mainPn_.SuspendLayout();
-			this.SuspendLayout();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			okBtn_ = new System.Windows.Forms.Button();
+			mainPn_ = new System.Windows.Forms.Panel();
+			timestampCtrl_ = new System.Windows.Forms.DateTimePicker();
+			timestampLb_ = new System.Windows.Forms.Label();
+			buttonsPn_.SuspendLayout();
+			mainPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(128, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(128, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 26);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(208, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 26);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(208, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okBtn_.Location = new System.Drawing.Point(4, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
+			okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			okBtn_.Location = new System.Drawing.Point(4, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
 			// 
 			// MainPN
 			// 
-			this.mainPn_.Controls.Add(this.timestampCtrl_);
-			this.mainPn_.Controls.Add(this.timestampLb_);
-			this.mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPn_.DockPadding.Left = 4;
-			this.mainPn_.DockPadding.Right = 4;
-			this.mainPn_.DockPadding.Top = 4;
-			this.mainPn_.Location = new System.Drawing.Point(0, 0);
-			this.mainPn_.Name = "mainPn_";
-			this.mainPn_.Size = new System.Drawing.Size(208, 26);
-			this.mainPn_.TabIndex = 1;
+			mainPn_.Controls.Add(timestampCtrl_);
+			mainPn_.Controls.Add(timestampLb_);
+			mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			mainPn_.DockPadding.Left = 4;
+			mainPn_.DockPadding.Right = 4;
+			mainPn_.DockPadding.Top = 4;
+			mainPn_.Location = new System.Drawing.Point(0, 0);
+			mainPn_.Name = "mainPn_";
+			mainPn_.Size = new System.Drawing.Size(208, 26);
+			mainPn_.TabIndex = 1;
 			// 
 			// TimestampCTRL
 			// 
-			this.timestampCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			timestampCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.timestampCtrl_.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-			this.timestampCtrl_.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.timestampCtrl_.Location = new System.Drawing.Point(76, 4);
-			this.timestampCtrl_.Name = "timestampCtrl_";
-			this.timestampCtrl_.Size = new System.Drawing.Size(128, 20);
-			this.timestampCtrl_.TabIndex = 4;
+			timestampCtrl_.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+			timestampCtrl_.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			timestampCtrl_.Location = new System.Drawing.Point(76, 4);
+			timestampCtrl_.Name = "timestampCtrl_";
+			timestampCtrl_.Size = new System.Drawing.Size(128, 20);
+			timestampCtrl_.TabIndex = 4;
 			// 
 			// TimestampLB
 			// 
-			this.timestampLb_.Location = new System.Drawing.Point(4, 4);
-			this.timestampLb_.Name = "timestampLb_";
-			this.timestampLb_.Size = new System.Drawing.Size(68, 23);
-			this.timestampLb_.TabIndex = 3;
-			this.timestampLb_.Text = "Timestamp";
-			this.timestampLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			timestampLb_.Location = new System.Drawing.Point(4, 4);
+			timestampLb_.Name = "timestampLb_";
+			timestampLb_.Size = new System.Drawing.Size(68, 23);
+			timestampLb_.TabIndex = 3;
+			timestampLb_.Text = "Timestamp";
+			timestampLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ItemTimeEditDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(208, 62);
-			this.Controls.Add(this.mainPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Name = "ItemTimeEditDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Edit Item Time";
-			this.buttonsPn_.ResumeLayout(false);
-			this.mainPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(208, 62);
+			Controls.Add(mainPn_);
+			Controls.Add(buttonsPn_);
+			Name = "ItemTimeEditDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Edit Item Time";
+			buttonsPn_.ResumeLayout(false);
+			mainPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

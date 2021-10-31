@@ -92,194 +92,194 @@ namespace SampleClients.Hda.Server
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.applyBtn_ = new System.Windows.Forms.Button();
-			this.itemNameLb_ = new System.Windows.Forms.Label();
-			this.topPn_ = new System.Windows.Forms.Panel();
-			this.maxElementsCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.maxElementsLb_ = new System.Windows.Forms.Label();
-			this.dataTypeCtrl_ = new SampleClients.Common.DataTypeCtrl();
-			this.dataTypeLb_ = new System.Windows.Forms.Label();
-			this.itemNameTb_ = new System.Windows.Forms.TextBox();
-			this.mainPn_ = new System.Windows.Forms.Panel();
-			this.browseFiltersLv_ = new System.Windows.Forms.ListView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.addMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.buttonsPn_.SuspendLayout();
-			this.topPn_.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.maxElementsCtrl_)).BeginInit();
-			this.mainPn_.SuspendLayout();
-			this.SuspendLayout();
+			okBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			applyBtn_ = new System.Windows.Forms.Button();
+			itemNameLb_ = new System.Windows.Forms.Label();
+			topPn_ = new System.Windows.Forms.Panel();
+			maxElementsCtrl_ = new System.Windows.Forms.NumericUpDown();
+			maxElementsLb_ = new System.Windows.Forms.Label();
+			dataTypeCtrl_ = new SampleClients.Common.DataTypeCtrl();
+			dataTypeLb_ = new System.Windows.Forms.Label();
+			itemNameTb_ = new System.Windows.Forms.TextBox();
+			mainPn_ = new System.Windows.Forms.Panel();
+			browseFiltersLv_ = new System.Windows.Forms.ListView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			addMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			buttonsPn_.SuspendLayout();
+			topPn_.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(maxElementsCtrl_)).BeginInit();
+			mainPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.okBtn_.Location = new System.Drawing.Point(4, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
-			this.okBtn_.Click += new System.EventHandler(this.OkBTN_Click);
+			okBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			okBtn_.Location = new System.Drawing.Point(4, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
+			okBtn_.Click += new System.EventHandler(OkBTN_Click);
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(248, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
-			this.cancelBtn_.Click += new System.EventHandler(this.CancelBTN_Click);
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(248, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
+			cancelBtn_.Click += new System.EventHandler(CancelBTN_Click);
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.applyBtn_);
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(4, 218);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(328, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(applyBtn_);
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(4, 218);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(328, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// ApplyBTN
 			// 
-			this.applyBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-			this.applyBtn_.Location = new System.Drawing.Point(127, 7);
-			this.applyBtn_.Name = "applyBtn_";
-			this.applyBtn_.TabIndex = 2;
-			this.applyBtn_.Text = "Apply";
-			this.applyBtn_.Click += new System.EventHandler(this.ApplyBTN_Click);
+			applyBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			applyBtn_.Location = new System.Drawing.Point(127, 7);
+			applyBtn_.Name = "applyBtn_";
+			applyBtn_.TabIndex = 2;
+			applyBtn_.Text = "Apply";
+			applyBtn_.Click += new System.EventHandler(ApplyBTN_Click);
 			// 
 			// ItemNameLB
 			// 
-			this.itemNameLb_.Location = new System.Drawing.Point(8, 0);
-			this.itemNameLb_.Name = "itemNameLb_";
-			this.itemNameLb_.Size = new System.Drawing.Size(80, 23);
-			this.itemNameLb_.TabIndex = 0;
-			this.itemNameLb_.Text = "Item Name";
-			this.itemNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			itemNameLb_.Location = new System.Drawing.Point(8, 0);
+			itemNameLb_.Name = "itemNameLb_";
+			itemNameLb_.Size = new System.Drawing.Size(80, 23);
+			itemNameLb_.TabIndex = 0;
+			itemNameLb_.Text = "Item Name";
+			itemNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// TopPN
 			// 
-			this.topPn_.Controls.Add(this.maxElementsCtrl_);
-			this.topPn_.Controls.Add(this.maxElementsLb_);
-			this.topPn_.Controls.Add(this.dataTypeCtrl_);
-			this.topPn_.Controls.Add(this.dataTypeLb_);
-			this.topPn_.Controls.Add(this.itemNameTb_);
-			this.topPn_.Controls.Add(this.itemNameLb_);
-			this.topPn_.Dock = System.Windows.Forms.DockStyle.Top;
-			this.topPn_.Location = new System.Drawing.Point(4, 4);
-			this.topPn_.Name = "topPn_";
-			this.topPn_.Size = new System.Drawing.Size(328, 72);
-			this.topPn_.TabIndex = 32;
+			topPn_.Controls.Add(maxElementsCtrl_);
+			topPn_.Controls.Add(maxElementsLb_);
+			topPn_.Controls.Add(dataTypeCtrl_);
+			topPn_.Controls.Add(dataTypeLb_);
+			topPn_.Controls.Add(itemNameTb_);
+			topPn_.Controls.Add(itemNameLb_);
+			topPn_.Dock = System.Windows.Forms.DockStyle.Top;
+			topPn_.Location = new System.Drawing.Point(4, 4);
+			topPn_.Name = "topPn_";
+			topPn_.Size = new System.Drawing.Size(328, 72);
+			topPn_.TabIndex = 32;
 			// 
 			// MaxElementsCTRL
 			// 
-			this.maxElementsCtrl_.Location = new System.Drawing.Point(88, 49);
-			this.maxElementsCtrl_.Maximum = new System.Decimal(new int[] {
+			maxElementsCtrl_.Location = new System.Drawing.Point(88, 49);
+			maxElementsCtrl_.Maximum = new System.Decimal(new int[] {
 																			2147483647,
 																			0,
 																			0,
 																			0});
-			this.maxElementsCtrl_.Name = "maxElementsCtrl_";
-			this.maxElementsCtrl_.TabIndex = 14;
+			maxElementsCtrl_.Name = "maxElementsCtrl_";
+			maxElementsCtrl_.TabIndex = 14;
 			// 
 			// MaxElementsLB
 			// 
-			this.maxElementsLb_.Location = new System.Drawing.Point(8, 48);
-			this.maxElementsLb_.Name = "maxElementsLb_";
-			this.maxElementsLb_.Size = new System.Drawing.Size(80, 23);
-			this.maxElementsLb_.TabIndex = 13;
-			this.maxElementsLb_.Text = "Max Items";
-			this.maxElementsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			maxElementsLb_.Location = new System.Drawing.Point(8, 48);
+			maxElementsLb_.Name = "maxElementsLb_";
+			maxElementsLb_.Size = new System.Drawing.Size(80, 23);
+			maxElementsLb_.TabIndex = 13;
+			maxElementsLb_.Text = "Max Items";
+			maxElementsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// DataTypeCTRL
 			// 
-			this.dataTypeCtrl_.Location = new System.Drawing.Point(88, 24);
-			this.dataTypeCtrl_.Name = "dataTypeCtrl_";
-			this.dataTypeCtrl_.SelectedType = null;
-			this.dataTypeCtrl_.Size = new System.Drawing.Size(120, 24);
-			this.dataTypeCtrl_.TabIndex = 12;
+			dataTypeCtrl_.Location = new System.Drawing.Point(88, 24);
+			dataTypeCtrl_.Name = "dataTypeCtrl_";
+			dataTypeCtrl_.SelectedType = null;
+			dataTypeCtrl_.Size = new System.Drawing.Size(120, 24);
+			dataTypeCtrl_.TabIndex = 12;
 			// 
 			// DataTypeLB
 			// 
-			this.dataTypeLb_.Location = new System.Drawing.Point(8, 24);
-			this.dataTypeLb_.Name = "dataTypeLb_";
-			this.dataTypeLb_.Size = new System.Drawing.Size(80, 23);
-			this.dataTypeLb_.TabIndex = 11;
-			this.dataTypeLb_.Text = "Data Type";
-			this.dataTypeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			dataTypeLb_.Location = new System.Drawing.Point(8, 24);
+			dataTypeLb_.Name = "dataTypeLb_";
+			dataTypeLb_.Size = new System.Drawing.Size(80, 23);
+			dataTypeLb_.TabIndex = 11;
+			dataTypeLb_.Text = "Data Type";
+			dataTypeLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ItemNameTB
 			// 
-			this.itemNameTb_.Location = new System.Drawing.Point(88, 0);
-			this.itemNameTb_.Name = "itemNameTb_";
-			this.itemNameTb_.Size = new System.Drawing.Size(236, 20);
-			this.itemNameTb_.TabIndex = 10;
-			this.itemNameTb_.Text = "";
+			itemNameTb_.Location = new System.Drawing.Point(88, 0);
+			itemNameTb_.Name = "itemNameTb_";
+			itemNameTb_.Size = new System.Drawing.Size(236, 20);
+			itemNameTb_.TabIndex = 10;
+			itemNameTb_.Text = "";
 			// 
 			// MainPN
 			// 
-			this.mainPn_.Controls.Add(this.browseFiltersLv_);
-			this.mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPn_.DockPadding.Bottom = 4;
-			this.mainPn_.DockPadding.Top = 4;
-			this.mainPn_.Location = new System.Drawing.Point(4, 76);
-			this.mainPn_.Name = "mainPn_";
-			this.mainPn_.Size = new System.Drawing.Size(328, 142);
-			this.mainPn_.TabIndex = 33;
+			mainPn_.Controls.Add(browseFiltersLv_);
+			mainPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			mainPn_.DockPadding.Bottom = 4;
+			mainPn_.DockPadding.Top = 4;
+			mainPn_.Location = new System.Drawing.Point(4, 76);
+			mainPn_.Name = "mainPn_";
+			mainPn_.Size = new System.Drawing.Size(328, 142);
+			mainPn_.TabIndex = 33;
 			// 
 			// BrowseFiltersLV
 			// 
-			this.browseFiltersLv_.ContextMenuStrip = this.popupMenu_;
-			this.browseFiltersLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.browseFiltersLv_.FullRowSelect = true;
-			this.browseFiltersLv_.Location = new System.Drawing.Point(0, 4);
-			this.browseFiltersLv_.MultiSelect = false;
-			this.browseFiltersLv_.Name = "browseFiltersLv_";
-			this.browseFiltersLv_.Size = new System.Drawing.Size(328, 134);
-			this.browseFiltersLv_.TabIndex = 0;
-			this.browseFiltersLv_.View = System.Windows.Forms.View.Details;
+			browseFiltersLv_.ContextMenuStrip = popupMenu_;
+			browseFiltersLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			browseFiltersLv_.FullRowSelect = true;
+			browseFiltersLv_.Location = new System.Drawing.Point(0, 4);
+			browseFiltersLv_.MultiSelect = false;
+			browseFiltersLv_.Name = "browseFiltersLv_";
+			browseFiltersLv_.Size = new System.Drawing.Size(328, 134);
+			browseFiltersLv_.TabIndex = 0;
+			browseFiltersLv_.View = System.Windows.Forms.View.Details;
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.addMi_,
-																					  this.removeMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  addMi_,
+																					  removeMi_});
 			// 
 			// AddMI
 			// 
-			this.addMi_.ImageIndex = 0;
-			this.addMi_.Text = "&Add";
-			this.addMi_.Click += new System.EventHandler(this.AddMI_Click);
+			addMi_.ImageIndex = 0;
+			addMi_.Text = "&Add";
+			addMi_.Click += new System.EventHandler(AddMI_Click);
 			// 
 			// RemoveMI
 			// 
-			this.removeMi_.ImageIndex = 1;
-			this.removeMi_.Text = "&Remove";
-			this.removeMi_.Click += new System.EventHandler(this.RemoveMI_Click);
+			removeMi_.ImageIndex = 1;
+			removeMi_.Text = "&Remove";
+			removeMi_.Click += new System.EventHandler(RemoveMI_Click);
 			// 
 			// BrowseFiltersDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(336, 254);
-			this.Controls.Add(this.mainPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Controls.Add(this.topPn_);
-			this.DockPadding.Left = 4;
-			this.DockPadding.Right = 4;
-			this.DockPadding.Top = 4;
-			this.Name = "BrowseFiltersDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-			this.Text = "Browse Filters";
-			this.buttonsPn_.ResumeLayout(false);
-			this.topPn_.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.maxElementsCtrl_)).EndInit();
-			this.mainPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(336, 254);
+			Controls.Add(mainPn_);
+			Controls.Add(buttonsPn_);
+			Controls.Add(topPn_);
+			DockPadding.Left = 4;
+			DockPadding.Right = 4;
+			DockPadding.Top = 4;
+			Name = "BrowseFiltersDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+			Text = "Browse Filters";
+			buttonsPn_.ResumeLayout(false);
+			topPn_.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(maxElementsCtrl_)).EndInit();
+			mainPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

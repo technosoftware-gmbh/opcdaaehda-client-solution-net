@@ -48,7 +48,7 @@ namespace scpl
 		#region Constructor
 		public LinePlot( ISequenceAdapter data )
 		{
-			this.Data = data;
+			Data = data;
 		}
 		#endregion
 
@@ -73,13 +73,13 @@ namespace scpl
 			int numberPoints = data_.Count;
 
 			Pen	p;
-			if (this.pen_ != null)
+			if (pen_ != null)
 			{
-				p = (System.Drawing.Pen)this.pen_;
+				p = (System.Drawing.Pen)pen_;
 			}
 			else
 			{
-				p =	new	Pen(this.color_);
+				p =	new	Pen(color_);
 			}
 
 			// clipping is now handled assigning a clip region in the

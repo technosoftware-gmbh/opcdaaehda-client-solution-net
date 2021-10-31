@@ -63,7 +63,7 @@ namespace scpl
 			{
 				if ( xValues_ == null )
 				{
-					double xPos = this.Start + i*this.Step;
+					double xPos = Start + i*Step;
 					return new PointD( (double)xPos, (double)yValues_[i] );
 				}
 				else
@@ -88,10 +88,10 @@ namespace scpl
 				xsd[i] = xs[i];
 				ysd[i] = ys[i];
 			}
-			this.yValues_ = ysd;
-			this.xValues_ = xsd;
-			this.step_ = null;
-			this.start_ = null;
+			yValues_ = ysd;
+			xValues_ = xsd;
+			step_ = null;
+			start_ = null;
 			ArrayMinMax( xValues_, out xValuesMin_, out xValuesMax_);
 			ArrayMinMax( yValues_, out yValuesMin_, out yValuesMax_);
 		}
@@ -118,22 +118,22 @@ namespace scpl
 			}
 			if (DoCloneX) 
 			{
-				this.xValues_ = (double[])xs.Clone();
+				xValues_ = (double[])xs.Clone();
 			} 
 			else 
 			{
-				this.xValues_ = xs;
+				xValues_ = xs;
 			}
 			if (DoCloneY) 
 			{
-				this.yValues_ = (double[])ys.Clone();
+				yValues_ = (double[])ys.Clone();
 			} 
 			else 
 			{
-				this.yValues_ = ys;
+				yValues_ = ys;
 			}
-			this.step_ = null;
-			this.start_ = null;
+			step_ = null;
+			start_ = null;
 			ArrayMinMax( xValues_, out xValuesMin_, out xValuesMax_);
 			ArrayMinMax( yValues_, out yValuesMin_, out yValuesMax_);
 		}
@@ -144,10 +144,10 @@ namespace scpl
 			{
 				throw new System.Exception( "xs and ys not same length." );
 			}
-			this.yValues_ = ys;
-			this.xValues_ = xs;
-			this.step_ = null;
-			this.start_ = null;
+			yValues_ = ys;
+			xValues_ = xs;
+			step_ = null;
+			start_ = null;
 			ArrayMinMax( xValues_, out xValuesMin_, out xValuesMax_);
 			ArrayMinMax( yValues_, out yValuesMin_, out yValuesMax_);
 		}
@@ -159,19 +159,19 @@ namespace scpl
 			{
 				ysd[i] = ys[i];
 			}
-			this.yValues_ = ysd; 
-			this.start_ = 0.0;
-			this.step_ = 1.0;
-			this.xValues_ = null;
+			yValues_ = ysd; 
+			start_ = 0.0;
+			step_ = 1.0;
+			xValues_ = null;
 			ArrayMinMax( yValues_, out yValuesMin_, out yValuesMax_);
 		}
 
 		public ArrayAdapter( double[] ys )
 		{
-			this.yValues_ = ys; 
-			this.start_ = 0.0;
-			this.step_ = 1.0;
-			this.xValues_ = null;
+			yValues_ = ys; 
+			start_ = 0.0;
+			step_ = 1.0;
+			xValues_ = null;
 			ArrayMinMax( yValues_, out yValuesMin_, out yValuesMax_);
 		}
 
@@ -182,19 +182,19 @@ namespace scpl
 			{
 				ysd[i] = ys[i];
 			}
-			this.yValues_ = ysd;
-			this.start_ = (double)start;
-			this.step_ = (double)step;
-			this.xValues_ = null;
+			yValues_ = ysd;
+			start_ = (double)start;
+			step_ = (double)step;
+			xValues_ = null;
 			ArrayMinMax( yValues_, out yValuesMin_, out yValuesMax_);
 		}
 
 		public ArrayAdapter( double[] ys, double start, double step )
 		{
-			this.yValues_ = ys;
-			this.start_ = start;
-			this.step_ = step;
-			this.xValues_ = null;
+			yValues_ = ys;
+			start_ = start;
+			step_ = step;
+			xValues_ = null;
 			ArrayMinMax( yValues_, out yValuesMin_, out yValuesMax_);
 		}
 		#endregion
@@ -207,11 +207,11 @@ namespace scpl
 			{
 				if ( yValues_ == null )
 				{
-					return new LinearAxis( this.Start, 1.0 );
+					return new LinearAxis( Start, 1.0 );
 				}
 				else
 				{
-					return new LinearAxis( this.Start, this.Start + this.Step * (yValues_.Length - 1) );
+					return new LinearAxis( Start, Start + Step * (yValues_.Length - 1) );
 				}
 			}
 			else

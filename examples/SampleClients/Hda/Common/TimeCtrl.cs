@@ -75,49 +75,49 @@ namespace SampleClients.Hda.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.absoluteTimeCtrl_ = new System.Windows.Forms.DateTimePicker();
-			this.timeTypeCb_ = new System.Windows.Forms.ComboBox();
-			this.offsetTb_ = new System.Windows.Forms.TextBox();
-			this.SuspendLayout();
+			absoluteTimeCtrl_ = new System.Windows.Forms.DateTimePicker();
+			timeTypeCb_ = new System.Windows.Forms.ComboBox();
+			offsetTb_ = new System.Windows.Forms.TextBox();
+			SuspendLayout();
 			// 
 			// AbsoluteTimeCTRL
 			// 
-			this.absoluteTimeCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			absoluteTimeCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.absoluteTimeCtrl_.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-			this.absoluteTimeCtrl_.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.absoluteTimeCtrl_.Location = new System.Drawing.Point(76, 0);
-			this.absoluteTimeCtrl_.Name = "absoluteTimeCtrl_";
-			this.absoluteTimeCtrl_.Size = new System.Drawing.Size(132, 20);
-			this.absoluteTimeCtrl_.TabIndex = 0;
+			absoluteTimeCtrl_.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+			absoluteTimeCtrl_.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			absoluteTimeCtrl_.Location = new System.Drawing.Point(76, 0);
+			absoluteTimeCtrl_.Name = "absoluteTimeCtrl_";
+			absoluteTimeCtrl_.Size = new System.Drawing.Size(132, 20);
+			absoluteTimeCtrl_.TabIndex = 0;
 			// 
 			// TimeTypeCB
 			// 
-			this.timeTypeCb_.Location = new System.Drawing.Point(0, 0);
-			this.timeTypeCb_.Name = "timeTypeCb_";
-			this.timeTypeCb_.Size = new System.Drawing.Size(72, 21);
-			this.timeTypeCb_.TabIndex = 1;
-			this.timeTypeCb_.Text = "Absolute";
-			this.timeTypeCb_.SelectedIndexChanged += new System.EventHandler(this.TimeTypeCB_SelectedIndexChanged);
+			timeTypeCb_.Location = new System.Drawing.Point(0, 0);
+			timeTypeCb_.Name = "timeTypeCb_";
+			timeTypeCb_.Size = new System.Drawing.Size(72, 21);
+			timeTypeCb_.TabIndex = 1;
+			timeTypeCb_.Text = "Absolute";
+			timeTypeCb_.SelectedIndexChanged += new System.EventHandler(TimeTypeCB_SelectedIndexChanged);
 			// 
 			// OffsetTB
 			// 
-			this.offsetTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			offsetTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.offsetTb_.Location = new System.Drawing.Point(76, 0);
-			this.offsetTb_.Name = "offsetTb_";
-			this.offsetTb_.Size = new System.Drawing.Size(132, 20);
-			this.offsetTb_.TabIndex = 2;
-			this.offsetTb_.Text = "+50MO-6D+1S";
+			offsetTb_.Location = new System.Drawing.Point(76, 0);
+			offsetTb_.Name = "offsetTb_";
+			offsetTb_.Size = new System.Drawing.Size(132, 20);
+			offsetTb_.TabIndex = 2;
+			offsetTb_.Text = "+50MO-6D+1S";
 			// 
 			// TimeCtrl
 			// 
-			this.Controls.Add(this.timeTypeCb_);
-			this.Controls.Add(this.absoluteTimeCtrl_);
-			this.Controls.Add(this.offsetTb_);
-			this.Name = "TimeCtrl";
-			this.Size = new System.Drawing.Size(208, 24);
-			this.ResumeLayout(false);
+			Controls.Add(timeTypeCb_);
+			Controls.Add(absoluteTimeCtrl_);
+			Controls.Add(offsetTb_);
+			Name = "TimeCtrl";
+			Size = new System.Drawing.Size(208, 24);
+			ResumeLayout(false);
 
 		}
 		#endregion

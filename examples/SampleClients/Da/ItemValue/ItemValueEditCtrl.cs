@@ -82,205 +82,205 @@ namespace SampleClients.Da.ItemValue
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.itemNameLb_ = new System.Windows.Forms.Label();
-			this.timestampLb_ = new System.Windows.Forms.Label();
-			this.valueLb_ = new System.Windows.Forms.Label();
-			this.itemNameTb_ = new System.Windows.Forms.TextBox();
-			this.timestampSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.itemPathTb_ = new System.Windows.Forms.TextBox();
-			this.itemPathLb_ = new System.Windows.Forms.Label();
-			this.qualitySpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.vendorBitsCtrl_ = new System.Windows.Forms.NumericUpDown();
-			this.qualityBitsLb_ = new System.Windows.Forms.Label();
-			this.valueSpecifiedCb_ = new System.Windows.Forms.CheckBox();
-			this.qualityBitsCtrl_ = new EnumCtrl();
-			this.limitBitsCtrl_ = new EnumCtrl();
-			this.limitBitsLb_ = new System.Windows.Forms.Label();
-			this.vendorBitsLb_ = new System.Windows.Forms.Label();
-			this.valueCtrl_ = new ValueCtrl();
-			this.timestampCtrl_ = new System.Windows.Forms.DateTimePicker();
-			((System.ComponentModel.ISupportInitialize)(this.vendorBitsCtrl_)).BeginInit();
-			this.SuspendLayout();
+			itemNameLb_ = new System.Windows.Forms.Label();
+			timestampLb_ = new System.Windows.Forms.Label();
+			valueLb_ = new System.Windows.Forms.Label();
+			itemNameTb_ = new System.Windows.Forms.TextBox();
+			timestampSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			itemPathTb_ = new System.Windows.Forms.TextBox();
+			itemPathLb_ = new System.Windows.Forms.Label();
+			qualitySpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			vendorBitsCtrl_ = new System.Windows.Forms.NumericUpDown();
+			qualityBitsLb_ = new System.Windows.Forms.Label();
+			valueSpecifiedCb_ = new System.Windows.Forms.CheckBox();
+			qualityBitsCtrl_ = new EnumCtrl();
+			limitBitsCtrl_ = new EnumCtrl();
+			limitBitsLb_ = new System.Windows.Forms.Label();
+			vendorBitsLb_ = new System.Windows.Forms.Label();
+			valueCtrl_ = new ValueCtrl();
+			timestampCtrl_ = new System.Windows.Forms.DateTimePicker();
+			((System.ComponentModel.ISupportInitialize)(vendorBitsCtrl_)).BeginInit();
+			SuspendLayout();
 			// 
 			// ItemNameLB
 			// 
-			this.itemNameLb_.Name = "itemNameLb_";
-			this.itemNameLb_.TabIndex = 0;
-			this.itemNameLb_.Text = "Item Name";
-			this.itemNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			itemNameLb_.Name = "itemNameLb_";
+			itemNameLb_.TabIndex = 0;
+			itemNameLb_.Text = "Item Name";
+			itemNameLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// TimestampLB
 			// 
-			this.timestampLb_.Location = new System.Drawing.Point(0, 144);
-			this.timestampLb_.Name = "timestampLb_";
-			this.timestampLb_.TabIndex = 1;
-			this.timestampLb_.Text = "Timestamp";
-			this.timestampLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			timestampLb_.Location = new System.Drawing.Point(0, 144);
+			timestampLb_.Name = "timestampLb_";
+			timestampLb_.TabIndex = 1;
+			timestampLb_.Text = "Timestamp";
+			timestampLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ValueLB
 			// 
-			this.valueLb_.Location = new System.Drawing.Point(0, 48);
-			this.valueLb_.Name = "valueLb_";
-			this.valueLb_.TabIndex = 3;
-			this.valueLb_.Text = "Value";
-			this.valueLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			valueLb_.Location = new System.Drawing.Point(0, 48);
+			valueLb_.Name = "valueLb_";
+			valueLb_.TabIndex = 3;
+			valueLb_.Text = "Value";
+			valueLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ItemNameTB
 			// 
-			this.itemNameTb_.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			itemNameTb_.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right);
-			this.itemNameTb_.Location = new System.Drawing.Point(104, 0);
-			this.itemNameTb_.Name = "itemNameTb_";
-			this.itemNameTb_.ReadOnly = true;
-			this.itemNameTb_.Size = new System.Drawing.Size(248, 20);
-			this.itemNameTb_.TabIndex = 8;
-			this.itemNameTb_.Text = "";
+			itemNameTb_.Location = new System.Drawing.Point(104, 0);
+			itemNameTb_.Name = "itemNameTb_";
+			itemNameTb_.ReadOnly = true;
+			itemNameTb_.Size = new System.Drawing.Size(248, 20);
+			itemNameTb_.TabIndex = 8;
+			itemNameTb_.Text = "";
 			// 
 			// TimestampSpecifiedCB
 			// 
-			this.timestampSpecifiedCb_.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
-			this.timestampSpecifiedCb_.Checked = true;
-			this.timestampSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.timestampSpecifiedCb_.Location = new System.Drawing.Point(336, 143);
-			this.timestampSpecifiedCb_.Name = "timestampSpecifiedCb_";
-			this.timestampSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.timestampSpecifiedCb_.TabIndex = 20;
-			this.timestampSpecifiedCb_.CheckedChanged += new System.EventHandler(this.Specified_CheckedChanged);
+			timestampSpecifiedCb_.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
+			timestampSpecifiedCb_.Checked = true;
+			timestampSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			timestampSpecifiedCb_.Location = new System.Drawing.Point(336, 143);
+			timestampSpecifiedCb_.Name = "timestampSpecifiedCb_";
+			timestampSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			timestampSpecifiedCb_.TabIndex = 20;
+			timestampSpecifiedCb_.CheckedChanged += new System.EventHandler(Specified_CheckedChanged);
 			// 
 			// ItemPathTB
 			// 
-			this.itemPathTb_.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			itemPathTb_.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right);
-			this.itemPathTb_.Location = new System.Drawing.Point(104, 24);
-			this.itemPathTb_.Name = "itemPathTb_";
-			this.itemPathTb_.ReadOnly = true;
-			this.itemPathTb_.Size = new System.Drawing.Size(248, 20);
-			this.itemPathTb_.TabIndex = 27;
-			this.itemPathTb_.Text = "";
+			itemPathTb_.Location = new System.Drawing.Point(104, 24);
+			itemPathTb_.Name = "itemPathTb_";
+			itemPathTb_.ReadOnly = true;
+			itemPathTb_.Size = new System.Drawing.Size(248, 20);
+			itemPathTb_.TabIndex = 27;
+			itemPathTb_.Text = "";
 			// 
 			// ItemPathLB
 			// 
-			this.itemPathLb_.Location = new System.Drawing.Point(0, 24);
-			this.itemPathLb_.Name = "itemPathLb_";
-			this.itemPathLb_.TabIndex = 26;
-			this.itemPathLb_.Text = "Item Path";
-			this.itemPathLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			itemPathLb_.Location = new System.Drawing.Point(0, 24);
+			itemPathLb_.Name = "itemPathLb_";
+			itemPathLb_.TabIndex = 26;
+			itemPathLb_.Text = "Item Path";
+			itemPathLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// QualitySpecifiedCB
 			// 
-			this.qualitySpecifiedCb_.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
-			this.qualitySpecifiedCb_.Checked = true;
-			this.qualitySpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.qualitySpecifiedCb_.Location = new System.Drawing.Point(336, 71);
-			this.qualitySpecifiedCb_.Name = "qualitySpecifiedCb_";
-			this.qualitySpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.qualitySpecifiedCb_.TabIndex = 30;
-			this.qualitySpecifiedCb_.CheckedChanged += new System.EventHandler(this.Specified_CheckedChanged);
+			qualitySpecifiedCb_.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
+			qualitySpecifiedCb_.Checked = true;
+			qualitySpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			qualitySpecifiedCb_.Location = new System.Drawing.Point(336, 71);
+			qualitySpecifiedCb_.Name = "qualitySpecifiedCb_";
+			qualitySpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			qualitySpecifiedCb_.TabIndex = 30;
+			qualitySpecifiedCb_.CheckedChanged += new System.EventHandler(Specified_CheckedChanged);
 			// 
 			// VendorBitsCTRL
 			// 
-			this.vendorBitsCtrl_.Location = new System.Drawing.Point(104, 121);
-			this.vendorBitsCtrl_.Maximum = new System.Decimal(new int[] {
+			vendorBitsCtrl_.Location = new System.Drawing.Point(104, 121);
+			vendorBitsCtrl_.Maximum = new System.Decimal(new int[] {
 																		   255,
 																		   0,
 																		   0,
 																		   0});
-			this.vendorBitsCtrl_.Name = "vendorBitsCtrl_";
-			this.vendorBitsCtrl_.Size = new System.Drawing.Size(80, 20);
-			this.vendorBitsCtrl_.TabIndex = 29;
+			vendorBitsCtrl_.Name = "vendorBitsCtrl_";
+			vendorBitsCtrl_.Size = new System.Drawing.Size(80, 20);
+			vendorBitsCtrl_.TabIndex = 29;
 			// 
 			// QualityBitsLB
 			// 
-			this.qualityBitsLb_.Location = new System.Drawing.Point(0, 72);
-			this.qualityBitsLb_.Name = "qualityBitsLb_";
-			this.qualityBitsLb_.TabIndex = 28;
-			this.qualityBitsLb_.Text = "Quality Bits";
-			this.qualityBitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			qualityBitsLb_.Location = new System.Drawing.Point(0, 72);
+			qualityBitsLb_.Name = "qualityBitsLb_";
+			qualityBitsLb_.TabIndex = 28;
+			qualityBitsLb_.Text = "Quality Bits";
+			qualityBitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ValueSpecifiedCB
 			// 
-			this.valueSpecifiedCb_.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
-			this.valueSpecifiedCb_.Checked = true;
-			this.valueSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.valueSpecifiedCb_.Location = new System.Drawing.Point(336, 48);
-			this.valueSpecifiedCb_.Name = "valueSpecifiedCb_";
-			this.valueSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
-			this.valueSpecifiedCb_.TabIndex = 31;
-			this.valueSpecifiedCb_.CheckedChanged += new System.EventHandler(this.Specified_CheckedChanged);
+			valueSpecifiedCb_.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
+			valueSpecifiedCb_.Checked = true;
+			valueSpecifiedCb_.CheckState = System.Windows.Forms.CheckState.Checked;
+			valueSpecifiedCb_.Location = new System.Drawing.Point(336, 48);
+			valueSpecifiedCb_.Name = "valueSpecifiedCb_";
+			valueSpecifiedCb_.Size = new System.Drawing.Size(16, 24);
+			valueSpecifiedCb_.TabIndex = 31;
+			valueSpecifiedCb_.CheckedChanged += new System.EventHandler(Specified_CheckedChanged);
 			// 
 			// QualityBitsCTRL
 			// 
-			this.qualityBitsCtrl_.Location = new System.Drawing.Point(104, 71);
-			this.qualityBitsCtrl_.Name = "qualityBitsCtrl_";
-			this.qualityBitsCtrl_.Size = new System.Drawing.Size(152, 24);
-			this.qualityBitsCtrl_.TabIndex = 32;
+			qualityBitsCtrl_.Location = new System.Drawing.Point(104, 71);
+			qualityBitsCtrl_.Name = "qualityBitsCtrl_";
+			qualityBitsCtrl_.Size = new System.Drawing.Size(152, 24);
+			qualityBitsCtrl_.TabIndex = 32;
 			// 
 			// LimitBitsCTRL
 			// 
-			this.limitBitsCtrl_.Location = new System.Drawing.Point(104, 95);
-			this.limitBitsCtrl_.Name = "limitBitsCtrl_";
-			this.limitBitsCtrl_.Size = new System.Drawing.Size(80, 24);
-			this.limitBitsCtrl_.TabIndex = 34;
+			limitBitsCtrl_.Location = new System.Drawing.Point(104, 95);
+			limitBitsCtrl_.Name = "limitBitsCtrl_";
+			limitBitsCtrl_.Size = new System.Drawing.Size(80, 24);
+			limitBitsCtrl_.TabIndex = 34;
 			// 
 			// LimitBitsLB
 			// 
-			this.limitBitsLb_.Location = new System.Drawing.Point(0, 96);
-			this.limitBitsLb_.Name = "limitBitsLb_";
-			this.limitBitsLb_.TabIndex = 33;
-			this.limitBitsLb_.Text = "Limit Bits";
-			this.limitBitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			limitBitsLb_.Location = new System.Drawing.Point(0, 96);
+			limitBitsLb_.Name = "limitBitsLb_";
+			limitBitsLb_.TabIndex = 33;
+			limitBitsLb_.Text = "Limit Bits";
+			limitBitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// VendorBitsLB
 			// 
-			this.vendorBitsLb_.Location = new System.Drawing.Point(0, 120);
-			this.vendorBitsLb_.Name = "vendorBitsLb_";
-			this.vendorBitsLb_.TabIndex = 35;
-			this.vendorBitsLb_.Text = "Vendor Bits";
-			this.vendorBitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			vendorBitsLb_.Location = new System.Drawing.Point(0, 120);
+			vendorBitsLb_.Name = "vendorBitsLb_";
+			vendorBitsLb_.TabIndex = 35;
+			vendorBitsLb_.Text = "Vendor Bits";
+			vendorBitsLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// ValueCTRL
 			// 
-			this.valueCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			valueCtrl_.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right);
-			this.valueCtrl_.Location = new System.Drawing.Point(104, 49);
-			this.valueCtrl_.Name = "valueCtrl_";
-			this.valueCtrl_.Size = new System.Drawing.Size(224, 20);
-			this.valueCtrl_.TabIndex = 36;
+			valueCtrl_.Location = new System.Drawing.Point(104, 49);
+			valueCtrl_.Name = "valueCtrl_";
+			valueCtrl_.Size = new System.Drawing.Size(224, 20);
+			valueCtrl_.TabIndex = 36;
 			// 
 			// TimestampCTRL
 			// 
-			this.timestampCtrl_.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-			this.timestampCtrl_.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.timestampCtrl_.Location = new System.Drawing.Point(104, 145);
-			this.timestampCtrl_.Name = "timestampCtrl_";
-			this.timestampCtrl_.ShowUpDown = true;
-			this.timestampCtrl_.Size = new System.Drawing.Size(136, 20);
-			this.timestampCtrl_.TabIndex = 37;
+			timestampCtrl_.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+			timestampCtrl_.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			timestampCtrl_.Location = new System.Drawing.Point(104, 145);
+			timestampCtrl_.Name = "timestampCtrl_";
+			timestampCtrl_.ShowUpDown = true;
+			timestampCtrl_.Size = new System.Drawing.Size(136, 20);
+			timestampCtrl_.TabIndex = 37;
 			// 
 			// ItemValueEditCtrl
 			// 
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
-																		  this.timestampCtrl_,
-																		  this.valueCtrl_,
-																		  this.vendorBitsLb_,
-																		  this.limitBitsCtrl_,
-																		  this.limitBitsLb_,
-																		  this.qualityBitsCtrl_,
-																		  this.valueSpecifiedCb_,
-																		  this.qualitySpecifiedCb_,
-																		  this.vendorBitsCtrl_,
-																		  this.qualityBitsLb_,
-																		  this.itemPathTb_,
-																		  this.itemPathLb_,
-																		  this.timestampSpecifiedCb_,
-																		  this.itemNameTb_,
-																		  this.valueLb_,
-																		  this.timestampLb_,
-																		  this.itemNameLb_});
-			this.Name = "ItemValueEditCtrl";
-			this.Size = new System.Drawing.Size(360, 168);
-			((System.ComponentModel.ISupportInitialize)(this.vendorBitsCtrl_)).EndInit();
-			this.ResumeLayout(false);
+			Controls.AddRange(new System.Windows.Forms.Control[] {
+																		  timestampCtrl_,
+																		  valueCtrl_,
+																		  vendorBitsLb_,
+																		  limitBitsCtrl_,
+																		  limitBitsLb_,
+																		  qualityBitsCtrl_,
+																		  valueSpecifiedCb_,
+																		  qualitySpecifiedCb_,
+																		  vendorBitsCtrl_,
+																		  qualityBitsLb_,
+																		  itemPathTb_,
+																		  itemPathLb_,
+																		  timestampSpecifiedCb_,
+																		  itemNameTb_,
+																		  valueLb_,
+																		  timestampLb_,
+																		  itemNameLb_});
+			Name = "ItemValueEditCtrl";
+			Size = new System.Drawing.Size(360, 168);
+			((System.ComponentModel.ISupportInitialize)(vendorBitsCtrl_)).EndInit();
+			ResumeLayout(false);
 
 		}
 		#endregion

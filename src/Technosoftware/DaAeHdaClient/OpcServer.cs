@@ -50,7 +50,6 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// The factory used to instantiate the remote server.
         /// </summary>
-        [CLSCompliant(false)]
         protected IOpcFactory Factory;
 
         /// <summary>

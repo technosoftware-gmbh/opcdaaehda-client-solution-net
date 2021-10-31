@@ -73,65 +73,65 @@ namespace SampleClients.Hda.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.rightPn_ = new System.Windows.Forms.Panel();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.doneBtn_ = new System.Windows.Forms.Button();
-			this.aggregatesCtrl_ = new AggregateListViewCtrl();
-			this.rightPn_.SuspendLayout();
-			this.buttonsPn_.SuspendLayout();
-			this.SuspendLayout();
+			rightPn_ = new System.Windows.Forms.Panel();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			doneBtn_ = new System.Windows.Forms.Button();
+			aggregatesCtrl_ = new AggregateListViewCtrl();
+			rightPn_.SuspendLayout();
+			buttonsPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// RightPN
 			// 
-			this.rightPn_.Controls.Add(this.aggregatesCtrl_);
-			this.rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rightPn_.DockPadding.Right = 4;
-			this.rightPn_.DockPadding.Top = 4;
-			this.rightPn_.Location = new System.Drawing.Point(0, 0);
-			this.rightPn_.Name = "rightPn_";
-			this.rightPn_.Size = new System.Drawing.Size(792, 300);
-			this.rightPn_.TabIndex = 8;
+			rightPn_.Controls.Add(aggregatesCtrl_);
+			rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			rightPn_.DockPadding.Right = 4;
+			rightPn_.DockPadding.Top = 4;
+			rightPn_.Location = new System.Drawing.Point(0, 0);
+			rightPn_.Name = "rightPn_";
+			rightPn_.Size = new System.Drawing.Size(792, 300);
+			rightPn_.TabIndex = 8;
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.doneBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 300);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(792, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(doneBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 300);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(792, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// DoneBTN
 			// 
-			this.doneBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-			this.doneBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.doneBtn_.Location = new System.Drawing.Point(359, 8);
-			this.doneBtn_.Name = "doneBtn_";
-			this.doneBtn_.TabIndex = 0;
-			this.doneBtn_.Text = "Done";
-			this.doneBtn_.Click += new System.EventHandler(this.DoneBTN_Click);
+			doneBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			doneBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			doneBtn_.Location = new System.Drawing.Point(359, 8);
+			doneBtn_.Name = "doneBtn_";
+			doneBtn_.TabIndex = 0;
+			doneBtn_.Text = "Done";
+			doneBtn_.Click += new System.EventHandler(DoneBTN_Click);
 			// 
 			// AggregatesCTRL
 			// 
-			this.aggregatesCtrl_.AllowDrop = true;
-			this.aggregatesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.aggregatesCtrl_.Location = new System.Drawing.Point(0, 4);
-			this.aggregatesCtrl_.Name = "aggregatesCtrl_";
-			this.aggregatesCtrl_.Size = new System.Drawing.Size(788, 296);
-			this.aggregatesCtrl_.TabIndex = 0;
+			aggregatesCtrl_.AllowDrop = true;
+			aggregatesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+			aggregatesCtrl_.Location = new System.Drawing.Point(0, 4);
+			aggregatesCtrl_.Name = "aggregatesCtrl_";
+			aggregatesCtrl_.Size = new System.Drawing.Size(788, 296);
+			aggregatesCtrl_.TabIndex = 0;
 			// 
 			// AggregateListViewDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(792, 336);
-			this.Controls.Add(this.rightPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Name = "AggregateListViewDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "View Aggregates";
-			this.rightPn_.ResumeLayout(false);
-			this.buttonsPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(792, 336);
+			Controls.Add(rightPn_);
+			Controls.Add(buttonsPn_);
+			Name = "AggregateListViewDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "View Aggregates";
+			rightPn_.ResumeLayout(false);
+			buttonsPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

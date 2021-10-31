@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0-windows</TargetFramework>
+	<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <ProjectType>Local</ProjectType>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
@@ -35,23 +36,23 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
+  <PropertyGroup>
+	<AnalysisMode>AllDisabledByDefault</AnalysisMode>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DefineConstants>TRACE;DEBUG;FRAMEWORK_VER_2x</DefineConstants>
     <BaseAddress>285212672</BaseAddress>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DefineConstants>TRACE;FRAMEWORK_VER_2x</DefineConstants>
     <BaseAddress>285212672</BaseAddress>
     <DebugType>
     </DebugType>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\x86\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;FRAMEWORK_VER_2x</DefineConstants>
     <BaseAddress>285212672</BaseAddress>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -59,7 +60,6 @@
     <BaseAddress>285212672</BaseAddress>
     <DebugType>
     </DebugType>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Update="System">
@@ -67,9 +67,6 @@
     </Reference>
     <Reference Update="System.Data">
       <Name>System.Data</Name>
-    </Reference>
-    <Reference Include="System.Design">
-      <Name>System.Design</Name>
     </Reference>
     <Reference Update="System.Drawing">
       <Name>System.Drawing</Name>

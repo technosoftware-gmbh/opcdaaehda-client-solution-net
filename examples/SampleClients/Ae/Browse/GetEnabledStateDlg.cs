@@ -75,80 +75,80 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.refreshBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.leftPn_ = new System.Windows.Forms.Panel();
-			this.resultsLv_ = new System.Windows.Forms.ListView();
-			this.buttonsPn_.SuspendLayout();
-			this.leftPn_.SuspendLayout();
-			this.SuspendLayout();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			refreshBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			leftPn_ = new System.Windows.Forms.Panel();
+			resultsLv_ = new System.Windows.Forms.ListView();
+			buttonsPn_.SuspendLayout();
+			leftPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.refreshBtn_);
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 234);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(392, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(refreshBtn_);
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 234);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(392, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// RefreshBTN
 			// 
-			this.refreshBtn_.Location = new System.Drawing.Point(4, 8);
-			this.refreshBtn_.Name = "refreshBtn_";
-			this.refreshBtn_.TabIndex = 1;
-			this.refreshBtn_.Text = "Refresh";
-			this.refreshBtn_.Click += new System.EventHandler(this.RefreshBTN_Click);
+			refreshBtn_.Location = new System.Drawing.Point(4, 8);
+			refreshBtn_.Name = "refreshBtn_";
+			refreshBtn_.TabIndex = 1;
+			refreshBtn_.Text = "Refresh";
+			refreshBtn_.Click += new System.EventHandler(RefreshBTN_Click);
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(312, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Close";
-			this.cancelBtn_.Click += new System.EventHandler(this.CancelBTN_Click);
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(312, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Close";
+			cancelBtn_.Click += new System.EventHandler(CancelBTN_Click);
 			// 
 			// LeftPN
 			// 
-			this.leftPn_.Controls.Add(this.resultsLv_);
-			this.leftPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.leftPn_.DockPadding.Left = 4;
-			this.leftPn_.DockPadding.Right = 4;
-			this.leftPn_.DockPadding.Top = 4;
-			this.leftPn_.Location = new System.Drawing.Point(0, 0);
-			this.leftPn_.Name = "leftPn_";
-			this.leftPn_.Size = new System.Drawing.Size(392, 234);
-			this.leftPn_.TabIndex = 2;
+			leftPn_.Controls.Add(resultsLv_);
+			leftPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+			leftPn_.DockPadding.Left = 4;
+			leftPn_.DockPadding.Right = 4;
+			leftPn_.DockPadding.Top = 4;
+			leftPn_.Location = new System.Drawing.Point(0, 0);
+			leftPn_.Name = "leftPn_";
+			leftPn_.Size = new System.Drawing.Size(392, 234);
+			leftPn_.TabIndex = 2;
 			// 
 			// ResultsLV
 			// 
-			this.resultsLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.resultsLv_.FullRowSelect = true;
-			this.resultsLv_.Location = new System.Drawing.Point(4, 4);
-			this.resultsLv_.Name = "resultsLv_";
-			this.resultsLv_.Size = new System.Drawing.Size(384, 230);
-			this.resultsLv_.TabIndex = 0;
-			this.resultsLv_.View = System.Windows.Forms.View.Details;
+			resultsLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			resultsLv_.FullRowSelect = true;
+			resultsLv_.Location = new System.Drawing.Point(4, 4);
+			resultsLv_.Name = "resultsLv_";
+			resultsLv_.Size = new System.Drawing.Size(384, 230);
+			resultsLv_.TabIndex = 0;
+			resultsLv_.View = System.Windows.Forms.View.Details;
 			// 
 			// GetEnabledStateDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.cancelBtn_;
-			this.ClientSize = new System.Drawing.Size(392, 270);
-			this.Controls.Add(this.leftPn_);
-			this.Controls.Add(this.buttonsPn_);
-			this.MaximizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(0, 180);
-			this.Name = "GetEnabledStateDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Enable States";
-			this.buttonsPn_.ResumeLayout(false);
-			this.leftPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = cancelBtn_;
+			ClientSize = new System.Drawing.Size(392, 270);
+			Controls.Add(leftPn_);
+			Controls.Add(buttonsPn_);
+			MaximizeBox = false;
+			MinimumSize = new System.Drawing.Size(0, 180);
+			Name = "GetEnabledStateDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Enable States";
+			buttonsPn_.ResumeLayout(false);
+			leftPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion
@@ -262,10 +262,12 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void AddHeader(ListView listview, string name, bool center)
 		{
-			ColumnHeader header = new ColumnHeader();
-			header.Text = name;
+            ColumnHeader header = new ColumnHeader
+            {
+                Text = name
+            };
 
-			if (center)
+            if (center)
 			{
 				header.TextAlign = HorizontalAlignment.Center;
 			}

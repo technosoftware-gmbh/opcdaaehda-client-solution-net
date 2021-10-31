@@ -69,98 +69,98 @@ namespace Technosoftware.AeSampleClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.acknowledgerLb_ = new System.Windows.Forms.Label();
-			this.acknowledgerTb_ = new System.Windows.Forms.TextBox();
-			this.buttonsPn_ = new System.Windows.Forms.Panel();
-			this.okBtn_ = new System.Windows.Forms.Button();
-			this.cancelBtn_ = new System.Windows.Forms.Button();
-			this.commentLb_ = new System.Windows.Forms.Label();
-			this.commentTb_ = new System.Windows.Forms.TextBox();
-			this.buttonsPn_.SuspendLayout();
-			this.SuspendLayout();
+			acknowledgerLb_ = new System.Windows.Forms.Label();
+			acknowledgerTb_ = new System.Windows.Forms.TextBox();
+			buttonsPn_ = new System.Windows.Forms.Panel();
+			okBtn_ = new System.Windows.Forms.Button();
+			cancelBtn_ = new System.Windows.Forms.Button();
+			commentLb_ = new System.Windows.Forms.Label();
+			commentTb_ = new System.Windows.Forms.TextBox();
+			buttonsPn_.SuspendLayout();
+			SuspendLayout();
 			// 
 			// AcknowledgerLB
 			// 
-			this.acknowledgerLb_.Location = new System.Drawing.Point(4, 4);
-			this.acknowledgerLb_.Name = "acknowledgerLb_";
-			this.acknowledgerLb_.Size = new System.Drawing.Size(100, 20);
-			this.acknowledgerLb_.TabIndex = 1;
-			this.acknowledgerLb_.Text = "Acknowledger ID";
-			this.acknowledgerLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			acknowledgerLb_.Location = new System.Drawing.Point(4, 4);
+			acknowledgerLb_.Name = "acknowledgerLb_";
+			acknowledgerLb_.Size = new System.Drawing.Size(100, 20);
+			acknowledgerLb_.TabIndex = 1;
+			acknowledgerLb_.Text = "Acknowledger ID";
+			acknowledgerLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// AcknowledgerTB
 			// 
-			this.acknowledgerTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			acknowledgerTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.acknowledgerTb_.Location = new System.Drawing.Point(96, 4);
-			this.acknowledgerTb_.Name = "acknowledgerTb_";
-			this.acknowledgerTb_.Size = new System.Drawing.Size(296, 20);
-			this.acknowledgerTb_.TabIndex = 2;
-			this.acknowledgerTb_.Text = "";
+			acknowledgerTb_.Location = new System.Drawing.Point(96, 4);
+			acknowledgerTb_.Name = "acknowledgerTb_";
+			acknowledgerTb_.Size = new System.Drawing.Size(296, 20);
+			acknowledgerTb_.TabIndex = 2;
+			acknowledgerTb_.Text = "";
 			// 
 			// ButtonsPN
 			// 
-			this.buttonsPn_.Controls.Add(this.okBtn_);
-			this.buttonsPn_.Controls.Add(this.cancelBtn_);
-			this.buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPn_.Location = new System.Drawing.Point(0, 50);
-			this.buttonsPn_.Name = "buttonsPn_";
-			this.buttonsPn_.Size = new System.Drawing.Size(400, 36);
-			this.buttonsPn_.TabIndex = 0;
+			buttonsPn_.Controls.Add(okBtn_);
+			buttonsPn_.Controls.Add(cancelBtn_);
+			buttonsPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+			buttonsPn_.Location = new System.Drawing.Point(0, 50);
+			buttonsPn_.Name = "buttonsPn_";
+			buttonsPn_.Size = new System.Drawing.Size(400, 36);
+			buttonsPn_.TabIndex = 0;
 			// 
 			// OkBTN
 			// 
-			this.okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okBtn_.Location = new System.Drawing.Point(4, 8);
-			this.okBtn_.Name = "okBtn_";
-			this.okBtn_.TabIndex = 1;
-			this.okBtn_.Text = "OK";
+			okBtn_.DialogResult = System.Windows.Forms.DialogResult.OK;
+			okBtn_.Location = new System.Drawing.Point(4, 8);
+			okBtn_.Name = "okBtn_";
+			okBtn_.TabIndex = 1;
+			okBtn_.Text = "OK";
 			// 
 			// CancelBTN
 			// 
-			this.cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelBtn_.Location = new System.Drawing.Point(320, 8);
-			this.cancelBtn_.Name = "cancelBtn_";
-			this.cancelBtn_.TabIndex = 0;
-			this.cancelBtn_.Text = "Cancel";
+			cancelBtn_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			cancelBtn_.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			cancelBtn_.Location = new System.Drawing.Point(320, 8);
+			cancelBtn_.Name = "cancelBtn_";
+			cancelBtn_.TabIndex = 0;
+			cancelBtn_.Text = "Cancel";
 			// 
 			// CommentLB
 			// 
-			this.commentLb_.Location = new System.Drawing.Point(4, 28);
-			this.commentLb_.Name = "commentLb_";
-			this.commentLb_.Size = new System.Drawing.Size(84, 20);
-			this.commentLb_.TabIndex = 3;
-			this.commentLb_.Text = "Comment";
-			this.commentLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			commentLb_.Location = new System.Drawing.Point(4, 28);
+			commentLb_.Name = "commentLb_";
+			commentLb_.Size = new System.Drawing.Size(84, 20);
+			commentLb_.TabIndex = 3;
+			commentLb_.Text = "Comment";
+			commentLb_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// CommentTB
 			// 
-			this.commentTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			commentTb_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
-			this.commentTb_.Location = new System.Drawing.Point(96, 28);
-			this.commentTb_.Name = "commentTb_";
-			this.commentTb_.Size = new System.Drawing.Size(296, 20);
-			this.commentTb_.TabIndex = 4;
-			this.commentTb_.Text = "";
+			commentTb_.Location = new System.Drawing.Point(96, 28);
+			commentTb_.Name = "commentTb_";
+			commentTb_.Size = new System.Drawing.Size(296, 20);
+			commentTb_.TabIndex = 4;
+			commentTb_.Text = "";
 			// 
 			// AcknowledgerEditDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.CancelButton = this.cancelBtn_;
-			this.ClientSize = new System.Drawing.Size(400, 86);
-			this.Controls.Add(this.commentTb_);
-			this.Controls.Add(this.commentLb_);
-			this.Controls.Add(this.acknowledgerTb_);
-			this.Controls.Add(this.buttonsPn_);
-			this.Controls.Add(this.acknowledgerLb_);
-			this.MaximizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(312, 0);
-			this.Name = "AcknowledgerEditDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Acknowledge Event";
-			this.buttonsPn_.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			CancelButton = cancelBtn_;
+			ClientSize = new System.Drawing.Size(400, 86);
+			Controls.Add(commentTb_);
+			Controls.Add(commentLb_);
+			Controls.Add(acknowledgerTb_);
+			Controls.Add(buttonsPn_);
+			Controls.Add(acknowledgerLb_);
+			MaximizeBox = false;
+			MinimumSize = new System.Drawing.Size(312, 0);
+			Name = "AcknowledgerEditDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Acknowledge Event";
+			buttonsPn_.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

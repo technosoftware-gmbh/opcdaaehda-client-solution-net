@@ -99,107 +99,107 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.ButtonsPN = new System.Windows.Forms.Panel();
-			this.CancelBTN = new System.Windows.Forms.Button();
-			this.CounterLB = new System.Windows.Forms.Label();
-			this.RemoveBTN = new System.Windows.Forms.Button();
-			this.AddBTN = new System.Windows.Forms.Button();
-			this.OkBTN = new System.Windows.Forms.Button();
-			this.SelectorSB = new System.Windows.Forms.HScrollBar();
-			this.SelectorPN = new System.Windows.Forms.Panel();
-			this.ButtonsPN.SuspendLayout();
-			this.SelectorPN.SuspendLayout();
-			this.SuspendLayout();
+			ButtonsPN = new System.Windows.Forms.Panel();
+			CancelBTN = new System.Windows.Forms.Button();
+			CounterLB = new System.Windows.Forms.Label();
+			RemoveBTN = new System.Windows.Forms.Button();
+			AddBTN = new System.Windows.Forms.Button();
+			OkBTN = new System.Windows.Forms.Button();
+			SelectorSB = new System.Windows.Forms.HScrollBar();
+			SelectorPN = new System.Windows.Forms.Panel();
+			ButtonsPN.SuspendLayout();
+			SelectorPN.SuspendLayout();
+			SuspendLayout();
 			// 
 			// ButtonsPN
 			// 
-			this.ButtonsPN.Controls.AddRange(new System.Windows.Forms.Control[] {
-																					this.CancelBTN,
-																					this.CounterLB,
-																					this.RemoveBTN,
-																					this.AddBTN,
-																					this.OkBTN});
-			this.ButtonsPN.Dock = System.Windows.Forms.DockStyle.Right;
-			this.ButtonsPN.Location = new System.Drawing.Point(296, 0);
-			this.ButtonsPN.Name = "ButtonsPN";
-			this.ButtonsPN.Size = new System.Drawing.Size(88, 277);
-			this.ButtonsPN.TabIndex = 0;
+			ButtonsPN.Controls.AddRange(new System.Windows.Forms.Control[] {
+																					CancelBTN,
+																					CounterLB,
+																					RemoveBTN,
+																					AddBTN,
+																					OkBTN});
+			ButtonsPN.Dock = System.Windows.Forms.DockStyle.Right;
+			ButtonsPN.Location = new System.Drawing.Point(296, 0);
+			ButtonsPN.Name = "ButtonsPN";
+			ButtonsPN.Size = new System.Drawing.Size(88, 277);
+			ButtonsPN.TabIndex = 0;
 			// 
 			// CancelBTN
 			// 
-			this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelBTN.Location = new System.Drawing.Point(8, 40);
-			this.CancelBTN.Name = "CancelBTN";
-			this.CancelBTN.TabIndex = 0;
-			this.CancelBTN.Text = "Cancel";
+			CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			CancelBTN.Location = new System.Drawing.Point(8, 40);
+			CancelBTN.Name = "CancelBTN";
+			CancelBTN.TabIndex = 0;
+			CancelBTN.Text = "Cancel";
 			// 
 			// CounterLB
 			// 
-			this.CounterLB.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.CounterLB.Location = new System.Drawing.Point(0, 261);
-			this.CounterLB.Name = "CounterLB";
-			this.CounterLB.Size = new System.Drawing.Size(88, 16);
-			this.CounterLB.TabIndex = 2;
-			this.CounterLB.Text = "0 of 0";
-			this.CounterLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			CounterLB.Dock = System.Windows.Forms.DockStyle.Bottom;
+			CounterLB.Location = new System.Drawing.Point(0, 261);
+			CounterLB.Name = "CounterLB";
+			CounterLB.Size = new System.Drawing.Size(88, 16);
+			CounterLB.TabIndex = 2;
+			CounterLB.Text = "0 of 0";
+			CounterLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// RemoveBTN
 			// 
-			this.RemoveBTN.Location = new System.Drawing.Point(8, 104);
-			this.RemoveBTN.Name = "RemoveBTN";
-			this.RemoveBTN.TabIndex = 3;
-			this.RemoveBTN.Text = "Remove";
-			this.RemoveBTN.Click += new System.EventHandler(this.RemoveBTN_Click);
+			RemoveBTN.Location = new System.Drawing.Point(8, 104);
+			RemoveBTN.Name = "RemoveBTN";
+			RemoveBTN.TabIndex = 3;
+			RemoveBTN.Text = "Remove";
+			RemoveBTN.Click += new System.EventHandler(RemoveBTN_Click);
 			// 
 			// AddBTN
 			// 
-			this.AddBTN.Location = new System.Drawing.Point(8, 72);
-			this.AddBTN.Name = "AddBTN";
-			this.AddBTN.TabIndex = 4;
-			this.AddBTN.Text = "Add";
-			this.AddBTN.Click += new System.EventHandler(this.AddBTN_Click);
+			AddBTN.Location = new System.Drawing.Point(8, 72);
+			AddBTN.Name = "AddBTN";
+			AddBTN.TabIndex = 4;
+			AddBTN.Text = "Add";
+			AddBTN.Click += new System.EventHandler(AddBTN_Click);
 			// 
 			// OkBTN
 			// 
-			this.OkBTN.Location = new System.Drawing.Point(8, 8);
-			this.OkBTN.Name = "OkBTN";
-			this.OkBTN.TabIndex = 1;
-			this.OkBTN.Text = "OK";
-			this.OkBTN.Click += new System.EventHandler(this.OkBTN_Click);
+			OkBTN.Location = new System.Drawing.Point(8, 8);
+			OkBTN.Name = "OkBTN";
+			OkBTN.TabIndex = 1;
+			OkBTN.Text = "OK";
+			OkBTN.Click += new System.EventHandler(OkBTN_Click);
 			// 
 			// SelectorSB
 			// 
-			this.SelectorSB.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.SelectorSB.LargeChange = 1;
-			this.SelectorSB.Maximum = 1;
-			this.SelectorSB.Name = "SelectorSB";
-			this.SelectorSB.Size = new System.Drawing.Size(296, 16);
-			this.SelectorSB.TabIndex = 0;
-			this.SelectorSB.ValueChanged += new System.EventHandler(this.SelectorSB_ValueChanged);
+			SelectorSB.Dock = System.Windows.Forms.DockStyle.Bottom;
+			SelectorSB.LargeChange = 1;
+			SelectorSB.Maximum = 1;
+			SelectorSB.Name = "SelectorSB";
+			SelectorSB.Size = new System.Drawing.Size(296, 16);
+			SelectorSB.TabIndex = 0;
+			SelectorSB.ValueChanged += new System.EventHandler(SelectorSB_ValueChanged);
 			// 
 			// SelectorPN
 			// 
-			this.SelectorPN.Controls.AddRange(new System.Windows.Forms.Control[] {
-																					 this.SelectorSB});
-			this.SelectorPN.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.SelectorPN.Location = new System.Drawing.Point(0, 261);
-			this.SelectorPN.Name = "SelectorPN";
-			this.SelectorPN.Size = new System.Drawing.Size(296, 16);
-			this.SelectorPN.TabIndex = 1;
+			SelectorPN.Controls.AddRange(new System.Windows.Forms.Control[] {
+																					 SelectorSB});
+			SelectorPN.Dock = System.Windows.Forms.DockStyle.Bottom;
+			SelectorPN.Location = new System.Drawing.Point(0, 261);
+			SelectorPN.Name = "SelectorPN";
+			SelectorPN.Size = new System.Drawing.Size(296, 16);
+			SelectorPN.TabIndex = 1;
 			// 
 			// EditObjectListDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(384, 277);
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
-																		  this.SelectorPN,
-																		  this.ButtonsPN});
-			this.Name = "EditObjectListDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Edit Object";
-			this.ButtonsPN.ResumeLayout(false);
-			this.SelectorPN.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(384, 277);
+			Controls.AddRange(new System.Windows.Forms.Control[] {
+																		  SelectorPN,
+																		  ButtonsPN});
+			Name = "EditObjectListDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Edit Object";
+			ButtonsPN.ResumeLayout(false);
+			SelectorPN.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

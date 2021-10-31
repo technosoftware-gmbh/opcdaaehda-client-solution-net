@@ -25,7 +25,7 @@ using System;
 using System.Collections;
 using System.Runtime.InteropServices;
 using System.Reflection;
-using Technosoftware.DaAeHdaClient;
+
 using Technosoftware.DaAeHdaClient.Da;
 #endregion
 
@@ -539,7 +539,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     if (property.hrErrorID == Result.E_BADRIGHTS) output.Result = new OpcResult(OpcResult.Da.E_WRITEONLY, Result.E_BADRIGHTS);
 
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                 }
                 if (deallocate)

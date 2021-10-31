@@ -50,12 +50,12 @@ namespace scpl
 		public PointPlot( ISequenceAdapter data )
 		{
 			marker_=new Marker();
-			this.Data = data;
+			Data = data;
 		}
 		public PointPlot( ISequenceAdapter data, Marker marker)
 		{
 			marker_=marker;
-			this.Data = data;
+			Data = data;
 		}
 		#endregion
 
@@ -111,7 +111,7 @@ namespace scpl
 			}
 			set
 			{
-				this.label_ = value;
+				label_ = value;
 			}
 		}
 

@@ -47,7 +47,7 @@ namespace scpl
 		public HistogramPlot( ISequenceAdapter data )
 			: base(data)
 		{
-			this.Center = true;
+			Center = true;
 		}
 
 		#region Draw
@@ -56,21 +56,21 @@ namespace scpl
 			base.Draw( g, xAxis, yAxis );
 
 			Pen	p;
-			if (this.pen_ != null)
+			if (pen_ != null)
 			{
-				p = (System.Drawing.Pen)this.pen_;
+				p = (System.Drawing.Pen)pen_;
 			}
 			else
 			{
-				p =	new	Pen(this.color_);
+				p =	new	Pen(color_);
 			}
 
-			for (int i=0; i<this.Data.Count; ++i)
+			for (int i=0; i<Data.Count; ++i)
 			{
 				PointD p1 = Data[i];
 				PointD p2;
 
-				if (i+1 != this.Data.Count)
+				if (i+1 != Data.Count)
 				{
 					p2 = Data[i+1];
 					p2.Y = p1.Y;

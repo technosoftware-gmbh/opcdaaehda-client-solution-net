@@ -54,11 +54,11 @@ namespace scpl
 		public override object Clone()
 		{
 			LogAxis a = new LogAxis();
-			if (this.GetType() != a.GetType())
+			if (GetType() != a.GetType())
 			{
 				throw new System.Exception("Clone not defined in derived type. Help!");
 			}
-			this.DoClone( this, a );
+			DoClone( this, a );
 			return a;
 		}
 		/// <summary>
@@ -126,11 +126,11 @@ namespace scpl
 		{
 			double dOffset = 0;	//this.Offset;
 			double dScale = 1;	//this.Scale;
-			string strFormat = this.NumberFormat;
+			string strFormat = NumberFormat;
 
 			// large ticks X position is in l1
 			// Log values are in the returned arraylist!
-			ArrayList l1 = this.LargeTickPositions;
+			ArrayList l1 = LargeTickPositions;
 
 			PointF offset = new PointF( 0.0f, 0.0f );
 			object bb = null;
@@ -143,7 +143,7 @@ namespace scpl
 					// do google search for "format specifier writeline" for help on this.
 					double dVal = ((double)l1[i] * dScale) + dOffset;
 					label.AppendFormat(strFormat, dVal);
-					ArrayList r = this.DrawTick( g, (double)l1[i], this.LargeTickSize, label.ToString(),
+					ArrayList r = DrawTick( g, (double)l1[i], LargeTickSize, label.ToString(),
 						new Point(0,0), physicalMin, physicalMax );
 
 					// determining largest label offset.
@@ -169,21 +169,21 @@ namespace scpl
 			else
 			{
 				// just get the axis bounding box)
-				PointF dir=this.AxisNormVector(physicalMin,physicalMax);
+				PointF dir=AxisNormVector(physicalMin,physicalMax);
 				RectangleF rr=new RectangleF( physicalMin.X,
 					(physicalMax.X-physicalMin.X)*dir.X,
 					physicalMin.Y,
 					(physicalMax.Y-physicalMin.Y)*dir.Y);
 				bb=rr;
 			}
-			ArrayList stp = this.SmallTickPositions;
+			ArrayList stp = SmallTickPositions;
 
 			// missed protection for zero ticks
 			if(stp.Count>0)
 			{
 				for (int i=0; i<stp.Count; ++i)
 				{
-					ArrayList r = this.DrawTick( g, (double)stp[i], this.SmallTickSize,
+					ArrayList r = DrawTick( g, (double)stp[i], SmallTickSize,
 						"", new Point(0,0), physicalMin, physicalMax );
 					// ignore r for now - assume bb unchanged by small tick bounds.
 				}
@@ -207,11 +207,11 @@ namespace scpl
 			{
 				ArrayList toRet = new ArrayList();
 
-				ArrayList l1 = this.LargeTickPositions;
+				ArrayList l1 = LargeTickPositions;
 
 				// retrieve the spacing of the big ticks. Remember this is decades!
-				double bigTickSpacing = this.DetermineTickSpacing();
-				int nSmall = this.DetermineNumberSmallTicks( bigTickSpacing );
+				double bigTickSpacing = DetermineTickSpacing();
+				int nSmall = DetermineNumberSmallTicks( bigTickSpacing );
 
 				// now we have to set the ticks
 				// let us start with the easy case where the major tick distance
@@ -223,7 +223,7 @@ namespace scpl
 						// deal with the smallticks preceding the
 						// first big tick
 						double pos1 = (double)l1[0];
-						while (pos1> this.WorldMin)
+						while (pos1> WorldMin)
 						{
 							pos1=pos1/10.0F;
 							toRet.Add(pos1);
@@ -257,7 +257,7 @@ namespace scpl
 						for (int i=0; i<m.Length; i++)
 						{
 							double pos=pos1*m[i];
-							if (pos>this.WorldMin)
+							if (pos>WorldMin)
 							{
 								toRet.Add(pos);
 							}
@@ -286,7 +286,7 @@ namespace scpl
 						for (int i=0; i<m.Length; i++)
 						{
 							double pos=pos1*m[i];
-							if (pos>this.WorldMin && pos< this.WorldMax )
+							if (pos>WorldMin && pos< WorldMax )
 							{
 								toRet.Add(pos);
 							}
@@ -344,13 +344,13 @@ namespace scpl
 				}
 
 				ArrayList res = new ArrayList();
-				double roundTickDist = this.DetermineTickSpacing( );
+				double roundTickDist = DetermineTickSpacing( );
 
 				// now determine first tick position.
 				double first = 0.0f;
 
 				// if the user hasn't specified a large tick position.
-				if (this.largeTickValue_ == null)
+				if (largeTickValue_ == null)
 				{
 					if( WorldMin > 0.0 )
 					{
@@ -368,7 +368,7 @@ namespace scpl
 					// the user has specified one place they would like a large tick placed.
 				else
 				{
-					first = Math.Log10(this.LargeTickValue);
+					first = Math.Log10(LargeTickValue);
 
 					// TODO: check here not too much different.
 					// could result in long loop.
@@ -411,14 +411,14 @@ namespace scpl
 			}
 
 			// if largeTickStep has been set, it is used
-			if (this.largeTickStep_!= null)
+			if (largeTickStep_!= null)
 			{
-				if ( (double)this.largeTickStep_ <= 0.0f )
+				if ( (double)largeTickStep_ <= 0.0f )
 				{
 					throw new System.Exception( "can't have negative tick step - reverse WorldMin WorldMax instead." );
 				}
 
-				return (double)this.largeTickStep_;
+				return (double)largeTickStep_;
 			}
 
 			double MagRange = (double)(Math.Floor(Math.Log10(WorldMax)) - Math.Floor(Math.Log10(WorldMin))+1.0);
@@ -449,9 +449,9 @@ namespace scpl
 		{
 			// if the big ticks is more than one decade, the
 			// small ticks are every decade, I don't let the user set it.
-			if (this.numberSmallTicks_ != null && bigTickDist==1.0F)
+			if (numberSmallTicks_ != null && bigTickDist==1.0F)
 			{
-				return (int)this.numberSmallTicks_+1;
+				return (int)numberSmallTicks_+1;
 			}
 
 			// if we are plotting every decade, we have to
@@ -547,17 +547,17 @@ namespace scpl
 
 			// determine offset from start point.
 			// examine axis normalized direction vector
-			PointF dir=this.AxisNormVector(axisPhysMin,axisPhysMax);
+			PointF dir=AxisNormVector(axisPhysMin,axisPhysMax);
 
 			// rotate clockwise by angle radians.
-			double x1 = Math.Cos( -this.TicksAngle ) * dir.X + Math.Sin( -this.TicksAngle ) * dir.Y;
-			double y1 = -Math.Sin( -this.TicksAngle ) * dir.X + Math.Cos( -this.TicksAngle ) * dir.Y;
+			double x1 = Math.Cos( -TicksAngle ) * dir.X + Math.Sin( -TicksAngle ) * dir.Y;
+			double y1 = -Math.Sin( -TicksAngle ) * dir.X + Math.Cos( -TicksAngle ) * dir.Y;
 
 			// scaling tick.
-			dir = new PointF( (float)(this.TickScale * size * x1), (float)(this.TickScale * size * y1) );
+			dir = new PointF( (float)(TickScale * size * x1), (float)(TickScale * size * y1) );
 
 			// draw it!
-			g.DrawLine( this.LinePen, s.X, s.Y, s.X + dir.X, s.Y + dir.Y );
+			g.DrawLine( LinePen, s.X, s.Y, s.X + dir.X, s.Y + dir.Y );
 
 			// calculate bounds.
 			double minx = Math.Min(s.X,s.X+dir.X);
@@ -570,14 +570,14 @@ namespace scpl
 			// now draw associated text.
 			if (text != "" && !HideTickText )
 			{
-				double lHt = g.MeasureString( text, FontScaler.scaleFont(this.TickTextFont ,this.FontScale) ).Height;
-				double lWd = g.MeasureString( text, FontScaler.scaleFont(this.TickTextFont ,this.FontScale) ).Width;
+				double lHt = g.MeasureString( text, FontScaler.scaleFont(TickTextFont ,FontScale) ).Height;
+				double lWd = g.MeasureString( text, FontScaler.scaleFont(TickTextFont ,FontScale) ).Width;
 
 				double textCenterX;
 				double textCenterY;
 
 				// if text is at pointy end of tick.
-				if (!this.TickTextNextToAxis)
+				if (!TickTextNextToAxis)
 				{
 					// offset due to tick.
 					textCenterX = s.X + dir.X*1.2f;
@@ -618,8 +618,8 @@ namespace scpl
 
 				StringFormat drawFormat = new StringFormat();
 				drawFormat.Alignment = StringAlignment.Center;
-				g.DrawString( text, FontScaler.scaleFont(this.TickTextFont,this.FontScale),
-					this.TickTextBrush , drawRect, drawFormat);
+				g.DrawString( text, FontScaler.scaleFont(TickTextFont,FontScale),
+					TickTextBrush , drawRect, drawFormat);
 
 				textCenterX -= s.X;
 				textCenterY -= s.Y;
@@ -672,7 +672,7 @@ namespace scpl
 			double t = base.PhysicalToWorld( p, physicalMin, physicalMax, clip );
 
 			// now reconstruct phys dist prop along this assuming linear scale as base method did.
-			double v = (t-this.WorldMin) / (this.WorldMax-this.WorldMin);
+			double v = (t-WorldMin) / (WorldMax-WorldMin);
 
 			double ret = WorldMin*Math.Pow(WorldMax/WorldMin,v);
 

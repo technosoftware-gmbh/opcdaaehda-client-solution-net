@@ -75,75 +75,75 @@ namespace SampleClients.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.MainPN = new System.Windows.Forms.Panel();
-			this.BrowseCTRL = new BrowseTreeCtrl();
-			this.ButtonsPN = new System.Windows.Forms.Panel();
-			this.CancelBTN = new System.Windows.Forms.Button();
-			this.OkBTN = new System.Windows.Forms.Button();
-			this.MainPN.SuspendLayout();
-			this.ButtonsPN.SuspendLayout();
-			this.SuspendLayout();
+			MainPN = new System.Windows.Forms.Panel();
+			BrowseCTRL = new BrowseTreeCtrl();
+			ButtonsPN = new System.Windows.Forms.Panel();
+			CancelBTN = new System.Windows.Forms.Button();
+			OkBTN = new System.Windows.Forms.Button();
+			MainPN.SuspendLayout();
+			ButtonsPN.SuspendLayout();
+			SuspendLayout();
 			// 
 			// MainPN
 			// 
-			this.MainPN.Controls.Add(this.BrowseCTRL);
-			this.MainPN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.MainPN.Location = new System.Drawing.Point(0, 0);
-			this.MainPN.Name = "MainPN";
-            this.MainPN.Padding = new System.Windows.Forms.Padding(4, 4, 0, 0);
-			this.MainPN.Size = new System.Drawing.Size(792, 300);
-			this.MainPN.TabIndex = 6;
+			MainPN.Controls.Add(BrowseCTRL);
+			MainPN.Dock = System.Windows.Forms.DockStyle.Fill;
+			MainPN.Location = new System.Drawing.Point(0, 0);
+			MainPN.Name = "MainPN";
+            MainPN.Padding = new System.Windows.Forms.Padding(4, 4, 0, 0);
+			MainPN.Size = new System.Drawing.Size(792, 300);
+			MainPN.TabIndex = 6;
 			// 
 			// BrowseCTRL
 			// 
-			this.BrowseCTRL.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.BrowseCTRL.Location = new System.Drawing.Point(4, 4);
-			this.BrowseCTRL.Name = "BrowseCTRL";
-			this.BrowseCTRL.Size = new System.Drawing.Size(788, 296);
-			this.BrowseCTRL.TabIndex = 0;
+			BrowseCTRL.Dock = System.Windows.Forms.DockStyle.Fill;
+			BrowseCTRL.Location = new System.Drawing.Point(4, 4);
+			BrowseCTRL.Name = "BrowseCTRL";
+			BrowseCTRL.Size = new System.Drawing.Size(788, 296);
+			BrowseCTRL.TabIndex = 0;
 			// 
 			// ButtonsPN
 			// 
-			this.ButtonsPN.Controls.Add(this.CancelBTN);
-			this.ButtonsPN.Controls.Add(this.OkBTN);
-			this.ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.ButtonsPN.Location = new System.Drawing.Point(0, 300);
-			this.ButtonsPN.Name = "ButtonsPN";
-			this.ButtonsPN.Size = new System.Drawing.Size(792, 36);
-			this.ButtonsPN.TabIndex = 7;
+			ButtonsPN.Controls.Add(CancelBTN);
+			ButtonsPN.Controls.Add(OkBTN);
+			ButtonsPN.Dock = System.Windows.Forms.DockStyle.Bottom;
+			ButtonsPN.Location = new System.Drawing.Point(0, 300);
+			ButtonsPN.Name = "ButtonsPN";
+			ButtonsPN.Size = new System.Drawing.Size(792, 36);
+			ButtonsPN.TabIndex = 7;
 			// 
 			// CancelBTN
 			// 
-			this.CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelBTN.Location = new System.Drawing.Point(712, 8);
-			this.CancelBTN.Name = "CancelBTN";
-            this.CancelBTN.Size = new System.Drawing.Size(75, 23);
-			this.CancelBTN.TabIndex = 0;
-			this.CancelBTN.Text = "Cancel";
+			CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			CancelBTN.Location = new System.Drawing.Point(712, 8);
+			CancelBTN.Name = "CancelBTN";
+            CancelBTN.Size = new System.Drawing.Size(75, 23);
+			CancelBTN.TabIndex = 0;
+			CancelBTN.Text = "Cancel";
 			// 
 			// OkBTN
 			// 
-			this.OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.OkBTN.Location = new System.Drawing.Point(631, 8);
-			this.OkBTN.Name = "OkBTN";
-            this.OkBTN.Size = new System.Drawing.Size(75, 23);
-			this.OkBTN.TabIndex = 1;
-			this.OkBTN.Text = "OK";
+			OkBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			OkBTN.DialogResult = System.Windows.Forms.DialogResult.OK;
+            OkBTN.Location = new System.Drawing.Point(631, 8);
+			OkBTN.Name = "OkBTN";
+            OkBTN.Size = new System.Drawing.Size(75, 23);
+			OkBTN.TabIndex = 1;
+			OkBTN.Text = "OK";
 			// 
 			// BrowseItemsDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(792, 336);
-			this.Controls.Add(this.MainPN);
-			this.Controls.Add(this.ButtonsPN);
-			this.Name = "BrowseItemsDlg";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Browse Items";
-			this.MainPN.ResumeLayout(false);
-			this.ButtonsPN.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+			ClientSize = new System.Drawing.Size(792, 336);
+			Controls.Add(MainPN);
+			Controls.Add(ButtonsPN);
+			Name = "BrowseItemsDlg";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			Text = "Browse Items";
+			MainPN.ResumeLayout(false);
+			ButtonsPN.ResumeLayout(false);
+			ResumeLayout(false);
 
 		}
 		#endregion

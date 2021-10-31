@@ -75,68 +75,68 @@ namespace SampleClients.Hda.Common
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.attributesLv_ = new System.Windows.Forms.ListView();
-			this.popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
-			this.viewMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.separator01_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.addMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-			this.SuspendLayout();
+			attributesLv_ = new System.Windows.Forms.ListView();
+			popupMenu_ = new System.Windows.Forms.ContextMenuStrip();
+			viewMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			separator01_ = new System.Windows.Forms.ToolStripMenuItem();
+			addMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			removeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+			SuspendLayout();
 			// 
 			// AttributesLV
 			// 
-			this.attributesLv_.CheckBoxes = true;
-			this.attributesLv_.ContextMenuStrip = this.popupMenu_;
-			this.attributesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.attributesLv_.FullRowSelect = true;
-			this.attributesLv_.Location = new System.Drawing.Point(0, 0);
-			this.attributesLv_.Name = "attributesLv_";
-			this.attributesLv_.Size = new System.Drawing.Size(432, 272);
-			this.attributesLv_.TabIndex = 0;
-			this.attributesLv_.View = System.Windows.Forms.View.Details;
-			this.attributesLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AttributesLV_MouseDown);
-			this.attributesLv_.DoubleClick += new System.EventHandler(this.AttributesLV_DoubleClick);
-			this.attributesLv_.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.AttributesLV_ColumnClick);
-			this.attributesLv_.SelectedIndexChanged += new System.EventHandler(this.AttributesLV_SelectedIndexChanged);
+			attributesLv_.CheckBoxes = true;
+			attributesLv_.ContextMenuStrip = popupMenu_;
+			attributesLv_.Dock = System.Windows.Forms.DockStyle.Fill;
+			attributesLv_.FullRowSelect = true;
+			attributesLv_.Location = new System.Drawing.Point(0, 0);
+			attributesLv_.Name = "attributesLv_";
+			attributesLv_.Size = new System.Drawing.Size(432, 272);
+			attributesLv_.TabIndex = 0;
+			attributesLv_.View = System.Windows.Forms.View.Details;
+			attributesLv_.MouseDown += new System.Windows.Forms.MouseEventHandler(AttributesLV_MouseDown);
+			attributesLv_.DoubleClick += new System.EventHandler(AttributesLV_DoubleClick);
+			attributesLv_.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(AttributesLV_ColumnClick);
+			attributesLv_.SelectedIndexChanged += new System.EventHandler(AttributesLV_SelectedIndexChanged);
 			// 
 			// PopupMenu
 			// 
-			this.popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
-																					  this.viewMi_,
-																					  this.separator01_,
-																					  this.addMi_,
-																					  this.removeMi_});
+			popupMenu_.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+																					  viewMi_,
+																					  separator01_,
+																					  addMi_,
+																					  removeMi_});
 			// 
 			// ViewMI
 			// 
-			this.viewMi_.ImageIndex = 0;
-			this.viewMi_.Text = "View...";
-			this.viewMi_.Click += new System.EventHandler(this.ViewMI_Click);
+			viewMi_.ImageIndex = 0;
+			viewMi_.Text = "View...";
+			viewMi_.Click += new System.EventHandler(ViewMI_Click);
 			// 
 			// Separator01
 			// 
-			this.separator01_.ImageIndex = 1;
-			this.separator01_.Text = "-";
+			separator01_.ImageIndex = 1;
+			separator01_.Text = "-";
 			// 
 			// AddMI
 			// 
-			this.addMi_.ImageIndex = 2;
-			this.addMi_.Text = "Add...";
-			this.addMi_.Click += new System.EventHandler(this.AddMI_Click);
+			addMi_.ImageIndex = 2;
+			addMi_.Text = "Add...";
+			addMi_.Click += new System.EventHandler(AddMI_Click);
 			// 
 			// RemoveMI
 			// 
-			this.removeMi_.ImageIndex = 3;
-			this.removeMi_.Text = "Remove...";
-			this.removeMi_.Click += new System.EventHandler(this.RemoveMI_Click);
+			removeMi_.ImageIndex = 3;
+			removeMi_.Text = "Remove...";
+			removeMi_.Click += new System.EventHandler(RemoveMI_Click);
 			// 
 			// AttributesSelectCtrl
 			// 
-			this.AllowDrop = true;
-			this.Controls.Add(this.attributesLv_);
-			this.Name = "AttributesSelectCtrl";
-			this.Size = new System.Drawing.Size(432, 272);
-			this.ResumeLayout(false);
+			AllowDrop = true;
+			Controls.Add(attributesLv_);
+			Name = "AttributesSelectCtrl";
+			Size = new System.Drawing.Size(432, 272);
+			ResumeLayout(false);
 
 		}
 		#endregion
