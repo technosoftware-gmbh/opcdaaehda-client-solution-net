@@ -157,7 +157,17 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Indicates whether the evaluation period and a restart is required or not.
         /// </summary>
-        public static bool IsExpired => !Check();
+        public static bool IsExpired
+        {
+            get
+            {
+                if ((LicensedProduct & ProductLicense.Expired) == ProductLicense.Expired)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
 
         /// <summary>
         /// Returns the Version of the product.
@@ -324,7 +334,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         /// <returns>True if valid; false otherwise</returns>
         /// <exception cref="BadInternalErrorException"></exception>
-        internal static void ValidateFeatures(ProductFeature requiredProductFeature = ProductFeature.None)
+        internal static void ValidateFeatures(ProductFeature requiredProductFeature = ProductFeature.None, bool silent = false)
         {
             var valid = CheckLicense();
 
@@ -334,18 +344,18 @@ namespace Technosoftware.DaAeHdaClient
                 Utils.Trace("Used Product = {0}, Features = {1}, Version = {2}.", Product, LicensedFeatures, Version);
             }
 
-            if (!valid && !IsLicensed)
+            if (!valid && !IsLicensed && !silent)
             {
                 throw new BadInternalErrorException("Evaluation time expired! You need to restart the application.");
             }
-            if (!valid)
+            if (!valid && !silent)
             {
                 throw new BadInternalErrorException("License required! You can't use this feature.");
             }
 
             if (requiredProductFeature != ProductFeature.None && LicensedFeatures != ProductFeature.AllFeatures)
             {
-                if ((requiredProductFeature & LicensedFeatures) != requiredProductFeature)
+                if (((requiredProductFeature & LicensedFeatures) != requiredProductFeature) && !silent)
                 {
                     var message =
                         $"Feature {requiredProductFeature} required but only {LicensedFeatures} licensed! You can't use this feature.";

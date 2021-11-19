@@ -56,9 +56,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// <summary>
         /// This must be called explicitly by clients to ensure the COM server is released.
         /// </summary>
-#pragma warning disable CS0108 // 'Server.Dispose()' hides inherited member 'Server.Dispose()'. Use the new keyword if hiding was intended.
         public void Dispose()
-#pragma warning restore CS0108 // 'Server.Dispose()' hides inherited member 'Server.Dispose()'. Use the new keyword if hiding was intended.
         {
             lock (this)
             {
@@ -916,9 +914,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
                 properties[ii].ID = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetPropertyID(propertyIDs[ii]);
                 properties[ii].Description = descriptions[ii];
-#pragma warning disable CS0618 // 'VarEnum' is obsolete: 'Marshalling VARIANTs may be unavailable in future releases.'
                 properties[ii].DataType = Utilities.Interop.GetType((VarEnum)datatypes[ii]);
-#pragma warning restore CS0618 // 'VarEnum' is obsolete: 'Marshalling VARIANTs may be unavailable in future releases.'
                 properties[ii].ItemName = null;
                 properties[ii].ItemPath = null;
                 properties[ii].Result = OpcResult.S_OK;
@@ -1243,9 +1239,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 browser.BrowseOPCItemIDs(
                     browseType,
                     (filters.ElementNameFilter != null) ? filters.ElementNameFilter : "",
-#pragma warning disable CS0618 // 'VarEnum' is obsolete: 'Marshalling VARIANTs may be unavailable in future releases.'
                     (short)VarEnum.VT_EMPTY,
-#pragma warning restore CS0618 // 'VarEnum' is obsolete: 'Marshalling VARIANTs may be unavailable in future releases.'
                     0,
                     out enumerator);
 
@@ -1355,9 +1349,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 definition.szAccessPath = null;
                 definition.hClient = 0;
                 definition.bActive = 0;
-#pragma warning disable CS0618 // 'VarEnum' is obsolete: 'Marshalling VARIANTs may be unavailable in future releases.'
                 definition.vtRequestedDataType = (short)VarEnum.VT_EMPTY;
-#pragma warning restore CS0618 // 'VarEnum' is obsolete: 'Marshalling VARIANTs may be unavailable in future releases.'
                 definition.dwBlobSize = 0;
                 definition.pBlob = IntPtr.Zero;
 

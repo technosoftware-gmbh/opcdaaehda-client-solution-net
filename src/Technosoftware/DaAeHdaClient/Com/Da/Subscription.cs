@@ -2331,6 +2331,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 OpcRcw.Da.FILETIME[] pftTimeStamps,
                 int[] pErrors)
             {
+                LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess, true);
                 try
                 {
                     Request request = null;
@@ -2370,8 +2371,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                         if (_dataChangedEvent != null)
                         {
-                            // invoke the callback.
-                            _dataChangedEvent(_handle, (request != null) ? request.Handle : null, values);
+                            if (!LicenseHandler.IsExpired)
+                            {
+                                // invoke the callback.
+                                _dataChangedEvent(_handle, (request != null) ? request.Handle : null, values);
+                            }
                         }
                     }
                 }

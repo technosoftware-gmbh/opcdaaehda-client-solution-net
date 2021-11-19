@@ -525,6 +525,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 int dwCount,
                 ONEVENTSTRUCT[] pEvents)
             {
+                LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions, true);
                 try
                 {
                     lock (this)
@@ -540,8 +541,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                             notification.ClientHandle = clientHandle_;
                         }
 
-                        // invoke the callback.
-                        DataChangedEventHandler?.Invoke(notifications, bRefresh != 0, bLastRefresh != 0);
+                        if (!LicenseHandler.IsExpired)
+                        {
+                            // invoke the callback.
+                            DataChangedEventHandler?.Invoke(notifications, bRefresh != 0, bLastRefresh != 0);
+                        }
                     }
                 }
                 catch (Exception e)
