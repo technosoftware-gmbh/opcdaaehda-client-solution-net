@@ -21,7 +21,6 @@ using System.Collections;
 using System.IO;
 using System.Net;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text.Json;
 using System.Windows.Forms;
 
 using SampleClients.Common;
