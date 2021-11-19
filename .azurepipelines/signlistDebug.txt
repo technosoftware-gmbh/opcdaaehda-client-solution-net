@@ -1,5 +1,0 @@
-src\Technosoftware\DaAeHdaClient\bin\Debug\net5.0-windows\Technosoftware.DaAeHdaClient.dll
-src\Technosoftware\DaAeHdaClient\bin\Debug\net48\Technosoftware.DaAeHdaClient.dll
-src\Technosoftware\DaAeHdaClient\bin\Debug\net462\Technosoftware.DaAeHdaClient.dll
-src\Technosoftware\DaAeHdaClient\bin\Debug\net472\Technosoftware.DaAeHdaClient.dll
-src\Technosoftware\DaAeHdaClient\bin\Debug\netstandard2.1\Technosoftware.DaAeHdaClient.dll
