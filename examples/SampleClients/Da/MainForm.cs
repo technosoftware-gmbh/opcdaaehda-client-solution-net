@@ -29,6 +29,8 @@ using Technosoftware.DaAeHdaClient;
 using Technosoftware.DaAeHdaClient.Da;
 using Technosoftware.DaAeHdaClient.Cpx;
 using SampleClients.Common;
+
+using Technosoftware.DaAeHdaClient.Utilities;
 #endregion
 
 namespace SampleClients.Da
@@ -87,7 +89,7 @@ namespace SampleClients.Da
 		{
             try
 			{
-                //ConfigUtils.EnableTrace(ConfigUtils.GetLogFileDirectory(), "SampleClients.Da.log.txt");
+                ConfigUtils.EnableTrace(ConfigUtils.GetLogFileDirectory(), "SampleClients.Da.log.txt");
 
                 Application.Run(new MainForm());
 			}

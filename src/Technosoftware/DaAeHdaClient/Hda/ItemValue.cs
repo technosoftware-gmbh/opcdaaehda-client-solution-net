@@ -82,7 +82,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// </summary>
         public System.Runtime.InteropServices.VarEnum VarType
         {
-            get => DaAeHdaClient.Interop.GetType(Value.GetType());
+            get => Utilities.Interop.GetType(Value.GetType());
             set
             {
                 if (!Enum.IsDefined(typeof(VarEnum), value))

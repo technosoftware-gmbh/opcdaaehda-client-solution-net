@@ -25,6 +25,7 @@ using System.Security;
 using System.Security.Permissions;
 using Technosoftware.DaAeHdaClient;
 using Technosoftware.DaAeHdaClient.Ae;
+using Technosoftware.DaAeHdaClient.Utilities;
 using SampleClients.Common;
 using Technosoftware.AeSampleClient;
 
@@ -83,7 +84,7 @@ namespace SampleClients.Ae
         {
             try
             {
-                //ConfigUtils.EnableTrace(ConfigUtils.GetLogFileDirectory(), "SampleClients.Ae.log.txt");
+                ConfigUtils.EnableTrace(ConfigUtils.GetLogFileDirectory(), "SampleClients.Ae.log.txt");
 
                 Application.Run(new MainForm());
             }

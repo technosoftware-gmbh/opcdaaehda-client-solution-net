@@ -15,6 +15,7 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
+
 using System;
 using System.Collections;
 using System.IO;
@@ -30,8 +31,10 @@ using SampleClients.Hda.Trend;
 
 using Technosoftware.DaAeHdaClient;
 using Technosoftware.DaAeHdaClient.Hda;
+using Technosoftware.DaAeHdaClient.Utilities;
 
 using BrowseItemsDlg = SampleClients.Hda.Server.BrowseItemsDlg;
+
 #endregion
 
 namespace SampleClients.Hda
@@ -83,7 +86,7 @@ namespace SampleClients.Hda
 		{
 			try
 			{
-                //ConfigUtils.EnableTrace(ConfigUtils.GetLogFileDirectory(), "SampleClients.Hda.log.txt");
+                ConfigUtils.EnableTrace(ConfigUtils.GetLogFileDirectory(), "SampleClients.Hda.log.txt");
 
                 Application.Run(new MainForm());
 			}
@@ -102,7 +105,7 @@ namespace SampleClients.Hda
 
                         Icon = ClientUtils.GetAppIcon();
 
-			//Technosoftware.DaAeHdaClient.DaAeHdaClient.Interop.PreserveUTC = true;
+			//Technosoftware.DaAeHdaClient.Utilities.Interop.PreserveUTC = true;
  	
 #if (DEBUG)
 

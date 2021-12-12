@@ -2759,7 +2759,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         public static void TraceComError(Exception e, string format, params object[] args)
         {
-            string message = Utils.Format(format, args);
+            string message = Utilities.Utils.Format(format, args);
 
             int code = Marshal.GetHRForException(e);
             

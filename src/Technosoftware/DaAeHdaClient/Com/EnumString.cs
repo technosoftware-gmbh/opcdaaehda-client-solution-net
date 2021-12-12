@@ -51,7 +51,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         public void Dispose()
         {
-            DaAeHdaClient.Interop.ReleaseServer(m_enumerator);
+            Utilities.Interop.ReleaseServer(m_enumerator);
             m_enumerator = null;
         }
 

@@ -67,7 +67,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                 }
                 try
                 {
-                    DaAeHdaClient.Interop.ReleaseServer(server_);
+                    Utilities.Interop.ReleaseServer(server_);
                 }
                 catch
                 {

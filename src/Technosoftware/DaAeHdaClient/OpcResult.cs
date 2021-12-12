@@ -253,7 +253,7 @@ namespace Technosoftware.DaAeHdaClient
                     break;
 
                 default:
-                    message_ = DaAeHdaClient.Interop.GetSystemMessage(code_, DaAeHdaClient.Interop.LOCALE_SYSTEM_DEFAULT) ??
+                    message_ = Utilities.Interop.GetSystemMessage(code_, Utilities.Interop.LOCALE_SYSTEM_DEFAULT) ??
                                $"Server error 0x{code_,0:X}";
                     break;
             }
