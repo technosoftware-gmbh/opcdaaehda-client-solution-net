@@ -30,7 +30,7 @@ using Technosoftware.DaAeHdaClient.Da;
 #pragma warning disable 618
 #endregion
 
-namespace Technosoftware.DaAeHdaClient
+namespace Technosoftware.DaAeHdaClient.Utilities
 {
     /// <summary>
     /// Exposes WIN32 and COM API functions.

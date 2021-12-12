@@ -324,7 +324,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     results[ii].QualitySpecified = true;
                     results[ii].Timestamp = timestamps[ii];
                     results[ii].TimestampSpecified = timestamps[ii] != DateTime.MinValue;
-                    results[ii].Result = DaAeHdaClient.Interop.GetResultId(errors[ii]);
+                    results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
                     results[ii].DiagnosticInfo = null;
 
                     // convert COM code to unified DA code.
@@ -347,11 +347,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                             if (e.GetType() == typeof(OverflowException))
                             {
-                                results[ii].Result = DaAeHdaClient.Interop.GetResultId(Result.E_RANGE);
+                                results[ii].Result = Utilities.Interop.GetResultId(Result.E_RANGE);
                             }
                             else
                             {
-                                results[ii].Result = DaAeHdaClient.Interop.GetResultId(Result.E_BADTYPE);
+                                results[ii].Result = Utilities.Interop.GetResultId(Result.E_BADTYPE);
                             }
                         }
                     }
@@ -423,7 +423,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // unmarshal results.
-                int[] errors = DaAeHdaClient.Interop.GetInt32s(ref pErrors, count, true);
+                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, count, true);
 
                 // construct result array.
                 OpcItemResult[] results = new OpcItemResult[count];
@@ -433,7 +433,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     results[ii] = new OpcItemResult(items[ii]);
 
                     results[ii].ServerHandle = null;
-                    results[ii].Result = DaAeHdaClient.Interop.GetResultId(errors[ii]);
+                    results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
                     results[ii].DiagnosticInfo = null;
 
                     // convert COM code to unified DA code.
@@ -496,7 +496,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 catch (Exception e)
                 {
                     ComCallError(methodName, e);
-                    throw DaAeHdaClient.Interop.CreateException(methodName, e);
+                    throw Utilities.Interop.CreateException(methodName, e);
                 }
                 finally
                 {
@@ -590,7 +590,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 catch (Exception e)
                 {
                     ComCallError(methodName, e);
-                    throw DaAeHdaClient.Interop.CreateException(methodName, e);
+                    throw Utilities.Interop.CreateException(methodName, e);
                 }
                 finally
                 {

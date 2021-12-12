@@ -25,6 +25,7 @@ using System;
 using System.Collections;
 
 using OpcRcw.Comn;
+using Technosoftware.DaAeHdaClient.Utilities;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Com
@@ -201,7 +202,7 @@ namespace Technosoftware.DaAeHdaClient.Com
             }
             catch (Exception e)
             {
-                throw Technosoftware.DaAeHdaClient.Interop.CreateException("IOPCCommon.SetClientName", e);
+                throw Utilities.Interop.CreateException("IOPCCommon.SetClientName", e);
             }
         }
 
@@ -257,7 +258,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Interop.CreateException("IOPCCommon.GetLocaleID", e);
+                    throw Interop.CreateException("IOPCCommon.GetLocaleID", e);
                 }
             }
         }
@@ -283,7 +284,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                 {
                     if (lcid != 0)
                     {
-                        throw Technosoftware.DaAeHdaClient.Interop.CreateException("IOPCCommon.SetLocaleID", e);
+                        throw Interop.CreateException("IOPCCommon.SetLocaleID", e);
                     }
 
                     // use LOCALE_SYSTEM_DEFAULT if the server does not support the Neutral LCID.
@@ -321,7 +322,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 
                         foreach (int localeID in localeIDs)
                         {
-                            try { locales.Add(Technosoftware.DaAeHdaClient.Interop.GetLocale(localeID)); }
+                            try { locales.Add(Technosoftware.DaAeHdaClient.Utilities.Interop.GetLocale(localeID)); }
                             catch { }
                         }
 
@@ -332,7 +333,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                 }
                 catch
                 {
-                    //throw Technosoftware.DaAeHdaClient.Interop.CreateException("IOPCCommon.QueryAvailableLocaleIDs", e);
+                    //throw Interop.CreateException("IOPCCommon.QueryAvailableLocaleIDs", e);
                     return null;
                 }
             }
@@ -370,7 +371,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                 }
                 catch (Exception e)
                 {
-                    throw Technosoftware.DaAeHdaClient.Interop.CreateException("IOPCServer.GetErrorString", e);
+                    throw Utilities.Interop.CreateException("IOPCServer.GetErrorString", e);
                 }
             }
         }
