@@ -25,7 +25,6 @@ using System;
 using System.Collections;
 using System.Runtime.InteropServices;
 using Technosoftware.DaAeHdaClient.Da;
-using Technosoftware.DaAeHdaClient.Utilities;
 using OpcRcw.Da;
 #endregion
 

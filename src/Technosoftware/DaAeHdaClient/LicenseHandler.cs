@@ -13,11 +13,7 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-
 using System;
-
-using Technosoftware.DaAeHdaClient.Utilities;
-
 #endregion
 
 namespace Technosoftware.DaAeHdaClient

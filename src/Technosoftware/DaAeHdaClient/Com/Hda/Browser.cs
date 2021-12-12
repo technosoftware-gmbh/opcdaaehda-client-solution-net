@@ -78,7 +78,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             lock (this)
             {
                 m_server = null;
-                Utilities.Interop.ReleaseServer(m_browser);
+                DaAeHdaClient.Interop.ReleaseServer(m_browser);
                 m_browser = null;
             }
         }
@@ -151,7 +151,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
                 catch (Exception e)
                 {
-                    throw Utilities.Interop.CreateException("IOPCHDA_Browser.ChangeBrowsePosition", e);
+                    throw DaAeHdaClient.Interop.CreateException("IOPCHDA_Browser.ChangeBrowsePosition", e);
                 }
 
                 // browse for branches
@@ -245,7 +245,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
                     catch (Exception e)
                     {
-                        throw Utilities.Interop.CreateException("IOPCHDA_Browser.ChangeBrowsePosition", e);
+                        throw DaAeHdaClient.Interop.CreateException("IOPCHDA_Browser.ChangeBrowsePosition", e);
                     }
 
                     // create enumerator for items.
@@ -292,7 +292,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             }
             catch (Exception e)
             {
-                throw Utilities.Interop.CreateException("IOPCHDA_Browser.GetEnum", e);
+                throw DaAeHdaClient.Interop.CreateException("IOPCHDA_Browser.GetEnum", e);
             }
         }
 

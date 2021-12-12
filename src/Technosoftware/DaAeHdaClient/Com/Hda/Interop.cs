@@ -179,8 +179,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 			output.Aggregate = input.haAggregate;
 
             object[] values = Com.Interop.GetVARIANTs(ref input.pvDataValues, input.dwCount, deallocate);
-			DateTime[] timestamps = Utilities.Interop.GetDateTimes(ref input.pftTimeStamps, input.dwCount, deallocate);
-			int[] qualities = Utilities.Interop.GetInt32s(ref input.pdwQualities, input.dwCount, deallocate);
+			DateTime[] timestamps = DaAeHdaClient.Interop.GetDateTimes(ref input.pftTimeStamps, input.dwCount, deallocate);
+			int[] qualities = DaAeHdaClient.Interop.GetInt32s(ref input.pdwQualities, input.dwCount, deallocate);
 
 			for (int ii = 0; ii < input.dwCount; ii++)
 			{
@@ -258,11 +258,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 			output.ClientHandle = input.hClient;
 
             object[] values = Com.Interop.GetVARIANTs(ref input.pvDataValues, input.dwCount, deallocate);
-			DateTime[] timestamps = Utilities.Interop.GetDateTimes(ref input.pftTimeStamps, input.dwCount, deallocate);
-			int[] qualities = Utilities.Interop.GetInt32s(ref input.pdwQualities, input.dwCount, deallocate);
-			DateTime[] modificationTimes = Utilities.Interop.GetDateTimes(ref input.pftModificationTime, input.dwCount, deallocate);
-			int[] editTypes = Utilities.Interop.GetInt32s(ref input.pEditType, input.dwCount, deallocate);
-			string[] users = Utilities.Interop.GetUnicodeStrings(ref input.szUser, input.dwCount, deallocate);
+			DateTime[] timestamps = DaAeHdaClient.Interop.GetDateTimes(ref input.pftTimeStamps, input.dwCount, deallocate);
+			int[] qualities = DaAeHdaClient.Interop.GetInt32s(ref input.pdwQualities, input.dwCount, deallocate);
+			DateTime[] modificationTimes = DaAeHdaClient.Interop.GetDateTimes(ref input.pftModificationTime, input.dwCount, deallocate);
+			int[] editTypes = DaAeHdaClient.Interop.GetInt32s(ref input.pEditType, input.dwCount, deallocate);
+			string[] users = DaAeHdaClient.Interop.GetUnicodeStrings(ref input.szUser, input.dwCount, deallocate);
 
 			for (int ii = 0; ii < input.dwCount; ii++)
 			{
@@ -343,7 +343,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 			output.AttributeID = input.dwAttributeID;
 
             object[] values = Com.Interop.GetVARIANTs(ref input.vAttributeValues, input.dwNumValues, deallocate);
-			DateTime[] timestamps = Utilities.Interop.GetDateTimes(ref input.ftTimeStamps, input.dwNumValues, deallocate);
+			DateTime[] timestamps = DaAeHdaClient.Interop.GetDateTimes(ref input.ftTimeStamps, input.dwNumValues, deallocate);
 
 			for (int ii = 0; ii < input.dwNumValues; ii++)
 			{
@@ -418,10 +418,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
 			output.ClientHandle = input.hClient;
 
-			DateTime[] timestamps = Utilities.Interop.GetDateTimes(ref input.ftTimeStamps, input.dwNumValues, deallocate);
-			string[] annotations = Utilities.Interop.GetUnicodeStrings(ref input.szAnnotation, input.dwNumValues, deallocate);
-			DateTime[] creationTimes = Utilities.Interop.GetDateTimes(ref input.ftAnnotationTime, input.dwNumValues, deallocate);
-			string[] users = Utilities.Interop.GetUnicodeStrings(ref input.szUser, input.dwNumValues, deallocate);
+			DateTime[] timestamps = DaAeHdaClient.Interop.GetDateTimes(ref input.ftTimeStamps, input.dwNumValues, deallocate);
+			string[] annotations = DaAeHdaClient.Interop.GetUnicodeStrings(ref input.szAnnotation, input.dwNumValues, deallocate);
+			DateTime[] creationTimes = DaAeHdaClient.Interop.GetDateTimes(ref input.ftAnnotationTime, input.dwNumValues, deallocate);
+			string[] users = DaAeHdaClient.Interop.GetUnicodeStrings(ref input.szUser, input.dwNumValues, deallocate);
 
 			for (int ii = 0; ii < input.dwNumValues; ii++)
 			{

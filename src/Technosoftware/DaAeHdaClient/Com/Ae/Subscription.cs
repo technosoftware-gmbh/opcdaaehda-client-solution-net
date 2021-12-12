@@ -26,9 +26,6 @@ using System.Runtime.InteropServices;
 
 using Technosoftware.DaAeHdaClient.Ae;
 using OpcRcw.Ae;
-
-using Technosoftware.DaAeHdaClient.Utilities;
-
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Com.Ae
