@@ -101,7 +101,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 					state.UpdateRate   = updateRate;
 					state.TimeBias     = timebias;
 					state.Deadband     = deadband;
-					state.Locale       = Utilities.Interop.GetLocale(localeID);
+					state.Locale       = DaAeHdaClient.Interop.GetLocale(localeID);
 
 					// cache the name separately.
 					name_ = state.Name;
@@ -111,7 +111,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 				catch (Exception e)
 				{
                     ComCallError(methodName, e);
-					throw Utilities.Interop.CreateException(methodName, e);
+					throw DaAeHdaClient.Interop.CreateException(methodName, e);
 				}
                 finally
                 {
@@ -144,7 +144,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 catch (Exception e)
                 {
                     ComCallError(methodName, e);
-                    throw Utilities.Interop.CreateException(methodName, e);
+                    throw DaAeHdaClient.Interop.CreateException(methodName, e);
                 }
                 finally
                 {
@@ -171,7 +171,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 catch (Exception e)
                 {
                     ComCallError(methodName, e);
-                    throw Utilities.Interop.CreateException(methodName, e);
+                    throw DaAeHdaClient.Interop.CreateException(methodName, e);
                 }
                 finally
                 {
@@ -200,7 +200,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 catch (Exception e)
                 {
                     ComCallError(methodName, e);
-                    throw Utilities.Interop.CreateException(methodName, e);
+                    throw DaAeHdaClient.Interop.CreateException(methodName, e);
                 }
                 finally
                 {
@@ -287,7 +287,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             catch (Exception e)
             {
                 ComCallError(methodName, e);
-                throw Utilities.Interop.CreateException(methodName, e);
+                throw DaAeHdaClient.Interop.CreateException(methodName, e);
             }
             finally
             {
@@ -296,12 +296,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
             // unmarshal output parameters.
             TsCDaItemValue[] values = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetItemValues(ref pValues, items.Length, true);
-            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
+            int[] errors = DaAeHdaClient.Interop.GetInt32s(ref pErrors, items.Length, true);
 
             // construct results list.
             for (int ii = 0; ii < items.Length; ii++)
             {
-                items[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
+                items[ii].Result = DaAeHdaClient.Interop.GetResultId(errors[ii]);
                 items[ii].DiagnosticInfo = null;
 
                 // convert COM code to unified DA code.
@@ -358,7 +358,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             for (int ii = 0; ii < serverHandles.Length; ii++)
             {
                 serverHandles[ii] = (int)((OpcItemResult)writeItems[ii]).ServerHandle;
-                values[ii] = Utilities.Interop.GetVARIANT(((TsCDaItemValue)writeValues[ii]).Value);
+                values[ii] = DaAeHdaClient.Interop.GetVARIANT(((TsCDaItemValue)writeValues[ii]).Value);
             }
 
             IntPtr pErrors = IntPtr.Zero;
@@ -377,7 +377,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             catch (Exception e)
             {
                 ComCallError(methodName, e);
-                throw Utilities.Interop.CreateException(methodName, e);
+                throw DaAeHdaClient.Interop.CreateException(methodName, e);
             }
             finally
             {
@@ -385,13 +385,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             }
 
             // unmarshal results.
-            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, writeItems.Count, true);
+            int[] errors = DaAeHdaClient.Interop.GetInt32s(ref pErrors, writeItems.Count, true);
 
             for (int ii = 0; ii < writeItems.Count; ii++)
             {
                 OpcItemResult result = (OpcItemResult)writeItems[ii];
 
-                result.Result = Utilities.Interop.GetResultId(errors[ii]);
+                result.Result = DaAeHdaClient.Interop.GetResultId(errors[ii]);
                 result.DiagnosticInfo = null;
 
                 // convert COM code to unified DA code.
@@ -434,7 +434,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     out pErrors);
 
                 // unmarshal output parameters.
-                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
+                int[] errors = DaAeHdaClient.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
 
                 // create item results.
                 OpcItemResult[] results = new OpcItemResult[itemIDs.Length];
@@ -442,7 +442,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 for (int ii = 0; ii < itemIDs.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(itemIDs[ii]);
-                    results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
+                    results[ii].Result = DaAeHdaClient.Interop.GetResultId(errors[ii]);
                     results[ii].DiagnosticInfo = null;
 
                     // convert COM code to unified DA code.
@@ -455,7 +455,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             catch (Exception e)
             {
                 ComCallError(methodName, e);
-                throw Utilities.Interop.CreateException(methodName, e);
+                throw DaAeHdaClient.Interop.CreateException(methodName, e);
             }
             finally
             {
@@ -495,7 +495,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 }
 
                 validItems.Add(results[ii]);
-                validValues.Add(Utilities.Interop.GetVARIANT(items[ii].Value));
+                validValues.Add(DaAeHdaClient.Interop.GetVARIANT(items[ii].Value));
             }
 
             // check if any valid items exist.
@@ -528,14 +528,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     out pErrors);
 
                 // unmarshal results.
-                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, validItems.Count, true);
+                int[] errors = DaAeHdaClient.Interop.GetInt32s(ref pErrors, validItems.Count, true);
 
                 // create result list.
                 for (int ii = 0; ii < validItems.Count; ii++)
                 {
                     OpcItemResult result = (OpcItemResult)validItems[ii];
 
-                    result.Result = Utilities.Interop.GetResultId(errors[ii]);
+                    result.Result = DaAeHdaClient.Interop.GetResultId(errors[ii]);
                     result.DiagnosticInfo = null;
 
                     // convert COM code to unified DA code.
@@ -545,7 +545,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             catch (Exception e)
             {
                 ComCallError(methodName, e);
-                throw Utilities.Interop.CreateException(methodName, e);
+                throw DaAeHdaClient.Interop.CreateException(methodName, e);
             }
             finally
             {

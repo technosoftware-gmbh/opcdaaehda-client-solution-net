@@ -145,7 +145,7 @@ namespace Technosoftware.DaAeHdaClient.Com
             }
             catch (NotSupportedException)
             {
-                Utilities.Interop.ReleaseServer(server);
+                DaAeHdaClient.Interop.ReleaseServer(server);
                 server = null;
 
                 if (interfaceType != null)
@@ -166,7 +166,7 @@ namespace Technosoftware.DaAeHdaClient.Com
             }
             catch (Exception)
             {
-                Utilities.Interop.ReleaseServer(server);
+                DaAeHdaClient.Interop.ReleaseServer(server);
                 server = null;
 
                 throw;
@@ -241,7 +241,7 @@ namespace Technosoftware.DaAeHdaClient.Com
             {
                 try
                 {
-                    return Utilities.Interop.CreateInstance(guid, url.HostName, credentials);
+                    return DaAeHdaClient.Interop.CreateInstance(guid, url.HostName, credentials);
                 }
                 catch (Exception e)
                 {
@@ -255,7 +255,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                 try
                 {
                     return null;
-                    //return Technosoftware.DaAeHdaClient.Utilities.Interop.CreateInstanceWithLicenseKey(guid, url.HostName, credentials, connectData.LicenseKey);
+                    //return Technosoftware.DaAeHdaClient.DaAeHdaClient.Interop.CreateInstanceWithLicenseKey(guid, url.HostName, credentials, connectData.LicenseKey);
                 }
                 catch (Exception e)
                 {
