@@ -13,9 +13,6 @@
 using System;
 using System.Linq;
 using static System.String;
-
-using Technosoftware.DaAeHdaClient.Licensing;
-using Technosoftware.DaAeHdaClient.Licensing.Validation;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient
@@ -98,6 +95,5 @@ namespace Technosoftware.DaAeHdaClient
         #region Internal Fields
         internal static bool InitializeSecurityCalled;
         #endregion
-
     }
 }
