@@ -13,11 +13,9 @@
 #endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-
 using System;
 
 using Technosoftware.DaAeHdaClient.Utilities;
-
 #endregion
 
 namespace Technosoftware.DaAeHdaClient
@@ -28,7 +26,6 @@ namespace Technosoftware.DaAeHdaClient
     public class LicenseHandler
     {
         #region Nested Enums
-
         /// <summary>
         /// The possible products.
         /// </summary>
@@ -92,18 +89,14 @@ namespace Technosoftware.DaAeHdaClient
             /// </summary>
             AllFeatures = uint.MaxValue,
         }
-
-
         #endregion
 
         #region Constants
-
         /// <summary>
         /// License Validation Parameters String for the OPC UA Solution .NET
         /// </summary> 
-        const string LicenseParameter =
+        private const string LicenseParameter =
             @"";
-
         #endregion
 
         #region Private Fields
@@ -273,7 +266,6 @@ namespace Technosoftware.DaAeHdaClient
         }
 
         internal static bool Checked { get; private set; }
-
         #endregion
 
         #region Public Methods
