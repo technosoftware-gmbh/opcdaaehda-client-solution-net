@@ -494,7 +494,8 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// <summary>
         /// Initializes COM security.
         /// </summary>
-        public static void InitializeSecurity()
+        /// <param name="authenticationLevel">The default authentication level for the process. Both servers and clients use this parameter when they call CoInitializeSecurity. With the Windows Update KB5004442 a higher authentication level of Integrity must be used.</param>
+        public static void InitializeSecurity(uint authenticationLevel)
         {
             int error = CoInitializeSecurity(
                 IntPtr.Zero,
