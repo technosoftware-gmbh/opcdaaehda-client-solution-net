@@ -3,7 +3,7 @@
   <metadata>
     <id>Technosoftware.DaAeHdaSolution.DaAeHdaClient</id>
     <version>1.2.1</version>
-    <title>OPC DA/AA/HDA Solution .NET Client Library</title>
+    <title>OPC DA/AE/HDA Solution .NET Client Library</title>
     <description>OPC DA/AE/HDA .NET Client Library</description>
     <authors>Technosoftware GmbH</authors>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
