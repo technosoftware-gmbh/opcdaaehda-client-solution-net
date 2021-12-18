@@ -14,6 +14,8 @@
 
 #region Using Directives
 using System;
+using System.Linq;
+using static System.String;
 
 using Technosoftware.DaAeHdaClient.Utilities;
 #endregion
@@ -99,7 +101,7 @@ namespace Technosoftware.DaAeHdaClient
             @"";
         #endregion
 
-        #region Private Fields
+        #region Internal Fields
         internal static bool LicenseTraceDone;
         #endregion
 
@@ -107,6 +109,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// This flag suppresses the conversion to local time done during marshalling.
         /// </summary>
+        [Obsolete("Replaced by the ApplicationInstance.TimeAsUtc property")]
         public bool TimeAsUtc
         {
             get => Com.Interop.PreserveUtc;
