@@ -1,4 +1,11 @@
 -------------------------------------------------------------------------------------------------------------
+## OPC DA/AE/HDA Client Solution .NET - 1.2.1
+
+###	Changes
+- Added ApplicationInstance class containing Property TimAsUtc (from LicenseHandler) and InitializeSecurity
+- InitializeSecurity can be used to set the authentication level to Integrity as requested in [KB5004442—Manage changes for Windows DCOM Server Security Feature Bypass (CVE-2021-26414)](https://support.microsoft.com/en-us/topic/kb5004442-manage-changes-for-windows-dcom-server-security-feature-bypass-cve-2021-26414-f1400b52-c141-43d2-941e-37ed901c769c)
+
+-------------------------------------------------------------------------------------------------------------
 ## OPC DA/AE/HDA Client Solution .NET - 1.2.0
 
 ###	Changes
@@ -39,6 +46,6 @@
 - For missing required OPC Interfaces a NotSupportedException is thrown and for optional ones just an entry in the log created.
 
 ###	Redistributables
-- Redistributables are available via https://opcfoundation.org/developer-tools/samples-and-tools-classic/core-components/
+- Redistributables are available [here](https://opcfoundation.org/developer-tools/samples-and-tools-classic/core-components/)
 
 
