@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>Technosoftware.DaAeHdaSolution.DaAeHdaClient</id>
-    <version>1.2.1</version>
+    <version>1.2.1.1</version>
     <title>OPC DA/AE/HDA Solution .NET Client Library</title>
     <description>OPC DA/AE/HDA .NET Client Library</description>
     <authors>Technosoftware GmbH</authors>
@@ -17,17 +17,17 @@
     <dependencies>
       <group targetFramework=".NETFramework4.6.2">
         <dependency id="Microsoft.Win32.Registry" version="5.0.0" />
-        <dependency id="Portable.BouncyCastle" version="1.8.10" />
+        <dependency id="Portable.BouncyCastle" version="1.9.0" />
         <dependency id="System.Runtime.InteropServices" version="4.3.0" />
       </group>
       <group targetFramework=".NETFramework4.7.2">
         <dependency id="Microsoft.Win32.Registry" version="5.0.0" />
-        <dependency id="Portable.BouncyCastle" version="1.8.10" />
+        <dependency id="Portable.BouncyCastle" version="1.9.0" />
         <dependency id="System.Runtime.InteropServices" version="4.3.0" />
       </group>
       <group targetFramework=".NETFramework4.8">
         <dependency id="Microsoft.Win32.Registry" version="5.0.0" />
-        <dependency id="Portable.BouncyCastle" version="1.8.10" />
+        <dependency id="Portable.BouncyCastle" version="1.9.0" />
         <dependency id="System.Runtime.InteropServices" version="4.3.0" />
       </group>
       <group targetFramework="net5.0-windows7.0">
@@ -36,7 +36,7 @@
       </group>
       <group targetFramework=".NETStandard2.1">
         <dependency id="Microsoft.Win32.Registry" version="5.0.0" />
-        <dependency id="Portable.BouncyCastle" version="1.8.10" />
+        <dependency id="Portable.BouncyCastle" version="1.9.0" />
         <dependency id="System.Runtime.InteropServices" version="4.3.0" />
       </group>
     </dependencies>
