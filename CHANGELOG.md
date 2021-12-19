@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------------------------------------
-## OPC DA/AE/HDA Client Solution .NET - 1.2.1.1
+## OPC DA/AE/HDA Client Solution .NET - 1.2.2
 
 ###	Changes
 - Added ApplicationInstance class containing Property TimAsUtc (from LicenseHandler) and InitializeSecurity
