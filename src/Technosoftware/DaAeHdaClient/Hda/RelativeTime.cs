@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2021 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 
