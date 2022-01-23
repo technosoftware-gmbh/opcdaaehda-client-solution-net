@@ -246,7 +246,15 @@ namespace Technosoftware.DaAeHdaClient.Com
 		private const uint EOAC_ACCESS_CONTROL             = 0x04;
 		private const uint EOAC_APPID	                   = 0x08;
 
-		[DllImport("ole32.dll")]
+
+        /// <returns>If function succeeds, it returns 0(S_OK). Otherwise, it returns an error code.</returns>
+        [DllImport("ole32.dll", CharSet = CharSet.Auto, SetLastError = true, CallingConvention = CallingConvention.StdCall)]
+        private static extern int CoInitializeEx(
+            [In, Optional] IntPtr pvReserved,
+            [In] COINIT dwCoInit //DWORD
+            );
+
+        [DllImport("ole32.dll")]
 		private static extern int CoInitializeSecurity(
 			IntPtr                        pSecDesc,
 			int                           cAuthSvc,
@@ -286,7 +294,16 @@ namespace Technosoftware.DaAeHdaClient.Com
         private static readonly IntPtr COLE_DEFAULT_PRINCIPAL = new IntPtr(-1);
         private static readonly IntPtr COLE_DEFAULT_AUTHINFO = new IntPtr(-1);
 
-		[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Auto)]
+
+        private enum COINIT : uint //tagCOINIT
+        {
+            COINIT_MULTITHREADED = 0x0, //Initializes the thread for multi-threaded object concurrency.
+            COINIT_APARTMENTTHREADED = 0x2, //Initializes the thread for apartment-threaded object concurrency
+            COINIT_DISABLE_OLE1DDE = 0x4, //Disables DDE for OLE1 support
+            COINIT_SPEED_OVER_MEMORY = 0x8, //Trade memory for speed
+        }
+
+        [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Auto)]
 		private struct COSERVERINFO
 		{
 			public uint         dwReserved1;
@@ -542,13 +559,13 @@ namespace Technosoftware.DaAeHdaClient.Com
 			private GCHandle m_hAuthInfo;
 			#endregion
 		}
-		#endregion
+        #endregion
 
-		#region Initialization Functions
-		/// <summary>
-		/// Initializes COM security.
-		/// </summary>
-		public static void InitializeSecurity()
+        #region Initialization Functions
+        /// <summary>
+        /// Initializes COM security.
+        /// </summary>
+        public static void InitializeSecurity()
 		{
 			int error = CoInitializeSecurity(
 				IntPtr.Zero,

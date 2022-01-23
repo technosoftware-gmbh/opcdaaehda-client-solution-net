@@ -230,6 +230,25 @@ namespace Technosoftware.DaAeHdaClient.Com
         private const uint EOAC_ACCESS_CONTROL = 0x04;
         private const uint EOAC_APPID = 0x08;
 
+        private enum COINIT : uint //tagCOINIT
+        {
+            COINIT_MULTITHREADED = 0x0, //Initializes the thread for multi-threaded object concurrency.
+            COINIT_APARTMENTTHREADED = 0x2, //Initializes the thread for apartment-threaded object concurrency
+            COINIT_DISABLE_OLE1DDE = 0x4, //Disables DDE for OLE1 support
+            COINIT_SPEED_OVER_MEMORY = 0x8, //Trade memory for speed
+        }
+
+        /// <returns>If function succeeds, it returns 0(S_OK). Otherwise, it returns an error code.</returns>
+        [DllImport("ole32.dll", CharSet = CharSet.Auto, SetLastError = true, CallingConvention = CallingConvention.StdCall)]
+        private static extern int CoInitializeEx(
+            [In, Optional] IntPtr pvReserved,
+            [In] COINIT dwCoInit //DWORD
+            );
+
+        /// <returns>If function succeeds, it returns 0(S_OK). Otherwise, it returns an error code.</returns>
+        [DllImport("ole32.dll", CharSet = CharSet.Auto, SetLastError = true, CallingConvention = CallingConvention.StdCall)]
+        private static extern int CoUnInitialize();
+
         [DllImport("ole32.dll")]
         private static extern int CoInitializeSecurity(
             IntPtr pSecDesc,
@@ -492,6 +511,37 @@ namespace Technosoftware.DaAeHdaClient.Com
         #endregion
 
         /// <summary>
+        /// Initializes the COM library for use by the calling thread, sets the thread's concurrency model, and creates a new apartment for the thread if one is required. Before thread exit UnInitialize() must be called.
+        /// </summary>
+        /// <param name="coInit">The chosen threading model. Must be used for all threads.</param>
+        public static void Initialize(uint coInit)
+        {
+            int error = CoInitializeEx(IntPtr.Zero, (COINIT)coInit);
+
+            OpcResult result = GetResultID(error);
+
+            if (result.IsError())
+            {
+                throw new ExternalException("CoInitializeEx: " + GetSystemMessage(error), error);
+            }
+        }
+
+        /// <summary>
+        /// Closes the COM library on the current thread, unloads all DLLs loaded by the thread, frees any other resources that the thread maintains, and forces all RPC connections on the thread to close.
+        /// </summary>
+        public static void UnInitialize()
+        {
+            int error = CoUnInitialize();
+
+            OpcResult result = GetResultID(error);
+
+            if (result.IsError())
+            {
+                throw new ExternalException("CoUnInitialize: " + GetSystemMessage(error), error);
+            }
+        }
+
+        /// <summary>
         /// Initializes COM security.
         /// </summary>
         /// <param name="authenticationLevel">The default authentication level for the process. Both servers and clients use this parameter when they call CoInitializeSecurity. With the Windows Update KB5004442 a higher authentication level of Integrity must be used.</param>
@@ -508,7 +558,9 @@ namespace Technosoftware.DaAeHdaClient.Com
                 EOAC_NONE,
                 IntPtr.Zero);
 
-            if (error != 0)
+            OpcResult result = GetResultID(error);
+
+            if (result.IsError())
             {
                 throw new ExternalException("CoInitializeSecurity: " + GetSystemMessage(error), error);
             }

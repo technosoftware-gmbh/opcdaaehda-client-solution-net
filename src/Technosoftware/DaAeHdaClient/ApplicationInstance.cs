@@ -81,7 +81,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// This flag suppresses the conversion to local time done during marshalling.
         /// </summary>
-        public bool TimeAsUtc
+        public static bool TimeAsUtc
         {
             get => Com.Interop.PreserveUtc;
             set => Com.Interop.PreserveUtc = value;
