@@ -1413,7 +1413,7 @@
           <PropertyValue m="2011-09-08T14:50:18.4189453Z">#FFFFFF</PropertyValue>
         </PropertyDefinitionValue>
         <PropertyDefinitionValue PropertyDefinitionId="08de2c63-c533-49c3-a1d7-52b3995b9bec">
-          <PropertyValue m="2021-01-16T08:14:38.4935684Z">Copyright © 2011-2021 Technosoftware GmbH</PropertyValue>
+          <PropertyValue m="2022-01-23T08:18:23.9178256Z">Copyright © 2011-2022 Technosoftware GmbH</PropertyValue>
         </PropertyDefinitionValue>
         <PropertyDefinitionValue PropertyDefinitionId="76de16a8-8dcb-462c-b636-b20ff0b3c3a1">
           <PropertyValue m="2021-01-16T08:14:36.6205125Z">&lt;a href="mailto:support@technosoftware.com?subject=OPC DAAEHDA Client Solution  NET Documentation Feedback: %%FileName%%"&gt;Send comments&lt;/a&gt; on this topic.</PropertyValue>
@@ -1763,7 +1763,7 @@
         <IncludeFullResourceUriInOperationPages>true</IncludeFullResourceUriInOperationPages>
         <UseAbsolutePathForResourcePaths>true</UseAbsolutePathForResourcePaths>
       </WebService>
-      <HelpCompiler CompileHelpFile="true" IsWebOutputEnabled="true" IsMarkOfTheWebEnabled="false">
+      <HelpCompiler CompileHelpFile="false" IsWebOutputEnabled="true" IsMarkOfTheWebEnabled="false">
         <MarkOfTheWebDomain>(0014)about:internet</MarkOfTheWebDomain>
         <HelpFileVersion>HtmlHelp1</HelpFileVersion>
         <Help2Namespace>OPCServerDeveloperStudio.NET</Help2Namespace>
@@ -1837,7 +1837,7 @@
           </Rules>
         </Rules>
       </RuleEngine>
-      <ShortFileNames GenerateShortFileNames="true" />
+      <ShortFileNames GenerateShortFileNames="false" />
       <TopicsProjectProfilePlugin>
         <TemplateName>Classic</TemplateName>
         <IncludeBreadcrumbs>false</IncludeBreadcrumbs>
@@ -1870,7 +1870,7 @@
         <EditionId></EditionId>
       </VersionsAndEditions>
       <Publishing />
-      <OutputDirectory>Build\Default</OutputDirectory>
+      <OutputDirectory>..\..\onlinehelp</OutputDirectory>
     </ProjectProfile>
   </ProjectProfiles>
   <HelpContextIDHeaderFile></HelpContextIDHeaderFile>
