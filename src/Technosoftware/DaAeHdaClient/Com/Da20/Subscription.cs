@@ -27,7 +27,6 @@ using System.Collections;
 using Technosoftware.DaAeHdaClient.Da;
 using Technosoftware.DaAeHdaClient.Com.Da;
 using OpcRcw.Da;
-
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Com.Da20
@@ -35,105 +34,89 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
     /// <summary>
     /// An in-process wrapper for a remote OPC Data Access 2.0X subscription.
     /// </summary>
-	internal class Subscription : Technosoftware.DaAeHdaClient.Com.Da.Subscription
+    internal class Subscription : Technosoftware.DaAeHdaClient.Com.Da.Subscription
     {
-
-        //======================================================================
-        // Construction
-
+        #region Constructors
         /// <summary>
         /// Initializes a new instance of a subscription.
         /// </summary>
-        internal Subscription(object subscription, TsCDaSubscriptionState state, int filters)
-            :
+        internal Subscription(object subscription, TsCDaSubscriptionState state, int filters) :
             base(subscription, state, filters)
         {
         }
+        #endregion
 
-		//======================================================================
-		// State Management
-
-		/// <summary>
-		/// Returns the current state of the subscription.
-		/// </summary>
-		/// <returns>The current state of the subscription.</returns>
-		public TsCDaSubscriptionState GetState() 
-		{
-			lock (this)
-			{ 
-				TsCDaSubscriptionState state = new TsCDaSubscriptionState();
-
-				state.ClientHandle = _handle;
-
+        #region ISubscription Members
+        /// <summary>
+        /// Returns the current state of the subscription.
+        /// </summary>
+        /// <returns>The current state of the subscription.</returns>
+        public override TsCDaSubscriptionState GetState()
+        {
+            if (subscription_ == null) throw new NotConnectedException();
+            lock (lock_)
+            {
                 string methodName = "IOPCGroupStateMgt.GetState";
-				try
+                TsCDaSubscriptionState state = new TsCDaSubscriptionState { ClientHandle = _handle };
+
+                string name = null;
+
+                try
                 {
-					string name         = null;
-					int    active       = 0;
-					int    updateRate   = 0;
-					float  deadband     = 0;
-					int    timebias     = 0;
-					int    localeID     = 0;
-					int    clientHandle = 0;
-					int    serverHandle = 0;
+                    int active = 0;
+                    int updateRate = 0;
+                    float deadband = 0;
+                    int timebias = 0;
+                    int localeID = 0;
+                    int clientHandle = 0;
+                    int serverHandle = 0;
 
                     IOPCGroupStateMgt subscription = BeginComCall<IOPCGroupStateMgt>(methodName, true);
                     subscription.GetState(
-						out updateRate,
-						out active,
-						out name,
-						out timebias,
-						out deadband,
-						out localeID,
-						out clientHandle,
-						out serverHandle);
+                        out updateRate,
+                        out active,
+                        out name,
+                        out timebias,
+                        out deadband,
+                        out localeID,
+                        out clientHandle,
+                        out serverHandle);
 
-					state.Name         = name;
-					state.ServerHandle = serverHandle;
-                    if (active == 1)
-                    {
-                        state.Active = true;
-                    }
-                    else
-                    {
-                        state.Active = false;
-                    }
-					state.UpdateRate   = updateRate;
-					state.TimeBias     = timebias;
-					state.Deadband     = deadband;
-					state.Locale       = Utilities.Interop.GetLocale(localeID);
+                    state.Name = name;
+                    state.ServerHandle = serverHandle;
+                    state.Active = active != 0;
+                    state.UpdateRate = updateRate;
+                    state.TimeBias = timebias;
+                    state.Deadband = deadband;
+                    state.Locale = Technosoftware.DaAeHdaClient.Com.Interop.GetLocale(localeID);
 
-					// cache the name separately.
-					name_ = state.Name;
-
-					state.KeepAlive = 0;
-				}
-				catch (Exception e)
-				{
+                    // cache the name separately.
+                    name_ = state.Name;
+                }
+                catch (Exception e)
+                {
                     ComCallError(methodName, e);
-					throw Utilities.Interop.CreateException(methodName, e);
-				}
+                    throw Technosoftware.DaAeHdaClient.Com.Interop.CreateException(methodName, e);
+                }
                 finally
                 {
                     EndComCall(methodName);
                 }
 
-                return state;
-			}
-		}
+                state.KeepAlive = 0;
 
-        //======================================================================
-        // ISubscription
+                return state;
+            }
+        }
 
         /// <summary>
         /// Tells the server to send an data change update for all subscription items containing the cached values. 
         /// </summary>
         public override void Refresh()
         {
-            lock (this)
+            if (subscription_ == null) throw new NotConnectedException();
+            lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 string methodName = "IOPCAsyncIO2.Refresh2";
                 try
                 {
@@ -158,15 +141,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// </summary>
         public override void SetEnabled(bool enabled)
         {
-            lock (this)
+            if (subscription_ == null) throw new NotConnectedException();
+            lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 string methodName = "IOPCAsyncIO2.SetEnable";
                 try
                 {
                     IOPCAsyncIO2 subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
-                    subscription.SetEnable((enabled)?1:0);
+                    subscription.SetEnable((enabled) ? 1 : 0);
                 }
                 catch (Exception e)
                 {
@@ -185,17 +167,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// </summary>
         public override bool GetEnabled()
         {
-            lock (this)
+            if (subscription_ == null) throw new NotConnectedException();
+            lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 string methodName = "IOPCAsyncIO2.GetEnable";
                 try
                 {
-					int enabled = 0;
+                    int enabled = 0;
                     IOPCAsyncIO2 subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
                     subscription.GetEnable(out enabled);
-					return enabled != 0;
+                    return enabled != 0;
                 }
                 catch (Exception e)
                 {
@@ -208,15 +189,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 }
             }
         }
+        #endregion
 
-        //======================================================================
-        // Private Methods
-
+        #region Private and Protected Members
         /// <summary>
         /// Reads a set of items using DA2.0 interfaces.
         /// </summary>
         protected override TsCDaItemValueResult[] Read(OpcItem[] itemIDs, TsCDaItem[] items)
         {
+            if (subscription_ == null) throw new NotConnectedException();
             // create result list.
             TsCDaItemValueResult[] results = new TsCDaItemValueResult[itemIDs.Length];
 
@@ -228,15 +209,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             {
                 results[ii] = new TsCDaItemValueResult(itemIDs[ii]);
 
-				if (items[ii].MaxAgeSpecified && (items[ii].MaxAge < 0 || items[ii].MaxAge == Int32.MaxValue))
-                    {
-                        cacheReads.Add(results[ii]);
-                    }
-                    else
-                    {
-                        deviceReads.Add(results[ii]);
-                    }
+                if (items[ii].MaxAgeSpecified && (items[ii].MaxAge < 0 || items[ii].MaxAge == Int32.MaxValue))
+                {
+                    cacheReads.Add(results[ii]);
                 }
+                else
+                {
+                    deviceReads.Add(results[ii]);
+                }
+            }
 
             // read items from cache.
             if (cacheReads.Count > 0)
@@ -323,6 +304,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// </summary>
         protected override OpcItemResult[] Write(OpcItem[] itemIDs, TsCDaItemValue[] items)
         {
+            if (subscription_ == null) throw new NotConnectedException();
             // create result list.
             OpcItemResult[] results = new OpcItemResult[itemIDs.Length];
 
@@ -555,5 +537,6 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             // return results.
             return results;
         }
+        #endregion
     }
 }

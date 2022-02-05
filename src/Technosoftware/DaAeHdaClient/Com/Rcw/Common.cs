@@ -29,7 +29,7 @@ namespace OpcRcw.Comn
 {   
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Auto)]    
-    public struct CONNECTDATA 
+    internal struct CONNECTDATA 
     {
         [MarshalAs(UnmanagedType.IUnknown)]
         object pUnk;
@@ -40,8 +40,8 @@ namespace OpcRcw.Comn
     /// <exclude />
     [ComImport]
     [GuidAttribute("B196B287-BAB4-101A-B69C-00AA00341D07")]
-    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IEnumConnections
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
+    internal interface IEnumConnections
     {
         /// <summary>
         /// Retrieves a specified number of items in the enumeration sequence.
@@ -82,8 +82,8 @@ namespace OpcRcw.Comn
     /// <exclude />
     [ComImport]
     [GuidAttribute("B196B286-BAB4-101A-B69C-00AA00341D07")]
-    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IConnectionPoint
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
+    internal interface IConnectionPoint
     {
         void GetConnectionInterface(
             [Out]
@@ -111,8 +111,8 @@ namespace OpcRcw.Comn
     /// <exclude />
     [ComImport]
     [GuidAttribute("B196B285-BAB4-101A-B69C-00AA00341D07")]
-    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IEnumConnectionPoints 
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
+    internal interface IEnumConnectionPoints 
     {
         void RemoteNext(
             [MarshalAs(UnmanagedType.I4)]
@@ -136,8 +136,8 @@ namespace OpcRcw.Comn
     /// <exclude />
     [ComImport]
     [GuidAttribute("B196B284-BAB4-101A-B69C-00AA00341D07")]
-    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IConnectionPointContainer
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
+    internal interface IConnectionPointContainer
     {
         void EnumConnectionPoints(
             [Out]
@@ -152,8 +152,8 @@ namespace OpcRcw.Comn
     /// <exclude />
 	[ComImport]
 	[GuidAttribute("F31DFDE1-07B6-11d2-B2D8-0060083BA1FB")]
-	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCShutdown
+	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
+    internal interface IOPCShutdown
     {
         void ShutdownRequest(
 			[MarshalAs(UnmanagedType.LPWStr)]
@@ -163,8 +163,8 @@ namespace OpcRcw.Comn
     /// <exclude />
 	[ComImport]
 	[GuidAttribute("F31DFDE2-07B6-11d2-B2D8-0060083BA1FB")]
-	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-	public interface IOPCCommon 
+	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
+    internal interface IOPCCommon 
 	{
 		void SetLocaleID(
 			[MarshalAs(UnmanagedType.I4)]
@@ -195,7 +195,7 @@ namespace OpcRcw.Comn
 	[ComImport]
 	[GuidAttribute("13486D50-4821-11D2-A494-3CB306C10000")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-	public interface IOPCServerList 
+	internal interface IOPCServerList 
     {
         void EnumClassesOfCategories(
 		    [MarshalAs(UnmanagedType.I4)]
@@ -227,7 +227,7 @@ namespace OpcRcw.Comn
 	[ComImport]
 	[GuidAttribute("55C382C8-21C7-4e88-96C1-BECFB1E3F483")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCEnumGUID 
+    internal interface IOPCEnumGUID 
     {
         void Next(
 		    [MarshalAs(UnmanagedType.I4)]
@@ -252,7 +252,7 @@ namespace OpcRcw.Comn
 	[ComImport]
 	[GuidAttribute("0002E000-0000-0000-C000-000000000046")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IEnumGUID 
+    internal interface IEnumGUID 
     {
         void Next(
 		    [MarshalAs(UnmanagedType.I4)]
@@ -277,7 +277,7 @@ namespace OpcRcw.Comn
 	[ComImport]
 	[GuidAttribute("00000100-0000-0000-C000-000000000046")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IEnumUnknown 
+    internal interface IEnumUnknown 
     {
         void RemoteNext(
 		    [MarshalAs(UnmanagedType.I4)]
@@ -302,7 +302,7 @@ namespace OpcRcw.Comn
 	[ComImport]
 	[GuidAttribute("00000101-0000-0000-C000-000000000046")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IEnumString 
+    internal interface IEnumString 
     {
         void RemoteNext(
 		    [MarshalAs(UnmanagedType.I4)]
@@ -326,7 +326,7 @@ namespace OpcRcw.Comn
 	[ComImport]
 	[GuidAttribute("9DD0B56C-AD9E-43ee-8305-487F3188BF7A")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCServerList2
+    internal interface IOPCServerList2
     {
         void EnumClassesOfCategories(
             [MarshalAs(UnmanagedType.I4)]

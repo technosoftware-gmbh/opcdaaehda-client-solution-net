@@ -176,7 +176,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <summary>
         /// The synchronization object for subscription access
         /// </summary>
-        private static volatile object lock_ = new object();
+        protected static volatile object lock_ = new object();
 
         private int outstandingCalls_;
 
@@ -227,15 +227,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// Returns the current state of the subscription.
         /// </summary>
         /// <returns>The current state of the subscription.</returns>
-        public TsCDaSubscriptionState GetState()
+        public virtual TsCDaSubscriptionState GetState()
         {
+            if (subscription_ == null) throw new NotConnectedException();
             lock (lock_)
             {
-                if (subscription_ == null)
-                {
-                    return null;
-                }
-                if (subscription_ == null) throw new NotConnectedException();
                 string methodName = "IOPCGroupStateMgt.GetState";
                 TsCDaSubscriptionState state = new TsCDaSubscriptionState { ClientHandle = _handle };
 
@@ -317,10 +313,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         public TsCDaSubscriptionState ModifyState(int masks, TsCDaSubscriptionState state)
         {
             if (state == null) throw new ArgumentNullException(nameof(state));
+            if (subscription_ == null) throw new NotConnectedException();
 
             lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
                 string methodName = "IOPCGroupStateMgt.SetName";
                 // update the subscription name.
                 if ((masks & (int)TsCDaStateMask.Name) != 0 && state.Name != name_)
@@ -424,6 +420,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         public TsCDaItemResult[] AddItems(TsCDaItem[] items)
         {
             if (items == null) throw new ArgumentNullException(nameof(items));
+            if (subscription_ == null) throw new NotConnectedException();
 
             // check if nothing to do.
             if (items.Length == 0)
@@ -433,8 +430,6 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 // marshal input parameters.
                 int count = items.Length;
 
@@ -548,6 +543,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         public TsCDaItemResult[] ModifyItems(int masks, TsCDaItem[] items)
         {
             if (items == null) throw new ArgumentNullException(nameof(items));
+            if (subscription_ == null) throw new NotConnectedException();
 
             // check if nothing to do.
             if (items.Length == 0)
@@ -557,8 +553,6 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 // initialize result list.
                 TsCDaItemResult[] results = null;
 
@@ -589,6 +583,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         public OpcItemResult[] RemoveItems(OpcItem[] items)
         {
             if (items == null) throw new ArgumentNullException(nameof(items));
+            if (subscription_ == null) throw new NotConnectedException();
 
             // check if nothing to do.
             if (items.Length == 0)
@@ -598,8 +593,6 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 // get item ids.
                 OpcItem[] itemIDs = null;
 
@@ -681,6 +674,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         public TsCDaItemValueResult[] Read(TsCDaItem[] items)
         {
             if (items == null) throw new ArgumentNullException(nameof(items));
+            if (subscription_ == null) throw new NotConnectedException();
 
             // check if nothing to do.
             if (items.Length == 0)
@@ -690,8 +684,6 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 // get item ids.
                 OpcItem[] itemIDs = null;
 
@@ -719,6 +711,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         public OpcItemResult[] Write(TsCDaItemValue[] items)
         {
             if (items == null) throw new ArgumentNullException(nameof(items));
+            if (subscription_ == null) throw new NotConnectedException();
 
             // check if nothing to do.
             if (items.Length == 0)
@@ -728,8 +721,6 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 // get item ids.
                 OpcItem[] itemIDs = null;
 
@@ -768,6 +759,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         {
             if (items == null) throw new ArgumentNullException(nameof(items));
             if (callback == null) throw new ArgumentNullException(nameof(callback));
+            if (subscription_ == null) throw new NotConnectedException();
 
             request = null;
 
@@ -779,8 +771,6 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 // ensure a callback connection is established with the server.
                 if (connection_ == null)
                 {
@@ -859,6 +849,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             if (items == null) throw new ArgumentNullException(nameof(items));
             if (callback == null) throw new ArgumentNullException(nameof(callback));
+            if (subscription_ == null) throw new NotConnectedException();
 
             request = null;
 
@@ -870,8 +861,6 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 // ensure a callback connection is established with the server.
                 if (connection_ == null)
                 {
@@ -980,10 +969,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         public virtual void Refresh()
         {
+            if (subscription_ == null) throw new NotConnectedException();
             lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 string methodName = "IOPCAsyncIO3.RefreshMaxAge";
                 try
                 {
@@ -1013,10 +1001,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             object requestHandle,
             out IOpcRequest request)
         {
+            if (subscription_ == null) throw new NotConnectedException();
             lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 // ensure a callback connection is established with the server.
                 if (connection_ == null)
                 {
@@ -1065,10 +1052,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <param name="enabled">Whether data change notifications are enabled.</param>
         public virtual void SetEnabled(bool enabled)
         {
+            if (subscription_ == null) throw new NotConnectedException();
             lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 string methodName = "IOPCAsyncIO3.SetEnable";
                 try
                 {
@@ -1093,10 +1079,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <returns>Whether data change notifications are enabled.</returns>
         public virtual bool GetEnabled()
         {
+            if (subscription_ == null) throw new NotConnectedException();
             lock (lock_)
             {
-                if (subscription_ == null) throw new NotConnectedException();
-
                 string methodName = "IOPCAsyncIO3.GetEnable";
                 try
                 {
@@ -1185,7 +1170,6 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             }
         }
         #endregion
-
 
         #region Private Methods
         /// <summary>
@@ -2064,7 +2048,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 {
                     if (handle != null)
                     {
-                        return (OpcItem)m_items[handle];
+                        return (OpcItem)items_[handle];
                     }
 
                     return null;
@@ -2076,11 +2060,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     {
                         if (value == null)
                         {
-                            m_items.Remove(handle);
+                            items_.Remove(handle);
                             return;
                         }
 
-                        m_items[handle] = value;
+                        items_[handle] = value;
                     }
                 }
             }
@@ -2093,7 +2077,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 int invalidHandle = 0;
 
-                foreach (OpcItem item in m_items.Values)
+                foreach (OpcItem item in items_.Values)
                 {
                     if (item.ServerHandle != null && item.ServerHandle.GetType() == typeof(int))
                     {
@@ -2220,7 +2204,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             /// <summary>
             /// The table of known item identifiers.
             /// </summary>
-            private Hashtable m_items = new Hashtable();
+            private Hashtable items_ = new Hashtable();
         }
         #endregion
 
@@ -2235,9 +2219,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             /// </summary>
             public Callback(object handle, int filters, ItemTable items)
             {
-                _handle = handle;
-                _filters = filters;
-                _items = items;
+                handle_ = handle;
+                filters_ = filters;
+                items_ = items;
             }
 
             /// <summary>
@@ -2247,8 +2231,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 lock (lock_)
                 {
-                    _handle = handle;
-                    _filters = filters;
+                    handle_ = handle;
+                    filters_ = filters;
                 }
             }
 
@@ -2259,51 +2243,51 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 lock (lock_)
                 {
-                    _requests[request.RequestID] = request;
+                    requests_[request.RequestID] = request;
                 }
             }
 
             /// <summary>
             /// Returns true is an asynchrounous request can be cancelled.
             /// </summary>
-			public bool CancelRequest(Request request)
+            public bool CancelRequest(Request request)
             {
                 lock (lock_)
                 {
-                    return _requests.ContainsKey(request.RequestID);
+                    return requests_.ContainsKey(request.RequestID);
                 }
             }
 
             /// <summary>
             /// Remvoes an asynchrounous request.
             /// </summary>
-			public void EndRequest(Request request)
+            public void EndRequest(Request request)
             {
                 lock (lock_)
                 {
-                    _requests.Remove(request.RequestID);
+                    requests_.Remove(request.RequestID);
                 }
             }
 
             /// <summary>
             /// The handle to return with any callbacks. 
             /// </summary>
-            private object _handle;
+            private object handle_;
 
             /// <summary>
             /// The current request options for the subscription.
             /// </summary>
-            private int _filters = (int)TsCDaResultFilter.Minimal;
+            private int filters_ = (int)TsCDaResultFilter.Minimal;
 
             /// <summary>
             /// A table of item identifiers indexed by internal handle.
             /// </summary>
-            private ItemTable _items;
+            private ItemTable items_;
 
             /// <summary>
             /// A table of autstanding asynchronous requests.
             /// </summary>
-            private Hashtable _requests = new Hashtable();
+            private Hashtable requests_ = new Hashtable();
 
             /// <summary>
             /// Raised when data changed callbacks arrive.
@@ -2341,13 +2325,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                         // check for an outstanding request.
                         if (dwTransid != 0)
                         {
-                            request = (Request)_requests[dwTransid];
+                            request = (Request)requests_[dwTransid];
 
 
                             if (request != null)
                             {
                                 // remove the request.
-                                _requests.Remove(dwTransid);
+                                requests_.Remove(dwTransid);
                             }
                         }
 
@@ -2364,9 +2348,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                             pErrors);
 
                         // apply request options.
-                        lock (_items)
+                        lock (items_)
                         {
-                            _items.ApplyFilters(_filters | (int)TsCDaResultFilter.ClientHandle, values);
+                            items_.ApplyFilters(filters_ | (int)TsCDaResultFilter.ClientHandle, values);
                         }
 
                         if (_dataChangedEvent != null)
@@ -2374,7 +2358,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                             if (!LicenseHandler.IsExpired)
                             {
                                 // invoke the callback.
-                                _dataChangedEvent(_handle, (request != null) ? request.Handle : null, values);
+                                _dataChangedEvent(handle_, (request != null) ? request.Handle : null, values);
                             }
                         }
                     }
@@ -2406,7 +2390,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     lock (lock_)
                     {
                         // do nothing if no outstanding requests.
-                        request = (Request)_requests[dwTransid];
+                        request = (Request)requests_[dwTransid];
 
                         if (request == null)
                         {
@@ -2414,7 +2398,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                         }
 
                         // remove the request.
-                        _requests.Remove(dwTransid);
+                        requests_.Remove(dwTransid);
 
                         // unmarshal item values.
                         values = UnmarshalValues(
@@ -2426,9 +2410,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                             pErrors);
 
                         // apply request options.
-                        lock (_items)
+                        lock (items_)
                         {
-                            _items.ApplyFilters(_filters | (int)TsCDaResultFilter.ClientHandle, values);
+                            items_.ApplyFilters(filters_ | (int)TsCDaResultFilter.ClientHandle, values);
                         }
                     }
 
@@ -2461,7 +2445,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     lock (lock_)
                     {
                         // do nothing if no outstanding requests.
-                        request = (Request)_requests[dwTransid];
+                        request = (Request)requests_[dwTransid];
 
                         if (request == null)
                         {
@@ -2469,7 +2453,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                         }
 
                         // remove the request.
-                        _requests.Remove(dwTransid);
+                        requests_.Remove(dwTransid);
 
                         // contruct the item results.
                         results = new OpcItemResult[dwCount];
@@ -2477,7 +2461,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                         for (int ii = 0; ii < results.Length; ii++)
                         {
                             // lookup the external client handle.
-                            OpcItem itemID = (OpcItem)_items[phClientItems[ii]];
+                            OpcItem itemID = (OpcItem)items_[phClientItems[ii]];
 
                             results[ii] = new OpcItemResult(itemID);
                             results[ii].ClientHandle = phClientItems[ii];
@@ -2489,9 +2473,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                         }
 
                         // apply request options.
-                        lock (_items)
+                        lock (items_)
                         {
-                            _items.ApplyFilters(_filters | (int)TsCDaResultFilter.ClientHandle, results);
+                            items_.ApplyFilters(filters_ | (int)TsCDaResultFilter.ClientHandle, results);
                         }
                     }
 
@@ -2519,7 +2503,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     lock (lock_)
                     {
                         // do nothing if no outstanding requests.
-                        request = (Request)_requests[dwTransid];
+                        request = (Request)requests_[dwTransid];
 
                         if (request == null)
                         {
@@ -2527,7 +2511,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                         }
 
                         // remove the request.
-                        _requests.Remove(dwTransid);
+                        requests_.Remove(dwTransid);
                     }
 
                     // end the request.
@@ -2559,7 +2543,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 for (int ii = 0; ii < values.Length; ii++)
                 {
                     // lookup the external client handle.
-                    OpcItem itemID = (OpcItem)_items[phClientItems[ii]];
+                    OpcItem itemID = (OpcItem)items_[phClientItems[ii]];
 
                     values[ii] = new TsCDaItemValueResult(itemID);
                     values[ii].ClientHandle = phClientItems[ii];

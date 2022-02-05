@@ -67,27 +67,27 @@ namespace Technosoftware.DaAeHdaClient
         public enum ProductFeature : uint
         {
             /// <summary>
-            /// Basic OPC UA Features enabled
+            /// Basic OPC Features enabled
             /// </summary>
             None = 0,
 
             /// <summary>
-            /// OPC UA DataAccess enabled
+            /// OPC DataAccess enabled
             /// </summary>
             DataAccess = 1,
 
             /// <summary>
-            /// OPC UA Alarms and Conditions enabled
+            /// OPC Alarms and Events enabled
             /// </summary>
             AlarmsConditions = 2,
 
             /// <summary>
-            /// OPC UA Historical Access and Historical Events enabled
+            /// OPC Historical Dara Access enabled
             /// </summary>
             HistoricalAccess = 4,
 
             /// <summary>
-            /// All supported OPC UA Features enabled
+            /// All supported OPC DA/AE/HDA Features enabled
             /// </summary>
             AllFeatures = uint.MaxValue,
         }

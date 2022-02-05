@@ -33,7 +33,7 @@ namespace OpcRcw.Security
 	[ComImport]
 	[GuidAttribute("7AA83A01-6C77-11d3-84F9-00008630A38B")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCSecurityNT
+    internal interface IOPCSecurityNT
     {
 	    void IsAvailableNT(
 		    [Out][MarshalAs(UnmanagedType.I4)]
@@ -50,7 +50,7 @@ namespace OpcRcw.Security
 	[ComImport]
 	[GuidAttribute("7AA83A02-6C77-11d3-84F9-00008630A38B")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCSecurityPrivate
+    internal interface IOPCSecurityPrivate
     {
         void IsAvailablePriv(
 		    [Out][MarshalAs(UnmanagedType.I4)]

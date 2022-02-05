@@ -33,10 +33,10 @@ namespace OpcRcw.Ae
 	[ComImport]
 	[GuidAttribute("58E13251-AC87-11d1-84D5-00608CB8A7E9")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
-    public interface CATID_OPCAEServer10 {}
+    internal interface CATID_OPCAEServer10 {}
 
     /// <exclude />
-    public enum OPCAEBROWSEDIRECTION  
+    internal enum OPCAEBROWSEDIRECTION  
     { 
 	    OPCAE_BROWSE_UP = 1,
 	    OPCAE_BROWSE_DOWN, 
@@ -44,14 +44,14 @@ namespace OpcRcw.Ae
     }
 
     /// <exclude />
-    public enum OPCAEBROWSETYPE
+    internal enum OPCAEBROWSETYPE
     { 
 	    OPC_AREA = 1,
 	    OPC_SOURCE
     }
     
     /// <exclude />
-    public enum OPCEVENTSERVERSTATE
+    internal enum OPCEVENTSERVERSTATE
     { 
         OPCAE_STATUS_RUNNING = 1,
         OPCAE_STATUS_FAILED,
@@ -63,115 +63,115 @@ namespace OpcRcw.Ae
 
     /// <exclude />
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public struct FILETIME
+    internal struct FILETIME
     {
-	    public int dwLowDateTime;
-		public int dwHighDateTime;
+	    internal int dwLowDateTime;
+		internal int dwHighDateTime;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct ONEVENTSTRUCT
+    internal struct ONEVENTSTRUCT
     {
         [MarshalAs(UnmanagedType.I2)]
-        public short wChangeMask;
+        internal short wChangeMask;
         [MarshalAs(UnmanagedType.I2)]
-        public short wNewState;
+        internal short wNewState;
         [MarshalAs(UnmanagedType.LPWStr)]
-        public string szSource;
-        public FILETIME ftTime;
+        internal string szSource;
+        internal FILETIME ftTime;
         [MarshalAs(UnmanagedType.LPWStr)]
-        public string szMessage;
+        internal string szMessage;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwEventType;
+        internal int dwEventType;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwEventCategory;
+        internal int dwEventCategory;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwSeverity; 
+        internal int dwSeverity; 
         [MarshalAs(UnmanagedType.LPWStr)]
-        public string szConditionName;
+        internal string szConditionName;
         [MarshalAs(UnmanagedType.LPWStr)]
-        public string szSubconditionName;
+        internal string szSubconditionName;
         [MarshalAs(UnmanagedType.I2)]
-        public short wQuality;
+        internal short wQuality;
         [MarshalAs(UnmanagedType.I2)]
-        public short wReserved;		
+        internal short wReserved;		
         [MarshalAs(UnmanagedType.I4)]
-        public int bAckRequired;
-        public FILETIME ftActiveTime;
+        internal int bAckRequired;
+        internal FILETIME ftActiveTime;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwCookie;
+        internal int dwCookie;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwNumEventAttrs;
-        public IntPtr pEventAttributes;
+        internal int dwNumEventAttrs;
+        internal IntPtr pEventAttributes;
         [MarshalAs(UnmanagedType.LPWStr)]
-        public string szActorID;
+        internal string szActorID;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCEVENTSERVERSTATUS
+    internal struct OPCEVENTSERVERSTATUS
     {
-        public FILETIME ftStartTime;
-        public FILETIME ftCurrentTime;
-        public FILETIME ftLastUpdateTime;
-        public OPCEVENTSERVERSTATE dwServerState;
+        internal FILETIME ftStartTime;
+        internal FILETIME ftCurrentTime;
+        internal FILETIME ftLastUpdateTime;
+        internal OPCEVENTSERVERSTATE dwServerState;
         [MarshalAs(UnmanagedType.I2)]
-        public short wMajorVersion;
+        internal short wMajorVersion;
         [MarshalAs(UnmanagedType.I2)]
-        public short wMinorVersion;
+        internal short wMinorVersion;
         [MarshalAs(UnmanagedType.I2)]
-        public short wBuildNumber;
+        internal short wBuildNumber;
         [MarshalAs(UnmanagedType.I2)]
-        public short wReserved;	
+        internal short wReserved;	
         [MarshalAs(UnmanagedType.LPWStr)]	
-        public string szVendorInfo;
+        internal string szVendorInfo;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCCONDITIONSTATE
+    internal struct OPCCONDITIONSTATE
     {
         [MarshalAs(UnmanagedType.I2)]
-        public short wState;
+        internal short wState;
         [MarshalAs(UnmanagedType.I2)]
-        public short wReserved1;	
+        internal short wReserved1;	
         [MarshalAs(UnmanagedType.LPWStr)]		
-        public string szActiveSubCondition;
+        internal string szActiveSubCondition;
         [MarshalAs(UnmanagedType.LPWStr)]	
-        public string szASCDefinition;
+        internal string szASCDefinition;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwASCSeverity;
+        internal int dwASCSeverity;
         [MarshalAs(UnmanagedType.LPWStr)]	
-        public string szASCDescription;
+        internal string szASCDescription;
         [MarshalAs(UnmanagedType.I2)]
-        public short wQuality;
+        internal short wQuality;
         [MarshalAs(UnmanagedType.I2)]
-        public short wReserved2;		
-        public FILETIME ftLastAckTime;
-        public FILETIME ftSubCondLastActive;
-        public FILETIME ftCondLastActive;
-        public FILETIME ftCondLastInactive;
+        internal short wReserved2;		
+        internal FILETIME ftLastAckTime;
+        internal FILETIME ftSubCondLastActive;
+        internal FILETIME ftCondLastActive;
+        internal FILETIME ftCondLastInactive;
         [MarshalAs(UnmanagedType.LPWStr)]
-        public string szAcknowledgerID;
+        internal string szAcknowledgerID;
         [MarshalAs(UnmanagedType.LPWStr)]
-        public string szComment;
+        internal string szComment;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwNumSCs;
-        public IntPtr pszSCNames;
-        public IntPtr pszSCDefinitions;
-        public IntPtr pdwSCSeverities;
-        public IntPtr pszSCDescriptions;
-        public int	 dwNumEventAttrs;
-        public IntPtr pEventAttributes;
-        public IntPtr pErrors;
+        internal int dwNumSCs;
+        internal IntPtr pszSCNames;
+        internal IntPtr pszSCDefinitions;
+        internal IntPtr pdwSCSeverities;
+        internal IntPtr pszSCDescriptions;
+        internal int	 dwNumEventAttrs;
+        internal IntPtr pEventAttributes;
+        internal IntPtr pErrors;
     }
 
     /// <exclude />
 	[ComImport]
 	[GuidAttribute("65168851-5783-11D1-84A0-00608CB8A7E9")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCEventServer
+    internal interface IOPCEventServer
     {
         void GetStatus(
             out IntPtr ppEventServerStatus);
@@ -325,7 +325,7 @@ namespace OpcRcw.Ae
 	[ComImport]
 	[GuidAttribute("65168855-5783-11D1-84A0-00608CB8A7E9")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCEventSubscriptionMgt
+    internal interface IOPCEventSubscriptionMgt
     {
         void SetFilter(	
             [MarshalAs(UnmanagedType.I4)]
@@ -417,7 +417,7 @@ namespace OpcRcw.Ae
 	[ComImport]
 	[GuidAttribute("65168857-5783-11D1-84A0-00608CB8A7E9")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCEventAreaBrowser
+    internal interface IOPCEventAreaBrowser
     {
         void ChangeBrowsePosition(
             OPCAEBROWSEDIRECTION dwBrowseDirection,  
@@ -448,7 +448,7 @@ namespace OpcRcw.Ae
 	[ComImport]
 	[GuidAttribute("6516885F-5783-11D1-84A0-00608CB8A7E9")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCEventSink
+    internal interface IOPCEventSink
     {
         void OnEvent(
             [MarshalAs(UnmanagedType.I4)]
@@ -467,7 +467,7 @@ namespace OpcRcw.Ae
 	[ComImport]
 	[GuidAttribute("71BBE88E-9564-4bcd-BCFC-71C558D94F2D")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCEventServer2 // : IOPCEventServer
+    internal interface IOPCEventServer2 // : IOPCEventServer
     { 
         void GetStatus(
             out IntPtr ppEventServerStatus);
@@ -674,7 +674,7 @@ namespace OpcRcw.Ae
 	[ComImport]
 	[GuidAttribute("94C955DC-3684-4ccb-AFAB-F898CE19AAC3")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCEventSubscriptionMgt2 // : IOPCEventSubscriptionMgt
+    internal interface IOPCEventSubscriptionMgt2 // : IOPCEventSubscriptionMgt
     {      
         void SetFilter(	
             [MarshalAs(UnmanagedType.I4)]
@@ -773,37 +773,37 @@ namespace OpcRcw.Ae
     }
 
     /// <exclude />
-	public static class Constants
+	internal static class Constants
 	{
 		// category description string.
-		public const string OPC_CATEGORY_DESCRIPTION_AE10 = "OPC Alarm & Event Server Version 1.0";
+		internal const string OPC_CATEGORY_DESCRIPTION_AE10 = "OPC Alarm & Event Server Version 1.0";
 
 		// state bit masks.
-		public const int CONDITION_ENABLED	 = 0x0001;
-		public const int CONDITION_ACTIVE	 = 0x0002;
-		public const int CONDITION_ACKED     = 0x0004;
+		internal const int CONDITION_ENABLED	 = 0x0001;
+		internal const int CONDITION_ACTIVE	 = 0x0002;
+		internal const int CONDITION_ACKED     = 0x0004;
 
 		// bit masks for change mask.
-		public const int CHANGE_ACTIVE_STATE = 0x0001;
-		public const int CHANGE_ACK_STATE	 = 0x0002;
-		public const int CHANGE_ENABLE_STATE = 0x0004;
-		public const int CHANGE_QUALITY		 = 0x0008;
-		public const int CHANGE_SEVERITY	 = 0x0010;
-		public const int CHANGE_SUBCONDITION = 0x0020;
-		public const int CHANGE_MESSAGE		 = 0x0040;
-		public const int CHANGE_ATTRIBUTE    = 0x0080;
+		internal const int CHANGE_ACTIVE_STATE = 0x0001;
+		internal const int CHANGE_ACK_STATE	 = 0x0002;
+		internal const int CHANGE_ENABLE_STATE = 0x0004;
+		internal const int CHANGE_QUALITY		 = 0x0008;
+		internal const int CHANGE_SEVERITY	 = 0x0010;
+		internal const int CHANGE_SUBCONDITION = 0x0020;
+		internal const int CHANGE_MESSAGE		 = 0x0040;
+		internal const int CHANGE_ATTRIBUTE    = 0x0080;
 
 		// event type.
-		public const int SIMPLE_EVENT	 	 = 0x0001;
-		public const int TRACKING_EVENT		 = 0x0002;
-		public const int CONDITION_EVENT	 = 0x0004;
-		public const int ALL_EVENTS	         = 0x0007;
+		internal const int SIMPLE_EVENT	 	 = 0x0001;
+		internal const int TRACKING_EVENT		 = 0x0002;
+		internal const int CONDITION_EVENT	 = 0x0004;
+		internal const int ALL_EVENTS	         = 0x0007;
 
 		// bit masks for QueryAvailableFilters().
-		public const int FILTER_BY_EVENT	 = 0x0001;
-		public const int FILTER_BY_CATEGORY	 = 0x0002;
-		public const int FILTER_BY_SEVERITY  = 0x0004;
-		public const int FILTER_BY_AREA		 = 0x0008;
-		public const int FILTER_BY_SOURCE    = 0x0010;
+		internal const int FILTER_BY_EVENT	 = 0x0001;
+		internal const int FILTER_BY_CATEGORY	 = 0x0002;
+		internal const int FILTER_BY_SEVERITY  = 0x0004;
+		internal const int FILTER_BY_AREA		 = 0x0008;
+		internal const int FILTER_BY_SOURCE    = 0x0010;
 	}
 }

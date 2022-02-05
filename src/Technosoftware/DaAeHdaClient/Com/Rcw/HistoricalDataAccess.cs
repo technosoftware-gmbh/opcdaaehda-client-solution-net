@@ -34,18 +34,18 @@ namespace OpcRcw.Hda
 	[ComImport]
 	[GuidAttribute("7DE5B060-E089-11d2-A5E6-000086339399")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
-    public interface CATID_OPCHDAServer10 {}
+    internal interface CATID_OPCHDAServer10 {}
 
     /// <exclude />
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public struct OPCHDA_FILETIME
+    internal struct OPCHDA_FILETIME
     {
-        public int dwLowDateTime;
-        public int dwHighDateTime;
+        internal int dwLowDateTime;
+        internal int dwHighDateTime;
     }
 
     /// <exclude />
-    public enum OPCHDA_SERVERSTATUS 
+    internal enum OPCHDA_SERVERSTATUS 
     { 
         OPCHDA_UP = 1,
 	    OPCHDA_DOWN,
@@ -53,7 +53,7 @@ namespace OpcRcw.Hda
     }
 
     /// <exclude />
-    public enum OPCHDA_BROWSEDIRECTION 
+    internal enum OPCHDA_BROWSEDIRECTION 
     {
 	    OPCHDA_BROWSE_UP = 1,
 	    OPCHDA_BROWSE_DOWN,
@@ -61,7 +61,7 @@ namespace OpcRcw.Hda
     }
 
     /// <exclude />
-    public enum OPCHDA_BROWSETYPE 
+    internal enum OPCHDA_BROWSETYPE 
     {
 	    OPCHDA_BRANCH = 1,
 	    OPCHDA_LEAF,
@@ -70,14 +70,14 @@ namespace OpcRcw.Hda
     }
 
     /// <exclude />
-    public enum OPCHDA_ANNOTATIONCAPABILITIES 
+    internal enum OPCHDA_ANNOTATIONCAPABILITIES 
     {  
 	    OPCHDA_READANNOTATIONCAP   = 0x01,
 	    OPCHDA_INSERTANNOTATIONCAP = 0x02 
     }
 
     /// <exclude />
-    public enum OPCHDA_UPDATECAPABILITIES 
+    internal enum OPCHDA_UPDATECAPABILITIES 
     {
 	    OPCHDA_INSERTCAP        = 0x01,
 	    OPCHDA_REPLACECAP       = 0x02,
@@ -87,7 +87,7 @@ namespace OpcRcw.Hda
     }
 
     /// <exclude />
-    public enum OPCHDA_OPERATORCODES 
+    internal enum OPCHDA_OPERATORCODES 
     {
 	    OPCHDA_EQUAL = 1,
 	    OPCHDA_LESS,
@@ -98,7 +98,7 @@ namespace OpcRcw.Hda
     }
 
     /// <exclude />
-    public enum OPCHDA_EDITTYPE 
+    internal enum OPCHDA_EDITTYPE 
     {
 	    OPCHDA_INSERT = 1,
 	    OPCHDA_REPLACE,
@@ -107,7 +107,7 @@ namespace OpcRcw.Hda
     }
 
     /// <exclude />
-    public enum OPCHDA_AGGREGATE 
+    internal enum OPCHDA_AGGREGATE 
     {
 	    OPCHDA_NOAGGREGATE = 0,
 	    OPCHDA_INTERPOLATIVE,
@@ -138,79 +138,79 @@ namespace OpcRcw.Hda
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCHDA_ANNOTATION 
+    internal struct OPCHDA_ANNOTATION 
     {					  
         [MarshalAs(UnmanagedType.I4)]
-        public int hClient;
+        internal int hClient;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwNumValues;
-        public IntPtr ftTimeStamps;
-        public IntPtr szAnnotation;
-        public IntPtr ftAnnotationTime;
-        public IntPtr szUser;
+        internal int dwNumValues;
+        internal IntPtr ftTimeStamps;
+        internal IntPtr szAnnotation;
+        internal IntPtr ftAnnotationTime;
+        internal IntPtr szUser;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCHDA_MODIFIEDITEM 
+    internal struct OPCHDA_MODIFIEDITEM 
     {
         [MarshalAs(UnmanagedType.I4)]
-        public int hClient;
+        internal int hClient;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwCount;
-        public IntPtr pftTimeStamps;
-        public IntPtr pdwQualities;
-        public IntPtr pvDataValues;
-        public IntPtr pftModificationTime;
-        public IntPtr pEditType;
-        public IntPtr szUser;
+        internal int dwCount;
+        internal IntPtr pftTimeStamps;
+        internal IntPtr pdwQualities;
+        internal IntPtr pvDataValues;
+        internal IntPtr pftModificationTime;
+        internal IntPtr pEditType;
+        internal IntPtr szUser;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCHDA_ATTRIBUTE
+    internal struct OPCHDA_ATTRIBUTE
     {
         [MarshalAs(UnmanagedType.I4)]
-        public int hClient;
+        internal int hClient;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwNumValues;
+        internal int dwNumValues;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwAttributeID;
-        public IntPtr ftTimeStamps;
-        public IntPtr vAttributeValues;
+        internal int dwAttributeID;
+        internal IntPtr ftTimeStamps;
+        internal IntPtr vAttributeValues;
     };
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCHDA_TIME 
+    internal struct OPCHDA_TIME 
     {
         [MarshalAs(UnmanagedType.I4)]
-        public int bString;
+        internal int bString;
         [MarshalAs(UnmanagedType.LPWStr)]
-	    public string szTime;
-	    public OPCHDA_FILETIME ftTime;
+	    internal string szTime;
+	    internal OPCHDA_FILETIME ftTime;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCHDA_ITEM
+    internal struct OPCHDA_ITEM
     {
         [MarshalAs(UnmanagedType.I4)]
-        public int hClient;
+        internal int hClient;
         [MarshalAs(UnmanagedType.I4)]
-        public int haAggregate;
+        internal int haAggregate;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwCount;
-        public IntPtr pftTimeStamps;
-        public IntPtr pdwQualities;
-        public IntPtr pvDataValues;
+        internal int dwCount;
+        internal IntPtr pftTimeStamps;
+        internal IntPtr pdwQualities;
+        internal IntPtr pvDataValues;
     }
 
     /// <exclude />
 	[ComImport]
 	[GuidAttribute("1F1217B1-DEE0-11d2-A5E5-000086339399")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCHDA_Browser
+    internal interface IOPCHDA_Browser
     {
         void GetEnum(
             OPCHDA_BROWSETYPE dwBrowseType,
@@ -237,7 +237,7 @@ namespace OpcRcw.Hda
 	[ComImport]
 	[GuidAttribute("1F1217B0-DEE0-11d2-A5E5-000086339399")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCHDA_Server
+    internal interface IOPCHDA_Server
     {
         void GetItemAttributes( 
             [Out][MarshalAs(UnmanagedType.I4)]
@@ -327,7 +327,7 @@ namespace OpcRcw.Hda
 	[ComImport]
 	[GuidAttribute("1F1217B2-DEE0-11d2-A5E5-000086339399")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCHDA_SyncRead
+    internal interface IOPCHDA_SyncRead
     {
         void ReadRaw(
             ref OPCHDA_TIME htStartTime,
@@ -407,7 +407,7 @@ namespace OpcRcw.Hda
 	[ComImport]
 	[GuidAttribute("1F1217B3-DEE0-11d2-A5E5-000086339399")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCHDA_SyncUpdate
+    internal interface IOPCHDA_SyncUpdate
     {
 	    void QueryCapabilities(
             [Out]
@@ -480,7 +480,7 @@ namespace OpcRcw.Hda
 	[ComImport]
 	[GuidAttribute("1F1217B4-DEE0-11d2-A5E5-000086339399")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCHDA_SyncAnnotations
+    internal interface IOPCHDA_SyncAnnotations
     {
 	    void QueryCapabilities(
             [Out]
@@ -515,7 +515,7 @@ namespace OpcRcw.Hda
 	[ComImport]
 	[GuidAttribute("1F1217B5-DEE0-11d2-A5E5-000086339399")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCHDA_AsyncRead
+    internal interface IOPCHDA_AsyncRead
     {
         void ReadRaw(
             [MarshalAs(UnmanagedType.I4)]
@@ -641,7 +641,7 @@ namespace OpcRcw.Hda
 	[ComImport]
 	[GuidAttribute("1F1217B6-DEE0-11d2-A5E5-000086339399")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCHDA_AsyncUpdate
+    internal interface IOPCHDA_AsyncUpdate
     {
 	    void QueryCapabilities(
 		    out OPCHDA_UPDATECAPABILITIES pCapabilities
@@ -738,7 +738,7 @@ namespace OpcRcw.Hda
 	[ComImport]
 	[GuidAttribute("1F1217B7-DEE0-11d2-A5E5-000086339399")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCHDA_AsyncAnnotations
+    internal interface IOPCHDA_AsyncAnnotations
     {
 	    void QueryCapabilities(
 		    out OPCHDA_ANNOTATIONCAPABILITIES pCapabilities);
@@ -782,7 +782,7 @@ namespace OpcRcw.Hda
 	[ComImport]
 	[GuidAttribute("1F1217B8-DEE0-11d2-A5E5-000086339399")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCHDA_Playback
+    internal interface IOPCHDA_Playback
     {
         void ReadRawWithUpdate(
             [MarshalAs(UnmanagedType.I4)]
@@ -831,7 +831,7 @@ namespace OpcRcw.Hda
 	[ComImport]
 	[GuidAttribute("1F1217B9-DEE0-11d2-A5E5-000086339399")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCHDA_DataCallback
+    internal interface IOPCHDA_DataCallback
     {
         void OnDataChange(
             [MarshalAs(UnmanagedType.I4)]
@@ -936,88 +936,88 @@ namespace OpcRcw.Hda
     }
 
     /// <exclude />
-	public static class Constants
+	internal static class Constants
 	{
 		// category description.
-		public const string OPC_CATEGORY_DESCRIPTION_HDA10 = "OPC History Data Access Servers Version 1.0";
+		internal const string OPC_CATEGORY_DESCRIPTION_HDA10 = "OPC History Data Access Servers Version 1.0";
 
 		// attribute ids.
-		public const int OPCHDA_DATA_TYPE		   = 0x01;
-		public const int OPCHDA_DESCRIPTION		   = 0x02;
-		public const int OPCHDA_ENG_UNITS		   = 0x03;
-		public const int OPCHDA_STEPPED		       = 0x04;
-		public const int OPCHDA_ARCHIVING	       = 0x05;
-		public const int OPCHDA_DERIVE_EQUATION    = 0x06;
-		public const int OPCHDA_NODE_NAME		   = 0x07;
-		public const int OPCHDA_PROCESS_NAME	   = 0x08;
-		public const int OPCHDA_SOURCE_NAME	       = 0x09;
-		public const int OPCHDA_SOURCE_TYPE	       = 0x0a;
-		public const int OPCHDA_NORMAL_MAXIMUM     = 0x0b;
-		public const int OPCHDA_NORMAL_MINIMUM	   = 0x0c;
-		public const int OPCHDA_ITEMID			   = 0x0d;
-		public const int OPCHDA_MAX_TIME_INT	   = 0x0e;
-		public const int OPCHDA_MIN_TIME_INT	   = 0x0f;
-		public const int OPCHDA_EXCEPTION_DEV	   = 0x10;
-		public const int OPCHDA_EXCEPTION_DEV_TYPE = 0x11;
-		public const int OPCHDA_HIGH_ENTRY_LIMIT   = 0x12;
-		public const int OPCHDA_LOW_ENTRY_LIMIT	   = 0x13;
+		internal const int OPCHDA_DATA_TYPE		   = 0x01;
+		internal const int OPCHDA_DESCRIPTION		   = 0x02;
+		internal const int OPCHDA_ENG_UNITS		   = 0x03;
+		internal const int OPCHDA_STEPPED		       = 0x04;
+		internal const int OPCHDA_ARCHIVING	       = 0x05;
+		internal const int OPCHDA_DERIVE_EQUATION    = 0x06;
+		internal const int OPCHDA_NODE_NAME		   = 0x07;
+		internal const int OPCHDA_PROCESS_NAME	   = 0x08;
+		internal const int OPCHDA_SOURCE_NAME	       = 0x09;
+		internal const int OPCHDA_SOURCE_TYPE	       = 0x0a;
+		internal const int OPCHDA_NORMAL_MAXIMUM     = 0x0b;
+		internal const int OPCHDA_NORMAL_MINIMUM	   = 0x0c;
+		internal const int OPCHDA_ITEMID			   = 0x0d;
+		internal const int OPCHDA_MAX_TIME_INT	   = 0x0e;
+		internal const int OPCHDA_MIN_TIME_INT	   = 0x0f;
+		internal const int OPCHDA_EXCEPTION_DEV	   = 0x10;
+		internal const int OPCHDA_EXCEPTION_DEV_TYPE = 0x11;
+		internal const int OPCHDA_HIGH_ENTRY_LIMIT   = 0x12;
+		internal const int OPCHDA_LOW_ENTRY_LIMIT	   = 0x13;
 
 		// attribute names.
-		public const string OPCHDA_ATTRNAME_DATA_TYPE		   = "Data Type";
-		public const string OPCHDA_ATTRNAME_DESCRIPTION        = "Description";
-		public const string OPCHDA_ATTRNAME_ENG_UNITS		   = "Eng Units";
-		public const string OPCHDA_ATTRNAME_STEPPED		       = "Stepped";
-		public const string OPCHDA_ATTRNAME_ARCHIVING	       = "Archiving";
-		public const string OPCHDA_ATTRNAME_DERIVE_EQUATION    = "Derive Equation";
-		public const string OPCHDA_ATTRNAME_NODE_NAME		   = "Node Name";
-		public const string OPCHDA_ATTRNAME_PROCESS_NAME	   = "Process Name";
-		public const string OPCHDA_ATTRNAME_SOURCE_NAME	       = "Source Name";
-		public const string OPCHDA_ATTRNAME_SOURCE_TYPE	       = "Source Type";
-		public const string OPCHDA_ATTRNAME_NORMAL_MAXIMUM     = "Normal Maximum";
-		public const string OPCHDA_ATTRNAME_NORMAL_MINIMUM	   = "Normal Minimum";
-		public const string OPCHDA_ATTRNAME_ITEMID			   = "ItemID";
-		public const string OPCHDA_ATTRNAME_MAX_TIME_INT	   = "Max Time Interval";
-		public const string OPCHDA_ATTRNAME_MIN_TIME_INT	   = "Min Time Interval";
-		public const string OPCHDA_ATTRNAME_EXCEPTION_DEV	   = "Exception Deviation";
-		public const string OPCHDA_ATTRNAME_EXCEPTION_DEV_TYPE = "Exception Dev Type";
-		public const string OPCHDA_ATTRNAME_HIGH_ENTRY_LIMIT   = "High Entry Limit";
-		public const string OPCHDA_ATTRNAME_LOW_ENTRY_LIMIT	   = "Low Entry Limit";
+		internal const string OPCHDA_ATTRNAME_DATA_TYPE		   = "Data Type";
+		internal const string OPCHDA_ATTRNAME_DESCRIPTION        = "Description";
+		internal const string OPCHDA_ATTRNAME_ENG_UNITS		   = "Eng Units";
+		internal const string OPCHDA_ATTRNAME_STEPPED		       = "Stepped";
+		internal const string OPCHDA_ATTRNAME_ARCHIVING	       = "Archiving";
+		internal const string OPCHDA_ATTRNAME_DERIVE_EQUATION    = "Derive Equation";
+		internal const string OPCHDA_ATTRNAME_NODE_NAME		   = "Node Name";
+		internal const string OPCHDA_ATTRNAME_PROCESS_NAME	   = "Process Name";
+		internal const string OPCHDA_ATTRNAME_SOURCE_NAME	       = "Source Name";
+		internal const string OPCHDA_ATTRNAME_SOURCE_TYPE	       = "Source Type";
+		internal const string OPCHDA_ATTRNAME_NORMAL_MAXIMUM     = "Normal Maximum";
+		internal const string OPCHDA_ATTRNAME_NORMAL_MINIMUM	   = "Normal Minimum";
+		internal const string OPCHDA_ATTRNAME_ITEMID			   = "ItemID";
+		internal const string OPCHDA_ATTRNAME_MAX_TIME_INT	   = "Max Time Interval";
+		internal const string OPCHDA_ATTRNAME_MIN_TIME_INT	   = "Min Time Interval";
+		internal const string OPCHDA_ATTRNAME_EXCEPTION_DEV	   = "Exception Deviation";
+		internal const string OPCHDA_ATTRNAME_EXCEPTION_DEV_TYPE = "Exception Dev Type";
+		internal const string OPCHDA_ATTRNAME_HIGH_ENTRY_LIMIT   = "High Entry Limit";
+		internal const string OPCHDA_ATTRNAME_LOW_ENTRY_LIMIT	   = "Low Entry Limit";
 
 		// aggregate names.
-		public const string OPCHDA_AGGRNAME_INTERPOLATIVE	  = "Interpolative";
-		public const string OPCHDA_AGGRNAME_TOTAL	          = "Total";
-		public const string OPCHDA_AGGRNAME_AVERAGE	          = "Average";
-		public const string OPCHDA_AGGRNAME_TIMEAVERAGE	      = "Time Average";
-		public const string OPCHDA_AGGRNAME_COUNT	          = "Count";
-		public const string OPCHDA_AGGRNAME_STDEV	          = "Standard Deviation";
-		public const string OPCHDA_AGGRNAME_MINIMUMACTUALTIME = "Minimum Actual Time";
-		public const string OPCHDA_AGGRNAME_MINIMUM	          = "Minimum";
-		public const string OPCHDA_AGGRNAME_MAXIMUMACTUALTIME = "Maximum Actual Time";
-		public const string OPCHDA_AGGRNAME_MAXIMUM	          = "Maximum";
-		public const string OPCHDA_AGGRNAME_START	          = "Start";
-		public const string OPCHDA_AGGRNAME_END               = "End";
-		public const string OPCHDA_AGGRNAME_DELTA	          = "Delta";
-		public const string OPCHDA_AGGRNAME_REGSLOPE	      = "Regression Line Slope";
-		public const string OPCHDA_AGGRNAME_REGCONST	      = "Regression Line Constant";
-		public const string OPCHDA_AGGRNAME_REGDEV            = "Regression Line Error";
-		public const string OPCHDA_AGGRNAME_VARIANCE	      = "Variance";
-		public const string OPCHDA_AGGRNAME_RANGE	          = "Range";
-		public const string OPCHDA_AGGRNAME_DURATIONGOOD	  = "Duration Good";
-		public const string OPCHDA_AGGRNAME_DURATIONBAD	      = "Duration Bad";
-		public const string OPCHDA_AGGRNAME_PERCENTGOOD	      = "Percent Good";
-		public const string OPCHDA_AGGRNAME_PERCENTBAD	      = "Percent Bad";
-		public const string OPCHDA_AGGRNAME_WORSTQUALITY	  = "Worst Quality";
-		public const string OPCHDA_AGGRNAME_ANNOTATIONS	      = "Annotations";
+		internal const string OPCHDA_AGGRNAME_INTERPOLATIVE	  = "Interpolative";
+		internal const string OPCHDA_AGGRNAME_TOTAL	          = "Total";
+		internal const string OPCHDA_AGGRNAME_AVERAGE	          = "Average";
+		internal const string OPCHDA_AGGRNAME_TIMEAVERAGE	      = "Time Average";
+		internal const string OPCHDA_AGGRNAME_COUNT	          = "Count";
+		internal const string OPCHDA_AGGRNAME_STDEV	          = "Standard Deviation";
+		internal const string OPCHDA_AGGRNAME_MINIMUMACTUALTIME = "Minimum Actual Time";
+		internal const string OPCHDA_AGGRNAME_MINIMUM	          = "Minimum";
+		internal const string OPCHDA_AGGRNAME_MAXIMUMACTUALTIME = "Maximum Actual Time";
+		internal const string OPCHDA_AGGRNAME_MAXIMUM	          = "Maximum";
+		internal const string OPCHDA_AGGRNAME_START	          = "Start";
+		internal const string OPCHDA_AGGRNAME_END               = "End";
+		internal const string OPCHDA_AGGRNAME_DELTA	          = "Delta";
+		internal const string OPCHDA_AGGRNAME_REGSLOPE	      = "Regression Line Slope";
+		internal const string OPCHDA_AGGRNAME_REGCONST	      = "Regression Line Constant";
+		internal const string OPCHDA_AGGRNAME_REGDEV            = "Regression Line Error";
+		internal const string OPCHDA_AGGRNAME_VARIANCE	      = "Variance";
+		internal const string OPCHDA_AGGRNAME_RANGE	          = "Range";
+		internal const string OPCHDA_AGGRNAME_DURATIONGOOD	  = "Duration Good";
+		internal const string OPCHDA_AGGRNAME_DURATIONBAD	      = "Duration Bad";
+		internal const string OPCHDA_AGGRNAME_PERCENTGOOD	      = "Percent Good";
+		internal const string OPCHDA_AGGRNAME_PERCENTBAD	      = "Percent Bad";
+		internal const string OPCHDA_AGGRNAME_WORSTQUALITY	  = "Worst Quality";
+		internal const string OPCHDA_AGGRNAME_ANNOTATIONS	      = "Annotations";
 
 		// OPCHDA_QUALITY -- these are the high-order 16 bits, OPC DA Quality occupies low-order 16 bits.
-		public const int OPCHDA_EXTRADATA		  = 0x00010000;
-		public const int OPCHDA_INTERPOLATED	  = 0x00020000;
-		public const int OPCHDA_RAW			      = 0x00040000;
-		public const int OPCHDA_CALCULATED	      = 0x00080000;
-		public const int OPCHDA_NOBOUND		      = 0x00100000;
-		public const int OPCHDA_NODATA			  = 0x00200000;
-		public const int OPCHDA_DATALOST		  = 0x00400000;
-		public const int OPCHDA_CONVERSION		  = 0x00800000;
-		public const int OPCHDA_PARTIAL           = 0x01000000;
+		internal const int OPCHDA_EXTRADATA		  = 0x00010000;
+		internal const int OPCHDA_INTERPOLATED	  = 0x00020000;
+		internal const int OPCHDA_RAW			      = 0x00040000;
+		internal const int OPCHDA_CALCULATED	      = 0x00080000;
+		internal const int OPCHDA_NOBOUND		      = 0x00100000;
+		internal const int OPCHDA_NODATA			  = 0x00200000;
+		internal const int OPCHDA_DATALOST		  = 0x00400000;
+		internal const int OPCHDA_CONVERSION		  = 0x00800000;
+		internal const int OPCHDA_PARTIAL           = 0x01000000;
 	}
 }

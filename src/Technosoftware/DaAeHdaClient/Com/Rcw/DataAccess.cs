@@ -33,43 +33,43 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("63D5F430-CFE4-11d1-B2C8-0060083BA1FB")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
-    public interface CATID_OPCDAServer10 {}
+    internal interface CATID_OPCDAServer10 {}
 
     /// <exclude />
 	[ComImport]
 	[GuidAttribute("63D5F432-CFE4-11d1-B2C8-0060083BA1FB")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
-    public interface CATID_OPCDAServer20 {}
+    internal interface CATID_OPCDAServer20 {}
 
     /// <exclude />
 	[ComImport]
 	[GuidAttribute("CC603642-66D7-48f1-B69A-B625E73652D7")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
-    public interface CATID_OPCDAServer30 {}
+    internal interface CATID_OPCDAServer30 {}
 
     /// <exclude />
 	[ComImport]
 	[GuidAttribute("3098EDA4-A006-48b2-A27F-247453959408")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
-    public interface CATID_XMLDAServer10 {}
+    internal interface CATID_XMLDAServer10 {}
 
     /// <exclude />
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public struct FILETIME
+    internal struct FILETIME
     {
-        public int dwLowDateTime;
-        public int dwHighDateTime;
+        internal int dwLowDateTime;
+        internal int dwHighDateTime;
     }
 
     /// <exclude />
-    public enum OPCDATASOURCE 
+    internal enum OPCDATASOURCE 
     { 
         OPC_DS_CACHE = 1, 
         OPC_DS_DEVICE 
     }
 
     /// <exclude />
-    public enum OPCBROWSETYPE 
+    internal enum OPCBROWSETYPE 
     { 
         OPC_BRANCH = 1, 
         OPC_LEAF, 
@@ -77,14 +77,14 @@ namespace OpcRcw.Da
     }
 
     /// <exclude />
-    public enum OPCNAMESPACETYPE 
+    internal enum OPCNAMESPACETYPE 
     { 
         OPC_NS_HIERARCHIAL = 1, 
         OPC_NS_FLAT
     }
 
     /// <exclude />
-    public enum OPCBROWSEDIRECTION 
+    internal enum OPCBROWSEDIRECTION 
     { 
         OPC_BROWSE_UP = 1, 
         OPC_BROWSE_DOWN, 
@@ -92,7 +92,7 @@ namespace OpcRcw.Da
     }
 
     /// <exclude />
-    public enum OPCEUTYPE 
+    internal enum OPCEUTYPE 
     {
         OPC_NOENUM = 0, 
         OPC_ANALOG, 
@@ -100,7 +100,7 @@ namespace OpcRcw.Da
     }
 
     /// <exclude />
-    public enum OPCSERVERSTATE 
+    internal enum OPCSERVERSTATE 
     { 
         OPC_STATUS_RUNNING = 1, 
         OPC_STATUS_FAILED, 
@@ -111,7 +111,7 @@ namespace OpcRcw.Da
     }
 
     /// <exclude />
-    public enum OPCENUMSCOPE 
+    internal enum OPCENUMSCOPE 
     { 
         OPC_ENUM_PRIVATE_CONNECTIONS = 1, 
         OPC_ENUM_PUBLIC_CONNECTIONS, 
@@ -123,249 +123,249 @@ namespace OpcRcw.Da
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCGROUPHEADER 
+    internal struct OPCGROUPHEADER 
     {
         [MarshalAs(UnmanagedType.I4)]
-        public int dwSize;
+        internal int dwSize;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwItemCount;
+        internal int dwItemCount;
         [MarshalAs(UnmanagedType.I4)]
-        public int hClientGroup;
+        internal int hClientGroup;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwTransactionID;
+        internal int dwTransactionID;
         [MarshalAs(UnmanagedType.I4)]
-        public int hrStatus;
+        internal int hrStatus;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCITEMHEADER1 
+    internal struct OPCITEMHEADER1 
     {
         [MarshalAs(UnmanagedType.I4)]
-        public int hClient;
+        internal int hClient;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwValueOffset;
+        internal int dwValueOffset;
         [MarshalAs(UnmanagedType.I2)]
-        public short wQuality;
+        internal short wQuality;
         [MarshalAs(UnmanagedType.I2)]
-        public short wReserved;
-        public FILETIME ftTimeStampItem;
+        internal short wReserved;
+        internal FILETIME ftTimeStampItem;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCITEMHEADER2 
+    internal struct OPCITEMHEADER2 
     {
         [MarshalAs(UnmanagedType.I4)]
-        public int hClient;
+        internal int hClient;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwValueOffset;
+        internal int dwValueOffset;
         [MarshalAs(UnmanagedType.I2)]
-        public short wQuality;
+        internal short wQuality;
         [MarshalAs(UnmanagedType.I2)]
-        public short wReserved;
+        internal short wReserved;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCGROUPHEADERWRITE 
+    internal struct OPCGROUPHEADERWRITE 
     {
         [MarshalAs(UnmanagedType.I4)]
-        public int dwItemCount;
+        internal int dwItemCount;
         [MarshalAs(UnmanagedType.I4)]
-        public int hClientGroup;
+        internal int hClientGroup;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwTransactionID;
+        internal int dwTransactionID;
         [MarshalAs(UnmanagedType.I4)]
-        public int hrStatus;
+        internal int hrStatus;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCITEMHEADERWRITE 
+    internal struct OPCITEMHEADERWRITE 
     {
         [MarshalAs(UnmanagedType.I4)]
-        public int hClient;
+        internal int hClient;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwError;
+        internal int dwError;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCITEMSTATE
+    internal struct OPCITEMSTATE
     {
         [MarshalAs(UnmanagedType.I4)]
-        public int hClient;
-        public FILETIME ftTimeStamp;
+        internal int hClient;
+        internal FILETIME ftTimeStamp;
         [MarshalAs(UnmanagedType.I2)]
-        public short wQuality;
+        internal short wQuality;
         [MarshalAs(UnmanagedType.I2)]
-        public short wReserved;
+        internal short wReserved;
         [MarshalAs(UnmanagedType.Struct)]
-        public object vDataValue;
+        internal object vDataValue;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCSERVERSTATUS 
+    internal struct OPCSERVERSTATUS 
     {
-        public FILETIME ftStartTime;
-        public FILETIME ftCurrentTime;
-        public FILETIME ftLastUpdateTime;
-        public OPCSERVERSTATE dwServerState;
+        internal FILETIME ftStartTime;
+        internal FILETIME ftCurrentTime;
+        internal FILETIME ftLastUpdateTime;
+        internal OPCSERVERSTATE dwServerState;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwGroupCount; 
+        internal int dwGroupCount; 
         [MarshalAs(UnmanagedType.I4)]
-        public int dwBandWidth;
+        internal int dwBandWidth;
         [MarshalAs(UnmanagedType.I2)]
-        public short wMajorVersion;
+        internal short wMajorVersion;
         [MarshalAs(UnmanagedType.I2)]
-        public short wMinorVersion;
+        internal short wMinorVersion;
         [MarshalAs(UnmanagedType.I2)]
-        public short wBuildNumber;
+        internal short wBuildNumber;
         [MarshalAs(UnmanagedType.I2)]
-        public short wReserved;
+        internal short wReserved;
         [MarshalAs(UnmanagedType.LPWStr)]
-        public string szVendorInfo;
+        internal string szVendorInfo;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCITEMDEF 
+    internal struct OPCITEMDEF 
     {
         [MarshalAs(UnmanagedType.LPWStr)]
-        public string szAccessPath;
+        internal string szAccessPath;
         [MarshalAs(UnmanagedType.LPWStr)]
-        public string szItemID;
+        internal string szItemID;
         [MarshalAs(UnmanagedType.I4)]
-        public int bActive;
+        internal int bActive;
         [MarshalAs(UnmanagedType.I4)]
-        public int hClient;
+        internal int hClient;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwBlobSize;
-        public IntPtr pBlob;
+        internal int dwBlobSize;
+        internal IntPtr pBlob;
         [MarshalAs(UnmanagedType.I2)]
-        public short vtRequestedDataType;
+        internal short vtRequestedDataType;
         [MarshalAs(UnmanagedType.I2)]
-        public short wReserved;
+        internal short wReserved;
     };
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCITEMATTRIBUTES
+    internal struct OPCITEMATTRIBUTES
     {
         [MarshalAs(UnmanagedType.LPWStr)]
-        public string szAccessPath;
+        internal string szAccessPath;
         [MarshalAs(UnmanagedType.LPWStr)]
-        public string szItemID;
+        internal string szItemID;
         [MarshalAs(UnmanagedType.I4)]
-        public int bActive;
+        internal int bActive;
         [MarshalAs(UnmanagedType.I4)]
-        public int hClient;
+        internal int hClient;
         [MarshalAs(UnmanagedType.I4)]
-        public int hServer;
+        internal int hServer;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwAccessRights;
+        internal int dwAccessRights;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwBlobSize;
-        public IntPtr pBlob;
+        internal int dwBlobSize;
+        internal IntPtr pBlob;
         [MarshalAs(UnmanagedType.I2)]
-        public short vtRequestedDataType;
+        internal short vtRequestedDataType;
         [MarshalAs(UnmanagedType.I2)]
-        public short vtCanonicalDataType;
-        public OPCEUTYPE  dwEUType;
+        internal short vtCanonicalDataType;
+        internal OPCEUTYPE  dwEUType;
         [MarshalAs(UnmanagedType.Struct)]
-        public object vEUInfo;
+        internal object vEUInfo;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCITEMRESULT 
+    internal struct OPCITEMRESULT 
     {
         [MarshalAs(UnmanagedType.I4)]
-        public int hServer;
+        internal int hServer;
         [MarshalAs(UnmanagedType.I2)]
-        public short vtCanonicalDataType;
+        internal short vtCanonicalDataType;
         [MarshalAs(UnmanagedType.I2)]
-        public short wReserved;
+        internal short wReserved;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwAccessRights;
+        internal int dwAccessRights;
         [MarshalAs(UnmanagedType.I4)]
-        public int dwBlobSize;
-        public IntPtr pBlob;
+        internal int dwBlobSize;
+        internal IntPtr pBlob;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCITEMPROPERTY
+    internal struct OPCITEMPROPERTY
     {
         [MarshalAs(UnmanagedType.I2)]
-        public short vtDataType;
+        internal short vtDataType;
         [MarshalAs(UnmanagedType.I2)]
-        public short wReserved;
+        internal short wReserved;
         [MarshalAs(UnmanagedType.I4)]
-        public int	dwPropertyID;  
+        internal int	dwPropertyID;  
         [MarshalAs(UnmanagedType.LPWStr)] 
-        public string szItemID;
+        internal string szItemID;
         [MarshalAs(UnmanagedType.LPWStr)] 
-        public string szDescription;
+        internal string szDescription;
         [MarshalAs(UnmanagedType.Struct)] 
-        public object vValue;
+        internal object vValue;
         [MarshalAs(UnmanagedType.I4)] 
-        public int	hrErrorID;
+        internal int	hrErrorID;
         [MarshalAs(UnmanagedType.I4)] 
-        public int dwReserved;
+        internal int dwReserved;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCITEMPROPERTIES 
+    internal struct OPCITEMPROPERTIES 
     {
         [MarshalAs(UnmanagedType.I4)] 
-        public int hrErrorID;
+        internal int hrErrorID;
         [MarshalAs(UnmanagedType.I4)] 
-        public int dwNumProperties;
-        public IntPtr pItemProperties;
+        internal int dwNumProperties;
+        internal IntPtr pItemProperties;
         [MarshalAs(UnmanagedType.I4)] 
-		public int dwReserved;
+		internal int dwReserved;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCBROWSEELEMENT
+    internal struct OPCBROWSEELEMENT
     {
         [MarshalAs(UnmanagedType.LPWStr)] 
-        public string szName;
+        internal string szName;
         [MarshalAs(UnmanagedType.LPWStr)] 
-        public string szItemID;
+        internal string szItemID;
         [MarshalAs(UnmanagedType.I4)] 
-        public int dwFlagValue;
+        internal int dwFlagValue;
         [MarshalAs(UnmanagedType.I4)] 
-		public int dwReserved; 
-        public OPCITEMPROPERTIES ItemProperties;
+		internal int dwReserved; 
+        internal OPCITEMPROPERTIES ItemProperties;
     }
 
     /// <exclude />
 	[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
-    public struct OPCITEMVQT
+    internal struct OPCITEMVQT
     {
         [MarshalAs(UnmanagedType.Struct)] 
-        public object vDataValue;
+        internal object vDataValue;
         [MarshalAs(UnmanagedType.I4)] 
-        public int bQualitySpecified;
+        internal int bQualitySpecified;
         [MarshalAs(UnmanagedType.I2)] 
-        public short wQuality;
+        internal short wQuality;
         [MarshalAs(UnmanagedType.I2)] 
-        public short wReserved;
+        internal short wReserved;
         [MarshalAs(UnmanagedType.I4)] 
-        public int bTimeStampSpecified;
+        internal int bTimeStampSpecified;
         [MarshalAs(UnmanagedType.I4)] 
-        public int dwReserved;
-        public FILETIME ftTimeStamp;
+        internal int dwReserved;
+        internal FILETIME ftTimeStamp;
     }
 
     /// <exclude />
-    public enum OPCBROWSEFILTER 
+    internal enum OPCBROWSEFILTER 
     {
 	    OPC_BROWSE_FILTER_ALL = 1,
 	    OPC_BROWSE_FILTER_BRANCHES,
@@ -376,7 +376,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("39c13a4d-011e-11d0-9675-0020afd8adb3")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCServer
+    internal interface IOPCServer
     {
         void AddGroup(
             [MarshalAs(UnmanagedType.LPWStr)] 
@@ -435,7 +435,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("39c13a4e-011e-11d0-9675-0020afd8adb3")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCServerPublicGroups
+    internal interface IOPCServerPublicGroups
     {
         void GetPublicGroupByName(
             [MarshalAs(UnmanagedType.LPWStr)] 
@@ -455,7 +455,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("39c13a4f-011e-11d0-9675-0020afd8adb3")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCBrowseServerAddressSpace
+    internal interface IOPCBrowseServerAddressSpace
     {
         void QueryOrganization(
 		    [Out] 
@@ -494,7 +494,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("39c13a50-011e-11d0-9675-0020afd8adb3")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCGroupStateMgt
+    internal interface IOPCGroupStateMgt
     {
         void GetState(
 		    [Out][MarshalAs(UnmanagedType.I4)]  
@@ -540,7 +540,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("39c13a51-011e-11d0-9675-0020afd8adb3")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCPublicGroupStateMgt
+    internal interface IOPCPublicGroupStateMgt
     {
         void GetState(  
 		    [Out][MarshalAs(UnmanagedType.I4)]  
@@ -553,7 +553,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("39c13a52-011e-11d0-9675-0020afd8adb3")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCSyncIO
+    internal interface IOPCSyncIO
     {
         void Read(
             OPCDATASOURCE  dwSource,
@@ -581,7 +581,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("39c13a53-011e-11d0-9675-0020afd8adb3")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCAsyncIO
+    internal interface IOPCAsyncIO
     {
         void Read(
             [MarshalAs(UnmanagedType.I4)]  
@@ -626,7 +626,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("39c13a54-011e-11d0-9675-0020afd8adb3")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCItemMgt
+    internal interface IOPCItemMgt
     {
         void AddItems( 
             [MarshalAs(UnmanagedType.I4)]  
@@ -698,7 +698,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("39c13a55-011e-11d0-9675-0020afd8adb3")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IEnumOPCItemAttributes
+    internal interface IEnumOPCItemAttributes
     {
         void Next( 
             [MarshalAs(UnmanagedType.I4)]  
@@ -723,7 +723,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("39c13a70-011e-11d0-9675-0020afd8adb3")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCDataCallback
+    internal interface IOPCDataCallback
     {
         void OnDataChange(
             [MarshalAs(UnmanagedType.I4)]  
@@ -794,7 +794,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("39c13a71-011e-11d0-9675-0020afd8adb3")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCAsyncIO2
+    internal interface IOPCAsyncIO2
     {
         void Read(
             [MarshalAs(UnmanagedType.I4)]  
@@ -846,7 +846,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("39c13a72-011e-11d0-9675-0020afd8adb3")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCItemProperties
+    internal interface IOPCItemProperties
     {
         void QueryAvailableProperties( 
             [MarshalAs(UnmanagedType.LPWStr)]  
@@ -889,7 +889,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("5946DA93-8B39-4ec8-AB3D-AA73DF5BC86F")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCItemDeadbandMgt
+    internal interface IOPCItemDeadbandMgt
     {
         void SetItemDeadband( 
             [MarshalAs(UnmanagedType.I4)]  
@@ -924,7 +924,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("3E22D313-F08B-41a5-86C8-95E95CB49FFC")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCItemSamplingMgt
+    internal interface IOPCItemSamplingMgt
     {
         void SetItemSamplingRate(
             [MarshalAs(UnmanagedType.I4)]  
@@ -981,7 +981,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("39227004-A18F-4b57-8B0A-5235670F4468")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCBrowse
+    internal interface IOPCBrowse
     {
         void GetProperties( 
             [MarshalAs(UnmanagedType.I4)]  
@@ -1028,7 +1028,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("85C0B427-2893-4cbc-BD78-E5FC5146F08F")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCItemIO
+    internal interface IOPCItemIO
     {
         void Read(
             [MarshalAs(UnmanagedType.I4)]  
@@ -1061,7 +1061,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("730F5F0F-55B1-4c81-9E18-FF8A0904E1FA")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCSyncIO2 // : IOPCSyncIO
+    internal interface IOPCSyncIO2 // : IOPCSyncIO
     {  
         void Read(
             OPCDATASOURCE  dwSource,
@@ -1115,7 +1115,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("0967B97B-36EF-423e-B6F8-6BFF1E40D39D")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCAsyncIO3 // : IOPCAsyncIO2
+    internal interface IOPCAsyncIO3 // : IOPCAsyncIO2
     { 
         void Read(
             [MarshalAs(UnmanagedType.I4)]  
@@ -1206,7 +1206,7 @@ namespace OpcRcw.Da
 	[ComImport]
 	[GuidAttribute("8E368666-D72E-4f78-87ED-647611C61C9F")]
 	[InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)] 
-    public interface IOPCGroupStateMgt2 // : IOPCGroupStateMgt
+    internal interface IOPCGroupStateMgt2 // : IOPCGroupStateMgt
     { 
         void GetState(
 		    [Out][MarshalAs(UnmanagedType.I4)]  
@@ -1259,168 +1259,168 @@ namespace OpcRcw.Da
     }
 
     /// <exclude />
-	public static class Constants
+	internal static class Constants
 	{
 		// category description strings.
-		public const string OPC_CATEGORY_DESCRIPTION_DA10    = "OPC Data Access Servers Version 1.0";
-		public const string OPC_CATEGORY_DESCRIPTION_DA20    = "OPC Data Access Servers Version 2.0";
-		public const string OPC_CATEGORY_DESCRIPTION_DA30    = "OPC Data Access Servers Version 3.0";
-		public const string OPC_CATEGORY_DESCRIPTION_XMLDA10 = "OPC XML Data Access Servers Version 1.0";
+		internal const string OPC_CATEGORY_DESCRIPTION_DA10    = "OPC Data Access Servers Version 1.0";
+		internal const string OPC_CATEGORY_DESCRIPTION_DA20    = "OPC Data Access Servers Version 2.0";
+		internal const string OPC_CATEGORY_DESCRIPTION_DA30    = "OPC Data Access Servers Version 3.0";
+		internal const string OPC_CATEGORY_DESCRIPTION_XMLDA10 = "OPC XML Data Access Servers Version 1.0";
 
 		// values for access rights mask.
-		public const int OPC_READABLE           = 0x01;
-		public const int OPC_WRITEABLE          = 0x02;	
+		internal const int OPC_READABLE           = 0x01;
+		internal const int OPC_WRITEABLE          = 0x02;	
 
 		// values for browse element flags.
-		public const int OPC_BROWSE_HASCHILDREN = 0x01;
-		public const int OPC_BROWSE_ISITEM      = 0x02;
+		internal const int OPC_BROWSE_HASCHILDREN = 0x01;
+		internal const int OPC_BROWSE_ISITEM      = 0x02;
 
 		// well known complex type description systems.   
-		public const string OPC_TYPE_SYSTEM_OPCBINARY             = "OPCBinary";
-		public const string OPC_TYPE_SYSTEM_XMLSCHEMA             = "XMLSchema";
+		internal const string OPC_TYPE_SYSTEM_OPCBINARY             = "OPCBinary";
+		internal const string OPC_TYPE_SYSTEM_XMLSCHEMA             = "XMLSchema";
 
 		// complex data consitency window values.
-		public const string OPC_CONSISTENCY_WINDOW_UNKNOWN        = "Unknown";
-		public const string OPC_CONSISTENCY_WINDOW_NOT_CONSISTENT = "Not Consistent";
+		internal const string OPC_CONSISTENCY_WINDOW_UNKNOWN        = "Unknown";
+		internal const string OPC_CONSISTENCY_WINDOW_NOT_CONSISTENT = "Not Consistent";
 
 		// complex data write behavoir values.
-		public const string OPC_WRITE_BEHAVIOR_BEST_EFFORT        = "Best Effort";
-		public const string OPC_WRITE_BEHAVIOR_ALL_OR_NOTHING     = "All or Nothing";
+		internal const string OPC_WRITE_BEHAVIOR_BEST_EFFORT        = "Best Effort";
+		internal const string OPC_WRITE_BEHAVIOR_ALL_OR_NOTHING     = "All or Nothing";
 	}
 
     /// <exclude />
-	public static class Qualities
+	internal static class Qualities
 	{
 		// Values for fields in the quality word
-        public const short OPC_QUALITY_MASK                     = 0xC0;
-        public const short OPC_STATUS_MASK                      = 0xFC;
-		public const short OPC_LIMIT_MASK                       = 0x03;
+        internal const short OPC_QUALITY_MASK                     = 0xC0;
+        internal const short OPC_STATUS_MASK                      = 0xFC;
+		internal const short OPC_LIMIT_MASK                       = 0x03;
 
 		// Values for QUALITY_MASK bit field
-		public const short OPC_QUALITY_BAD                      = 0x00;
-		public const short OPC_QUALITY_UNCERTAIN                = 0x40;
-		public const short OPC_QUALITY_GOOD                     = 0xC0;
+		internal const short OPC_QUALITY_BAD                      = 0x00;
+		internal const short OPC_QUALITY_UNCERTAIN                = 0x40;
+		internal const short OPC_QUALITY_GOOD                     = 0xC0;
 
 		// STATUS_MASK Values for Quality = BAD
-		public const short OPC_QUALITY_CONFIG_ERROR    		    = 0x04;
-		public const short OPC_QUALITY_NOT_CONNECTED   		    = 0x08;
-		public const short OPC_QUALITY_DEVICE_FAILURE  		    = 0x0c;
-		public const short OPC_QUALITY_SENSOR_FAILURE  		    = 0x10;
-		public const short OPC_QUALITY_LAST_KNOWN      		    = 0x14;
-		public const short OPC_QUALITY_COMM_FAILURE    		    = 0x18;
-		public const short OPC_QUALITY_OUT_OF_SERVICE  		    = 0x1C;
-		public const short OPC_QUALITY_WAITING_FOR_INITIAL_DATA = 0x20;
+		internal const short OPC_QUALITY_CONFIG_ERROR    		    = 0x04;
+		internal const short OPC_QUALITY_NOT_CONNECTED   		    = 0x08;
+		internal const short OPC_QUALITY_DEVICE_FAILURE  		    = 0x0c;
+		internal const short OPC_QUALITY_SENSOR_FAILURE  		    = 0x10;
+		internal const short OPC_QUALITY_LAST_KNOWN      		    = 0x14;
+		internal const short OPC_QUALITY_COMM_FAILURE    		    = 0x18;
+		internal const short OPC_QUALITY_OUT_OF_SERVICE  		    = 0x1C;
+		internal const short OPC_QUALITY_WAITING_FOR_INITIAL_DATA = 0x20;
 
 		// STATUS_MASK Values for Quality = UNCERTAIN
-		public const short OPC_QUALITY_LAST_USABLE              = 0x44;
-		public const short OPC_QUALITY_SENSOR_CAL               = 0x50;
-		public const short OPC_QUALITY_EGU_EXCEEDED             = 0x54;
-		public const short OPC_QUALITY_SUB_NORMAL               = 0x58;
+		internal const short OPC_QUALITY_LAST_USABLE              = 0x44;
+		internal const short OPC_QUALITY_SENSOR_CAL               = 0x50;
+		internal const short OPC_QUALITY_EGU_EXCEEDED             = 0x54;
+		internal const short OPC_QUALITY_SUB_NORMAL               = 0x58;
 
 		// STATUS_MASK Values for Quality = GOOD
-		public const short OPC_QUALITY_LOCAL_OVERRIDE           = 0xD8;
+		internal const short OPC_QUALITY_LOCAL_OVERRIDE           = 0xD8;
 
 		// Values for Limit Bitfield 
-		public const short OPC_LIMIT_OK                         = 0x00;
-		public const short OPC_LIMIT_LOW                        = 0x01;
-		public const short OPC_LIMIT_HIGH                       = 0x02;
-		public const short OPC_LIMIT_CONST                      = 0x03;
+		internal const short OPC_LIMIT_OK                         = 0x00;
+		internal const short OPC_LIMIT_LOW                        = 0x01;
+		internal const short OPC_LIMIT_HIGH                       = 0x02;
+		internal const short OPC_LIMIT_CONST                      = 0x03;
 	}
 
 	//==========================================================================
     // Properties
 
     /// <exclude />
-	public static class Properties
+	internal static class Properties
 	{
 		// property ids.
-		public const int OPC_PROPERTY_DATATYPE            = 1;
-		public const int OPC_PROPERTY_VALUE               = 2;
-		public const int OPC_PROPERTY_QUALITY             = 3;
-		public const int OPC_PROPERTY_TIMESTAMP           = 4;
-		public const int OPC_PROPERTY_ACCESS_RIGHTS       = 5;
-		public const int OPC_PROPERTY_SCAN_RATE           = 6;
-		public const int OPC_PROPERTY_EU_TYPE             = 7;
-		public const int OPC_PROPERTY_EU_INFO             = 8;
-		public const int OPC_PROPERTY_EU_UNITS            = 100;
-		public const int OPC_PROPERTY_DESCRIPTION         = 101;
-		public const int OPC_PROPERTY_HIGH_EU             = 102;
-		public const int OPC_PROPERTY_LOW_EU              = 103;
-		public const int OPC_PROPERTY_HIGH_IR             = 104;
-		public const int OPC_PROPERTY_LOW_IR              = 105;
-		public const int OPC_PROPERTY_CLOSE_LABEL         = 106;
-		public const int OPC_PROPERTY_OPEN_LABEL          = 107;
-		public const int OPC_PROPERTY_TIMEZONE            = 108;
-		public const int OPC_PROPERTY_CONDITION_STATUS    = 300;
-		public const int OPC_PROPERTY_ALARM_QUICK_HELP    = 301;
-		public const int OPC_PROPERTY_ALARM_AREA_LIST     = 302;
-		public const int OPC_PROPERTY_PRIMARY_ALARM_AREA  = 303;
-		public const int OPC_PROPERTY_CONDITION_LOGIC     = 304;
-		public const int OPC_PROPERTY_LIMIT_EXCEEDED      = 305;
-		public const int OPC_PROPERTY_DEADBAND            = 306;
-		public const int OPC_PROPERTY_HIHI_LIMIT          = 307;
-		public const int OPC_PROPERTY_HI_LIMIT            = 308;
-		public const int OPC_PROPERTY_LO_LIMIT            = 309;
-		public const int OPC_PROPERTY_LOLO_LIMIT          = 310;
-		public const int OPC_PROPERTY_CHANGE_RATE_LIMIT   = 311;
-		public const int OPC_PROPERTY_DEVIATION_LIMIT     = 312;
-		public const int OPC_PROPERTY_SOUND_FILE          = 313;
+		internal const int OPC_PROPERTY_DATATYPE            = 1;
+		internal const int OPC_PROPERTY_VALUE               = 2;
+		internal const int OPC_PROPERTY_QUALITY             = 3;
+		internal const int OPC_PROPERTY_TIMESTAMP           = 4;
+		internal const int OPC_PROPERTY_ACCESS_RIGHTS       = 5;
+		internal const int OPC_PROPERTY_SCAN_RATE           = 6;
+		internal const int OPC_PROPERTY_EU_TYPE             = 7;
+		internal const int OPC_PROPERTY_EU_INFO             = 8;
+		internal const int OPC_PROPERTY_EU_UNITS            = 100;
+		internal const int OPC_PROPERTY_DESCRIPTION         = 101;
+		internal const int OPC_PROPERTY_HIGH_EU             = 102;
+		internal const int OPC_PROPERTY_LOW_EU              = 103;
+		internal const int OPC_PROPERTY_HIGH_IR             = 104;
+		internal const int OPC_PROPERTY_LOW_IR              = 105;
+		internal const int OPC_PROPERTY_CLOSE_LABEL         = 106;
+		internal const int OPC_PROPERTY_OPEN_LABEL          = 107;
+		internal const int OPC_PROPERTY_TIMEZONE            = 108;
+		internal const int OPC_PROPERTY_CONDITION_STATUS    = 300;
+		internal const int OPC_PROPERTY_ALARM_QUICK_HELP    = 301;
+		internal const int OPC_PROPERTY_ALARM_AREA_LIST     = 302;
+		internal const int OPC_PROPERTY_PRIMARY_ALARM_AREA  = 303;
+		internal const int OPC_PROPERTY_CONDITION_LOGIC     = 304;
+		internal const int OPC_PROPERTY_LIMIT_EXCEEDED      = 305;
+		internal const int OPC_PROPERTY_DEADBAND            = 306;
+		internal const int OPC_PROPERTY_HIHI_LIMIT          = 307;
+		internal const int OPC_PROPERTY_HI_LIMIT            = 308;
+		internal const int OPC_PROPERTY_LO_LIMIT            = 309;
+		internal const int OPC_PROPERTY_LOLO_LIMIT          = 310;
+		internal const int OPC_PROPERTY_CHANGE_RATE_LIMIT   = 311;
+		internal const int OPC_PROPERTY_DEVIATION_LIMIT     = 312;
+		internal const int OPC_PROPERTY_SOUND_FILE          = 313;
 
 		// complex data properties.
-		public const int OPC_PROPERTY_TYPE_SYSTEM_ID      = 600;
-		public const int OPC_PROPERTY_DICTIONARY_ID       = 601;
-		public const int OPC_PROPERTY_TYPE_ID             = 602;
-		public const int OPC_PROPERTY_DICTIONARY          = 603;
-		public const int OPC_PROPERTY_TYPE_DESCRIPTION    = 604;
-		public const int OPC_PROPERTY_CONSISTENCY_WINDOW  = 605;
-		public const int OPC_PROPERTY_WRITE_BEHAVIOR      = 606;
-		public const int OPC_PROPERTY_UNCONVERTED_ITEM_ID = 607;
-		public const int OPC_PROPERTY_UNFILTERED_ITEM_ID  = 608;
-		public const int OPC_PROPERTY_DATA_FILTER_VALUE   = 609;
+		internal const int OPC_PROPERTY_TYPE_SYSTEM_ID      = 600;
+		internal const int OPC_PROPERTY_DICTIONARY_ID       = 601;
+		internal const int OPC_PROPERTY_TYPE_ID             = 602;
+		internal const int OPC_PROPERTY_DICTIONARY          = 603;
+		internal const int OPC_PROPERTY_TYPE_DESCRIPTION    = 604;
+		internal const int OPC_PROPERTY_CONSISTENCY_WINDOW  = 605;
+		internal const int OPC_PROPERTY_WRITE_BEHAVIOR      = 606;
+		internal const int OPC_PROPERTY_UNCONVERTED_ITEM_ID = 607;
+		internal const int OPC_PROPERTY_UNFILTERED_ITEM_ID  = 608;
+		internal const int OPC_PROPERTY_DATA_FILTER_VALUE   = 609;
 
 		// property descriptions.
-		public const string OPC_PROPERTY_DESC_DATATYPE            = "Item Canonical Data Type";
-		public const string OPC_PROPERTY_DESC_VALUE               = "Item Value";
-		public const string OPC_PROPERTY_DESC_QUALITY             = "Item Quality";
-		public const string OPC_PROPERTY_DESC_TIMESTAMP           = "Item Timestamp";
-		public const string OPC_PROPERTY_DESC_ACCESS_RIGHTS       = "Item Access Rights";
-		public const string OPC_PROPERTY_DESC_SCAN_RATE           = "Server Scan Rate";
-		public const string OPC_PROPERTY_DESC_EU_TYPE             = "Item EU Type";
-		public const string OPC_PROPERTY_DESC_EU_INFO             = "Item EU Info";
-		public const string OPC_PROPERTY_DESC_EU_UNITS            = "EU Units";
-		public const string OPC_PROPERTY_DESC_DESCRIPTION         = "Item Description";
-		public const string OPC_PROPERTY_DESC_HIGH_EU             = "High EU";
-		public const string OPC_PROPERTY_DESC_LOW_EU              = "Low EU";
-		public const string OPC_PROPERTY_DESC_HIGH_IR             = "High Instrument Range";
-		public const string OPC_PROPERTY_DESC_LOW_IR              = "Low Instrument Range";
-		public const string OPC_PROPERTY_DESC_CLOSE_LABEL         = "Contact Close Label";
-		public const string OPC_PROPERTY_DESC_OPEN_LABEL          = "Contact Open Label";
-		public const string OPC_PROPERTY_DESC_TIMEZONE            = "Item Timezone";
-		public const string OPC_PROPERTY_DESC_CONDITION_STATUS    = "Condition Status";
-		public const string OPC_PROPERTY_DESC_ALARM_QUICK_HELP    = "Alarm Quick Help";
-		public const string OPC_PROPERTY_DESC_ALARM_AREA_LIST     = "Alarm Area List";
-		public const string OPC_PROPERTY_DESC_PRIMARY_ALARM_AREA  = "Primary Alarm Area";
-		public const string OPC_PROPERTY_DESC_CONDITION_LOGIC     = "Condition Logic";
-		public const string OPC_PROPERTY_DESC_LIMIT_EXCEEDED      = "Limit Exceeded";
-		public const string OPC_PROPERTY_DESC_DEADBAND            = "Deadband";
-		public const string OPC_PROPERTY_DESC_HIHI_LIMIT          = "HiHi Limit";
-		public const string OPC_PROPERTY_DESC_HI_LIMIT            = "Hi Limit";
-		public const string OPC_PROPERTY_DESC_LO_LIMIT            = "Lo Limit";
-		public const string OPC_PROPERTY_DESC_LOLO_LIMIT          = "LoLo Limit";
-		public const string OPC_PROPERTY_DESC_CHANGE_RATE_LIMIT   = "Rate of Change Limit";
-		public const string OPC_PROPERTY_DESC_DEVIATION_LIMIT     = "Deviation Limit";
-		public const string OPC_PROPERTY_DESC_SOUND_FILE          = "Sound File";
+		internal const string OPC_PROPERTY_DESC_DATATYPE            = "Item Canonical Data Type";
+		internal const string OPC_PROPERTY_DESC_VALUE               = "Item Value";
+		internal const string OPC_PROPERTY_DESC_QUALITY             = "Item Quality";
+		internal const string OPC_PROPERTY_DESC_TIMESTAMP           = "Item Timestamp";
+		internal const string OPC_PROPERTY_DESC_ACCESS_RIGHTS       = "Item Access Rights";
+		internal const string OPC_PROPERTY_DESC_SCAN_RATE           = "Server Scan Rate";
+		internal const string OPC_PROPERTY_DESC_EU_TYPE             = "Item EU Type";
+		internal const string OPC_PROPERTY_DESC_EU_INFO             = "Item EU Info";
+		internal const string OPC_PROPERTY_DESC_EU_UNITS            = "EU Units";
+		internal const string OPC_PROPERTY_DESC_DESCRIPTION         = "Item Description";
+		internal const string OPC_PROPERTY_DESC_HIGH_EU             = "High EU";
+		internal const string OPC_PROPERTY_DESC_LOW_EU              = "Low EU";
+		internal const string OPC_PROPERTY_DESC_HIGH_IR             = "High Instrument Range";
+		internal const string OPC_PROPERTY_DESC_LOW_IR              = "Low Instrument Range";
+		internal const string OPC_PROPERTY_DESC_CLOSE_LABEL         = "Contact Close Label";
+		internal const string OPC_PROPERTY_DESC_OPEN_LABEL          = "Contact Open Label";
+		internal const string OPC_PROPERTY_DESC_TIMEZONE            = "Item Timezone";
+		internal const string OPC_PROPERTY_DESC_CONDITION_STATUS    = "Condition Status";
+		internal const string OPC_PROPERTY_DESC_ALARM_QUICK_HELP    = "Alarm Quick Help";
+		internal const string OPC_PROPERTY_DESC_ALARM_AREA_LIST     = "Alarm Area List";
+		internal const string OPC_PROPERTY_DESC_PRIMARY_ALARM_AREA  = "Primary Alarm Area";
+		internal const string OPC_PROPERTY_DESC_CONDITION_LOGIC     = "Condition Logic";
+		internal const string OPC_PROPERTY_DESC_LIMIT_EXCEEDED      = "Limit Exceeded";
+		internal const string OPC_PROPERTY_DESC_DEADBAND            = "Deadband";
+		internal const string OPC_PROPERTY_DESC_HIHI_LIMIT          = "HiHi Limit";
+		internal const string OPC_PROPERTY_DESC_HI_LIMIT            = "Hi Limit";
+		internal const string OPC_PROPERTY_DESC_LO_LIMIT            = "Lo Limit";
+		internal const string OPC_PROPERTY_DESC_LOLO_LIMIT          = "LoLo Limit";
+		internal const string OPC_PROPERTY_DESC_CHANGE_RATE_LIMIT   = "Rate of Change Limit";
+		internal const string OPC_PROPERTY_DESC_DEVIATION_LIMIT     = "Deviation Limit";
+		internal const string OPC_PROPERTY_DESC_SOUND_FILE          = "Sound File";
 
 		// complex data properties.
-		public const string OPC_PROPERTY_DESC_TYPE_SYSTEM_ID      = "Type System ID";
-		public const string OPC_PROPERTY_DESC_DICTIONARY_ID       = "Dictionary ID";
-		public const string OPC_PROPERTY_DESC_TYPE_ID             = "Type ID";
-		public const string OPC_PROPERTY_DESC_DICTIONARY          = "Dictionary";
-		public const string OPC_PROPERTY_DESC_TYPE_DESCRIPTION    = "Type Description";
-		public const string OPC_PROPERTY_DESC_CONSISTENCY_WINDOW  = "Consistency Window";
-		public const string OPC_PROPERTY_DESC_WRITE_BEHAVIOR      = "Write Behavior";
-		public const string OPC_PROPERTY_DESC_UNCONVERTED_ITEM_ID = "Unconverted Item ID";
-		public const string OPC_PROPERTY_DESC_UNFILTERED_ITEM_ID  = "Unfiltered Item ID";
-		public const string OPC_PROPERTY_DESC_DATA_FILTER_VALUE   = "Data Filter Value";
+		internal const string OPC_PROPERTY_DESC_TYPE_SYSTEM_ID      = "Type System ID";
+		internal const string OPC_PROPERTY_DESC_DICTIONARY_ID       = "Dictionary ID";
+		internal const string OPC_PROPERTY_DESC_TYPE_ID             = "Type ID";
+		internal const string OPC_PROPERTY_DESC_DICTIONARY          = "Dictionary";
+		internal const string OPC_PROPERTY_DESC_TYPE_DESCRIPTION    = "Type Description";
+		internal const string OPC_PROPERTY_DESC_CONSISTENCY_WINDOW  = "Consistency Window";
+		internal const string OPC_PROPERTY_DESC_WRITE_BEHAVIOR      = "Write Behavior";
+		internal const string OPC_PROPERTY_DESC_UNCONVERTED_ITEM_ID = "Unconverted Item ID";
+		internal const string OPC_PROPERTY_DESC_UNFILTERED_ITEM_ID  = "Unfiltered Item ID";
+		internal const string OPC_PROPERTY_DESC_DATA_FILTER_VALUE   = "Data Filter Value";
 	}
 }
