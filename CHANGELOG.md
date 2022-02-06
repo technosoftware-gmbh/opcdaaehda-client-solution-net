@@ -1,4 +1,10 @@
 -------------------------------------------------------------------------------------------------------------
+## OPC DA/AE/HDA Solution .NET - 1.2.3
+
+###	Fixed Issues
+- For OPC DA 2.0 only servers Subscription GetState() was called wrong. The OPC DA 3.0 version was used instead of the DA 2.0 version.
+
+-------------------------------------------------------------------------------------------------------------
 ## OPC DA/AE/HDA Solution .NET - 1.2.2
 
 ###	Changes
