@@ -176,7 +176,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <summary>
         /// The synchronization object for subscription access
         /// </summary>
-        protected static volatile object lock_ = new object();
+        protected object lock_ = new object();
 
         private int outstandingCalls_;
 
@@ -2288,6 +2288,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             /// A table of autstanding asynchronous requests.
             /// </summary>
             private Hashtable requests_ = new Hashtable();
+            private object lock_ = new object();
 
             /// <summary>
             /// Raised when data changed callbacks arrive.
