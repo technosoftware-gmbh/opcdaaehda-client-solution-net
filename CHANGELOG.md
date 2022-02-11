@@ -3,6 +3,7 @@
 
 ###	Fixed Issues
 - Added README to nuget package
+- Changed lock for subscription to instance lock to increase performance. Might affect callback handling. 
 
 -------------------------------------------------------------------------------------------------------------
 ## OPC DA/AE/HDA Solution .NET - 1.2.3
