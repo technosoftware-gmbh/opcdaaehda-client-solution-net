@@ -40,12 +40,12 @@ namespace Technosoftware.DaAeHdaClient
             None = 0,
 
             /// <summary>
-            /// OPC UA Client .NET
+            /// OPC DA/AE/HDA Client .NET
             /// </summary>
             Client = 1,
 
             /// <summary>
-            /// OPC UA Server .NET
+            /// OPC DA/AE Server .NET
             /// </summary>
             Server = 2,
 
@@ -209,19 +209,19 @@ namespace Technosoftware.DaAeHdaClient
                     if (((LicensedProduct & ProductLicense.Client) == ProductLicense.Client) &&
                         ((LicensedProduct & ProductLicense.Server) == ProductLicense.Server))
                     {
-                        product = "Expired OPC UA Bundle .NET license";
+                        product = "Expired OPC DA/AE/HDA Bundle .NET license";
                     }
                     else if ((LicensedProduct & ProductLicense.Client) == ProductLicense.Client)
                     {
-                        product = "Expired OPC UA Client .NET license";
+                        product = "Expired OPC DA/AE/HDA Client .NET license";
                     }
                     else if ((LicensedProduct & ProductLicense.Server) == ProductLicense.Server)
                     {
-                        product = "Expired OPC UA Server .NET license";
+                        product = "Expired OPC DA/HDA Server .NET license";
                     }
                     else if ((LicensedProduct & ProductLicense.Evaluation) == ProductLicense.Evaluation)
                     {
-                        product = "Expired OPC UA Bundle .NET Evaluation";
+                        product = "Expired OPC DA/AE/HDA Bundle .NET Evaluation";
                     }
                     return product;
                 }
