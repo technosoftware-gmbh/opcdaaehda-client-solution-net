@@ -82,7 +82,6 @@ namespace SampleClients.Da
         private ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Timer updateTimerControl_;
 		
-		[STAThread]
 		static void Main() 
 		{
             try

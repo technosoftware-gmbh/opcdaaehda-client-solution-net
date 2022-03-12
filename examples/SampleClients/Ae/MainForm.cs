@@ -78,7 +78,6 @@ namespace SampleClients.Ae
         private ToolStripSeparator separatorT2_;
         private System.ComponentModel.IContainer components_;
 
-        [STAThread]
         private static void Main()
         {
             try

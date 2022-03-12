@@ -78,7 +78,6 @@ namespace SampleClients.Hda
         private Timer updateTimerControl_;
 		private System.ComponentModel.IContainer components_;
 		
-		[STAThread]
 		private static void Main() 
 		{
 			try
