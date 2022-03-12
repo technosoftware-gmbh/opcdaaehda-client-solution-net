@@ -25,7 +25,6 @@ using System.Security;
 using System.Security.Permissions;
 using Technosoftware.DaAeHdaClient;
 using Technosoftware.DaAeHdaClient.Ae;
-using Technosoftware.DaAeHdaClient.Utilities;
 using SampleClients.Common;
 using Technosoftware.AeSampleClient;
 
@@ -79,12 +78,12 @@ namespace SampleClients.Ae
         private ToolStripSeparator separatorT2_;
         private System.ComponentModel.IContainer components_;
 
-        [STAThread]
         private static void Main()
         {
             try
             {
-                ConfigUtils.EnableTrace(ConfigUtils.GetLogFileDirectory(), "SampleClients.Ae.log.txt");
+                ApplicationInstance.InitializeSecurity(ApplicationInstance.AuthenticationLevel.Integrity);
+                ApplicationInstance.EnableTrace(ApplicationInstance.GetLogFileDirectory(), "SampleClients.Ae.log");
 
                 Application.Run(new MainForm());
             }

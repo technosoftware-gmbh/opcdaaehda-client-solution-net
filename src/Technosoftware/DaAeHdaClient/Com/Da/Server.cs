@@ -108,9 +108,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                                         server?.RemoveGroup((int)state.ServerHandle, 0);
                                     }
                                 }
-                                catch (Exception e)
+                                catch
                                 {
-                                    ComCallError(methodName, e);
+                                    // Ignore error during Dispose
                                 }
                                 finally
                                 {

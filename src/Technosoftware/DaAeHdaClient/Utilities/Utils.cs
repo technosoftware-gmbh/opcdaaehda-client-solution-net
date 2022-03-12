@@ -732,7 +732,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
     /// <summary>
     /// Utility functions used by COM applications.
     /// </summary>
-    public static class ConfigUtils
+    internal static class ConfigUtils
     {
         /// <summary>
         /// Gets the log file directory and ensures it is writable.

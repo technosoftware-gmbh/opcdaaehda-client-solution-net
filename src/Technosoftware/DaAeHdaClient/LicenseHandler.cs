@@ -16,6 +16,7 @@
 using System;
 using System.Linq;
 using static System.String;
+using System.Diagnostics;
 
 using Technosoftware.DaAeHdaClient.Utilities;
 #endregion
@@ -172,14 +173,25 @@ namespace Technosoftware.DaAeHdaClient
         {
             get
             {
-                var version = (typeof(LicenseHandler).Assembly.GetName().Version);
+                String versionString;
 
-                var major = version.Major;
-                var minor = version.Minor;
-                var build = version.Build;
-                var revision = version.Revision;
+                try
+                {
+                    var assembly = (typeof(LicenseHandler).Assembly);
 
-                var versionString = revision == 0 ? $"{major}.{minor} ( Build {build} )" : $"{major}.{minor} ( Build {build}.{revision} )";
+                    FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+
+                    var major = versionInfo.FileMajorPart;
+                    var minor = versionInfo.FileMinorPart;
+                    var build = versionInfo.FileBuildPart;
+
+                    versionString = $"{major}.{minor}.{build}";
+                }
+                catch (Exception)
+                {
+
+                    versionString = "Unknown";
+                }
                 return versionString;
             }
         }
@@ -230,19 +242,19 @@ namespace Technosoftware.DaAeHdaClient
                 if (((LicensedProduct & ProductLicense.Client) == ProductLicense.Client) &&
                      ((LicensedProduct & ProductLicense.Server) == ProductLicense.Server))
                 {
-                    product = "OPC UA Bundle .NET";
+                    product = "OPC DA/AE/HDAUA Bundle .NET";
                 }
                 else if ((LicensedProduct & ProductLicense.Client) == ProductLicense.Client)
                 {
-                    product = "OPC UA Client .NET";
+                    product = "OPC DA/AE/HDA Client .NET";
                 }
                 else if ((LicensedProduct & ProductLicense.Server) == ProductLicense.Server)
                 {
-                    product = "OPC UA Server .NET";
+                    product = "OPC DA/AE Server .NET";
                 }
                 else if ((LicensedProduct & ProductLicense.Evaluation) == ProductLicense.Evaluation)
                 {
-                    product = "OPC UA Bundle .NET Evaluation";
+                    product = "OPC DA/AE/HDA Bundle .NET Evaluation";
                 }
 
                 return product;
