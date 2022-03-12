@@ -42,7 +42,6 @@ namespace Technosoftware.AeConsole
         /// <summary>
         /// Main Entry of the console application
         /// </summary>
-        [STAThread]
         static void Main()
         {
             ApplicationInstance.InitializeSecurity(ApplicationInstance.AuthenticationLevel.Integrity);
