@@ -22,8 +22,8 @@
 
 #region Using Directives
 using System;
-using System.Linq;
-using static System.String;
+
+using Technosoftware.DaAeHdaClient.Utilities;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient
@@ -100,6 +100,24 @@ namespace Technosoftware.DaAeHdaClient
                 Com.Interop.InitializeSecurity((uint)authenticationLevel);
                 InitializeSecurityCalled = true;
             }
+        }
+
+        /// <summary>
+        /// Gets the log file directory and ensures it is writable.
+        /// </summary>
+        public static string GetLogFileDirectory()
+        {
+            return ConfigUtils.GetLogFileDirectory();
+        }
+
+        /// <summary>
+        /// Enable the trace.
+        /// </summary>
+        /// <param name="path">The path to use.</param>
+        /// <param name="filename">The filename.</param>
+        public static void EnableTrace(string path, string filename)
+        {
+            ConfigUtils.EnableTrace(path, filename);
         }
         #endregion
 
