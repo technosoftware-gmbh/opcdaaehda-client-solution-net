@@ -26,6 +26,8 @@ using System.Collections;
 
 using Technosoftware.DaAeHdaClient.Da;
 using Technosoftware.DaAeHdaClient.Com.Da;
+using Technosoftware.DaAeHdaClient.Utilities;
+
 using OpcRcw.Da;
 #endregion
 
@@ -82,6 +84,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         out clientHandle,
                         out serverHandle);
 
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
+
                     state.Name = name;
                     state.ServerHandle = serverHandle;
                     state.Active = active != 0;
@@ -123,6 +130,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     int cancelID = 0;
                     IOPCAsyncIO2 subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
                     subscription.Refresh2(OPCDATASOURCE.OPC_DS_CACHE, ++_counter, out cancelID);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
                 }
                 catch (Exception e)
                 {
@@ -149,6 +161,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 {
                     IOPCAsyncIO2 subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
                     subscription.SetEnable((enabled) ? 1 : 0);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
                 }
                 catch (Exception e)
                 {
@@ -176,6 +193,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     int enabled = 0;
                     IOPCAsyncIO2 subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
                     subscription.GetEnable(out enabled);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
+
                     return enabled != 0;
                 }
                 catch (Exception e)
@@ -264,6 +287,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     serverHandles,
                     out pValues,
                     out pErrors);
+
+                if (DCOMCallWatchdog.IsCancelled)
+                {
+                    throw new Exception($"{methodName} call was cancelled due to response timeout");
+                }
             }
             catch (Exception e)
             {
@@ -355,6 +383,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     serverHandles,
                     values,
                     out pErrors);
+
+                if (DCOMCallWatchdog.IsCancelled)
+                {
+                    throw new Exception($"{methodName} call was cancelled due to response timeout");
+                }
             }
             catch (Exception e)
             {
@@ -414,6 +447,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     requestID,
                     out cancelID,
                     out pErrors);
+
+                if (DCOMCallWatchdog.IsCancelled)
+                {
+                    throw new Exception($"{methodName} call was cancelled due to response timeout");
+                }
 
                 // unmarshal output parameters.
                 int[] errors = Utilities.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
@@ -508,6 +546,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     requestID,
                     out cancelID,
                     out pErrors);
+
+                if (DCOMCallWatchdog.IsCancelled)
+                {
+                    throw new Exception($"{methodName} call was cancelled due to response timeout");
+                }
 
                 // unmarshal results.
                 int[] errors = Utilities.Interop.GetInt32s(ref pErrors, validItems.Count, true);
