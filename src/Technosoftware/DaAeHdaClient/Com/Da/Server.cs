@@ -26,7 +26,10 @@ using System.Threading;
 using System.Collections;
 using System.Globalization;
 using System.Runtime.InteropServices;
+
 using Technosoftware.DaAeHdaClient.Da;
+using Technosoftware.DaAeHdaClient.Utilities;
+
 using OpcRcw.Da;
 
 #endregion
@@ -162,13 +165,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 // invoke COM method.
                 try
-                {
+                {                   
                     IOPCServer server = BeginComCall<IOPCServer>(methodName, true);
 
                     (server).GetErrorString(
                         resultId.Code,
                         Technosoftware.DaAeHdaClient.Com.Interop.GetLocale(locale),
                         out var errorText);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
 
                     return errorText;
                 }
@@ -179,7 +187,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
                 finally
                 {
-                    EndComCall(methodName);
+                    EndComCall(methodName);                   
                 }
             }
         }
@@ -228,9 +236,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 // invoke COM method.
                 try
-                {
+                {                  
                     IOPCServer server = BeginComCall<IOPCServer>(methodName, true);
                     (server).GetStatus(out pStatus);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
                 }
                 catch (Exception e)
                 {
@@ -278,10 +291,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 IntPtr pQualities = IntPtr.Zero;
                 IntPtr pTimestamps = IntPtr.Zero;
                 IntPtr pErrors = IntPtr.Zero;
-
+                                
                 // invoke COM method.
                 try
-                {
+                {              
                     IOPCItemIO server = BeginComCall<IOPCItemIO>(methodName, true);
                     server.Read(
                          count,
@@ -291,6 +304,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                          out pQualities,
                          out pTimestamps,
                          out pErrors);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
+
                 }
                 catch (Exception e)
                 {
@@ -404,13 +423,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 // invoke COM method.
                 try
-                {
+                {                
                     IOPCItemIO server = BeginComCall<IOPCItemIO>(methodName, true);
                     server.WriteVQT(
                         count,
                         itemIDs,
                         values,
                         out pErrors);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
                 }
                 catch (Exception e)
                 {
@@ -475,7 +499,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 int revisedUpdateRate = 0;
 
                 GCHandle hDeadband = GCHandle.Alloc(result.Deadband, GCHandleType.Pinned);
-
+                              
                 // invoke COM method.
                 try
                 {
@@ -492,6 +516,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                         out revisedUpdateRate,
                         ref iid,
                         out group);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
                 }
                 catch (Exception e)
                 {
@@ -508,15 +537,21 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 if (group == null) throw new OpcResultException(OpcResult.E_FAIL, "The subscription  was not created.");
-
+               
                 methodName = "IOPCGroupStateMgt2.SetKeepAlive";
 
                 // set the keep alive rate if requested.
                 try
-                {
+                {                 
                     int keepAlive = 0;
                     IOPCGroupStateMgt2 comObject = BeginComCall<IOPCGroupStateMgt2>(group, methodName, true);
                     comObject.SetKeepAlive(result.KeepAlive, out keepAlive);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
+
                     result.KeepAlive = keepAlive;
                 }
                 catch (Exception e1)
@@ -526,9 +561,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
                 finally
                 {
-                    EndComCall(methodName);
+                    EndComCall(methodName);                   
                 }
-
+              
                 // save server handle.
                 result.ServerHandle = serverHandle;
 
@@ -583,9 +618,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 // invoke COM method.
                 try
-                {
+                {                 
                     IOPCServer server = BeginComCall<IOPCServer>(methodName, true);
                     server.RemoveGroup((int)state.ServerHandle, 0);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
                 }
                 catch (Exception e)
                 {
@@ -594,7 +634,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
                 finally
                 {
-                    EndComCall(methodName);
+                    EndComCall(methodName);                   
                 }
             }
         }
@@ -629,7 +669,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 // invoke COM method.
                 try
-                {
+                {                    
                     IOPCBrowse server = BeginComCall<IOPCBrowse>(methodName, true);
                     server.Browse(
                              (itemId != null && itemId.ItemName != null) ? itemId.ItemName : "",
@@ -645,6 +685,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                          out moreElements,
                          out count,
                          out pElements);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
                 }
                 catch (Exception e)
                 {
@@ -653,7 +698,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
                 finally
                 {
-                    EndComCall(methodName);
+                    EndComCall(methodName);                    
                 }
 
                 // unmarshal results.
@@ -714,7 +759,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 // invoke COM method.
                 try
-                {
+                {                   
                     IOPCBrowse server = BeginComCall<IOPCBrowse>(methodName, true);
                     server.Browse(
                         (itemID != null && itemID.ItemName != null) ? itemID.ItemName : "",
@@ -730,6 +775,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                         out moreElements,
                         out count,
                         out pElements);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
                 }
                 catch (Exception e)
                 {
@@ -738,7 +788,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
                 finally
                 {
-                    EndComCall(methodName);
+                    EndComCall(methodName);                    
                 }
 
                 // unmarshal results.
@@ -791,7 +841,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 // invoke COM method.
                 try
-                {
+                {                   
                     IOPCBrowse server = BeginComCall<IOPCBrowse>(methodName, true);
                     server.GetProperties(
                           itemIds.Length,
@@ -800,6 +850,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                           (propertyIDs != null) ? propertyIDs.Length : 0,
                           Interop.GetPropertyIDs(propertyIDs),
                           out pPropertyLists);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
                 }
                 catch (Exception e)
                 {
@@ -807,8 +862,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     throw Technosoftware.DaAeHdaClient.Com.Interop.CreateException(methodName, e);
                 }
                 finally
-                {
-                    EndComCall(methodName);
+                {                   
+                    EndComCall(methodName);                    
                 }
 
                 // unmarshal results.

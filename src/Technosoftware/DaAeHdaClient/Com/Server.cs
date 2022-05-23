@@ -136,6 +136,8 @@ namespace Technosoftware.DaAeHdaClient.Com
                         }
                     }
 
+                    DisableDCOMCallCancellation();
+
                     // Free your own state (unmanaged objects).
                     // Set large fields to null.                
 
@@ -376,6 +378,26 @@ namespace Technosoftware.DaAeHdaClient.Com
             }
         }
 
+        /// <summary>
+        /// Allows for cancellation of DCOM interface method calls to the server. By default DCOM interface calls will wait the default DCOM timeout
+        /// to fail - this method allows for tighter control of the timeout to wait before cancelling the call. This is most useful during connect or any operation
+        /// where it is not practical to wait 1+ minute(s) for the DCOM call to fail. Note that DCOM calls can only be controlled on a COM Single Threaded Apartment thread -
+        /// use the [STAThread] attribute on your application entry point or use Thread SetThreadApartment before the thread the server is operating on is created to STA.
+        /// </summary>
+        /// <param name="timeout">The synchronous call timeout</param>
+        public void EnableDCOMCallCancellation(TimeSpan timeout = default)
+        {
+            DCOMCallWatchdog.Enable(timeout);
+        }
+
+        /// <summary>
+        /// Disables ability to cancel synchronous calls to the server
+        /// </summary>
+        public void DisableDCOMCallCancellation()
+        {
+            DCOMCallWatchdog.Disable();
+        }
+
         #endregion
 
         #region Protected Members
@@ -403,7 +425,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                 return server_ is T;
             }
         }
-        #endregion
+        #endregion       
 
         #region COM Call Tracing
         /// <summary>
@@ -456,6 +478,8 @@ namespace Technosoftware.DaAeHdaClient.Com
                     }
                 }
 
+                DCOMCallWatchdog.Set();
+
                 return comObject;
             }
         }
@@ -482,6 +506,8 @@ namespace Technosoftware.DaAeHdaClient.Com
             lock (lock_)
             {
                 outstandingCalls_--;
+
+                DCOMCallWatchdog.Reset();
             }
         }
         #endregion

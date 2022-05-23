@@ -451,6 +451,18 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             public readonly int hr;
         }
 
+        [DllImport("ole32.dll")]
+        public static extern int CoCancelCall(uint threadId, uint timeout);
+
+        [DllImport("ole32.dll")]
+        public static extern int CoEnableCallCancellation(IntPtr reserved);
+
+        [DllImport("ole32.dll")]
+        public static extern int CoDisableCallCancellation(IntPtr reserved);
+
+        [DllImport("Kernel32.dll")]
+        public static extern uint GetCurrentThreadId();
+
         #endregion
 
         #endregion
