@@ -27,6 +27,7 @@ using System.Globalization;
 using System.Runtime.InteropServices;
 
 using Technosoftware.DaAeHdaClient.Da;
+using Technosoftware.DaAeHdaClient.Utilities;
 #endregion
 
 #pragma warning disable 0618
@@ -552,7 +553,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                 -1,
                 null,
                 IntPtr.Zero,
-                RPC_C_AUTHN_LEVEL_NONE,
+                authenticationLevel,
                 RPC_C_IMP_LEVEL_IDENTIFY,
                 IntPtr.Zero,
                 EOAC_NONE,
@@ -592,6 +593,8 @@ namespace Technosoftware.DaAeHdaClient.Com
                     clsctx = CLSCTX_LOCAL_SERVER | CLSCTX_REMOTE_SERVER;
                 }
 
+                DCOMCallWatchdog.Set();
+              
                 // create an instance.
                 CoCreateInstanceEx(
                     ref clsid,
@@ -599,13 +602,20 @@ namespace Technosoftware.DaAeHdaClient.Com
                     clsctx,
                     ref coserverInfo,
                     1,
-                    results);
+                    results);   
+                
+                if (DCOMCallWatchdog.IsCancelled)
+                {
+                    throw new ExternalException("CoCreateInstanceEx: COM Call was cancelled");
+                }
             }
             finally
-            {
+            {              
                 if (hIID.IsAllocated) hIID.Free();
 
                 serverInfo.Deallocate();
+
+                DCOMCallWatchdog.Reset();
             }
 
             if (results[0].hr != 0)
@@ -636,6 +646,8 @@ namespace Technosoftware.DaAeHdaClient.Com
                     clsctx = CLSCTX_LOCAL_SERVER | CLSCTX_REMOTE_SERVER;
                 }
 
+                DCOMCallWatchdog.Set();
+
                 // get the class factory.
                 object unknown = null;
 
@@ -646,6 +658,11 @@ namespace Technosoftware.DaAeHdaClient.Com
                     typeof(IClassFactory2).GUID,
                     out unknown);
 
+                if (DCOMCallWatchdog.IsCancelled)
+                {
+                    throw new ExternalException("CoGetClassObject: COM Call was cancelled");
+                }
+             
                 factory = (IClassFactory2)unknown;
 
                 // set the proper connect authentication level
@@ -670,6 +687,11 @@ namespace Technosoftware.DaAeHdaClient.Com
                     ref pAuthInfo,
                     ref pCapabilities);
 
+                if (DCOMCallWatchdog.IsCancelled)
+                {
+                    throw new ExternalException("CoGetClassObject: COM Call was cancelled");
+                }
+
                 pAuthnSvc = RPC_C_AUTHN_DEFAULT;
                 pAuthnLevel = RPC_C_AUTHN_LEVEL_CONNECT;
 
@@ -684,6 +706,11 @@ namespace Technosoftware.DaAeHdaClient.Com
                     pAuthInfo,
                     pCapabilities);
 
+                if (DCOMCallWatchdog.IsCancelled)
+                {
+                    throw new ExternalException("CoGetClassObject: COM Call was cancelled");
+                }
+
                 // create instance.
                 factory.CreateInstanceLic(
                     null,
@@ -691,6 +718,14 @@ namespace Technosoftware.DaAeHdaClient.Com
                     IID_IUnknown,
                     licenseKey,
                     out instance);
+
+                if (DCOMCallWatchdog.IsCancelled)
+                {
+                    throw new ExternalException("CoGetClassObject: COM Call was cancelled");
+                }
+
+                DCOMCallWatchdog.Reset();
+
             }
             finally
             {

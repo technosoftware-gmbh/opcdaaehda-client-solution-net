@@ -27,6 +27,8 @@ using System.Runtime.InteropServices;
 
 using Technosoftware.DaAeHdaClient.Da;
 using Technosoftware.DaAeHdaClient.Com.Da;
+using Technosoftware.DaAeHdaClient.Utilities;
+
 using OpcRcw.Da;
 using OpcRcw.Comn;
 
@@ -125,7 +127,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 // create a global subscription required for various item level operations.
                 methodName = "IOPCServer.AddGroup";
                 try
-                {
+                {                  
                     // add the subscription.
                     int revisedUpdateRate = 0;
                     Guid iid = typeof(IOPCItemMgt).GUID;
@@ -143,6 +145,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         out revisedUpdateRate,
                         ref iid,
                         out subscription_);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
                 }
                 catch (Exception e)
                 {
@@ -152,7 +159,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 }
                 finally
                 {
-                    EndComCall(methodName);
+                    EndComCall(methodName);                  
                 }
             }
         }
@@ -242,7 +249,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         string methodName = "IOPCItemMgt.SetActiveState";
                         // items must be active for cache reads.
                         try
-                        {
+                        {                           
                             // create list of server handles.
                             int[] serverHandles = new int[cacheResults.Count];
 
@@ -262,6 +269,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
                             // free error array.
                             Marshal.FreeCoTaskMem(pErrors);
+
+                            if (DCOMCallWatchdog.IsCancelled)
+                            {
+                                throw new Exception($"{methodName} call was cancelled due to response timeout");
+                            }
                         }
                         catch (Exception e)
                         {
@@ -374,13 +386,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         // write item values.
                         string methodName = "IOPCSyncIO.Write";
                         try
-                        {
+                        {                   
                             IOPCSyncIO subscription = BeginComCall<IOPCSyncIO>(subscription_, methodName, true);
                             subscription.Write(
                                 writeItems.Count,
                                 serverHandles,
                                 values,
                                 out pErrors);
+
+                            if (DCOMCallWatchdog.IsCancelled)
+                            {
+                                throw new Exception($"{methodName} call was cancelled due to response timeout");
+                            }
                         }
                         catch (Exception e)
                         {
@@ -629,7 +646,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             ((IOPCCommon)server_).GetLocaleID(out localeID);
 
             GCHandle hLocale = GCHandle.Alloc(localeID, GCHandleType.Pinned);
-
+                     
             string methodName = "IOPCGroupStateMgt.SetState";
             try
             {
@@ -645,6 +662,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     IntPtr.Zero,
                     hLocale.AddrOfPinnedObject(),
                     IntPtr.Zero);
+
+                if (DCOMCallWatchdog.IsCancelled)
+                {
+                    throw new Exception($"{methodName} call was cancelled due to response timeout");
+                }
             }
             catch (Exception e)
             {
@@ -654,9 +676,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             finally
             {
                 if (hLocale.IsAllocated) hLocale.Free();
-                EndComCall(methodName);
+                EndComCall(methodName);                
             }
-
+         
             // add items to subscription.
             methodName = "IOPCItemMgt.AddItems";
             try
@@ -667,6 +689,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     definitions,
                     out pResults,
                     out pErrors);
+
+                if (DCOMCallWatchdog.IsCancelled)
+                {
+                    throw new Exception($"{methodName} call was cancelled due to response timeout");
+                }
             }
             catch (Exception e)
             {
@@ -678,7 +705,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 EndComCall(methodName);
                 if (hLocale.IsAllocated) hLocale.Free();
             }
-
+          
             // unmarshal output parameters.
             int[] serverHandles = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetItemResults(ref pResults, count, true);
             int[] errors = Utilities.Interop.GetInt32s(ref pErrors, count, true);
@@ -733,12 +760,17 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
                 string methodName = "IOPCItemMgt.RemoveItems";
                 try
-                {
+                {              
                     IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(subscription_, methodName, true);
                     ((IOPCItemMgt)subscription).RemoveItems(
                         handles.Count,
                         (int[])handles.ToArray(typeof(int)),
                         out pErrors);
+
+                    if (DCOMCallWatchdog.IsCancelled)
+                    {
+                        throw new Exception($"{methodName} call was cancelled due to response timeout");
+                    }
 
                 }
                 catch (Exception e)
@@ -781,7 +813,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
             string methodName = "IOPCSyncIO.Read";
             try
-            {
+            {         
                 IOPCSyncIO subscription = BeginComCall<IOPCSyncIO>(subscription_, methodName, true);
                 subscription.Read(
                     (cache) ? OPCDATASOURCE.OPC_DS_CACHE : OPCDATASOURCE.OPC_DS_DEVICE,
@@ -789,6 +821,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     serverHandles,
                     out pValues,
                     out pErrors);
+
+                if (DCOMCallWatchdog.IsCancelled)
+                {
+                    throw new Exception($"{methodName} call was cancelled due to response timeout");
+                }
             }
             catch (Exception e)
             {
@@ -874,7 +911,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
             string methodName = "IOPCItemProperties.QueryAvailableProperties";
             try
-            {
+            {          
                 IOPCItemProperties server = BeginComCall<IOPCItemProperties>(methodName, true);
                 server.QueryAvailableProperties(
                     itemID,
@@ -882,6 +919,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     out pPropertyIDs,
                     out pDescriptions,
                     out pDataTypes);
+
+                if (DCOMCallWatchdog.IsCancelled)
+                {
+                    throw new Exception($"{methodName} call was cancelled due to response timeout");
+                }
+
             }
             catch (Exception e)
             {
@@ -891,7 +934,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             finally
             {
                 EndComCall(methodName);
-                // free returned error array.
+                // free returned error array.                
             }
 
             // unmarshal results.
@@ -943,13 +986,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 // lookup item ids.
                 IntPtr pItemIDs = IntPtr.Zero;
                 IntPtr pErrors = IntPtr.Zero;
-
+                             
                 ((IOPCItemProperties)server_).LookupItemIDs(
                     itemID,
                     properties.Length,
                     propertyIDs,
                     out pItemIDs,
-                    out pErrors);
+                    out pErrors);              
 
                 // unmarshal results.
                 string[] itemIDs = Utilities.Interop.GetUnicodeStrings(ref pItemIDs, properties.Length, true);
@@ -967,7 +1010,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     }
                 }
             }
-            catch
+            catch (Exception e)
             {
                 // set item ids to null for all properties.
                 foreach (TsCDaItemProperty property in properties)
@@ -1144,7 +1187,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                             }
                             catch (Exception)
                             {
-                                break;
+                                break;                                                               
                             }
                         }
                     }
@@ -1259,6 +1302,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         private void DetectAndSaveSeparators(string browseName, string itemID)
         {
             if (!itemID.EndsWith(browseName))
+            {
+                return;
+            }
+
+            if (string.Compare(itemID, browseName, true) == 0)
             {
                 return;
             }
@@ -1454,7 +1502,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                          (itemID != null) ? itemID.ItemName : null,
                          filters,
                          branches,
-             namespaceType == OPCNAMESPACETYPE.OPC_NS_FLAT);
+                         namespaceType == OPCNAMESPACETYPE.OPC_NS_FLAT);
             }
             else
             {

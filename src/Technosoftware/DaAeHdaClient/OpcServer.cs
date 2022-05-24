@@ -27,6 +27,8 @@ using System.Globalization;
 using System.Resources;
 using System.Reflection;
 using System.Runtime.Serialization;
+
+using Technosoftware.DaAeHdaClient.Utilities;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient
@@ -134,7 +136,7 @@ namespace Technosoftware.DaAeHdaClient
                 {
                     // ignored
                 }
-
+                              
                 Server = null;
             }
         }
@@ -626,6 +628,27 @@ namespace Technosoftware.DaAeHdaClient
 
             return Server.GetErrorText(locale ?? locale_, resultId);
         }
+
+        /// <summary>
+        /// Allows cancellation control of DCOM callbacks to the server - by default DCOM calls will wait the default DCOM timeout
+        /// to fail - this method allows for tigher control of the timeout to wait. Note that DOCM calls can only be controlled
+        /// on a COM Single Threaded Apartment thread - use [STAThread] attribute on your application entry point or use Thread SetThreadApartment
+        /// before the thread the server is operating on is created to STA.
+        /// </summary>
+        /// <param name="timeout">The DCOM call timeout - uses the default timeout if not specified</param>
+        public void EnableDCOMCallCancellation(TimeSpan timeout = default)
+        {
+            DCOMCallWatchdog.Enable(timeout);
+        }
+
+        /// <summary>
+        /// Disables cancellation control of DCOM calls to the server
+        /// </summary>
+        public void DisableDCOMCallCancellation()
+        {
+            DCOMCallWatchdog.Disable();
+        }
+
         #endregion
     }
 
@@ -777,6 +800,25 @@ namespace Technosoftware.DaAeHdaClient
         public BadInternalErrorException(string message, Exception innerException) : base(message, innerException) { }
         /// <remarks/>
         protected BadInternalErrorException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+    }
+
+    /// <summary>
+    /// Exception that is raise when a DCOM call is cancelled due to timeout
+    /// </summary>
+    /// 
+    [Serializable]
+    public class DCOMCallCancelledException : ApplicationException
+    {
+        private const string Default = "The current pending DCOM call was cancelled";
+        /// <remarks/>
+        public DCOMCallCancelledException() : base(Default) { }
+        /// <remarks/>
+        public DCOMCallCancelledException(string message) : base(message) { }
+        /// <remarks/>
+        public DCOMCallCancelledException(string message, Exception innerException) : base(message, innerException) { }
+        /// <remarks/>
+        protected DCOMCallCancelledException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+        
     }
 
 }
