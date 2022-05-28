@@ -109,8 +109,8 @@ namespace Technosoftware.AeConsole
                 const string serverUrl = "opcae://localhost/Technosoftware.AeSample";
 
                 Console.WriteLine();
-                Console.WriteLine("Simple OPC AE Client based on the OPC AE Client SDK .NET Standard");
-                Console.WriteLine("-----------------------------------------------------------------");
+                Console.WriteLine("Simple OPC AE Client based on the OPC DA/AE/HDA Solution .NET");
+                Console.WriteLine("-------------------------------------------------------------");
                 Console.Write("   Press <Enter> to connect to "); Console.WriteLine(serverUrl);
                 Console.ReadLine();
                 Console.WriteLine("   Please wait...");

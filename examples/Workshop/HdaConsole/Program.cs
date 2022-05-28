@@ -28,6 +28,8 @@
 #endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
+using System;
+
 using Technosoftware.DaAeHdaClient;
 #endregion
 
@@ -40,9 +42,9 @@ namespace Technosoftware.HdaConsole
         /// <summary>
         /// Main Entry of the console application
         /// </summary>
+        [STAThread]
         static void Main()
         {
-            ApplicationInstance.InitializeSecurity(ApplicationInstance.AuthenticationLevel.Integrity);
             ApplicationInstance.EnableTrace(ApplicationInstance.GetLogFileDirectory(), "Technosoftware.HdaConsole.log");
 
             var myOpcSample = new OpcSample();

@@ -63,8 +63,8 @@ namespace Technosoftware.HdaConsole
 				const string serverUrl = "opchda://localhost/OPCSample.OpcHdaServer";
 
 				Console.WriteLine();
-				Console.WriteLine("Simple OPC HDA Client based on the OPC DA/AE/HDA Client SDK .NET Standard");
-				Console.WriteLine("-------------------------------------------------------------------------");
+				Console.WriteLine("Simple OPC HDA Client based on the OPC DA/AE/HDA Solution .NET");
+				Console.WriteLine("--------------------------------------------------------------");
 				Console.Write("   Press <Enter> to connect to "); Console.WriteLine(serverUrl);
 				Console.ReadLine();
 				Console.WriteLine("   Please wait...");
