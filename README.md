@@ -4,9 +4,7 @@
 The OPC DA/AE/HDA Solution .NET offers a fast and easy access to the OPC Classic Client technology. Develop OPC DA, OPC AE and OPC HDA compliant Clients with C# targeting 
 
  * .NET 6.0, 
- * .NET 5.0,
  * .NET Core 3.1 
- * .NET Standard 2.1
  
 For backward compatibility we also provide 
 
@@ -21,7 +19,7 @@ OPC DA/AE/HDA uses (D)COM technology from Windows. Therefore only Windows is sup
 
 ## Online Help
 
-We provide an online help for the current version: [OPC DA/AE/HDA Solution NET Online Help](https://technosoftware.com/help/OPCDaAeHdaClientSolutionNet/12/)
+We provide an online help for the current version: [OPC DA/AE/HDA Solution NET Online Help](https://technosoftware.com/help/OPCDaAeHdaClientSolutionNet/13/)
 
 ## Getting started
 

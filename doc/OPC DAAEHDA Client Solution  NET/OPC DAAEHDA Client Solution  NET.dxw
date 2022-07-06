@@ -1,15 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ApplicationWorkspace>
   <RecentItems>
-    <RecentItem Key="{99E1524B-2E6B-4ADC-8A3C-95903CD29559}.-" IsPinned="false" Type="Innovasys.ContentAuthoring.Topics.RecentTopic" Assembly="Innovasys.ContentAuthoring.Topics">
-      <HandlerName>TOPICS</HandlerName>
-      <Category>Topics</Category>
-    </RecentItem>
-    <RecentItem Key="{95CC9CE0-63F7-4C1D-A216-ECD61B43B016}.-" IsPinned="false" Type="Innovasys.ContentAuthoring.Topics.RecentTopic" Assembly="Innovasys.ContentAuthoring.Topics">
-      <HandlerName>TOPICS</HandlerName>
-      <Category>Topics</Category>
-    </RecentItem>
-    <RecentItem Key="{728F595D-5426-4B4A-A5B3-2C6865FEA866}.-" IsPinned="false" Type="Innovasys.ContentAuthoring.Topics.RecentTopic" Assembly="Innovasys.ContentAuthoring.Topics">
+    <RecentItem Key="{EE6C442B-769D-491F-B730-CAE8A259C379}.-" IsPinned="false" Type="Innovasys.ContentAuthoring.Topics.RecentTopic" Assembly="Innovasys.ContentAuthoring.Topics">
       <HandlerName>TOPICS</HandlerName>
       <Category>Topics</Category>
     </RecentItem>
@@ -17,9 +9,21 @@
       <HandlerName>TOPICS</HandlerName>
       <Category>Topics</Category>
     </RecentItem>
-    <RecentItem Key="{EE6C442B-769D-491F-B730-CAE8A259C379}.-" IsPinned="false" Type="Innovasys.ContentAuthoring.Topics.RecentTopic" Assembly="Innovasys.ContentAuthoring.Topics">
+    <RecentItem Key="{728F595D-5426-4B4A-A5B3-2C6865FEA866}.-" IsPinned="false" Type="Innovasys.ContentAuthoring.Topics.RecentTopic" Assembly="Innovasys.ContentAuthoring.Topics">
       <HandlerName>TOPICS</HandlerName>
       <Category>Topics</Category>
+    </RecentItem>
+    <RecentItem Key="{95CC9CE0-63F7-4C1D-A216-ECD61B43B016}.-" IsPinned="false" Type="Innovasys.ContentAuthoring.Topics.RecentTopic" Assembly="Innovasys.ContentAuthoring.Topics">
+      <HandlerName>TOPICS</HandlerName>
+      <Category>Topics</Category>
+    </RecentItem>
+    <RecentItem Key="{99E1524B-2E6B-4ADC-8A3C-95903CD29559}.-" IsPinned="false" Type="Innovasys.ContentAuthoring.Topics.RecentTopic" Assembly="Innovasys.ContentAuthoring.Topics">
+      <HandlerName>TOPICS</HandlerName>
+      <Category>Topics</Category>
+    </RecentItem>
+    <RecentItem Key="Technosoftware.DaAeHdaClient.dxc.-" IsPinned="false" Type="Innovasys.DocumentX.ContentFiles.RecentContentFile" Assembly="Innovasys.DocumentX.ContentFiles">
+      <HandlerName>CONTENT FILES</HandlerName>
+      <Category>Content Files</Category>
     </RecentItem>
   </RecentItems>
   <ProjectProfileApplicationPlugin DesignTimeProjectProfile="{4120EBAF-EE7C-4C85-9C91-B66410AC8357}" DesignTimeProjectLocale="-" />

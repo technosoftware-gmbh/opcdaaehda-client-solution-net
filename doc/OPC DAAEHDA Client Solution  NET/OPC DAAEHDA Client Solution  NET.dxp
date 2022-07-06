@@ -12,580 +12,12 @@
   <PropertyDefinitionValues />
   <Title m="2007-05-31T10:49:56Z">OPC Server Studio .NET</Title>
   <ContentFiles>
-    <ContentFile FileName="Technosoftware.DaAeHdaClient.dxc" Moniker="..\..\src\Technosoftware\DaAeHdaClient\bin\Release\net5.0-windows\Technosoftware.DaAeHdaClient.dll" DocType="DX.NET" />
+    <ContentFile FileName="Technosoftware.DaAeHdaClient.dxc" Moniker="..\..\src\Technosoftware\DaAeHdaClient\bin\Release\net6.0-windows\Technosoftware.DaAeHdaClient.dll" DocType="DX.NET" />
   </ContentFiles>
   <AutoDocFiles />
   <ContentFromProjectPlugin />
   <Filters>
     <ExcludedItems>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Sec_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Sec.IOPCSecurityNT</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Sec.IOPCSecurityPrivate</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.CATID_OPCHDAServer10</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.Constants</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_AsyncAnnotations</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_AsyncRead</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_AsyncUpdate</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_Browser</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_DataCallback</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_Playback</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_Server</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_SyncAnnotations</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_SyncRead</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.IOPCHDA_SyncUpdate</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_AGGREGATE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_ANNOTATION</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_ANNOTATIONCAPABILITIES</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_ATTRIBUTE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_BROWSEDIRECTION</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_BROWSETYPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_EDITTYPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_ITEM</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_MODIFIEDITEM</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_OPERATORCODES</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_SERVERSTATUS</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_TIME</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Hda.OPCHDA_UPDATECAPABILITIES</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.CATID_OPCDAServer10</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.CATID_OPCDAServer20</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.CATID_OPCDAServer30</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.CATID_XMLDAServer10</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.Constants</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IEnumOPCItemAttributes</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCAsyncIO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCAsyncIO2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCAsyncIO3</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCBrowse</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCBrowseServerAddressSpace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCDataCallback</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCGroupStateMgt</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCGroupStateMgt2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCItemDeadbandMgt</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCItemIO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCItemMgt</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCItemProperties</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCItemSamplingMgt</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCPublicGroupStateMgt</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCServer</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCServerPublicGroups</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCSyncIO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.IOPCSyncIO2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCBROWSEDIRECTION</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCBROWSEELEMENT</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCBROWSEFILTER</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCBROWSETYPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCDATASOURCE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCENUMSCOPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCEUTYPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCGROUPHEADER</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCGROUPHEADERWRITE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMATTRIBUTES</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMDEF</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMHEADER1</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMHEADER2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMHEADERWRITE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMPROPERTIES</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMPROPERTY</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMRESULT</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMSTATE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCITEMVQT</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCNAMESPACETYPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCSERVERSTATE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.OPCSERVERSTATUS</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.Properties</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Da.Qualities</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.CONNECTDATA</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IConnectionPoint</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IConnectionPointContainer</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IEnumConnectionPoints</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IEnumConnections</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IEnumGUID</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IEnumString</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IEnumUnknown</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IOPCCommon</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IOPCEnumGUID</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IOPCServerList</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IOPCServerList2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Comn.IOPCShutdown</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.CATID_OPCAEServer10</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.Constants</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.IOPCEventAreaBrowser</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.IOPCEventServer</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.IOPCEventServer2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.IOPCEventSink</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.IOPCEventSubscriptionMgt</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.IOPCEventSubscriptionMgt2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.ONEVENTSTRUCT</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.OPCAEBROWSEDIRECTION</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.OPCAEBROWSETYPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.OPCCONDITIONSTATE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.OPCEVENTSERVERSTATE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcRcw.Ae.OPCEVENTSERVERSTATUS</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da20_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da20.BrowsePosition</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da20.Server</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da20.Subscription</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.BrowsePosition</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Interop</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Request</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Result</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Server</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Subscription</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Subscription+Callback</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Da.Subscription+ItemTable</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Cpx_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Cpx.Result</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.BrowsePosition</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.Browser</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.DataCallback</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.Interop</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.Request</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.Result</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Hda.Server</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae.BrowsePosition</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae.Interop</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae.Result</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae.Server</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae.Subscription</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Ae.Subscription+Callback</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComServerDescription</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+GUID</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+IClassFactory</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+IClassFactory2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+LICINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+MULTI_QI</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+ServerInfo</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ComUtils+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ConnectionPoint</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.EnumString</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Factory</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+GUID</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+IClassFactory2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+IClientSecurity</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+LICINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+MULTI_QI</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+ServerInfo</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+GUID</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+IClassFactory</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+IClassFactory2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+LICINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+MULTI_QI</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+ServerInfo</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.SafeNativeMethods+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Server</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.Server+Callback</ExcludedItem>
-      <ExcludedItem>OpcClientSdk48~OpcClientSdk.Com.ServerFactory</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcConnectData+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcFactory+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcReadOnlyCollection+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcReadOnlyDictionary+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcResult+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcServer+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcWriteableCollection+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcWriteableDictionary+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcResult+CodeType</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.OpcResult+FuncCallType</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.HiResClock</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.HiResClock+NativeMethods</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+ServerInfo</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Utils</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Utils+TraceMasks</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+IClassFactory</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+IClassFactory2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+MULTI_QI</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+LICINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+GUID</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Utilities.Utils+TraceOutput</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Hda.TsCHdaServer+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Hda.TsCHdaTrend+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Hda.ITsCHdaServer</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Da.TsDaPropertyID+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Da.TsCDaServer+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Da.TsCDaSubscription+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Cpx.TsCCpxContext</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+ServerInfo</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ConnectionPoint</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.EnumString</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+ServerInfo</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+ServerInfo</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Server</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Server+Callback</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ServerFactory</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComServerDescription</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+IClassFactory</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+IClassFactory2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+IClassFactory2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+IClientSecurity</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+IClassFactory</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+IClassFactory2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+GUID</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+MULTI_QI</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.ComUtils+LICINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+MULTI_QI</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+LICINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop+GUID</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+GUID</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+MULTI_QI</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.SafeNativeMethods+LICINFO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Hda_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Cpx_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Da_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Da20_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Ae_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Ae.TsCAeItemUrlCollection</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Ae.TsCAeServer+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Ae.TsCAeSubscription+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Ae.TsCAeSubscriptionFilters+Names</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Ae.ITsCAeServer</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Factory</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.FILETIME</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcClientSdk.Com.Interop</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.CATID_OPCAEServer10</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.Constants</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.FILETIME</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.IOPCEventAreaBrowser</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.IOPCEventServer</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.IOPCEventServer2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.IOPCEventSink</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.IOPCEventSubscriptionMgt</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.IOPCEventSubscriptionMgt2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.ONEVENTSTRUCT</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.OPCAEBROWSEDIRECTION</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.OPCAEBROWSETYPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.OPCCONDITIONSTATE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.OPCEVENTSERVERSTATE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Ae.OPCEVENTSERVERSTATUS</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.CONNECTDATA</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IConnectionPoint</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IConnectionPointContainer</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IEnumConnectionPoints</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IEnumConnections</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IEnumGUID</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IEnumString</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IEnumUnknown</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IOPCCommon</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IOPCEnumGUID</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IOPCServerList</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IOPCServerList2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Comn.IOPCShutdown</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.CATID_OPCDAServer10</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.CATID_OPCDAServer20</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.CATID_OPCDAServer30</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.CATID_XMLDAServer10</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.Constants</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IEnumOPCItemAttributes</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCAsyncIO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCAsyncIO2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCAsyncIO3</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCBrowse</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCBrowseServerAddressSpace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCDataCallback</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCGroupStateMgt</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCGroupStateMgt2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCItemDeadbandMgt</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCItemIO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCItemMgt</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCItemProperties</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCItemSamplingMgt</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCPublicGroupStateMgt</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCServer</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCServerPublicGroups</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCSyncIO</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.IOPCSyncIO2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCBROWSEDIRECTION</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCBROWSEELEMENT</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCBROWSEFILTER</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCBROWSETYPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCDATASOURCE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCENUMSCOPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCEUTYPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCGROUPHEADER</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCGROUPHEADERWRITE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMATTRIBUTES</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMDEF</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMHEADER1</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMHEADER2</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMHEADERWRITE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMPROPERTIES</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMPROPERTY</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMRESULT</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMSTATE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCITEMVQT</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCNAMESPACETYPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCSERVERSTATE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.OPCSERVERSTATUS</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.Properties</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Da.Qualities</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.CATID_OPCHDAServer10</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.Constants</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_AsyncAnnotations</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_AsyncRead</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_AsyncUpdate</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_Browser</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_DataCallback</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_Playback</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_Server</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_SyncAnnotations</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_SyncRead</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.IOPCHDA_SyncUpdate</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_AGGREGATE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_ANNOTATION</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_ANNOTATIONCAPABILITIES</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_ATTRIBUTE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_BROWSEDIRECTION</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_BROWSETYPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_EDITTYPE</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_ITEM</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_MODIFIEDITEM</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_OPERATORCODES</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_SERVERSTATUS</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_TIME</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Hda.OPCHDA_UPDATECAPABILITIES</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Sec_namespace</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Sec.IOPCSecurityNT</ExcludedItem>
-      <ExcludedItem>OpcClientSdk~OpcRcw.Sec.IOPCSecurityPrivate</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.EvaluationTimer</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcConnectData+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcFactory+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcReadOnlyCollection+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcReadOnlyDictionary+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcResult+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcServer+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcWriteableCollection+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcWriteableDictionary+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcResult+CodeType</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.OpcResult+FuncCallType</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.HiResClock</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.HiResClock+NativeMethods</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+ServerInfo</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Utils</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Utils+TraceMasks</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+IClassFactory</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+IClassFactory2</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+MULTI_QI</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+LICINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+GUID</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Utilities.Utils+TraceOutput</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Licensing_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Licensing.Validation_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Licensing.Security.Cryptography_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Hda.TsCHdaServer+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Hda.TsCHdaTrend+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Hda.ITsCHdaServer</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Da.TsDaPropertyID+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Da.TsCDaServer+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Da.TsCDaSubscription+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Cpx.TsCCpxContext</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+ServerInfo</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ConnectionPoint</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.EnumString</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+ServerInfo</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+ServerInfo</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Server</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Server+Callback</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+IClassFactory</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+IClassFactory2</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+IClassFactory2</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+IClientSecurity</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+IClassFactory</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+IClassFactory2</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+GUID</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+MULTI_QI</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ComUtils+LICINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+MULTI_QI</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+LICINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop+GUID</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+GUID</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+MULTI_QI</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.SafeNativeMethods+LICINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Hda_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Cpx_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Da_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Da20_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Ae_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Ae.TsCAeItemUrlCollection</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Ae.TsCAeServer+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Ae.TsCAeSubscription+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Ae.TsCAeSubscriptionFilters+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Ae.ITsCAeServer</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Factory</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.FILETIME</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.Interop</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcClientSdk.Com.ServerEnumerator</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.CONNECTDATA</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IConnectionPoint</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IConnectionPointContainer</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumConnectionPoints</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumConnections</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumGUID</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumString</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumUnknown</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCCommon</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCEnumGUID</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCServerList</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCServerList2</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCShutdown</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~-_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcConnectData+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcFactory+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcReadOnlyCollection+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcReadOnlyDictionary+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcResult+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcServer+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcWriteableCollection+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcWriteableDictionary+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcResult+CodeType</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcResult+FuncCallType</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.HiResClock</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.HiResClock+NativeMethods</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+ServerInfo</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Utils</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Utils+TraceMasks</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+IClassFactory</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+IClassFactory2</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+MULTI_QI</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+LICINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+GUID</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.Utils+TraceOutput</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Hda.TsCHdaServer+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Hda.TsCHdaTrend+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Hda.ITsCHdaServer</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Da.TsDaPropertyID+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Da.TsCDaServer+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Da.TsCDaSubscription+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Cpx.TsCCpxContext</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+ServerInfo</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ConnectionPoint</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.EnumString</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+ServerInfo</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+ServerInfo</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Server</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Server+Callback</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+IClassFactory</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+IClassFactory2</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+IClassFactory2</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+IClientSecurity</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+IClassFactory</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+IClassFactory2</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+GUID</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+MULTI_QI</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+LICINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+MULTI_QI</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+LICINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+GUID</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+SERVER_INFO_100</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+GUID</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COSERVERINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COAUTHINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COAUTHIDENTITY</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+MULTI_QI</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+LICINFO</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Hda_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Cpx_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da20_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Ae_namespace</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeItemUrlCollection</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeServer+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeSubscription+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeSubscriptionFilters+Names</ExcludedItem>
-      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.ITsCAeServer</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae_namespace</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.CATID_OPCAEServer10</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.Constants</ExcludedItem>
@@ -602,6 +34,20 @@
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.OPCCONDITIONSTATE</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.OPCEVENTSERVERSTATE</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Ae.OPCEVENTSERVERSTATUS</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.CONNECTDATA</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IConnectionPoint</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IConnectionPointContainer</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumConnectionPoints</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumConnections</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumGUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumString</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IEnumUnknown</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCCommon</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCEnumGUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCServerList</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCServerList2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Comn.IOPCShutdown</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da_namespace</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.CATID_OPCDAServer10</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Da.CATID_OPCDAServer20</ExcludedItem>
@@ -683,10 +129,81 @@
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Security.IOPCSecurityNT</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~OpcRcw.Security.IOPCSecurityPrivate</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+COINIT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ComUtils+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ConnectionPoint</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.EnumString</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Factory</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.FILETIME</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+COINIT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+IClientSecurity</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Server</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Server+Callback</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.ServerEnumerator</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Ae_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Ae.BrowsePosition</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Ae.Interop</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Ae.Result</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Ae.Server</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Ae.Subscription</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Ae.Subscription+Callback</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Cpx_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Cpx.Result</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da.BrowsePosition</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da.Interop</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da.Request</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da.Result</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da.Server</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da.Subscription</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da.Subscription+Callback</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da.Subscription+ItemTable</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da20_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da20.BrowsePosition</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da20.Server</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Da20.Subscription</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Hda_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Hda.BrowsePosition</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Hda.Browser</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Hda.DataCallback</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Hda.Interop</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Hda.Request</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Hda.Result</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Com.Hda.Server</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Security.Cryptography_namespace</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Security.Cryptography.KeyGenerator</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.Security.Cryptography.KeyPair</ExcludedItem>
@@ -725,7 +242,7 @@
   <AjaxProjectPlugin />
   <JavaProjectPlugin />
   <DotNetAssemblies>
-    <Assembly FileName="..\..\src\Technosoftware\DaAeHdaClient\bin\Release\net5.0-windows\Technosoftware.DaAeHdaClient.dll" RootTypeName="" />
+    <Assembly FileName="..\..\src\Technosoftware\DaAeHdaClient\bin\Release\net6.0-windows\Technosoftware.DaAeHdaClient.dll" RootTypeName="" />
   </DotNetAssemblies>
   <DatabaseProjectPlugin>
     <Databases />
@@ -1142,26 +659,26 @@
         <Caption m="2007-05-31T10:49:56Z">Overview</Caption>
         <ChildTopicCategories />
         <Topics>
-          <Topic Id="{EE6C442B-769D-491F-B730-CAE8A259C379}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2021-01-16T07:56:47.4264692Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="Overview" BuildFlags="">
+          <Topic Id="{EE6C442B-769D-491F-B730-CAE8A259C379}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2022-07-06T13:42:15.4920804Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="Overview" BuildFlags="">
             <Title m="2007-05-31T10:49:56Z">Overview</Title>
             <ContentsTitle m="2007-05-31T10:49:56Z" />
             <Notes></Notes>
             <TopicSections>
               <TopicSection Name="BodyText">
-                <Content m="2021-01-16T07:56:47.4264692Z">&lt;H1&gt;OPC DA/AE/HDA Client&amp;nbsp;Solution .NET&lt;/H1&gt;&lt;IMG border=0 alt="" src="images/OPC DAAEHDA Client Solution NET.png" align=right&gt; 
-&lt;P&gt;The OPC DA/AE/HDA Client Solution .NET offers a fast and easy access to the OPC Classic Client technology. Develop OPC DA, OPC AE and OPC HDA compliant Clients with C# targeting .NET 5.0, .NET Core 3.1 or .NET Standard 2.1. For backward compatibility we also provide .NET 4.8, .NET 4.7.2 and .NET 4.6.2 support.&lt;/P&gt;
+                <Content m="2022-07-06T13:42:15.4920804Z">&lt;H1&gt;OPC DA/AE/HDA Client&amp;nbsp;Solution .NET&lt;/H1&gt;&lt;IMG border=0 alt="" src="images/OPC DAAEHDA Client Solution NET.png" align=right&gt; 
+&lt;P&gt;The OPC DA/AE/HDA Client Solution .NET offers a fast and easy access to the OPC Classic Client technology. Develop OPC DA, OPC AE and OPC HDA compliant Clients with C# targeting .NET 6.0, or .NET Core 3.1. For backward compatibility we also provide .NET 4.8, .NET 4.7.2 and .NET 4.6.2 support.&lt;/P&gt;
 &lt;P&gt;The OPC DA/AE/HDA Client Solution .NET API defines classes which can be used to implement an OPC client capable to access OPC servers supporting different specifications with the same API. These classes manage client side state information; provide higher level abstractions for OPC tasks such as managing sessions and subscriptions or saving and restoring connection information for later use. The lower level API’s for OPC DA, OPC AE and OPC HDA defines classes which can be used to access OPC specification specific methods and properties.&lt;/P&gt;
 &lt;H3&gt;Dual License&lt;/H3&gt;
 &lt;P&gt;The original products for OPC DA, OPC AE and OPC HDA are now getting moved to a dual license. Technosoftware GmbH provides different licenses depending on the component and on the ownership of a purchased license or sponsor status of the user of the sources. A single ZIP file or a single repository can contain multiple components where the sources have different license models. The valid license is in the header of each source file.&lt;/P&gt;
 &lt;OL&gt;
-&lt;LI&gt;OPC DA/AE/HDA core components follow a dual-license model:
+&lt;LI&gt;OPC DA/AE/HDA core components follow a dual-license model: 
 &lt;UL&gt;
-&lt;LI&gt;Owner of a purchased license or sponsor: SCLA 1.0&lt;BR&gt;enables Owner of a purchased license or sponsor to deploy their applications using the core component sources without being required to disclose the application code.&lt;/LI&gt;&lt;/UL&gt;
+&lt;LI&gt;Owner of a purchased license or sponsor: SCLA 1.0&lt;BR&gt;enables Owner of a purchased license or sponsor to deploy their applications using the core component sources without being required to disclose the application code. &lt;/LI&gt;&lt;/UL&gt;
 &lt;UL&gt;
-&lt;LI&gt;Users that are not Owner of a purchased license or are not a sponsor: GPL 3.0&lt;BR&gt;Based on the GPL 3.0 license terms these users must disclose their application code when using the core component sources.&lt;/LI&gt;&lt;/UL&gt;
-&lt;LI&gt;Samples and Utilities:
+&lt;LI&gt;Users that are not Owner of a purchased license or are not a sponsor: GPL 3.0&lt;BR&gt;Based on the GPL 3.0 license terms these users must disclose their application code when using the core component sources. &lt;/LI&gt;&lt;/UL&gt;
+&lt;LI&gt;Samples and Utilities: 
 &lt;UL&gt;
-&lt;LI&gt;All samples and most of the utilities are provided under the MIT license for everyone.&lt;/LI&gt;&lt;/UL&gt;&lt;/LI&gt;&lt;/OL&gt;</Content>
+&lt;LI&gt;All samples and most of the utilities are provided under the MIT license for everyone. &lt;/LI&gt;&lt;/UL&gt;&lt;/LI&gt;&lt;/OL&gt;</Content>
               </TopicSection>
             </TopicSections>
             <TopicLinks />
@@ -1223,13 +740,13 @@
         <Caption m="2007-05-31T10:49:56Z">Support</Caption>
         <ChildTopicCategories />
         <Topics>
-          <Topic Id="{4A40674C-86C0-4FF4-A6F4-463328D25FF3}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2021-01-16T08:07:02.6996116Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="System Requirements" BuildFlags="">
+          <Topic Id="{4A40674C-86C0-4FF4-A6F4-463328D25FF3}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2022-07-06T13:39:46.8497833Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="System Requirements" BuildFlags="">
             <Title m="2007-05-31T10:49:56Z">System Requirements</Title>
-            <ContentsTitle m="2007-05-31T10:49:56Z" />
+            <ContentsTitle m="2022-07-06T13:38:38.1471298Z">System Requirements</ContentsTitle>
             <Notes></Notes>
             <TopicSections>
               <TopicSection Name="BodyText">
-                <Content m="2021-01-16T08:07:02.6996116Z">&lt;TABLE class=wp-block-table width="100%"&gt;
+                <Content m="2022-07-06T13:39:46.8487832Z">&lt;TABLE class=wp-block-table width="100%"&gt;
 &lt;TBODY&gt;
 &lt;TR&gt;
 &lt;TD width="40%"&gt;&lt;BR&gt;&lt;/TD&gt;
@@ -1239,47 +756,50 @@
 &lt;TR&gt;
 &lt;TD&gt;
 &lt;UL&gt;
-&lt;LI&gt;.NET 5.0&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;LI&gt;.NET 6.0 &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
 &lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
 &lt;TD colSpan=2&gt;&lt;STRONG&gt;.NET Standard&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
 &lt;TD&gt;
 &lt;UL&gt;
-&lt;LI&gt;.NET Core 3.1&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;LI&gt;.NET Core 3.1 &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
 &lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
 &lt;TD&gt;
 &lt;UL&gt;
-&lt;LI&gt;.NET Standard 2.1&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;LI&gt;.NET Standard 2.1 &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
 &lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
 &lt;TD colSpan=2&gt;&lt;STRONG&gt;.NET Framework&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
 &lt;TD&gt;
 &lt;UL&gt;
-&lt;LI&gt;.NET 4.8&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;LI&gt;.NET 4.8 &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
 &lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
 &lt;TD&gt;
 &lt;UL&gt;
-&lt;LI&gt;.NET 4.7.2&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;LI&gt;.NET 4.7.2 &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
 &lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
 &lt;TD&gt;
 &lt;UL&gt;
-&lt;LI&gt;.NET 4.6.2&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;LI&gt;.NET 4.6.2 &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
 &lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
 &lt;TD&gt;
 &lt;P&gt;Windows:&lt;/P&gt;
 &lt;UL&gt;
-&lt;LI&gt;Client 10 V. 1607+
-&lt;LI&gt;Client 8.1
-&lt;LI&gt;Server 2012 R2+
-&lt;LI&gt;Nano Server V. 1809+&lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;LI&gt;Client 10 V. 1607+ 
+&lt;LI&gt;Client 8.1 
+&lt;LI&gt;Server 2012 R2+ 
+&lt;LI&gt;Nano Server V. 1809+ &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
 &lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;
 &lt;P align=center&gt;√&lt;/P&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;Visual Studio 2022&lt;/TD&gt;
+&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
 &lt;TD&gt;Visual Studio 2019&lt;/TD&gt;
 &lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;&lt;/TBODY&gt;&lt;/TABLE&gt;</Content>

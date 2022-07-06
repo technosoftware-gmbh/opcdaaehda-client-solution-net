@@ -1,4 +1,10 @@
 -------------------------------------------------------------------------------------------------------------
+## OPC DA/AE/HDA Solution .NET - 1.3.0
+
+### Breaking Changes
+- removed support of .NET 5.0 because of end of life (see [here](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core))
+
+-------------------------------------------------------------------------------------------------------------
 ## OPC DA/AE/HDA Solution .NET - 1.2.6
 
 ###	Changes
