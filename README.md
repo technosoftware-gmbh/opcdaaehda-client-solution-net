@@ -19,7 +19,7 @@ OPC DA/AE/HDA uses (D)COM technology from Windows. Therefore only Windows is sup
 
 ## Online Help
 
-We provide an online help for the current version: [OPC DA/AE/HDA Solution NET Online Help](https://technosoftware.com/help/OPCDaAeHdaClientSolutionNet/12/)
+We provide an online help for the current version: [OPC DA/AE/HDA Solution NET Online Help](https://technosoftware.com/help/OPCDaAeHdaClientSolutionNet/13/)
 
 ## Getting started
 
