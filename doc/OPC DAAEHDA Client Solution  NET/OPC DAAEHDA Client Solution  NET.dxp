@@ -697,13 +697,13 @@
         <Caption m="2007-05-31T10:49:56Z">Deploying your Application</Caption>
         <ChildTopicCategories />
         <Topics>
-          <Topic Id="{728F595D-5426-4B4A-A5B3-2C6865FEA866}" Status="In Progress" CreatedOn="2005-06-13T00:00:00Z" ModifiedOn="2013-08-29T20:20:26.9339301Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="Deploying your Application" BuildFlags="">
+          <Topic Id="{728F595D-5426-4B4A-A5B3-2C6865FEA866}" Status="In Progress" CreatedOn="2005-06-13T00:00:00Z" ModifiedOn="2022-08-13T06:38:54.4440308Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="Deploying your Application" BuildFlags="">
             <Title m="2007-05-31T10:49:56Z">Deploying your Application</Title>
             <ContentsTitle m="2007-05-31T10:49:56Z" />
             <Notes></Notes>
             <TopicSections>
               <TopicSection Name="BodyText">
-                <Content m="2013-08-29T20:20:26.9339301Z">&lt;H4&gt;Deploying your Application&lt;/H4&gt;
+                <Content m="2022-08-13T06:38:54.4440308Z">&lt;H4&gt;Deploying your Application&lt;/H4&gt;
 &lt;P&gt;There are 2 main issues you need to be aware of when deploying your application to&amp;nbsp;end users:&lt;/P&gt;
 &lt;BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr&gt;
 &lt;P dir=ltr&gt;&lt;STRONG&gt;Required Software Components&lt;/STRONG&gt;&lt;/P&gt;
@@ -712,11 +712,8 @@
 &lt;LI&gt;
 &lt;DIV&gt;Install the .NET Framework&lt;BR&gt;Install the .NET Framework distributable which can be downloaded from &lt;A href="http://www.microsoft.com"&gt;www.microsoft.com&lt;/A&gt; or is installed with Microsoft Visual Studio&amp;nbsp;2008, Visual Studio 2010 or Visual Studio 2012. &lt;/DIV&gt;
 &lt;LI&gt;
-&lt;DIV&gt;OPC Core Components distributable&lt;BR&gt;This setup application installs the OPC Core components required by applications based on the OPC Client SDK .NET Base Edition. Use one of the following:&lt;BR&gt;
-&lt;OL&gt;
-&lt;LI&gt;\bin\redist\OPCCoreComponentsRedistributable&lt;BR&gt;If the system is a 64bit operating system&amp;nbsp;you need to use this OPC Core Components 
-&lt;LI&gt;\x86\redist\OPCCoreComponentsRedistributable&lt;BR&gt;If the system is a 32bit operating system you need to use this OPC Core Components&amp;nbsp; &lt;/LI&gt;&lt;/OL&gt;&lt;?xml:namespace prefix = "innovasys" ns = "http://www.innovasys.com/widgets" /&gt;&lt;innovasys:widget type="Caution Box" layout="block"&gt;&lt;innovasys:widgetproperty layout="inline" name="Content"&gt;Please be sure that you run this application after you have installed the .NET Framework. Otherwise important files are not copied.&amp;nbsp;&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;&lt;/DIV&gt;&lt;/LI&gt;&lt;/OL&gt;
-&lt;P dir=ltr&gt;&lt;STRONG&gt;OPC Client SDK .NET Classic Components&lt;/STRONG&gt;&lt;/P&gt;
+&lt;DIV&gt;OPC Core Components distributable&lt;BR&gt;This setup application installs the OPC Core components required by applications based on the OPC Client SDK .NET Base Edition. Use version 3.00.108 available&amp;nbsp;&lt;A href="https://opcfoundation.org/developer-tools/samples-and-tools-classic/core-components/" target=_blank&gt;here&lt;/A&gt;. &lt;/DIV&gt;&lt;/LI&gt;&lt;/OL&gt;
+&lt;P dir=ltr&gt;&lt;STRONG&gt;OPC DA/AE/HDA Solution .NET Components&lt;/STRONG&gt;&lt;/P&gt;
 &lt;OL dir=ltr&gt;
 &lt;LI&gt;
 &lt;DIV&gt;Please see also the OPC Client SDK .NET Guide&amp;nbsp;for more detailed information. Use one of the following DLL's explaind in the chapter &lt;A href="{F2633C9A-4755-49BA-9C54-58DA4F582376}"&gt;Components&lt;/A&gt; &lt;/DIV&gt;&lt;/LI&gt;&lt;/OL&gt;
@@ -740,13 +737,13 @@
         <Caption m="2007-05-31T10:49:56Z">Support</Caption>
         <ChildTopicCategories />
         <Topics>
-          <Topic Id="{4A40674C-86C0-4FF4-A6F4-463328D25FF3}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2022-07-06T13:39:46.8497833Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="System Requirements" BuildFlags="">
+          <Topic Id="{4A40674C-86C0-4FF4-A6F4-463328D25FF3}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2022-08-13T06:39:46.8313084Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="System Requirements" BuildFlags="">
             <Title m="2007-05-31T10:49:56Z">System Requirements</Title>
             <ContentsTitle m="2022-07-06T13:38:38.1471298Z">System Requirements</ContentsTitle>
             <Notes></Notes>
             <TopicSections>
               <TopicSection Name="BodyText">
-                <Content m="2022-07-06T13:39:46.8487832Z">&lt;TABLE class=wp-block-table width="100%"&gt;
+                <Content m="2022-08-13T06:39:46.8313084Z">&lt;TABLE class=wp-block-table width="100%"&gt;
 &lt;TBODY&gt;
 &lt;TR&gt;
 &lt;TD width="40%"&gt;&lt;BR&gt;&lt;/TD&gt;
@@ -764,11 +761,6 @@
 &lt;TD&gt;
 &lt;UL&gt;
 &lt;LI&gt;.NET Core 3.1 &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
-&lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR&gt;
-&lt;TD&gt;
-&lt;UL&gt;
-&lt;LI&gt;.NET Standard 2.1 &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
 &lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
 &lt;TD colSpan=2&gt;&lt;STRONG&gt;.NET Framework&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
@@ -889,7 +881,7 @@
     <TopicEditorState>
       <Attributes>
         <Attribute key="dtscrollpos" valuetype="integer">275</Attribute>
-        <Attribute key="scrollPosition" valuetype="integer">0</Attribute>
+        <Attribute key="scrollPosition" valuetype="integer">325</Attribute>
       </Attributes>
     </TopicEditorState>
   </TopicsProjectPlugin>
@@ -1391,7 +1383,7 @@
           </Rules>
         </Rules>
       </RuleEngine>
-      <ShortFileNames GenerateShortFileNames="false" />
+      <ShortFileNames GenerateShortFileNames="true" />
       <TopicsProjectProfilePlugin>
         <TemplateName>Classic</TemplateName>
         <IncludeBreadcrumbs>false</IncludeBreadcrumbs>
@@ -1428,7 +1420,7 @@
         <EditionId></EditionId>
       </VersionsAndEditions>
       <Publishing />
-      <OutputDirectory>..\..\onlinehelp</OutputDirectory>
+      <OutputDirectory>..\..\..\onlinehelp</OutputDirectory>
     </ProjectProfile>
   </ProjectProfiles>
   <HelpContextIDHeaderFile></HelpContextIDHeaderFile>
