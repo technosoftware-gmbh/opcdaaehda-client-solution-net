@@ -997,8 +997,8 @@
         <IncludeAssemblyBreadcrumb>false</IncludeAssemblyBreadcrumb>
         <IncludePrivateMembers>false</IncludePrivateMembers>
         <IncludeFriendMembers>false</IncludeFriendMembers>
-        <IncludeProtectedFriendMembers>false</IncludeProtectedFriendMembers>
-        <IncludeProtectedMembers>false</IncludeProtectedMembers>
+        <IncludeProtectedFriendMembers>true</IncludeProtectedFriendMembers>
+        <IncludeProtectedMembers>true</IncludeProtectedMembers>
         <IncludeAttributes>true</IncludeAttributes>
         <AttributeFilterType>Exclude</AttributeFilterType>
         <AttributeFilter></AttributeFilter>
@@ -1026,8 +1026,8 @@
           <DiagramDefaultCollectionMemberOnly>true</DiagramDefaultCollectionMemberOnly>
         </DiagramSettings>
         <IncludeVbNetDefaultConstructor>false</IncludeVbNetDefaultConstructor>
-        <UseOverloadSummaryForMasterSummary>false</UseOverloadSummaryForMasterSummary>
-        <LinkOverriddenMembersToBaseImplementation>false</LinkOverriddenMembersToBaseImplementation>
+        <UseOverloadSummaryForMasterSummary>true</UseOverloadSummaryForMasterSummary>
+        <LinkOverriddenMembersToBaseImplementation>true</LinkOverriddenMembersToBaseImplementation>
         <GenericIndicator>ArgumentsInBrackets</GenericIndicator>
         <RootAssemblyName></RootAssemblyName>
         <IncludeConstructorsOnAbstractTypes>false</IncludeConstructorsOnAbstractTypes>
@@ -1039,17 +1039,23 @@
         <SyntaxSectionStyle>TemplateDefault</SyntaxSectionStyle>
         <IsVbSyntaxMerged>true</IsVbSyntaxMerged>
         <IncludeMemberIndexKeywords>false</IncludeMemberIndexKeywords>
-        <IncludeCodeContracts>false</IncludeCodeContracts>
+        <IncludeCodeContracts>true</IncludeCodeContracts>
         <GroupExamples>false</GroupExamples>
         <ColorizeSyntax>false</ColorizeSyntax>
         <IncludeExtensionMethods>false</IncludeExtensionMethods>
-        <UseContentFromBaseMember>false</UseContentFromBaseMember>
+        <UseContentFromBaseMember>true</UseContentFromBaseMember>
         <IsEnumValuesEnabled>false</IsEnumValuesEnabled>
+        <PropertyBag>
+          <Property Name="TEMPLATEFILEFEATURE_NAVIGATION">True</Property>
+          <Property Name="TEMPLATEFILEFEATURE_RESPONSIVE">True</Property>
+        </PropertyBag>
         <ExcludedLanguages>
           <ExcludedLanguage>JScript</ExcludedLanguage>
           <ExcludedLanguage>CPP</ExcludedLanguage>
           <ExcludedLanguage>CPP2005</ExcludedLanguage>
           <ExcludedLanguage>Delphi</ExcludedLanguage>
+          <ExcludedLanguage>VB</ExcludedLanguage>
+          <ExcludedLanguage>VBUsage</ExcludedLanguage>
         </ExcludedLanguages>
       </DotNet>
       <Javascript>
@@ -1100,6 +1106,10 @@
         <IncludeMemberIndexKeywords>false</IncludeMemberIndexKeywords>
         <GroupExamples>false</GroupExamples>
         <ColorizeSyntax>true</ColorizeSyntax>
+        <PropertyBag>
+          <Property Name="TEMPLATEFILEFEATURE_NAVIGATION">True</Property>
+          <Property Name="TEMPLATEFILEFEATURE_RESPONSIVE">True</Property>
+        </PropertyBag>
       </Javascript>
       <Ajax>
         <IncludeRelationshipDiagrams>false</IncludeRelationshipDiagrams>
@@ -1191,6 +1201,10 @@
         <IncludeCodeContracts>false</IncludeCodeContracts>
         <GroupExamples>false</GroupExamples>
         <ColorizeSyntax>false</ColorizeSyntax>
+        <PropertyBag>
+          <Property Name="TEMPLATEFILEFEATURE_NAVIGATION">True</Property>
+          <Property Name="TEMPLATEFILEFEATURE_RESPONSIVE">True</Property>
+        </PropertyBag>
       </Java>
       <Com>
         <IncludeRelationshipDiagrams>true</IncludeRelationshipDiagrams>
@@ -1226,6 +1240,10 @@
         <IncludeMemberIndexKeywords>true</IncludeMemberIndexKeywords>
         <GroupExamples>false</GroupExamples>
         <ColorizeSyntax>false</ColorizeSyntax>
+        <PropertyBag>
+          <Property Name="TEMPLATEFILEFEATURE_NAVIGATION">True</Property>
+          <Property Name="TEMPLATEFILEFEATURE_RESPONSIVE">True</Property>
+        </PropertyBag>
       </Com>
       <Database>
         <TemplateName>Visual Studio 2008 Style</TemplateName>
@@ -1244,6 +1262,10 @@
         <UseSourceContent>true</UseSourceContent>
         <MaximumDependencyLevel>5</MaximumDependencyLevel>
         <UseSqlServerDataTypeNames>false</UseSqlServerDataTypeNames>
+        <PropertyBag>
+          <Property Name="TEMPLATEFILEFEATURE_NAVIGATION">True</Property>
+          <Property Name="TEMPLATEFILEFEATURE_RESPONSIVE">True</Property>
+        </PropertyBag>
       </Database>
       <Xsd>
         <TemplateName>Visual Studio 2008 Style</TemplateName>
@@ -1263,6 +1285,10 @@
         <DiagramItemMaxRecurse>3</DiagramItemMaxRecurse>
         <GenerateDiagrams>true</GenerateDiagrams>
         <IsOverrideTemplateDiagramStyleEnabled>false</IsOverrideTemplateDiagramStyleEnabled>
+        <PropertyBag>
+          <Property Name="TEMPLATEFILEFEATURE_NAVIGATION">True</Property>
+          <Property Name="TEMPLATEFILEFEATURE_RESPONSIVE">True</Property>
+        </PropertyBag>
       </Xsd>
       <Filters />
       <WebService>
@@ -1282,6 +1308,10 @@
         <IsGroupedByResource>false</IsGroupedByResource>
         <IncludeFullResourceUriInOperationPages>true</IncludeFullResourceUriInOperationPages>
         <UseAbsolutePathForResourcePaths>true</UseAbsolutePathForResourcePaths>
+        <PropertyBag>
+          <Property Name="TEMPLATEFILEFEATURE_NAVIGATION">True</Property>
+          <Property Name="TEMPLATEFILEFEATURE_RESPONSIVE">True</Property>
+        </PropertyBag>
       </WebService>
       <HelpCompiler CompileHelpFile="false" IsWebOutputEnabled="true" IsMarkOfTheWebEnabled="false">
         <MarkOfTheWebDomain>(0014)about:internet</MarkOfTheWebDomain>
@@ -1334,6 +1364,10 @@
           <WindowLocationTop>0</WindowLocationTop>
         </CustomHtmlHelpWindowSettings>
         <IsWebOutputRootPageLinkEnabled>false</IsWebOutputRootPageLinkEnabled>
+        <PropertyBag>
+          <Property Name="TEMPLATEFILEFEATURE_NAVIGATION">True</Property>
+          <Property Name="TEMPLATEFILEFEATURE_RESPONSIVE">True</Property>
+        </PropertyBag>
         <BrowserHelpRootPageFileName>index</BrowserHelpRootPageFileName>
         <HelpFileName>OPC DAAEHDA Client Solution  NET.chm</HelpFileName>
       </HelpCompiler>
@@ -1367,6 +1401,10 @@
         <IsNewSource>CreationDateTime</IsNewSource>
         <IsNewCustomTopicPropertyId></IsNewCustomTopicPropertyId>
         <IsAnchorParsingEnabled>false</IsAnchorParsingEnabled>
+        <PropertyBag>
+          <Property Name="TEMPLATEFILEFEATURE_NAVIGATION">True</Property>
+          <Property Name="TEMPLATEFILEFEATURE_RESPONSIVE">True</Property>
+        </PropertyBag>
       </TopicsProjectProfilePlugin>
       <BookletsProjectProfilePlugin>
         <TemplateName></TemplateName>
