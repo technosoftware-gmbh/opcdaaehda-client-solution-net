@@ -20,7 +20,7 @@ jobs:
       matrix:
         os: [windows-latest]    
         include:
-          - framework: 'net6.0'
+          - framework: 'net6.0-windows'
             dotnet-version: '6.0.x'
             configuration: 'Release'
             
