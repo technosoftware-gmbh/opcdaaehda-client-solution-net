@@ -41,8 +41,3 @@ jobs:
         
     - name: Build
       run: dotnet build --force --framework ${{ matrix.framework }} --configuration ${{ matrix.configuration }} "DaAeHdaNetStandard.sln"
-      
-    - name: Test
-      # note: /p:CollectCoverage=true is only used to disable deterministc builds
-      # run: dotnet test --no-build --framework ${{ matrix.framework }} --logger trx --configuration ${{ matrix.configuration }} /p:CollectCoverage=true --collect:"XPlat Code Coverage" --settings ./Tests/coverlet.runsettings.xml --results-directory "TestResults-${{matrix.os}}-${{matrix.framework}}-${{matrix.configuration}}" "OpcUaSolutionNet.sln"
-   
