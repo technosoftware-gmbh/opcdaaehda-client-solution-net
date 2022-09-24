@@ -23,7 +23,13 @@ We provide an online help for the current version: [OPC DA/AE/HDA Solution NET O
 
 ## Getting started
 
+### Examples using the latest NuGet package
+
 Examples can be found in the solution [WorkshopClientSamples.sln](/WorkshopClientSamples.sln).
+
+### Examples using the source code
+
+Examples can be found in the solution [SampleClients.sln](/SampleClients.sln).
 
 ### Licenses
 TECHNOSOFTWARE provides different licenses depending on the component and on the ownership of a purchased license of the user of the sources. A single ZIP file or a single repository can contain multiple components where the sources have different license models. The valid license is in the header of each source file.
@@ -38,7 +44,7 @@ The OPC DA/AE/HDA Client Solution .NET One-time fee for lifetime SCLA 1.0 licens
 
 ### Get Support for the Solution under GPL 3.0 or SCLA 1.0
 
-Support for the Solution under the GPL 3.0 or SCLA 1.0 is available [here](https://github.com/technosoftware-gmbh/opcdaaehda-solution-net-src/issues).
+Support for the Solution under the GPL 3.0 or SCLA 1.0 is available [here](https://github.com/technosoftware-gmbh/opcdaaehda-solution-net/issues).
 
 ### Contribution
 
