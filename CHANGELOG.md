@@ -1,4 +1,10 @@
 -------------------------------------------------------------------------------------------------------------
+## OPC DA/AE/HDA Solution .NET - 1.4.0
+
+###	Changes
+- Merged https://github.com/technosoftware-gmbh/opcua-solution-net-samples into this repository
+
+-------------------------------------------------------------------------------------------------------------
 ## OPC DA/AE/HDA Solution .NET - 1.3.0
 
 ### Breaking Changes
