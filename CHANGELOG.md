@@ -3,6 +3,7 @@
 
 ###	Changes
 - Merged https://github.com/technosoftware-gmbh/opcua-solution-net-samples into this repository
+- NuGet packages are now also GPL 3.0 or SCLA 1.0
 
 -------------------------------------------------------------------------------------------------------------
 ## OPC DA/AE/HDA Solution .NET - 1.3.0

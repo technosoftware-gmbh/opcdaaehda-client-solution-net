@@ -8,7 +8,7 @@
     <readme>README.md</readme>
     <authors>Technosoftware GmbH</authors>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <license type="file">licenses/LICENSE.md</license>
+    <license type="file">LICENSE.md</license>
     <projectUrl>https://github.com/technosoftware-gmbh/opcdaaehda-solution-net-samples</projectUrl>
     <icon>images/TechnosoftwareGmbH.png</icon>
     <releaseNotes>https://github.com/technosoftware-gmbh/opcdaaehda-solution-net-samples/releases</releaseNotes>
@@ -50,7 +50,7 @@
     <file src="../README.md" target="/" />
     <file src="../CHANGELOG.md" target="/" />
     <file src="../nuget/TechnosoftwareGmbH.png" target="images/" />
-    <file src="../LICENSE.md" target="licenses/LICENSE.md"/>
+    <file src="../LICENSE.md" target="/"/>
     <file src="../lib/netstandard2.1/Technosoftware.DaAeHdaClient.dll" target="lib/netstandard2.1/" />
     <file src="../lib/netstandard2.1/Technosoftware.DaAeHdaClient.xml" target="lib/netstandard2.1/" />
     <file src="../lib/net6.0-windows/Technosoftware.DaAeHdaClient.dll" target="lib/net6.0-windows7.0/" />
