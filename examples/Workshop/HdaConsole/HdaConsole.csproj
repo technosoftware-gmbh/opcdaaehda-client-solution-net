@@ -13,13 +13,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Properties\**" />
-    <EmbeddedResource Remove="Properties\**" />
-    <None Remove="Properties\**" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient\Technosoftware.DaAeHdaClient.csproj" />
+    <PackageReference Include="Technosoftware.DaAeHdaSolution.DaAeHdaClient" Version="1.3.0" />
   </ItemGroup>
 
 </Project>
