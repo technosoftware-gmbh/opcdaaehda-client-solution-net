@@ -120,7 +120,7 @@ namespace Technosoftware.DaConsole
 			try
 			{
 
-				const string serverUrl = "opcda://localhost/Technosoftware.DaSample";
+				const string serverUrl = "opcda://localhost/SampleCompany.DaSample";
 
 				Console.WriteLine();
 				Console.WriteLine("Simple OPC DA Client based on the OPC DA/AE/HDA Solution .NET");

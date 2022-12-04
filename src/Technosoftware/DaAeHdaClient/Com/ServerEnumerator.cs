@@ -163,8 +163,9 @@ namespace Technosoftware.DaAeHdaClient.Com
 			{
 				var credentials = (connectData != null)?connectData.GetCredential(null, null):null;
 
-				// connect to the server.				
-				m_server = (IOPCServerList2)Interop.CreateInstance(CLSID, host, credentials);
+                // connect to the server.		
+                var test = Interop.CreateInstance(CLSID, host, credentials);
+                m_server = (IOPCServerList2)Interop.CreateInstance(CLSID, host, credentials);
 				m_host   = host;
 
 				// lookup prog id.
