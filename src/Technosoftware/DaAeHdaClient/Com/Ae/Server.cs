@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -51,7 +51,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             // check if the V1.1 interfaces are supported.
             try
             {
-                IOPCEventServer2 server2 = (IOPCEventServer2)server;
+                var server2 = (IOPCEventServer2)server;
             }
             catch
             {
@@ -137,15 +137,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             lock (this)
             {
                 if (server_ == null) throw new NotConnectedException();
-                string methodName = "IOPCServer.GetStatus";
+                var methodName = "IOPCServer.GetStatus";
 
                 // initialize arguments.
-                IntPtr pStatus = IntPtr.Zero;
+                var pStatus = IntPtr.Zero;
 
                 // invoke COM method.
                 try
                 {
-                    IOPCEventServer server = BeginComCall<IOPCEventServer>(methodName, true);
+                    var server = BeginComCall<IOPCEventServer>(methodName, true);
                     ((IOPCEventServer)server_).GetStatus(out pStatus);
                 }
                 catch (Exception e)
@@ -181,9 +181,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
 
                 // initialize arguments.
                 object unknown    = null;
-                Guid   riid       = typeof(IOPCEventSubscriptionMgt).GUID;
-                int    bufferTime = 0;
-                int    maxSize    = 0;
+                var   riid       = typeof(IOPCEventSubscriptionMgt).GUID;
+                var    bufferTime = 0;
+                var    maxSize    = 0;
 
                 // invoke COM method.
                 try
@@ -207,7 +207,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 state.BufferTime = bufferTime;
                 state.MaxSize    = maxSize;
 
-                Subscription subscription = new Subscription(state, unknown);
+                var subscription = new Subscription(state, unknown);
 
                 // set keep alive.
                 subscription.ModifyState((int)TsCAeStateMask.KeepAlive, state);
@@ -235,7 +235,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int filters = 0;
+                var filters = 0;
 
                 // invoke COM method.
                 try
@@ -268,10 +268,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int count = 0;
+                var count = 0;
 
-                IntPtr ppdwEventCategories    = IntPtr.Zero;
-                IntPtr ppszEventCategoryDescs = IntPtr.Zero;
+                var ppdwEventCategories    = IntPtr.Zero;
+                var ppszEventCategoryDescs = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -294,13 +294,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // unmarshal arguments.
-                int[]    ids   = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppdwEventCategories, count, true);
-                string[] names = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszEventCategoryDescs, count, true);
+                var    ids   = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppdwEventCategories, count, true);
+                var names = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszEventCategoryDescs, count, true);
 
                 // build results.
-                TsCAeCategory[] categories = new TsCAeCategory[count];
+                var categories = new TsCAeCategory[count];
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
                     categories[ii] = new TsCAeCategory();
 
@@ -329,8 +329,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int count = 0;
-                IntPtr ppszConditionNames = IntPtr.Zero;
+                var count = 0;
+                var ppszConditionNames = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -352,7 +352,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // unmarshal arguments.
-                string[] names = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszConditionNames, count, true);
+                var names = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszConditionNames, count, true);
 
                 // return results.
                 return names;
@@ -375,8 +375,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int count = 0;
-                IntPtr ppszSubConditionNames = IntPtr.Zero;
+                var count = 0;
+                var ppszSubConditionNames = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -398,7 +398,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
                 
                 // unmarshal arguments.
-                string[] names = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszSubConditionNames, count, true);
+                var names = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszSubConditionNames, count, true);
 
                 // return results.
                 return names;
@@ -421,8 +421,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int count = 0;
-                IntPtr ppszConditionNames = IntPtr.Zero;
+                var count = 0;
+                var ppszConditionNames = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -444,7 +444,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // unmarshal arguments.
-                string[] names = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszConditionNames, count, true);
+                var names = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszConditionNames, count, true);
 
                 // return results.
                 return names;
@@ -467,10 +467,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int count = 0;
-                IntPtr ppdwAttrIDs = IntPtr.Zero;
-                IntPtr ppszAttrDescs = IntPtr.Zero;
-                IntPtr ppvtAttrTypes = IntPtr.Zero;
+                var count = 0;
+                var ppdwAttrIDs = IntPtr.Zero;
+                var ppszAttrDescs = IntPtr.Zero;
+                var ppvtAttrTypes = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -494,14 +494,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // unmarshal arguments.
-                int[]    ids   = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppdwAttrIDs, count, true);
-                string[] names = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszAttrDescs, count, true);
-                short[]  types = Technosoftware.DaAeHdaClient.Com.Interop.GetInt16s(ref ppvtAttrTypes, count, true);
+                var    ids   = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppdwAttrIDs, count, true);
+                var names = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszAttrDescs, count, true);
+                var  types = Technosoftware.DaAeHdaClient.Com.Interop.GetInt16s(ref ppvtAttrTypes, count, true);
 
                 // build results.
-                TsCAeAttribute[] attributes = new TsCAeAttribute[count];
+                var attributes = new TsCAeAttribute[count];
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
                     attributes[ii] = new TsCAeAttribute();
 
@@ -540,11 +540,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                IntPtr ppszAttrItemIDs = IntPtr.Zero;
-                IntPtr ppszNodeNames = IntPtr.Zero;
-                IntPtr ppCLSIDs = IntPtr.Zero;
+                var ppszAttrItemIDs = IntPtr.Zero;
+                var ppszNodeNames = IntPtr.Zero;
+                var ppCLSIDs = IntPtr.Zero;
                     
-                int count = (attributeIDs != null)?attributeIDs.Length:0;
+                var count = (attributeIDs != null)?attributeIDs.Length:0;
 
                 // call server.
                 try
@@ -566,14 +566,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }       
             
                 // unmarshal results.
-                string[] itemIDs   = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszAttrItemIDs, count, true);
-                string[] nodeNames = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszNodeNames, count, true);
-                Guid[]   clsids    = Technosoftware.DaAeHdaClient.Com.Interop.GetGUIDs(ref ppCLSIDs, count, true);
+                var itemIDs   = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszAttrItemIDs, count, true);
+                var nodeNames = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppszNodeNames, count, true);
+                var   clsids    = Technosoftware.DaAeHdaClient.Com.Interop.GetGUIDs(ref ppCLSIDs, count, true);
                     
-                TsCAeItemUrl[] itemUrls = new TsCAeItemUrl[count];
+                var itemUrls = new TsCAeItemUrl[count];
             
                 // fill in item urls.
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
                     itemUrls[ii] = new TsCAeItemUrl();
 
@@ -581,7 +581,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                     itemUrls[ii].ItemPath = null;
                     itemUrls[ii].Url.Scheme   = OpcUrlScheme.DA;
                     itemUrls[ii].Url.HostName = nodeNames[ii];
-                    itemUrls[ii].Url.Path     = String.Format("{{{0}}}", clsids[ii]);
+                    itemUrls[ii].Url.Path     = string.Format("{{{0}}}", clsids[ii]);
                 }
 
                 // return results.
@@ -610,7 +610,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                IntPtr ppConditionState = IntPtr.Zero;
+                var ppConditionState = IntPtr.Zero;
 
                 // call server.
                 try
@@ -628,10 +628,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }       
             
                 // unmarshal results.
-				TsCAeCondition[] conditions = Interop.GetConditions(ref ppConditionState, 1, true);
+				var conditions = Interop.GetConditions(ref ppConditionState, 1, true);
             
                 // fill in attribute ids.
-                for (int ii = 0; ii < conditions[0].Attributes.Count; ii++)
+                for (var ii = 0; ii < conditions[0].Attributes.Count; ii++)
                 {
                     conditions[0].Attributes[ii].ID = attributeIDs[ii];
                 }
@@ -663,7 +663,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // initialize arguments.
-                IntPtr ppErrors = IntPtr.Zero;
+                var ppErrors = IntPtr.Zero;
 
                 int[] errors = null;
 
@@ -702,9 +702,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
                 
                 // build results.
-                OpcResult[] results = new OpcResult[errors.Length];
+                var results = new OpcResult[errors.Length];
 
-                for (int ii = 0; ii < errors.Length; ii++)
+                for (var ii = 0; ii < errors.Length; ii++)
                 {
                     results[ii] = Interop.GetResultID(errors[ii]);
                 }
@@ -736,7 +736,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // initialize arguments.
-                IntPtr ppErrors = IntPtr.Zero;
+                var ppErrors = IntPtr.Zero;
 
                 int[] errors = null;
 
@@ -775,9 +775,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
                 
                 // build results.
-                OpcResult[] results = new OpcResult[errors.Length];
+                var results = new OpcResult[errors.Length];
 
-                for (int ii = 0; ii < errors.Length; ii++)
+                for (var ii = 0; ii < errors.Length; ii++)
                 {
                     results[ii] = Interop.GetResultID(errors[ii]);
                 }
@@ -809,7 +809,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // initialize arguments.
-                IntPtr ppErrors = IntPtr.Zero;
+                var ppErrors = IntPtr.Zero;
 
                 int[] errors = null;
 
@@ -848,9 +848,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
                 
                 // build results.
-                OpcResult[] results = new OpcResult[errors.Length];
+                var results = new OpcResult[errors.Length];
 
-                for (int ii = 0; ii < errors.Length; ii++)
+                for (var ii = 0; ii < errors.Length; ii++)
                 {
                     results[ii] = Interop.GetResultID(errors[ii]);
                 }
@@ -882,7 +882,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // initialize arguments.
-                IntPtr ppErrors = IntPtr.Zero;
+                var ppErrors = IntPtr.Zero;
 
                 int[] errors = null;
 
@@ -921,9 +921,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
                 
                 // build results.
-                OpcResult[] results = new OpcResult[errors.Length];
+                var results = new OpcResult[errors.Length];
 
-                for (int ii = 0; ii < errors.Length; ii++)
+                for (var ii = 0; ii < errors.Length; ii++)
                 {
                     results[ii] = Interop.GetResultID(errors[ii]);
                 }
@@ -956,9 +956,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // return error code if AE 1.1 not supported.
                 if (!m_supportsAE11)
                 {
-                    TsCAeEnabledStateResult[] failures = new TsCAeEnabledStateResult[areas.Length];
+                    var failures = new TsCAeEnabledStateResult[areas.Length];
 
-                    for (int ii = 0; ii < failures.Length; ii++)
+                    for (var ii = 0; ii < failures.Length; ii++)
                     {
                         failures[ii] = new TsCAeEnabledStateResult();
 
@@ -971,9 +971,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // initialize arguments.
-                IntPtr pbEnabled            = IntPtr.Zero;
-                IntPtr pbEffectivelyEnabled = IntPtr.Zero;
-                IntPtr ppErrors             = IntPtr.Zero;
+                var pbEnabled            = IntPtr.Zero;
+                var pbEffectivelyEnabled = IntPtr.Zero;
+                var ppErrors             = IntPtr.Zero;
 
                 try
                 {
@@ -990,15 +990,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }       
                 
                 // unmarshal arguments.
-                int[] enabled             = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pbEnabled, areas.Length, true);
-                int[] effectivelyEnabled  = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pbEffectivelyEnabled, areas.Length, true);
-                int[] errors              = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppErrors, areas.Length, true);
+                var enabled             = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pbEnabled, areas.Length, true);
+                var effectivelyEnabled  = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pbEffectivelyEnabled, areas.Length, true);
+                var errors              = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppErrors, areas.Length, true);
 
                 
                 // build results.
-                TsCAeEnabledStateResult[] results = new TsCAeEnabledStateResult[errors.Length];
+                var results = new TsCAeEnabledStateResult[errors.Length];
 
-                for (int ii = 0; ii < errors.Length; ii++)
+                for (var ii = 0; ii < errors.Length; ii++)
                 {
                     results[ii] = new TsCAeEnabledStateResult();
 
@@ -1035,9 +1035,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 // return error code if AE 1.1 not supported.
                 if (!m_supportsAE11)
                 {
-                    TsCAeEnabledStateResult[] failures = new TsCAeEnabledStateResult[sources.Length];
+                    var failures = new TsCAeEnabledStateResult[sources.Length];
 
-                    for (int ii = 0; ii < failures.Length; ii++)
+                    for (var ii = 0; ii < failures.Length; ii++)
                     {
                         failures[ii] = new TsCAeEnabledStateResult();
 
@@ -1050,9 +1050,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // initialize arguments.
-                IntPtr pbEnabled            = IntPtr.Zero;
-                IntPtr pbEffectivelyEnabled = IntPtr.Zero;
-                IntPtr ppErrors             = IntPtr.Zero;
+                var pbEnabled            = IntPtr.Zero;
+                var pbEffectivelyEnabled = IntPtr.Zero;
+                var ppErrors             = IntPtr.Zero;
 
                 try
                 {
@@ -1069,15 +1069,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }       
                     
                 // unmarshal arguments.
-                int[] enabled             = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pbEnabled, sources.Length, true);
-                int[] effectivelyEnabled  = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pbEffectivelyEnabled, sources.Length, true);
-                int[] errors              = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppErrors, sources.Length, true);
+                var enabled             = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pbEnabled, sources.Length, true);
+                var effectivelyEnabled  = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pbEffectivelyEnabled, sources.Length, true);
+                var errors              = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppErrors, sources.Length, true);
 
                     
                 // build results.
-                TsCAeEnabledStateResult[] results = new TsCAeEnabledStateResult[errors.Length];
+                var results = new TsCAeEnabledStateResult[errors.Length];
 
-                for (int ii = 0; ii < errors.Length; ii++)
+                for (var ii = 0; ii < errors.Length; ii++)
                 {
                     results[ii] = new TsCAeEnabledStateResult();
 
@@ -1118,14 +1118,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // initialize arguments.
-                int count = conditions.Length;
+                var count = conditions.Length;
 
-                string[]             pszSource        = new string[count];
-                string[]             pszConditionName = new string[count];
-                OpcRcw.Ae.FILETIME[] pftActiveTime = new OpcRcw.Ae.FILETIME[count];
-                int[]                pdwCookie        = new int[count];
+                var             pszSource        = new string[count];
+                var             pszConditionName = new string[count];
+                var pftActiveTime = new OpcRcw.Ae.FILETIME[count];
+                var                pdwCookie        = new int[count];
 
-                for (int ii = 0; ii < count; ii ++)
+                for (var ii = 0; ii < count; ii ++)
                 {
                     pszSource[ii]        = conditions[ii].SourceName;
                     pszConditionName[ii] = conditions[ii].ConditionName;
@@ -1133,7 +1133,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                     pdwCookie[ii]        = conditions[ii].Cookie;
                 }
 
-                IntPtr ppErrors = IntPtr.Zero;
+                var ppErrors = IntPtr.Zero;
 
                 // call server.
                 try
@@ -1154,12 +1154,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }       
                 
                 // unmarshal results.
-                int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppErrors, count, true);
+                var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppErrors, count, true);
                 
                 // build results.
-                OpcResult[] results = new OpcResult[count];
+                var results = new OpcResult[count];
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
                     results[ii] = Interop.GetResultID(errors[ii]);
                 }
@@ -1190,7 +1190,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 IOpcBrowsePosition position = null;
 
                 // browse for all elements at the current position.
-                TsCAeBrowseElement[] elements = Browse(areaID, browseType, browseFilter, 0, out position);
+                var elements = Browse(areaID, browseType, browseFilter, 0, out position);
 
                 // free position object.
                 if (position != null)
@@ -1233,12 +1233,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 ChangeBrowsePosition(areaID);
 
                 // create enumerator.
-                System.Runtime.InteropServices.ComTypes.IEnumString enumerator = (System.Runtime.InteropServices.ComTypes.IEnumString)CreateEnumerator(browseType, browseFilter);
+                var enumerator = (System.Runtime.InteropServices.ComTypes.IEnumString)CreateEnumerator(browseType, browseFilter);
 
                 // fetch elements.
-                ArrayList elements = new ArrayList();
+                var elements = new ArrayList();
 
-                int result = FetchElements(browseType, maxElements, enumerator, elements);
+                var result = FetchElements(browseType, maxElements, enumerator, elements);
                 
                 // dispose of enumerator if all done.
                 if (result != 0)
@@ -1281,12 +1281,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 ChangeBrowsePosition(((BrowsePosition)position).AreaID);
 
                 // fetch enumerator from position object.
-                System.Runtime.InteropServices.ComTypes.IEnumString enumerator = ((BrowsePosition)position).Enumerator;
+                var enumerator = ((BrowsePosition)position).Enumerator;
             
                 // fetch elements.
-                ArrayList elements = new ArrayList();
+                var elements = new ArrayList();
 
-                int result = FetchElements(((BrowsePosition)position).BrowseType, maxElements, enumerator, elements);
+                var result = FetchElements(((BrowsePosition)position).BrowseType, maxElements, enumerator, elements);
                 
                 // dispose of position object if all done.
                 if (result != 0)
@@ -1313,10 +1313,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 return;
             }
 
-            // initialize arguments.
-            object unknown = null;
-            Guid riid = typeof(IOPCEventAreaBrowser).GUID;
+            var riid = typeof(IOPCEventAreaBrowser).GUID;
 
+
+            // initialize arguments.
+            object unknown;
             // invoke COM method.
             try
             {
@@ -1327,7 +1328,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             catch (Exception e)
             {
                 throw Technosoftware.DaAeHdaClient.Com.Interop.CreateException("IOPCEventServer.CreateAreaBrowser", e);
-            }       
+            }
 
             // verify object.
             if (unknown == null)
@@ -1344,7 +1345,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// </summary>
         private void ChangeBrowsePosition(string areaID)
         {
-            string targetID = (areaID != null)?areaID:"";
+            var targetID = (areaID != null)?areaID:"";
 
             // invoke COM method.
             try
@@ -1365,8 +1366,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         private object CreateEnumerator(TsCAeBrowseType browseType, string browseFilter)
         {
             // initialize arguments.
-            OPCAEBROWSETYPE dwBrowseFilterType = Interop.GetBrowseType(browseType);
-            IEnumString enumerator = null;
+            var dwBrowseFilterType = Interop.GetBrowseType(browseType);
+            IEnumString enumerator;
 
             // invoke COM method.
             try
@@ -1397,7 +1398,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         private string GetQualifiedName(string name, TsCAeBrowseType browseType)
         {
             // initialize arguments.
-            string nodeID = null;
+            string nodeID;
 
             // fetch area qualified name.
             if (browseType == TsCAeBrowseType.Area)
@@ -1434,26 +1435,26 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// </summary>
 		private int FetchElements(TsCAeBrowseType browseType, int maxElements, System.Runtime.InteropServices.ComTypes.IEnumString enumerator, ArrayList elements)
         {
-            string[] buffer = new string[1];
+            var buffer = new string[1];
 
             // re-calculate buffer length.
-            int bufferLength = (maxElements > 0 && maxElements-elements.Count < buffer.Length)?maxElements-elements.Count:buffer.Length;
+            var bufferLength = (maxElements > 0 && maxElements-elements.Count < buffer.Length)?maxElements-elements.Count:buffer.Length;
 
             // fetch first batch of names.
-            IntPtr pFetched = Marshal.AllocCoTaskMem(sizeof(int));
+            var pFetched = Marshal.AllocCoTaskMem(sizeof(int));
             
             try
             {
-                int result = enumerator.Next(bufferLength, buffer, pFetched);
+                var result = enumerator.Next(bufferLength, buffer, pFetched);
 
             while (result == 0)
             {
-                    int fetched = Marshal.ReadInt32(pFetched);
+                    var fetched = Marshal.ReadInt32(pFetched);
 
                 // create elements.
-				for (int ii = 0; ii < fetched; ii++)
+				for (var ii = 0; ii < fetched; ii++)
                 {
-                    TsCAeBrowseElement element = new TsCAeBrowseElement();
+                    var element = new TsCAeBrowseElement();
 
                     element.Name          = buffer[ii];
                     element.QualifiedName = GetQualifiedName(buffer[ii], browseType);

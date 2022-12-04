@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -58,7 +58,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             lock (this)
             {
                 // create a new request.
-                Request request = new Request(requestHandle, callback, ++m_nextID);
+                var request = new Request(requestHandle, callback, ++m_nextID);
 
                 // no items yet - callback may return before async call returns.
                 m_requests[request.RequestID] = request;    
@@ -114,7 +114,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 lock (this)
                 {
                     // lookup request transaction.
-                    Request request = (Request)m_requests[dwTransactionID];
+                    var request = (Request)m_requests[dwTransactionID];
 
                     if (request == null)
                     {
@@ -122,9 +122,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
 
                     // unmarshal results.
-                    TsCHdaItemValueCollection[] results = new TsCHdaItemValueCollection[pItemValues.Length];
+                    var results = new TsCHdaItemValueCollection[pItemValues.Length];
 
-                    for (int ii = 0; ii < pItemValues.Length; ii++)
+                    for (var ii = 0; ii < pItemValues.Length; ii++)
                     {
                         results[ii] = Interop.GetItemValueCollection(pItemValues[ii], false);
 
@@ -161,7 +161,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 lock (this)
                 {
                     // lookup request transaction.
-                    Request request = (Request)m_requests[dwTransactionID];
+                    var request = (Request)m_requests[dwTransactionID];
 
                     if (request == null)
                     {
@@ -169,9 +169,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
 
                     // unmarshal results.
-                    TsCHdaItemValueCollection[] results = new TsCHdaItemValueCollection[pItemValues.Length];
+                    var results = new TsCHdaItemValueCollection[pItemValues.Length];
 
-                    for (int ii = 0; ii < pItemValues.Length; ii++)
+                    for (var ii = 0; ii < pItemValues.Length; ii++)
                     {
                         results[ii] = Interop.GetItemValueCollection(pItemValues[ii], false);
 
@@ -207,7 +207,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 lock (this)
                 {
                     // lookup request transaction.
-                    Request request = (Request)m_requests[dwTransactionID];
+                    var request = (Request)m_requests[dwTransactionID];
 
                     if (request == null)
                     {
@@ -215,9 +215,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
 
                     // unmarshal results.
-                    TsCHdaModifiedValueCollection[] results = new TsCHdaModifiedValueCollection[pItemValues.Length];
+                    var results = new TsCHdaModifiedValueCollection[pItemValues.Length];
 
-                    for (int ii = 0; ii < pItemValues.Length; ii++)
+                    for (var ii = 0; ii < pItemValues.Length; ii++)
                     {
                         results[ii] = Interop.GetModifiedValueCollection(pItemValues[ii], false);
 
@@ -254,7 +254,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 lock (this)
                 {
                     // lookup request transaction.
-                    Request request = (Request)m_requests[dwTransactionID];
+                    var request = (Request)m_requests[dwTransactionID];
 
                     if (request == null)
                     {
@@ -262,13 +262,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
 
                     // create item object to collect results.
-                    TsCHdaItemAttributeCollection item = new TsCHdaItemAttributeCollection();
+                    var item = new TsCHdaItemAttributeCollection();
                     item.ServerHandle = hClient;
 
                     // unmarshal results.
-                    TsCHdaAttributeValueCollection[] results = new TsCHdaAttributeValueCollection[pAttributeValues.Length];
+                    var results = new TsCHdaAttributeValueCollection[pAttributeValues.Length];
 
-                    for (int ii = 0; ii < pAttributeValues.Length; ii++)
+                    for (var ii = 0; ii < pAttributeValues.Length; ii++)
                     {
                         results[ii] = Interop.GetAttributeValueCollection(pAttributeValues[ii], false);
 
@@ -305,7 +305,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 lock (this)
                 {
                     // lookup request transaction.
-                    Request request = (Request)m_requests[dwTransactionID];
+                    var request = (Request)m_requests[dwTransactionID];
 
                     if (request == null)
                     {
@@ -313,9 +313,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
 
                     // unmarshal results.
-                    TsCHdaAnnotationValueCollection[] results = new TsCHdaAnnotationValueCollection[pAnnotationValues.Length];
+                    var results = new TsCHdaAnnotationValueCollection[pAnnotationValues.Length];
 
-                    for (int ii = 0; ii < pAnnotationValues.Length; ii++)
+                    for (var ii = 0; ii < pAnnotationValues.Length; ii++)
                     {
                         results[ii] = Interop.GetAnnotationValueCollection(pAnnotationValues[ii], false);
 
@@ -352,7 +352,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 lock (this)
                 {
                     // lookup request transaction.
-                    Request request = (Request)m_requests[dwTransactionID];
+                    var request = (Request)m_requests[dwTransactionID];
 
                     if (request == null)
                     {
@@ -360,16 +360,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
 
                     // unmarshal results.
-                    ArrayList results = new ArrayList();
+                    var results = new ArrayList();
 
                     if (dwCount > 0)
                     {
                         // subscription results in collections for the same item id.
-                        int currentHandle = phClients[0];
+                        var currentHandle = phClients[0];
 
-                        TsCHdaResultCollection itemResults = new TsCHdaResultCollection();
+                        var itemResults = new TsCHdaResultCollection();
 
-                        for (int ii = 0; ii < dwCount; ii++)
+                        for (var ii = 0; ii < dwCount; ii++)
                         {
                             // create a new collection for the next item's results.
                             if (phClients[ii] != currentHandle)
@@ -381,7 +381,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                                 itemResults = new TsCHdaResultCollection();
                             }
 
-                            TsCHdaResult result = new TsCHdaResult(Utilities.Interop.GetResultId(phrErrors[ii]));
+                            var result = new TsCHdaResult(Utilities.Interop.GetResultId(phrErrors[ii]));
                             itemResults.Add(result);
                         }
 
@@ -418,7 +418,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 lock (this)
                 {
                     // lookup request transaction.
-                    Request request = (Request)m_requests[dwTransactionID];
+                    var request = (Request)m_requests[dwTransactionID];
 
                     if (request == null)
                     {
@@ -426,19 +426,19 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
 
                     // unmarshal results.
-                    TsCHdaItemValueCollection[] results = new TsCHdaItemValueCollection[dwNumItems];
+                    var results = new TsCHdaItemValueCollection[dwNumItems];
 
                     // the data is transfered as a array of pointers to items instead of simply
                     // as an array of items. This is due to a mistake in the HDA IDL.
-                    int[] pItems = Utilities.Interop.GetInt32s(ref ppItemValues, dwNumItems, false);
+                    var pItems = Utilities.Interop.GetInt32s(ref ppItemValues, dwNumItems, false);
 
-                    for (int ii = 0; ii < dwNumItems; ii++)
+                    for (var ii = 0; ii < dwNumItems; ii++)
                     {
                         // get pointer to item.
-                        IntPtr pItem = (IntPtr)pItems[ii];
+                        var pItem = (IntPtr)pItems[ii];
             
                         // unmarshal item as an array of length 1.
-                        TsCHdaItemValueCollection[] item = Interop.GetItemValueCollections(ref pItem, 1, false);
+                        var item = Interop.GetItemValueCollections(ref pItem, 1, false);
 
                         if (item != null && item.Length == 1)
                         {
@@ -477,7 +477,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 lock (this)
                 {
                     // lookup request transaction.
-                    Request request = (Request)m_requests[dwTransactionID];
+                    var request = (Request)m_requests[dwTransactionID];
 
                     if (request == null)
                     {
@@ -485,16 +485,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     }
 
                     // unmarshal results.
-                    ArrayList results = new ArrayList();
+                    var results = new ArrayList();
 
                     if (dwCount > 0)
                     {
                         // subscription results in collections for the same item id.
-                        int currentHandle = phClients[0];
+                        var currentHandle = phClients[0];
 
-                        TsCHdaResultCollection itemResults = new TsCHdaResultCollection();
+                        var itemResults = new TsCHdaResultCollection();
 
-                        for (int ii = 0; ii < dwCount; ii++)
+                        for (var ii = 0; ii < dwCount; ii++)
                         {
                             // create a new collection for the next item's results.
                             if (phClients[ii] != currentHandle)
@@ -506,7 +506,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                                 itemResults = new TsCHdaResultCollection();
                             }
 
-                            TsCHdaResult result = new TsCHdaResult(Utilities.Interop.GetResultId(phrErrors[ii]));
+                            var result = new TsCHdaResult(Utilities.Interop.GetResultId(phrErrors[ii]));
                             itemResults.Add(result);
                         }
 
@@ -538,7 +538,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 lock (this)
                 {
                     // lookup request.
-                    Request request = (Request)m_requests[dwCancelID];
+                    var request = (Request)m_requests[dwCancelID];
 
                     if (request == null)
                     {
@@ -568,7 +568,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             lock (this)
             {
                 // lookup request.
-                Request request = (Request)m_requests[requestID];
+                var request = (Request)m_requests[requestID];
 
                 if (request != null)
                 {

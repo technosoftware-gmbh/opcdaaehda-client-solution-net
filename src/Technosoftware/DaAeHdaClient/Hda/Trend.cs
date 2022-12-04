@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -106,7 +106,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             playbackDuration_ = (decimal)info.GetValue(Names.PlaybackDuration, typeof(decimal));
 
             // deserialize timestamps.
-            DateTime[] timestamps = (DateTime[])info.GetValue(Names.Timestamps, typeof(DateTime[]));
+            var timestamps = (DateTime[])info.GetValue(Names.Timestamps, typeof(DateTime[]));
 
             if (timestamps != null)
             {
@@ -114,7 +114,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             }
 
             // deserialize items.
-            TsCHdaItem[] items = (TsCHdaItem[])info.GetValue(Names.Items, typeof(TsCHdaItem[]));
+            var items = (TsCHdaItem[])info.GetValue(Names.Items, typeof(TsCHdaItem[]));
 
             if (items != null)
             {
@@ -238,9 +238,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// </summary>
         public TsCHdaItem[] GetItems()
         {
-            TsCHdaItem[] items = new TsCHdaItem[items_.Count];
+            var items = new TsCHdaItem[items_.Count];
 
-            for (int ii = 0; ii < items_.Count; ii++)
+            for (var ii = 0; ii < items_.Count; ii++)
             {
                 items[ii] = items_[ii];
             }
@@ -262,7 +262,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             }
 
             // create server handle.
-            OpcItemResult[] results = hdaServer_.CreateItems(new[] { itemId });
+            var results = hdaServer_.CreateItems(new[] { itemId });
 
             // check for valid results.
             if (results == null || results.Length != 1)
@@ -277,7 +277,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             }
 
             // add new item.
-            TsCHdaItem item = new TsCHdaItem(results[0]);
+            var item = new TsCHdaItem(results[0]);
             items_.Add(item);
 
             // return new item.
@@ -291,7 +291,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
 
-            for (int ii = 0; ii < items_.Count; ii++)
+            for (var ii = 0; ii < items_.Count; ii++)
             {
                 if (item.Equals(items_[ii]))
                 {
@@ -384,7 +384,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// </summary>
         public TsCHdaItemValueCollection[] ReadRaw(TsCHdaItem[] items)
         {
-            TsCHdaItemValueCollection[] results = hdaServer_.ReadRaw(
+            var results = hdaServer_.ReadRaw(
                 StartTime,
                 EndTime,
                 MaxValues,
@@ -414,7 +414,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaReadValuesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            OpcItemResult[] results = hdaServer_.ReadRaw(
+            var results = hdaServer_.ReadRaw(
                 StartTime,
                 EndTime,
                 MaxValues,
@@ -442,9 +442,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// </summary>
         public TsCHdaItemValueCollection[] ReadProcessed(TsCHdaItem[] items)
         {
-            TsCHdaItem[] localItems = ApplyDefaultAggregate(items);
+            var localItems = ApplyDefaultAggregate(items);
 
-            TsCHdaItemValueCollection[] results = hdaServer_.ReadProcessed(
+            var results = hdaServer_.ReadProcessed(
                 StartTime,
                 EndTime,
                 ResampleInterval,
@@ -473,9 +473,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaReadValuesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            TsCHdaItem[] localItems = ApplyDefaultAggregate(items);
+            var localItems = ApplyDefaultAggregate(items);
 
-            OpcItemResult[] results = hdaServer_.ReadProcessed(
+            var results = hdaServer_.ReadProcessed(
                 StartTime,
                 EndTime,
                 ResampleInterval,
@@ -513,7 +513,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             // subscribe processed data.
             else
             {
-                TsCHdaItem[] localItems = ApplyDefaultAggregate(GetItems());
+                var localItems = ApplyDefaultAggregate(GetItems());
 
                 results = hdaServer_.AdviseProcessed(
                     StartTime,
@@ -569,7 +569,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             // playback processed data.
             else
             {
-                TsCHdaItem[] localItems = ApplyDefaultAggregate(GetItems());
+                var localItems = ApplyDefaultAggregate(GetItems());
 
                 results = hdaServer_.PlaybackProcessed(
                     StartTime,
@@ -613,7 +613,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// </summary>
         public TsCHdaModifiedValueCollection[] ReadModified(TsCHdaItem[] items)
         {
-            TsCHdaModifiedValueCollection[] results = hdaServer_.ReadModified(
+            var results = hdaServer_.ReadModified(
                 StartTime,
                 EndTime,
                 MaxValues,
@@ -642,7 +642,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaReadValuesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            OpcItemResult[] results = hdaServer_.ReadModified(
+            var results = hdaServer_.ReadModified(
                 StartTime,
                 EndTime,
                 MaxValues,
@@ -669,9 +669,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// </summary>
         public TsCHdaItemValueCollection[] ReadAtTime(TsCHdaItem[] items)
         {
-            DateTime[] timestamps = new DateTime[Timestamps.Count];
+            var timestamps = new DateTime[Timestamps.Count];
 
-            for (int ii = 0; ii < Timestamps.Count; ii++)
+            for (var ii = 0; ii < Timestamps.Count; ii++)
             {
                 timestamps[ii] = Timestamps[ii];
             }
@@ -699,9 +699,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaReadValuesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            DateTime[] timestamps = new DateTime[Timestamps.Count];
+            var timestamps = new DateTime[Timestamps.Count];
 
-            for (int ii = 0; ii < Timestamps.Count; ii++)
+            for (var ii = 0; ii < Timestamps.Count; ii++)
             {
                 timestamps[ii] = Timestamps[ii];
             }
@@ -729,7 +729,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaReadAttributesCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            TsCHdaResultCollection results = hdaServer_.ReadAttributes(
+            var results = hdaServer_.ReadAttributes(
                 StartTime,
                 EndTime,
                 item,
@@ -756,7 +756,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// </summary>
         public TsCHdaAnnotationValueCollection[] ReadAnnotations(TsCHdaItem[] items)
         {
-            TsCHdaAnnotationValueCollection[] results = hdaServer_.ReadAnnotations(
+            var results = hdaServer_.ReadAnnotations(
                 StartTime,
                 EndTime,
                 items);
@@ -784,7 +784,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaReadAnnotationsCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            OpcItemResult[] results = hdaServer_.ReadAnnotations(
+            var results = hdaServer_.ReadAnnotations(
                 StartTime,
                 EndTime,
                 items,
@@ -810,7 +810,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// </summary>
         public OpcItemResult[] Delete(TsCHdaItem[] items)
         {
-            OpcItemResult[] results = hdaServer_.Delete(
+            var results = hdaServer_.Delete(
                 StartTime,
                 EndTime,
                 items);
@@ -838,7 +838,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaUpdateCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            OpcItemResult[] results = hdaServer_.Delete(
+            var results = hdaServer_.Delete(
                 StartTime,
                 EndTime,
                 items,
@@ -864,9 +864,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// </summary>
         public TsCHdaResultCollection[] DeleteAtTime(TsCHdaItem[] items)
         {
-            TsCHdaItemTimeCollection[] times = new TsCHdaItemTimeCollection[items.Length];
+            var times = new TsCHdaItemTimeCollection[items.Length];
 
-            for (int ii = 0; ii < items.Length; ii++)
+            for (var ii = 0; ii < items.Length; ii++)
             {
                 times[ii] = (TsCHdaItemTimeCollection)Timestamps.Clone();
 
@@ -899,9 +899,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             TsCHdaUpdateCompleteEventHandler callback,
             out IOpcRequest request)
         {
-            TsCHdaItemTimeCollection[] times = new TsCHdaItemTimeCollection[items.Length];
+            var times = new TsCHdaItemTimeCollection[items.Length];
 
-            for (int ii = 0; ii < items.Length; ii++)
+            for (var ii = 0; ii < items.Length; ii++)
             {
                 times[ii] = (TsCHdaItemTimeCollection)Timestamps.Clone();
 
@@ -941,7 +941,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             {
                 timestamps = new DateTime[timeStamps_.Count];
 
-                for (int ii = 0; ii < timestamps.Length; ii++)
+                for (var ii = 0; ii < timestamps.Length; ii++)
                 {
                     timestamps[ii] = timeStamps_[ii];
                 }
@@ -956,7 +956,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             {
                 items = new TsCHdaItem[items_.Count];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     items[ii] = items_[ii];
                 }
@@ -981,7 +981,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         public virtual object Clone()
         {
             // clone simple properties.
-            TsCHdaTrend clone = (TsCHdaTrend)MemberwiseClone();
+            var clone = (TsCHdaTrend)MemberwiseClone();
 
             // clone items.
             clone.items_ = new TsCHdaItemCollection();
@@ -1014,7 +1014,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         private TsCHdaItem[] ApplyDefaultAggregate(TsCHdaItem[] items)
         {
             // use interpolative aggregate if none specified for the trend.
-            int defaultId = Aggregate;
+            var defaultId = Aggregate;
 
             if (defaultId == TsCHdaAggregateID.NoAggregate)
             {
@@ -1022,9 +1022,9 @@ namespace Technosoftware.DaAeHdaClient.Hda
             }
 
             // apply default aggregate to items that have no aggregate specified.
-            TsCHdaItem[] localItems = new TsCHdaItem[items.Length];
+            var localItems = new TsCHdaItem[items.Length];
 
-            for (int ii = 0; ii < items.Length; ii++)
+            for (var ii = 0; ii < items.Length; ii++)
             {
                 localItems[ii] = new TsCHdaItem(items[ii]);
 

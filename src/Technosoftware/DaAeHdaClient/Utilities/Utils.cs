@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -183,13 +183,13 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             }
 
             // format the message if format arguments provided.
-            string output = message;
+            var output = message;
 
             if (args != null && args.Length > 0)
             {
                 try
                 {
-                    output = String.Format(CultureInfo.InvariantCulture, message, args);
+                    output = string.Format(CultureInfo.InvariantCulture, message, args);
                 }
                 catch (Exception)
                 {
@@ -212,16 +212,16 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                     System.Diagnostics.Trace.WriteLine(output);
                 }
 
-                string traceFileName = traceFileName_;
+                var traceFileName = traceFileName_;
 
-                if (traceOutput_ != (int)TraceOutput.Off && !String.IsNullOrEmpty(traceFileName))
+                if (traceOutput_ != (int)TraceOutput.Off && !string.IsNullOrEmpty(traceFileName))
                 {
                     try
                     {
-                        FileInfo file = new FileInfo(traceFileName);
+                        var file = new FileInfo(traceFileName);
 
                         // limit the file size. hard coded for now - fix later.
-                        bool truncated = false;
+                        var truncated = false;
 
                         if (file.Exists && file.Length > 10000000)
                         {
@@ -229,7 +229,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                             truncated = true;
                         }
 
-                        using (StreamWriter writer = new StreamWriter(File.Open(traceFileName, FileMode.Append)))
+                        using (var writer = new StreamWriter(File.Open(traceFileName, FileMode.Append)))
                         {
                             if (truncated)
                             {
@@ -257,7 +257,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             lock (traceFileLock_)
             {
                 // check if tracing is being turned off.
-                if (String.IsNullOrEmpty(filePath))
+                if (string.IsNullOrEmpty(filePath))
                 {
                     traceFileName_ = null;
                     return;
@@ -272,7 +272,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
 
                 try
                 {
-                    FileInfo file = new FileInfo(traceFileName_);
+                    var file = new FileInfo(traceFileName_);
 
                     if (deleteExisting && file.Exists)
                     {
@@ -283,7 +283,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                     TraceWriteLine(
                         "\r\nPID:{2} {1} Logging started at {0} {1}",
                         DateTime.Now,
-                        new String('*', 25),
+                        new string('*', 25),
                         Process.GetCurrentProcess().Id);
                 }
                 catch (Exception e)
@@ -322,7 +322,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// </summary>
         internal static void Trace(Exception e, string format, bool handled, params object[] args)
         {
-            StringBuilder message = new StringBuilder();
+            var message = new StringBuilder();
 
             // format message.            
             if (args != null && args.Length > 0)
@@ -356,9 +356,9 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 // append stack trace.
                 if ((traceMasks_ & TraceMasks.StackTrace) != 0)
                 {
-                    message.AppendFormat(CultureInfo.InvariantCulture, "\r\n\r\n{0}\r\n", new String('=', 40));
+                    message.AppendFormat(CultureInfo.InvariantCulture, "\r\n\r\n{0}\r\n", new string('=', 40));
                     message.Append(e.StackTrace);
-                    message.AppendFormat(CultureInfo.InvariantCulture, "\r\n{0}\r\n", new String('=', 40));
+                    message.AppendFormat(CultureInfo.InvariantCulture, "\r\n{0}\r\n", new string('=', 40));
                 }
             }
 
@@ -382,7 +382,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 return;
             }
 
-            StringBuilder message = new StringBuilder();
+            var message = new StringBuilder();
 
             // append process and timestamp.
             message.AppendFormat("{0} - ", Process.GetCurrentProcess().Id);
@@ -418,7 +418,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         public static string ReplaceSpecialFolderNames(string input)
         {
             // nothing to do for nulls.
-            if (String.IsNullOrEmpty(input))
+            if (string.IsNullOrEmpty(input))
             {
                 return null;
             }
@@ -439,12 +439,12 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             string folder;
             string path;
 
-            int index = input.IndexOf('%', 1);
+            var index = input.IndexOf('%', 1);
 
             if (index == -1)
             {
                 folder = input.Substring(1);
-                path = String.Empty;
+                path = string.Empty;
             }
             else
             {
@@ -452,7 +452,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 path = input.Substring(index + 1);
             }
 
-            StringBuilder buffer = new StringBuilder();
+            var buffer = new StringBuilder();
 
             // check for special folder.
             try
@@ -468,7 +468,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             // check for generic environment variable.
             catch (Exception)
             {
-                string value = Environment.GetEnvironmentVariable(folder);
+                var value = Environment.GetEnvironmentVariable(folder);
 
                 if (value != null)
                 {
@@ -496,12 +496,12 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         {
             filePath = ReplaceSpecialFolderNames(filePath);
 
-            if (!String.IsNullOrEmpty(filePath))
+            if (!string.IsNullOrEmpty(filePath))
             {
-                FileInfo file = new FileInfo(filePath);
+                var file = new FileInfo(filePath);
 
                 // check for absolute path.
-                bool isAbsolute = filePath.StartsWith("\\\\", StringComparison.Ordinal) || filePath.IndexOf(':') == 1;
+                var isAbsolute = filePath.StartsWith("\\\\", StringComparison.Ordinal) || filePath.IndexOf(':') == 1;
 
                 if (isAbsolute)
                 {
@@ -540,8 +540,8 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                     // look executable directory.
                     if (!file.Exists)
                     {
-                        string executablePath = Environment.GetCommandLineArgs()[0];
-                        FileInfo executable = new FileInfo(executablePath);
+                        var executablePath = Environment.GetCommandLineArgs()[0];
+                        var executable = new FileInfo(executablePath);
 
                         if (executable.Exists)
                         {
@@ -606,7 +606,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// </summary>
         public static string Format(string text, params object[] args)
         {
-            return String.Format(CultureInfo.InvariantCulture, text, args);
+            return string.Format(CultureInfo.InvariantCulture, text, args);
         }
         #endregion
     }
@@ -740,7 +740,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         public static string GetLogFileDirectory()
         {
             // try the program data directory.
-            string logFileDirectory = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var logFileDirectory = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             logFileDirectory += "\\Technosoftware\\Logs";
 
             try
@@ -774,9 +774,9 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         public static void EnableTrace(string path, string filename)
         {
             Utils.SetTraceOutput(Utils.TraceOutput.FileOnly);
-            Utils.SetTraceMask(Int32.MaxValue);
+            Utils.SetTraceMask(int.MaxValue);
 
-            string logFilePath = path + "\\" + filename;
+            var logFilePath = path + "\\" + filename;
             Utils.SetTraceLog(logFilePath, false);
             Utils.Trace("Log File Set to: {0}", logFilePath);
         }

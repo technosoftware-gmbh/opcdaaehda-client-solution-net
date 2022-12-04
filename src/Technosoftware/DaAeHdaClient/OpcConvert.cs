@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -77,9 +77,9 @@ namespace Technosoftware.DaAeHdaClient
 
             if (source.GetType().IsArray || source.GetType() == typeof(Array))
             {
-                Array array = (Array)((Array)source).Clone();
+                var array = (Array)((Array)source).Clone();
 
-                for (int ii = 0; ii < array.Length; ii++)
+                for (var ii = 0; ii < array.Length; ii++)
                 {
                     array.SetValue(Clone(array.GetValue(ii)), ii);
                 }
@@ -98,19 +98,19 @@ namespace Technosoftware.DaAeHdaClient
         {
             if (a == null || b == null) return (a == null && b == null);
 
-            Type type1 = a.GetType();
-            Type type2 = b.GetType();
+            var type1 = a.GetType();
+            var type2 = b.GetType();
 
             if (type1 != type2) return false;
 
             if (type1.IsArray && type2.IsArray)
             {
-                Array array1 = (Array)a;
-                Array array2 = (Array)b;
+                var array1 = (Array)a;
+                var array2 = (Array)b;
 
                 if (array1.Length != array2.Length) return false;
 
-                for (int ii = 0; ii < array1.Length; ii++)
+                for (var ii = 0; ii < array1.Length; ii++)
                 {
                     if (!Compare(array1.GetValue(ii), array2.GetValue(ii))) return false;
                 }
@@ -143,14 +143,14 @@ namespace Technosoftware.DaAeHdaClient
                 return Clone(source);
             }
 
-            Type type = source.GetType();
+            var type = source.GetType();
 
             // convert between array types.
             if (type.IsArray && newType.IsArray)
             {
-                ArrayList array = new ArrayList(((Array)source).Length);
+                var array = new ArrayList(((Array)source).Length);
 
-                foreach (object element in (Array)source)
+                foreach (var element in (Array)source)
                 {
                     array.Add(ChangeType(element, newType.GetElementType()));
                 }
@@ -161,7 +161,7 @@ namespace Technosoftware.DaAeHdaClient
             // convert scalar value to an array type.
             if (!type.IsArray && newType.IsArray)
             {
-                ArrayList array = new ArrayList(1) {ChangeType(source, newType.GetElementType())};
+                var array = new ArrayList(1) {ChangeType(source, newType.GetElementType())};
                 return array.ToArray(newType.GetElementType() ?? throw new InvalidOperationException());
             }
 
@@ -174,13 +174,13 @@ namespace Technosoftware.DaAeHdaClient
             // convert array type to string.
             if (type.IsArray && newType == typeof(string))
             {
-                StringBuilder buffer = new StringBuilder();
+                var buffer = new StringBuilder();
 
                 buffer.Append("{ ");
 
-                int count = 0;
+                var count = 0;
 
-                foreach (object element in (Array)source)
+                foreach (var element in (Array)source)
                 {
                     buffer.AppendFormat("{0}", ChangeType(element, typeof(string)));
 
@@ -203,7 +203,7 @@ namespace Technosoftware.DaAeHdaClient
                 if (type == typeof(string))
                 {
                     // check for an integer passed as a string.
-                    if (((string)source).Length > 0 && Char.IsDigit((string)source, 0))
+                    if (((string)source).Length > 0 && char.IsDigit((string)source, 0))
                     {
                         return Enum.ToObject(newType, Convert.ToInt32(source));
                     }
@@ -224,7 +224,7 @@ namespace Technosoftware.DaAeHdaClient
                 // check for an integer passed as a string.
                 if (source is string text)
                 {
-                    if (text.Length > 0 && (text[0] == '+' || text[0] == '-' || Char.IsDigit(text, 0)))
+                    if (text.Length > 0 && (text[0] == '+' || text[0] == '-' || char.IsDigit(text, 0)))
                     {
                         return Convert.ToBoolean(Convert.ToInt32(source));
                     }
@@ -245,17 +245,17 @@ namespace Technosoftware.DaAeHdaClient
             // check for null
             if (source == null) return "";
 
-            Type type = source.GetType();
+            var type = source.GetType();
 
             // check for invalid values in date times.
             if (type == typeof(DateTime))
             {
                 if (((DateTime)source) == DateTime.MinValue)
                 {
-                    return String.Empty;
+                    return string.Empty;
                 }
 
-                DateTime date = (DateTime)source;
+                var date = (DateTime)source;
 
                 if (date.Millisecond > 0)
                 {
@@ -282,9 +282,9 @@ namespace Technosoftware.DaAeHdaClient
             // treat byte arrays as a special case.
             if (type == typeof(byte[]))
             {
-                byte[] bytes = (byte[])source;
+                var bytes = (byte[])source;
 
-                StringBuilder buffer = new StringBuilder(bytes.Length * 3);
+                var buffer = new StringBuilder(bytes.Length * 3);
 
                 foreach (var character in bytes)
                 {
@@ -344,8 +344,8 @@ namespace Technosoftware.DaAeHdaClient
                 }
             }
 
-            int pIndex = 0;
-            int tIndex = 0;
+            var pIndex = 0;
+            var tIndex = 0;
 
             while (tIndex < target.Length && pIndex < pattern.Length)
             {
@@ -498,7 +498,7 @@ namespace Technosoftware.DaAeHdaClient
                         {
                             c = target[tIndex++];
 
-                            if (!Char.IsDigit(c))
+                            if (!char.IsDigit(c))
                             {
                                 return false; // not a digit
                             }
@@ -536,7 +536,7 @@ namespace Technosoftware.DaAeHdaClient
 
         private static char ConvertCase(char c, bool caseSensitive)
         {
-            return (caseSensitive) ? c : Char.ToUpper(c);
+            return (caseSensitive) ? c : char.ToUpper(c);
         }
 
         #endregion

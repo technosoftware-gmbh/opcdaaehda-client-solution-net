@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -78,14 +78,14 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         protected OpcReadOnlyDictionary(SerializationInfo info, StreamingContext context)
         {
-            int count = (int)info.GetValue(Names.Count, typeof(int));
+            var count = (int)info.GetValue(Names.Count, typeof(int));
 
             dictionary_ = new Hashtable();
 
-            for (int ii = 0; ii < count; ii++)
+            for (var ii = 0; ii < count; ii++)
             {
-                object key = info.GetValue(Names.Key + ii.ToString(), typeof(object));
-                object value = info.GetValue(Names.Value + ii.ToString(), typeof(object));
+                var key = info.GetValue(Names.Key + ii.ToString(), typeof(object));
+                var value = info.GetValue(Names.Value + ii.ToString(), typeof(object));
 
                 if (key != null)
                 {
@@ -101,9 +101,9 @@ namespace Technosoftware.DaAeHdaClient
         {
             info.AddValue(Names.Count, dictionary_.Count);
 
-            int ii = 0;
+            var ii = 0;
 
-            IDictionaryEnumerator enumerator = dictionary_.GetEnumerator();
+            var enumerator = dictionary_.GetEnumerator();
 
             while (enumerator.MoveNext())
             {
@@ -236,12 +236,12 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual object Clone()
         {
-            OpcReadOnlyDictionary clone = (OpcReadOnlyDictionary)MemberwiseClone();
+            var clone = (OpcReadOnlyDictionary)MemberwiseClone();
 
             // clone contents of hashtable.
-            Hashtable dictionary = new Hashtable();
+            var dictionary = new Hashtable();
 
-            IDictionaryEnumerator enumerator = dictionary_.GetEnumerator();
+            var enumerator = dictionary_.GetEnumerator();
 
             while (enumerator.MoveNext())
             {

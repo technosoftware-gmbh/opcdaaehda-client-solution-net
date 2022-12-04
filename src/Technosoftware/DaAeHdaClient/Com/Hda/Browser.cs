@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -55,9 +55,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             // save only the filters that were accepted.
             if (filters != null)
             {
-                ArrayList validFilters = new ArrayList();
+                var validFilters = new ArrayList();
 
-                for (int ii = 0; ii < filters.Length; ii++)
+                for (var ii = 0; ii < filters.Length; ii++)
                 {
                     if (results[ii].Succeeded())
                     {
@@ -111,9 +111,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// <returns>The set of elements that meet the filter criteria.</returns>
         public TsCHdaBrowseElement[] Browse(OpcItem itemID)
         {
-            IOpcBrowsePosition position = null;
-
-            TsCHdaBrowseElement[] elements = Browse(itemID, 0, out position);
+            IOpcBrowsePosition position;
+            var elements = Browse(itemID, 0, out position);
 
             if (position != null)
             {
@@ -137,12 +136,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             // interpret invalid values as 'no limit'.
             if (maxElements <= 0)
             {
-                maxElements = Int32.MaxValue;
+                maxElements = int.MaxValue;
             }
 
             lock (this)
             {
-                string branchPath = (itemID != null && itemID.ItemName != null)?itemID.ItemName:"";
+                var branchPath = (itemID != null && itemID.ItemName != null)?itemID.ItemName:"";
 
                 // move to the correct position in the server's address space.
                 try
@@ -155,9 +154,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // browse for branches
-                EnumString enumerator = GetEnumerator(true);
+                var enumerator = GetEnumerator(true);
 
-                ArrayList elements = FetchElements(enumerator, maxElements, true);
+                var elements = FetchElements(enumerator, maxElements, true);
 
                 // check if max element count reached.
                 if (elements.Count >= maxElements)
@@ -172,7 +171,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // browse for items
                 enumerator = GetEnumerator(false);
 
-                ArrayList items = FetchElements(enumerator, maxElements-elements.Count, false);
+                var items = FetchElements(enumerator, maxElements-elements.Count, false);
 
                 if (items != null)
                 {
@@ -213,14 +212,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             // interpret invalid values as 'no limit'.
             if (maxElements <= 0)
             {
-                maxElements = Int32.MaxValue;
+                maxElements = int.MaxValue;
             }
 
             lock (this)
             {
-                BrowsePosition pos = (BrowsePosition)position;
+                var pos = (BrowsePosition)position;
 
-                ArrayList elements = new ArrayList();
+                var elements = new ArrayList();
 
                 if (!pos.FetchingItems)
                 {
@@ -253,7 +252,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // fetch next set of items.
-                ArrayList items = FetchElements(pos.Enumerator, maxElements-elements.Count, false);
+                var items = FetchElements(pos.Enumerator, maxElements-elements.Count, false);
 
                 if (items != null)
                 {
@@ -283,7 +282,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         {
             try
             {
-                OPCHDA_BROWSETYPE browseType = (isBranch)?OPCHDA_BROWSETYPE.OPCHDA_BRANCH:OPCHDA_BROWSETYPE.OPCHDA_LEAF;
+                var browseType = (isBranch)?OPCHDA_BROWSETYPE.OPCHDA_BRANCH:OPCHDA_BROWSETYPE.OPCHDA_LEAF;
 
                 IEnumString pEnumerator = null;
                 m_browser.GetEnum(browseType, out pEnumerator);
@@ -301,20 +300,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         private ArrayList FetchElements(EnumString enumerator, int maxElements, bool isBranch)
         {
-            ArrayList elements = new ArrayList();
+            var elements = new ArrayList();
 
             while (elements.Count < maxElements)
             {           
                 // fetch next batch of element names.
-                int count = BLOCK_SIZE;
+                var count = BLOCK_SIZE;
 
                 if (elements.Count + count > maxElements)
                 {
                     count = maxElements - elements.Count; 
                 }
-
-                string[] names = null;
-                names = enumerator.Next(count);
+                var names = enumerator.Next(count);
 
                 // check if no more elements found.
                 if (names == null || names.Length == 0)
@@ -323,9 +320,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create new element objects.
-                foreach (string name in names)
+                foreach (var name in names)
                 {           
-                    TsCHdaBrowseElement element = new TsCHdaBrowseElement();
+                    var element = new TsCHdaBrowseElement();
 
                     element.Name   = name;
                     // lookup item id for element.
@@ -348,11 +345,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             }
 
             // validate items - this is necessary to set the IsItem flag correctly.
-            OpcItemResult[] results = m_server.ValidateItems((OpcItem[])elements.ToArray(typeof(OpcItem)));
+            var results = m_server.ValidateItems((OpcItem[])elements.ToArray(typeof(OpcItem)));
 
             if (results != null)
             {
-                for (int ii = 0; ii < results.Length; ii++)
+                for (var ii = 0; ii < results.Length; ii++)
                 {
                     if (results[ii].Result.Succeeded())
                     {

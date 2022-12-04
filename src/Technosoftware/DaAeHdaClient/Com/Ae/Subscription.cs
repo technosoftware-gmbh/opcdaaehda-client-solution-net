@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -53,7 +53,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             // check if the V1.1 interfaces are supported.
             try
             {
-                IOPCEventSubscriptionMgt2 server = (IOPCEventSubscriptionMgt2)subscription_;
+                var server = (IOPCEventSubscriptionMgt2)subscription_;
             }
             catch
             {
@@ -169,7 +169,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 int pbActive;
                 int pdwBufferTime;
                 int pdwMaxSize;
-                int pdwKeepAliveTime = 0;
+                var pdwKeepAliveTime = 0;
 
                 // invoke COM method.
                 try
@@ -199,7 +199,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // build results 
-                TsCAeSubscriptionState state = new TsCAeSubscriptionState
+                var state = new TsCAeSubscriptionState
                 {
                     Active = pbActive != 0,
                     ClientHandle = clientHandle_,
@@ -227,17 +227,17 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 if (subscription_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int active = (state.Active) ? 1 : 0;
+                var active = (state.Active) ? 1 : 0;
 
-                GCHandle hActive = GCHandle.Alloc(active, GCHandleType.Pinned);
-                GCHandle hBufferTime = GCHandle.Alloc(state.BufferTime, GCHandleType.Pinned);
-                GCHandle hMaxSize = GCHandle.Alloc(state.MaxSize, GCHandleType.Pinned);
+                var hActive = GCHandle.Alloc(active, GCHandleType.Pinned);
+                var hBufferTime = GCHandle.Alloc(state.BufferTime, GCHandleType.Pinned);
+                var hMaxSize = GCHandle.Alloc(state.MaxSize, GCHandleType.Pinned);
 
-                IntPtr pbActive = ((masks & (int)TsCAeStateMask.Active) != 0) ? hActive.AddrOfPinnedObject() : IntPtr.Zero;
-                IntPtr pdwBufferTime = ((masks & (int)TsCAeStateMask.BufferTime) != 0) ? hBufferTime.AddrOfPinnedObject() : IntPtr.Zero;
-                IntPtr pdwMaxSize = ((masks & (int)TsCAeStateMask.MaxSize) != 0) ? hMaxSize.AddrOfPinnedObject() : IntPtr.Zero;
+                var pbActive = ((masks & (int)TsCAeStateMask.Active) != 0) ? hActive.AddrOfPinnedObject() : IntPtr.Zero;
+                var pdwBufferTime = ((masks & (int)TsCAeStateMask.BufferTime) != 0) ? hBufferTime.AddrOfPinnedObject() : IntPtr.Zero;
+                var pdwMaxSize = ((masks & (int)TsCAeStateMask.MaxSize) != 0) ? hMaxSize.AddrOfPinnedObject() : IntPtr.Zero;
 
-                int phClientSubscription = 0;
+                var phClientSubscription = 0;
 
                 // invoke COM method.
                 try
@@ -326,12 +326,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // marshal results 
-                int[] categoryIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppidEventCategories, pdwNumCategories, true);
-                string[] areaIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppsAreaList, pdwNumAreas, true);
-                string[] sourceIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppsSourceList, pdwNumSources, true);
+                var categoryIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppidEventCategories, pdwNumCategories, true);
+                var areaIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppsAreaList, pdwNumAreas, true);
+                var sourceIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref ppsSourceList, pdwNumSources, true);
 
                 // build results.
-                TsCAeSubscriptionFilters filters = new TsCAeSubscriptionFilters
+                var filters = new TsCAeSubscriptionFilters
                 {
                     EventTypes = pdwEventType, LowSeverity = pdwLowSeverity, HighSeverity = pdwHighSeverity
                 };
@@ -410,7 +410,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 }
 
                 // marshal results 
-                int[] attributeIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppidAttributeIDs, pdwCount, true);
+                var attributeIDs = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref ppidAttributeIDs, pdwCount, true);
 
                 // return results.
                 return attributeIDs;
@@ -435,7 +435,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                     ((IOPCEventSubscriptionMgt)subscription_).SelectReturnedAttributes(
                         eventCategory,
                         attributeIDs?.Length ?? 0,
-                        attributeIDs ?? new int[0]);
+                        attributeIDs ?? Array.Empty<int>());
                 }
                 catch (Exception e)
                 {
@@ -534,7 +534,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                         if (DataChangedEventHandler == null) return;
 
                         // un marshal item values.
-                        TsCAeEventNotification[] notifications = Interop.GetEventNotifications(pEvents);
+                        var notifications = Interop.GetEventNotifications(pEvents);
 
                         foreach (var notification in notifications)
                         {
@@ -551,8 +551,6 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                 catch (Exception e)
                 {
                     Utils.Trace(e, "Exception '{0}' in event handler.", e.Message);
-
-                    string stack = e.StackTrace;
                 }
             }
 

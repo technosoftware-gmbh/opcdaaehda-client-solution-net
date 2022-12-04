@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -65,7 +65,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
 		public override IOpcServer CreateInstance(OpcUrl url, OpcConnectData connectData)
         {
-            object comServer = Connect(url, connectData);
+            var comServer = Connect(url, connectData);
 
             if (comServer == null)
             {
@@ -77,9 +77,9 @@ namespace Technosoftware.DaAeHdaClient.Com
 
             try
             {
-                if (String.IsNullOrEmpty(url.Scheme))
+                if (string.IsNullOrEmpty(url.Scheme))
                 {
-                    throw new NotSupportedException(String.Format("The URL scheme '{0}' is not supported.", url.Scheme));
+                    throw new NotSupportedException(string.Format("The URL scheme '{0}' is not supported.", url.Scheme));
                 }
 
                 // DA
@@ -140,7 +140,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                 // All other specifications not supported yet.
                 else
                 {
-                    throw new NotSupportedException(String.Format("The URL scheme '{0}' is not supported.", url.Scheme));
+                    throw new NotSupportedException(string.Format("The URL scheme '{0}' is not supported.", url.Scheme));
                 }
             }
             catch (NotSupportedException)
@@ -150,7 +150,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 
                 if (interfaceType != null)
                 {
-                    StringBuilder message = new StringBuilder();
+                    var message = new StringBuilder();
 
                     message.AppendFormat("The COM server does not support the interface ");
                     message.AppendFormat("'{0}'.", interfaceType.FullName);
@@ -167,8 +167,6 @@ namespace Technosoftware.DaAeHdaClient.Com
             catch (Exception)
             {
                 Utilities.Interop.ReleaseServer(server);
-                server = null;
-
                 throw;
             }
 
@@ -187,10 +185,10 @@ namespace Technosoftware.DaAeHdaClient.Com
         public static object Connect(OpcUrl url, OpcConnectData connectData)
         {
             // parse path to find prog id and clsid.
-            string progID = url.Path;
+            var progID = url.Path;
             string clsid = null;
 
-            int index = url.Path.IndexOf('/');
+            var index = url.Path.IndexOf('/');
 
             if (index >= 0)
             {
@@ -215,7 +213,7 @@ namespace Technosoftware.DaAeHdaClient.Com
                     }
                     catch
                     {
-                        throw new OpcResultException(new OpcResult((int)OpcResult.CO_E_CLASSSTRING.Code, OpcResult.FuncCallType.SysFuncCall, null), String.Format("Could not connect to server {0}", progID));
+                        throw new OpcResultException(new OpcResult((int)OpcResult.CO_E_CLASSSTRING.Code, OpcResult.FuncCallType.SysFuncCall, null), string.Format("Could not connect to server {0}", progID));
                     }
                 }
             }
@@ -229,12 +227,12 @@ namespace Technosoftware.DaAeHdaClient.Com
                 }
                 catch
                 {
-                    throw new OpcResultException(new OpcResult((int)OpcResult.CO_E_CLASSSTRING.Code, OpcResult.FuncCallType.SysFuncCall, null), String.Format("Could not connect to server {0}", progID));
+                    throw new OpcResultException(new OpcResult((int)OpcResult.CO_E_CLASSSTRING.Code, OpcResult.FuncCallType.SysFuncCall, null), string.Format("Could not connect to server {0}", progID));
                 }
             }
 
             // get the credentials.
-            OpcUserIdentity credentials = (connectData != null) ? connectData.UserIdentity : null;
+            var credentials = (connectData != null) ? connectData.UserIdentity : null;
 
             // instantiate the server using CoCreateInstanceEx.
             if (connectData == null || connectData.LicenseKey == null)

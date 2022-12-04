@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -48,10 +48,10 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			if (dictionary == null) throw new ArgumentNullException(nameof(dictionary));
 			if (typeName == null) throw new ArgumentNullException(nameof(typeName));
 
-			TsCCpxContext context = InitializeContext(null, dictionary, typeName);
+			var context = InitializeContext(null, dictionary, typeName);
 
 			// determine the size of buffer required.
-			int bytesRequired = WriteType(context, namedValue);
+			var bytesRequired = WriteType(context, namedValue);
 
 			if (bytesRequired == 0)
 			{
@@ -62,7 +62,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			context.Buffer = new byte[bytesRequired];
 
 			// write data into buffer.
-			int bytesWritten = WriteType(context, namedValue);
+			var bytesWritten = WriteType(context, namedValue);
 
 			if (bytesWritten != bytesRequired)
 			{
@@ -82,29 +82,26 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		/// </summary>
 		private int WriteType(TsCCpxContext context, TsCCpxComplexValue namedValue)
 		{
-			TypeDescription type = context.Type;
-			int startIndex = context.Index;
-
-			TsCCpxComplexValue[] fieldValues = null;
-
-			if (namedValue.Value == null || namedValue.Value.GetType() != typeof(TsCCpxComplexValue[]))
+			var type = context.Type;
+			var startIndex = context.Index;
+            if (namedValue.Value == null || namedValue.Value.GetType() != typeof(TsCCpxComplexValue[]))
 			{
 				throw new TsCCpxInvalidDataToWriteException("Type instance does not contain field values.");
 			}
 
-			fieldValues = (TsCCpxComplexValue[])namedValue.Value;
+            var fieldValues = (TsCCpxComplexValue[])namedValue.Value;
 
-			if (fieldValues.Length != type.Field.Length)
+            if (fieldValues.Length != type.Field.Length)
 			{
 				throw new TsCCpxInvalidDataToWriteException("Type instance does not contain the correct number of fields.");
 			}
 
 			byte bitOffset = 0;
 
-			for (int ii = 0; ii < type.Field.Length; ii++)
+			for (var ii = 0; ii < type.Field.Length; ii++)
 			{
-				FieldType field = type.Field[ii];
-				TsCCpxComplexValue fieldValue = fieldValues[ii];
+				var field = type.Field[ii];
+				var fieldValue = fieldValues[ii];
 
 				if (bitOffset != 0)
 				{
@@ -115,9 +112,8 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 					}
 				}
 
-				int bytesWritten = 0;
-
-				if (IsArrayField(field))
+                int bytesWritten;
+                if (IsArrayField(field))
 				{
 					bytesWritten = WriteArrayField(context, field, ii, fieldValues, fieldValue.Value);
 				}
@@ -132,7 +128,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 
 				if (bytesWritten == 0 && bitOffset == 0)
 				{
-					throw new TsCCpxInvalidDataToWriteException(String.Format("Could not write field '{0}' in type '{1}'.", field.Name, type.TypeID));
+					throw new TsCCpxInvalidDataToWriteException(string.Format("Could not write field '{0}' in type '{1}'.", field.Name, type.TypeID));
 				}
 
 				context.Index += bytesWritten;
@@ -158,7 +154,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			ref byte bitOffset
 		)
 		{
-			Type type = field.GetType();
+			var type = field.GetType();
 
 			if (type == typeof(Integer) || type.IsSubclassOf(typeof(Integer)))
 			{
@@ -182,7 +178,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			}
 			else
 			{
-				throw new NotImplementedException(String.Format("Fields of type '{0}' are not implemented yet.", type));
+				throw new NotImplementedException(string.Format("Fields of type '{0}' are not implemented yet.", type));
 			}
 		}
 
@@ -191,7 +187,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		/// </summary>
 		private int WriteField(TsCCpxContext context, TypeReference field, object fieldValue)
 		{
-			foreach (TypeDescription type in context.Dictionary.TypeDescription)
+			foreach (var type in context.Dictionary.TypeDescription)
 			{
 				if (type.TypeID == field.TypeID)
 				{
@@ -208,7 +204,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 
 			if (context.Type == null)
 			{
-				throw new TsCCpxInvalidSchemaException(String.Format("Reference type '{0}' not found.", field.TypeID));
+				throw new TsCCpxInvalidSchemaException(string.Format("Reference type '{0}' not found.", field.TypeID));
 			}
 
 			if (fieldValue.GetType() != typeof(TsCCpxComplexValue))
@@ -224,11 +220,11 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		/// </summary>
 		private int WriteField(TsCCpxContext context, Integer field, object fieldValue)
 		{
-			byte[] buffer = context.Buffer;
+			var buffer = context.Buffer;
 
 			// initialize serialization paramters.
-			int length = (field.LengthSpecified) ? (int)field.Length : 4;
-			bool signed = field.Signed;
+			var length = (field.LengthSpecified) ? (int)field.Length : 4;
+			var signed = field.Signed;
 
 			// apply defaults for built in types.
 			if (field.GetType() == typeof(Int8)) { length = 1; signed = true; }
@@ -249,10 +245,9 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 					throw new TsCCpxInvalidDataToWriteException("Unexpected end of buffer.");
 				}
 
-				// copy and swap bytes if required.
-				byte[] bytes = null;
-
-				if (signed)
+                // copy and swap bytes if required.
+                byte[] bytes;
+                if (signed)
 				{
 					switch (length)
 					{
@@ -260,11 +255,11 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 							{
 								bytes = new byte[1];
 
-								sbyte value = Convert.ToSByte(fieldValue);
+								var value = Convert.ToSByte(fieldValue);
 
 								if (value < 0)
 								{
-									bytes[0] = (byte)(Byte.MaxValue + value + 1);
+									bytes[0] = (byte)(byte.MaxValue + value + 1);
 								}
 								else
 								{
@@ -299,7 +294,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				}
 
 				// write bytes to buffer.
-				for (int ii = 0; ii < bytes.Length; ii++)
+				for (var ii = 0; ii < bytes.Length; ii++)
 				{
 					buffer[context.Index + ii] = bytes[ii];
 				}
@@ -313,11 +308,11 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		/// </summary>
 		private int WriteField(TsCCpxContext context, FloatingPoint field, object fieldValue)
 		{
-			byte[] buffer = context.Buffer;
+			var buffer = context.Buffer;
 
 			// initialize serialization paramters.
-			int length = (field.LengthSpecified) ? (int)field.Length : 4;
-			string format = field.FloatFormat ?? context.FloatFormat;
+			var length = (field.LengthSpecified) ? (int)field.Length : 4;
+			var format = field.FloatFormat ?? context.FloatFormat;
 
 			// apply defaults for built in types.
 			if (field.GetType() == typeof(Single)) { length = 4; format = TsCCpxContext.FLOAT_FORMAT_IEEE754; }
@@ -332,10 +327,9 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 					throw new TsCCpxInvalidDataToWriteException("Unexpected end of buffer.");
 				}
 
-				// copy bytes if required.
-				byte[] bytes = null;
-
-				if (format == TsCCpxContext.FLOAT_FORMAT_IEEE754)
+                // copy bytes if required.
+                byte[] bytes;
+                if (format == TsCCpxContext.FLOAT_FORMAT_IEEE754)
 				{
 					switch (length)
 					{
@@ -350,7 +344,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				}
 
 				// write bytes to buffer.
-				for (int ii = 0; ii < bytes.Length; ii++)
+				for (var ii = 0; ii < bytes.Length; ii++)
 				{
 					buffer[context.Index + ii] = bytes[ii];
 				}
@@ -370,11 +364,11 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			object fieldValue
 		)
 		{
-			byte[] buffer = context.Buffer;
+			var buffer = context.Buffer;
 
 			// initialize serialization parameters.
-			int charWidth = (field.CharWidthSpecified) ? (int)field.CharWidth : (int)context.CharWidth;
-			int charCount = (field.LengthSpecified) ? (int)field.Length : -1;
+			var charWidth = (field.CharWidthSpecified) ? (int)field.CharWidth : (int)context.CharWidth;
+			var charCount = (field.LengthSpecified) ? (int)field.Length : -1;
 
 			// apply defaults for built in types.
 			if (field.GetType() == typeof(Ascii)) { charWidth = 1; }
@@ -404,7 +398,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 						throw new TsCCpxInvalidDataToWriteException("Field value is not a string.");
 					}
 
-					string stringValue = (string)fieldValue;
+					var stringValue = (string)fieldValue;
 
 					charCount = stringValue.Length + 1;
 
@@ -413,11 +407,11 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 					{
 						charCount = 1;
 
-						foreach (char unicodeChar in stringValue)
+						foreach (var unicodeChar in stringValue)
 						{
 							charCount++;
 
-							byte[] charBytes = BitConverter.GetBytes(unicodeChar);
+							var charBytes = BitConverter.GetBytes(unicodeChar);
 
 							if (charBytes[1] != 0)
 							{
@@ -439,20 +433,20 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				// copy string to buffer.
 				if (bytes == null)
 				{
-					string stringValue = (string)fieldValue;
+					var stringValue = (string)fieldValue;
 
 					bytes = new byte[charWidth * charCount];
 
-					int index = 0;
+					var index = 0;
 
-					for (int ii = 0; ii < stringValue.Length; ii++)
+					for (var ii = 0; ii < stringValue.Length; ii++)
 					{
 						if (index >= bytes.Length)
 						{
 							break;
 						}
 
-						byte[] charBytes = BitConverter.GetBytes(stringValue[ii]);
+						var charBytes = BitConverter.GetBytes(stringValue[ii]);
 
 						bytes[index++] = charBytes[0];
 
@@ -470,7 +464,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				}
 
 				// write bytes to buffer.
-				for (int ii = 0; ii < bytes.Length; ii++)
+				for (var ii = 0; ii < bytes.Length; ii++)
 				{
 					buffer[context.Index + ii] = bytes[ii];
 				}
@@ -478,7 +472,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				// swap bytes.
 				if (context.BigEndian && charWidth > 1)
 				{
-					for (int ii = 0; ii < bytes.Length; ii += charWidth)
+					for (var ii = 0; ii < bytes.Length; ii += charWidth)
 					{
 						SwapBytes(buffer, context.Index + ii, charWidth);
 					}
@@ -493,11 +487,11 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		/// </summary>
 		private int WriteField(TsCCpxContext context, BitString field, object fieldValue, ref byte bitOffset)
 		{
-			byte[] buffer = context.Buffer;
+			var buffer = context.Buffer;
 
 			// initialize serialization paramters.
-			int bits = (field.LengthSpecified) ? (int)field.Length : 8;
-			int length = (bits % 8 == 0) ? bits / 8 : bits / 8 + 1;
+			var bits = (field.LengthSpecified) ? (int)field.Length : 8;
+			var length = (bits % 8 == 0) ? bits / 8 : bits / 8 + 1;
 
 			if (fieldValue.GetType() != typeof(byte[]))
 			{
@@ -505,7 +499,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			}
 
 			// allocate space for the value.
-			byte[] bytes = (byte[])fieldValue;
+			var bytes = (byte[])fieldValue;
 
 			if (buffer != null)
 			{
@@ -515,11 +509,11 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 					throw new TsCCpxInvalidDataToWriteException("Unexpected end of buffer.");
 				}
 
-				int bitsLeft = bits;
-				byte mask = (bitOffset == 0) ? (byte)0xFF : (byte)((0x80 >> (bitOffset - 1)) - 1);
+				var bitsLeft = bits;
+				var mask = (bitOffset == 0) ? (byte)0xFF : (byte)((0x80 >> (bitOffset - 1)) - 1);
 
 				// loop until all bits read.
-				for (int ii = 0; bitsLeft >= 0 && ii < length; ii++)
+				for (var ii = 0; bitsLeft >= 0 && ii < length; ii++)
 				{
 					// add the bits from the lower byte.
 					buffer[context.Index + ii] += (byte)((mask & ((1 << bitsLeft) - 1) & bytes[ii]) << bitOffset);
@@ -569,25 +563,22 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			object fieldValue
 		)
 		{
-			int startIndex = context.Index;
-
-			Array array = null;
-
-			if (!fieldValue.GetType().IsArray)
+			var startIndex = context.Index;
+            if (!fieldValue.GetType().IsArray)
 			{
 				throw new TsCCpxInvalidDataToWriteException("Array field value is not an array type.");
 			}
 
-			array = (Array)fieldValue;
+            var array = (Array)fieldValue;
 
-			byte bitOffset = 0;
+            byte bitOffset = 0;
 
 			// read fixed length array.
 			if (field.ElementCountSpecified)
 			{
-				int count = 0;
+				var count = 0;
 
-				foreach (object elementValue in array)
+				foreach (var elementValue in array)
 				{
 					// ignore any excess elements.
 					if (count == field.ElementCount)
@@ -595,7 +586,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 						break;
 					}
 
-					int bytesWritten = WriteField(context, field, fieldIndex, fieldValues, elementValue, ref bitOffset);
+					var bytesWritten = WriteField(context, field, fieldIndex, fieldValues, elementValue, ref bitOffset);
 
 					if (bytesWritten == 0 && bitOffset == 0)
 					{
@@ -609,7 +600,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				// write a null value for any missing elements.
 				while (count < field.ElementCount)
 				{
-					int bytesWritten = WriteField(context, field, fieldIndex, fieldValues, null, ref bitOffset);
+					var bytesWritten = WriteField(context, field, fieldIndex, fieldValues, null, ref bitOffset);
 
 					if (bytesWritten == 0 && bitOffset == 0)
 					{
@@ -624,11 +615,11 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			// read variable length array.
 			else if (field.ElementCountRef != null)
 			{
-				int count = 0;
+				var count = 0;
 
-				foreach (object elementValue in array)
+				foreach (var elementValue in array)
 				{
-					int bytesWritten = WriteField(context, field, fieldIndex, fieldValues, elementValue, ref bitOffset);
+					var bytesWritten = WriteField(context, field, fieldIndex, fieldValues, elementValue, ref bitOffset);
 
 					if (bytesWritten == 0 && bitOffset == 0)
 					{
@@ -646,9 +637,9 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			// read terminated array.
 			else if (field.FieldTerminator != null)
 			{
-				foreach (object elementValue in array)
+				foreach (var elementValue in array)
 				{
-					int bytesWritten = WriteField(context, field, fieldIndex, fieldValues, elementValue, ref bitOffset);
+					var bytesWritten = WriteField(context, field, fieldIndex, fieldValues, elementValue, ref bitOffset);
 
 					if (bytesWritten == 0 && bitOffset == 0)
 					{
@@ -659,12 +650,12 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				}
 
 				// get the terminator.
-				byte[] terminator = GetTerminator(context, field);
+				var terminator = GetTerminator(context, field);
 
 				if (context.Buffer != null)
 				{
 					// write the terminator.
-					for (int ii = 0; ii < terminator.Length; ii++)
+					for (var ii = 0; ii < terminator.Length; ii++)
 					{
 						context.Buffer[context.Index + ii] = terminator[ii];
 					}
@@ -706,7 +697,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			}
 			else
 			{
-				for (int ii = 0; ii < fieldIndex; ii++)
+				for (var ii = 0; ii < fieldIndex; ii++)
 				{
 					namedValue = (TsCCpxComplexValue)fieldValues[ii];
 
@@ -721,7 +712,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 
 			if (namedValue == null)
 			{
-				throw new TsCCpxInvalidSchemaException(String.Format("Referenced field not found ({0}).", fieldName));
+				throw new TsCCpxInvalidSchemaException(string.Format("Referenced field not found ({0}).", fieldName));
 			}
 
 			if (context.Buffer == null)

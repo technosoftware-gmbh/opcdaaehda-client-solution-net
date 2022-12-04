@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 
@@ -372,16 +372,16 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		public TsCAeAttributeDictionary GetAttributes()
 		{
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-			TsCAeAttributeDictionary attributes = new TsCAeAttributeDictionary();
+			var attributes = new TsCAeAttributeDictionary();
 
-			IDictionaryEnumerator enumerator = attributes_.GetEnumerator();
+			var enumerator = attributes_.GetEnumerator();
 
 			while (enumerator.MoveNext())
 			{
                 if (enumerator.Key != null)
                 {
                     var categoryId = (int)enumerator.Key;
-                    AttributeCollection attributeIDs = (AttributeCollection)enumerator.Value;
+                    var attributeIDs = (AttributeCollection)enumerator.Value;
 
                     attributes.Add(categoryId, attributeIDs.ToArray());
                 }
@@ -426,7 +426,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 		public virtual object Clone()
 		{
 			// do a memberwise clone.
-			TsCAeSubscription clone = (TsCAeSubscription)MemberwiseClone();
+			var clone = (TsCAeSubscription)MemberwiseClone();
 
 			/*
 			// place clone in disconnected state.
@@ -549,7 +549,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (subscription_ == null) throw new NotConnectedException();
 
-            int[] attributeIDs = subscription_.GetReturnedAttributes(eventCategory);
+            var attributeIDs = subscription_.GetReturnedAttributes(eventCategory);
 
 			attributes_.Update(eventCategory, (int[])OpcConvert.Clone(attributeIDs));
 

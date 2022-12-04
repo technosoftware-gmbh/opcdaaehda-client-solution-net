@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -54,7 +54,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			{
 				if (field.ElementCountRef != null || field.FieldTerminator != null)
 				{
-					throw new TsCCpxInvalidSchemaException(String.Format("Multiple array size attributes specified for field '{0} '.", field.Name));
+					throw new TsCCpxInvalidSchemaException(string.Format("Multiple array size attributes specified for field '{0} '.", field.Name));
 				}
 
 				return true;
@@ -64,7 +64,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			{
 				if (field.FieldTerminator != null)
 				{
-					throw new TsCCpxInvalidSchemaException(String.Format("Multiple array size attributes specified for field '{0} '.", field.Name));
+					throw new TsCCpxInvalidSchemaException(string.Format("Multiple array size attributes specified for field '{0} '.", field.Name));
 				}
 
 				return true;
@@ -83,13 +83,13 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		/// </summary>
 		internal byte[] GetTerminator(TsCCpxContext context, FieldType field)
 		{
-			if (field.FieldTerminator == null) throw new TsCCpxInvalidSchemaException(String.Format("{0} is not a terminated subscription.", field.Name));
+			if (field.FieldTerminator == null) throw new TsCCpxInvalidSchemaException(string.Format("{0} is not a terminated subscription.", field.Name));
 
-			string terminator = Convert.ToString(field.FieldTerminator).ToUpper();
+			var terminator = Convert.ToString(field.FieldTerminator).ToUpper();
 
-			byte[] bytes = new byte[terminator.Length / 2];
+			var bytes = new byte[terminator.Length / 2];
 
-			for (int ii = 0; ii < bytes.Length; ii++)
+			for (var ii = 0; ii < bytes.Length; ii++)
 			{
 				bytes[ii] = Convert.ToByte(terminator.Substring(ii * 2, 2), 16);
 			}
@@ -102,9 +102,9 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		/// </summary>
 		internal TsCCpxContext InitializeContext(byte[] buffer, TypeDictionary dictionary, string typeName)
 		{
-			TsCCpxContext context = new TsCCpxContext(buffer) { Dictionary = dictionary, Type = null, BigEndian = dictionary.DefaultBigEndian, CharWidth = dictionary.DefaultCharWidth, StringEncoding = dictionary.DefaultStringEncoding, FloatFormat = dictionary.DefaultFloatFormat };
+			var context = new TsCCpxContext(buffer) { Dictionary = dictionary, Type = null, BigEndian = dictionary.DefaultBigEndian, CharWidth = dictionary.DefaultCharWidth, StringEncoding = dictionary.DefaultStringEncoding, FloatFormat = dictionary.DefaultFloatFormat };
 
-			foreach (TypeDescription type in dictionary.TypeDescription)
+			foreach (var type in dictionary.TypeDescription)
 			{
 				if (type.TypeID == typeName)
 				{
@@ -121,7 +121,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 
 			if (context.Type == null)
 			{
-				throw new TsCCpxInvalidSchemaException(String.Format("Type '{0}' not found in dictionary.", typeName));
+				throw new TsCCpxInvalidSchemaException(string.Format("Type '{0}' not found in dictionary.", typeName));
 			}
 
 			return context;
@@ -132,9 +132,9 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		/// </summary>
 		internal void SwapBytes(byte[] bytes, int index, int length)
 		{
-			for (int ii = 0; ii < length / 2; ii++)
+			for (var ii = 0; ii < length / 2; ii++)
 			{
-				byte temp = bytes[index + length - 1 - ii];
+				var temp = bytes[index + length - 1 - ii];
 				bytes[index + length - 1 - ii] = bytes[index + ii];
 				bytes[index + ii] = temp;
 			}

@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -74,11 +74,9 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         public static string[] EnumComputers()
         {
             IntPtr pInfo;
-
-            int entriesRead = 0;
-            int totalEntries = 0;
-
-            int result = NetServerEnum(
+            int entriesRead;
+            int totalEntries;
+            var result = NetServerEnum(
                 IntPtr.Zero,
                 LEVEL_SERVER_INFO_100,
                 out pInfo,
@@ -91,16 +89,16 @@ namespace Technosoftware.DaAeHdaClient.Utilities
 
             if (result != 0)
             {
-                throw new ApplicationException("NetApi Error = " + String.Format("0x{0:X8}", result));
+                throw new ApplicationException("NetApi Error = " + string.Format("0x{0:X8}", result));
             }
 
-            string[] computers = new string[entriesRead];
+            var computers = new string[entriesRead];
 
-            IntPtr pos = pInfo;
+            var pos = pInfo;
 
-            for (int ii = 0; ii < entriesRead; ii++)
+            for (var ii = 0; ii < entriesRead; ii++)
             {
-                SERVER_INFO_100 info = (SERVER_INFO_100)Marshal.PtrToStructure(pos, typeof(SERVER_INFO_100));
+                var info = (SERVER_INFO_100)Marshal.PtrToStructure(pos, typeof(SERVER_INFO_100));
 
                 computers[ii] = info.sv100_name;
 
@@ -503,7 +501,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             public COSERVERINFO Allocate(string hostName, OpcUserIdentity identity)
             {
                 // initialize server info structure.
-                COSERVERINFO serverInfo = new COSERVERINFO();
+                var serverInfo = new COSERVERINFO();
 
                 serverInfo.pwszName = hostName;
                 serverInfo.pAuthInfo = IntPtr.Zero;
@@ -523,7 +521,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 m_hIdentity = new GCHandle();
 
                 // create identity structure.
-                COAUTHIDENTITY authIdentity = new COAUTHIDENTITY();
+                var authIdentity = new COAUTHIDENTITY();
 
                 authIdentity.User = m_hUserName.AddrOfPinnedObject();
                 authIdentity.UserLength = (uint)((identity.Username != null) ? identity.Username.Length : 0);
@@ -536,7 +534,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 m_hIdentity = GCHandle.Alloc(authIdentity, GCHandleType.Pinned);
 
                 // create authorization info structure.
-                COAUTHINFO authInfo = new COAUTHINFO();
+                var authInfo = new COAUTHINFO();
 
                 authInfo.dwAuthnSvc = RPC_C_AUTHN_WINNT;
                 authInfo.dwAuthzSvc = RPC_C_AUTHZ_NONE;
@@ -583,7 +581,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// </summary>
         public static void InitializeSecurity()
         {
-            int error = CoInitializeSecurity(
+            var error = CoInitializeSecurity(
                 IntPtr.Zero,
                 -1,
                 null,
@@ -609,7 +607,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         private static bool IsLocalHost(string hostName)
         {
             // lookup requested host.
-            IPHostEntry requestedHost = Dns.GetHostEntry(hostName);
+            var requestedHost = Dns.GetHostEntry(hostName);
 
             if (requestedHost == null || requestedHost.AddressList == null)
             {
@@ -617,9 +615,9 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             }
 
             // check for loopback.
-            for (int ii = 0; ii < requestedHost.AddressList.Length; ii++)
+            for (var ii = 0; ii < requestedHost.AddressList.Length; ii++)
             {
-                IPAddress requestedIP = requestedHost.AddressList[ii];
+                var requestedIP = requestedHost.AddressList[ii];
 
                 if (requestedIP == null || requestedIP.Equals(IPAddress.Loopback))
                 {
@@ -628,7 +626,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             }
 
             // lookup local host.
-            IPHostEntry localHost = Dns.GetHostEntry(Dns.GetHostName());
+            var localHost = Dns.GetHostEntry(Dns.GetHostName());
 
             if (localHost == null || localHost.AddressList == null)
             {
@@ -636,11 +634,11 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             }
 
             // check for localhost.
-            for (int ii = 0; ii < requestedHost.AddressList.Length; ii++)
+            for (var ii = 0; ii < requestedHost.AddressList.Length; ii++)
             {
-                IPAddress requestedIP = requestedHost.AddressList[ii];
+                var requestedIP = requestedHost.AddressList[ii];
 
-                for (int jj = 0; jj < localHost.AddressList.Length; jj++)
+                for (var jj = 0; jj < localHost.AddressList.Length; jj++)
                 {
                     if (requestedIP.Equals(localHost.AddressList[jj]))
                     {
@@ -666,12 +664,12 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// </summary>
         public static object CreateInstance1(Guid clsid, string hostName, OpcUserIdentity identity)
         {
-            ServerInfo serverInfo = new ServerInfo();
-            COSERVERINFO coserverInfo = serverInfo.Allocate(hostName, identity);
+            var serverInfo = new ServerInfo();
+            var coserverInfo = serverInfo.Allocate(hostName, identity);
 
-            GCHandle hIID = GCHandle.Alloc(IID_IUnknown, GCHandleType.Pinned);
+            var hIID = GCHandle.Alloc(IID_IUnknown, GCHandleType.Pinned);
 
-            MULTI_QI[] results = new MULTI_QI[1];
+            var results = new MULTI_QI[1];
 
             results[0].iid = hIID.AddrOfPinnedObject();
             results[0].pItf = null;
@@ -680,9 +678,9 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             try
             {
                 // check whether connecting locally or remotely.
-                uint clsctx = CLSCTX_INPROC_SERVER | CLSCTX_LOCAL_SERVER;
+                var clsctx = CLSCTX_INPROC_SERVER | CLSCTX_LOCAL_SERVER;
 
-                if (!String.IsNullOrEmpty(hostName) && hostName != "localhost")
+                if (!string.IsNullOrEmpty(hostName) && hostName != "localhost")
                 {
                     clsctx = CLSCTX_LOCAL_SERVER | CLSCTX_REMOTE_SERVER;
                 }
@@ -992,8 +990,8 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             char p;
             char l;
 
-            int pIndex = 0;
-            int tIndex = 0;
+            var pIndex = 0;
+            var tIndex = 0;
 
             while (tIndex < target.Length && pIndex < pattern.Length)
             {
@@ -1151,7 +1149,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                         {
                             c = target[tIndex++];
 
-                            if (!Char.IsDigit(c))
+                            if (!char.IsDigit(c))
                             {
                                 return false; // not a digit
                             }
@@ -1186,7 +1184,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         // ConvertCase
         private static char ConvertCase(char c, bool caseSensitive)
         {
-            return (caseSensitive) ? c : Char.ToUpper(c);
+            return (caseSensitive) ? c : char.ToUpper(c);
         }
 
         /// <summary>
@@ -1200,7 +1198,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             }
 
             // unmarshal HRESULT array.
-            int[] output = new int[size];
+            var output = new int[size];
             Marshal.Copy(pArray, output, 0, size);
 
             if (deallocate)
@@ -1222,7 +1220,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 return null;
             }
 
-            int[] array = new int[size];
+            var array = new int[size];
             Marshal.Copy(pArray, array, 0, size);
 
             if (deallocate)
@@ -1244,7 +1242,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 return null;
             }
 
-            int[] array = new int[size];
+            var array = new int[size];
             Marshal.Copy(pArray, array, 0, size);
 
             if (deallocate)
@@ -1261,11 +1259,11 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// </summary>
         public static IntPtr GetInt32s(int[] input)
         {
-            IntPtr output = IntPtr.Zero;
+            var output = IntPtr.Zero;
 
             if (input != null)
             {
-                output = Marshal.AllocCoTaskMem(Marshal.SizeOf(typeof(Int32)) * input.Length);
+                output = Marshal.AllocCoTaskMem(Marshal.SizeOf(typeof(int)) * input.Length);
                 Marshal.Copy(input, 0, output, input.Length);
             }
 
@@ -1282,7 +1280,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 return null;
             }
 
-            short[] array = new short[size];
+            var array = new short[size];
             Marshal.Copy(pArray, array, 0, size);
 
             if (deallocate)
@@ -1299,11 +1297,11 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// </summary>
         public static IntPtr GetInt16s(short[] input)
         {
-            IntPtr output = IntPtr.Zero;
+            var output = IntPtr.Zero;
 
             if (input != null)
             {
-                output = Marshal.AllocCoTaskMem(Marshal.SizeOf(typeof(Int16)) * input.Length);
+                output = Marshal.AllocCoTaskMem(Marshal.SizeOf(typeof(short)) * input.Length);
                 Marshal.Copy(input, 0, output, input.Length);
             }
 
@@ -1317,23 +1315,21 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// <returns>The pointer to the unmanaged memory buffer</returns>
         public static IntPtr GetUnicodeStrings(string[] values)
         {
-            int size = (values != null) ? values.Length : 0;
+            var size = (values != null) ? values.Length : 0;
 
             if (size <= 0)
             {
                 return IntPtr.Zero;
             }
 
-            IntPtr pValues = IntPtr.Zero;
+            var pointers = new int[size];
 
-            int[] pointers = new int[size];
-
-            for (int ii = 0; ii < size; ii++)
+            for (var ii = 0; ii < size; ii++)
             {
                 pointers[ii] = (int)Marshal.StringToCoTaskMemUni(values[ii]);
             }
 
-            pValues = Marshal.AllocCoTaskMem(values.Length * Marshal.SizeOf(typeof(IntPtr)));
+            var pValues = Marshal.AllocCoTaskMem(values.Length * Marshal.SizeOf(typeof(IntPtr)));
             Marshal.Copy(pointers, 0, pValues, size);
 
             return pValues;
@@ -1349,14 +1345,14 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 return null;
             }
 
-            IntPtr[] pointers = new IntPtr[size];
+            var pointers = new IntPtr[size];
             Marshal.Copy(pArray, pointers, 0, size);
 
-            string[] strings = new string[size];
+            var strings = new string[size];
 
-            for (int ii = 0; ii < size; ii++)
+            for (var ii = 0; ii < size; ii++)
             {
-                IntPtr pString = pointers[ii];
+                var pString = pointers[ii];
                 strings[ii] = Marshal.PtrToStringUni(pString);
                 if (deallocate)
                 {
@@ -1390,8 +1386,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             }
 
             // adjust for WIN32 FILETIME base.
-            long ticks = 0;
-
+            long ticks;
             if (preserveUtc_)
             {
                 ticks = datetime.Subtract(new TimeSpan(FILETIME_BaseTime.Ticks)).Ticks;
@@ -1438,16 +1433,16 @@ namespace Technosoftware.DaAeHdaClient.Utilities
 
             if (buffer < 0)
             {
-                buffer += ((long)UInt32.MaxValue + 1);
+                buffer += ((long)uint.MaxValue + 1);
             }
 
-            long ticks = (buffer << 32);
+            var ticks = (buffer << 32);
 
             buffer = filetime.dwLowDateTime;
 
             if (buffer < 0)
             {
-                buffer += ((long)UInt32.MaxValue + 1);
+                buffer += ((long)uint.MaxValue + 1);
             }
 
             ticks += buffer;
@@ -1476,18 +1471,18 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// <returns>The IntPtr array of FILETIMEs</returns>
         public static IntPtr GetFILETIMEs(DateTime[] datetimes)
         {
-            int count = (datetimes != null) ? datetimes.Length : 0;
+            var count = (datetimes != null) ? datetimes.Length : 0;
 
             if (count <= 0)
             {
                 return IntPtr.Zero;
             }
 
-            IntPtr pFiletimes = Marshal.AllocCoTaskMem(count * Marshal.SizeOf(typeof(System.Runtime.InteropServices.ComTypes.FILETIME)));
+            var pFiletimes = Marshal.AllocCoTaskMem(count * Marshal.SizeOf(typeof(System.Runtime.InteropServices.ComTypes.FILETIME)));
 
-            IntPtr pos = pFiletimes;
+            var pos = pFiletimes;
 
-            for (int ii = 0; ii < count; ii++)
+            for (var ii = 0; ii < count; ii++)
             {
                 Marshal.StructureToPtr(GetFILETIME(datetimes[ii]), pos, false);
                 pos = (IntPtr)(pos.ToInt64() + Marshal.SizeOf(typeof(System.Runtime.InteropServices.ComTypes.FILETIME)));
@@ -1506,11 +1501,11 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 return null;
             }
 
-            DateTime[] datetimes = new DateTime[size];
+            var datetimes = new DateTime[size];
 
-            IntPtr pos = pArray;
+            var pos = pArray;
 
-            for (int ii = 0; ii < size; ii++)
+            for (var ii = 0; ii < size; ii++)
             {
                 datetimes[ii] = GetDateTime(pos);
                 pos = (IntPtr)(pos.ToInt64() + Marshal.SizeOf(typeof(System.Runtime.InteropServices.ComTypes.FILETIME)));
@@ -1535,13 +1530,13 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 return null;
             }
 
-            Guid[] guids = new Guid[size];
+            var guids = new Guid[size];
 
-            IntPtr pos = pInput;
+            var pos = pInput;
 
-            for (int ii = 0; ii < size; ii++)
+            for (var ii = 0; ii < size; ii++)
             {
-                GUID input = (GUID)Marshal.PtrToStructure(pInput, typeof(GUID));
+                var input = (GUID)Marshal.PtrToStructure(pInput, typeof(GUID));
 
                 guids[ii] = new Guid(input.Data1, input.Data2, input.Data3, input.Data4);
 
@@ -1573,10 +1568,10 @@ namespace Technosoftware.DaAeHdaClient.Utilities
             // convert a decimal array to an object array since decimal arrays can't be converted to a variant.
             if (source.GetType() == typeof(decimal[]))
             {
-                decimal[] srcArray = (decimal[])source;
-                object[] dstArray = new object[srcArray.Length];
+                var srcArray = (decimal[])source;
+                var dstArray = new object[srcArray.Length];
 
-                for (int ii = 0; ii < srcArray.Length; ii++)
+                for (var ii = 0; ii < srcArray.Length; ii++)
                 {
                     try
                     {
@@ -1584,7 +1579,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                     }
                     catch (Exception)
                     {
-                        dstArray[ii] = Double.NaN;
+                        dstArray[ii] = double.NaN;
                     }
                 }
 
@@ -1626,8 +1621,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 return 0;
             }
 
-            CultureInfo locale = null;
-
+            CultureInfo locale;
             try { locale = new CultureInfo(input); }
             catch { locale = CultureInfo.CurrentCulture; }
 
@@ -1925,8 +1919,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         /// </summary>
         public static string GetSystemMessage(int error, int localeId)
         {
-            int langId = 0;
-
+            int langId;
             switch (localeId)
             {
                 case LOCALE_SYSTEM_DEFAULT:
@@ -1948,9 +1941,9 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                     }
             }
 
-            IntPtr buffer = Marshal.AllocCoTaskMem(MAX_MESSAGE_LENGTH);
+            var buffer = Marshal.AllocCoTaskMem(MAX_MESSAGE_LENGTH);
 
-            int result = FormatMessageW(
+            var result = FormatMessageW(
                 (int)FORMAT_MESSAGE_FROM_SYSTEM,
                 IntPtr.Zero,
                 error,
@@ -1961,7 +1954,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
 
             if (result > 0)
             {
-                string msg = Marshal.PtrToStringUni(buffer);
+                var msg = Marshal.PtrToStringUni(buffer);
                 Marshal.FreeCoTaskMem(buffer);
 
                 if (!string.IsNullOrEmpty(msg))

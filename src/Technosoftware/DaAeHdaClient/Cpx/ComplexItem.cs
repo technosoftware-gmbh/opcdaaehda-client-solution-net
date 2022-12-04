@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -197,7 +197,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			Clear();
 
 			// check if the item supports any of the complex data properties. 
-			TsCDaItemPropertyCollection[] results = server.GetProperties(
+			var results = server.GetProperties(
 				new OpcItem[] { this },
 				CPX_PROPERTIES,
 				true);
@@ -235,9 +235,9 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			try
 			{
 				// look for the 'CPX' branch.
-				TsCDaBrowseFilters filters = new TsCDaBrowseFilters { ElementNameFilter = CPX_BRANCH, BrowseFilter = TsCDaBrowseFilter.Branch, ReturnAllProperties = false, PropertyIDs = null, ReturnPropertyValues = false };
+				var filters = new TsCDaBrowseFilters { ElementNameFilter = CPX_BRANCH, BrowseFilter = TsCDaBrowseFilter.Branch, ReturnAllProperties = false, PropertyIDs = null, ReturnPropertyValues = false };
 
-				TsCDaBrowseElement[] elements = server.Browse(this, filters, out position);
+				var elements = server.Browse(this, filters, out position);
 
 				// nothing found.
 				if (elements == null || elements.Length == 0)
@@ -253,7 +253,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				}
 
 				// browse for type conversions.
-				OpcItem itemID = new OpcItem(elements[0].ItemPath, elements[0].ItemName);
+				var itemID = new OpcItem(elements[0].ItemPath, elements[0].ItemName);
 
 				filters.ElementNameFilter = null;
 				filters.BrowseFilter = TsCDaBrowseFilter.Item;
@@ -270,13 +270,13 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				}
 
 				// contruct an array of complex data items for each available conversion.
-				ArrayList conversions = new ArrayList(elements.Length);
+				var conversions = new ArrayList(elements.Length);
 
 				Array.ForEach(elements, element =>
 				{
 					if (element.Name != CPX_DATA_FILTERS)
 					{
-						TsCCpxComplexItem item = new TsCCpxComplexItem();
+						var item = new TsCCpxComplexItem();
 						if (item.Init(element))
 						{
 							// check if data filters supported for type conversion.
@@ -322,9 +322,9 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			try
 			{
 				// browse any existing filter instances.
-				TsCDaBrowseFilters filters = new TsCDaBrowseFilters { ElementNameFilter = null, BrowseFilter = TsCDaBrowseFilter.Item, ReturnAllProperties = false, PropertyIDs = CPX_PROPERTIES, ReturnPropertyValues = true };
+				var filters = new TsCDaBrowseFilters { ElementNameFilter = null, BrowseFilter = TsCDaBrowseFilter.Item, ReturnAllProperties = false, PropertyIDs = CPX_PROPERTIES, ReturnPropertyValues = true };
 
-				TsCDaBrowseElement[] elements = server.Browse(_filterItem, filters, out position);
+				var elements = server.Browse(_filterItem, filters, out position);
 
 				// nothing found.
 				if (elements == null || elements.Length == 0)
@@ -333,11 +333,11 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				}
 
 				// contruct an array of complex data items for each available data filter.
-				ArrayList dataFilters = new ArrayList(elements.Length);
+				var dataFilters = new ArrayList(elements.Length);
 
 				Array.ForEach(elements, element =>
 				{
-					TsCCpxComplexItem item = new TsCCpxComplexItem();
+					var item = new TsCCpxComplexItem();
 					if (item.Init(element))
 						dataFilters.Add(item);
 				});
@@ -380,12 +380,12 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			try
 			{
 				// write the desired filter to the server.
-				TsCDaItemValue item = new TsCDaItemValue(_filterItem);
+				var item = new TsCDaItemValue(_filterItem);
 
 				// create the filter parameters document.
-				using (StringWriter ostrm = new StringWriter())
+				using (var ostrm = new StringWriter())
 				{
-					using (XmlTextWriter writer = new XmlTextWriter(ostrm))
+					using (var writer = new XmlTextWriter(ostrm))
 					{
 						writer.WriteStartElement("DataFilters");
 						writer.WriteAttributeString("Name", filterName);
@@ -402,7 +402,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				item.TimestampSpecified = false;
 
 				// write the value.
-				OpcItemResult[] result = server.Write(new TsCDaItemValue[] { item });
+				var result = server.Write(new TsCDaItemValue[] { item });
 
 				if (result == null || result.Length == 0)
 				{
@@ -415,9 +415,9 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				}
 
 				// browse for new data filter item.
-				TsCDaBrowseFilters filters = new TsCDaBrowseFilters { ElementNameFilter = filterName, BrowseFilter = TsCDaBrowseFilter.Item, ReturnAllProperties = false, PropertyIDs = CPX_PROPERTIES, ReturnPropertyValues = true };
+				var filters = new TsCDaBrowseFilters { ElementNameFilter = filterName, BrowseFilter = TsCDaBrowseFilter.Item, ReturnAllProperties = false, PropertyIDs = CPX_PROPERTIES, ReturnPropertyValues = true };
 
-				TsCDaBrowseElement[] elements = server.Browse(_filterItem, filters, out position);
+				var elements = server.Browse(_filterItem, filters, out position);
 
 				// nothing found.
 				if (elements == null || elements.Length == 0)
@@ -425,7 +425,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 					throw new OpcResultException(new OpcResult((int)OpcResult.Cpx.E_FILTER_ERROR.Code, OpcResult.FuncCallType.SysFuncCall, null), "Could not browse to new data filter.");
 				}
 
-				TsCCpxComplexItem filterItem = new TsCCpxComplexItem();
+				var filterItem = new TsCCpxComplexItem();
 
 				if (!filterItem.Init(elements[0]))
 				{
@@ -440,9 +440,8 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				if (position != null)
 				{
 					position.Dispose();
-					position = null;
-				}
-			}
+                }
+            }
 		}
 
 		/// <summary>
@@ -459,10 +458,10 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			}
 
 			// create the value to write.
-			TsCDaItemValue item = new TsCDaItemValue(this) { Value = filterValue, Quality = TsCDaQuality.Bad, QualitySpecified = false, Timestamp = DateTime.MinValue, TimestampSpecified = false };
+			var item = new TsCDaItemValue(this) { Value = filterValue, Quality = TsCDaQuality.Bad, QualitySpecified = false, Timestamp = DateTime.MinValue, TimestampSpecified = false };
 
 			// write the value.
-			OpcItemResult[] result = server.Write(new TsCDaItemValue[] { item });
+			var result = server.Write(new TsCDaItemValue[] { item });
 
 			if (result == null || result.Length == 0)
 			{
@@ -484,7 +483,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		/// <param name="server">The server object</param>
 		public string GetTypeDictionary(TsCDaServer server)
 		{
-			TsCDaItemPropertyCollection[] results = server.GetProperties(
+			var results = server.GetProperties(
 				new OpcItem[] { _dictionaryItemID },
 				new TsDaPropertyID[] { TsDaProperty.DICTIONARY },
 				true);
@@ -494,7 +493,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				return null;
 			}
 
-			TsCDaItemProperty property = results[0][0];
+			var property = results[0][0];
 
 			if (!property.Result.Succeeded())
 			{
@@ -510,7 +509,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		/// <param name="server">The server object</param>
 		public string GetTypeDescription(TsCDaServer server)
 		{
-			TsCDaItemPropertyCollection[] results = server.GetProperties(
+			var results = server.GetProperties(
 				new OpcItem[] { _typeItemID },
 				new TsDaPropertyID[] { TsDaProperty.TYPE_DESCRIPTION },
 				true);
@@ -520,7 +519,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				return null;
 			}
 
-			TsCDaItemProperty property = results[0][0];
+			var property = results[0][0];
 
 			if (!property.Result.Succeeded())
 			{
@@ -548,10 +547,10 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 
 			try
 			{
-				OpcItem itemID = new OpcItem(this);
+				var itemID = new OpcItem(this);
 
 				// browse any existing filter instances.
-				TsCDaBrowseFilters filters = new TsCDaBrowseFilters { ElementNameFilter = CPX_DATA_FILTERS, BrowseFilter = TsCDaBrowseFilter.All, ReturnAllProperties = false, PropertyIDs = null, ReturnPropertyValues = false };
+				var filters = new TsCDaBrowseFilters { ElementNameFilter = CPX_DATA_FILTERS, BrowseFilter = TsCDaBrowseFilter.All, ReturnAllProperties = false, PropertyIDs = null, ReturnPropertyValues = false };
 
 				TsCDaBrowseElement[] elements = null;
 
@@ -597,9 +596,8 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				if (position != null)
 				{
 					position.Dispose();
-					position = null;
-				}
-			}
+                }
+            }
 		}
 
 		#endregion
@@ -650,7 +648,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 				return false;
 			}
 
-			foreach (TsCDaItemProperty property in properties)
+			foreach (var property in properties)
 			{
 				// continue - ignore invalid properties.
 				if (!property.Result.Succeeded())

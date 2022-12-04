@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -232,22 +232,22 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (subscription_ == null) throw new NotConnectedException();
             lock (lock_)
             {
-                string methodName = "IOPCGroupStateMgt.GetState";
-                TsCDaSubscriptionState state = new TsCDaSubscriptionState { ClientHandle = _handle };
+                var methodName = "IOPCGroupStateMgt.GetState";
+                var state = new TsCDaSubscriptionState { ClientHandle = _handle };
 
                 string name = null;
 
                 try
                 {
-                    int active = 0;
-                    int updateRate = 0;
+                    var active = 0;
+                    var updateRate = 0;
                     float deadband = 0;
-                    int timebias = 0;
-                    int localeID = 0;
-                    int clientHandle = 0;
-                    int serverHandle = 0;
+                    var timebias = 0;
+                    var localeID = 0;
+                    var clientHandle = 0;
+                    var serverHandle = 0;
               
-                    IOPCGroupStateMgt subscription = BeginComCall<IOPCGroupStateMgt>(methodName, true);
+                    var subscription = BeginComCall<IOPCGroupStateMgt>(methodName, true);
                     subscription.GetState(
                         out updateRate,
                         out active,
@@ -289,8 +289,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     methodName = "IOPCGroupStateMgt2.GetKeepAlive";
                     try
                     {                
-                        int keepAlive = 0;
-                        IOPCGroupStateMgt2 subscription = BeginComCall<IOPCGroupStateMgt2>(methodName, true);
+                        var keepAlive = 0;
+                        var subscription = BeginComCall<IOPCGroupStateMgt2>(methodName, true);
                         subscription.GetKeepAlive(out keepAlive);
 
                         if (DCOMCallWatchdog.IsCancelled)
@@ -328,13 +328,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (lock_)
             {               
-                string methodName = "IOPCGroupStateMgt.SetName";
+                var methodName = "IOPCGroupStateMgt.SetName";
                 // update the subscription name.
                 if ((masks & (int)TsCDaStateMask.Name) != 0 && state.Name != name_)
                 {
                     try
                     {
-                        IOPCGroupStateMgt subscription = BeginComCall<IOPCGroupStateMgt>(methodName, true);
+                        var subscription = BeginComCall<IOPCGroupStateMgt>(methodName, true);
                         subscription.SetName(state.Name);
 
                         if (DCOMCallWatchdog.IsCancelled)
@@ -365,20 +365,20 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // update the subscription state.
-                int active = (state.Active) ? 1 : 0;
-                int localeID = ((masks & (int)TsCDaStateMask.Locale) != 0) ? Technosoftware.DaAeHdaClient.Com.Interop.GetLocale(state.Locale) : 0;
+                var active = (state.Active) ? 1 : 0;
+                var localeID = ((masks & (int)TsCDaStateMask.Locale) != 0) ? Technosoftware.DaAeHdaClient.Com.Interop.GetLocale(state.Locale) : 0;
 
-                GCHandle hActive = GCHandle.Alloc(active, GCHandleType.Pinned);
-                GCHandle hLocale = GCHandle.Alloc(localeID, GCHandleType.Pinned);
-                GCHandle hUpdateRate = GCHandle.Alloc(state.UpdateRate, GCHandleType.Pinned);
-                GCHandle hDeadband = GCHandle.Alloc(state.Deadband, GCHandleType.Pinned);
+                var hActive = GCHandle.Alloc(active, GCHandleType.Pinned);
+                var hLocale = GCHandle.Alloc(localeID, GCHandleType.Pinned);
+                var hUpdateRate = GCHandle.Alloc(state.UpdateRate, GCHandleType.Pinned);
+                var hDeadband = GCHandle.Alloc(state.Deadband, GCHandleType.Pinned);
 
-                int updateRate = 0;
+                var updateRate = 0;
 
                 methodName = "IOPCGroupStateMgt.SetState";
                 try
                 {                
-                    IOPCGroupStateMgt subscription = BeginComCall<IOPCGroupStateMgt>(methodName, true);
+                    var subscription = BeginComCall<IOPCGroupStateMgt>(methodName, true);
                     subscription.SetState(
                         ((masks & (int)TsCDaStateMask.UpdateRate) != 0) ? hUpdateRate.AddrOfPinnedObject() : IntPtr.Zero,
                         out updateRate,
@@ -410,12 +410,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 // set keep alive, if supported.
                 if ((masks & (int)TsCDaStateMask.KeepAlive) != 0)
                 {
-                    int keepAlive = 0;
+                    var keepAlive = 0;
 
                     methodName = "IOPCGroupStateMgt2.SetKeepAlive";
                     try
                     {           
-                        IOPCGroupStateMgt2 subscription = BeginComCall<IOPCGroupStateMgt2>(methodName, true);
+                        var subscription = BeginComCall<IOPCGroupStateMgt2>(methodName, true);
                         subscription.SetKeepAlive(state.KeepAlive, out keepAlive);
 
                         if (DCOMCallWatchdog.IsCancelled)
@@ -458,26 +458,26 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             lock (lock_)
             {
                 // marshal input parameters.
-                int count = items.Length;
+                var count = items.Length;
 
-                OPCITEMDEF[] definitions = Interop.GetOPCITEMDEFs(items);
+                var definitions = Interop.GetOPCITEMDEFs(items);
                 TsCDaItemResult[] results = null;
 
                 lock (items_)
                 {
-                    for (int ii = 0; ii < count; ii++)
+                    for (var ii = 0; ii < count; ii++)
                     {
                         definitions[ii].hClient = ++_counter;
                     }
 
                     // initialize output parameters.
-                    IntPtr pResults = IntPtr.Zero;
-                    IntPtr pErrors = IntPtr.Zero;
+                    var pResults = IntPtr.Zero;
+                    var pErrors = IntPtr.Zero;
 
-                    string methodName = "IOPCItemMgt.AddItems";
+                    var methodName = "IOPCItemMgt.AddItems";
                     try
                     {          
-                        IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(methodName, true);
+                        var subscription = BeginComCall<IOPCItemMgt>(methodName, true);
                         subscription.AddItems(
                             count,
                             definitions,
@@ -500,13 +500,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     }
 
                     // unmarshal output parameters.
-                    int[] serverHandles = Interop.GetItemResults(ref pResults, count, true);
-                    int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, count, true);
+                    var serverHandles = Interop.GetItemResults(ref pResults, count, true);
+                    var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, count, true);
 
                     // construct result list.
                     results = new TsCDaItemResult[count];
 
-                    for (int ii = 0; ii < count; ii++)
+                    for (var ii = 0; ii < count; ii++)
                     {
                         // create a new Result.
                         results[ii] = new TsCDaItemResult(items[ii]);
@@ -547,12 +547,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 lock (items_)
                 {
-                    TsCDaItemResult[] filteredResults = (TsCDaItemResult[])items_.ApplyFilters(_filters, results);
+                    var filteredResults = (TsCDaItemResult[])items_.ApplyFilters(_filters, results);
 
                     // need to return the client handle for failed items.
                     if ((_filters & (int)TsCDaResultFilter.ClientHandle) != 0)
                     {
-                        for (int ii = 0; ii < count; ii++)
+                        for (var ii = 0; ii < count; ii++)
                         {
                             if (filteredResults[ii].Result.Failed())
                             {
@@ -634,20 +634,20 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // fetch server handles.
-                int[] serverHandles = new int[itemIDs.Length];
+                var serverHandles = new int[itemIDs.Length];
 
-                for (int ii = 0; ii < itemIDs.Length; ii++)
+                for (var ii = 0; ii < itemIDs.Length; ii++)
                 {
                     serverHandles[ii] = (int)itemIDs[ii].ServerHandle;
                 }
 
                 // initialize output parameters.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                string methodName = "IOPCItemMgt.RemoveItems";
+                var methodName = "IOPCItemMgt.RemoveItems";
                 try
                 {         
-                    IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(methodName, true);
+                    var subscription = BeginComCall<IOPCItemMgt>(methodName, true);
                     subscription.RemoveItems(itemIDs.Length, serverHandles, out pErrors);
 
                     if (DCOMCallWatchdog.IsCancelled)
@@ -666,14 +666,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // unmarshal output parameters.
-                int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
+                var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
 
                 // process results.
-                OpcItemResult[] results = new OpcItemResult[itemIDs.Length];
+                var results = new OpcItemResult[itemIDs.Length];
 
-                ArrayList itemsToRemove = new ArrayList(itemIDs.Length);
+                var itemsToRemove = new ArrayList(itemIDs.Length);
 
-                for (int ii = 0; ii < itemIDs.Length; ii++)
+                for (var ii = 0; ii < itemIDs.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(itemIDs[ii]);
 
@@ -730,7 +730,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // read from the server.
-                TsCDaItemValueResult[] results = Read(itemIDs, items);
+                var results = Read(itemIDs, items);
 
                 // return results.
                 lock (items_)
@@ -767,7 +767,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // write to the server.
-                OpcItemResult[] results = Write(itemIDs, items);
+                var results = Write(itemIDs, items);
 
                 // return results.
                 lock (items_)
@@ -823,7 +823,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // create request object.
-                Request internalRequest = new Request(
+                var internalRequest = new Request(
                     this,
                     requestHandle,
                     _filters,
@@ -836,7 +836,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 // begin read request.
                 OpcItemResult[] results = null;
-                int cancelID = 0;
+                var cancelID = 0;
 
                 try
                 {
@@ -913,7 +913,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // create request object.
-                Request internalRequest = new Request(
+                var internalRequest = new Request(
                     this,
                     requestHandle,
                     _filters,
@@ -926,7 +926,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 // begin write request.
                 OpcItemResult[] results = null;
-                int cancelID = 0;
+                var cancelID = 0;
 
                 try
                 {
@@ -982,10 +982,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     ((Request)request).Callback = callback;
 
                     // send a cancel request to the server.
-                    string methodName = "IOPCAsyncIO2.Cancel2";
+                    var methodName = "IOPCAsyncIO2.Cancel2";
                     try
                     {
-                        IOPCAsyncIO2 subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
+                        var subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
                         subscription.Cancel2(((Request)request).CancelID);
 
                         if (DCOMCallWatchdog.IsCancelled)
@@ -1014,12 +1014,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (subscription_ == null) throw new NotConnectedException();
             lock (lock_)
             {
-                string methodName = "IOPCAsyncIO3.RefreshMaxAge";
+                var methodName = "IOPCAsyncIO3.RefreshMaxAge";
                 try
                 {
-                    int cancelID = 0;
-                    IOPCAsyncIO3 subscription = BeginComCall<IOPCAsyncIO3>(methodName, true);
-                    subscription.RefreshMaxAge(Int32.MaxValue, ++_counter, out cancelID);
+                    var cancelID = 0;
+                    var subscription = BeginComCall<IOPCAsyncIO3>(methodName, true);
+                    subscription.RefreshMaxAge(int.MaxValue, ++_counter, out cancelID);
 
                     if (DCOMCallWatchdog.IsCancelled)
                     {
@@ -1058,19 +1058,19 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // create request object.
-                Request internalRequest = new Request(
+                var internalRequest = new Request(
                     this,
                     requestHandle,
                     _filters,
                     _counter++,
                     null);
 
-                int cancelID = 0;
+                var cancelID = 0;
 
-                string methodName = "IOPCAsyncIO3.RefreshMaxAge";
+                var methodName = "IOPCAsyncIO3.RefreshMaxAge";
                 try
                 {
-                    IOPCAsyncIO3 subscription = BeginComCall<IOPCAsyncIO3>(methodName, true);
+                    var subscription = BeginComCall<IOPCAsyncIO3>(methodName, true);
                     subscription.RefreshMaxAge(0, (int)internalRequest.RequestID, out cancelID);
 
                     if (DCOMCallWatchdog.IsCancelled)
@@ -1107,10 +1107,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (subscription_ == null) throw new NotConnectedException();
             lock (lock_)
             {
-                string methodName = "IOPCAsyncIO3.SetEnable";
+                var methodName = "IOPCAsyncIO3.SetEnable";
                 try
                 {
-                    IOPCAsyncIO3 subscription = BeginComCall<IOPCAsyncIO3>(methodName, true);
+                    var subscription = BeginComCall<IOPCAsyncIO3>(methodName, true);
                     subscription.SetEnable((enabled) ? 1 : 0);
 
                     if (DCOMCallWatchdog.IsCancelled)
@@ -1139,11 +1139,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (subscription_ == null) throw new NotConnectedException();
             lock (lock_)
             {
-                string methodName = "IOPCAsyncIO3.GetEnable";
+                var methodName = "IOPCAsyncIO3.GetEnable";
                 try
                 {
-                    int enabled = 0;
-                    IOPCAsyncIO3 subscription = BeginComCall<IOPCAsyncIO3>(methodName, true);
+                    var enabled = 0;
+                    var subscription = BeginComCall<IOPCAsyncIO3>(methodName, true);
                     subscription.GetEnable(out enabled);
 
                     if (DCOMCallWatchdog.IsCancelled)
@@ -1190,7 +1190,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     }
                 }
 
-                T comObject = subscription_ as T;
+                var comObject = subscription_ as T;
 
                 if (comObject == null)
                 {
@@ -1244,26 +1244,26 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         protected virtual TsCDaItemValueResult[] Read(OpcItem[] itemIDs, TsCDaItem[] items)
         {
-            string methodName = "IOPCSyncIO2.ReadMaxAge";
+            var methodName = "IOPCSyncIO2.ReadMaxAge";
             try
             {
                 // marshal input parameters.
-                int[] serverHandles = new int[itemIDs.Length];
-                int[] maxAges = new int[itemIDs.Length];
+                var serverHandles = new int[itemIDs.Length];
+                var maxAges = new int[itemIDs.Length];
 
-                for (int ii = 0; ii < itemIDs.Length; ii++)
+                for (var ii = 0; ii < itemIDs.Length; ii++)
                 {
                     serverHandles[ii] = (int)itemIDs[ii].ServerHandle;
                     maxAges[ii] = (items[ii].MaxAgeSpecified) ? items[ii].MaxAge : 0;
                 }
 
                 // initialize output parameters.
-                IntPtr pValues = IntPtr.Zero;
-                IntPtr pQualities = IntPtr.Zero;
-                IntPtr pTimestamps = IntPtr.Zero;
-                IntPtr pErrors = IntPtr.Zero;
+                var pValues = IntPtr.Zero;
+                var pQualities = IntPtr.Zero;
+                var pTimestamps = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                IOPCSyncIO2 subscription = BeginComCall<IOPCSyncIO2>(methodName, true);
+                var subscription = BeginComCall<IOPCSyncIO2>(methodName, true);
                 subscription.ReadMaxAge(
                     itemIDs.Length,
                     serverHandles,
@@ -1279,15 +1279,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // unmarshal output parameters.
-                object[] values = Com.Interop.GetVARIANTs(ref pValues, itemIDs.Length, true);
-                short[] qualities = Technosoftware.DaAeHdaClient.Com.Interop.GetInt16s(ref pQualities, itemIDs.Length, true);
-                DateTime[] timestamps = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIMEs(ref pTimestamps, itemIDs.Length, true);
-                int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
+                var values = Com.Interop.GetVARIANTs(ref pValues, itemIDs.Length, true);
+                var qualities = Technosoftware.DaAeHdaClient.Com.Interop.GetInt16s(ref pQualities, itemIDs.Length, true);
+                var timestamps = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIMEs(ref pTimestamps, itemIDs.Length, true);
+                var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
 
                 // create item results.
-                TsCDaItemValueResult[] results = new TsCDaItemValueResult[itemIDs.Length];
+                var results = new TsCDaItemValueResult[itemIDs.Length];
 
-                for (int ii = 0; ii < itemIDs.Length; ii++)
+                for (var ii = 0; ii < itemIDs.Length; ii++)
                 {
                     results[ii] = new TsCDaItemValueResult(itemIDs[ii]);
 
@@ -1322,23 +1322,23 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         protected virtual OpcItemResult[] Write(OpcItem[] itemIDs, TsCDaItemValue[] items)
         {
-            string methodName = "IOPCSyncIO2.WriteVQT";
+            var methodName = "IOPCSyncIO2.WriteVQT";
             try
             {
                 // initialize input parameters.
-                int[] serverHandles = new int[itemIDs.Length];
+                var serverHandles = new int[itemIDs.Length];
 
-                for (int ii = 0; ii < itemIDs.Length; ii++)
+                for (var ii = 0; ii < itemIDs.Length; ii++)
                 {
                     serverHandles[ii] = (int)itemIDs[ii].ServerHandle;
                 }
 
-                OPCITEMVQT[] values = Interop.GetOPCITEMVQTs(items);
+                var values = Interop.GetOPCITEMVQTs(items);
 
                 // write to sever.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                IOPCSyncIO2 subscription = BeginComCall<IOPCSyncIO2>(methodName, true);
+                var subscription = BeginComCall<IOPCSyncIO2>(methodName, true);
                 subscription.WriteVQT(
                     itemIDs.Length,
                     serverHandles,
@@ -1351,12 +1351,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // unmarshal results.
-                int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
+                var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
 
                 // create result list.
-                OpcItemResult[] results = new OpcItemResult[itemIDs.Length];
+                var results = new OpcItemResult[itemIDs.Length];
 
-                for (int ii = 0; ii < itemIDs.Length; ii++)
+                for (var ii = 0; ii < itemIDs.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(itemIDs[ii]);
 
@@ -1390,23 +1390,23 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             int requestID,
             out int cancelID)
         {
-            string methodName = "IOPCAsyncIO3.ReadMaxAge";
+            var methodName = "IOPCAsyncIO3.ReadMaxAge";
             try
             {
                 // marshal input parameters.
-                int[] serverHandles = new int[itemIDs.Length];
-                int[] maxAges = new int[itemIDs.Length];
+                var serverHandles = new int[itemIDs.Length];
+                var maxAges = new int[itemIDs.Length];
 
-                for (int ii = 0; ii < itemIDs.Length; ii++)
+                for (var ii = 0; ii < itemIDs.Length; ii++)
                 {
                     serverHandles[ii] = (int)itemIDs[ii].ServerHandle;
                     maxAges[ii] = (items[ii].MaxAgeSpecified) ? items[ii].MaxAge : 0;
                 }
 
                 // initialize output parameters.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                IOPCAsyncIO3 subscription = BeginComCall<IOPCAsyncIO3>(methodName, true);
+                var subscription = BeginComCall<IOPCAsyncIO3>(methodName, true);
                 subscription.ReadMaxAge(
                     itemIDs.Length,
                     serverHandles,
@@ -1421,12 +1421,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // unmarshal output parameters.
-                int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
+                var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
 
                 // create item results.
-                OpcItemResult[] results = new OpcItemResult[itemIDs.Length];
+                var results = new OpcItemResult[itemIDs.Length];
 
-                for (int ii = 0; ii < itemIDs.Length; ii++)
+                for (var ii = 0; ii < itemIDs.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(itemIDs[ii]);
 
@@ -1460,23 +1460,23 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             int requestID,
             out int cancelID)
         {
-            string methodName = "IOPCAsyncIO3.WriteVQT";
+            var methodName = "IOPCAsyncIO3.WriteVQT";
             try
             {
                 // initialize input parameters.
-                int[] serverHandles = new int[itemIDs.Length];
+                var serverHandles = new int[itemIDs.Length];
 
-                for (int ii = 0; ii < itemIDs.Length; ii++)
+                for (var ii = 0; ii < itemIDs.Length; ii++)
                 {
                     serverHandles[ii] = (int)itemIDs[ii].ServerHandle;
                 }
 
-                OPCITEMVQT[] values = Interop.GetOPCITEMVQTs(items);
+                var values = Interop.GetOPCITEMVQTs(items);
 
                 // write to sever.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                IOPCAsyncIO3 subscription = BeginComCall<IOPCAsyncIO3>(methodName, true);
+                var subscription = BeginComCall<IOPCAsyncIO3>(methodName, true);
                 subscription.WriteVQT(
                     itemIDs.Length,
                     serverHandles,
@@ -1491,12 +1491,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // unmarshal results.
-                int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
+                var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
 
                 // create result list.
-                OpcItemResult[] results = new OpcItemResult[itemIDs.Length];
+                var results = new OpcItemResult[itemIDs.Length];
 
-                for (int ii = 0; ii < itemIDs.Length; ii++)
+                for (var ii = 0; ii < itemIDs.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(itemIDs[ii]);
 
@@ -1530,9 +1530,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (items == null || items.Length == 0) return;
 
             // clients must explicitly set the ReqType to typeof(object) in order to set it to VT_EMPTY.
-            ArrayList changedItems = new ArrayList();
+            var changedItems = new ArrayList();
 
-            foreach (TsCDaItemResult item in items)
+            foreach (var item in items)
             {
                 if (item.Result.Succeeded())
                 {
@@ -1544,24 +1544,24 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (changedItems.Count == 0) return;
 
             // invoke method.
-            string methodName = "IOPCItemMgt.SetDatatypes";
+            var methodName = "IOPCItemMgt.SetDatatypes";
             try
             {
                 // initialize input parameters.
-                int[] handles = new int[changedItems.Count];
-                short[] datatypes = new short[changedItems.Count];
+                var handles = new int[changedItems.Count];
+                var datatypes = new short[changedItems.Count];
 
-                for (int ii = 0; ii < changedItems.Count; ii++)
+                for (var ii = 0; ii < changedItems.Count; ii++)
                 {
-                    TsCDaItemResult item = (TsCDaItemResult)changedItems[ii];
+                    var item = (TsCDaItemResult)changedItems[ii];
                     handles[ii] = Convert.ToInt32(item.ServerHandle);
                     datatypes[ii] = (short)Technosoftware.DaAeHdaClient.Com.Interop.GetType(item.ReqType);
                 }
 
                 // initialize output parameters.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(methodName, true);
+                var subscription = BeginComCall<IOPCItemMgt>(methodName, true);
                 subscription.SetDatatypes(
                     changedItems.Count,
                     handles,
@@ -1574,13 +1574,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // check for individual item errors.
-                int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
+                var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
 
-                for (int ii = 0; ii < errors.Length; ii++)
+                for (var ii = 0; ii < errors.Length; ii++)
                 {
                     if (Technosoftware.DaAeHdaClient.Com.Interop.GetResultID(errors[ii]).Failed())
                     {
-                        TsCDaItemResult item = (TsCDaItemResult)changedItems[ii];
+                        var item = (TsCDaItemResult)changedItems[ii];
                         item.Result = OpcResult.Da.E_BADTYPE;
                         item.DiagnosticInfo = null;
                     }
@@ -1590,9 +1590,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             // treat any general failure to mean the item is deactivated.
             catch (Exception e)
             {
-                for (int ii = 0; ii < changedItems.Count; ii++)
+                for (var ii = 0; ii < changedItems.Count; ii++)
                 {
-                    TsCDaItemResult item = (TsCDaItemResult)changedItems[ii];
+                    var item = (TsCDaItemResult)changedItems[ii];
                     item.Result = OpcResult.Da.E_BADTYPE;
                     item.DiagnosticInfo = null;
                 }
@@ -1613,21 +1613,21 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (items == null || items.Length == 0) return;
 
             // invoke method.
-            string methodName = "IOPCItemMgt.SetActiveState";
+            var methodName = "IOPCItemMgt.SetActiveState";
             try
             {
                 // initialize input parameters.
-                int[] handles = new int[items.Length];
+                var handles = new int[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     handles[ii] = Convert.ToInt32(items[ii].ServerHandle);
                 }
 
                 // initialize output parameters.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(methodName, true);
+                var subscription = BeginComCall<IOPCItemMgt>(methodName, true);
                 subscription.SetActiveState(
                     items.Length,
                     handles,
@@ -1640,9 +1640,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // check for individual item errors.
-                int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
+                var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
 
-                for (int ii = 0; ii < errors.Length; ii++)
+                for (var ii = 0; ii < errors.Length; ii++)
                 {
                     if (Technosoftware.DaAeHdaClient.Com.Interop.GetResultID(errors[ii]).Failed())
                     {
@@ -1655,7 +1655,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             // treat any general failure to mean the item is deactivated.
             catch (Exception e)
             {
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     items[ii].Active = false;
                     items[ii].ActiveSpecified = true;
@@ -1676,10 +1676,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (items == null || items.Length == 0) return;
 
             // seperate items in two groups depending on whether the deadband is being set or cleared.
-            ArrayList activatedItems = new ArrayList();
-            ArrayList deactivatedItems = new ArrayList();
+            var activatedItems = new ArrayList();
+            var deactivatedItems = new ArrayList();
 
-            foreach (TsCDaItemResult item in items)
+            foreach (var item in items)
             {
                 if (item.Result.Succeeded() && item.ActiveSpecified)
                 {
@@ -1710,23 +1710,23 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (items == null || items.Length == 0) return;
 
             // invoke method.
-            string methodName = "IOPCItemDeadbandMgt.SetItemDeadband";
+            var methodName = "IOPCItemDeadbandMgt.SetItemDeadband";
             try
             {
                 // initialize input parameters.
-                int[] handles = new int[items.Length];
-                float[] deadbands = new float[items.Length];
+                var handles = new int[items.Length];
+                var deadbands = new float[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     handles[ii] = Convert.ToInt32(items[ii].ServerHandle);
                     deadbands[ii] = items[ii].Deadband;
                 }
 
                 // initialize output parameters.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                IOPCItemDeadbandMgt subscription = BeginComCall<IOPCItemDeadbandMgt>(methodName, true);
+                var subscription = BeginComCall<IOPCItemDeadbandMgt>(methodName, true);
                 subscription.SetItemDeadband(
                     handles.Length,
                     handles,
@@ -1739,9 +1739,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // check for individual item errors.
-                int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
+                var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
 
-                for (int ii = 0; ii < errors.Length; ii++)
+                for (var ii = 0; ii < errors.Length; ii++)
                 {
                     if (Technosoftware.DaAeHdaClient.Com.Interop.GetResultID(errors[ii]).Failed())
                     {
@@ -1754,7 +1754,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             // treat any general failure as an indication that deadband is not supported.
             catch (Exception e)
             {
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     items[ii].Deadband = 0;
                     items[ii].DeadbandSpecified = false;
@@ -1776,21 +1776,21 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (items == null || items.Length == 0) return;
 
             // invoke method.
-            string methodName = "IOPCItemDeadbandMgt.ClearItemDeadband";
+            var methodName = "IOPCItemDeadbandMgt.ClearItemDeadband";
             try
             {
                 // initialize input parameters.
-                int[] handles = new int[items.Length];
+                var handles = new int[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     handles[ii] = Convert.ToInt32(items[ii].ServerHandle);
                 }
 
                 // initialize output parameters.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                IOPCItemDeadbandMgt subscription = BeginComCall<IOPCItemDeadbandMgt>(methodName, true);
+                var subscription = BeginComCall<IOPCItemDeadbandMgt>(methodName, true);
                 subscription.ClearItemDeadband(
                     handles.Length,
                     handles,
@@ -1802,9 +1802,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // check for individual item errors.
-                int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
+                var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
 
-                for (int ii = 0; ii < errors.Length; ii++)
+                for (var ii = 0; ii < errors.Length; ii++)
                 {
                     if (Technosoftware.DaAeHdaClient.Com.Interop.GetResultID(errors[ii]).Failed())
                     {
@@ -1817,7 +1817,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             // treat any general failure as an indication that deadband is not supported.
             catch (Exception e)
             {
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     items[ii].Deadband = 0;
                     items[ii].DeadbandSpecified = false;
@@ -1838,10 +1838,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (items == null || items.Length == 0) return;
 
             // seperate items in two groups depending on whether the deadband is being set or cleared.
-            ArrayList changedItems = new ArrayList();
-            ArrayList clearedItems = new ArrayList();
+            var changedItems = new ArrayList();
+            var clearedItems = new ArrayList();
 
-            foreach (TsCDaItemResult item in items)
+            foreach (var item in items)
             {
                 if (item.Result.Succeeded())
                 {
@@ -1872,24 +1872,24 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (items == null || items.Length == 0) return;
 
             // invoke method.
-            string methodName = "IOPCItemSamplingMgt.SetItemSamplingRate";
+            var methodName = "IOPCItemSamplingMgt.SetItemSamplingRate";
             try
             {
                 // initialize input parameters.
-                int[] handles = new int[items.Length];
-                int[] samplingRate = new int[items.Length];
+                var handles = new int[items.Length];
+                var samplingRate = new int[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     handles[ii] = Convert.ToInt32(items[ii].ServerHandle);
                     samplingRate[ii] = items[ii].SamplingRate;
                 }
 
                 // initialize output parameters.
-                IntPtr pResults = IntPtr.Zero;
-                IntPtr pErrors = IntPtr.Zero;
+                var pResults = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                IOPCItemSamplingMgt subscription = BeginComCall<IOPCItemSamplingMgt>(methodName, false);
+                var subscription = BeginComCall<IOPCItemSamplingMgt>(methodName, false);
                 if (subscription != null)
                 {
                     subscription.SetItemSamplingRate(
@@ -1905,10 +1905,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     }
 
                     // check for individual item errors.
-                    int[] results = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pResults, handles.Length, true);
-                    int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
+                    var results = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pResults, handles.Length, true);
+                    var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
 
-                    for (int ii = 0; ii < errors.Length; ii++)
+                    for (var ii = 0; ii < errors.Length; ii++)
                     {
                         if (items[ii].SamplingRate != results[ii])
                         {
@@ -1930,7 +1930,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             // treat any general failure as an indication that sampling rate is not supported.
             catch (Exception e)
             {
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     items[ii].SamplingRate = 0;
                     items[ii].SamplingRateSpecified = false;
@@ -1952,21 +1952,21 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (items == null || items.Length == 0) return;
 
             // invoke method.
-            string methodName = "IOPCItemSamplingMgt.ClearItemSamplingRate";
+            var methodName = "IOPCItemSamplingMgt.ClearItemSamplingRate";
             try
             {
                 // initialize input parameters.
-                int[] handles = new int[items.Length];
+                var handles = new int[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     handles[ii] = Convert.ToInt32(items[ii].ServerHandle);
                 }
 
                 // initialize output parameters.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                IOPCItemSamplingMgt subscription = BeginComCall<IOPCItemSamplingMgt>(methodName, false);
+                var subscription = BeginComCall<IOPCItemSamplingMgt>(methodName, false);
                 if (subscription != null)
                 {
                     subscription.ClearItemSamplingRate(
@@ -1980,9 +1980,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     }
 
                     // check for individual item errors.
-                    int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
+                    var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
 
-                    for (int ii = 0; ii < errors.Length; ii++)
+                    for (var ii = 0; ii < errors.Length; ii++)
                     {
                         if (Technosoftware.DaAeHdaClient.Com.Interop.GetResultID(errors[ii]).Failed())
                         {
@@ -1996,7 +1996,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             // treat any general failure as an indication that sampling rate is not supported.
             catch (Exception e)
             {
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     items[ii].SamplingRate = 0;
                     items[ii].SamplingRateSpecified = false;
@@ -2017,10 +2017,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (items == null || items.Length == 0) return;
 
             // seperate items in two groups depending on whether the sampling rate is being set or cleared.
-            ArrayList changedItems = new ArrayList();
-            ArrayList clearedItems = new ArrayList();
+            var changedItems = new ArrayList();
+            var clearedItems = new ArrayList();
 
-            foreach (TsCDaItemResult item in items)
+            foreach (var item in items)
             {
                 if (item.Result.Succeeded())
                 {
@@ -2050,9 +2050,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             // check if there is nothing to do.
             if (items == null || items.Length == 0) return;
 
-            ArrayList changedItems = new ArrayList();
+            var changedItems = new ArrayList();
 
-            foreach (TsCDaItemResult item in items)
+            foreach (var item in items)
             {
                 if (item.Result.Succeeded())
                 {
@@ -2064,24 +2064,24 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             if (changedItems.Count == 0) return;
 
             // invoke method.
-            string methodName = "IOPCItemSamplingMgt.SetItemBufferEnable";
+            var methodName = "IOPCItemSamplingMgt.SetItemBufferEnable";
             try
             {
                 // initialize input parameters.
-                int[] handles = new int[changedItems.Count];
-                int[] enabled = new int[changedItems.Count];
+                var handles = new int[changedItems.Count];
+                var enabled = new int[changedItems.Count];
 
-                for (int ii = 0; ii < changedItems.Count; ii++)
+                for (var ii = 0; ii < changedItems.Count; ii++)
                 {
-                    TsCDaItemResult item = (TsCDaItemResult)changedItems[ii];
+                    var item = (TsCDaItemResult)changedItems[ii];
                     handles[ii] = Convert.ToInt32(item.ServerHandle);
                     enabled[ii] = (item.EnableBufferingSpecified && item.EnableBuffering) ? 1 : 0;
                 }
 
                 // initialize output parameters.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                IOPCItemSamplingMgt subscription = BeginComCall<IOPCItemSamplingMgt>(methodName, false);
+                var subscription = BeginComCall<IOPCItemSamplingMgt>(methodName, false);
                 if (subscription != null)
                 {
                     subscription.SetItemBufferEnable(
@@ -2096,11 +2096,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     }
 
                     // check for individual item errors.
-                    int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
+                    var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, handles.Length, true);
 
-                    for (int ii = 0; ii < errors.Length; ii++)
+                    for (var ii = 0; ii < errors.Length; ii++)
                     {
-                        TsCDaItemResult item = (TsCDaItemResult)changedItems[ii];
+                        var item = (TsCDaItemResult)changedItems[ii];
 
                         if (Technosoftware.DaAeHdaClient.Com.Interop.GetResultID(errors[ii]).Failed())
                         {
@@ -2197,7 +2197,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             /// <returns></returns>
             private int GetInvalidHandle()
             {
-                int invalidHandle = 0;
+                var invalidHandle = 0;
 
                 foreach (OpcItem item in items_.Values)
                 {
@@ -2219,15 +2219,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             public OpcItem[] GetItemIDs(OpcItem[] items)
             {
                 // create an invalid server handle.
-                int invalidHandle = GetInvalidHandle();
+                var invalidHandle = GetInvalidHandle();
 
                 // copy the items.
-                OpcItem[] itemIDs = new OpcItem[items.Length];
+                var itemIDs = new OpcItem[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     // lookup server handle.
-                    OpcItem itemID = this[items[ii].ServerHandle];
+                    var itemID = this[items[ii].ServerHandle];
 
                     // copy the item id.
                     if (itemID != null)
@@ -2256,15 +2256,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 if (items == null) { return null; }
 
-                TsCDaItemResult[] results = new TsCDaItemResult[items.Length];
+                var results = new TsCDaItemResult[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     // initialize result with the item
                     results[ii] = new TsCDaItemResult((TsCDaItem)items[ii]);
 
                     // lookup the cached identifier.
-                    OpcItem itemID = this[items[ii].ServerHandle];
+                    var itemID = this[items[ii].ServerHandle];
 
                     if (itemID != null)
                     {
@@ -2298,9 +2298,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 if (results == null) { return null; }
 
-                foreach (OpcItem result in results)
+                foreach (var result in results)
                 {
-                    OpcItem itemID = this[result.ClientHandle];
+                    var itemID = this[result.ClientHandle];
 
                     if (itemID != null)
                     {
@@ -2462,7 +2462,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                         if (_dataChangedEvent == null) return;
 
                         // unmarshal item values.
-                        TsCDaItemValueResult[] values = UnmarshalValues(
+                        var values = UnmarshalValues(
                             dwCount,
                             phClientItems,
                             pvValues,
@@ -2488,7 +2488,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
                 catch (Exception e)
                 {
-                    string stack = e.StackTrace;
+                    var stack = e.StackTrace;
                 }
             }
 
@@ -2547,7 +2547,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
                 catch (Exception e)
                 {
-                    string stack = e.StackTrace;
+                    var stack = e.StackTrace;
                 }
             }
 
@@ -2581,10 +2581,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                         // contruct the item results.
                         results = new OpcItemResult[dwCount];
 
-                        for (int ii = 0; ii < results.Length; ii++)
+                        for (var ii = 0; ii < results.Length; ii++)
                         {
                             // lookup the external client handle.
-                            OpcItem itemID = (OpcItem)items_[phClientItems[ii]];
+                            var itemID = (OpcItem)items_[phClientItems[ii]];
 
                             results[ii] = new OpcItemResult(itemID);
                             results[ii].ClientHandle = phClientItems[ii];
@@ -2610,7 +2610,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
                 catch (Exception e)
                 {
-                    string stack = e.StackTrace;
+                    var stack = e.StackTrace;
                 }
             }
 
@@ -2645,7 +2645,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
                 catch (Exception e)
                 {
-                    string stack = e.StackTrace;
+                    var stack = e.StackTrace;
                 }
             }
 
@@ -2661,12 +2661,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 int[] pErrors)
             {
                 // contruct the item value results.
-                TsCDaItemValueResult[] values = new TsCDaItemValueResult[dwCount];
+                var values = new TsCDaItemValueResult[dwCount];
 
-                for (int ii = 0; ii < values.Length; ii++)
+                for (var ii = 0; ii < values.Length; ii++)
                 {
                     // lookup the external client handle.
-                    OpcItem itemID = (OpcItem)items_[phClientItems[ii]];
+                    var itemID = (OpcItem)items_[phClientItems[ii]];
 
                     values[ii] = new TsCDaItemValueResult(itemID);
                     values[ii].ClientHandle = phClientItems[ii];
@@ -2747,14 +2747,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         {
             CancelID = cancelID;
 
-            TsCDaItemValueResult[] values = null;
-
             // check if results have already arrived.
             if (InitialResults != null)
             {
                 if (InitialResults.GetType() == typeof(TsCDaItemValueResult[]))
                 {
-                    values = (TsCDaItemValueResult[])InitialResults;
+                    var values = (TsCDaItemValueResult[])InitialResults;
                     InitialResults = results;
                     EndRequest(values);
                     return true;
@@ -2762,7 +2760,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             }
 
             // check that at least one valid item existed.
-            foreach (OpcItemResult result in results)
+            foreach (var result in results)
             {
                 if (result.Result.Succeeded())
                 {
@@ -2787,7 +2785,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 if (InitialResults.GetType() == typeof(OpcItemResult[]))
                 {
-                    OpcItemResult[] callbackResults = (OpcItemResult[])InitialResults;
+                    var callbackResults = (OpcItemResult[])InitialResults;
                     InitialResults = results;
                     EndRequest(callbackResults);
                     return true;
@@ -2795,7 +2793,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             }
 
             // check that at least one valid item existed.
-            foreach (OpcItemResult result in results)
+            foreach (var result in results)
             {
                 if (result.Result.Succeeded())
                 {
@@ -2805,7 +2803,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             }
 
             // apply filters.       
-            for (int ii = 0; ii < results.Length; ii++)
+            for (var ii = 0; ii < results.Length; ii++)
             {
                 if ((Filters & (int)TsCDaResultFilter.ItemName) == 0) results[ii].ItemName = null;
                 if ((Filters & (int)TsCDaResultFilter.ItemPath) == 0) results[ii].ItemPath = null;
@@ -2864,7 +2862,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             }
 
             // apply filters.
-            for (int ii = 0; ii < results.Length; ii++)
+            for (var ii = 0; ii < results.Length; ii++)
             {
                 if ((Filters & (int)TsCDaResultFilter.ItemName) == 0) results[ii].ItemName = null;
                 if ((Filters & (int)TsCDaResultFilter.ItemPath) == 0) results[ii].ItemPath = null;
@@ -2904,12 +2902,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             }
 
             // update initial results with callback results.
-            OpcItemResult[] results = (OpcItemResult[])InitialResults;
+            var results = (OpcItemResult[])InitialResults;
 
             // insert matching value by checking client handle.
-            int index = 0;
+            var index = 0;
 
-            for (int ii = 0; ii < results.Length; ii++)
+            for (var ii = 0; ii < results.Length; ii++)
             {
                 while (index < callbackResults.Length)
                 {
@@ -2925,7 +2923,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             }
 
             // apply filters.
-            for (int ii = 0; ii < results.Length; ii++)
+            for (var ii = 0; ii < results.Length; ii++)
             {
                 if ((Filters & (int)TsCDaResultFilter.ItemName) == 0) results[ii].ItemName = null;
                 if ((Filters & (int)TsCDaResultFilter.ItemPath) == 0) results[ii].ItemPath = null;

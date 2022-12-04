@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -111,7 +111,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public override string ToString()
         {
-            string hostName = string.IsNullOrEmpty(HostName) ? "localhost" : HostName;
+            var hostName = string.IsNullOrEmpty(HostName) ? "localhost" : HostName;
 
             if (Port > 0)
             {
@@ -176,10 +176,10 @@ namespace Technosoftware.DaAeHdaClient
         private void ParseUrl(string url)
         {
 
-            string buffer = url;
+            var buffer = url;
 
             // extract the scheme (default is http).
-            int index = buffer.IndexOf("://", StringComparison.Ordinal);
+            var index = buffer.IndexOf("://", StringComparison.Ordinal);
 
             if (index >= 0)
             {
@@ -195,7 +195,7 @@ namespace Technosoftware.DaAeHdaClient
                 return;
             }
 
-            string hostPortString = buffer.Substring(0, index);
+            var hostPortString = buffer.Substring(0, index);
 
             IPAddress.TryParse(hostPortString, out var address);
 
@@ -206,7 +206,7 @@ namespace Technosoftware.DaAeHdaClient
                     HostName = hostPortString.Substring(0, hostPortString.IndexOf("]", StringComparison.Ordinal) + 1);
                     if (hostPortString.Substring(hostPortString.IndexOf(']')).Contains(":"))
                     {
-                        string portString = hostPortString.Substring(hostPortString.LastIndexOf(':') + 1);
+                        var portString = hostPortString.Substring(hostPortString.LastIndexOf(':') + 1);
                         if (portString != "")
                         {
                             try

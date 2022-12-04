@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -61,7 +61,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// <param name="time">The relative time.</param>
         public TsCHdaTime(string time)
         {
-            TsCHdaTime value = Parse(time);
+            var value = Parse(time);
 
             absoluteTime_ = DateTime.MinValue;
             baseTime_ = value.baseTime_;
@@ -118,15 +118,15 @@ namespace Technosoftware.DaAeHdaClient.Hda
             }
 
             // get local time from the system.
-            DateTime time = DateTime.UtcNow;
+            var time = DateTime.UtcNow;
 
-            int years = time.Year;
-            int months = time.Month;
-            int days = time.Day;
-            int hours = time.Hour;
-            int minutes = time.Minute;
-            int seconds = time.Second;
-            int milliseconds = time.Millisecond;
+            var years = time.Year;
+            var months = time.Month;
+            var days = time.Day;
+            var hours = time.Hour;
+            var minutes = time.Minute;
+            var seconds = time.Second;
+            var milliseconds = time.Millisecond;
 
             // move to the beginning of the period indicated by the base time.
             switch (BaseTime)
@@ -223,7 +223,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
                 return OpcConvert.ToString(absoluteTime_);
             }
 
-            StringBuilder buffer = new StringBuilder(256);
+            var buffer = new StringBuilder(256);
 
             buffer.Append(BaseTypeToString(BaseTime));
             buffer.Append(Offsets);
@@ -241,14 +241,14 @@ namespace Technosoftware.DaAeHdaClient.Hda
             // remove trailing and leading white spaces.
             buffer = buffer.Trim();
 
-            TsCHdaTime time = new TsCHdaTime();
+            var time = new TsCHdaTime();
 
             // determine if string is a relative time.
-            bool isRelative = false;
+            var isRelative = false;
 
             foreach (TsCHdaRelativeTime baseTime in Enum.GetValues(typeof(TsCHdaRelativeTime)))
             {
-                string token = BaseTypeToString(baseTime);
+                var token = BaseTypeToString(baseTime);
 
                 if (buffer.StartsWith(token))
                 {

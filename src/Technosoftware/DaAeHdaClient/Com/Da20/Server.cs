@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,8 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
-
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 #region Using Directives
 using System;
 using System.Collections;
@@ -39,7 +38,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
     /// <summary>
     /// An in-process wrapper for a remote OPC Data Access 2.0X server.
     /// </summary>
-    internal class Server : Technosoftware.DaAeHdaClient.Com.Da.Server
+    internal class Server : Da.Server
     {
 
         #region Constructors
@@ -58,16 +57,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// <summary>
         /// This must be called explicitly by clients to ensure the COM server is released.
         /// </summary>
-        public void Dispose()
+        public new void Dispose()
         {
             lock (this)
             {
                 if (subscription_ != null)
                 {
-                    string methodName = "IOPCServer.RemoveGroup";
+                    var methodName = "IOPCServer.RemoveGroup";
                     try
                     {
-                        IOPCServer server = BeginComCall<IOPCServer>(methodName, true);
+                        var server = BeginComCall<IOPCServer>(methodName, true);
                         server.RemoveGroup(groupHandle_, 0);
                     }
                     catch (Exception e)
@@ -88,7 +87,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             }
         }
         #endregion
-        
+
         //======================================================================
         // Connection Management
 
@@ -103,14 +102,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 base.Initialize(url, connectData);
 
                 separators_ = null;
-                string methodName = "IOPCCommon.GetLocaleID";
+                var methodName = "IOPCCommon.GetLocaleID";
 
                 // create a global subscription required for various item level operations.
-                int localeID = 0;
+                var localeID = 0;
                 try
                 {
                     // get the default locale for the server.
-                    IOPCCommon server = BeginComCall<IOPCCommon>(methodName, true);
+                    var server = BeginComCall<IOPCCommon>(methodName, true);
                     server.GetLocaleID(out localeID);
                 }
                 catch (Exception e)
@@ -127,12 +126,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 // create a global subscription required for various item level operations.
                 methodName = "IOPCServer.AddGroup";
                 try
-                {                  
+                {
                     // add the subscription.
-                    int revisedUpdateRate = 0;
-                    Guid iid = typeof(IOPCItemMgt).GUID;
+                    var iid = typeof(IOPCItemMgt).GUID;
 
-                    IOPCServer server = BeginComCall<IOPCServer>(methodName, true);
+                    var server = BeginComCall<IOPCServer>(methodName, true);
                     ((IOPCServer)server).AddGroup(
                         "",
                         1,
@@ -142,7 +140,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         IntPtr.Zero,
                         localeID,
                         out groupHandle_,
-                        out revisedUpdateRate,
+                        out var revisedUpdateRate,
                         ref iid,
                         out subscription_);
 
@@ -159,7 +157,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 }
                 finally
                 {
-                    EndComCall(methodName);                  
+                    EndComCall(methodName);
                 }
             }
         }
@@ -186,7 +184,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// A list of seperators used in the browse paths.
         /// </summary>
         private char[] separators_ = null;
-        private object separatorsLock_ = new object();
+        private readonly object separatorsLock_ = new object();
 
         //======================================================================
         // Read
@@ -201,7 +199,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             // check if nothing to do.
             if (items.Length == 0)
             {
-                return new TsCDaItemValueResult[0];
+                return Array.Empty<TsCDaItemValueResult>();
             }
 
             lock (this)
@@ -209,18 +207,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 if (server_ == null) throw new NotConnectedException();
 
                 // create temporary items.
-                OpcItemResult[] temporaryItems = AddItems(items);
-                TsCDaItemValueResult[] results = new TsCDaItemValueResult[items.Length];
+                var temporaryItems = AddItems(items);
+                var results = new TsCDaItemValueResult[items.Length];
 
                 try
                 {
                     // construct return values.
-                    ArrayList cacheItems = new ArrayList(items.Length);
-                    ArrayList cacheResults = new ArrayList(items.Length);
-                    ArrayList deviceItems = new ArrayList(items.Length);
-                    ArrayList deviceResults = new ArrayList(items.Length);
+                    var cacheItems = new ArrayList(items.Length);
+                    var cacheResults = new ArrayList(items.Length);
+                    var deviceItems = new ArrayList(items.Length);
+                    var deviceResults = new ArrayList(items.Length);
 
-                    for (int ii = 0; ii < items.Length; ii++)
+                    for (var ii = 0; ii < items.Length; ii++)
                     {
                         results[ii] = new TsCDaItemValueResult(temporaryItems[ii]);
 
@@ -231,7 +229,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                             continue;
                         }
 
-                        if (items[ii].MaxAgeSpecified && (items[ii].MaxAge < 0 || items[ii].MaxAge == Int32.MaxValue))
+                        if (items[ii].MaxAgeSpecified && (items[ii].MaxAge < 0 || items[ii].MaxAge == int.MaxValue))
                         {
                             cacheItems.Add(items[ii]);
                             cacheResults.Add(results[ii]);
@@ -246,21 +244,21 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     // read values from the cache.
                     if (cacheResults.Count > 0)
                     {
-                        string methodName = "IOPCItemMgt.SetActiveState";
+                        var methodName = "IOPCItemMgt.SetActiveState";
                         // items must be active for cache reads.
                         try
-                        {                           
+                        {
                             // create list of server handles.
-                            int[] serverHandles = new int[cacheResults.Count];
+                            var serverHandles = new int[cacheResults.Count];
 
-                            for (int ii = 0; ii < cacheResults.Count; ii++)
+                            for (var ii = 0; ii < cacheResults.Count; ii++)
                             {
                                 serverHandles[ii] = (int)((TsCDaItemValueResult)cacheResults[ii]).ServerHandle;
                             }
 
-                            IntPtr pErrors = IntPtr.Zero;
+                            var pErrors = IntPtr.Zero;
 
-                            IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(subscription_, methodName, true);
+                            var subscription = BeginComCall<IOPCItemMgt>(subscription_, methodName, true);
                             subscription.SetActiveState(
                                 cacheResults.Count,
                                 serverHandles,
@@ -326,7 +324,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             // check if nothing to do.
             if (items.Length == 0)
             {
-                return new OpcItemResult[0];
+                return Array.Empty<OpcItemResult>();
             }
 
             lock (this)
@@ -334,23 +332,23 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 if (server_ == null) throw new NotConnectedException();
 
                 // create item objects to add temporary items.
-                TsCDaItem[] groupItems = new TsCDaItem[items.Length];
+                var groupItems = new TsCDaItem[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     groupItems[ii] = new TsCDaItem(items[ii]);
                 }
 
                 // create temporary items.
-                OpcItemResult[] results = AddItems(groupItems);
+                var results = AddItems(groupItems);
 
                 try
                 {
                     // construct list of valid items to write.
-                    ArrayList writeItems = new ArrayList(items.Length);
-                    ArrayList writeValues = new ArrayList(items.Length);
+                    var writeItems = new ArrayList(items.Length);
+                    var writeValues = new ArrayList(items.Length);
 
-                    for (int ii = 0; ii < items.Length; ii++)
+                    for (var ii = 0; ii < items.Length; ii++)
                     {
                         if (results[ii].Result.Failed())
                         {
@@ -372,22 +370,22 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     if (writeItems.Count > 0)
                     {
                         // initialize input parameters.
-                        int[] serverHandles = new int[writeItems.Count];
-                        object[] values = new object[writeItems.Count];
+                        var serverHandles = new int[writeItems.Count];
+                        var values = new object[writeItems.Count];
 
-                        for (int ii = 0; ii < serverHandles.Length; ii++)
+                        for (var ii = 0; ii < serverHandles.Length; ii++)
                         {
                             serverHandles[ii] = (int)((OpcItemResult)writeItems[ii]).ServerHandle;
                             values[ii] = Utilities.Interop.GetVARIANT(((TsCDaItemValue)writeValues[ii]).Value);
                         }
 
-                        IntPtr pErrors = IntPtr.Zero;
+                        var pErrors = IntPtr.Zero;
 
                         // write item values.
-                        string methodName = "IOPCSyncIO.Write";
+                        var methodName = "IOPCSyncIO.Write";
                         try
-                        {                   
-                            IOPCSyncIO subscription = BeginComCall<IOPCSyncIO>(subscription_, methodName, true);
+                        {
+                            var subscription = BeginComCall<IOPCSyncIO>(subscription_, methodName, true);
                             subscription.Write(
                                 writeItems.Count,
                                 serverHandles,
@@ -410,11 +408,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         }
 
                         // unmarshal results.
-                        int[] errors = Utilities.Interop.GetInt32s(ref pErrors, writeItems.Count, true);
+                        var errors = Utilities.Interop.GetInt32s(ref pErrors, writeItems.Count, true);
 
-                        for (int ii = 0; ii < writeItems.Count; ii++)
+                        for (var ii = 0; ii < writeItems.Count; ii++)
                         {
-                            OpcItemResult result = (OpcItemResult)writeItems[ii];
+                            var result = (OpcItemResult)writeItems[ii];
 
                             result.Result = Utilities.Interop.GetResultId(errors[ii]);
                             result.DiagnosticInfo = null;
@@ -457,12 +455,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
                 BrowsePosition pos = null;
 
-                ArrayList elements = new ArrayList();
+                var elements = new ArrayList();
 
                 // search for child branches.
                 if (filters.BrowseFilter != TsCDaBrowseFilter.Item)
                 {
-                    TsCDaBrowseElement[] branches = GetElements(elements.Count, itemId, filters, true, ref pos);
+                    var branches = GetElements(elements.Count, itemId, filters, true, ref pos);
 
                     if (branches != null)
                     {
@@ -481,7 +479,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 // search for child items.
                 if (filters.BrowseFilter != TsCDaBrowseFilter.Branch)
                 {
-                    TsCDaBrowseElement[] items = GetElements(elements.Count, itemId, filters, false, ref pos);
+                    var items = GetElements(elements.Count, itemId, filters, false, ref pos);
 
                     if (items != null)
                     {
@@ -514,17 +512,17 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The browse operation cannot continue");
                 }
 
-                BrowsePosition pos = (BrowsePosition)position;
+                var pos = (BrowsePosition)position;
 
-                OpcItem itemID = pos.ItemID;
-                TsCDaBrowseFilters filters = pos.Filters;
+                var itemID = pos.ItemID;
+                var filters = pos.Filters;
 
-                ArrayList elements = new ArrayList();
+                var elements = new ArrayList();
 
                 // search for child branches.
                 if (pos.IsBranch)
                 {
-                    TsCDaBrowseElement[] branches = GetElements(elements.Count, itemID, filters, true, ref pos);
+                    var branches = GetElements(elements.Count, itemID, filters, true, ref pos);
 
                     if (branches != null)
                     {
@@ -543,7 +541,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 // search for child items.
                 if (filters.BrowseFilter != TsCDaBrowseFilter.Branch)
                 {
-                    TsCDaBrowseElement[] items = GetElements(elements.Count, itemID, filters, false, ref pos);
+                    var items = GetElements(elements.Count, itemID, filters, false, ref pos);
 
                     if (items != null)
                     {
@@ -574,7 +572,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             // check for trival case.
             if (itemIds.Length == 0)
             {
-                return new TsCDaItemPropertyCollection[0];
+                return Array.Empty<TsCDaItemPropertyCollection>();
             }
 
             lock (this)
@@ -582,19 +580,20 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 if (server_ == null) throw new NotConnectedException();
 
                 // initialize list of property lists.
-                TsCDaItemPropertyCollection[] propertyLists = new TsCDaItemPropertyCollection[itemIds.Length];
+                var propertyLists = new TsCDaItemPropertyCollection[itemIds.Length];
 
-                for (int ii = 0; ii < itemIds.Length; ii++)
+                for (var ii = 0; ii < itemIds.Length; ii++)
                 {
-                    propertyLists[ii] = new TsCDaItemPropertyCollection();
-
-                    propertyLists[ii].ItemName = itemIds[ii].ItemName;
-                    propertyLists[ii].ItemPath = itemIds[ii].ItemPath;
+                    propertyLists[ii] = new TsCDaItemPropertyCollection
+                    {
+                        ItemName = itemIds[ii].ItemName,
+                        ItemPath = itemIds[ii].ItemPath
+                    };
 
                     // fetch properties for item.
                     try
                     {
-                        TsCDaItemProperty[] properties = GetProperties(itemIds[ii].ItemName, propertyIDs, returnValues);
+                        var properties = GetProperties(itemIds[ii].ItemName, propertyIDs, returnValues);
 
                         if (properties != null)
                         {
@@ -627,36 +626,33 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         private OpcItemResult[] AddItems(TsCDaItem[] items)
         {
             // add items to subscription.
-            int count = items.Length;
+            var count = items.Length;
 
-            OPCITEMDEF[] definitions = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetOPCITEMDEFs(items);
+            var definitions = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetOPCITEMDEFs(items);
 
             // ensure all items are created as inactive.
-            for (int ii = 0; ii < definitions.Length; ii++)
+            for (var ii = 0; ii < definitions.Length; ii++)
             {
                 definitions[ii].bActive = 0;
             }
 
             // initialize output parameters.
-            IntPtr pResults = IntPtr.Zero;
-            IntPtr pErrors = IntPtr.Zero;
+            var pResults = IntPtr.Zero;
+            var pErrors = IntPtr.Zero;
 
             // get the default current for the server.
-            int localeID = 0;
-            ((IOPCCommon)server_).GetLocaleID(out localeID);
+            ((IOPCCommon)server_).GetLocaleID(out var localeID);
 
-            GCHandle hLocale = GCHandle.Alloc(localeID, GCHandleType.Pinned);
-                     
-            string methodName = "IOPCGroupStateMgt.SetState";
+            var hLocale = GCHandle.Alloc(localeID, GCHandleType.Pinned);
+
+            var methodName = "IOPCGroupStateMgt.SetState";
             try
             {
-                int updateRate = 0;
-
                 // ensure the current locale is correct.
-                IOPCGroupStateMgt subscription = BeginComCall<IOPCGroupStateMgt>(subscription_, methodName, true);
+                var subscription = BeginComCall<IOPCGroupStateMgt>(subscription_, methodName, true);
                 ((IOPCGroupStateMgt)subscription).SetState(
                     IntPtr.Zero,
-                    out updateRate,
+                    out var updateRate,
                     IntPtr.Zero,
                     IntPtr.Zero,
                     IntPtr.Zero,
@@ -676,14 +672,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             finally
             {
                 if (hLocale.IsAllocated) hLocale.Free();
-                EndComCall(methodName);                
+                EndComCall(methodName);
             }
-         
+
             // add items to subscription.
             methodName = "IOPCItemMgt.AddItems";
             try
             {
-                IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(subscription_, methodName, true);
+                var subscription = BeginComCall<IOPCItemMgt>(subscription_, methodName, true);
                 subscription.AddItems(
                     count,
                     definitions,
@@ -705,21 +701,22 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 EndComCall(methodName);
                 if (hLocale.IsAllocated) hLocale.Free();
             }
-          
+
             // unmarshal output parameters.
-            int[] serverHandles = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetItemResults(ref pResults, count, true);
-            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, count, true);
+            var serverHandles = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetItemResults(ref pResults, count, true);
+            var errors = Utilities.Interop.GetInt32s(ref pErrors, count, true);
 
             // create results list.
-            OpcItemResult[] results = new OpcItemResult[count];
+            var results = new OpcItemResult[count];
 
-            for (int ii = 0; ii < count; ii++)
+            for (var ii = 0; ii < count; ii++)
             {
-                results[ii] = new OpcItemResult(items[ii]);
-
-                results[ii].ServerHandle = null;
-                results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
-                results[ii].DiagnosticInfo = null;
+                results[ii] = new OpcItemResult(items[ii])
+                {
+                    ServerHandle = null,
+                    Result = Utilities.Interop.GetResultId(errors[ii]),
+                    DiagnosticInfo = null
+                };
 
                 if (results[ii].Result.Succeeded())
                 {
@@ -739,9 +736,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             try
             {
                 // contruct array of valid server handles.
-                ArrayList handles = new ArrayList(items.Length);
+                var handles = new ArrayList(items.Length);
 
-                foreach (OpcItemResult item in items)
+                foreach (var item in items)
                 {
                     if (item.Result.Succeeded() && item.ServerHandle.GetType() == typeof(int))
                     {
@@ -756,12 +753,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 }
 
                 // remove items from server.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                string methodName = "IOPCItemMgt.RemoveItems";
+                var methodName = "IOPCItemMgt.RemoveItems";
                 try
-                {              
-                    IOPCItemMgt subscription = BeginComCall<IOPCItemMgt>(subscription_, methodName, true);
+                {
+                    var subscription = BeginComCall<IOPCItemMgt>(subscription_, methodName, true);
                     ((IOPCItemMgt)subscription).RemoveItems(
                         handles.Count,
                         (int[])handles.ToArray(typeof(int)),
@@ -800,21 +797,21 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             if (items.Length == 0 || results.Length == 0) return;
 
             // marshal input parameters.
-            int[] serverHandles = new int[results.Length];
+            var serverHandles = new int[results.Length];
 
-            for (int ii = 0; ii < results.Length; ii++)
+            for (var ii = 0; ii < results.Length; ii++)
             {
                 serverHandles[ii] = Convert.ToInt32(results[ii].ServerHandle);
             }
 
             // initialize output parameters.
-            IntPtr pValues = IntPtr.Zero;
-            IntPtr pErrors = IntPtr.Zero;
+            var pValues = IntPtr.Zero;
+            var pErrors = IntPtr.Zero;
 
-            string methodName = "IOPCSyncIO.Read";
+            var methodName = "IOPCSyncIO.Read";
             try
-            {         
-                IOPCSyncIO subscription = BeginComCall<IOPCSyncIO>(subscription_, methodName, true);
+            {
+                var subscription = BeginComCall<IOPCSyncIO>(subscription_, methodName, true);
                 subscription.Read(
                     (cache) ? OPCDATASOURCE.OPC_DS_CACHE : OPCDATASOURCE.OPC_DS_DEVICE,
                     results.Length,
@@ -839,14 +836,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             }
 
             // unmarshal output parameters.
-            TsCDaItemValue[] values = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetItemValues(ref pValues, results.Length, true);
-            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, results.Length, true);
+            var values = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetItemValues(ref pValues, results.Length, true);
+            var errors = Utilities.Interop.GetInt32s(ref pErrors, results.Length, true);
 
             // pre-fetch the current locale to use for data conversions.
-            string locale = GetLocale();
+            GetLocale();
 
             // construct results list.
-            for (int ii = 0; ii < results.Length; ii++)
+            for (var ii = 0; ii < results.Length; ii++)
             {
                 results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
                 results[ii].DiagnosticInfo = null;
@@ -903,16 +900,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             }
 
             // query for available properties.
-            int count = 0;
+            var count = 0;
 
-            IntPtr pPropertyIDs = IntPtr.Zero;
-            IntPtr pDescriptions = IntPtr.Zero;
-            IntPtr pDataTypes = IntPtr.Zero;
+            var pPropertyIDs = IntPtr.Zero;
+            var pDescriptions = IntPtr.Zero;
+            var pDataTypes = IntPtr.Zero;
 
-            string methodName = "IOPCItemProperties.QueryAvailableProperties";
+            var methodName = "IOPCItemProperties.QueryAvailableProperties";
             try
-            {          
-                IOPCItemProperties server = BeginComCall<IOPCItemProperties>(methodName, true);
+            {
+                var server = BeginComCall<IOPCItemProperties>(methodName, true);
                 server.QueryAvailableProperties(
                     itemID,
                     out count,
@@ -938,9 +935,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             }
 
             // unmarshal results.
-            int[] propertyIDs = Utilities.Interop.GetInt32s(ref pPropertyIDs, count, true);
-            short[] datatypes = Utilities.Interop.GetInt16s(ref pDataTypes, count, true);
-            string[] descriptions = Utilities.Interop.GetUnicodeStrings(ref pDescriptions, count, true);
+            var propertyIDs = Utilities.Interop.GetInt32s(ref pPropertyIDs, count, true);
+            var datatypes = Utilities.Interop.GetInt16s(ref pDataTypes, count, true);
+            var descriptions = Utilities.Interop.GetUnicodeStrings(ref pDescriptions, count, true);
 
             // check for error condition.
             if (count == 0)
@@ -949,19 +946,20 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             }
 
             // initialize property objects.
-            TsCDaItemProperty[] properties = new TsCDaItemProperty[count];
+            var properties = new TsCDaItemProperty[count];
 
-            for (int ii = 0; ii < count; ii++)
+            for (var ii = 0; ii < count; ii++)
             {
-                properties[ii] = new TsCDaItemProperty();
-
-                properties[ii].ID = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetPropertyID(propertyIDs[ii]);
-                properties[ii].Description = descriptions[ii];
-                properties[ii].DataType = Utilities.Interop.GetType((VarEnum)datatypes[ii]);
-                properties[ii].ItemName = null;
-                properties[ii].ItemPath = null;
-                properties[ii].Result = OpcResult.S_OK;
-                properties[ii].Value = null;
+                properties[ii] = new TsCDaItemProperty
+                {
+                    ID = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetPropertyID(propertyIDs[ii]),
+                    Description = descriptions[ii],
+                    DataType = Utilities.Interop.GetType((VarEnum)datatypes[ii]),
+                    ItemName = null,
+                    ItemPath = null,
+                    Result = OpcResult.S_OK,
+                    Value = null
+                };
             }
 
             // return property list.
@@ -976,30 +974,30 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             try
             {
                 // create input arguments;
-                int[] propertyIDs = new int[properties.Length];
+                var propertyIDs = new int[properties.Length];
 
-                for (int ii = 0; ii < properties.Length; ii++)
+                for (var ii = 0; ii < properties.Length; ii++)
                 {
                     propertyIDs[ii] = properties[ii].ID.Code;
                 }
 
                 // lookup item ids.
-                IntPtr pItemIDs = IntPtr.Zero;
-                IntPtr pErrors = IntPtr.Zero;
-                             
+                var pItemIDs = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
+
                 ((IOPCItemProperties)server_).LookupItemIDs(
                     itemID,
                     properties.Length,
                     propertyIDs,
                     out pItemIDs,
-                    out pErrors);              
+                    out pErrors);
 
                 // unmarshal results.
-                string[] itemIDs = Utilities.Interop.GetUnicodeStrings(ref pItemIDs, properties.Length, true);
-                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, properties.Length, true);
+                var itemIDs = Utilities.Interop.GetUnicodeStrings(ref pItemIDs, properties.Length, true);
+                var errors = Utilities.Interop.GetInt32s(ref pErrors, properties.Length, true);
 
                 // update property objects.
-                for (int ii = 0; ii < properties.Length; ii++)
+                for (var ii = 0; ii < properties.Length; ii++)
                 {
                     properties[ii].ItemName = null;
                     properties[ii].ItemPath = null;
@@ -1010,10 +1008,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // set item ids to null for all properties.
-                foreach (TsCDaItemProperty property in properties)
+                foreach (var property in properties)
                 {
                     property.ItemName = null;
                     property.ItemPath = null;
@@ -1029,16 +1027,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             try
             {
                 // create input arguments;
-                int[] propertyIDs = new int[properties.Length];
+                var propertyIDs = new int[properties.Length];
 
-                for (int ii = 0; ii < properties.Length; ii++)
+                for (var ii = 0; ii < properties.Length; ii++)
                 {
                     propertyIDs[ii] = properties[ii].ID.Code;
                 }
 
                 // lookup item ids.
-                IntPtr pValues = IntPtr.Zero;
-                IntPtr pErrors = IntPtr.Zero;
+                var pValues = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 ((IOPCItemProperties)server_).GetItemProperties(
                     itemID,
@@ -1048,11 +1046,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     out pErrors);
 
                 // unmarshal results.
-                object[] values = Interop.GetVARIANTs(ref pValues, properties.Length, true);
-                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, properties.Length, true);
+                var values = Interop.GetVARIANTs(ref pValues, properties.Length, true);
+                var errors = Utilities.Interop.GetInt32s(ref pErrors, properties.Length, true);
 
                 // update property objects.
-                for (int ii = 0; ii < properties.Length; ii++)
+                for (var ii = 0; ii < properties.Length; ii++)
                 {
                     properties[ii].Value = null;
 
@@ -1079,9 +1077,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             catch (Exception e)
             {
                 // set general error code as the result for each property.
-                OpcResult result = new OpcResult(Marshal.GetHRForException(e));
+                var result = new OpcResult(Marshal.GetHRForException(e));
 
-                foreach (TsCDaItemProperty property in properties)
+                foreach (var property in properties)
                 {
                     property.Value = null;
                     property.Result = result;
@@ -1094,7 +1092,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// </summary>
         private TsCDaItemProperty[] GetProperties(string itemID, TsDaPropertyID[] propertyIDs, bool returnValues)
         {
-            TsCDaItemProperty[] properties = null;
+            TsCDaItemProperty[] properties;
 
             // return all available properties.
             if (propertyIDs == null)
@@ -1106,15 +1104,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             else
             {
                 // get available properties.
-                TsCDaItemProperty[] availableProperties = GetAvailableProperties(itemID);
+                var availableProperties = GetAvailableProperties(itemID);
 
                 // initialize result list.
                 properties = new TsCDaItemProperty[propertyIDs.Length];
 
-                for (int ii = 0; ii < propertyIDs.Length; ii++)
+                for (var ii = 0; ii < propertyIDs.Length; ii++)
                 {
                     // search available property list for specified property.
-                    foreach (TsCDaItemProperty property in availableProperties)
+                    foreach (var property in availableProperties)
                     {
                         if (property.ID == propertyIDs[ii])
                         {
@@ -1127,10 +1125,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                     // property not valid for the item.
                     if (properties[ii] == null)
                     {
-                        properties[ii] = new TsCDaItemProperty();
-
-                        properties[ii].ID = propertyIDs[ii];
-                        properties[ii].Result = OpcResult.Da.E_INVALID_PID;
+                        properties[ii] = new TsCDaItemProperty
+                        {
+                            ID = propertyIDs[ii],
+                            Result = OpcResult.Da.E_INVALID_PID
+                        };
                     }
                 }
             }
@@ -1167,12 +1166,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         // move to the root of the hierarchial address spaces.
                         try
                         {
-                            string id = String.Empty;
+                            var id = string.Empty;
                             browser.ChangeBrowsePosition(OPCBROWSEDIRECTION.OPC_BROWSE_TO, id);
                         }
                         catch (Exception e)
                         {
-                            string message = String.Format("ChangeBrowsePosition to root with BROWSE_TO={0} failed with error {1}. BROWSE_TO not supported.", String.Empty, e.Message);
+                            var message = string.Format("ChangeBrowsePosition to root with BROWSE_TO={0} failed with error {1}. BROWSE_TO not supported.", string.Empty, e.Message);
+                            Utils.Trace(e, message);
                             browseToSupported_ = false;
                         }
                     }
@@ -1183,11 +1183,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                         {
                             try
                             {
-                                browser.ChangeBrowsePosition(OPCBROWSEDIRECTION.OPC_BROWSE_UP, String.Empty);
+                                browser.ChangeBrowsePosition(OPCBROWSEDIRECTION.OPC_BROWSE_UP, string.Empty);
                             }
                             catch (Exception)
                             {
-                                break;                                                               
+                                break;
                             }
                         }
                     }
@@ -1195,7 +1195,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 else
                 {
                     // move to the specified branch for hierarchial address spaces.
-                    string id = (itemID != null) ? itemID : "";
+                    var id = itemID ?? "";
                     if (browseToSupported_)
                     {
                         try
@@ -1222,7 +1222,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                             {
                                 try
                                 {
-                                    browser.ChangeBrowsePosition(OPCBROWSEDIRECTION.OPC_BROWSE_UP, String.Empty);
+                                    browser.ChangeBrowsePosition(OPCBROWSEDIRECTION.OPC_BROWSE_UP, string.Empty);
                                 }
                                 catch (Exception)
                                 {
@@ -1246,7 +1246,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                             }
 
                             // browse to correct location.
-                            for (int ii = 0; ii < paths.Length; ii++)
+                            for (var ii = 0; ii < paths.Length; ii++)
                             {
                                 if (paths[ii] == null || paths[ii].Length == 0)
                                 {
@@ -1270,9 +1270,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             try
             {
                 // create the enumerator.
-                IEnumString enumerator = null;
-
-                OPCBROWSETYPE browseType = (branches) ? OPCBROWSETYPE.OPC_BRANCH : OPCBROWSETYPE.OPC_LEAF;
+                var browseType = (branches) ? OPCBROWSETYPE.OPC_BRANCH : OPCBROWSETYPE.OPC_LEAF;
 
                 if (flat)
                 {
@@ -1281,10 +1279,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
                 browser.BrowseOPCItemIDs(
                     browseType,
-                    (filters.ElementNameFilter != null) ? filters.ElementNameFilter : "",
+                    filters.ElementNameFilter ?? "",
                     (short)VarEnum.VT_EMPTY,
                     0,
-                    out enumerator);
+                    out var enumerator);
 
                 // return the enumerator.
                 return new EnumString(enumerator);
@@ -1311,15 +1309,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 return;
             }
 
-            char separator = itemID[itemID.Length - browseName.Length - 1];
+            var separator = itemID[itemID.Length - browseName.Length - 1];
 
             lock (separatorsLock_)
             {
-                int index = -1;
+                var index = -1;
 
                 if (separators_ != null)
                 {
-                    for (int ii = 0; ii < separators_.Length; ii++)
+                    for (var ii = 0; ii < separators_.Length; ii++)
                     {
                         if (separators_[ii] == separator)
                         {
@@ -1330,7 +1328,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
                     if (index == -1)
                     {
-                        char[] separators = new char[separators_.Length + 1];
+                        var separators = new char[separators_.Length + 1];
                         Array.Copy(separators_, separators, separators_.Length);
                         separators_ = separators;
                     }
@@ -1352,7 +1350,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// Reads a single value from the enumerator and returns a browse element.
         /// </summary>
         private TsCDaBrowseElement GetElement(
-        OpcItem itemID,
+                OpcItem itemID,
                 string name,
                 TsCDaBrowseFilters filters,
                 bool isBranch)
@@ -1362,17 +1360,17 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 return null;
             }
 
-            TsCDaBrowseElement element = new TsCDaBrowseElement();
-
-            element.Name = name;
-            element.HasChildren = isBranch;
-            element.ItemPath = null;
+            var element = new TsCDaBrowseElement
+            {
+                Name = name,
+                HasChildren = isBranch,
+                ItemPath = null
+            };
 
             // get item id.
             try
             {
-                string itemName = null;
-                ((IOPCBrowseServerAddressSpace)server_).GetItemID(element.Name, out itemName);
+                ((IOPCBrowseServerAddressSpace)server_).GetItemID(element.Name, out var itemName);
                 element.ItemName = itemName;
 
                 // detect separator.
@@ -1391,18 +1389,19 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             // check if element is an actual item or just a branch.
             try
             {
-                OPCITEMDEF definition = new OPCITEMDEF();
+                var definition = new OPCITEMDEF
+                {
+                    szItemID = element.ItemName,
+                    szAccessPath = null,
+                    hClient = 0,
+                    bActive = 0,
+                    vtRequestedDataType = (short)VarEnum.VT_EMPTY,
+                    dwBlobSize = 0,
+                    pBlob = IntPtr.Zero
+                };
 
-                definition.szItemID = element.ItemName;
-                definition.szAccessPath = null;
-                definition.hClient = 0;
-                definition.bActive = 0;
-                definition.vtRequestedDataType = (short)VarEnum.VT_EMPTY;
-                definition.dwBlobSize = 0;
-                definition.pBlob = IntPtr.Zero;
-
-                IntPtr pResults = IntPtr.Zero;
-                IntPtr pErrors = IntPtr.Zero;
+                var pResults = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // validate item.
                 ((IOPCItemMgt)subscription_).ValidateItems(
@@ -1415,7 +1414,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 // free results.
                 Technosoftware.DaAeHdaClient.Com.Da.Interop.GetItemResults(ref pResults, 1, true);
 
-                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, 1, true);
+                var errors = Utilities.Interop.GetInt32s(ref pErrors, 1, true);
 
                 // can only be an item if validation succeeded.
                 element.IsItem = (errors[0] >= 0);
@@ -1464,15 +1463,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             ref BrowsePosition position)
         {
             // get the enumerator.
-            EnumString enumerator = null;
-
+            EnumString enumerator;
             if (position == null)
             {
-                IOPCBrowseServerAddressSpace browser = (IOPCBrowseServerAddressSpace)server_;
+                var browser = (IOPCBrowseServerAddressSpace)server_;
 
                 // check the server address space type.
-                OPCNAMESPACETYPE namespaceType = OPCNAMESPACETYPE.OPC_NS_HIERARCHIAL;
-
+                OPCNAMESPACETYPE namespaceType;
                 try
                 {
                     browser.QueryOrganization(out namespaceType);
@@ -1487,7 +1484,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 {
                     if (branches)
                     {
-                        return new TsCDaBrowseElement[0];
+                        return Array.Empty<TsCDaBrowseElement>();
                     }
 
                     // check that root is browsed for flat address spaces.
@@ -1499,7 +1496,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
                 // get the enumerator.
                 enumerator = GetEnumerator(
-                         (itemID != null) ? itemID.ItemName : null,
+                         itemID?.ItemName,
                          filters,
                          branches,
                          namespaceType == OPCNAMESPACETYPE.OPC_NS_FLAT);
@@ -1509,12 +1506,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 enumerator = position.Enumerator;
             }
 
-            ArrayList elements = new ArrayList();
-
-            // read elements one at a time.
-            TsCDaBrowseElement element = null;
-
-            int start = 0;
+            var elements = new ArrayList();
+            var start = 0;
             string[] names = null;
 
             // get cached name list.
@@ -1529,20 +1522,22 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             {
                 if (names != null)
                 {
-                    for (int ii = start; ii < names.Length; ii++)
+                    for (var ii = start; ii < names.Length; ii++)
                     {
                         // check if max returned elements is exceeded.
                         if (filters.MaxElementsReturned != 0 && filters.MaxElementsReturned == elements.Count + elementsFound)
                         {
-                            position = new BrowsePosition(itemID, filters, enumerator, branches);
-                            position.Names = names;
-                            position.Index = ii;
+                            position = new BrowsePosition(itemID, filters, enumerator, branches)
+                            {
+                                Names = names,
+                                Index = ii
+                            };
                             break;
                         }
 
+                        // read elements one at a time.
                         // get next element.
-                        element = GetElement(itemID, names[ii], filters, branches);
-
+                        var element = GetElement(itemID, names[ii], filters, branches);
                         if (element == null)
                         {
                             break;
@@ -1648,7 +1643,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// </summary>
         public override object Clone()
         {
-            BrowsePosition clone = (BrowsePosition)MemberwiseClone();
+            var clone = (BrowsePosition)MemberwiseClone();
             clone.Enumerator = Enumerator.Clone();
             return clone;
         }

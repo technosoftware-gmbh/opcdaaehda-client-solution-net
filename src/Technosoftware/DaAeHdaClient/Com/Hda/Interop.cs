@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -42,7 +42,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 		/// </summary>
 		internal static OpcRcw.Hda.OPCHDA_FILETIME Convert(FILETIME input)
 		{
-			OpcRcw.Hda.OPCHDA_FILETIME output = new OpcRcw.Hda.OPCHDA_FILETIME();
+			var output = new OpcRcw.Hda.OPCHDA_FILETIME();
 			output.dwLowDateTime   = input.dwLowDateTime;
 			output.dwHighDateTime  = input.dwHighDateTime;
 			return output;
@@ -53,7 +53,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 		/// </summary>
 		internal static FILETIME Convert(OpcRcw.Hda.OPCHDA_FILETIME input)
 		{
-			FILETIME output       = new FILETIME();
+			var output       = new FILETIME();
 			output.dwLowDateTime  = input.dwLowDateTime;
 			output.dwHighDateTime = input.dwHighDateTime;
 			return output;
@@ -64,7 +64,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 		/// </summary>
 		internal static OpcRcw.Hda.OPCHDA_FILETIME GetFILETIME(decimal input)
 		{
-			OpcRcw.Hda.OPCHDA_FILETIME output = new OpcRcw.Hda.OPCHDA_FILETIME();	
+			var output = new OpcRcw.Hda.OPCHDA_FILETIME();	
 
 			output.dwHighDateTime = (int)((((ulong)(input*10000000)) & 0xFFFFFFFF00000000)>>32);
 			output.dwLowDateTime  = (int)((((ulong)(input*10000000)) & 0x00000000FFFFFFFF));
@@ -83,7 +83,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 			{
 				output = new OpcRcw.Hda.OPCHDA_FILETIME[input.Length];
 
-				for (int ii = 0; ii < input.Length; ii++)
+				for (var ii = 0; ii < input.Length; ii++)
 				{
 					output[ii] = Convert(Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(input[ii]));
 				}
@@ -97,7 +97,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 		/// </summary>
 		internal static OpcRcw.Hda.OPCHDA_TIME GetTime(TsCHdaTime input)
 		{
-			OpcRcw.Hda.OPCHDA_TIME output = new OpcRcw.Hda.OPCHDA_TIME();
+			var output = new OpcRcw.Hda.OPCHDA_TIME();
 
 			if (input != null)
 			{
@@ -128,9 +128,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 			{
 				output = new TsCHdaItemValueCollection[count];
 
-				IntPtr pos = pInput;
+				var pos = pInput;
 
-				for (int ii = 0; ii < count; ii++)
+				for (var ii = 0; ii < count; ii++)
 				{
 					output[ii] = GetItemValueCollection(pos, deallocate);
                     pos = (IntPtr)(pos.ToInt64() + Marshal.SizeOf(typeof(OpcRcw.Hda.OPCHDA_ITEM)));
@@ -155,7 +155,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
 			if (pInput != IntPtr.Zero)
 			{
-				object item = Marshal.PtrToStructure(pInput, typeof(OpcRcw.Hda.OPCHDA_ITEM));
+				var item = Marshal.PtrToStructure(pInput, typeof(OpcRcw.Hda.OPCHDA_ITEM));
 
 				output = GetItemValueCollection((OpcRcw.Hda.OPCHDA_ITEM)item, deallocate);
 
@@ -173,18 +173,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 		/// </summary>
 		internal static TsCHdaItemValueCollection GetItemValueCollection(OpcRcw.Hda.OPCHDA_ITEM input, bool deallocate)
 		{
-			TsCHdaItemValueCollection output = new TsCHdaItemValueCollection();
+			var output = new TsCHdaItemValueCollection();
 
 			output.ClientHandle = input.hClient;
 			output.Aggregate = input.haAggregate;
 
-            object[] values = Com.Interop.GetVARIANTs(ref input.pvDataValues, input.dwCount, deallocate);
-			DateTime[] timestamps = Utilities.Interop.GetDateTimes(ref input.pftTimeStamps, input.dwCount, deallocate);
-			int[] qualities = Utilities.Interop.GetInt32s(ref input.pdwQualities, input.dwCount, deallocate);
+            var values = Com.Interop.GetVARIANTs(ref input.pvDataValues, input.dwCount, deallocate);
+			var timestamps = Utilities.Interop.GetDateTimes(ref input.pftTimeStamps, input.dwCount, deallocate);
+			var qualities = Utilities.Interop.GetInt32s(ref input.pdwQualities, input.dwCount, deallocate);
 
-			for (int ii = 0; ii < input.dwCount; ii++)
+			for (var ii = 0; ii < input.dwCount; ii++)
 			{
-				TsCHdaItemValue value = new TsCHdaItemValue();
+				var value = new TsCHdaItemValue();
 
 				value.Value = values[ii];
 				value.Timestamp = timestamps[ii];
@@ -208,9 +208,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 			{
 				output = new TsCHdaModifiedValueCollection[count];
 
-				IntPtr pos = pInput;
+				var pos = pInput;
 
-				for (int ii = 0; ii < count; ii++)
+				for (var ii = 0; ii < count; ii++)
 				{
 					output[ii] = GetModifiedValueCollection(pos, deallocate);
                     pos = (IntPtr)(pos.ToInt64() + Marshal.SizeOf(typeof(OpcRcw.Hda.OPCHDA_MODIFIEDITEM)));
@@ -235,7 +235,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
 			if (pInput != IntPtr.Zero)
 			{
-				object item = Marshal.PtrToStructure(pInput, typeof(OpcRcw.Hda.OPCHDA_MODIFIEDITEM));
+				var item = Marshal.PtrToStructure(pInput, typeof(OpcRcw.Hda.OPCHDA_MODIFIEDITEM));
 
 				output = GetModifiedValueCollection((OpcRcw.Hda.OPCHDA_MODIFIEDITEM)item, deallocate);
 
@@ -253,20 +253,20 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 		/// </summary>
 		internal static TsCHdaModifiedValueCollection GetModifiedValueCollection(OpcRcw.Hda.OPCHDA_MODIFIEDITEM input, bool deallocate)
 		{
-			TsCHdaModifiedValueCollection output = new TsCHdaModifiedValueCollection();
+			var output = new TsCHdaModifiedValueCollection();
 
 			output.ClientHandle = input.hClient;
 
-            object[] values = Com.Interop.GetVARIANTs(ref input.pvDataValues, input.dwCount, deallocate);
-			DateTime[] timestamps = Utilities.Interop.GetDateTimes(ref input.pftTimeStamps, input.dwCount, deallocate);
-			int[] qualities = Utilities.Interop.GetInt32s(ref input.pdwQualities, input.dwCount, deallocate);
-			DateTime[] modificationTimes = Utilities.Interop.GetDateTimes(ref input.pftModificationTime, input.dwCount, deallocate);
-			int[] editTypes = Utilities.Interop.GetInt32s(ref input.pEditType, input.dwCount, deallocate);
-			string[] users = Utilities.Interop.GetUnicodeStrings(ref input.szUser, input.dwCount, deallocate);
+            var values = Com.Interop.GetVARIANTs(ref input.pvDataValues, input.dwCount, deallocate);
+			var timestamps = Utilities.Interop.GetDateTimes(ref input.pftTimeStamps, input.dwCount, deallocate);
+			var qualities = Utilities.Interop.GetInt32s(ref input.pdwQualities, input.dwCount, deallocate);
+			var modificationTimes = Utilities.Interop.GetDateTimes(ref input.pftModificationTime, input.dwCount, deallocate);
+			var editTypes = Utilities.Interop.GetInt32s(ref input.pEditType, input.dwCount, deallocate);
+			var users = Utilities.Interop.GetUnicodeStrings(ref input.szUser, input.dwCount, deallocate);
 
-			for (int ii = 0; ii < input.dwCount; ii++)
+			for (var ii = 0; ii < input.dwCount; ii++)
 			{
-				TsCHdaModifiedValue value = new TsCHdaModifiedValue();
+				var value = new TsCHdaModifiedValue();
 
 				value.Value = values[ii];
 				value.Timestamp = timestamps[ii];
@@ -293,9 +293,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 			{
 				output = new TsCHdaAttributeValueCollection[count];
 
-				IntPtr pos = pInput;
+				var pos = pInput;
 
-				for (int ii = 0; ii < count; ii++)
+				for (var ii = 0; ii < count; ii++)
 				{
 					output[ii] = GetAttributeValueCollection(pos, deallocate);
                     pos = (IntPtr)(pos.ToInt64() + Marshal.SizeOf(typeof(OpcRcw.Hda.OPCHDA_ATTRIBUTE)));
@@ -320,7 +320,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
 			if (pInput != IntPtr.Zero)
 			{
-				object item = Marshal.PtrToStructure(pInput, typeof(OpcRcw.Hda.OPCHDA_ATTRIBUTE));
+				var item = Marshal.PtrToStructure(pInput, typeof(OpcRcw.Hda.OPCHDA_ATTRIBUTE));
 
 				output = GetAttributeValueCollection((OpcRcw.Hda.OPCHDA_ATTRIBUTE)item, deallocate);
 
@@ -338,16 +338,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 		/// </summary>
 		internal static TsCHdaAttributeValueCollection GetAttributeValueCollection(OpcRcw.Hda.OPCHDA_ATTRIBUTE input, bool deallocate)
 		{
-			TsCHdaAttributeValueCollection output = new TsCHdaAttributeValueCollection();
+			var output = new TsCHdaAttributeValueCollection();
 
 			output.AttributeID = input.dwAttributeID;
 
-            object[] values = Com.Interop.GetVARIANTs(ref input.vAttributeValues, input.dwNumValues, deallocate);
-			DateTime[] timestamps = Utilities.Interop.GetDateTimes(ref input.ftTimeStamps, input.dwNumValues, deallocate);
+            var values = Com.Interop.GetVARIANTs(ref input.vAttributeValues, input.dwNumValues, deallocate);
+			var timestamps = Utilities.Interop.GetDateTimes(ref input.ftTimeStamps, input.dwNumValues, deallocate);
 
-			for (int ii = 0; ii < input.dwNumValues; ii++)
+			for (var ii = 0; ii < input.dwNumValues; ii++)
 			{
-				TsCHdaAttributeValue value = new TsCHdaAttributeValue();
+				var value = new TsCHdaAttributeValue();
 
 				value.Value = values[ii];
 				value.Timestamp = timestamps[ii];
@@ -369,9 +369,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 			{
 				output = new TsCHdaAnnotationValueCollection[count];
 
-				IntPtr pos = pInput;
+				var pos = pInput;
 
-				for (int ii = 0; ii < count; ii++)
+				for (var ii = 0; ii < count; ii++)
 				{
 					output[ii] = GetAnnotationValueCollection(pos, deallocate);
                     pos = (IntPtr)(pos.ToInt64() + Marshal.SizeOf(typeof(OpcRcw.Hda.OPCHDA_ANNOTATION)));
@@ -396,7 +396,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
 			if (pInput != IntPtr.Zero)
 			{
-				object item = Marshal.PtrToStructure(pInput, typeof(OpcRcw.Hda.OPCHDA_ANNOTATION));
+				var item = Marshal.PtrToStructure(pInput, typeof(OpcRcw.Hda.OPCHDA_ANNOTATION));
 
 				output = GetAnnotationValueCollection((OpcRcw.Hda.OPCHDA_ANNOTATION)item, deallocate);
 
@@ -414,18 +414,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 		/// </summary>
 		internal static TsCHdaAnnotationValueCollection GetAnnotationValueCollection(OpcRcw.Hda.OPCHDA_ANNOTATION input, bool deallocate)
 		{
-			TsCHdaAnnotationValueCollection output = new TsCHdaAnnotationValueCollection();
+			var output = new TsCHdaAnnotationValueCollection();
 
 			output.ClientHandle = input.hClient;
 
-			DateTime[] timestamps = Utilities.Interop.GetDateTimes(ref input.ftTimeStamps, input.dwNumValues, deallocate);
-			string[] annotations = Utilities.Interop.GetUnicodeStrings(ref input.szAnnotation, input.dwNumValues, deallocate);
-			DateTime[] creationTimes = Utilities.Interop.GetDateTimes(ref input.ftAnnotationTime, input.dwNumValues, deallocate);
-			string[] users = Utilities.Interop.GetUnicodeStrings(ref input.szUser, input.dwNumValues, deallocate);
+			var timestamps = Utilities.Interop.GetDateTimes(ref input.ftTimeStamps, input.dwNumValues, deallocate);
+			var annotations = Utilities.Interop.GetUnicodeStrings(ref input.szAnnotation, input.dwNumValues, deallocate);
+			var creationTimes = Utilities.Interop.GetDateTimes(ref input.ftAnnotationTime, input.dwNumValues, deallocate);
+			var users = Utilities.Interop.GetUnicodeStrings(ref input.szUser, input.dwNumValues, deallocate);
 
-			for (int ii = 0; ii < input.dwNumValues; ii++)
+			for (var ii = 0; ii < input.dwNumValues; ii++)
 			{
-				TsCHdaAnnotationValue value = new TsCHdaAnnotationValue();
+				var value = new TsCHdaAnnotationValue();
 
 				value.Timestamp = timestamps[ii];
 				value.Annotation = annotations[ii];

@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -43,7 +43,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         internal static OpcRcw.Da.FILETIME Convert(FILETIME input)
         {
-            OpcRcw.Da.FILETIME output = new OpcRcw.Da.FILETIME();
+            var output = new OpcRcw.Da.FILETIME();
             output.dwLowDateTime = input.dwLowDateTime;
             output.dwHighDateTime = input.dwHighDateTime;
             return output;
@@ -54,7 +54,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         internal static FILETIME Convert(OpcRcw.Da.FILETIME input)
         {
-            FILETIME output = new FILETIME();
+            var output = new FILETIME();
             output.dwLowDateTime = input.dwLowDateTime;
             output.dwHighDateTime = input.dwHighDateTime;
             return output;
@@ -65,7 +65,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         internal static OpcRcw.Da.OPCSERVERSTATUS GetServerStatus(OpcServerStatus input, int groupCount)
         {
-            OpcRcw.Da.OPCSERVERSTATUS output = new OpcRcw.Da.OPCSERVERSTATUS();
+            var output = new OpcRcw.Da.OPCSERVERSTATUS();
 
             if (input != null)
             {
@@ -83,7 +83,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                 if (input.ProductVersion != null)
                 {
-                    string[] versions = input.ProductVersion.Split(new char[] { '.' });
+                    var versions = input.ProductVersion.Split(new char[] { '.' });
 
                     if (versions.Length > 0)
                     {
@@ -99,7 +99,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
                     output.wBuildNumber = 0;
 
-                    for (int ii = 2; ii < versions.Length; ii++)
+                    for (var ii = 2; ii < versions.Length; ii++)
                     {
                         try
                         {
@@ -126,12 +126,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             if (pInput != IntPtr.Zero)
             {
-                OpcRcw.Da.OPCSERVERSTATUS status = (OpcRcw.Da.OPCSERVERSTATUS)Marshal.PtrToStructure(pInput, typeof(OpcRcw.Da.OPCSERVERSTATUS));
+                var status = (OpcRcw.Da.OPCSERVERSTATUS)Marshal.PtrToStructure(pInput, typeof(OpcRcw.Da.OPCSERVERSTATUS));
 
                 output = new OpcServerStatus();
 
                 output.VendorInfo = status.szVendorInfo;
-                output.ProductVersion = String.Format("{0}.{1}.{2}", status.wMajorVersion, status.wMinorVersion, status.wBuildNumber);
+                output.ProductVersion = string.Format("{0}.{1}.{2}", status.wMajorVersion, status.wMinorVersion, status.wBuildNumber);
                 output.ServerState = (OpcServerState)status.dwServerState;
                 output.StatusInfo = null;
 				output.StartTime      = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(Convert(status.ftStartTime));
@@ -185,9 +185,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         internal static IntPtr GetHRESULTs(IOpcResult[] results)
         {
             // extract error codes from results.
-            int[] errors = new int[results.Length];
+            var errors = new int[results.Length];
 
-            for (int ii = 0; ii < results.Length; ii++)
+            for (var ii = 0; ii < results.Length; ii++)
             {
                 if (results[ii] != null)
                 {
@@ -200,7 +200,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             }
 
             // marshal error codes.
-            IntPtr pErrors = Marshal.AllocCoTaskMem(Marshal.SizeOf(typeof(int)) * results.Length);
+            var pErrors = Marshal.AllocCoTaskMem(Marshal.SizeOf(typeof(int)) * results.Length);
             Marshal.Copy(errors, 0, pErrors, results.Length);
 
             // return results.
@@ -218,9 +218,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 output = new TsCDaBrowseElement[count];
 
-                IntPtr pos = pInput;
+                var pos = pInput;
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
                     output[ii] = GetBrowseElement(pos, deallocate);
                     pos = (IntPtr)(pos.ToInt64() + Marshal.SizeOf(typeof(OpcRcw.Da.OPCBROWSEELEMENT)));
@@ -241,17 +241,17 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         internal static IntPtr GetBrowseElements(TsCDaBrowseElement[] input, bool propertiesRequested)
         {
-            IntPtr output = IntPtr.Zero;
+            var output = IntPtr.Zero;
 
             if (input != null && input.Length > 0)
             {
                 output = Marshal.AllocCoTaskMem(Marshal.SizeOf(typeof(OpcRcw.Da.OPCBROWSEELEMENT)) * input.Length);
 
-                IntPtr pos = output;
+                var pos = output;
 
-                for (int ii = 0; ii < input.Length; ii++)
+                for (var ii = 0; ii < input.Length; ii++)
                 {
-                    OpcRcw.Da.OPCBROWSEELEMENT element = GetBrowseElement(input[ii], propertiesRequested);
+                    var element = GetBrowseElement(input[ii], propertiesRequested);
                     Marshal.StructureToPtr(element, pos, false);
                     pos = (IntPtr)(pos.ToInt64() + Marshal.SizeOf(typeof(OpcRcw.Da.OPCBROWSEELEMENT)));
                 }
@@ -269,7 +269,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             if (pInput != IntPtr.Zero)
             {
-                OpcRcw.Da.OPCBROWSEELEMENT element = (OpcRcw.Da.OPCBROWSEELEMENT)Marshal.PtrToStructure(pInput, typeof(OpcRcw.Da.OPCBROWSEELEMENT));
+                var element = (OpcRcw.Da.OPCBROWSEELEMENT)Marshal.PtrToStructure(pInput, typeof(OpcRcw.Da.OPCBROWSEELEMENT));
 
                 output = new TsCDaBrowseElement();
 
@@ -294,7 +294,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         internal static OpcRcw.Da.OPCBROWSEELEMENT GetBrowseElement(TsCDaBrowseElement input, bool propertiesRequested)
         {
-            OpcRcw.Da.OPCBROWSEELEMENT output = new OpcRcw.Da.OPCBROWSEELEMENT();
+            var output = new OpcRcw.Da.OPCBROWSEELEMENT();
 
             if (input != null)
             {
@@ -322,11 +322,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         internal static int[] GetPropertyIDs(TsDaPropertyID[] propertyIDs)
         {
-            ArrayList output = new ArrayList();
+            var output = new ArrayList();
 
             if (propertyIDs != null)
             {
-                foreach (TsDaPropertyID propertyID in propertyIDs)
+                foreach (var propertyID in propertyIDs)
                 {
                     output.Add(propertyID.Code);
                 }
@@ -340,11 +340,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         internal static TsDaPropertyID[] GetPropertyIDs(int[] propertyIDs)
         {
-            ArrayList output = new ArrayList();
+            var output = new ArrayList();
 
             if (propertyIDs != null)
             {
-                foreach (int propertyID in propertyIDs)
+                foreach (var propertyID in propertyIDs)
                 {
                     output.Add(GetPropertyID(propertyID));
                 }
@@ -364,18 +364,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 output = new TsCDaItemPropertyCollection[count];
 
-                IntPtr pos = pInput;
+                var pos = pInput;
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
-                    OpcRcw.Da.OPCITEMPROPERTIES list = (OpcRcw.Da.OPCITEMPROPERTIES)Marshal.PtrToStructure(pos, typeof(OpcRcw.Da.OPCITEMPROPERTIES));
+                    var list = (OpcRcw.Da.OPCITEMPROPERTIES)Marshal.PtrToStructure(pos, typeof(OpcRcw.Da.OPCITEMPROPERTIES));
 
                     output[ii] = new TsCDaItemPropertyCollection();
                     output[ii].ItemPath = null;
                     output[ii].ItemName = null;
                     output[ii].Result = Technosoftware.DaAeHdaClient.Com.Interop.GetResultID(list.hrErrorID);
 
-                    TsCDaItemProperty[] properties = GetItemProperties(ref list, deallocate);
+                    var properties = GetItemProperties(ref list, deallocate);
 
                     if (properties != null)
                     {
@@ -405,17 +405,17 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         internal static IntPtr GetItemPropertyCollections(TsCDaItemPropertyCollection[] input)
         {
-            IntPtr output = IntPtr.Zero;
+            var output = IntPtr.Zero;
 
             if (input != null && input.Length > 0)
             {
                 output = Marshal.AllocCoTaskMem(Marshal.SizeOf(typeof(OpcRcw.Da.OPCITEMPROPERTIES)) * input.Length);
 
-                IntPtr pos = output;
+                var pos = output;
 
-                for (int ii = 0; ii < input.Length; ii++)
+                for (var ii = 0; ii < input.Length; ii++)
                 {
-                    OpcRcw.Da.OPCITEMPROPERTIES properties = new OpcRcw.Da.OPCITEMPROPERTIES();
+                    var properties = new OpcRcw.Da.OPCITEMPROPERTIES();
 
                     if (input[ii].Count > 0)
                     {
@@ -444,9 +444,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 output = new TsCDaItemProperty[input.dwNumProperties];
 
-                IntPtr pos = input.pItemProperties;
+                var pos = input.pItemProperties;
 
-                for (int ii = 0; ii < output.Length; ii++)
+                for (var ii = 0; ii < output.Length; ii++)
                 {
                     try
                     {
@@ -477,7 +477,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         internal static OpcRcw.Da.OPCITEMPROPERTIES GetItemProperties(TsCDaItemProperty[] input)
         {
-            OpcRcw.Da.OPCITEMPROPERTIES output = new OpcRcw.Da.OPCITEMPROPERTIES();
+            var output = new OpcRcw.Da.OPCITEMPROPERTIES();
 
             if (input != null && input.Length > 0)
             {
@@ -486,13 +486,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 output.dwNumProperties = input.Length;
                 output.pItemProperties = Marshal.AllocCoTaskMem(Marshal.SizeOf(typeof(OpcRcw.Da.OPCITEMPROPERTY)) * input.Length);
 
-                bool error = false;
+                var error = false;
 
-                IntPtr pos = output.pItemProperties;
+                var pos = output.pItemProperties;
 
-                for (int ii = 0; ii < input.Length; ii++)
+                for (var ii = 0; ii < input.Length; ii++)
                 {
-                    OpcRcw.Da.OPCITEMPROPERTY property = GetItemProperty(input[ii]);
+                    var property = GetItemProperty(input[ii]);
                     Marshal.StructureToPtr(property, pos, false);
                     pos = (IntPtr)(pos.ToInt64() + Marshal.SizeOf(typeof(OpcRcw.Da.OPCITEMPROPERTY)));
 
@@ -523,7 +523,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 try
                 {
-                    OpcRcw.Da.OPCITEMPROPERTY property = (OpcRcw.Da.OPCITEMPROPERTY)Marshal.PtrToStructure(pInput, typeof(OpcRcw.Da.OPCITEMPROPERTY));
+                    var property = (OpcRcw.Da.OPCITEMPROPERTY)Marshal.PtrToStructure(pInput, typeof(OpcRcw.Da.OPCITEMPROPERTY));
 
                     output = new TsCDaItemProperty();
 
@@ -556,7 +556,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         internal static OpcRcw.Da.OPCITEMPROPERTY GetItemProperty(TsCDaItemProperty input)
         {
-            OpcRcw.Da.OPCITEMPROPERTY output = new OpcRcw.Da.OPCITEMPROPERTY();
+            var output = new OpcRcw.Da.OPCITEMPROPERTY();
 
             if (input != null)
             {
@@ -568,7 +568,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 output.hrErrorID = Technosoftware.DaAeHdaClient.Com.Interop.GetResultID(input.Result);
 
                 // set the property data type.
-                TsDaPropertyDescription description = TsDaPropertyDescription.Find(input.ID);
+                var description = TsDaPropertyDescription.Find(input.ID);
 
                 if (description != null)
                 {
@@ -585,11 +585,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// <remarks/>
         public static TsDaPropertyID GetPropertyID(int input)
         {
-            FieldInfo[] fields = typeof(TsDaProperty).GetFields(BindingFlags.Static | BindingFlags.Public);
+            var fields = typeof(TsDaProperty).GetFields(BindingFlags.Static | BindingFlags.Public);
 
-            foreach (FieldInfo field in fields)
+            foreach (var field in fields)
             {
-                TsDaPropertyID property = (TsDaPropertyID)field.GetValue(typeof(TsDaPropertyID));
+                var property = (TsDaPropertyID)field.GetValue(typeof(TsDaPropertyID));
 
                 if (input == property.Code)
                 {
@@ -652,7 +652,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 {
                     if (input.GetType() == typeof(DateTime))
                     {
-                        DateTime dateTime = (DateTime)input;
+                        var dateTime = (DateTime)input;
 
                         if (dateTime != DateTime.MinValue)
                         {
@@ -716,7 +716,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 {
                     if (input.GetType() == typeof(DateTime))
                     {
-                        DateTime dateTime = (DateTime)input;
+                        var dateTime = (DateTime)input;
 
                         if (dateTime != DateTime.MinValue)
                         {
@@ -743,11 +743,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 output = new OpcRcw.Da.OPCITEMVQT[input.Length];
 
-                for (int ii = 0; ii < input.Length; ii++)
+                for (var ii = 0; ii < input.Length; ii++)
                 {
                     output[ii] = new OpcRcw.Da.OPCITEMVQT();
 
-                    DateTime timestamp = (input[ii].TimestampSpecified) ? input[ii].Timestamp : DateTime.MinValue;
+                    var timestamp = (input[ii].TimestampSpecified) ? input[ii].Timestamp : DateTime.MinValue;
 
                     output[ii].vDataValue = Technosoftware.DaAeHdaClient.Com.Interop.GetVARIANT(input[ii].Value);
                     output[ii].bQualitySpecified = (input[ii].QualitySpecified) ? 1 : 0;
@@ -772,12 +772,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 output = new OpcRcw.Da.OPCITEMDEF[input.Length];
 
-                for (int ii = 0; ii < input.Length; ii++)
+                for (var ii = 0; ii < input.Length; ii++)
                 {
                     output[ii] = new OpcRcw.Da.OPCITEMDEF();
 
                     output[ii].szItemID = input[ii].ItemName;
-                    output[ii].szAccessPath = (input[ii].ItemPath == null) ? String.Empty : input[ii].ItemPath;
+                    output[ii].szAccessPath = (input[ii].ItemPath == null) ? string.Empty : input[ii].ItemPath;
                     output[ii].bActive = (input[ii].ActiveSpecified) ? ((input[ii].Active) ? 1 : 0) : 1;
                     output[ii].vtRequestedDataType = (short)Technosoftware.DaAeHdaClient.Com.Interop.GetType(input[ii].ReqType);
                     output[ii].hClient = 0;
@@ -800,11 +800,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 output = new TsCDaItemValue[count];
 
-                IntPtr pos = pInput;
+                var pos = pInput;
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
-                    OpcRcw.Da.OPCITEMSTATE result = (OpcRcw.Da.OPCITEMSTATE)Marshal.PtrToStructure(pos, typeof(OpcRcw.Da.OPCITEMSTATE));
+                    var result = (OpcRcw.Da.OPCITEMSTATE)Marshal.PtrToStructure(pos, typeof(OpcRcw.Da.OPCITEMSTATE));
 
                     output[ii] = new TsCDaItemValue();
                     output[ii].ClientHandle = result.hClient;
@@ -843,11 +843,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             {
                 output = new int[count];
 
-                IntPtr pos = pInput;
+                var pos = pInput;
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
-                    OpcRcw.Da.OPCITEMRESULT result = (OpcRcw.Da.OPCITEMRESULT)Marshal.PtrToStructure(pos, typeof(OpcRcw.Da.OPCITEMRESULT));
+                    var result = (OpcRcw.Da.OPCITEMRESULT)Marshal.PtrToStructure(pos, typeof(OpcRcw.Da.OPCITEMRESULT));
 
                     output[ii] = result.hServer;
 
@@ -877,17 +877,17 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         internal static IntPtr GetItemStates(TsCDaItemValueResult[] input)
         {
-            IntPtr output = IntPtr.Zero;
+            var output = IntPtr.Zero;
 
             if (input != null && input.Length > 0)
             {
                 output = Marshal.AllocCoTaskMem(Marshal.SizeOf(typeof(OpcRcw.Da.OPCITEMSTATE)) * input.Length);
 
-                IntPtr pos = output;
+                var pos = output;
 
-                for (int ii = 0; ii < input.Length; ii++)
+                for (var ii = 0; ii < input.Length; ii++)
                 {
-                    OpcRcw.Da.OPCITEMSTATE item = new OpcRcw.Da.OPCITEMSTATE();
+                    var item = new OpcRcw.Da.OPCITEMSTATE();
 
                     item.hClient = System.Convert.ToInt32(input[ii].ClientHandle);
                     item.vDataValue = input[ii].Value;

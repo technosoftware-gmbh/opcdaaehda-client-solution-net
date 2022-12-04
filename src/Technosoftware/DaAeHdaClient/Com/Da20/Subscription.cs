@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -58,22 +58,22 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             if (subscription_ == null) throw new NotConnectedException();
             lock (lock_)
             {
-                string methodName = "IOPCGroupStateMgt.GetState";
-                TsCDaSubscriptionState state = new TsCDaSubscriptionState { ClientHandle = _handle };
+                var methodName = "IOPCGroupStateMgt.GetState";
+                var state = new TsCDaSubscriptionState { ClientHandle = _handle };
 
                 string name = null;
 
                 try
                 {
-                    int active = 0;
-                    int updateRate = 0;
+                    var active = 0;
+                    var updateRate = 0;
                     float deadband = 0;
-                    int timebias = 0;
-                    int localeID = 0;
-                    int clientHandle = 0;
-                    int serverHandle = 0;
+                    var timebias = 0;
+                    var localeID = 0;
+                    var clientHandle = 0;
+                    var serverHandle = 0;
 
-                    IOPCGroupStateMgt subscription = BeginComCall<IOPCGroupStateMgt>(methodName, true);
+                    var subscription = BeginComCall<IOPCGroupStateMgt>(methodName, true);
                     subscription.GetState(
                         out updateRate,
                         out active,
@@ -124,11 +124,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             if (subscription_ == null) throw new NotConnectedException();
             lock (lock_)
             {
-                string methodName = "IOPCAsyncIO2.Refresh2";
+                var methodName = "IOPCAsyncIO2.Refresh2";
                 try
                 {
-                    int cancelID = 0;
-                    IOPCAsyncIO2 subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
+                    var cancelID = 0;
+                    var subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
                     subscription.Refresh2(OPCDATASOURCE.OPC_DS_CACHE, ++_counter, out cancelID);
 
                     if (DCOMCallWatchdog.IsCancelled)
@@ -156,10 +156,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             if (subscription_ == null) throw new NotConnectedException();
             lock (lock_)
             {
-                string methodName = "IOPCAsyncIO2.SetEnable";
+                var methodName = "IOPCAsyncIO2.SetEnable";
                 try
                 {
-                    IOPCAsyncIO2 subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
+                    var subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
                     subscription.SetEnable((enabled) ? 1 : 0);
 
                     if (DCOMCallWatchdog.IsCancelled)
@@ -187,11 +187,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             if (subscription_ == null) throw new NotConnectedException();
             lock (lock_)
             {
-                string methodName = "IOPCAsyncIO2.GetEnable";
+                var methodName = "IOPCAsyncIO2.GetEnable";
                 try
                 {
-                    int enabled = 0;
-                    IOPCAsyncIO2 subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
+                    var enabled = 0;
+                    var subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
                     subscription.GetEnable(out enabled);
 
                     if (DCOMCallWatchdog.IsCancelled)
@@ -222,17 +222,17 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         {
             if (subscription_ == null) throw new NotConnectedException();
             // create result list.
-            TsCDaItemValueResult[] results = new TsCDaItemValueResult[itemIDs.Length];
+            var results = new TsCDaItemValueResult[itemIDs.Length];
 
             // separate into cache reads and device reads.
-            ArrayList cacheReads = new ArrayList();
-            ArrayList deviceReads = new ArrayList();
+            var cacheReads = new ArrayList();
+            var deviceReads = new ArrayList();
 
-            for (int ii = 0; ii < itemIDs.Length; ii++)
+            for (var ii = 0; ii < itemIDs.Length; ii++)
             {
                 results[ii] = new TsCDaItemValueResult(itemIDs[ii]);
 
-                if (items[ii].MaxAgeSpecified && (items[ii].MaxAge < 0 || items[ii].MaxAge == Int32.MaxValue))
+                if (items[ii].MaxAgeSpecified && (items[ii].MaxAge < 0 || items[ii].MaxAge == int.MaxValue))
                 {
                     cacheReads.Add(results[ii]);
                 }
@@ -266,21 +266,21 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             if (items.Length == 0) return;
 
             // marshal input parameters.
-            int[] serverHandles = new int[items.Length];
+            var serverHandles = new int[items.Length];
 
-            for (int ii = 0; ii < items.Length; ii++)
+            for (var ii = 0; ii < items.Length; ii++)
             {
                 serverHandles[ii] = (int)items[ii].ServerHandle;
             }
 
             // initialize output parameters.
-            IntPtr pValues = IntPtr.Zero;
-            IntPtr pErrors = IntPtr.Zero;
+            var pValues = IntPtr.Zero;
+            var pErrors = IntPtr.Zero;
 
-            string methodName = "IOPCSyncIO.Read";
+            var methodName = "IOPCSyncIO.Read";
             try
             {
-                IOPCSyncIO subscription = BeginComCall<IOPCSyncIO>(methodName, true);
+                var subscription = BeginComCall<IOPCSyncIO>(methodName, true);
                 subscription.Read(
                     (cache) ? OPCDATASOURCE.OPC_DS_CACHE : OPCDATASOURCE.OPC_DS_DEVICE,
                     items.Length,
@@ -304,11 +304,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             }
 
             // unmarshal output parameters.
-            TsCDaItemValue[] values = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetItemValues(ref pValues, items.Length, true);
-            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
+            var values = Technosoftware.DaAeHdaClient.Com.Da.Interop.GetItemValues(ref pValues, items.Length, true);
+            var errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
 
             // construct results list.
-            for (int ii = 0; ii < items.Length; ii++)
+            for (var ii = 0; ii < items.Length; ii++)
             {
                 items[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
                 items[ii].DiagnosticInfo = null;
@@ -334,13 +334,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         {
             if (subscription_ == null) throw new NotConnectedException();
             // create result list.
-            OpcItemResult[] results = new OpcItemResult[itemIDs.Length];
+            var results = new OpcItemResult[itemIDs.Length];
 
             // construct list of valid items to write.
-            ArrayList writeItems = new ArrayList(itemIDs.Length);
-            ArrayList writeValues = new ArrayList(itemIDs.Length);
+            var writeItems = new ArrayList(itemIDs.Length);
+            var writeValues = new ArrayList(itemIDs.Length);
 
-            for (int ii = 0; ii < items.Length; ii++)
+            for (var ii = 0; ii < items.Length; ii++)
             {
                 results[ii] = new OpcItemResult(itemIDs[ii]);
 
@@ -362,22 +362,22 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             }
 
             // initialize input parameters.
-            int[] serverHandles = new int[writeItems.Count];
-            object[] values = new object[writeItems.Count];
+            var serverHandles = new int[writeItems.Count];
+            var values = new object[writeItems.Count];
 
-            for (int ii = 0; ii < serverHandles.Length; ii++)
+            for (var ii = 0; ii < serverHandles.Length; ii++)
             {
                 serverHandles[ii] = (int)((OpcItemResult)writeItems[ii]).ServerHandle;
                 values[ii] = Utilities.Interop.GetVARIANT(((TsCDaItemValue)writeValues[ii]).Value);
             }
 
-            IntPtr pErrors = IntPtr.Zero;
+            var pErrors = IntPtr.Zero;
 
             // write item values.
-            string methodName = "IOPCSyncIO.Write";
+            var methodName = "IOPCSyncIO.Write";
             try
             {
-                IOPCSyncIO subscription = BeginComCall<IOPCSyncIO>(methodName, true);
+                var subscription = BeginComCall<IOPCSyncIO>(methodName, true);
                 subscription.Write(
                     writeItems.Count,
                     serverHandles,
@@ -400,11 +400,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             }
 
             // unmarshal results.
-            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, writeItems.Count, true);
+            var errors = Utilities.Interop.GetInt32s(ref pErrors, writeItems.Count, true);
 
-            for (int ii = 0; ii < writeItems.Count; ii++)
+            for (var ii = 0; ii < writeItems.Count; ii++)
             {
-                OpcItemResult result = (OpcItemResult)writeItems[ii];
+                var result = (OpcItemResult)writeItems[ii];
 
                 result.Result = Utilities.Interop.GetResultId(errors[ii]);
                 result.DiagnosticInfo = null;
@@ -426,21 +426,21 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
             int requestID,
             out int cancelID)
         {
-            string methodName = "IOPCAsyncIO2.Read";
+            var methodName = "IOPCAsyncIO2.Read";
             try
             {
                 // marshal input parameters.
-                int[] serverHandles = new int[itemIDs.Length];
+                var serverHandles = new int[itemIDs.Length];
 
-                for (int ii = 0; ii < itemIDs.Length; ii++)
+                for (var ii = 0; ii < itemIDs.Length; ii++)
                 {
                     serverHandles[ii] = (int)itemIDs[ii].ServerHandle;
                 }
 
                 // initialize output parameters.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                IOPCAsyncIO2 subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
+                var subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
                 subscription.Read(
                     itemIDs.Length,
                     serverHandles,
@@ -454,12 +454,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 }
 
                 // unmarshal output parameters.
-                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
+                var errors = Utilities.Interop.GetInt32s(ref pErrors, itemIDs.Length, true);
 
                 // create item results.
-                OpcItemResult[] results = new OpcItemResult[itemIDs.Length];
+                var results = new OpcItemResult[itemIDs.Length];
 
-                for (int ii = 0; ii < itemIDs.Length; ii++)
+                for (var ii = 0; ii < itemIDs.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(itemIDs[ii]);
                     results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
@@ -494,13 +494,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         {
             cancelID = 0;
 
-            ArrayList validItems = new ArrayList();
-            ArrayList validValues = new ArrayList();
+            var validItems = new ArrayList();
+            var validValues = new ArrayList();
 
             // construct initial result list.
-            OpcItemResult[] results = new OpcItemResult[itemIDs.Length];
+            var results = new OpcItemResult[itemIDs.Length];
 
-            for (int ii = 0; ii < itemIDs.Length; ii++)
+            for (var ii = 0; ii < itemIDs.Length; ii++)
             {
                 results[ii] = new OpcItemResult(itemIDs[ii]);
 
@@ -524,21 +524,21 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 return results;
             }
 
-            string methodName = "IOPCAsyncIO2.Write";
+            var methodName = "IOPCAsyncIO2.Write";
             try
             {
                 // initialize input parameters.
-                int[] serverHandles = new int[validItems.Count];
+                var serverHandles = new int[validItems.Count];
 
-                for (int ii = 0; ii < validItems.Count; ii++)
+                for (var ii = 0; ii < validItems.Count; ii++)
                 {
                     serverHandles[ii] = (int)((OpcItemResult)validItems[ii]).ServerHandle;
                 }
 
                 // write to sever.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                IOPCAsyncIO2 subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
+                var subscription = BeginComCall<IOPCAsyncIO2>(methodName, true);
                 subscription.Write(
                     validItems.Count,
                     serverHandles,
@@ -553,12 +553,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
                 }
 
                 // unmarshal results.
-                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, validItems.Count, true);
+                var errors = Utilities.Interop.GetInt32s(ref pErrors, validItems.Count, true);
 
                 // create result list.
-                for (int ii = 0; ii < validItems.Count; ii++)
+                for (var ii = 0; ii < validItems.Count; ii++)
                 {
-                    OpcItemResult result = (OpcItemResult)validItems[ii];
+                    var result = (OpcItemResult)validItems[ii];
 
                     result.Result = Utilities.Interop.GetResultId(errors[ii]);
                     result.DiagnosticInfo = null;

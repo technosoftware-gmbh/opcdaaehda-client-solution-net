@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -42,7 +42,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// </summary>
         internal static OpcRcw.Ae.FILETIME Convert(FILETIME input)
         {
-            OpcRcw.Ae.FILETIME output = new OpcRcw.Ae.FILETIME();
+            var output = new OpcRcw.Ae.FILETIME();
             output.dwLowDateTime = input.dwLowDateTime;
             output.dwHighDateTime = input.dwHighDateTime;
             return output;
@@ -53,7 +53,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// </summary>
         internal static FILETIME Convert(OpcRcw.Ae.FILETIME input)
         {
-            FILETIME output = new FILETIME();
+            var output = new FILETIME();
             output.dwLowDateTime = input.dwLowDateTime;
             output.dwHighDateTime = input.dwHighDateTime;
             return output;
@@ -82,12 +82,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
 
             if (pInput != IntPtr.Zero)
             {
-                OpcRcw.Ae.OPCEVENTSERVERSTATUS status = (OpcRcw.Ae.OPCEVENTSERVERSTATUS)Marshal.PtrToStructure(pInput, typeof(OpcRcw.Ae.OPCEVENTSERVERSTATUS));
+                var status = (OpcRcw.Ae.OPCEVENTSERVERSTATUS)Marshal.PtrToStructure(pInput, typeof(OpcRcw.Ae.OPCEVENTSERVERSTATUS));
 
                 output = new OpcServerStatus();
 
                 output.VendorInfo = status.szVendorInfo;
-                output.ProductVersion = String.Format("{0}.{1}.{2}", status.wMajorVersion, status.wMinorVersion, status.wBuildNumber);
+                output.ProductVersion = string.Format("{0}.{1}.{2}", status.wMajorVersion, status.wMinorVersion, status.wBuildNumber);
                 output.MajorVersion = status.wMajorVersion;
                 output.MinorVersion = status.wMinorVersion;
                 output.BuildNumber = status.wBuildNumber;
@@ -134,7 +134,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             {
                 output = new TsCAeEventNotification[input.Length];
 
-                for (int ii = 0; ii < input.Length; ii++)
+                for (var ii = 0; ii < input.Length; ii++)
                 {
                     output[ii] = GetEventNotification(input[ii]);
                 }
@@ -148,7 +148,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
         /// </summary>
         internal static TsCAeEventNotification GetEventNotification(OpcRcw.Ae.ONEVENTSTRUCT input)
         {
-            TsCAeEventNotification output = new TsCAeEventNotification();
+            var output = new TsCAeEventNotification();
 
             output.SourceID = input.szSource;
             output.Time = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(Convert(input.ftTime));
@@ -166,7 +166,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             output.Cookie = input.dwCookie;
             output.ActorID = input.szActorID;
 
-            object[] attributes = Technosoftware.DaAeHdaClient.Com.Interop.GetVARIANTs(ref input.pEventAttributes, input.dwNumEventAttrs, false);
+            var attributes = Technosoftware.DaAeHdaClient.Com.Interop.GetVARIANTs(ref input.pEventAttributes, input.dwNumEventAttrs, false);
 
             output.SetAttributes(attributes);
 
@@ -184,11 +184,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
             {
                 output = new TsCAeCondition[count];
 
-                IntPtr pos = pInput;
+                var pos = pInput;
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
-                    OpcRcw.Ae.OPCCONDITIONSTATE condition = (OpcRcw.Ae.OPCCONDITIONSTATE)Marshal.PtrToStructure(pos, typeof(OpcRcw.Ae.OPCCONDITIONSTATE));
+                    var condition = (OpcRcw.Ae.OPCCONDITIONSTATE)Marshal.PtrToStructure(pos, typeof(OpcRcw.Ae.OPCCONDITIONSTATE));
 
                     output[ii] = new TsCAeCondition();
 
@@ -207,18 +207,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                     output[ii].ActiveSubCondition.Description = condition.szASCDescription;
 
                     // unmarshal sub-conditions.
-                    string[] names = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref condition.pszSCNames, condition.dwNumSCs, deallocate);
-                    int[] severities = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref condition.pdwSCSeverities, condition.dwNumSCs, deallocate);
-                    string[] definitions = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref condition.pszSCDefinitions, condition.dwNumSCs, deallocate);
-                    string[] descriptions = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref condition.pszSCDescriptions, condition.dwNumSCs, deallocate);
+                    var names = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref condition.pszSCNames, condition.dwNumSCs, deallocate);
+                    var severities = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref condition.pdwSCSeverities, condition.dwNumSCs, deallocate);
+                    var definitions = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref condition.pszSCDefinitions, condition.dwNumSCs, deallocate);
+                    var descriptions = Technosoftware.DaAeHdaClient.Com.Interop.GetUnicodeStrings(ref condition.pszSCDescriptions, condition.dwNumSCs, deallocate);
 
                     output[ii].SubConditions.Clear();
 
                     if (condition.dwNumSCs > 0)
                     {
-                        for (int jj = 0; jj < names.Length; jj++)
+                        for (var jj = 0; jj < names.Length; jj++)
                         {
-                            TsCAeSubCondition subcondition = new TsCAeSubCondition();
+                            var subcondition = new TsCAeSubCondition();
 
                             subcondition.Name = names[jj];
                             subcondition.Severity = severities[jj];
@@ -230,16 +230,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Ae
                     }
 
                     // unmarshal attributes.
-                    object[] values = Technosoftware.DaAeHdaClient.Com.Interop.GetVARIANTs(ref condition.pEventAttributes, condition.dwNumEventAttrs, deallocate);
-                    int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref condition.pErrors, condition.dwNumEventAttrs, deallocate);
+                    var values = Technosoftware.DaAeHdaClient.Com.Interop.GetVARIANTs(ref condition.pEventAttributes, condition.dwNumEventAttrs, deallocate);
+                    var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref condition.pErrors, condition.dwNumEventAttrs, deallocate);
 
                     output[ii].Attributes.Clear();
 
                     if (condition.dwNumEventAttrs > 0)
                     {
-                        for (int jj = 0; jj < values.Length; jj++)
+                        for (var jj = 0; jj < values.Length; jj++)
                         {
-                            TsCAeAttributeValue attribute = new TsCAeAttributeValue();
+                            var attribute = new TsCAeAttributeValue();
 
                             attribute.ID = 0;
                             attribute.Value = values[jj];

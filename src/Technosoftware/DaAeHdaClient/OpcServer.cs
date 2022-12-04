@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -168,7 +168,7 @@ namespace Technosoftware.DaAeHdaClient
             try
             {
                 // check for direct match with requested locale.
-                foreach (string supportedLocale in supportedLocales)
+                foreach (var supportedLocale in supportedLocales)
                 {
                     if (supportedLocale == requestedLocale)
                     {
@@ -177,13 +177,13 @@ namespace Technosoftware.DaAeHdaClient
                 }
 
                 // try to find match for parent culture.
-                CultureInfo requestedCulture = new CultureInfo(requestedLocale);
+                var requestedCulture = new CultureInfo(requestedLocale);
 
-                foreach (string supportedLocale in supportedLocales)
+                foreach (var supportedLocale in supportedLocales)
                 {
                     try
                     {
-                        CultureInfo supportedCulture = new CultureInfo(supportedLocale);
+                        var supportedCulture = new CultureInfo(supportedLocale);
 
                         if (requestedCulture.Parent.Name == supportedCulture.Name)
                         {
@@ -222,7 +222,7 @@ namespace Technosoftware.DaAeHdaClient
             opcUrl_ = (OpcUrl)url.Clone();
 
             //  construct a name for the server.
-            string name = "";
+            var name = "";
 
             //  use the host name as a base.
             if (opcUrl_.HostName != null)
@@ -248,9 +248,9 @@ namespace Technosoftware.DaAeHdaClient
             //  use the prog id as the name.
             if (opcUrl_.Scheme != OpcUrlScheme.HTTP)
             {
-                string progId = opcUrl_.Path;
+                var progId = opcUrl_.Path;
 
-                int index = progId.LastIndexOf('/');
+                var index = progId.LastIndexOf('/');
 
                 if (index != -1)
                 {
@@ -263,10 +263,10 @@ namespace Technosoftware.DaAeHdaClient
             // use full path without the extension as the name.
             else
             {
-                string path = opcUrl_.Path;
+                var path = opcUrl_.Path;
 
                 // strip the file extension.
-                int index = path.LastIndexOf('.');
+                var index = path.LastIndexOf('.');
 
                 if (index != -1)
                 {
@@ -283,7 +283,7 @@ namespace Technosoftware.DaAeHdaClient
             }
 
             //  save the generated name in case the server name is not already set
-            if (String.IsNullOrEmpty(serverName_))
+            if (string.IsNullOrEmpty(serverName_))
             {
                 serverName_ = name;
             }
@@ -347,7 +347,7 @@ namespace Technosoftware.DaAeHdaClient
         public virtual object Clone()
         {
             //  do a memberwise clone.
-            OpcServer clone = (OpcServer)MemberwiseClone();
+            var clone = (OpcServer)MemberwiseClone();
 
             //  place clone in disconnected state.
             clone.Server = null;
@@ -428,7 +428,7 @@ namespace Technosoftware.DaAeHdaClient
         public virtual void Connect(string url)
         {
             Factory = null;
-            OpcUrl opcUrl = new OpcUrl(url);
+            var opcUrl = new OpcUrl(url);
             Connect(opcUrl, null);
         }
 
@@ -533,7 +533,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <returns>An unconnected duplicate instance of the server object.</returns>
         public virtual OpcServer Duplicate()
         {
-            OpcServer instance = (OpcServer)Activator.CreateInstance(GetType(), Factory, opcUrl_);
+            var instance = (OpcServer)Activator.CreateInstance(GetType(), Factory, opcUrl_);
 
             //  preserve the credentials.
             instance.connectData_ = connectData_;
@@ -585,7 +585,7 @@ namespace Technosoftware.DaAeHdaClient
             catch
             {
                 // find a best match and check if the server supports it.
-                string revisedLocale = FindBestLocale(locale, supportedLocales_);
+                var revisedLocale = FindBestLocale(locale, supportedLocales_);
 
                 if (revisedLocale != locale)
                 {

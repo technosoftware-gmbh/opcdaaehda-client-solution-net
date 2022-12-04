@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -213,8 +213,8 @@ namespace Technosoftware.DaAeHdaClient.Da
         public TsCDaItem[] Items {
             get {
                 if (daItems_ == null) return new TsCDaItem[0];
-                TsCDaItem[] items = new TsCDaItem[daItems_.Length];
-                for (int ii = 0; ii < daItems_.Length; ii++) items[ii] = (TsCDaItem)daItems_[ii].Clone();
+                var items = new TsCDaItem[daItems_.Length];
+                for (var ii = 0; ii < daItems_.Length; ii++) items[ii] = (TsCDaItem)daItems_[ii].Clone();
                 return items;
             }
         }
@@ -237,7 +237,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         public virtual object Clone()
         {
             // do a memberwise clone.
-            TsCDaSubscription clone = (TsCDaSubscription)MemberwiseClone();
+            var clone = (TsCDaSubscription)MemberwiseClone();
 
             // place clone in disconnected state.
             clone.server_ = null;
@@ -253,7 +253,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             // clone items.
             if (clone.daItems_ != null)
             {
-                ArrayList items = new ArrayList();
+                var items = new ArrayList();
 
                 Array.ForEach(clone.daItems_, item => items.Add(item.Clone()));
 
@@ -315,7 +315,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             }
 
             // add items.
-            TsCDaItemResult[] results = Subscription.AddItems(items);
+            var results = Subscription.AddItems(items);
 
             if (results == null || results.Length == 0)
             {
@@ -323,10 +323,10 @@ namespace Technosoftware.DaAeHdaClient.Da
             }
 
             // update locale item list.
-            ArrayList itemList = new ArrayList();
+            var itemList = new ArrayList();
             if (daItems_ != null) itemList.AddRange(daItems_);
 
-            for (int ii = 0; ii < results.Length; ii++)
+            for (var ii = 0; ii < results.Length; ii++)
             {
                 // check for failure.
                 if (results[ii].Result.Failed())
@@ -336,7 +336,7 @@ namespace Technosoftware.DaAeHdaClient.Da
 
                 // create locale copy of the item.
                 // item name, item path and client handle may not be returned by server.
-                TsCDaItem item = new TsCDaItem(results[ii]) { ItemName = items[ii].ItemName, ItemPath = items[ii].ItemPath, ClientHandle = items[ii].ClientHandle };
+                var item = new TsCDaItem(results[ii]) { ItemName = items[ii].ItemName, ItemPath = items[ii].ItemPath, ClientHandle = items[ii].ClientHandle };
 
                 itemList.Add(item);
             }
@@ -366,7 +366,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             }
 
             // modify items.
-            TsCDaItemResult[] results = Subscription.ModifyItems(masks, items);
+            var results = Subscription.ModifyItems(masks, items);
 
             if (results == null || results.Length == 0)
             {
@@ -374,7 +374,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             }
 
             // update local item - modify item success means all fields were updated successfully.
-            for (int ii = 0; ii < results.Length; ii++)
+            for (var ii = 0; ii < results.Length; ii++)
             {
                 // check for failure.
                 if (results[ii].Result.Failed())
@@ -383,13 +383,13 @@ namespace Technosoftware.DaAeHdaClient.Da
                 }
 
                 // search local item list.
-                for (int jj = 0; jj < daItems_.Length; jj++)
+                for (var jj = 0; jj < daItems_.Length; jj++)
                 {
                     if (daItems_[jj].ServerHandle.Equals(items[ii].ServerHandle))
                     {
                         // update locale copy of the item.
                         // item name, item path and client handle may not be returned by server.
-                        TsCDaItem item = new TsCDaItem(results[ii]) { ItemName = daItems_[jj].ItemName, ItemPath = daItems_[jj].ItemPath, ClientHandle = daItems_[jj].ClientHandle };
+                        var item = new TsCDaItem(results[ii]) { ItemName = daItems_[jj].ItemName, ItemPath = daItems_[jj].ItemPath, ClientHandle = daItems_[jj].ClientHandle };
 
                         daItems_[jj] = item;
                         break;
@@ -419,7 +419,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             }
 
             // remove items from server.
-            OpcItemResult[] results = Subscription.RemoveItems(items);
+            var results = Subscription.RemoveItems(items);
 
             if (results == null || results.Length == 0)
             {
@@ -427,13 +427,13 @@ namespace Technosoftware.DaAeHdaClient.Da
             }
 
             // remove items from local list if successful.
-            ArrayList itemList = new ArrayList();
+            var itemList = new ArrayList();
 
-            foreach (TsCDaItem item in daItems_)
+            foreach (var item in daItems_)
             {
-                bool removed = false;
+                var removed = false;
 
-                for (int ii = 0; ii < results.Length; ii++)
+                for (var ii = 0; ii < results.Length; ii++)
                 {
                     if (item.ServerHandle.Equals(items[ii].ServerHandle))
                     {

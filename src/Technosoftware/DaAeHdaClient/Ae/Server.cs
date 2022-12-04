@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 
@@ -70,7 +70,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             /// </summary>
             internal void Add(TsCAeSubscription subscription)
             {
-                TsCAeSubscription[] array = new TsCAeSubscription[Count + 1];
+                var array = new TsCAeSubscription[Count + 1];
 
                 Array.CopyTo(array, 0);
                 array[Count] = subscription;
@@ -83,13 +83,13 @@ namespace Technosoftware.DaAeHdaClient.Ae
             /// </summary>
             internal void Remove(TsCAeSubscription subscription)
             {
-                TsCAeSubscription[] array = new TsCAeSubscription[Count - 1];
+                var array = new TsCAeSubscription[Count - 1];
 
-                int index = 0;
+                var index = 0;
 
-                for (int ii = 0; ii < Array.Length; ii++)
+                for (var ii = 0; ii < Array.Length; ii++)
                 {
-                    TsCAeSubscription element = (TsCAeSubscription)Array.GetValue(ii);
+                    var element = (TsCAeSubscription)Array.GetValue(ii);
 
                     if (subscription != element)
                     {
@@ -147,11 +147,11 @@ namespace Technosoftware.DaAeHdaClient.Ae
             :
             base(info, context)
         {
-            int count = (int)info.GetValue(Names.Count, typeof(int));
+            var count = (int)info.GetValue(Names.Count, typeof(int));
 
             subscriptions_ = new SubscriptionCollection();
 
-            for (int ii = 0; ii < count; ii++)
+            for (var ii = 0; ii < count; ii++)
             {
                 var subscription = (TsCAeSubscription)info.GetValue(Names.Subscription + ii, typeof(TsCAeSubscription));
                 subscriptions_.Add(subscription);
@@ -193,7 +193,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             }
 
             // create subscriptions (should only happen if server has been deserialized).
-            SubscriptionCollection subscriptions = new SubscriptionCollection();
+            var subscriptions = new SubscriptionCollection();
 
             foreach (TsCAeSubscription template in subscriptions_)
             {
@@ -239,7 +239,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (Server == null) throw new NotConnectedException();
 
-            OpcServerStatus status = ((ITsCAeServer)Server).GetServerStatus();
+            var status = ((ITsCAeServer)Server).GetServerStatus();
 
             if (status != null)
             {
@@ -267,7 +267,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             if (Server == null) throw new NotConnectedException();
 
             // create remote object.
-            ITsCAeSubscription subscription = ((ITsCAeServer)Server).CreateSubscription(state);
+            var subscription = ((ITsCAeServer)Server).CreateSubscription(state);
 
             if (subscription != null)
             {
@@ -306,7 +306,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             if (Server == null) throw new NotConnectedException();
 
             // fetch categories from server.
-            TsCAeCategory[] categories = ((ITsCAeServer)Server).QueryEventCategories(eventType);
+            var categories = ((ITsCAeServer)Server).QueryEventCategories(eventType);
 
             // return result.
             return categories;
@@ -323,7 +323,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             if (Server == null) throw new NotConnectedException();
 
             // fetch condition names from the server.
-            string[] conditions = ((ITsCAeServer)Server).QueryConditionNames(eventCategory);
+            var conditions = ((ITsCAeServer)Server).QueryConditionNames(eventCategory);
 
             // return result.
             return conditions;
@@ -340,7 +340,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             if (Server == null) throw new NotConnectedException();
 
             // fetch sub-condition names from the server.
-            string[] subConditions = ((ITsCAeServer)Server).QuerySubConditionNames(conditionName);
+            var subConditions = ((ITsCAeServer)Server).QuerySubConditionNames(conditionName);
 
             // return result.
             return subConditions;
@@ -357,7 +357,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             if (Server == null) throw new NotConnectedException();
 
             // fetch condition names from the server.
-            string[] conditions = ((ITsCAeServer)Server).QueryConditionNames(sourceName);
+            var conditions = ((ITsCAeServer)Server).QueryConditionNames(sourceName);
 
             // return result.
             return conditions;
@@ -374,7 +374,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             if (Server == null) throw new NotConnectedException();
 
             // fetch attributes from server.
-            TsCAeAttribute[] attributes = ((ITsCAeServer)Server).QueryEventAttributes(eventCategory);
+            var attributes = ((ITsCAeServer)Server).QueryEventAttributes(eventCategory);
 
             // return result.
             return attributes;
@@ -399,7 +399,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (Server == null) throw new NotConnectedException();
 
-            TsCAeItemUrl[] itemUrls = ((ITsCAeServer)Server).TranslateToItemIDs(
+            var itemUrls = ((ITsCAeServer)Server).TranslateToItemIDs(
                 sourceName,
                 eventCategory,
                 conditionName,
@@ -424,7 +424,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (Server == null) throw new NotConnectedException();
 
-            TsCAeCondition condition = ((ITsCAeServer)Server).GetConditionState(sourceName, conditionName, attributeIDs);
+            var condition = ((ITsCAeServer)Server).GetConditionState(sourceName, conditionName, attributeIDs);
 
             return condition;
         }
@@ -439,7 +439,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (Server == null) throw new NotConnectedException();
 
-            OpcResult[] results = ((ITsCAeServer)Server).EnableConditionByArea(areas);
+            var results = ((ITsCAeServer)Server).EnableConditionByArea(areas);
 
             return results;
         }
@@ -454,7 +454,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (Server == null) throw new NotConnectedException();
 
-            OpcResult[] results = ((ITsCAeServer)Server).DisableConditionByArea(areas);
+            var results = ((ITsCAeServer)Server).DisableConditionByArea(areas);
 
             return results;
         }
@@ -469,7 +469,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (Server == null) throw new NotConnectedException();
 
-            OpcResult[] results = ((ITsCAeServer)Server).EnableConditionBySource(sources);
+            var results = ((ITsCAeServer)Server).EnableConditionBySource(sources);
 
             return results;
         }
@@ -484,7 +484,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (Server == null) throw new NotConnectedException();
 
-            OpcResult[] results = ((ITsCAeServer)Server).DisableConditionBySource(sources);
+            var results = ((ITsCAeServer)Server).DisableConditionBySource(sources);
 
             return results;
         }
@@ -498,7 +498,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (Server == null) throw new NotConnectedException();
 
-            TsCAeEnabledStateResult[] results = ((ITsCAeServer)Server).GetEnableStateByArea(areas);
+            var results = ((ITsCAeServer)Server).GetEnableStateByArea(areas);
 
             return results;
         }
@@ -512,7 +512,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
             if (Server == null) throw new NotConnectedException();
 
-            TsCAeEnabledStateResult[] results = ((ITsCAeServer)Server).GetEnableStateBySource(sources);
+            var results = ((ITsCAeServer)Server).GetEnableStateBySource(sources);
 
             return results;
         }
@@ -602,7 +602,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
             info.AddValue(Names.Count, subscriptions_.Count);
 
-            for (int ii = 0; ii < subscriptions_.Count; ii++)
+            for (var ii = 0; ii < subscriptions_.Count; ii++)
             {
                 info.AddValue(Names.Subscription + ii, subscriptions_[ii]);
             }
@@ -642,13 +642,13 @@ namespace Technosoftware.DaAeHdaClient.Ae
                 }
 
                 // create wrapper.
-                TsCAeSubscription subscription = new TsCAeSubscription(this, remoteServer, template.State);
+                var subscription = new TsCAeSubscription(this, remoteServer, template.State);
 
                 // set filters.
                 subscription.SetFilters(template.Filters);
 
                 // set attributes.
-                IDictionaryEnumerator enumerator = template.Attributes.GetEnumerator();
+                var enumerator = template.Attributes.GetEnumerator();
 
                 while (enumerator.MoveNext())
                 {
