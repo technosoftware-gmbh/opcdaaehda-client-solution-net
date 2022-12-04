@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -58,15 +58,14 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			if (dictionary == null) throw new ArgumentNullException(nameof(dictionary));
 			if (typeName == null) throw new ArgumentNullException(nameof(typeName));
 
-			TsCCpxContext context = InitializeContext(buffer, dictionary, typeName);
+			var context = InitializeContext(buffer, dictionary, typeName);
 
-			TsCCpxComplexValue complexValue = null;
-
-			int bytesRead = ReadType(context, out complexValue);
+            TsCCpxComplexValue complexValue;
+            var bytesRead = ReadType(context, out complexValue);
 
 			if (bytesRead == 0)
 			{
-				throw new TsCCpxInvalidSchemaException(String.Format("Type '{0}' not found in dictionary.", typeName));
+				throw new TsCCpxInvalidSchemaException(string.Format("Type '{0}' not found in dictionary.", typeName));
 			}
 
 			return complexValue;
@@ -84,18 +83,18 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		{
 			complexValue = null;
 
-			TypeDescription type = context.Type;
-			int startIndex = context.Index;
+			var type = context.Type;
+			var startIndex = context.Index;
 
 			byte bitOffset = 0;
 
-			ArrayList fieldValues = new ArrayList();
+			var fieldValues = new ArrayList();
 
-			for (int ii = 0; ii < type.Field.Length; ii++)
+			for (var ii = 0; ii < type.Field.Length; ii++)
 			{
-				FieldType field = type.Field[ii];
+				var field = type.Field[ii];
 
-				TsCCpxComplexValue fieldValue = new TsCCpxComplexValue { Name = (field.Name != null && field.Name.Length != 0) ? field.Name : String.Format("[{0}]", ii), Type = null, Value = null };
+				var fieldValue = new TsCCpxComplexValue { Name = (field.Name != null && field.Name.Length != 0) ? field.Name : string.Format("[{0}]", ii), Type = null, Value = null };
 
 				// check if additional padding is required after the end of a bit field.
 				if (bitOffset != 0)
@@ -107,17 +106,15 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 					}
 				}
 
-				int bytesRead = 0;
-
-				if (IsArrayField(field))
+                int bytesRead;
+                if (IsArrayField(field))
 				{
 					bytesRead = ReadArrayField(context, field, ii, fieldValues, out fieldValue.Value);
 				}
 				else if (field.GetType() == typeof(TypeReference))
 				{
-					object typeValue = null;
-
-					bytesRead = ReadField(context, (TypeReference)field, out typeValue);
+                    object typeValue;
+                    bytesRead = ReadField(context, (TypeReference)field, out typeValue);
 
 					// assign a name appropriate for the current context.
 					fieldValue.Name = field.Name;
@@ -131,7 +128,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 
 				if (bytesRead == 0 && bitOffset == 0)
 				{
-					throw new TsCCpxInvalidDataInBufferException(String.Format("Could not read field '{0}' in type '{1}'.", field.Name, type.TypeID));
+					throw new TsCCpxInvalidDataInBufferException(string.Format("Could not read field '{0}' in type '{1}'.", field.Name, type.TypeID));
 				}
 
 				context.Index += bytesRead;
@@ -174,7 +171,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		{
 			fieldValue = null;
 
-			Type type = field.GetType();
+			var type = field.GetType();
 
 			if (type == typeof(Integer) || type.IsSubclassOf(typeof(Integer)))
 			{
@@ -198,7 +195,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 			}
 			else
 			{
-				throw new NotImplementedException(String.Format("Fields of type '{0}' are not implemented yet.", type));
+				throw new NotImplementedException(string.Format("Fields of type '{0}' are not implemented yet.", type));
 			}
 		}
 
@@ -209,7 +206,7 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 		{
             fieldValue = null;
 
-			foreach (TypeDescription type in context.Dictionary.TypeDescription)
+			foreach (var type in context.Dictionary.TypeDescription)
 			{
 				if (type.TypeID == field.TypeID)
 				{
@@ -226,12 +223,11 @@ namespace Technosoftware.DaAeHdaClient.Cpx
 
 			if (context.Type == null)
 			{
-				throw new TsCCpxInvalidSchemaException(String.Format("Reference type '{0}' not found.", field.TypeID));
+				throw new TsCCpxInvalidSchemaException(string.Format("Reference type '{0}' not found.", field.TypeID));
 			}
 
-			TsCCpxComplexValue complexValue = null;
-
-			int bytesRead = ReadType(context, out complexValue);
+            TsCCpxComplexValue complexValue;
+            var bytesRead = ReadType(context, out complexValue);
 
 			if (bytesRead == 0)
 			{
@@ -252,11 +248,11 @@ else
 		{
 			fieldValue = null;
 
-			byte[] buffer = context.Buffer;
+			var buffer = context.Buffer;
 
 			// initialize serialization paramters.
-			int length = (field.LengthSpecified) ? (int)field.Length : 4;
-			bool signed = field.Signed;
+			var length = (field.LengthSpecified) ? (int)field.Length : 4;
+			var signed = field.Signed;
 
 			// apply defaults for built in types.
 			if (field.GetType() == typeof(Int8)) { length = 1; signed = true; }
@@ -275,9 +271,9 @@ else
 			}
 
 			// copy and swap bytes if required.
-			byte[] bytes = new byte[length];
+			var bytes = new byte[length];
 
-			for (int ii = 0; ii < length; ii++)
+			for (var ii = 0; ii < length; ii++)
 			{
 				bytes[ii] = buffer[context.Index + ii];
 			}
@@ -335,11 +331,11 @@ else
 		{
 			fieldValue = null;
 
-			byte[] buffer = context.Buffer;
+			var buffer = context.Buffer;
 
 			// initialize serialization paramters.
-			int length = (field.LengthSpecified) ? (int)field.Length : 4;
-			string format = field.FloatFormat ?? context.FloatFormat;
+			var length = (field.LengthSpecified) ? (int)field.Length : 4;
+			var format = field.FloatFormat ?? context.FloatFormat;
 
 			// apply defaults for built in types.
 			if (field.GetType() == typeof(Single)) { length = 4; format = TsCCpxContext.FLOAT_FORMAT_IEEE754; }
@@ -352,9 +348,9 @@ else
 			}
 
 			// copy bytes.
-			byte[] bytes = new byte[length];
+			var bytes = new byte[length];
 
-			for (int ii = 0; ii < length; ii++)
+			for (var ii = 0; ii < length; ii++)
 			{
 				bytes[ii] = buffer[context.Index + ii];
 			}
@@ -390,11 +386,11 @@ else
 		{
 			fieldValue = null;
 
-			byte[] buffer = context.Buffer;
+			var buffer = context.Buffer;
 
 			// initialize serialization parameters.
-			int charWidth = (field.CharWidthSpecified) ? (int)field.CharWidth : (int)context.CharWidth;
-			int charCount = (field.LengthSpecified) ? (int)field.Length : -1;
+			var charWidth = (field.CharWidthSpecified) ? (int)field.CharWidth : (int)context.CharWidth;
+			var charCount = (field.LengthSpecified) ? (int)field.Length : -1;
 
 			// apply defaults for built in types.
 			if (field.GetType() == typeof(Ascii)) { charWidth = 1; }
@@ -410,13 +406,13 @@ else
 			{
 				charCount = 0;
 
-				for (int ii = context.Index; ii < context.Buffer.Length - charWidth + 1; ii += charWidth)
+				for (var ii = context.Index; ii < context.Buffer.Length - charWidth + 1; ii += charWidth)
 				{
 					charCount++;
 
-					bool isNull = true;
+					var isNull = true;
 
-					for (int jj = 0; jj < charWidth; jj++)
+					for (var jj = 0; jj < charWidth; jj++)
 					{
 						if (context.Buffer[ii + jj] != 0)
 						{
@@ -441,9 +437,9 @@ else
 			if (charWidth > 2)
 			{
 				// copy bytes.
-				byte[] bytes = new byte[charCount * charWidth];
+				var bytes = new byte[charCount * charWidth];
 
-				for (int ii = 0; ii < charCount * charWidth; ii++)
+				for (var ii = 0; ii < charCount * charWidth; ii++)
 				{
 					bytes[ii] = buffer[context.Index + ii];
 				}
@@ -451,7 +447,7 @@ else
 				// swap bytes.
 				if (context.BigEndian)
 				{
-					for (int ii = 0; ii < bytes.Length; ii += charWidth)
+					for (var ii = 0; ii < bytes.Length; ii += charWidth)
 					{
 						SwapBytes(bytes, 0, charWidth);
 					}
@@ -462,9 +458,9 @@ else
 			else
 			{
 				// copy characters.
-				char[] chars = new char[charCount];
+				var chars = new char[charCount];
 
-				for (int ii = 0; ii < charCount; ii++)
+				for (var ii = 0; ii < charCount; ii++)
 				{
 					if (charWidth == 1)
 					{
@@ -472,7 +468,7 @@ else
 					}
 					else
 					{
-						byte[] charBytes = new byte[]
+						var charBytes = new byte[]
                         {
                             buffer[context.Index+2*ii],
                             buffer[context.Index+2*ii+1]
@@ -500,11 +496,11 @@ else
 		{
 			fieldValue = null;
 
-			byte[] buffer = context.Buffer;
+			var buffer = context.Buffer;
 
 			// initialize serialization paramters.
-			int bits = (field.LengthSpecified) ? (int)field.Length : 8;
-			int length = (bits % 8 == 0) ? bits / 8 : bits / 8 + 1;
+			var bits = (field.LengthSpecified) ? (int)field.Length : 8;
+			var length = (bits % 8 == 0) ? bits / 8 : bits / 8 + 1;
 
 			// check if there is enough data left.
 			if (buffer.Length - context.Index < length)
@@ -513,13 +509,13 @@ else
 			}
 
 			// allocate space for the value.
-			byte[] bytes = new byte[length];
+			var bytes = new byte[length];
 
-			int bitsLeft = bits;
-			byte mask = (byte)(~((1 << bitOffset) - 1));
+			var bitsLeft = bits;
+			var mask = (byte)(~((1 << bitOffset) - 1));
 
 			// loop until all bits read.
-			for (int ii = 0; bitsLeft >= 0 && ii < length; ii++)
+			for (var ii = 0; bitsLeft >= 0 && ii < length; ii++)
 			{
 				// add the bits from the lower byte.
 				bytes[ii] = (byte)((mask & buffer[context.Index + ii]) >> bitOffset);
@@ -576,90 +572,89 @@ else
 		{
 			fieldValue = null;
 
-			int startIndex = context.Index;
+			var startIndex = context.Index;
 
-			ArrayList array = new ArrayList();
-			object elementValue = null;
+			var array = new ArrayList();
+            byte bitOffset = 0;
 
-			byte bitOffset = 0;
+            object elementValue;
+            // read fixed length array.
+            if (field.ElementCountSpecified)
+            {
+                for (var ii = 0; ii < field.ElementCount; ii++)
+                {
+                    var bytesRead = ReadField(context, field, fieldIndex, fieldValues, out elementValue, ref bitOffset);
 
-			// read fixed length array.
-			if (field.ElementCountSpecified)
-			{
-				for (int ii = 0; ii < field.ElementCount; ii++)
-				{
-					int bytesRead = ReadField(context, field, fieldIndex, fieldValues, out elementValue, ref bitOffset);
+                    if (bytesRead == 0 && bitOffset == 0)
+                    {
+                        break;
+                    }
 
-					if (bytesRead == 0 && bitOffset == 0)
-					{
-						break;
-					}
+                    array.Add(elementValue);
 
-					array.Add(elementValue);
+                    context.Index += bytesRead;
+                }
+            }
 
-					context.Index += bytesRead;
-				}
-			}
+            // read variable length array.
+            else if (field.ElementCountRef != null)
+            {
+                var count = ReadReference(context, field, fieldIndex, fieldValues, field.ElementCountRef);
 
-			// read variable length array.
-			else if (field.ElementCountRef != null)
-			{
-				int count = ReadReference(context, field, fieldIndex, fieldValues, field.ElementCountRef);
+                for (var ii = 0; ii < count; ii++)
+                {
+                    var bytesRead = ReadField(context, field, fieldIndex, fieldValues, out elementValue, ref bitOffset);
 
-				for (int ii = 0; ii < count; ii++)
-				{
-					int bytesRead = ReadField(context, field, fieldIndex, fieldValues, out elementValue, ref bitOffset);
+                    if (bytesRead == 0 && bitOffset == 0)
+                    {
+                        break;
+                    }
 
-					if (bytesRead == 0 && bitOffset == 0)
-					{
-						break;
-					}
+                    array.Add(elementValue);
 
-					array.Add(elementValue);
+                    context.Index += bytesRead;
+                }
+            }
 
-					context.Index += bytesRead;
-				}
-			}
+            // read terminated array.
+            else if (field.FieldTerminator != null)
+            {
+                var terminator = GetTerminator(context, field);
 
-			// read terminated array.
-			else if (field.FieldTerminator != null)
-			{
-				byte[] terminator = GetTerminator(context, field);
+                while (context.Index < context.Buffer.Length)
+                {
+                    var found = true;
 
-				while (context.Index < context.Buffer.Length)
-				{
-					bool found = true;
+                    for (var ii = 0; ii < terminator.Length; ii++)
+                    {
+                        if (terminator[ii] != context.Buffer[context.Index + ii])
+                        {
+                            found = false;
+                            break;
+                        }
+                    }
 
-					for (int ii = 0; ii < terminator.Length; ii++)
-					{
-						if (terminator[ii] != context.Buffer[context.Index + ii])
-						{
-							found = false;
-							break;
-						}
-					}
+                    if (found)
+                    {
+                        context.Index += terminator.Length;
+                        break;
+                    }
 
-					if (found)
-					{
-						context.Index += terminator.Length;
-						break;
-					}
+                    var bytesRead = ReadField(context, field, fieldIndex, fieldValues, out elementValue, ref bitOffset);
 
-					int bytesRead = ReadField(context, field, fieldIndex, fieldValues, out elementValue, ref bitOffset);
+                    if (bytesRead == 0 && bitOffset == 0)
+                    {
+                        break;
+                    }
 
-					if (bytesRead == 0 && bitOffset == 0)
-					{
-						break;
-					}
+                    array.Add(elementValue);
 
-					array.Add(elementValue);
+                    context.Index += bytesRead;
+                }
+            }
 
-					context.Index += bytesRead;
-				}
-			}
-
-			// skip padding bits at the end of an array.
-			if (bitOffset != 0)
+            // skip padding bits at the end of an array.
+            if (bitOffset != 0)
 			{
 				context.Index++;
 			}
@@ -667,7 +662,7 @@ else
 			// convert array list to a fixed length array of a single type. 
 			Type type = null;
 
-			foreach (object element in array)
+			foreach (var element in array)
 			{
 				if (type == null)
 				{
@@ -711,7 +706,7 @@ else
 			}
 			else
 			{
-				for (int ii = 0; ii < fieldIndex; ii++)
+				for (var ii = 0; ii < fieldIndex; ii++)
 				{
 					complexValue = (TsCCpxComplexValue)fieldValues[ii];
 
@@ -726,7 +721,7 @@ else
 
 			if (complexValue == null)
 			{
-				throw new TsCCpxInvalidSchemaException(String.Format("Referenced field not found ({0}).", fieldName));
+				throw new TsCCpxInvalidSchemaException(string.Format("Referenced field not found ({0}).", fieldName));
 			}
 
 			return Convert.ToInt32(complexValue.Value);

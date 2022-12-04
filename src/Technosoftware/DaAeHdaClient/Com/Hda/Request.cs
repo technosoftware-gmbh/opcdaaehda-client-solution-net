@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -77,7 +77,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 // create a table of items indexed by the handle returned by the server in a callback.
                 m_items = new Hashtable();
 
-                foreach (OpcItem result in results)
+                foreach (var result in results)
                 {
                     if (!typeof(IOpcResult).IsInstanceOfType(result) || ((IOpcResult)result).Result.Succeeded())
                     {
@@ -92,11 +92,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // invoke callbacks for results that have already arrived.
-                bool complete = false;
+                var complete = false;
 
                 if (m_results != null)
                 {
-                    foreach (object result in m_results)
+                    foreach (var result in m_results)
                     {
                         complete = InvokeCallback(result);
                     }
@@ -218,7 +218,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 return false;
             }
 
-            TsCHdaItemValueCollection[] values = (TsCHdaItemValueCollection[])results;
+            var values = (TsCHdaItemValueCollection[])results;
 
             // update item handles and actual times.
             UpdateResults(values);
@@ -247,7 +247,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 return false;
             }
 
-            TsCHdaItemValueCollection[] values = (TsCHdaItemValueCollection[])results;
+            var values = (TsCHdaItemValueCollection[])results;
 
             // update item handles and actual times.
             UpdateResults(values);
@@ -262,7 +262,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             }
 
             // check if all data has been sent.
-            foreach (TsCHdaItemValueCollection value in values)
+            foreach (var value in values)
             {
                 if (value.Result == OpcResult.Hda.S_MOREDATA)
                 {
@@ -285,7 +285,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 return false;
             }
 
-            TsCHdaItemAttributeCollection values = (TsCHdaItemAttributeCollection)results;
+            var values = (TsCHdaItemAttributeCollection)results;
 
             // update item handles and actual times.
             UpdateResults(new TsCHdaItemAttributeCollection[] { values });
@@ -314,7 +314,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 return false;
             }
 
-            TsCHdaAnnotationValueCollection[] values = (TsCHdaAnnotationValueCollection[])results;
+            var values = (TsCHdaAnnotationValueCollection[])results;
 
             // update item handles and actual times.
             UpdateResults(values);
@@ -343,7 +343,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 return false;
             }
 
-            TsCHdaResultCollection[] values = (TsCHdaResultCollection[])results;
+            var values = (TsCHdaResultCollection[])results;
 
             // update item handles and actual times.
             UpdateResults(values);
@@ -366,7 +366,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         private void UpdateResults(OpcItem[] results)
         {
-            foreach (OpcItem result in results)
+            foreach (var result in results)
             {
                 // update actual times.
                 if (typeof(ITsCHdaActualTime).IsInstanceOfType(result))
@@ -376,7 +376,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // add item identifier to value collection.
-                OpcItem itemID = (OpcItem)m_items[result.ServerHandle];
+                var itemID = (OpcItem)m_items[result.ServerHandle];
 
                 if (itemID != null)
                 {

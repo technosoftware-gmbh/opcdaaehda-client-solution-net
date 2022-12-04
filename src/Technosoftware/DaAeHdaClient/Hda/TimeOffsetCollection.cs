@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -53,7 +53,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// <param name="type">The offset type.</param>
         public int Add(int value, TsCHdaRelativeTime type)
         {
-            TsCHdaTimeOffset offset = new TsCHdaTimeOffset { Value = value, Type = type };
+            var offset = new TsCHdaTimeOffset { Value = value, Type = type };
 
             return base.Add(offset);
         }
@@ -64,7 +64,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         /// <returns>A String that represents the current Object.</returns>
         public override string ToString()
         {
-            StringBuilder buffer = new StringBuilder(256);
+            var buffer = new StringBuilder(256);
 
             foreach (TsCHdaTimeOffset offset in (ICollection)this)
             {
@@ -90,17 +90,17 @@ namespace Technosoftware.DaAeHdaClient.Hda
             Clear();
 
             // parse the offsets.
-            bool positive = true;
-            int magnitude = 0;
-            string units = "";
-            int state = 0;
+            var positive = true;
+            var magnitude = 0;
+            var units = "";
+            var state = 0;
 
             // state = 0 - looking for start of next offset field.
             // state = 1 - looking for beginning of offset value.
             // state = 2 - reading offset value.
             // state = 3 - reading offset type.
 
-            for (int ii = 0; ii < buffer.Length; ii++)
+            for (var ii = 0; ii < buffer.Length; ii++)
             {
                 // check for sign part of the offset field.
                 if (buffer[ii] == '+' || buffer[ii] == '-')
@@ -124,7 +124,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
                 }
 
                 // check for integer part of the offset field.
-                else if (Char.IsDigit(buffer, ii))
+                else if (char.IsDigit(buffer, ii))
                 {
                     if (state == 3)
                     {
@@ -147,7 +147,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
                 }
 
                 // check for units part of the offset field.
-                else if (!Char.IsWhiteSpace(buffer, ii))
+                else if (!char.IsWhiteSpace(buffer, ii))
                 {
                     if (state != 2 && state != 3)
                     {
@@ -252,7 +252,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
                 if (units == TsCHdaTimeOffset.OffsetTypeToString(offsetType))
                 {
-                    TsCHdaTimeOffset offset = new TsCHdaTimeOffset { Value = (positive) ? magnitude : -magnitude, Type = offsetType };
+                    var offset = new TsCHdaTimeOffset { Value = (positive) ? magnitude : -magnitude, Type = offsetType };
 
                     return offset;
                 }

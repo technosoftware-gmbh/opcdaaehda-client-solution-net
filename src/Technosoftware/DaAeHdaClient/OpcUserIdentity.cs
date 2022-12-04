@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -61,15 +61,15 @@ namespace Technosoftware.DaAeHdaClient
         /// <param name="password">The password</param>
         public OpcUserIdentity(string username, string password)
         {
-            UnicodeEncoding ByteConverter = new UnicodeEncoding();
-            using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+            var ByteConverter = new UnicodeEncoding();
+            using (var RSA = new RSACryptoServiceProvider())
             {
                 string domainName = null;
                 _rsaParams = RSA.ExportParameters(true);
                 RSA.ImportParameters(_rsaParams);
-                if (!String.IsNullOrEmpty(username))
+                if (!string.IsNullOrEmpty(username))
                 {
-                    int index = username.IndexOf('\\');
+                    var index = username.IndexOf('\\');
 
                     if (index != -1)
                     {
@@ -77,21 +77,21 @@ namespace Technosoftware.DaAeHdaClient
                         username = username.Substring(index + 1);
                     }
                     _usernameValid = true;
-                    byte[] userIdBytes = ByteConverter.GetBytes(username);
+                    var userIdBytes = ByteConverter.GetBytes(username);
                     _username = RSA.Encrypt(userIdBytes, false);
                 }
 
                 if (!string.IsNullOrEmpty(password))
                 {
                     _passwordValid = true;
-                    byte[] userKeyBytes = ByteConverter.GetBytes(password);
+                    var userKeyBytes = ByteConverter.GetBytes(password);
                     _password = RSA.Encrypt(userKeyBytes, false);
                 }
 
                 if (!string.IsNullOrEmpty(domainName))
                 {
                     _domainNameValid = true;
-                    byte[] domainBytes = ByteConverter.GetBytes(domainName);
+                    var domainBytes = ByteConverter.GetBytes(domainName);
                     _domainName = RSA.Encrypt(domainBytes, false);
                 }
 
@@ -107,14 +107,14 @@ namespace Technosoftware.DaAeHdaClient
         public OpcUserIdentity(string domainName, string userName, string password)
             : this(userName, password)
         {
-            UnicodeEncoding ByteConverter = new UnicodeEncoding();
-            using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+            var ByteConverter = new UnicodeEncoding();
+            using (var RSA = new RSACryptoServiceProvider())
             {
                 RSA.ImportParameters(_rsaParams);
                 if (!string.IsNullOrEmpty(domainName))
                 {
                     _domainNameValid = true;
-                    byte[] domainBytes = ByteConverter.GetBytes(domainName);
+                    var domainBytes = ByteConverter.GetBytes(domainName);
                     _domainName = RSA.Encrypt(domainBytes, false);
                 }
             }
@@ -131,20 +131,20 @@ namespace Technosoftware.DaAeHdaClient
         public OpcUserIdentity(string domainName, string userName, string password, string clientCertificateName, string serverCertificateName)
             : this(domainName, userName, password)
         {
-            UnicodeEncoding ByteConverter = new UnicodeEncoding();
-            using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+            var ByteConverter = new UnicodeEncoding();
+            using (var RSA = new RSACryptoServiceProvider())
             {
                 RSA.ImportParameters(_rsaParams);
                 if (!string.IsNullOrEmpty(clientCertificateName))
                 {
                     _clientCertificateNameValid = true;
-                    byte[] clientCertificateBytes = ByteConverter.GetBytes(clientCertificateName);
+                    var clientCertificateBytes = ByteConverter.GetBytes(clientCertificateName);
                     _clientCertificateName = RSA.Encrypt(clientCertificateBytes, false);
                 }
                 if (!string.IsNullOrEmpty(serverCertificateName))
                 {
                     _serverCertificateNameValid = true;
-                    byte[] serverCertificateBytes = ByteConverter.GetBytes(serverCertificateName);
+                    var serverCertificateBytes = ByteConverter.GetBytes(serverCertificateName);
                     _serverCertificateName = RSA.Encrypt(serverCertificateBytes, false);
                 }
             }
@@ -166,11 +166,11 @@ namespace Technosoftware.DaAeHdaClient
                 {
                     try
                     {
-                        using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                        using (var RSA = new RSACryptoServiceProvider())
                         {
                             RSA.ImportParameters(_rsaParams);
-                            byte[] domainNameBytes = RSA.Decrypt(_domainName, false);
-                            UnicodeEncoding ByteConverter = new UnicodeEncoding();
+                            var domainNameBytes = RSA.Decrypt(_domainName, false);
+                            var ByteConverter = new UnicodeEncoding();
                             return ByteConverter.GetString(domainNameBytes);
                         }
                     }
@@ -194,11 +194,11 @@ namespace Technosoftware.DaAeHdaClient
                 {
                     try
                     {
-                        using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                        using (var RSA = new RSACryptoServiceProvider())
                         {
                             RSA.ImportParameters(_rsaParams);
-                            byte[] userNameBytes = RSA.Decrypt(_username, false);
-                            UnicodeEncoding ByteConverter = new UnicodeEncoding();
+                            var userNameBytes = RSA.Decrypt(_username, false);
+                            var ByteConverter = new UnicodeEncoding();
                             return ByteConverter.GetString(userNameBytes);
                         }
                     }
@@ -222,11 +222,11 @@ namespace Technosoftware.DaAeHdaClient
                 {
                     try
                     {
-                        using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                        using (var RSA = new RSACryptoServiceProvider())
                         {
                             RSA.ImportParameters(_rsaParams);
-                            byte[] passwordBytes = RSA.Decrypt(_password, false);
-                            UnicodeEncoding ByteConverter = new UnicodeEncoding();
+                            var passwordBytes = RSA.Decrypt(_password, false);
+                            var ByteConverter = new UnicodeEncoding();
                             return ByteConverter.GetString(passwordBytes);
                         }
                     }
@@ -255,11 +255,11 @@ namespace Technosoftware.DaAeHdaClient
                 {
                     try
                     {
-                        using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                        using (var RSA = new RSACryptoServiceProvider())
                         {
                             RSA.ImportParameters(_rsaParams);
-                            byte[] clientCertificateBytes = RSA.Decrypt(_clientCertificateName, false);
-                            UnicodeEncoding ByteConverter = new UnicodeEncoding();
+                            var clientCertificateBytes = RSA.Decrypt(_clientCertificateName, false);
+                            var ByteConverter = new UnicodeEncoding();
                             return ByteConverter.GetString(clientCertificateBytes);
                         }
                     }
@@ -283,11 +283,11 @@ namespace Technosoftware.DaAeHdaClient
                 {
                     try
                     {
-                        using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                        using (var RSA = new RSACryptoServiceProvider())
                         {
                             RSA.ImportParameters(_rsaParams);
-                            byte[] serverCertificateBytes = RSA.Decrypt(_serverCertificateName, false);
-                            UnicodeEncoding ByteConverter = new UnicodeEncoding();
+                            var serverCertificateBytes = RSA.Decrypt(_serverCertificateName, false);
+                            var ByteConverter = new UnicodeEncoding();
                             return ByteConverter.GetString(serverCertificateBytes);
                         }
                     }
@@ -347,7 +347,7 @@ namespace Technosoftware.DaAeHdaClient
         {
             if (_domainNameValid)
             {
-                return String.Format("{0}\\{1}", Domain, Username);
+                return string.Format("{0}\\{1}", Domain, Username);
             }
 
             return Username;

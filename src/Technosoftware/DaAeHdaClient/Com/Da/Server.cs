@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -99,15 +99,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                             // release all groups.
                             foreach (Subscription subscription in subscriptions_.Values)
                             {
-                               string methodName = "IOPCServer.RemoveGroup";
+                               var methodName = "IOPCServer.RemoveGroup";
 
                                 // remove subscription from server.
                                 try
                                 {
-                                    TsCDaSubscriptionState state = subscription.GetState();
+                                    var state = subscription.GetState();
                                     if (state != null)
                                     {
-                                        IOPCServer server = BeginComCall<IOPCServer>(methodName, true);
+                                        var server = BeginComCall<IOPCServer>(methodName, true);
                                         server?.RemoveGroup((int)state.ServerHandle, 0);
                                     }
                                 }
@@ -161,12 +161,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             lock (this)
             {
                 if (server_ == null) throw new NotConnectedException();
-                string methodName = "IOPCServer.GetErrorString";
+                var methodName = "IOPCServer.GetErrorString";
 
                 // invoke COM method.
                 try
                 {                   
-                    IOPCServer server = BeginComCall<IOPCServer>(methodName, true);
+                    var server = BeginComCall<IOPCServer>(methodName, true);
 
                     (server).GetErrorString(
                         resultId.Code,
@@ -229,7 +229,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             lock (this)
             {
                 if (server_ == null) throw new NotConnectedException();
-                string methodName = "IOPCServer.GetStatus";
+                var methodName = "IOPCServer.GetStatus";
 
                 // initialize arguments.
                 IntPtr pStatus;
@@ -237,7 +237,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 // invoke COM method.
                 try
                 {                  
-                    IOPCServer server = BeginComCall<IOPCServer>(methodName, true);
+                    var server = BeginComCall<IOPCServer>(methodName, true);
                     (server).GetStatus(out pStatus);
 
                     if (DCOMCallWatchdog.IsCancelled)
@@ -271,31 +271,31 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             lock (this)
             {
-                string methodName = "IOPCItemIO.Read";
+                var methodName = "IOPCItemIO.Read";
                 if (server_ == null) throw new NotConnectedException();
 
-                int count = items.Length;
+                var count = items.Length;
                 if (count == 0) throw new ArgumentOutOfRangeException(nameof(items.Length), @"0");
 
                 // initialize arguments.
-                string[] itemIDs = new string[count];
-                int[] maxAges = new int[count];
+                var itemIDs = new string[count];
+                var maxAges = new int[count];
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
                     itemIDs[ii] = items[ii].ItemName;
                     maxAges[ii] = (items[ii].MaxAgeSpecified) ? items[ii].MaxAge : 0;
                 }
 
-                IntPtr pValues = IntPtr.Zero;
-                IntPtr pQualities = IntPtr.Zero;
-                IntPtr pTimestamps = IntPtr.Zero;
-                IntPtr pErrors = IntPtr.Zero;
+                var pValues = IntPtr.Zero;
+                var pQualities = IntPtr.Zero;
+                var pTimestamps = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
                                 
                 // invoke COM method.
                 try
                 {              
-                    IOPCItemIO server = BeginComCall<IOPCItemIO>(methodName, true);
+                    var server = BeginComCall<IOPCItemIO>(methodName, true);
                     server.Read(
                          count,
                          itemIDs,
@@ -322,18 +322,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // unmarshal results.
-                object[] values = Technosoftware.DaAeHdaClient.Com.Interop.GetVARIANTs(ref pValues, count, true);
-                short[] qualities = Technosoftware.DaAeHdaClient.Com.Interop.GetInt16s(ref pQualities, count, true);
-                DateTime[] timestamps = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIMEs(ref pTimestamps, count, true);
-                int[] errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, count, true);
+                var values = Technosoftware.DaAeHdaClient.Com.Interop.GetVARIANTs(ref pValues, count, true);
+                var qualities = Technosoftware.DaAeHdaClient.Com.Interop.GetInt16s(ref pQualities, count, true);
+                var timestamps = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIMEs(ref pTimestamps, count, true);
+                var errors = Technosoftware.DaAeHdaClient.Com.Interop.GetInt32s(ref pErrors, count, true);
 
                 // pre-fetch the current locale to use for data conversions.
-                string locale = GetLocale();
+                var locale = GetLocale();
 
                 // construct result array.
-                TsCDaItemValueResult[] results = new TsCDaItemValueResult[count];
+                var results = new TsCDaItemValueResult[count];
 
-                for (int ii = 0; ii < results.Length; ii++)
+                for (var ii = 0; ii < results.Length; ii++)
                 {
                     results[ii] = new TsCDaItemValueResult(items[ii]);
 
@@ -404,27 +404,27 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             lock (this)
             {
                 if (server_ == null) throw new NotConnectedException();
-                string methodName = "IOPCItemIO.WriteVQT";
+                var methodName = "IOPCItemIO.WriteVQT";
 
-                int count = items.Length;
+                var count = items.Length;
                 if (count == 0) throw new ArgumentOutOfRangeException("items.Length", "0");
 
                 // initialize arguments.
-                string[] itemIDs = new string[count];
+                var itemIDs = new string[count];
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
                     itemIDs[ii] = items[ii].ItemName;
                 }
 
-                OPCITEMVQT[] values = Interop.GetOPCITEMVQTs(items);
+                var values = Interop.GetOPCITEMVQTs(items);
 
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
                 {                
-                    IOPCItemIO server = BeginComCall<IOPCItemIO>(methodName, true);
+                    var server = BeginComCall<IOPCItemIO>(methodName, true);
                     server.WriteVQT(
                         count,
                         itemIDs,
@@ -447,12 +447,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // unmarshal results.
-                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, count, true);
+                var errors = Utilities.Interop.GetInt32s(ref pErrors, count, true);
 
                 // construct result array.
-                OpcItemResult[] results = new OpcItemResult[count];
+                var results = new OpcItemResult[count];
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
                     results[ii] = new OpcItemResult(items[ii]);
 
@@ -486,24 +486,24 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             lock (this)
             {
                 if (server_ == null) throw new NotConnectedException();
-                string methodName = "IOPCServer.AddGroup";
+                var methodName = "IOPCServer.AddGroup";
 
                 // copy the subscription state.
-                TsCDaSubscriptionState result = (TsCDaSubscriptionState)state.Clone();
+                var result = (TsCDaSubscriptionState)state.Clone();
 
                 // initialize arguments.
-                Guid iid = typeof(IOPCItemMgt).GUID;
+                var iid = typeof(IOPCItemMgt).GUID;
                 object group = null;
 
-                int serverHandle = 0;
-                int revisedUpdateRate = 0;
+                var serverHandle = 0;
+                var revisedUpdateRate = 0;
 
-                GCHandle hDeadband = GCHandle.Alloc(result.Deadband, GCHandleType.Pinned);
+                var hDeadband = GCHandle.Alloc(result.Deadband, GCHandleType.Pinned);
                               
                 // invoke COM method.
                 try
                 {
-                    IOPCServer server = BeginComCall<IOPCServer>(methodName, true);
+                    var server = BeginComCall<IOPCServer>(methodName, true);
                     server.AddGroup(
                         (result.Name != null) ? result.Name : "",
                         (result.Active) ? 1 : 0,
@@ -543,8 +543,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 // set the keep alive rate if requested.
                 try
                 {                 
-                    int keepAlive = 0;
-                    IOPCGroupStateMgt2 comObject = BeginComCall<IOPCGroupStateMgt2>(group, methodName, true);
+                    var keepAlive = 0;
+                    var comObject = BeginComCall<IOPCGroupStateMgt2>(group, methodName, true);
                     comObject.SetKeepAlive(result.KeepAlive, out keepAlive);
 
                     if (DCOMCallWatchdog.IsCancelled)
@@ -574,7 +574,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // create the subscription object.
-                Subscription subscription = CreateSubscription(group, result, filters_);
+                var subscription = CreateSubscription(group, result, filters_);
 
                 // index by server handle.
                 subscriptions_[serverHandle] = subscription;
@@ -595,7 +595,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             lock (this)
             {
                 if (server_ == null) throw new NotConnectedException();
-                string methodName = "IOPCServer.RemoveGroup";
+                var methodName = "IOPCServer.RemoveGroup";
 
                 // validate argument.
                 if (!typeof(Subscription).IsInstanceOfType(subscription))
@@ -604,7 +604,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // get the subscription state.
-                TsCDaSubscriptionState state = subscription.GetState();
+                var state = subscription.GetState();
 
                 if (!subscriptions_.ContainsKey(state.ServerHandle))
                 {
@@ -619,7 +619,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 // invoke COM method.
                 try
                 {                 
-                    IOPCServer server = BeginComCall<IOPCServer>(methodName, true);
+                    var server = BeginComCall<IOPCServer>(methodName, true);
                     server.RemoveGroup((int)state.ServerHandle, 0);
 
                     if (DCOMCallWatchdog.IsCancelled)
@@ -656,21 +656,21 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             lock (this)
             {
                 if (server_ == null) throw new NotConnectedException();
-                string methodName = "IOPCBrowse.Browse";
+                var methodName = "IOPCBrowse.Browse";
 
                 position = null;
 
                 // initialize arguments.
-                int count = 0;
-                int moreElements = 0;
+                var count = 0;
+                var moreElements = 0;
 
-                IntPtr pContinuationPoint = IntPtr.Zero;
-                IntPtr pElements = IntPtr.Zero;
+                var pContinuationPoint = IntPtr.Zero;
+                var pElements = IntPtr.Zero;
 
                 // invoke COM method.
                 try
                 {                    
-                    IOPCBrowse server = BeginComCall<IOPCBrowse>(methodName, true);
+                    var server = BeginComCall<IOPCBrowse>(methodName, true);
                     server.Browse(
                              (itemId != null && itemId.ItemName != null) ? itemId.ItemName : "",
                          ref pContinuationPoint,
@@ -702,9 +702,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // unmarshal results.
-                TsCDaBrowseElement[] elements = Interop.GetBrowseElements(ref pElements, count, true);
+                var elements = Interop.GetBrowseElements(ref pElements, count, true);
 
-                string continuationPoint = Marshal.PtrToStringUni(pContinuationPoint);
+                var continuationPoint = Marshal.PtrToStringUni(pContinuationPoint);
                 Marshal.FreeCoTaskMem(pContinuationPoint);
 
                 // check if more results exist.
@@ -731,7 +731,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             lock (this)
             {
                 if (server_ == null) throw new NotConnectedException();
-                string methodName = "IOPCBrowse.Browse";
+                var methodName = "IOPCBrowse.Browse";
 
                 // check for valid position object.
                 if (position == null || position.GetType() != typeof(BrowsePosition))
@@ -739,7 +739,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                     throw new BrowseCannotContinueException();
                 }
 
-                BrowsePosition pos = (BrowsePosition)position;
+                var pos = (BrowsePosition)position;
 
                 // check for valid continuation point.
                 if (pos == null || pos.ContinuationPoint == null || pos.ContinuationPoint == "")
@@ -748,19 +748,19 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // initialize arguments.
-                int count = 0;
-                int moreElements = 0;
+                var count = 0;
+                var moreElements = 0;
 
-                OpcItem itemID = ((BrowsePosition)position).ItemID;
-                TsCDaBrowseFilters filters = ((BrowsePosition)position).Filters;
+                var itemID = ((BrowsePosition)position).ItemID;
+                var filters = ((BrowsePosition)position).Filters;
 
-                IntPtr pContinuationPoint = Marshal.StringToCoTaskMemUni(pos.ContinuationPoint);
-                IntPtr pElements = IntPtr.Zero;
+                var pContinuationPoint = Marshal.StringToCoTaskMemUni(pos.ContinuationPoint);
+                var pElements = IntPtr.Zero;
 
                 // invoke COM method.
                 try
                 {                   
-                    IOPCBrowse server = BeginComCall<IOPCBrowse>(methodName, true);
+                    var server = BeginComCall<IOPCBrowse>(methodName, true);
                     server.Browse(
                         (itemID != null && itemID.ItemName != null) ? itemID.ItemName : "",
                         ref pContinuationPoint,
@@ -792,7 +792,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // unmarshal results.
-                TsCDaBrowseElement[] elements = Interop.GetBrowseElements(ref pElements, count, true);
+                var elements = Interop.GetBrowseElements(ref pElements, count, true);
 
                 pos.ContinuationPoint = Marshal.PtrToStringUni(pContinuationPoint);
                 Marshal.FreeCoTaskMem(pContinuationPoint);
@@ -827,22 +827,22 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             lock (this)
             {
                 if (server_ == null) throw new NotConnectedException();
-                string methodName = "IOPCBrowse.GetProperties";
+                var methodName = "IOPCBrowse.GetProperties";
 
                 // initialize arguments.
-                string[] pItemIDs = new string[itemIds.Length];
+                var pItemIDs = new string[itemIds.Length];
 
-                for (int ii = 0; ii < itemIds.Length; ii++)
+                for (var ii = 0; ii < itemIds.Length; ii++)
                 {
                     pItemIDs[ii] = itemIds[ii].ItemName;
                 }
 
-                IntPtr pPropertyLists = IntPtr.Zero;
+                var pPropertyLists = IntPtr.Zero;
 
                 // invoke COM method.
                 try
                 {                   
-                    IOPCBrowse server = BeginComCall<IOPCBrowse>(methodName, true);
+                    var server = BeginComCall<IOPCBrowse>(methodName, true);
                     server.GetProperties(
                           itemIds.Length,
                           pItemIDs,
@@ -867,14 +867,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // unmarshal results.
-                TsCDaItemPropertyCollection[] resultLists = Interop.GetItemPropertyCollections(ref pPropertyLists, itemIds.Length, true);
+                var resultLists = Interop.GetItemPropertyCollections(ref pPropertyLists, itemIds.Length, true);
 
                 // replace integer codes with qnames passed in.
                 if (propertyIDs != null && propertyIDs.Length > 0)
                 {
-                    foreach (TsCDaItemPropertyCollection resultList in resultLists)
+                    foreach (var resultList in resultLists)
                     {
-                        for (int ii = 0; ii < resultList.Count; ii++)
+                        for (var ii = 0; ii < resultList.Count; ii++)
                         {
                             resultList[ii].ID = propertyIDs[ii];
                         }
@@ -894,7 +894,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
         /// </summary>
         protected object ChangeType(object source, Type type, string locale)
         {
-            CultureInfo culture = Thread.CurrentThread.CurrentCulture;
+            var culture = Thread.CurrentThread.CurrentCulture;
 
             // override the current thread culture to ensure conversions happen correctly.
             try
@@ -908,12 +908,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
 
             try
             {
-                object result = OpcConvert.ChangeType(source, type);
+                var result = OpcConvert.ChangeType(source, type);
 
                 // check for overflow converting to float.
-                if (typeof(Single) == type)
+                if (typeof(float) == type)
                 {
-                    if (Single.IsInfinity(Convert.ToSingle(result)))
+                    if (float.IsInfinity(Convert.ToSingle(result)))
                     {
                         throw new OverflowException();
                     }
@@ -952,7 +952,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
             }
 
             // process each element.
-            foreach (TsCDaBrowseElement element in elements)
+            foreach (var element in elements)
             {
                 // check if no properties.
                 if (element.Properties == null)
@@ -961,12 +961,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Da
                 }
 
                 // process each property.
-                foreach (TsCDaItemProperty property in element.Properties)
+                foreach (var property in element.Properties)
                 {
                     // replace the property ids which on contain the codes with the proper qualified names passed in.
                     if (propertyIds != null)
                     {
-                        foreach (TsDaPropertyID propertyId in propertyIds)
+                        foreach (var propertyId in propertyIds)
                         {
                             if (property.ID.Code == propertyId.Code)
                             {

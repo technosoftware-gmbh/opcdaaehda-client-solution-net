@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -79,7 +79,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         protected TsCHdaServer(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-            TsCHdaTrend[] trends = (TsCHdaTrend[])info.GetValue(Names.Trends, typeof(TsCHdaTrend[]));
+            var trends = (TsCHdaTrend[])info.GetValue(Names.Trends, typeof(TsCHdaTrend[]));
 
             if (trends != null)
             {
@@ -137,7 +137,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             // create items for trends.
             foreach (TsCHdaTrend trend in trends_)
             {
-                ArrayList itemIDs = new ArrayList();
+                var itemIDs = new ArrayList();
 
                 foreach (TsCHdaItem item in trend.Items)
                 {
@@ -145,11 +145,11 @@ namespace Technosoftware.DaAeHdaClient.Hda
                 }
 
                 // save server handles for each item.
-                OpcItemResult[] results = CreateItems((OpcItem[])itemIDs.ToArray(typeof(OpcItem)));
+                var results = CreateItems((OpcItem[])itemIDs.ToArray(typeof(OpcItem)));
 
                 if (results != null)
                 {
-                    for (int ii = 0; ii < results.Length; ii++)
+                    for (var ii = 0; ii < results.Length; ii++)
                     {
                         trend.Items[ii].ServerHandle = null;
 
@@ -175,7 +175,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
                 try
                 {
-                    ArrayList items = new ArrayList(items_.Count);
+                    var items = new ArrayList(items_.Count);
                     items.AddRange(items_);
 
                     ((ITsCHdaServer)Server).ReleaseItems((OpcItem[])items.ToArray(typeof(OpcItem)));
@@ -212,7 +212,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcServerStatus status = ((ITsCHdaServer)Server).GetServerStatus();
+            var status = ((ITsCHdaServer)Server).GetServerStatus();
 
 
             if (status != null)
@@ -243,7 +243,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             // clear existing cached list.
             attributes_.Clear();
 
-            TsCHdaAttribute[] attributes = ((ITsCHdaServer)Server).GetAttributes();
+            var attributes = ((ITsCHdaServer)Server).GetAttributes();
 
             // save a locale copy.
             if (attributes != null)
@@ -267,7 +267,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             // discard existing cached list.
             aggregates_.Clear();
 
-            TsCHdaAggregate[] aggregates = ((ITsCHdaServer)Server).GetAggregates();
+            var aggregates = ((ITsCHdaServer)Server).GetAggregates();
 
             // save a locale copy.
             if (aggregates != null)
@@ -304,12 +304,12 @@ namespace Technosoftware.DaAeHdaClient.Hda
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
-            OpcItemResult[] results = ((ITsCHdaServer)Server).CreateItems(items);
+            var results = ((ITsCHdaServer)Server).CreateItems(items);
 
             // save items for future reference.
             if (results != null)
             {
-                foreach (OpcItemResult result in results)
+                foreach (var result in results)
                 {
                     if (result.Result.Succeeded())
                     {
@@ -333,12 +333,12 @@ namespace Technosoftware.DaAeHdaClient.Hda
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)Server).ReleaseItems(items);
+            var results = ((ITsCHdaServer)Server).ReleaseItems(items);
 
             // remove items from local cache.
             if (results != null)
             {
-                foreach (OpcItemResult result in results)
+                foreach (var result in results)
                 {
                     if (result.Result.Succeeded())
                     {
@@ -510,7 +510,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)Server).ReadProcessed(
+            var results = ((ITsCHdaServer)Server).ReadProcessed(
                 startTime,
                 endTime,
                 resampleInterval,
@@ -545,7 +545,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)Server).AdviseProcessed(
+            var results = ((ITsCHdaServer)Server).AdviseProcessed(
                 startTime,
                 resampleInterval,
                 numberOfIntervals,
@@ -584,7 +584,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)Server).PlaybackProcessed(
+            var results = ((ITsCHdaServer)Server).PlaybackProcessed(
                 startTime,
                 endTime,
                 resampleInterval,
@@ -632,7 +632,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)Server).ReadAtTime(
+            var results = ((ITsCHdaServer)Server).ReadAtTime(
                 timestamps,
                 items,
                 requestHandle,
@@ -686,7 +686,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)Server).ReadModified(
+            var results = ((ITsCHdaServer)Server).ReadModified(
                 startTime,
                 endTime,
                 maxValues,
@@ -741,7 +741,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
-            TsCHdaResultCollection results = ((ITsCHdaServer)Server).ReadAttributes(
+            var results = ((ITsCHdaServer)Server).ReadAttributes(
                 startTime,
                 endTime,
                 item,
@@ -793,7 +793,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)Server).ReadAnnotations(
+            var results = ((ITsCHdaServer)Server).ReadAnnotations(
                 startTime,
                 endTime,
                 items,
@@ -834,7 +834,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)Server).InsertAnnotations(
+            var results = ((ITsCHdaServer)Server).InsertAnnotations(
                 items,
                 requestHandle,
                 callback,
@@ -877,7 +877,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)Server).Insert(
+            var results = ((ITsCHdaServer)Server).Insert(
                 items,
                 replace,
                 requestHandle,
@@ -919,7 +919,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)Server).Replace(
+            var results = ((ITsCHdaServer)Server).Replace(
                 items,
                 requestHandle,
                 callback,
@@ -968,7 +968,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)Server).Delete(
+            var results = ((ITsCHdaServer)Server).Delete(
                 startTime,
                 endTime,
                 items,
@@ -1010,7 +1010,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcItemResult[] results = ((ITsCHdaServer)Server).DeleteAtTime(
+            var results = ((ITsCHdaServer)Server).DeleteAtTime(
                 items,
                 requestHandle,
                 callback,
@@ -1058,7 +1058,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
             {
                 trends = new TsCHdaTrend[trends_.Count];
 
-                for (int ii = 0; ii < trends.Length; ii++)
+                for (var ii = 0; ii < trends.Length; ii++)
                 {
                     trends[ii] = trends_[ii];
                 }
@@ -1075,7 +1075,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         public override object Clone()
         {
             // clone the base object.
-            TsCHdaServer clone = (TsCHdaServer)base.Clone();
+            var clone = (TsCHdaServer)base.Clone();
 
             // return clone.
             return clone;

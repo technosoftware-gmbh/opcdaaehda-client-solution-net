@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -74,7 +74,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 		{
 			lock (this)
 			{
-				NetworkCredential credentials = (connectData != null)?connectData.GetCredential(null, null):null;
+				var credentials = (connectData != null)?connectData.GetCredential(null, null):null;
 
 				// connect to the server.				
 				m_server = (IOPCServerList2)Interop.CreateInstance(CLSID, host, credentials);
@@ -82,10 +82,10 @@ namespace Technosoftware.DaAeHdaClient.Com
 
 				try
 				{
-					ArrayList servers = new ArrayList();
+					var servers = new ArrayList();
 					
 					// convert the interface version to a guid.
-					Guid catid = new Guid(specification.Id);
+					var catid = new Guid(specification.Id);
 			
 					// get list of servers in the specified specification.
 					IOPCEnumGUID enumerator = null;
@@ -98,20 +98,20 @@ namespace Technosoftware.DaAeHdaClient.Com
 						out enumerator);
 
 					// read clsids.
-					Guid[] clsids = ReadClasses(enumerator);
+					var clsids = ReadClasses(enumerator);
 
                     // release enumerator object.					
                     Interop.ReleaseServer(enumerator);
 					enumerator = null;
 
 					// fetch class descriptions.
-					foreach (Guid clsid in clsids)
+					foreach (var clsid in clsids)
 					{
-						Factory factory = new Factory();
+						var factory = new Factory();
 
 						try
 						{
-                            OpcUrl url = CreateUrl(specification, clsid);
+                            var url = CreateUrl(specification, clsid);
 
 							OpcServer server = null;
 
@@ -161,7 +161,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 		{
 			lock (this)
 			{
-				NetworkCredential credentials = (connectData != null)?connectData.GetCredential(null, null):null;
+				var credentials = (connectData != null)?connectData.GetCredential(null, null):null;
 
 				// connect to the server.				
 				m_server = (IOPCServerList2)Interop.CreateInstance(CLSID, host, credentials);
@@ -220,39 +220,39 @@ namespace Technosoftware.DaAeHdaClient.Com
 		/// </summary>
 		private Guid[] ReadClasses(IOPCEnumGUID enumerator)
 		{
-			ArrayList guids = new ArrayList();
+			var guids = new ArrayList();
+            var count = 10;
 
-            int fetched = 0;
-            int count = 10;
-            
             // create buffer.
-            IntPtr buffer = Marshal.AllocCoTaskMem(Marshal.SizeOf(typeof(Guid))*count);
+            var buffer = Marshal.AllocCoTaskMem(Marshal.SizeOf(typeof(Guid))*count);
 
             try
             {
-			    do
-			    {
-				    try
-				    {
+
+                int fetched;
+                do
+                {
+                    try
+                    {
                         enumerator.Next(count, buffer, out fetched);
 
-                        IntPtr pPos = buffer;
-    					
-					    for (int ii = 0; ii < fetched; ii++)
-					    {
-                            Guid guid = (Guid)Marshal.PtrToStructure(pPos, typeof(Guid));
+                        var pPos = buffer;
+
+                        for (var ii = 0; ii < fetched; ii++)
+                        {
+                            var guid = (Guid)Marshal.PtrToStructure(pPos, typeof(Guid));
                             guids.Add(guid);
                             pPos = (IntPtr)(pPos.ToInt64() + Marshal.SizeOf(typeof(Guid)));
-					    }
-				    }
-				    catch
-				    {
-					    break;
-				    }
-			    }
-			    while (fetched > 0);
+                        }
+                    }
+                    catch
+                    {
+                        break;
+                    }
+                }
+                while (fetched > 0);
 
-			    return (Guid[])guids.ToArray(typeof(Guid));
+                return (Guid[])guids.ToArray(typeof(Guid));
             }
             finally
             {
@@ -266,7 +266,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         OpcUrl CreateUrl(OpcSpecification specification, Guid clsid)
 		{
             // initialize the server url.
-            OpcUrl url = new OpcUrl();
+            var url = new OpcUrl();
 		
 			url.HostName = m_host;
 			url.Port     = 0;
@@ -294,11 +294,11 @@ namespace Technosoftware.DaAeHdaClient.Com
 				// create the server URL path.
 				if (verIndProgID != null)
 				{
-					url.Path = String.Format("{0}/{1}", verIndProgID, "{" + clsid.ToString() + "}");
+					url.Path = string.Format("{0}/{1}", verIndProgID, "{" + clsid.ToString() + "}");
 				}
 				else if (progID != null)
 				{
-					url.Path = String.Format("{0}/{1}", progID, "{" + clsid.ToString() + "}");
+					url.Path = string.Format("{0}/{1}", progID, "{" + clsid.ToString() + "}");
 				}
 			}
 			catch (Exception)
@@ -310,7 +310,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 				// default to the clsid if the prog is not known.
 				if (url.Path == null)
 				{
-					url.Path = String.Format("{0}", "{" + clsid.ToString() + "}");
+					url.Path = string.Format("{0}", "{" + clsid.ToString() + "}");
 				}
 			}
 

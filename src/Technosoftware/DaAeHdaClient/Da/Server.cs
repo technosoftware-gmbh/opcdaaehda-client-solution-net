@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -85,7 +85,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         {
             filters_ = (int)info.GetValue(Names.Filters, typeof(int));
 
-            TsCDaSubscription[] subscriptions = (TsCDaSubscription[])info.GetValue(Names.Subscriptions, typeof(TsCDaSubscription[]));
+            var subscriptions = (TsCDaSubscription[])info.GetValue(Names.Subscriptions, typeof(TsCDaSubscription[]));
 
             if (subscriptions != null)
             {
@@ -120,7 +120,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             {
                 subscriptions = new TsCDaSubscription[subscriptions_.Count];
 
-                for (int ii = 0; ii < subscriptions.Length; ii++)
+                for (var ii = 0; ii < subscriptions.Length; ii++)
                 {
                     subscriptions[ii] = subscriptions_[ii];
                 }
@@ -135,12 +135,12 @@ namespace Technosoftware.DaAeHdaClient.Da
         public override object Clone()
         {
             // clone the base object.
-            TsCDaServer clone = (TsCDaServer)base.Clone();
+            var clone = (TsCDaServer)base.Clone();
 
             // clone subscriptions.
             if (clone.subscriptions_ != null)
             {
-                TsCDaSubscriptionCollection subscriptions = new TsCDaSubscriptionCollection();
+                var subscriptions = new TsCDaSubscriptionCollection();
 
                 foreach (TsCDaSubscription subscription in clone.subscriptions_)
                 {
@@ -178,7 +178,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             }
 
             // create subscriptions (should only happen if server has been deserialized).
-            TsCDaSubscriptionCollection subscriptions = new TsCDaSubscriptionCollection();
+            var subscriptions = new TsCDaSubscriptionCollection();
 
             foreach (TsCDaSubscription template in subscriptions_)
             {
@@ -252,7 +252,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             if (Server == null) throw new NotConnectedException();
 
-            OpcServerStatus status = ((ITsDaServer)Server).GetServerStatus();
+            var status = ((ITsDaServer)Server).GetServerStatus();
 
             if (status != null)
             {
@@ -306,13 +306,13 @@ namespace Technosoftware.DaAeHdaClient.Da
             if (Server == null) throw new NotConnectedException();
 
             // create subscription on server.
-            ITsCDaSubscription subscription = ((ITsDaServer)Server).CreateSubscription(state);
+            var subscription = ((ITsDaServer)Server).CreateSubscription(state);
 
             // set filters.
             subscription.SetResultFilters(filters_);
 
             // append new subscription to existing list.
-            TsCDaSubscriptionCollection subscriptions = new TsCDaSubscriptionCollection();
+            var subscriptions = new TsCDaSubscriptionCollection();
 
             if (subscriptions_ != null)
             {
@@ -362,7 +362,7 @@ namespace Technosoftware.DaAeHdaClient.Da
             }
 
             // search for subscription in list of subscriptions.
-            TsCDaSubscriptionCollection subscriptions = new TsCDaSubscriptionCollection();
+            var subscriptions = new TsCDaSubscriptionCollection();
 
             foreach (TsCDaSubscription current in subscriptions_)
             {
@@ -395,9 +395,9 @@ namespace Technosoftware.DaAeHdaClient.Da
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             if (Server == null) throw new NotConnectedException();
             TsCDaBrowsePosition position;
-            List<TsCDaBrowseElement> elementsList = new List<TsCDaBrowseElement>();
+            var elementsList = new List<TsCDaBrowseElement>();
 
-            TsCDaBrowseElement[] elements = ((ITsDaServer)Server).Browse(null, filters, out position);
+            var elements = ((ITsDaServer)Server).Browse(null, filters, out position);
 
             if (elements != null)
             {
@@ -412,13 +412,13 @@ namespace Technosoftware.DaAeHdaClient.Da
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
             TsCDaBrowsePosition position;
 
-            foreach (TsCDaBrowseElement element in elements)
+            foreach (var element in elements)
             {
                 if (element.HasChildren)
                 {
-                    OpcItem itemId = new OpcItem(element.ItemPath, element.ItemName);
+                    var itemId = new OpcItem(element.ItemPath, element.ItemName);
 
-                    TsCDaBrowseElement[] childElements = ((ITsDaServer)Server).Browse(itemId, filters, out position);
+                    var childElements = ((ITsDaServer)Server).Browse(itemId, filters, out position);
                     if (childElements != null)
                     {
                         Browse(childElements, filters, ref elementsList);
@@ -482,7 +482,7 @@ namespace Technosoftware.DaAeHdaClient.Da
         private TsCDaSubscription EstablishSubscription(TsCDaSubscription template)
         {
             // create subscription.
-            TsCDaSubscription subscription = new TsCDaSubscription(this, ((ITsDaServer)Server).CreateSubscription(template.State));
+            var subscription = new TsCDaSubscription(this, ((ITsDaServer)Server).CreateSubscription(template.State));
 
             // set filters.
             subscription.SetResultFilters(template.Filters);

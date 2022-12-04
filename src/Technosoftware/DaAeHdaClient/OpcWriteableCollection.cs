@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -64,7 +64,7 @@ namespace Technosoftware.DaAeHdaClient
         {
             if (collection != null)
             {
-                foreach (object element in collection)
+                foreach (var element in collection)
                 {
                     ValidateElement(element);
                 }
@@ -96,7 +96,7 @@ namespace Technosoftware.DaAeHdaClient
             // verify that current contents of the array are the correct type.
             if (elementType != null)
             {
-                foreach (object element in _array)
+                foreach (var element in _array)
                 {
                     ValidateElement(element);
                 }
@@ -133,7 +133,7 @@ namespace Technosoftware.DaAeHdaClient
             set
             {
                 // verify that current contents of the array are the correct type.
-                foreach (object element in _array)
+                foreach (var element in _array)
                 {
                     ValidateElement(element);
                 }
@@ -149,12 +149,12 @@ namespace Technosoftware.DaAeHdaClient
         {
             if (element == null)
             {
-                throw new ArgumentException(String.Format(INVALID_VALUE, element));
+                throw new ArgumentException(string.Format(INVALID_VALUE, element));
             }
 
             if (!_elementType.IsInstanceOfType(element))
             {
-                throw new ArgumentException(String.Format(INVALID_TYPE, element.GetType()));
+                throw new ArgumentException(string.Format(INVALID_TYPE, element.GetType()));
             }
         }
 
@@ -182,11 +182,11 @@ namespace Technosoftware.DaAeHdaClient
         {
             _elementType = (Type)info.GetValue(Names.ELEMENT_TYPE, typeof(Type));
 
-            int count = (int)info.GetValue(Names.COUNT, typeof(int));
+            var count = (int)info.GetValue(Names.COUNT, typeof(int));
 
             _array = new ArrayList(count);
 
-            for (int ii = 0; ii < count; ii++)
+            for (var ii = 0; ii < count; ii++)
             {
                 _array.Add(info.GetValue(Names.ELEMENT + ii.ToString(), typeof(object)));
             }
@@ -200,7 +200,7 @@ namespace Technosoftware.DaAeHdaClient
             info.AddValue(Names.ELEMENT_TYPE, _elementType);
             info.AddValue(Names.COUNT, _array.Count);
 
-            for (int ii = 0; ii < _array.Count; ii++)
+            for (var ii = 0; ii < _array.Count; ii++)
             {
                 info.AddValue(Names.ELEMENT + ii.ToString(), _array[ii]);
             }
@@ -345,11 +345,11 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         public virtual object Clone()
         {
-            OpcWriteableCollection clone = (OpcWriteableCollection)MemberwiseClone();
+            var clone = (OpcWriteableCollection)MemberwiseClone();
 
             clone._array = new ArrayList();
 
-            for (int ii = 0; ii < _array.Count; ii++)
+            for (var ii = 0; ii < _array.Count; ii++)
             {
                 clone.Add(OpcConvert.Clone(_array[ii]));
             }

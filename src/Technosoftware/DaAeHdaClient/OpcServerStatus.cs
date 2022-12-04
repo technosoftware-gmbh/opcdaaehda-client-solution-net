@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -37,10 +37,10 @@ namespace Technosoftware.DaAeHdaClient
         private DateTime startTime_ = DateTime.MinValue;
         private DateTime currentTime_ = DateTime.MinValue;
         private DateTime lastUpdateTime_ = DateTime.MinValue;
-        private Int32 bandWidth_ = -1;
-        private Int16 majorVersion_;
-        private Int16 minorVersion_;
-        private Int16 buildNumber_;
+        private int bandWidth_ = -1;
+        private short majorVersion_;
+        private short minorVersion_;
+        private short buildNumber_;
         #endregion
 
         #region Properties
@@ -121,12 +121,12 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Total   number of groups being managed by the server.
         /// </summary>
-        public Int32 GroupCount { get; set; }
+        public int GroupCount { get; set; }
 
         /// <summary>
         /// The behavior of of this value   is server specific.
         /// </summary>
-        public Int32 BandWidth
+        public int BandWidth
         {
             get => bandWidth_;
             set => bandWidth_ = value;
@@ -135,7 +135,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// The major   version of the used server issue.
         /// </summary>
-        public Int16 MajorVersion
+        public short MajorVersion
         {
             get => majorVersion_;
             set => majorVersion_ = value;
@@ -144,7 +144,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// The minor   version of the used server issue.
         /// </summary>
-        public Int16 MinorVersion
+        public short MinorVersion
         {
             get => minorVersion_;
             set => minorVersion_ = value;
@@ -153,7 +153,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// The build   number of the used server issue.
         /// </summary>
-        public Int16 BuildNumber
+        public short BuildNumber
         {
             get => buildNumber_;
             set => buildNumber_ = value;

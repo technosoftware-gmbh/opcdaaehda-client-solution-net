@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -74,34 +74,33 @@ namespace Technosoftware.DaAeHdaClient.Com
 		/// </summary>
 		public static List<string> EnumComputers()
 		{
-			IntPtr pInfo;
+            IntPtr pInfo;
+            int totalEntries;
 
-			int entriesRead = 0;
-			int totalEntries = 0;
+            int entriesRead;
+            var result = NetServerEnum(
+                IntPtr.Zero,
+                LEVEL_SERVER_INFO_100,
+                out pInfo,
+                MAX_PREFERRED_LENGTH,
+                out entriesRead,
+                out totalEntries,
+                SV_TYPE_WORKSTATION | SV_TYPE_SERVER,
+                IntPtr.Zero,
+                IntPtr.Zero);
 
-			int result = NetServerEnum(
-				IntPtr.Zero,
-				LEVEL_SERVER_INFO_100,
-				out pInfo,
-				MAX_PREFERRED_LENGTH,
-				out entriesRead,
-				out totalEntries,
-				SV_TYPE_WORKSTATION | SV_TYPE_SERVER,
-				IntPtr.Zero,
-				IntPtr.Zero);		
-
-			if (result != 0)
+            if (result != 0)
 			{
-				throw new ApplicationException("NetApi Error = " + String.Format("0x{0:X8}", result));
+				throw new ApplicationException("NetApi Error = " + string.Format("0x{0:X8}", result));
 			}
 
-			List<string> computers = new List<string>();
+			var computers = new List<string>();
 
-			IntPtr pos = pInfo;
+			var pos = pInfo;
 
-			for (int ii = 0; ii < entriesRead; ii++)
+			for (var ii = 0; ii < entriesRead; ii++)
 			{
-				SERVER_INFO_100 info = (SERVER_INFO_100)Marshal.PtrToStructure(pos, typeof(SERVER_INFO_100));
+				var info = (SERVER_INFO_100)Marshal.PtrToStructure(pos, typeof(SERVER_INFO_100));
 				
 				computers.Add(info.sv100_name);
 
@@ -487,7 +486,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 			public COSERVERINFO Allocate(string hostName, OpcUserIdentity identity)
 			{
 				// initialize server info structure.
-				COSERVERINFO serverInfo = new COSERVERINFO();
+				var serverInfo = new COSERVERINFO();
 
 				serverInfo.pwszName     = hostName;
 				serverInfo.pAuthInfo    = IntPtr.Zero;
@@ -507,7 +506,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 				m_hIdentity = new GCHandle();
 
 				// create identity structure.
-				COAUTHIDENTITY authIdentity = new COAUTHIDENTITY();
+				var authIdentity = new COAUTHIDENTITY();
 
 				authIdentity.User           = m_hUserName.AddrOfPinnedObject();
 				authIdentity.UserLength     = (uint)((identity.Username != null)?identity.Username.Length:0);
@@ -520,7 +519,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 				m_hIdentity = GCHandle.Alloc(authIdentity, GCHandleType.Pinned);
 					
 				// create authorization info structure.
-				COAUTHINFO authInfo = new COAUTHINFO();
+				var authInfo = new COAUTHINFO();
 
 				authInfo.dwAuthnSvc           = RPC_C_AUTHN_WINNT;
 				authInfo.dwAuthzSvc           = RPC_C_AUTHZ_NONE;
@@ -567,7 +566,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         public static void InitializeSecurity()
 		{
-			int error = CoInitializeSecurity(
+			var error = CoInitializeSecurity(
 				IntPtr.Zero,
 				-1,
 				null,
@@ -593,7 +592,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 		private static bool IsLocalHost(string hostName)
 		{
 			// lookup requested host.
-		    IPHostEntry requestedHost = Dns.GetHostEntry(hostName);
+		    var requestedHost = Dns.GetHostEntry(hostName);
 
 		    if (requestedHost == null || requestedHost.AddressList == null)
 		    {
@@ -601,9 +600,9 @@ namespace Technosoftware.DaAeHdaClient.Com
 		    }
 
 	        // check for loopback.
-	        for (int ii = 0; ii < requestedHost.AddressList.Length; ii++)
+	        for (var ii = 0; ii < requestedHost.AddressList.Length; ii++)
 	        {
-		        IPAddress requestedIP = requestedHost.AddressList[ii];
+		        var requestedIP = requestedHost.AddressList[ii];
 
 		        if (requestedIP == null || requestedIP.Equals(IPAddress.Loopback))
 		        {
@@ -612,7 +611,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 	        }
 
 	        // lookup local host.
-	        IPHostEntry localHost = Dns.GetHostEntry(Dns.GetHostName());
+	        var localHost = Dns.GetHostEntry(Dns.GetHostName());
 
 	        if (localHost == null || localHost.AddressList == null)
 	        {
@@ -620,11 +619,11 @@ namespace Technosoftware.DaAeHdaClient.Com
 	        }
     		
 	        // check for localhost.
-	        for (int ii = 0; ii < requestedHost.AddressList.Length; ii++)
+	        for (var ii = 0; ii < requestedHost.AddressList.Length; ii++)
 	        {
-		        IPAddress requestedIP = requestedHost.AddressList[ii];
+		        var requestedIP = requestedHost.AddressList[ii];
 
-		        for (int jj = 0; jj < localHost.AddressList.Length; jj++)
+		        for (var jj = 0; jj < localHost.AddressList.Length; jj++)
 		        {
 			        if (requestedIP.Equals(localHost.AddressList[jj]))
 			        {
@@ -650,12 +649,12 @@ namespace Technosoftware.DaAeHdaClient.Com
 		/// </summary>
 		public static object CreateInstance1(Guid clsid, string hostName, OpcUserIdentity identity)
 		{
-			ServerInfo   serverInfo   = new ServerInfo();
-			COSERVERINFO coserverInfo = serverInfo.Allocate(hostName, identity);
+			var   serverInfo   = new ServerInfo();
+			var coserverInfo = serverInfo.Allocate(hostName, identity);
 
-			GCHandle hIID = GCHandle.Alloc(IID_IUnknown, GCHandleType.Pinned);
+			var hIID = GCHandle.Alloc(IID_IUnknown, GCHandleType.Pinned);
 
-			MULTI_QI[] results = new MULTI_QI[1];
+			var results = new MULTI_QI[1];
 
 			results[0].iid  = hIID.AddrOfPinnedObject();
 			results[0].pItf = null;
@@ -664,9 +663,9 @@ namespace Technosoftware.DaAeHdaClient.Com
 			try
 			{
 				// check whether connecting locally or remotely.
-				uint clsctx = CLSCTX_INPROC_SERVER | CLSCTX_LOCAL_SERVER;
+				var clsctx = CLSCTX_INPROC_SERVER | CLSCTX_LOCAL_SERVER;
 
-				if (!String.IsNullOrEmpty(hostName) && hostName != "localhost")
+				if (!string.IsNullOrEmpty(hostName) && hostName != "localhost")
 				{
 					clsctx = CLSCTX_LOCAL_SERVER | CLSCTX_REMOTE_SERVER;
 				}
@@ -688,7 +687,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 
 			if (results[0].hr != 0)
 			{
-				throw new OpcResultException(new OpcResult((int)OpcResult.CONNECT_E_NOCONNECTION.Code, OpcResult.FuncCallType.SysFuncCall, null), String.Format("Could not create COM server '{0}' on host '{1}'. Reason: {2}.", clsid, hostName, GetSystemMessage((int)results[0].hr, LOCALE_SYSTEM_DEFAULT)));
+				throw new OpcResultException(new OpcResult((int)OpcResult.CONNECT_E_NOCONNECTION.Code, OpcResult.FuncCallType.SysFuncCall, null), string.Format("Could not create COM server '{0}' on host '{1}'. Reason: {2}.", clsid, hostName, GetSystemMessage((int)results[0].hr, LOCALE_SYSTEM_DEFAULT)));
 			}
 
 			return results[0].pItf;
@@ -2551,9 +2550,9 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         public static string GetErrorText(Type type, int error)
         {                       
-			FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Static);
+			var fields = type.GetFields(BindingFlags.Public | BindingFlags.Static);
             
-			foreach (FieldInfo field in fields)
+			foreach (var field in fields)
 			{
                 if (error == (int)field.GetValue(type))
 				{
@@ -2561,7 +2560,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 				}
 			}
 
-		    return String.Format("0x{0:X8}", error);
+		    return string.Format("0x{0:X8}", error);
         }
 
         /// <summary>
@@ -2592,8 +2591,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 		/// </summary>
 		public static string GetSystemMessage(int error, int localeId)
 		{
-            int langId = 0;
-
+            int langId;
             switch (localeId)
             {
                 case LOCALE_SYSTEM_DEFAULT:
@@ -2615,9 +2613,9 @@ namespace Technosoftware.DaAeHdaClient.Com
                 }
             }
 
-			IntPtr buffer = Marshal.AllocCoTaskMem(MAX_MESSAGE_LENGTH);
+			var buffer = Marshal.AllocCoTaskMem(MAX_MESSAGE_LENGTH);
 
-			int result = FormatMessageW(
+			var result = FormatMessageW(
 				(int)FORMAT_MESSAGE_FROM_SYSTEM,
 				IntPtr.Zero,
 				error,
@@ -2628,7 +2626,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 
             if (result > 0)
             {
-			    string msg = Marshal.PtrToStringUni(buffer);
+			    var msg = Marshal.PtrToStringUni(buffer);
 			    Marshal.FreeCoTaskMem(buffer);
 
 			    if (msg != null && msg.Length > 0)
@@ -2637,7 +2635,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 			    }
             }
 
-			return String.Format("0x{0:X8}", error);
+			return string.Format("0x{0:X8}", error);
         }
 
         /// <summary>
@@ -2661,7 +2659,7 @@ namespace Technosoftware.DaAeHdaClient.Com
 		/// </summary>
 		public static Exception CreateComException(int errorId)
 		{
-			return new COMException(String.Format("0x{0:X8}", errorId), errorId);
+			return new COMException(string.Format("0x{0:X8}", errorId), errorId);
 		}
 
 		/// <summary>
@@ -2684,7 +2682,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         public static Exception CreateException(Exception e, string function)
         {
-			return new OpcResultException(new OpcResult((int)OpcResult.E_NETWORK_ERROR.Code, OpcResult.FuncCallType.SysFuncCall, null), String.Format("Call to {0} failed. Error: {1}.", function, GetSystemMessage(Marshal.GetHRForException(e), LOCALE_SYSTEM_DEFAULT)));
+			return new OpcResultException(new OpcResult((int)OpcResult.E_NETWORK_ERROR.Code, OpcResult.FuncCallType.SysFuncCall, null), string.Format("Call to {0} failed. Error: {1}.", function, GetSystemMessage(Marshal.GetHRForException(e), LOCALE_SYSTEM_DEFAULT)));
         }
                 
         /// <summary>
@@ -2692,7 +2690,7 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         public static bool IsRpcError(Exception e)
         {
-            int error = Marshal.GetHRForException(e);
+            var error = Marshal.GetHRForException(e);
 
             // Assume that any 0x8007 is a fatal communication error.
             // May need to update this check if the assumption proves to be incorrect.
@@ -2715,11 +2713,11 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         public static bool IsUnknownError(Exception e, params int[] knownErrors)
         {
-            int error = Marshal.GetHRForException(e);
+            var error = Marshal.GetHRForException(e);
 
             if (knownErrors != null)
             {
-                for (int ii = 0; ii < knownErrors.Length; ii++)
+                for (var ii = 0; ii < knownErrors.Length; ii++)
                 {
                     if (knownErrors[ii] == error)
                     {
@@ -2739,9 +2737,8 @@ namespace Technosoftware.DaAeHdaClient.Com
 		public static bool CompareLocales(int localeId, string locale, bool ignoreRegion)
 		{
             // parse locale.
-            CultureInfo culture = null;
-
-			try   
+            CultureInfo culture;
+            try   
 			{ 
                 culture = new CultureInfo(locale);
 			}
@@ -2776,11 +2773,11 @@ namespace Technosoftware.DaAeHdaClient.Com
         /// </summary>
         public static void TraceComError(Exception e, string format, params object[] args)
         {
-            string message = Utilities.Utils.Format(format, args);
+            var message = Utilities.Utils.Format(format, args);
 
-            int code = Marshal.GetHRForException(e);
+            var code = Marshal.GetHRForException(e);
             
-            string error = code.ToString();
+            var error = code.ToString();
 
             if (error == null)
             {

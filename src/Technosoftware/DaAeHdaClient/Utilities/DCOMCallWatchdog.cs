@@ -167,7 +167,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         {
             if (IsEnabled)
             {
-                ApartmentState apartmentState = Thread.CurrentThread.GetApartmentState();
+                var apartmentState = Thread.CurrentThread.GetApartmentState();
 
                 if (apartmentState != ApartmentState.STA)
                 {
@@ -176,7 +176,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
 
                 lock (watchdogLock_)
                 {
-                    uint threadId = Interop.GetCurrentThreadId();
+                    var threadId = Interop.GetCurrentThreadId();
 
                     if (IsSet)
                     {
@@ -192,7 +192,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                         lastWatchdogResult_ = DCOMWatchdogResult.None;
 
                         //enable DCOM call cancellation for duration of the watchdog
-                        int hresult = Interop.CoEnableCallCancellation(IntPtr.Zero);
+                        var hresult = Interop.CoEnableCallCancellation(IntPtr.Zero);
 
                         if (hresult == 0)
                         {
@@ -257,7 +257,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                 {
                     if (IsSet)
                     {
-                        uint threadId = Interop.GetCurrentThreadId();
+                        var threadId = Interop.GetCurrentThreadId();
 
                         if (threadId == watchDogThreadID_)
                         {
@@ -270,7 +270,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                             isCancelled_ = false;
 
                             //disable DCOM call cancellation 
-                            int hresult = Interop.CoDisableCallCancellation(IntPtr.Zero);
+                            var hresult = Interop.CoDisableCallCancellation(IntPtr.Zero);
 
                             Utils.Trace(Utils.TraceMasks.Information, $"COM call cancellation on thread [{watchDogThreadID_}] was reset [HRESULT = {hresult}]");
                         }
@@ -314,7 +314,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
                         isCancelled_ = true;
 
                         //cancel the current DCOM call immediately
-                        int hresult = Interop.CoCancelCall(watchDogThreadID_, 0);
+                        var hresult = Interop.CoCancelCall(watchDogThreadID_, 0);
 
                         Utils.Trace(Utils.TraceMasks.Information, $"COM call on thread [{watchDogThreadID_}] was cancelled [HRESULT = {hresult}]");
 
@@ -368,7 +368,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         
         private static TimeSpan TimeElapsed(DateTime startTime)
         {
-            DateTime now = DateTime.UtcNow;
+            var now = DateTime.UtcNow;
 
             startTime = startTime.ToUniversalTime();
 

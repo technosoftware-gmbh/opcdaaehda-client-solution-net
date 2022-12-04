@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://www.technosoftware.com 
 // 
 // The source code in this file is covered under a dual-license scenario:
@@ -8,7 +8,7 @@
 //   - GPL V3: everybody else
 //
 // SCLA license terms accompanied with this source code.
-// See SCLA 1.0://technosoftware.com/license/Source_Code_License_Agreement.pdf
+// See SCLA 1.0: https://technosoftware.com/license/Source_Code_License_Agreement.pdf
 //
 // GNU General Public License as published by the Free Software Foundation;
 // version 3 of the License are accompanied with this source code.
@@ -18,7 +18,7 @@
 // WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 // or FITNESS FOR A PARTICULAR PURPOSE.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -113,16 +113,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                IntPtr pStatus = IntPtr.Zero;
+                var pStatus = IntPtr.Zero;
 
-                OPCHDA_SERVERSTATUS wStatus = OPCHDA_SERVERSTATUS.OPCHDA_INDETERMINATE;
+                var wStatus = OPCHDA_SERVERSTATUS.OPCHDA_INDETERMINATE;
 
-                IntPtr pftCurrentTime = IntPtr.Zero;
-                IntPtr pftStartTime = IntPtr.Zero;
+                var pftCurrentTime = IntPtr.Zero;
+                var pftStartTime = IntPtr.Zero;
                 short wMajorVersion = 0;
                 short wMinorVersion = 0;
                 short wBuildNumber = 0;
-                int dwMaxReturnValues = 0;
+                var dwMaxReturnValues = 0;
                 string szStatusString = null;
                 string szVendorInfo = null;
 
@@ -146,10 +146,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarshal return parameters and free memory.
-                OpcServerStatus status = new OpcServerStatus();
+                var status = new OpcServerStatus();
 
                 status.VendorInfo = szVendorInfo;
-                status.ProductVersion = String.Format("{0}.{1}.{2}", wMajorVersion, wMinorVersion, wBuildNumber);
+                status.ProductVersion = string.Format("{0}.{1}.{2}", wMajorVersion, wMinorVersion, wBuildNumber);
                 switch (wStatus)
                 {
                     case OPCHDA_SERVERSTATUS.OPCHDA_DOWN:
@@ -201,12 +201,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int count = 0;
+                var count = 0;
 
-                IntPtr pIDs = IntPtr.Zero;
-                IntPtr pNames = IntPtr.Zero;
-                IntPtr pDescriptions = IntPtr.Zero;
-                IntPtr pDataTypes = IntPtr.Zero;
+                var pIDs = IntPtr.Zero;
+                var pNames = IntPtr.Zero;
+                var pDescriptions = IntPtr.Zero;
+                var pDataTypes = IntPtr.Zero;
 
                 try
                 {
@@ -229,10 +229,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarshal return parameters and free memory.
-                int[] ids = Utilities.Interop.GetInt32s(ref pIDs, count, true);
-                string[] names = Utilities.Interop.GetUnicodeStrings(ref pNames, count, true);
-                string[] descriptions = Utilities.Interop.GetUnicodeStrings(ref pDescriptions, count, true);
-                short[] datatypes = Utilities.Interop.GetInt16s(ref pDataTypes, count, true);
+                var ids = Utilities.Interop.GetInt32s(ref pIDs, count, true);
+                var names = Utilities.Interop.GetUnicodeStrings(ref pNames, count, true);
+                var descriptions = Utilities.Interop.GetUnicodeStrings(ref pDescriptions, count, true);
+                var datatypes = Utilities.Interop.GetInt16s(ref pDataTypes, count, true);
 
                 // verify return parameters.
                 if (ids == null || names == null || descriptions == null || datatypes == null)
@@ -240,9 +240,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The response from the server was invalid or incomplete");
                 }
 
-                TsCHdaAttribute[] attributes = new TsCHdaAttribute[count];
+                var attributes = new TsCHdaAttribute[count];
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
                     attributes[ii] = new TsCHdaAttribute();
 
@@ -271,11 +271,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int count = 0;
+                var count = 0;
 
-                IntPtr pIDs = IntPtr.Zero;
-                IntPtr pNames = IntPtr.Zero;
-                IntPtr pDescriptions = IntPtr.Zero;
+                var pIDs = IntPtr.Zero;
+                var pNames = IntPtr.Zero;
+                var pDescriptions = IntPtr.Zero;
 
                 try
                 {
@@ -297,9 +297,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarshal return parameters and free memory.
-                int[] ids = Utilities.Interop.GetInt32s(ref pIDs, count, true);
-                string[] names = Utilities.Interop.GetUnicodeStrings(ref pNames, count, true);
-                string[] descriptions = Utilities.Interop.GetUnicodeStrings(ref pDescriptions, count, true);
+                var ids = Utilities.Interop.GetInt32s(ref pIDs, count, true);
+                var names = Utilities.Interop.GetUnicodeStrings(ref pNames, count, true);
+                var descriptions = Utilities.Interop.GetUnicodeStrings(ref pDescriptions, count, true);
 
                 // verify return parameters.
                 if (ids == null || names == null || descriptions == null)
@@ -307,9 +307,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The response from the server was invalid or incomplete");
                 }
 
-                TsCHdaAggregate[] aggregates = new TsCHdaAggregate[count];
+                var aggregates = new TsCHdaAggregate[count];
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
                     aggregates[ii] = new TsCHdaAggregate();
 
@@ -339,14 +339,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 if (server_ == null) throw new NotConnectedException();
 
                 // initialize arguments.
-                int count = (filters != null) ? filters.Length : 0;
+                var count = (filters != null) ? filters.Length : 0;
 
                 // marshal input parameters.
-                int[] ids = new int[count];
-                object[] values = new object[count];
-                OPCHDA_OPERATORCODES[] operators = new OPCHDA_OPERATORCODES[count];
+                var ids = new int[count];
+                var values = new object[count];
+                var operators = new OPCHDA_OPERATORCODES[count];
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
                     ids[ii] = filters[ii].AttributeID;
                     operators[ii] = (OPCHDA_OPERATORCODES)Enum.ToObject(typeof(OPCHDA_OPERATORCODES), filters[ii].Operator);
@@ -355,7 +355,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 // initialize output parameners
                 IOPCHDA_Browser pBrowser = null;
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // call COM server.
                 try
@@ -374,7 +374,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarshal return parameters and free memory.
-                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, count, true);
+                var errors = Utilities.Interop.GetInt32s(ref pErrors, count, true);
 
                 // verify return parameters.
                 if ((count > 0 && errors == null) || pBrowser == null)
@@ -384,7 +384,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
 
                 results = new OpcResult[count];
 
-                for (int ii = 0; ii < count; ii++)
+                for (var ii = 0; ii < count; ii++)
                 {
                     results[ii] = Utilities.Interop.GetResultId(errors[ii]);
                 }
@@ -419,10 +419,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // initialize input parameters.
-                string[] itemIDs = new string[items.Length];
-                int[] clientHandles = new int[items.Length];
+                var itemIDs = new string[items.Length];
+                var clientHandles = new int[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     if (items[ii] != null)
                     {
@@ -432,8 +432,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // initialize output arguments.
-                IntPtr pServerHandles = IntPtr.Zero;
-                IntPtr pErrors = IntPtr.Zero;
+                var pServerHandles = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -451,8 +451,8 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarshal return parameters and free memory.
-                int[] serverHandles = Utilities.Interop.GetInt32s(ref pServerHandles, items.Length, true);
-                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
+                var serverHandles = Utilities.Interop.GetInt32s(ref pServerHandles, items.Length, true);
+                var errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
 
                 // verify return parameters.
                 if (serverHandles == null || errors == null)
@@ -460,9 +460,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The browse operation cannot continue");
                 }
 
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < results.Length; ii++)
+                for (var ii = 0; ii < results.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(items[ii]);
                     results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
@@ -470,7 +470,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     if (results[ii].Result.Succeeded())
                     {
                         // cache item id locally to store remote server handle/local client handle mapping.
-                        OpcItem itemID = new OpcItem();
+                        var itemID = new OpcItem();
 
                         itemID.ItemName = items[ii].ItemName;
                         itemID.ItemPath = items[ii].ItemPath;
@@ -512,10 +512,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // initialize input parameters.
-                int[] serverHandles = GetServerHandles(items);
+                var serverHandles = GetServerHandles(items);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -531,7 +531,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarshal return parameters and free memory.
-                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
+                var errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
 
                 // verify return parameters.
                 if (errors == null)
@@ -539,9 +539,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The browse operation cannot continue");
                 }
 
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < results.Length; ii++)
+                for (var ii = 0; ii < results.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(items[ii]);
                     results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
@@ -549,7 +549,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     if (results[ii].Result.Succeeded() && items[ii].ServerHandle != null)
                     {
                         // lookup locally cached item id.
-                        OpcItem itemID = (OpcItem)items_[items[ii].ServerHandle];
+                        var itemID = (OpcItem)items_[items[ii].ServerHandle];
 
                         // remove the locally cached item.
                         if (itemID != null)
@@ -591,9 +591,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // initialize input parameters.
-                string[] itemIDs = new string[items.Length];
+                var itemIDs = new string[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     if (items[ii] != null)
                     {
@@ -602,7 +602,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -618,7 +618,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarshal return parameters and free memory.
-                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
+                var errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
 
                 // verify return parameters.
                 if (errors == null)
@@ -626,9 +626,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The browse operation cannot continue");
                 }
 
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < results.Length; ii++)
+                for (var ii = 0; ii < results.Length; ii++)
                 {
                     results[ii] = new OpcItemResult(items[ii]);
                     results[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
@@ -672,14 +672,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // initialize input parameters.
-                int[] serverHandles = GetServerHandles(items);
+                var serverHandles = GetServerHandles(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
-                IntPtr pValues = IntPtr.Zero;
-                IntPtr pErrors = IntPtr.Zero;
+                var pValues = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -700,7 +700,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarhal modified item structures.
-                TsCHdaItemValueCollection[] results = Interop.GetItemValueCollections(ref pValues, items.Length, true);
+                var results = Interop.GetItemValueCollections(ref pValues, items.Length, true);
 
                 // update result with error code and info from the item argument.
                 UpdateResults(items, results, ref pErrors);
@@ -750,19 +750,19 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
-                int requestID = internalRequest.RequestID;
-                int cancelID = 0;
+                var requestID = internalRequest.RequestID;
+                var cancelID = 0;
 
-                int[] serverHandles = GetServerHandles(items);
+                var serverHandles = GetServerHandles(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -784,9 +784,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create result objects.
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     results[ii] = new OpcItemResult();
                 }
@@ -849,19 +849,19 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
-                int requestID = internalRequest.RequestID;
-                int cancelID = 0;
+                var requestID = internalRequest.RequestID;
+                var cancelID = 0;
 
-                int[] serverHandles = GetServerHandles(items);
+                var serverHandles = GetServerHandles(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_FILETIME ftUpdateInterval = Interop.GetFILETIME(updateInterval);
+                var pStartTime = Interop.GetTime(startTime);
+                var ftUpdateInterval = Interop.GetFILETIME(updateInterval);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -881,9 +881,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create result objects.
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     results[ii] = new OpcItemResult();
                 }
@@ -941,21 +941,21 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
-                int requestID = internalRequest.RequestID;
-                int cancelID = 0;
+                var requestID = internalRequest.RequestID;
+                var cancelID = 0;
 
-                int[] serverHandles = GetServerHandles(items);
+                var serverHandles = GetServerHandles(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
-                OPCHDA_FILETIME ftUpdateInterval = Interop.GetFILETIME(updateInterval);
-                OPCHDA_FILETIME ftUpdateDuration = Interop.GetFILETIME(playbackDuration);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
+                var ftUpdateInterval = Interop.GetFILETIME(updateInterval);
+                var ftUpdateDuration = Interop.GetFILETIME(playbackDuration);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -978,9 +978,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create result objects.
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     results[ii] = new OpcItemResult();
                 }
@@ -1030,16 +1030,16 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // initialize input parameters.
-                int[] serverHandles = GetServerHandles(items);
-                int[] aggregateIDs = GetAggregateIDs(items);
+                var serverHandles = GetServerHandles(items);
+                var aggregateIDs = GetAggregateIDs(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
-                OPCHDA_FILETIME ftResampleInterval = Interop.GetFILETIME(resampleInterval);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
+                var ftResampleInterval = Interop.GetFILETIME(resampleInterval);
 
                 // initialize output arguments.
-                IntPtr pValues = IntPtr.Zero;
-                IntPtr pErrors = IntPtr.Zero;
+                var pValues = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -1060,7 +1060,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarhal modified item structures.
-                TsCHdaItemValueCollection[] results = Interop.GetItemValueCollections(ref pValues, items.Length, true);
+                var results = Interop.GetItemValueCollections(ref pValues, items.Length, true);
 
                 // update result with error code and info from the item argument.
                 UpdateResults(items, results, ref pErrors);
@@ -1108,22 +1108,22 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
-                int requestID = internalRequest.RequestID;
-                int cancelID = 0;
+                var requestID = internalRequest.RequestID;
+                var cancelID = 0;
 
-                int[] serverHandles = GetServerHandles(items);
-                int[] aggregateIDs = GetAggregateIDs(items);
+                var serverHandles = GetServerHandles(items);
+                var aggregateIDs = GetAggregateIDs(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
-                OPCHDA_FILETIME ftResampleInterval = Interop.GetFILETIME(resampleInterval);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
+                var ftResampleInterval = Interop.GetFILETIME(resampleInterval);
 
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -1145,9 +1145,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create result objects.
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     results[ii] = new OpcItemResult();
                 }
@@ -1212,20 +1212,20 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
-                int requestID = internalRequest.RequestID;
-                int cancelID = 0;
+                var requestID = internalRequest.RequestID;
+                var cancelID = 0;
 
-                int[] serverHandles = GetServerHandles(items);
-                int[] aggregateIDs = GetAggregateIDs(items);
+                var serverHandles = GetServerHandles(items);
+                var aggregateIDs = GetAggregateIDs(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_FILETIME ftResampleInterval = Interop.GetFILETIME(resampleInterval);
+                var pStartTime = Interop.GetTime(startTime);
+                var ftResampleInterval = Interop.GetFILETIME(resampleInterval);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -1247,9 +1247,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create result objects.
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     results[ii] = new OpcItemResult();
                 }
@@ -1307,22 +1307,22 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
-                int requestID = internalRequest.RequestID;
-                int cancelID = 0;
+                var requestID = internalRequest.RequestID;
+                var cancelID = 0;
 
-                int[] serverHandles = GetServerHandles(items);
-                int[] aggregateIDs = GetAggregateIDs(items);
+                var serverHandles = GetServerHandles(items);
+                var aggregateIDs = GetAggregateIDs(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
-                OPCHDA_FILETIME ftResampleInterval = Interop.GetFILETIME(resampleInterval);
-                OPCHDA_FILETIME ftUpdateInterval = Interop.GetFILETIME(updateInterval);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
+                var ftResampleInterval = Interop.GetFILETIME(resampleInterval);
+                var ftUpdateInterval = Interop.GetFILETIME(updateInterval);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -1346,9 +1346,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create result objects.
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     results[ii] = new OpcItemResult();
                 }
@@ -1392,12 +1392,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // initialize input parameters.
-                int[] serverHandles = GetServerHandles(items);
-                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
+                var serverHandles = GetServerHandles(items);
+                var ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // initialize output arguments.
-                IntPtr pValues = IntPtr.Zero;
-                IntPtr pErrors = IntPtr.Zero;
+                var pValues = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -1416,7 +1416,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarhal modified item structures.
-                TsCHdaItemValueCollection[] results = Interop.GetItemValueCollections(ref pValues, items.Length, true);
+                var results = Interop.GetItemValueCollections(ref pValues, items.Length, true);
 
                 // update result with error code and info from the item argument.
                 UpdateResults(items, results, ref pErrors);
@@ -1457,17 +1457,17 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
-                int requestID = internalRequest.RequestID;
-                int cancelID = 0;
+                var requestID = internalRequest.RequestID;
+                var cancelID = 0;
 
-                int[] serverHandles = GetServerHandles(items);
-                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
+                var serverHandles = GetServerHandles(items);
+                var ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -1487,9 +1487,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create result objects.
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     results[ii] = new OpcItemResult();
                 }
@@ -1547,14 +1547,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // initialize input parameters.
-                int[] serverHandles = GetServerHandles(items);
+                var serverHandles = GetServerHandles(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
-                IntPtr pValues = IntPtr.Zero;
-                IntPtr pErrors = IntPtr.Zero;
+                var pValues = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -1574,7 +1574,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarhal modified item structures.
-                TsCHdaModifiedValueCollection[] results = Interop.GetModifiedValueCollections(ref pValues, items.Length, true);
+                var results = Interop.GetModifiedValueCollections(ref pValues, items.Length, true);
 
                 // update result with error code and info from the item argument.
                 UpdateResults(items, results, ref pErrors);
@@ -1622,19 +1622,19 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
-                int requestID = internalRequest.RequestID;
-                int cancelID = 0;
+                var requestID = internalRequest.RequestID;
+                var cancelID = 0;
 
-                int[] serverHandles = GetServerHandles(items);
+                var serverHandles = GetServerHandles(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -1655,9 +1655,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create result objects.
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     results[ii] = new OpcItemResult();
                 }
@@ -1719,14 +1719,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // initialize input parameters.
-                int[] serverHandles = GetServerHandles(new OpcItem[] { item });
+                var serverHandles = GetServerHandles(new OpcItem[] { item });
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
-                IntPtr pValues = IntPtr.Zero;
-                IntPtr pErrors = IntPtr.Zero;
+                var pValues = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -1746,10 +1746,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarhal item attribute structures.
-                TsCHdaAttributeValueCollection[] attributes = Interop.GetAttributeValueCollections(ref pValues, attributeIDs.Length, true);
+                var attributes = Interop.GetAttributeValueCollections(ref pValues, attributeIDs.Length, true);
 
                 // create item level result collection. 
-                TsCHdaItemAttributeCollection result = UpdateResults(item, attributes, ref pErrors);
+                var result = UpdateResults(item, attributes, ref pErrors);
 
                 // store actual items in result.
                 UpdateActualTimes(new ITsCHdaActualTime[] { result }, pStartTime, pEndTime);
@@ -1795,19 +1795,19 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new TsCHdaResultCollection();
                 }
 
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
-                int requestID = internalRequest.RequestID;
-                int cancelID = 0;
+                var requestID = internalRequest.RequestID;
+                var cancelID = 0;
 
-                int[] serverHandles = GetServerHandles(new OpcItem[] { item });
+                var serverHandles = GetServerHandles(new OpcItem[] { item });
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -1828,13 +1828,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create result objects.
-                TsCHdaResultCollection results = new TsCHdaResultCollection(item);
+                var results = new TsCHdaResultCollection(item);
 
                 // update result with error code and info from the item argument.
                 UpdateResult(item, results, 0);
 
                 // unmarshal return parameters and free memory.
-                int[] errors = Utilities.Interop.GetInt32s(ref pErrors, attributeIDs.Length, true);
+                var errors = Utilities.Interop.GetInt32s(ref pErrors, attributeIDs.Length, true);
 
                 // verify return parameters.
                 if (errors == null)
@@ -1843,9 +1843,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // add results for each attribute.
-                foreach (int error in errors)
+                foreach (var error in errors)
                 {
-                    TsCHdaResult result = new TsCHdaResult(Utilities.Interop.GetResultId(error));
+                    var result = new TsCHdaResult(Utilities.Interop.GetResultId(error));
                     results.Add(result);
                 }
 
@@ -1900,14 +1900,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // initialize input parameters.
-                int[] serverHandles = GetServerHandles(items);
+                var serverHandles = GetServerHandles(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
-                IntPtr pValues = IntPtr.Zero;
-                IntPtr pErrors = IntPtr.Zero;
+                var pValues = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -1926,7 +1926,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // unmarhal modified item structures.
-                TsCHdaAnnotationValueCollection[] results = Interop.GetAnnotationValueCollections(ref pValues, items.Length, true);
+                var results = Interop.GetAnnotationValueCollections(ref pValues, items.Length, true);
 
                 // update result with error code and info from the item argument.
                 UpdateResults(items, results, ref pErrors);
@@ -1972,19 +1972,19 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
-                int requestID = internalRequest.RequestID;
-                int cancelID = 0;
+                var requestID = internalRequest.RequestID;
+                var cancelID = 0;
 
-                int[] serverHandles = GetServerHandles(items);
+                var serverHandles = GetServerHandles(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -2004,9 +2004,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create result objects.
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     results[ii] = new OpcItemResult();
                 }
@@ -2056,7 +2056,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create empty set of result collections.
-                TsCHdaResultCollection[] results = CreateResultCollections(items);
+                var results = CreateResultCollections(items);
 
                 // initialize input parameters.
                 int[] serverHandles = null;
@@ -2064,7 +2064,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 OPCHDA_FILETIME[] pTimestamps = null;
 
                 // flatten out list of collections into a set of single arrays.
-                int count = MarshalAnnotatations(
+                var count = MarshalAnnotatations(
                     items,
                     ref serverHandles,
                     ref pTimestamps,
@@ -2077,7 +2077,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -2095,7 +2095,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // free memory allocated for input arguments.
-                for (int ii = 0; ii < pAnnotations.Length; ii++)
+                for (var ii = 0; ii < pAnnotations.Length; ii++)
                 {
                     Utilities.Interop.GetDateTimes(ref pAnnotations[ii].ftTimeStamps, 1, true);
                     Utilities.Interop.GetUnicodeStrings(ref pAnnotations[ii].szAnnotation, 1, true);
@@ -2140,7 +2140,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create empty set of result collections.
-                TsCHdaResultCollection[] results = CreateResultCollections(items);
+                var results = CreateResultCollections(items);
 
                 // initialize input parameters.
                 int[] serverHandles = null;
@@ -2148,7 +2148,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 OPCHDA_FILETIME[] pTimestamps = null;
 
                 // flatten out list of collections into a set of single arrays.
-                int count = MarshalAnnotatations(
+                var count = MarshalAnnotatations(
                     items,
                     ref serverHandles,
                     ref pTimestamps,
@@ -2161,12 +2161,12 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create request.
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                int cancelID = 0;
+                var cancelID = 0;
 
                 // invoke COM method.
                 try
@@ -2186,7 +2186,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // free memory allocated for input arguments.
-                for (int ii = 0; ii < pAnnotations.Length; ii++)
+                for (var ii = 0; ii < pAnnotations.Length; ii++)
                 {
                     Utilities.Interop.GetDateTimes(ref pAnnotations[ii].ftTimeStamps, 1, true);
                     Utilities.Interop.GetUnicodeStrings(ref pAnnotations[ii].szAnnotation, 1, true);
@@ -2241,7 +2241,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create empty set of result collections.
-                TsCHdaResultCollection[] results = CreateResultCollections(items);
+                var results = CreateResultCollections(items);
 
                 // initialize input parameters.
                 int[] serverHandles = null;
@@ -2250,7 +2250,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 DateTime[] timestamps = null;
 
                 // flatten out list of collections into a set of single arrays.
-                int count = MarshalValues(
+                var count = MarshalValues(
                     items,
                     ref serverHandles,
                     ref values,
@@ -2263,10 +2263,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return results;
                 }
 
-                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
+                var ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 if (replace)
@@ -2343,7 +2343,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create empty set of result collections.
-                TsCHdaResultCollection[] results = CreateResultCollections(items);
+                var results = CreateResultCollections(items);
 
                 // initialize input parameters.
                 int[] serverHandles = null;
@@ -2352,7 +2352,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 DateTime[] timestamps = null;
 
                 // flatten out list of collections into a set of single arrays.
-                int count = MarshalValues(
+                var count = MarshalValues(
                     items,
                     ref serverHandles,
                     ref values,
@@ -2365,15 +2365,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return GetIdentifiedResults(results);
                 }
 
-                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
+                var ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // create request.
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                int cancelID = 0;
+                var cancelID = 0;
 
                 // invoke COM method.
                 if (replace)
@@ -2455,7 +2455,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create empty set of result collections.
-                TsCHdaResultCollection[] results = CreateResultCollections(items);
+                var results = CreateResultCollections(items);
 
                 // initialize input parameters.
                 int[] serverHandles = null;
@@ -2464,7 +2464,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 DateTime[] timestamps = null;
 
                 // flatten out list of collections into a set of single arrays.
-                int count = MarshalValues(
+                var count = MarshalValues(
                     items,
                     ref serverHandles,
                     ref values,
@@ -2477,10 +2477,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return results;
                 }
 
-                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
+                var ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -2535,7 +2535,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create empty set of result collections.
-                TsCHdaResultCollection[] results = CreateResultCollections(items);
+                var results = CreateResultCollections(items);
 
                 // initialize input parameters.
                 int[] serverHandles = null;
@@ -2544,7 +2544,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 DateTime[] timestamps = null;
 
                 // flatten out list of collections into a set of single arrays.
-                int count = MarshalValues(
+                var count = MarshalValues(
                     items,
                     ref serverHandles,
                     ref values,
@@ -2557,15 +2557,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return GetIdentifiedResults(results);
                 }
 
-                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
+                var ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // create request.
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                int cancelID = 0;
+                var cancelID = 0;
 
                 try
                 {
@@ -2635,13 +2635,13 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // initialize input parameters.
-                int[] serverHandles = GetServerHandles(items);
+                var serverHandles = GetServerHandles(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -2659,9 +2659,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create result objects.
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     results[ii] = new OpcItemResult();
                 }
@@ -2707,19 +2707,19 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return new OpcItemResult[0];
                 }
 
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize input parameters.
-                int requestID = internalRequest.RequestID;
-                int cancelID = 0;
+                var requestID = internalRequest.RequestID;
+                var cancelID = 0;
 
-                int[] serverHandles = GetServerHandles(items);
+                var serverHandles = GetServerHandles(items);
 
-                OPCHDA_TIME pStartTime = Interop.GetTime(startTime);
-                OPCHDA_TIME pEndTime = Interop.GetTime(endTime);
+                var pStartTime = Interop.GetTime(startTime);
+                var pEndTime = Interop.GetTime(endTime);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -2739,9 +2739,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create result objects.
-                OpcItemResult[] results = new OpcItemResult[items.Length];
+                var results = new OpcItemResult[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     results[ii] = new OpcItemResult();
                 }
@@ -2791,14 +2791,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create empty set of result collections.
-                TsCHdaResultCollection[] results = CreateResultCollections(items);
+                var results = CreateResultCollections(items);
 
                 // initialize input parameters.
                 int[] serverHandles = null;
                 DateTime[] timestamps = null;
 
                 // flatten out list of collections into a set of single arrays.
-                int count = MarshalTimestamps(
+                var count = MarshalTimestamps(
                     items,
                     ref serverHandles,
                     ref timestamps);
@@ -2809,10 +2809,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return results;
                 }
 
-                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
+                var ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
                 // invoke COM method.
                 try
@@ -2865,14 +2865,14 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // create empty set of result collections.
-                TsCHdaResultCollection[] results = CreateResultCollections(items);
+                var results = CreateResultCollections(items);
 
                 // initialize input parameters.
                 int[] serverHandles = null;
                 DateTime[] timestamps = null;
 
                 // flatten out list of collections into a set of single arrays.
-                int count = MarshalTimestamps(
+                var count = MarshalTimestamps(
                     items,
                     ref serverHandles,
                     ref timestamps);
@@ -2883,15 +2883,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                     return GetIdentifiedResults(results);
                 }
 
-                OPCHDA_FILETIME[] ftTimestamps = Interop.GetFILETIMEs(timestamps);
+                var ftTimestamps = Interop.GetFILETIMEs(timestamps);
 
                 // create request.
-                Request internalRequest = callback_.CreateRequest(requestHandle, callback);
+                var internalRequest = callback_.CreateRequest(requestHandle, callback);
 
                 // initialize output arguments.
-                IntPtr pErrors = IntPtr.Zero;
+                var pErrors = IntPtr.Zero;
 
-                int cancelID = 0;
+                var cancelID = 0;
 
                 try
                 {
@@ -2958,7 +2958,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             {
                 if (server_ == null) throw new NotConnectedException();
 
-                Request internalRequest = (Request)request;
+                var internalRequest = (Request)request;
 
                 // register the cancel request callback.
                 callback_.CancelRequest(internalRequest, callback);
@@ -3029,11 +3029,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         private int GetInvalidHandle()
         {
-            int max = 0;
+            var max = 0;
 
             foreach (OpcItem item in items_.Values)
             {
-                int handle = (int)item.ServerHandle;
+                var handle = (int)item.ServerHandle;
 
                 if (max < handle)
                 {
@@ -3049,11 +3049,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         private int GetCount(ICollection[] collections)
         {
-            int count = 0;
+            var count = 0;
 
             if (collections != null)
             {
-                foreach (ICollection collection in collections)
+                foreach (var collection in collections)
                 {
                     if (collection != null)
                     {
@@ -3076,7 +3076,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             {
                 results = new TsCHdaResultCollection[items.Length];
 
-                for (int ii = 0; ii < items.Length; ii++)
+                for (var ii = 0; ii < items.Length; ii++)
                 {
                     results[ii] = new TsCHdaResultCollection();
 
@@ -3096,19 +3096,19 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         private int[] GetServerHandles(OpcItem[] items)
         {
             // use this if the client passes an unrecognized server handle.
-            int invalidHandle = GetInvalidHandle();
+            var invalidHandle = GetInvalidHandle();
 
             // create server handle array.
-            int[] serverHandles = new int[items.Length];
+            var serverHandles = new int[items.Length];
 
-            for (int ii = 0; ii < items.Length; ii++)
+            for (var ii = 0; ii < items.Length; ii++)
             {
                 serverHandles[ii] = invalidHandle;
 
                 if (items[ii] != null && items[ii].ServerHandle != null)
                 {
                     // lookup cached handle.
-                    OpcItem item = (OpcItem)items_[items[ii].ServerHandle];
+                    var item = (OpcItem)items_[items[ii].ServerHandle];
 
                     if (item != null)
                     {
@@ -3126,9 +3126,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         /// </summary>
         private int[] GetAggregateIDs(TsCHdaItem[] items)
         {
-            int[] aggregateIDs = new int[items.Length];
+            var aggregateIDs = new int[items.Length];
 
-            for (int ii = 0; ii < items.Length; ii++)
+            for (var ii = 0; ii < items.Length; ii++)
             {
                 aggregateIDs[ii] = 0;
 
@@ -3154,7 +3154,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             if (error >= 0 && item.ServerHandle != null)
             {
                 // lookup locally cached item id.
-                OpcItem itemID = (OpcItem)items_[item.ServerHandle];
+                var itemID = (OpcItem)items_[item.ServerHandle];
 
                 // update result with locally cached information.
                 if (itemID != null)
@@ -3175,10 +3175,10 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             OPCHDA_TIME pEndTime)
         {
             // unmarshal actual times from input arguments.
-			DateTime startTime = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(Interop.Convert(pStartTime.ftTime));
-			DateTime endTime   = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(Interop.Convert(pEndTime.ftTime));
+			var startTime = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(Interop.Convert(pStartTime.ftTime));
+			var endTime   = Technosoftware.DaAeHdaClient.Com.Interop.GetFILETIME(Interop.Convert(pEndTime.ftTime));
 
-            foreach (ITsCHdaActualTime result in results)
+            foreach (var result in results)
             {
                 result.StartTime = startTime;
                 result.EndTime = endTime;
@@ -3194,7 +3194,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             ref IntPtr pErrors)
         {
             // unmarshal return parameters and free memory.
-            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, attributes.Length, true);
+            var errors = Utilities.Interop.GetInt32s(ref pErrors, attributes.Length, true);
 
             // verify return parameters.
             if (attributes == null || errors == null)
@@ -3203,15 +3203,15 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             }
 
             // set attribute level errors.
-            for (int ii = 0; ii < attributes.Length; ii++)
+            for (var ii = 0; ii < attributes.Length; ii++)
             {
                 attributes[ii].Result = Utilities.Interop.GetResultId(errors[ii]);
             }
 
             // create item level collection. 
-            TsCHdaItemAttributeCollection result = new TsCHdaItemAttributeCollection();
+            var result = new TsCHdaItemAttributeCollection();
 
-            foreach (TsCHdaAttributeValueCollection attribute in attributes)
+            foreach (var attribute in attributes)
             {
                 result.Add(attribute);
             }
@@ -3232,7 +3232,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             ref IntPtr pErrors)
         {
             // unmarshal return parameters and free memory.
-            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
+            var errors = Utilities.Interop.GetInt32s(ref pErrors, items.Length, true);
 
             // verify return parameters.
             if (results == null || errors == null)
@@ -3240,7 +3240,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 throw new OpcResultException(new OpcResult((int)OpcResult.E_FAIL.Code, OpcResult.FuncCallType.SysFuncCall, null), "The browse operation cannot continue");
             }
 
-            for (int ii = 0; ii < results.Length; ii++)
+            for (var ii = 0; ii < results.Length; ii++)
             {
                 // get cached item information.
                 UpdateResult(items[ii], results[ii], errors[ii]);
@@ -3259,7 +3259,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         void UpdateResults(ICollection[] items, TsCHdaResultCollection[] results, int count, ref IntPtr pErrors)
         {
             // unmarshal return parameters and free memory.
-            int[] errors = Utilities.Interop.GetInt32s(ref pErrors, count, true);
+            var errors = Utilities.Interop.GetInt32s(ref pErrors, count, true);
 
             // verify return parameters.
             if (errors == null)
@@ -3268,18 +3268,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             }
 
             // create result object and lookup error code.
-            int index = 0;
+            var index = 0;
 
-            for (int ii = 0; ii < items.Length; ii++)
+            for (var ii = 0; ii < items.Length; ii++)
             {
-                for (int jj = 0; jj < items[ii].Count; jj++)
+                for (var jj = 0; jj < items[ii].Count; jj++)
                 {
                     if (index >= count)
                     {
                         break;
                     }
 
-                    TsCHdaResult result = new TsCHdaResult(Utilities.Interop.GetResultId(errors[index++]));
+                    var result = new TsCHdaResult(Utilities.Interop.GetResultId(errors[index++]));
                     results[ii].Add(result);
                 }
             }
@@ -3297,7 +3297,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         {
 
             // determine the total length.
-            int count = GetCount(items);
+            var count = GetCount(items);
 
             // flatten out list of collections into a set of single arrays. 
             handles = new int[count];
@@ -3306,11 +3306,11 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             qualities = new int[count];
 
             // initialize input parameters.
-            int[] serverHandles = GetServerHandles(items);
+            var serverHandles = GetServerHandles(items);
 
-            int index = 0;
+            var index = 0;
 
-            for (int ii = 0; ii < items.Length; ii++)
+            for (var ii = 0; ii < items.Length; ii++)
             {
                 foreach (TsCHdaItemValue value in items[ii])
                 {
@@ -3337,18 +3337,18 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
         {
 
             // determine the total length.
-            int count = GetCount(items);
+            var count = GetCount(items);
 
             // flatten out list of collections into a set of single arrays. 
             handles = new int[count];
             timestamps = new DateTime[count];
 
             // initialize input parameters.
-            int[] serverHandles = GetServerHandles(items);
+            var serverHandles = GetServerHandles(items);
 
-            int index = 0;
+            var index = 0;
 
-            for (int ii = 0; ii < items.Length; ii++)
+            for (var ii = 0; ii < items.Length; ii++)
             {
                 foreach (DateTime value in items[ii])
                 {
@@ -3373,23 +3373,23 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             ref OPCHDA_ANNOTATION[] annotations)
         {
             // determine the total length.
-            int count = GetCount(items);
+            var count = GetCount(items);
 
             // fetch item server handles.
-            int[] remoteHandles = GetServerHandles(items);
+            var remoteHandles = GetServerHandles(items);
 
             // allocate input arrays.
             serverHandles = new int[count];
             annotations = new OPCHDA_ANNOTATION[count];
 
-            DateTime[] timestamps = new DateTime[count];
+            var timestamps = new DateTime[count];
 
             // flatten array of collections into a single array.
-            int index = 0;
+            var index = 0;
 
-            for (int ii = 0; ii < items.Length; ii++)
+            for (var ii = 0; ii < items.Length; ii++)
             {
-                for (int jj = 0; jj < items[ii].Count; jj++)
+                for (var jj = 0; jj < items[ii].Count; jj++)
                 {
                     serverHandles[index] = remoteHandles[ii];
                     timestamps[index] = items[ii][jj].Timestamp;
@@ -3424,9 +3424,9 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
             }
 
             // fetch the results from each collection.
-            OpcItemResult[] items = new OpcItemResult[results.Length];
+            var items = new OpcItemResult[results.Length];
 
-            for (int ii = 0; ii < results.Length; ii++)
+            for (var ii = 0; ii < results.Length; ii++)
             {
                 items[ii] = new OpcItemResult(results[ii]);
 
@@ -3438,7 +3438,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Hda
                 }
 
                 // start with the first result code.
-                OpcResult resultID = results[ii][0].Result;
+                var resultID = results[ii][0].Result;
 
                 foreach (TsCHdaResult result in results[ii])
                 {
