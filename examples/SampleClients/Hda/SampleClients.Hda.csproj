@@ -33,15 +33,25 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <Platforms>x64;x86</Platforms>
   </PropertyGroup>
   <PropertyGroup>
 	<AnalysisMode>AllDisabledByDefault</AnalysisMode>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <BaseAddress>285212672</BaseAddress>
     <NoWarn>NU5125;RCS1138;RCS1139;CA1416</NoWarn>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <BaseAddress>285212672</BaseAddress>
+    <NoWarn>NU5125;RCS1138;RCS1139;CA1416</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <BaseAddress>285212672</BaseAddress>
+    <DebugType>
+    </DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <BaseAddress>285212672</BaseAddress>
     <DebugType>
     </DebugType>
