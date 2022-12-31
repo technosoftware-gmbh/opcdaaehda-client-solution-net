@@ -31,11 +31,11 @@
         <dependency id="Portable.BouncyCastle" version="1.9.0" />
         <dependency id="System.Runtime.InteropServices" version="4.3.0" />
       </group>
-      <group targetFramework="net6.0-windows">
+      <group targetFramework="net6.0-windows7.0">
         <dependency id="Microsoft.Win32.Registry" version="5.0.0" />
         <dependency id="System.Runtime.InteropServices" version="4.3.0" />
       </group>
-      <group targetFramework="net7.0-windows">
+      <group targetFramework="net7.0-windows7.0">
         <dependency id="Microsoft.Win32.Registry" version="5.0.0" />
         <dependency id="System.Runtime.InteropServices" version="4.3.0" />
       </group>
@@ -57,10 +57,10 @@
     <file src="../LICENSE.md" target="/"/>
     <file src="../lib/netstandard2.1/Technosoftware.DaAeHdaClient.dll" target="lib/netstandard2.1/" />
     <file src="../lib/netstandard2.1/Technosoftware.DaAeHdaClient.xml" target="lib/netstandard2.1/" />
-    <file src="../lib/net6.0-windows/Technosoftware.DaAeHdaClient.dll" target="lib/net6.0-windows/" />
-    <file src="../lib/net6.0-windows/Technosoftware.DaAeHdaClient.xml" target="lib/net6.0-windows/" />
-    <file src="../lib/net7.0-windows/Technosoftware.DaAeHdaClient.dll" target="lib/net7.0-windows/" />
-    <file src="../lib/net7.0-windows/Technosoftware.DaAeHdaClient.xml" target="lib/net7.0-windows/" />
+    <file src="../lib/net6.0-windows/Technosoftware.DaAeHdaClient.dll" target="lib/net6.0-windows7.0/" />
+    <file src="../lib/net6.0-windows/Technosoftware.DaAeHdaClient.xml" target="lib/net6.0-windows7.0/" />
+    <file src="../lib/net7.0-windows/Technosoftware.DaAeHdaClient.dll" target="lib/net7.0-windows7.0/" />
+    <file src="../lib/net7.0-windows/Technosoftware.DaAeHdaClient.xml" target="lib/net7.0-windows7.0/" />
     <file src="../lib/net48/Technosoftware.DaAeHdaClient.dll" target="lib/net48/" />
     <file src="../lib/net48/Technosoftware.DaAeHdaClient.xml" target="lib/net48/" />
     <file src="../lib/net472/Technosoftware.DaAeHdaClient.dll" target="lib/net472/" />
