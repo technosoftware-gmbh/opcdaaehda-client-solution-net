@@ -5,7 +5,7 @@
     <When  Condition="'$(VisualStudioVersion)' == '17.0'">
       <PropertyGroup>
         <AppTargetFrameworks>net462;net472;net48;net6.0-windows</AppTargetFrameworks>
-        <LibTargetFrameworks>net462;net472;net48;netstandard2.1;net6.0-windows</LibTargetFrameworks>
+        <LibTargetFrameworks>net462;net472;net48;netstandard2.1;net6.0-windows;net7.0-windows</LibTargetFrameworks>
       </PropertyGroup>
     </When>
     <!-- Visual Studio 2019, supports .NET Framework 4.6.2 and .NET Core 3.1 -->
