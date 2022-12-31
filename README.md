@@ -3,14 +3,16 @@
 ### Introduction
 The OPC DA/AE/HDA Solution .NET offers a fast and easy access to the OPC Classic Client technology. Develop OPC DA, OPC AE and OPC HDA compliant Clients with C# targeting 
 
- * .NET 6.0, 
- * .NET Core 3.1 
+ * .NET 7.0,
+ * .NET 6.0
  
 For backward compatibility we also provide 
 
  * .NET 4.8, 
  * .NET 4.7.2 
- * .NET 4.6.2 support.
+ * .NET 4.6.2 
+ 
+support.
 
 The OPC DA/AE/HDA  Solution .NET API defines classes which can be used to implement an OPC client capable to access OPC servers supporting different specifications with the same API. These classes manage client side state information; provide higher level abstractions for OPC tasks such as managing sessions and subscriptions or saving and restoring connection information for later use. The lower level API’s for OPC DA, OPC AE and OPC HDA defines classes which can be used to access OPC specification specific methods and properties.
 
