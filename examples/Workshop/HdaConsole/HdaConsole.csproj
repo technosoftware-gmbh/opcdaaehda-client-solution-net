@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>$(AppTargetFrameworks)</TargetFrameworks>
+    <TargetFrameworks>$(WorkshopClientTargetFrameworks)</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
     <AssemblyName>Technosoftware.HdaClientConsole</AssemblyName>
     <OutputType>Exe</OutputType>
