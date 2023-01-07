@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFrameworks>$(AppTargetFrameworks)</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
@@ -9,7 +8,7 @@
     <Company>Technosoftware GmbH</Company>
     <Product>OPC DA/AE/HDA Solution .NET</Product>
     <Description>Technosoftware DA Client Console</Description>
-    <Copyright>Copyright © 2011 - 2022 Technosoftware GmbH</Copyright>
+    <Copyright>Copyright © 2011 - 2023 Technosoftware GmbH</Copyright>
     <Platforms>x64;x86</Platforms>
   </PropertyGroup>
 
@@ -19,6 +18,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient\Technosoftware.DaAeHdaClient.csproj" />
+    <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient.Com\Technosoftware.DaAeHdaClient.Com.csproj" />
+    <ProjectReference Include="..\..\..\src\Technosoftware\OpcRcw\Technosoftware.OpcRcw.csproj" />
   </ItemGroup>
 
 </Project>

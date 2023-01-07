@@ -82,7 +82,7 @@ namespace Technosoftware.DaAeHdaClient
 
         /// <summary>
         /// The time when the server started.
-        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+        /// The <see cref="ApplicationInstance.TimeAsUtc">ApplicationInstance.TimeAsUtc</see> property defines
         /// the time format (UTC or local   time).
         /// </summary>
         public DateTime StartTime
@@ -93,7 +93,7 @@ namespace Technosoftware.DaAeHdaClient
 
         /// <summary>
         /// Th current time at the server.
-        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+        /// The <see cref="ApplicationInstance.TimeAsUtc">ApplicationInstance.TimeAsUtc</see> property defines
         /// the time format (UTC or local   time).
         /// </summary>
         public DateTime CurrentTime
@@ -109,7 +109,7 @@ namespace Technosoftware.DaAeHdaClient
 
         /// <summary>
         /// The last time the server sent an data update to the client.
-        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+        /// The <see cref="ApplicationInstance.TimeAsUtc">ApplicationInstance.TimeAsUtc</see> property defines
         /// the time format (UTC or local   time).
         /// </summary>
         public DateTime LastUpdateTime

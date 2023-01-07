@@ -34,21 +34,29 @@ namespace Technosoftware.DaAeHdaClient
     [Serializable]
     public class OpcConnectData : ISerializable, ICredentials
     {
-        #region Fields
-        private WebProxy proxy_;
-        #endregion
-
-        #region Public Methods
+        #region Public Properties
         /// <summary>
         /// The credentials to submit to the proxy server for authentication.
         /// </summary>
-		public OpcUserIdentity UserIdentity { get; set; }
+        public OpcUserIdentity UserIdentity { get; set; }
 
         /// <summary>
         /// The license key used to connect to the server.
         /// </summary>
         public string LicenseKey { get; set; }
 
+        /// <summary>
+        /// Always uses the DA20 interfaces even if DA3.0 is supported.
+        /// </summary>
+        bool ForceDa20Usage { get; set; }
+
+        /// <summary>
+        /// Use DCOM connect level security (may be needed for backward compatibility).
+        /// </summary>
+        public bool UseConnectSecurity { get; set; }
+        #endregion
+
+        #region Public Methods
         /// <summary>
 		/// Returns a UserIdentity object that is associated with the specified URI, and authentication type.
         /// </summary>
@@ -73,7 +81,7 @@ namespace Technosoftware.DaAeHdaClient
             }
             else
             {
-                return WebRequest.DefaultWebProxy;
+				return new WebProxy();
             }
         }
 
@@ -174,6 +182,10 @@ namespace Technosoftware.DaAeHdaClient
                 info.AddValue(Names.ProxyUri, null);
             }
         }
+        #endregion
+
+        #region Private Fields
+        private WebProxy proxy_;
         #endregion
     }
 }

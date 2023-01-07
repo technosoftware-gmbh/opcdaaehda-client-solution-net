@@ -21,15 +21,15 @@ OPC DA/AE/HDA uses (D)COM technology from Windows. Therefore only Windows is sup
 
 ## Online Help
 
-We provide an online help for the current version: [OPC DA/AE/HDA Solution NET Online Help](https://technosoftware.com/help/OPCDaAeHdaClientSolutionNet/13/)
+We provide an online help for the current version: [OPC DA/AE/HDA Solution NET Online Help](https://technosoftware.com/help/OPCDaAeHdaClientSolutionNet/20/)
 
 ## Getting started
 
-### Examples using the latest NuGet package
+### Simple Examples using the source code
 
 Examples can be found in the solution [WorkshopClientSamples.sln](/WorkshopClientSamples.sln).
 
-### Examples using the source code
+### Advanced Examples using the source code
 
 Examples can be found in the solution [SampleClients.sln](/SampleClients.sln).
 

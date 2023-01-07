@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://technosoftware.com 
 // 
 // License: 
@@ -25,16 +25,14 @@
 //
 // SPDX-License-Identifier: MIT
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-
 using System;
 using System.Globalization;
 
 using Technosoftware.DaAeHdaClient;
 using Technosoftware.DaAeHdaClient.Da;
-
 #endregion
 
 namespace Technosoftware.DaConsole
@@ -43,11 +41,10 @@ namespace Technosoftware.DaConsole
 	/// <summary>
 	/// Simple OPC DA Client Application
 	/// </summary>
-	class OpcSample
+	public class OpcSample
     {
 
 		#region Event Handlers
-
 		/// <summary>
 		/// A delegate to receive data change updates from the server.
 		/// </summary>
@@ -65,7 +62,7 @@ namespace Technosoftware.DaConsole
 		///	<para class="MsoBodyText" style="MARGIN: 1pt 0in">Each value will always have
 		///	item’s ClientHandle field specified.</para>
 		/// </param>
-		public void OnDataChangeEvent(object subscriptionHandle, object requestHandle, TsCDaItemValueResult[] values)
+		public static void OnDataChangeEvent(object subscriptionHandle, object requestHandle, TsCDaItemValueResult[] values)
 		{
 			if (requestHandle != null)
 			{
@@ -75,25 +72,25 @@ namespace Technosoftware.DaConsole
 			{
 				Console.WriteLine("DataChange():");
 			}
-			for (int i = 0; i < values.GetLength(0); i++)
+			for (var i = 0; i < values.GetLength(0); i++)
 			{
 				Console.Write("Client Handle : "); Console.WriteLine(values[i].ClientHandle);
 				if (values[i].Result.IsSuccess())
 				{
 					if (values[i].Value.GetType().IsArray)
 					{
-						UInt16[] arrValue = (UInt16[])values[i].Value;
-						for (int j = 0; j < arrValue.GetLength(0); j++)
+						var arrValue = (ushort[])values[i].Value;
+						for (var j = 0; j < arrValue.GetLength(0); j++)
 						{
 							Console.Write($"Value[{j}]      : "); Console.WriteLine(arrValue[j]);
 						}
 					}
 					else
 					{
-						TsCDaItemValueResult valueResult = values[i];
-						TsCDaQuality quality = new TsCDaQuality(193);
+						var valueResult = values[i];
+						var quality = new TsCDaQuality(193);
 						valueResult.Quality = quality;
-						string message =
+						var message =
                             $"\r\n\tQuality: is not good : {valueResult.Quality} Code:{valueResult.Quality.GetCode()} LimitBits: {valueResult.Quality.LimitBits} QualityBits: {valueResult.Quality.QualityBits} VendorBits: {valueResult.Quality.VendorBits}";
 						if (valueResult.Quality.QualityBits != TsDaQualityBits.Good && valueResult.Quality.QualityBits != TsDaQualityBits.GoodLocalOverride)
 						{
@@ -110,17 +107,16 @@ namespace Technosoftware.DaConsole
 			Console.WriteLine();
 			Console.WriteLine();
 		}
-
 		#endregion
 
 		#region OPC Sample Functionality
-
 		public void Run()
 		{
 			try
 			{
 
-				const string serverUrl = "opcda://localhost/SampleCompany.DaSample";
+                // const string serverUrl = "opcda://localhost/SampleCompany.DaSample";
+                const string serverUrl = "opcda://Advosol.SimDAServer.1";
 
 				Console.WriteLine();
 				Console.WriteLine("Simple OPC DA Client based on the OPC DA/AE/HDA Solution .NET");
@@ -129,24 +125,25 @@ namespace Technosoftware.DaConsole
 				Console.ReadLine();
 				Console.WriteLine("   Please wait...");
 
-                TsCDaServer myDaServer = new TsCDaServer();
+                // Get the server object
+                var myDaServer = (TsCDaServer)GetServerForUrl(serverUrl);
 
 				// Connect to the server
-				myDaServer.Connect(serverUrl);
+                myDaServer.Connect();
 
 				// Get the status from the server
-                OpcServerStatus status = myDaServer.GetServerStatus();
+                var status = myDaServer.GetServerStatus();
                 Console.WriteLine($"   Status of Server is {status.ServerState}");
 
                 Console.WriteLine("   Connected, press <Enter> to create an active group object and add several items.");
 				Console.ReadLine();
 
 				// Add a group with default values Active = true and UpdateRate = 500ms
-                TsCDaSubscriptionState groupState = new TsCDaSubscriptionState { Name = "MyGroup" /* Group Name*/ };
+                var groupState = new TsCDaSubscriptionState { Name = "MyGroup" /* Group Name*/ };
 				var group = (TsCDaSubscription)myDaServer.CreateSubscription(groupState);
 
 				// Add Items
-				TsCDaItem[] items = new TsCDaItem[4];
+				var items = new TsCDaItem[4];
                 items[0] = new TsCDaItem
                 {
                     ItemName = "SimulatedData.Ramp",
@@ -188,9 +185,9 @@ namespace Technosoftware.DaConsole
                 // Client Handle
 
                 // Synchronous Read with server read function (DA 3.0) without a group
-				TsCDaItemValueResult[] itemValues = myDaServer.Read(items);
+				var itemValues = myDaServer.Read(items);
 
-                for (int i = 0; i < itemValues.GetLength(0); i++)
+                for (var i = 0; i < itemValues.GetLength(0); i++)
                 {
                     if (itemValues[i].Result.IsError())
                     {
@@ -200,7 +197,7 @@ namespace Technosoftware.DaConsole
 
                 var itemResults = group.AddItems(items);
 
-				for (int i = 0; i < itemResults.GetLength(0); i++)
+				for (var i = 0; i < itemResults.GetLength(0); i++)
 				{
 					if (itemResults[i].Result.IsError())
 					{
@@ -214,7 +211,7 @@ namespace Technosoftware.DaConsole
 				Console.WriteLine("   This stops the reception of data change notifications.");
 				Console.ReadLine();
 
-				group.DataChangedEvent += OnDataChangeEvent;
+				group.DataChangedEvent += OpcSample.OnDataChangeEvent;
 
 				Console.ReadLine();
 
@@ -224,7 +221,7 @@ namespace Technosoftware.DaConsole
 
 				Console.WriteLine("   Data change subscription deactivated, press <Enter> to remove all");
 				Console.WriteLine("   and disconnect from the server.");
-				group.Dispose();  
+                group.Dispose();
 				myDaServer.Disconnect();
                 myDaServer.Dispose();
 				Console.ReadLine();
@@ -244,7 +241,38 @@ namespace Technosoftware.DaConsole
 				Console.ReadLine();
             }
 		}
-
 		#endregion
+
+        #region Helper Methods
+        /// <summary>
+        /// Creates a server object for the specified URL.
+        /// </summary>
+        public static TsCDaServer GetServerForUrl(string url)
+        {
+            if (url == null)
+            {
+                throw new ArgumentNullException(nameof(url));
+            }
+
+            var opcUrl = new OpcUrl(url);
+
+            TsCDaServer server;
+
+            // create an unconnected server object for COM based servers.
+            // DA
+            if (opcUrl.Scheme == OpcUrlScheme.DA)
+            {
+                server = new TsCDaServer(new DaAeHdaClient.Com.Factory(), opcUrl);
+            }
+
+            // Other specifications not supported yet.
+            else
+            {
+                throw new NotSupportedException(opcUrl.Scheme);
+            }
+
+            return server;
+        }
+        #endregion
 	}
 }

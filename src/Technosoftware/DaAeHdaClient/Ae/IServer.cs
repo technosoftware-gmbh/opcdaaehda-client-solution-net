@@ -27,7 +27,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 	/// <summary>
 	/// Defines functionality that is common to all OPC Alarms and Events servers.
 	/// </summary>
-	internal interface ITsCAeServer : IOpcServer
+    public interface ITsCAeServer : IOpcServer
 	{
         /// <summary>
         /// Returns the current server status.

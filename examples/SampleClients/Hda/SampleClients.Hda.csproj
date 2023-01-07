@@ -3,7 +3,6 @@
     <TargetFrameworks>$(AppTargetFrameworks)</TargetFrameworks>
 	<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <ProjectType>Local</ProjectType>
-    <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyOriginatorKeyFile>
@@ -131,7 +130,6 @@
     <Compile Update="Trend\TrendTreeCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Content Include="App.ico" />
     <Content Include="Test\Aggregate Data 1.xml" />
     <Content Include="Test\Aggregate Data 2.xml" />
     <Content Include="Test\OPCSample.OpcHdaServer.config" />
@@ -165,9 +163,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient\Technosoftware.DaAeHdaClient.csproj" />
     <ProjectReference Include="..\Common\SampleClients.Common.csproj" />
+    <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient.Com\Technosoftware.DaAeHdaClient.Com.csproj" />
+    <ProjectReference Include="..\..\..\src\Technosoftware\OpcRcw\Technosoftware.OpcRcw.csproj" />
     <ProjectReference Include="..\ScPL\ScPL Plotting Controls.csproj" />
   </ItemGroup>
-  <PropertyGroup>
-    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
-  </PropertyGroup>
 </Project>

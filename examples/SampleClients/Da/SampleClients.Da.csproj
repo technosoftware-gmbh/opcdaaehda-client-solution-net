@@ -3,7 +3,6 @@
     <TargetFrameworks>$(AppTargetFrameworks)</TargetFrameworks>
 	<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <ProjectType>Local</ProjectType>
-    <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyOriginatorKeyFile>
@@ -113,11 +112,12 @@
     <Compile Update="UpdatesListViewCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Content Include="App.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient\Technosoftware.DaAeHdaClient.csproj" />
     <ProjectReference Include="..\Common\SampleClients.Common.csproj" />
+    <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient.Com\Technosoftware.DaAeHdaClient.Com.csproj" />
+    <ProjectReference Include="..\..\..\src\Technosoftware\OpcRcw\Technosoftware.OpcRcw.csproj" />
   </ItemGroup>
   <PropertyGroup />
 </Project>

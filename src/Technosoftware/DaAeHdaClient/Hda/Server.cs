@@ -54,15 +54,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
         #region Constructors, Destructor, Initialization
         /// <summary>
-        /// Initializes the object.
-        /// </summary>
-        public TsCHdaServer()
-
-        {
-            Factory = new Com.Factory();
-        }
-
-        /// <summary>
         /// Initializes the object with a factory and a default OpcUrl.
         /// </summary>
         /// <param name="factory">The TsOpcFactory used to connect to remote servers.</param>
@@ -121,10 +112,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
         public override void Connect(OpcUrl url, OpcConnectData connectData)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.HistoricalAccess);
-            if (Factory == null)
-            {
-                Factory = new Com.Factory();
-            }
             // connect to server.
             base.Connect(url, connectData);
 

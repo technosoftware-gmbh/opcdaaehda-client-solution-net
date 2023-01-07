@@ -12,6 +12,8 @@
   <PropertyDefinitionValues />
   <Title m="2007-05-31T10:49:56Z">OPC Server Studio .NET</Title>
   <ContentFiles>
+    <ContentFile FileName="Technosoftware.DaAeHdaClient.Com.dxc" Moniker="..\..\src\Technosoftware\DaAeHdaClient.Com\bin\Release\net6.0-windows\Technosoftware.DaAeHdaClient.Com.dll" DocType="DX.NET" />
+    <ContentFile FileName="Technosoftware.OpcRcw.dxc" Moniker="..\..\src\Technosoftware\OpcRcw\bin\Release\net6.0-windows\Technosoftware.OpcRcw.dll" DocType="DX.NET" />
     <ContentFile FileName="Technosoftware.DaAeHdaClient.dxc" Moniker="..\..\src\Technosoftware\DaAeHdaClient\bin\Release\net6.0-windows\Technosoftware.DaAeHdaClient.dll" DocType="DX.NET" />
   </ContentFiles>
   <AutoDocFiles />
@@ -235,6 +237,87 @@
       <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.LicenseAttributes</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.LicenseBuilder</ExcludedItem>
       <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Licensing.LicenseType</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~-_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ComUtils</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ComUtils+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ConnectionPoint</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.EnumString</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Interop+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Server</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Server+Callback</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ComUtils+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ComUtils+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Interop+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Interop+IClientSecurity</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ComUtils+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ComUtils+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ComUtils+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ComUtils+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ComUtils+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ComUtils+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ComUtils+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ComUtils+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Interop+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Interop+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Interop+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Interop+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Interop+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Interop+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Interop+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.SafeNativeMethods+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.ComUtils+COINIT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Interop+COINIT</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Utilities.Interop+ServerInfo</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Utilities.Interop+IClassFactory</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Utilities.Interop+IClassFactory2</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Utilities.Interop+SERVER_INFO_100</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Utilities.Interop+COSERVERINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Utilities.Interop+COAUTHINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Utilities.Interop+COAUTHIDENTITY</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Utilities.Interop+MULTI_QI</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Utilities.Interop+LICINFO</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Utilities.Interop+GUID</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Utilities.Interop+SOLE_AUTHENTICATION_SERVICE</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Hda_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Cpx_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Da_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Da20_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient.Com~Technosoftware.DaAeHdaClient.Com.Ae_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.OpcRcw~-_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~-_namespace</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcConnectData+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcFactory+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcReadOnlyCollection+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcReadOnlyDictionary+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcResult+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcWriteableCollection+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.OpcWriteableDictionary+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.ConfigUtils</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.HiResClock</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Utilities.HiResClock+NativeMethods</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Hda.TsCHdaServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Hda.TsCHdaTrend+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Da.TsDaPropertyID+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Da.TsCDaServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Da.TsCDaSubscription+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Cpx.TsCCpxContext</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeItemUrlCollection</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeServer+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeSubscription+Names</ExcludedItem>
+      <ExcludedItem>Technosoftware.DaAeHdaClient~Technosoftware.DaAeHdaClient.Ae.TsCAeSubscriptionFilters+Names</ExcludedItem>
     </ExcludedItems>
   </Filters>
   <JavascriptProjectPlugin />
@@ -242,6 +325,8 @@
   <AjaxProjectPlugin />
   <JavaProjectPlugin />
   <DotNetAssemblies>
+    <Assembly FileName="..\..\src\Technosoftware\DaAeHdaClient.Com\bin\Release\net6.0-windows\Technosoftware.DaAeHdaClient.Com.dll" RootTypeName="" />
+    <Assembly FileName="..\..\src\Technosoftware\OpcRcw\bin\Release\net6.0-windows\Technosoftware.OpcRcw.dll" RootTypeName="" />
     <Assembly FileName="..\..\src\Technosoftware\DaAeHdaClient\bin\Release\net6.0-windows\Technosoftware.DaAeHdaClient.dll" RootTypeName="" />
   </DotNetAssemblies>
   <DatabaseProjectPlugin>

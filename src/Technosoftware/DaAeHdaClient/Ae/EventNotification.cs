@@ -77,7 +77,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
         /// <summary>
         /// The time of the event occurrence.
-        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+        /// The <see cref="ApplicationInstance.TimeAsUtc">ApplicationInstance.TimeAsUtc</see> property defines
         /// the time format (UTC or local time).
         /// </summary>
         public DateTime Time
@@ -219,7 +219,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
         /// <summary>
         /// The time that the condition became active (for single-state conditions), or the
         /// time of the transition into the current sub-condition (for multi-state conditions). 
-        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+        /// The <see cref="ApplicationInstance.TimeAsUtc">ApplicationInstance.TimeAsUtc</see> property defines
         /// the time format (UTC or local time).
         /// </summary>
         public DateTime ActiveTime

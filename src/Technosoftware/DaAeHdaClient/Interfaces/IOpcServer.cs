@@ -79,20 +79,6 @@ namespace Technosoftware.DaAeHdaClient
 		/// <param name="resultId">The result code identifier.</param>
 		/// <returns>A message localized for the best match for the requested locale.</returns>
 		string GetErrorText(string locale, OpcResult resultId);
-
-        /// <summary>
-        /// Allows control of DCOM callbacks to the server - by default DCOM calls will wait the default DCOM timeout
-        /// to fail - this method allows for tigher control of the timeout to wait. Note that DOCM calls can only be controlled
-        /// on a COM Single Threaded Apartment thread - use [STAThread] attribute on your application entry point or use Thread SetThreadApartment
-        /// before the thread the server is operating on is created to STA.
-        /// </summary>
-        /// <param name="timeout">The DCOM call timeout</param>
-        void EnableDCOMCallCancellation(TimeSpan timeout);
-
-        /// <summary>
-        /// Disables control of DCOM call to the server
-        /// </summary>
-        void DisableDCOMCallCancellation();
     }
 
 	/// <summary>

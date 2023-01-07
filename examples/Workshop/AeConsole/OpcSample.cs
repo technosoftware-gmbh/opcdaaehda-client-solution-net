@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://technosoftware.com 
 // 
 // License: 
@@ -25,14 +25,12 @@
 //
 // SPDX-License-Identifier: MIT
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
-
 using System;
 using Technosoftware.DaAeHdaClient;
 using Technosoftware.DaAeHdaClient.Ae;
-
 #endregion
 
 namespace Technosoftware.AeConsole
@@ -41,7 +39,7 @@ namespace Technosoftware.AeConsole
     /// <summary>
     /// Simple OPC AE Client Application
     /// </summary>
-    class OpcSample
+    public class OpcSample
     {
         #region Event Handlers
         /// <summary>
@@ -50,9 +48,9 @@ namespace Technosoftware.AeConsole
         /// <param name="events"></param>
         /// <param name="refresh"></param>
         /// <param name="lastRefresh"></param>
-        public void OnDataChangedEvent(TsCAeEventNotification[] events, bool refresh, bool lastRefresh)
+        public static void OnDataChangedEvent(TsCAeEventNotification[] events, bool refresh, bool lastRefresh)
         {
-            foreach (TsCAeEventNotification AeEvent in events)
+            foreach (var AeEvent in events)
             {
                 Console.WriteLine("New Event:");
                 Console.WriteLine("----------");
@@ -87,7 +85,7 @@ namespace Technosoftware.AeConsole
                 }
                 if (AeEvent.Attributes.Count > 0)
                 {
-                    for (int i = 0; i < AeEvent.Attributes.Count; i++)
+                    for (var i = 0; i < AeEvent.Attributes.Count; i++)
                     {
                         Console.Write("\tAttribute ");
                         Console.Write(i);
@@ -97,16 +95,14 @@ namespace Technosoftware.AeConsole
                 Console.WriteLine();
             }
         }
-
         #endregion
 
         #region OPC Sample Functionality
-
-        public void Run()
+        public static void Run()
         {
             try
             {
-                const string serverUrl = "opcae://localhost/Technosoftware.AeSample";
+                const string serverUrl = "opcae://localhost/SampleCompany.AeSample";
 
                 Console.WriteLine();
                 Console.WriteLine("Simple OPC AE Client based on the OPC DA/AE/HDA Solution .NET");
@@ -115,33 +111,34 @@ namespace Technosoftware.AeConsole
                 Console.ReadLine();
                 Console.WriteLine("   Please wait...");
 
-                TsCAeServer myAeServer = new TsCAeServer();
+                // Get the server object
+                var myAeServer = GetServerForUrl(serverUrl);
 
                 // Connect to the server
-                myAeServer.Connect(serverUrl);
+                myAeServer.Connect();
 
                 Console.WriteLine("   Connected, press <Enter> to create an active subscription and press <Enter>");
                 Console.WriteLine("   again to deactivate the subscription. This stops the reception of new events.");
                 Console.ReadLine();
 
-                TsCAeSubscriptionState state = new TsCAeSubscriptionState { Active = true, BufferTime = 0, MaxSize = 0, ClientHandle = 100, Name = "Simple Event Subscription" };
+                var state = new TsCAeSubscriptionState { Active = true, BufferTime = 0, MaxSize = 0, ClientHandle = 100, Name = "Simple Event Subscription" };
 
-                TsCAeCategory[] categories = myAeServer.QueryEventCategories((int)TsCAeEventType.Condition);
+                var categories = myAeServer.QueryEventCategories((int)TsCAeEventType.Condition);
                 TsCAeAttribute[] attributes = null;
                 attributes = myAeServer.QueryEventAttributes(categories[0].ID);
 
-                int[] attributeIDs = new int[2];
+                var attributeIDs = new int[2];
 
                 attributeIDs[0] = attributes[0].ID;
                 attributeIDs[1] = attributes[1].ID;
 
                 TsCAeSubscription subscription;
                 subscription = (TsCAeSubscription)myAeServer.CreateSubscription(state);
-                subscription.DataChangedEvent += OnDataChangedEvent;
+                subscription.DataChangedEvent += OpcSample.OnDataChangedEvent;
                 subscription.SelectReturnedAttributes(categories[0].ID, attributeIDs);
                 Console.ReadLine();
 
-                subscription.DataChangedEvent -= OnDataChangedEvent;
+                subscription.DataChangedEvent -= OpcSample.OnDataChangedEvent;
                 Console.WriteLine("   Subscription deactivated, press <Enter> to remove the subscription and disconnect from the server.");
 
                 subscription.Dispose();									// Remove subscription
@@ -154,19 +151,51 @@ namespace Technosoftware.AeConsole
             }
             catch (OpcResultException e)
             {
-                Console.WriteLine(String.Format("   {0}", e.Message));
+                Console.WriteLine(string.Format("   {0}", e.Message));
                 Console.ReadLine();
                 return;
             }
             catch (Exception e)
             {
-                Console.WriteLine(String.Format("   {0}", e.Message));
+                Console.WriteLine(string.Format("   {0}", e.Message));
                 Console.ReadLine();
                 return;
             }
 
         }
-
         #endregion
+
+        #region Helper Methods
+        /// <summary>
+        /// Creates a server object for the specified URL.
+        /// </summary>
+        public static TsCAeServer GetServerForUrl(string url)
+        {
+            if (url == null)
+            {
+                throw new ArgumentNullException(nameof(url));
+            }
+
+            var opcUrl = new OpcUrl(url);
+
+            TsCAeServer server;
+
+            // create an unconnected server object for COM based servers.
+            // AE
+            if (opcUrl.Scheme == OpcUrlScheme.AE)
+            {
+                server = new TsCAeServer(new DaAeHdaClient.Com.Factory(), opcUrl);
+            }
+
+            // Other specifications not supported in this example.
+            else
+            {
+                throw new NotSupportedException(opcUrl.Scheme);
+            }
+
+            return server;
+        }
+        #endregion
+
     }
 }
