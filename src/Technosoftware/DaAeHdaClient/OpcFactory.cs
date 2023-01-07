@@ -22,6 +22,7 @@
 
 #region Using Directives
 using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 #endregion
 
@@ -81,6 +82,11 @@ namespace Technosoftware.DaAeHdaClient
         /// Can be used to force OPC DA 2.0 even if OPC DA 3.0 server features are available
         /// </summary>
         public bool ForceDa20Usage { get; set; }
+
+        /// <summary>
+        /// List of supported OPC specifications
+        /// </summary>
+        public IList<OpcSpecification> SupportedSpecifications { get; set; }
         #endregion
 
         #region ISerializable

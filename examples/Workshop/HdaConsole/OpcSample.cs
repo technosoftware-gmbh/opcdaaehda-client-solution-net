@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://technosoftware.com 
 // 
 // License: 
@@ -25,13 +25,13 @@
 //
 // SPDX-License-Identifier: MIT
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
 using Technosoftware.DaAeHdaClient;
-using Technosoftware.DaAeHdaClient.Hda;
 using Technosoftware.DaAeHdaClient.Da;
+using Technosoftware.DaAeHdaClient.Hda;
 #endregion
 
 namespace Technosoftware.HdaConsole
@@ -39,7 +39,7 @@ namespace Technosoftware.HdaConsole
     /// <summary>
 	/// Simple OPC HDA Client Application
 	/// </summary>
-	class OpcSample
+	public class OpcSample
 	{
         #region Event Handlers
 
@@ -69,9 +69,11 @@ namespace Technosoftware.HdaConsole
 				Console.ReadLine();
 				Console.WriteLine("   Please wait...");
 
-                TsCHdaServer myHdaServer = new TsCHdaServer();
+                // Get the server object
+                TsCHdaServer myHdaServer = GetServerForUrl(serverUrl);
 
-				myHdaServer.Connect(serverUrl);
+
+				myHdaServer.Connect();
 
 				Console.WriteLine("   Connected, press <Enter> to add a trend.");
 				Console.ReadLine();
@@ -136,5 +138,38 @@ namespace Technosoftware.HdaConsole
 		}
 
         #endregion
+
+        #region Helper Methods
+        /// <summary>
+        /// Creates a server object for the specified URL.
+        /// </summary>
+        public static TsCHdaServer GetServerForUrl(string url)
+        {
+            if (url == null)
+            {
+                throw new ArgumentNullException(nameof(url));
+            }
+
+            OpcUrl opcUrl = new OpcUrl(url);
+
+            TsCHdaServer server = null;
+
+            // create an unconnected server object for COM based servers.
+            // HDA
+            if (opcUrl.Scheme == OpcUrlScheme.HDA)
+            {
+                server = new TsCHdaServer(new DaAeHdaClient.Com.Factory(), opcUrl);
+            }
+
+            // Other specifications not supported in this example.
+            else
+            {
+                throw new NotSupportedException(opcUrl.Scheme);
+            }
+
+            return server;
+        }
+        #endregion
+
     }
 }

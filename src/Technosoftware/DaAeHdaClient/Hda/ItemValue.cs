@@ -50,7 +50,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
         /// <summary>
         /// The timestamp associated with the value.
-        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+        /// The <see cref="ApplicationInstance.TimeAsUtc">ApplicationInstance.TimeAsUtc</see> property defines
         /// the time format (UTC or local time).
         /// </summary>
         public DateTime Timestamp
@@ -75,19 +75,6 @@ namespace Technosoftware.DaAeHdaClient.Hda
         {
             get => historianQuality_;
             set => historianQuality_ = value;
-        }
-
-        /// <summary>
-        /// VarEnum of the item
-        /// </summary>
-        public System.Runtime.InteropServices.VarEnum VarType
-        {
-            get => Utilities.Interop.GetType(Value.GetType());
-            set
-            {
-                if (!Enum.IsDefined(typeof(VarEnum), value))
-                    throw new InvalidEnumArgumentException(nameof(value), (int)value, typeof(VarEnum));
-            }
         }
         #endregion
 

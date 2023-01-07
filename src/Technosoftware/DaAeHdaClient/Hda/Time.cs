@@ -81,7 +81,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
 
         /// <summary>
         /// The time as absolute value.
-        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+        /// The <see cref="ApplicationInstance.TimeAsUtc">ApplicationInstance.TimeAsUtc</see> property defines
         /// the time format (UTC or local time).
         /// </summary>
         public DateTime AbsoluteTime

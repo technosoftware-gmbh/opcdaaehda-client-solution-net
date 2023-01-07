@@ -161,13 +161,6 @@ namespace Technosoftware.DaAeHdaClient.Da
         public override void Connect(OpcUrl url, OpcConnectData connectData)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.DataAccess);
-            if (Factory == null)
-            {
-                if (Factory == null)
-                {
-                    Factory = new Com.Factory();
-                }
-            }
             // connect to server.
             base.Connect(url, connectData);
 

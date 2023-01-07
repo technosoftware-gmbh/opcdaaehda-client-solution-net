@@ -25,9 +25,6 @@
 using System;
 using System.Collections;
 using System.Runtime.Serialization;
-
-using Technosoftware.DaAeHdaClient.Com;
-
 #endregion
 
 namespace Technosoftware.DaAeHdaClient.Ae
@@ -122,15 +119,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
         #region Constructors, Destructor, Initialization
         /// <summary>
-        /// Initializes the object.
-        /// </summary>
-        public TsCAeServer()
-
-        {
-            Factory = new Factory();
-        }
-
-        /// <summary>
         /// Initializes the object with a factory and a default OpcUrl.
         /// </summary>
         /// <param name="factory">The OpcFactory used to connect to remote servers.</param>
@@ -179,10 +167,6 @@ namespace Technosoftware.DaAeHdaClient.Ae
         public override void Connect(OpcUrl url, OpcConnectData connectData)
         {
             LicenseHandler.ValidateFeatures(LicenseHandler.ProductFeature.AlarmsConditions);
-            if (Factory == null)
-            {
-                Factory = new Factory();
-            }
             // connect to server.
             base.Connect(url, connectData);
 

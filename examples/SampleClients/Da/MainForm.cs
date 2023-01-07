@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://technosoftware.com  
 // 
 // Purpose: 
@@ -12,7 +12,7 @@
 // 
 // The Software is based on the OPC .NET API Sample Code.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -82,11 +82,12 @@ namespace SampleClients.Da
         private ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Timer updateTimerControl_;
 		
+		[STAThread]
 		static void Main() 
 		{
             try
 			{
-                ApplicationInstance.InitializeSecurity(ApplicationInstance.AuthenticationLevel.Integrity);
+                //ApplicationInstance.InitializeSecurity(ApplicationInstance.AuthenticationLevel.Integrity);
                 ApplicationInstance.EnableTrace(ApplicationInstance.GetLogFileDirectory(), "SampleClients.Da.log");
 
                 Application.Run(new MainForm());
@@ -104,7 +105,7 @@ namespace SampleClients.Da
 			//
 			InitializeComponent();
  
-            Icon = ClientUtils.GetAppIcon();
+            
             
 			// connect the updates control to the subscriptions control.
 			subscriptionCtrl_.SubscriptionModified += new SubscriptionModifiedCallback(updatesCtrl_.OnSubscriptionModified);
@@ -117,14 +118,14 @@ namespace SampleClients.Da
 			// initialize the set of known servers.
 			OpcUrl[] knownUrLs = new OpcUrl[] 
 			{
-				new OpcUrl("opcda://localhost/Technosoftware.DaSample"),
+				new OpcUrl("opcda://localhost/SampleCompany.DaSample"),
 			};
 
 #else
 			// initialize the set of known servers.
 			OpcUrl[] knownURLs = new OpcUrl[] 
 			{
-				new OpcUrl("opcda://localhost/Technosoftware.DaSample"),
+				new OpcUrl("opcda://localhost/SampleCompany.DaSample"),
 			};
 #endif
 
@@ -160,437 +161,436 @@ namespace SampleClients.Da
 		/// </summary>
 		private void InitializeComponent()
 		{
-            components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            mainMenu_ = new System.Windows.Forms.MenuStrip();
-            fileMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            exitMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            serverMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            connectMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            disconnecMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            separatorS1_ = new System.Windows.Forms.ToolStripMenuItem();
-            viewStatusMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            browseMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            separatorS2_ = new System.Windows.Forms.ToolStripMenuItem();
-            readMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            writeMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            menuItem1_ = new System.Windows.Forms.ToolStripMenuItem();
-            outputMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            outputClearMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            optionsMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            clearHistoryMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            forceDa20UsageMenuItem_ = new System.Windows.Forms.ToolStripMenuItem();
-            helpMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            aboutMi_ = new System.Windows.Forms.ToolStripMenuItem();
-            toolBar_ = new System.Windows.Forms.ToolStrip();
-            toolBarImageList_ = new System.Windows.Forms.ImageList(components);
-            connectBtn_ = new System.Windows.Forms.ToolStripButton();
-            disconnectBtn_ = new System.Windows.Forms.ToolStripButton();
-            viewStatusBtn_ = new System.Windows.Forms.ToolStripButton();
-            browseBtn_ = new System.Windows.Forms.ToolStripButton();
-            toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            readBtn_ = new System.Windows.Forms.ToolStripButton();
-            writeBtn_ = new System.Windows.Forms.ToolStripButton();
-            toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            aboutBtn_ = new System.Windows.Forms.ToolStripButton();
-            bottomPn_ = new System.Windows.Forms.Panel();
-            outputCtrl_ = new System.Windows.Forms.RichTextBox();
-            splitterH_ = new System.Windows.Forms.Splitter();
-            splitterV_ = new System.Windows.Forms.Splitter();
-            leftPn_ = new System.Windows.Forms.Panel();
-            subscriptionCtrl_ = new SampleClients.Da.Subscription.SubscriptionsTreeCtrl();
-            rightPn_ = new System.Windows.Forms.Panel();
-            updatesCtrl_ = new SampleClients.Da.UpdatesListViewCtrl();
-            updateTimerControl_ = new System.Windows.Forms.Timer(components);
-            statusCtrl_ = new SampleClients.Da.Server.ServerStatusCtrl();
-            selectServerCtrl_ = new SampleClients.Common.SelectServerCtrl();
-            mainMenu_.SuspendLayout();
-            toolBar_.SuspendLayout();
-            bottomPn_.SuspendLayout();
-            leftPn_.SuspendLayout();
-            rightPn_.SuspendLayout();
-            SuspendLayout();
+            this.mainMenu_ = new System.Windows.Forms.MenuStrip();
+            this.fileMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.serverMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.disconnecMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.separatorS1_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewStatusMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.browseMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.separatorS2_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.readMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.writeMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItem1_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.outputMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.outputClearMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearHistoryMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.forceDa20UsageMenuItem_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutMi_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolBar_ = new System.Windows.Forms.ToolStrip();
+            this.toolBarImageList_ = new System.Windows.Forms.ImageList(this.components);
+            this.connectBtn_ = new System.Windows.Forms.ToolStripButton();
+            this.disconnectBtn_ = new System.Windows.Forms.ToolStripButton();
+            this.viewStatusBtn_ = new System.Windows.Forms.ToolStripButton();
+            this.browseBtn_ = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.readBtn_ = new System.Windows.Forms.ToolStripButton();
+            this.writeBtn_ = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutBtn_ = new System.Windows.Forms.ToolStripButton();
+            this.bottomPn_ = new System.Windows.Forms.Panel();
+            this.outputCtrl_ = new System.Windows.Forms.RichTextBox();
+            this.splitterH_ = new System.Windows.Forms.Splitter();
+            this.splitterV_ = new System.Windows.Forms.Splitter();
+            this.leftPn_ = new System.Windows.Forms.Panel();
+            this.subscriptionCtrl_ = new SampleClients.Da.Subscription.SubscriptionsTreeCtrl();
+            this.rightPn_ = new System.Windows.Forms.Panel();
+            this.updatesCtrl_ = new SampleClients.Da.UpdatesListViewCtrl();
+            this.updateTimerControl_ = new System.Windows.Forms.Timer(this.components);
+            this.statusCtrl_ = new SampleClients.Da.Server.ServerStatusCtrl();
+            this.selectServerCtrl_ = new SampleClients.Common.SelectServerCtrl();
+            this.mainMenu_.SuspendLayout();
+            this.toolBar_.SuspendLayout();
+            this.bottomPn_.SuspendLayout();
+            this.leftPn_.SuspendLayout();
+            this.rightPn_.SuspendLayout();
+            this.SuspendLayout();
             // 
             // mainMenu_
             // 
-            mainMenu_.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            fileMi_,
-            serverMi_,
-            outputMi_,
-            optionsMi_,
-            helpMi_});
-            mainMenu_.Location = new System.Drawing.Point(0, 0);
-            mainMenu_.Name = "mainMenu_";
-            mainMenu_.Size = new System.Drawing.Size(200, 24);
-            mainMenu_.TabIndex = 0;
+            this.mainMenu_.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileMi_,
+            this.serverMi_,
+            this.outputMi_,
+            this.optionsMi_,
+            this.helpMi_});
+            this.mainMenu_.Location = new System.Drawing.Point(0, 0);
+            this.mainMenu_.Name = "mainMenu_";
+            this.mainMenu_.Size = new System.Drawing.Size(200, 24);
+            this.mainMenu_.TabIndex = 0;
             // 
             // fileMi_
             // 
-            fileMi_.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            exitMi_});
-            fileMi_.Name = "fileMi_";
-            fileMi_.Size = new System.Drawing.Size(37, 20);
-            fileMi_.Text = "&File";
+            this.fileMi_.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitMi_});
+            this.fileMi_.Name = "fileMi_";
+            this.fileMi_.Size = new System.Drawing.Size(37, 20);
+            this.fileMi_.Text = "&File";
             // 
             // exitMi_
             // 
-            exitMi_.Name = "exitMi_";
-            exitMi_.Size = new System.Drawing.Size(93, 22);
-            exitMi_.Text = "&Exit";
-            exitMi_.Click += new System.EventHandler(ExitMI_Click);
+            this.exitMi_.Name = "exitMi_";
+            this.exitMi_.Size = new System.Drawing.Size(93, 22);
+            this.exitMi_.Text = "&Exit";
+            this.exitMi_.Click += new System.EventHandler(this.ExitMI_Click);
             // 
             // serverMi_
             // 
-            serverMi_.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            connectMi_,
-            disconnecMi_,
-            separatorS1_,
-            viewStatusMi_,
-            browseMi_,
-            separatorS2_,
-            readMi_,
-            writeMi_,
-            menuItem1_});
-            serverMi_.Name = "serverMi_";
-            serverMi_.Size = new System.Drawing.Size(51, 20);
-            serverMi_.Text = "&Server";
+            this.serverMi_.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connectMi_,
+            this.disconnecMi_,
+            this.separatorS1_,
+            this.viewStatusMi_,
+            this.browseMi_,
+            this.separatorS2_,
+            this.readMi_,
+            this.writeMi_,
+            this.menuItem1_});
+            this.serverMi_.Name = "serverMi_";
+            this.serverMi_.Size = new System.Drawing.Size(51, 20);
+            this.serverMi_.Text = "&Server";
             // 
             // connectMi_
             // 
-            connectMi_.Name = "connectMi_";
-            connectMi_.Size = new System.Drawing.Size(134, 22);
-            connectMi_.Text = "&Connect";
-            connectMi_.Click += new System.EventHandler(ConnectMI_Click);
+            this.connectMi_.Name = "connectMi_";
+            this.connectMi_.Size = new System.Drawing.Size(134, 22);
+            this.connectMi_.Text = "&Connect";
+            this.connectMi_.Click += new System.EventHandler(this.ConnectMI_Click);
             // 
             // disconnecMi_
             // 
-            disconnecMi_.Name = "disconnecMi_";
-            disconnecMi_.Size = new System.Drawing.Size(134, 22);
-            disconnecMi_.Text = "&Disconnect";
-            disconnecMi_.Click += new System.EventHandler(DisconnectMI_Click);
+            this.disconnecMi_.Name = "disconnecMi_";
+            this.disconnecMi_.Size = new System.Drawing.Size(134, 22);
+            this.disconnecMi_.Text = "&Disconnect";
+            this.disconnecMi_.Click += new System.EventHandler(this.DisconnectMI_Click);
             // 
             // separatorS1_
             // 
-            separatorS1_.Name = "separatorS1_";
-            separatorS1_.Size = new System.Drawing.Size(134, 22);
-            separatorS1_.Text = "-";
+            this.separatorS1_.Name = "separatorS1_";
+            this.separatorS1_.Size = new System.Drawing.Size(134, 22);
+            this.separatorS1_.Text = "-";
             // 
             // viewStatusMi_
             // 
-            viewStatusMi_.Name = "viewStatusMi_";
-            viewStatusMi_.Size = new System.Drawing.Size(134, 22);
-            viewStatusMi_.Text = "&View Status";
-            viewStatusMi_.Click += new System.EventHandler(ViewStatusMI_Click);
+            this.viewStatusMi_.Name = "viewStatusMi_";
+            this.viewStatusMi_.Size = new System.Drawing.Size(134, 22);
+            this.viewStatusMi_.Text = "&View Status";
+            this.viewStatusMi_.Click += new System.EventHandler(this.ViewStatusMI_Click);
             // 
             // browseMi_
             // 
-            browseMi_.Name = "browseMi_";
-            browseMi_.Size = new System.Drawing.Size(134, 22);
-            browseMi_.Text = "&Browse...";
-            browseMi_.Click += new System.EventHandler(BrowseMI_Click);
+            this.browseMi_.Name = "browseMi_";
+            this.browseMi_.Size = new System.Drawing.Size(134, 22);
+            this.browseMi_.Text = "&Browse...";
+            this.browseMi_.Click += new System.EventHandler(this.BrowseMI_Click);
             // 
             // separatorS2_
             // 
-            separatorS2_.Name = "separatorS2_";
-            separatorS2_.Size = new System.Drawing.Size(134, 22);
-            separatorS2_.Text = "-";
+            this.separatorS2_.Name = "separatorS2_";
+            this.separatorS2_.Size = new System.Drawing.Size(134, 22);
+            this.separatorS2_.Text = "-";
             // 
             // readMi_
             // 
-            readMi_.Name = "readMi_";
-            readMi_.Size = new System.Drawing.Size(134, 22);
-            readMi_.Text = "&Read...";
-            readMi_.Click += new System.EventHandler(ReadMI_Click);
+            this.readMi_.Name = "readMi_";
+            this.readMi_.Size = new System.Drawing.Size(134, 22);
+            this.readMi_.Text = "&Read...";
+            this.readMi_.Click += new System.EventHandler(this.ReadMI_Click);
             // 
             // writeMi_
             // 
-            writeMi_.Name = "writeMi_";
-            writeMi_.Size = new System.Drawing.Size(134, 22);
-            writeMi_.Text = "&Write...";
-            writeMi_.Click += new System.EventHandler(WriteMI_Click);
+            this.writeMi_.Name = "writeMi_";
+            this.writeMi_.Size = new System.Drawing.Size(134, 22);
+            this.writeMi_.Text = "&Write...";
+            this.writeMi_.Click += new System.EventHandler(this.WriteMI_Click);
             // 
             // menuItem1_
             // 
-            menuItem1_.Name = "menuItem1_";
-            menuItem1_.Size = new System.Drawing.Size(134, 22);
-            menuItem1_.Text = "-";
+            this.menuItem1_.Name = "menuItem1_";
+            this.menuItem1_.Size = new System.Drawing.Size(134, 22);
+            this.menuItem1_.Text = "-";
             // 
             // outputMi_
             // 
-            outputMi_.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            outputClearMi_});
-            outputMi_.Name = "outputMi_";
-            outputMi_.Size = new System.Drawing.Size(57, 20);
-            outputMi_.Text = "&Output";
+            this.outputMi_.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.outputClearMi_});
+            this.outputMi_.Name = "outputMi_";
+            this.outputMi_.Size = new System.Drawing.Size(57, 20);
+            this.outputMi_.Text = "&Output";
             // 
             // outputClearMi_
             // 
-            outputClearMi_.Name = "outputClearMi_";
-            outputClearMi_.Size = new System.Drawing.Size(101, 22);
-            outputClearMi_.Text = "&Clear";
-            outputClearMi_.Click += new System.EventHandler(OutputClearMI_Click);
+            this.outputClearMi_.Name = "outputClearMi_";
+            this.outputClearMi_.Size = new System.Drawing.Size(101, 22);
+            this.outputClearMi_.Text = "&Clear";
+            this.outputClearMi_.Click += new System.EventHandler(this.OutputClearMI_Click);
             // 
             // optionsMi_
             // 
-            optionsMi_.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            clearHistoryMi_,
-            forceDa20UsageMenuItem_});
-            optionsMi_.Name = "optionsMi_";
-            optionsMi_.Size = new System.Drawing.Size(61, 20);
-            optionsMi_.Text = "O&ptions";
+            this.optionsMi_.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearHistoryMi_,
+            this.forceDa20UsageMenuItem_});
+            this.optionsMi_.Name = "optionsMi_";
+            this.optionsMi_.Size = new System.Drawing.Size(61, 20);
+            this.optionsMi_.Text = "O&ptions";
             // 
             // clearHistoryMi_
             // 
-            clearHistoryMi_.Name = "clearHistoryMi_";
-            clearHistoryMi_.Size = new System.Drawing.Size(175, 22);
-            clearHistoryMi_.Text = "&Clear History";
-            clearHistoryMi_.Click += new System.EventHandler(ClearHistoryMI_Click);
+            this.clearHistoryMi_.Name = "clearHistoryMi_";
+            this.clearHistoryMi_.Size = new System.Drawing.Size(175, 22);
+            this.clearHistoryMi_.Text = "&Clear History";
+            this.clearHistoryMi_.Click += new System.EventHandler(this.ClearHistoryMI_Click);
             // 
             // forceDa20UsageMenuItem_
             // 
-            forceDa20UsageMenuItem_.Name = "forceDa20UsageMenuItem_";
-            forceDa20UsageMenuItem_.Size = new System.Drawing.Size(175, 22);
-            forceDa20UsageMenuItem_.Text = "&Force DA 2.0 Usage";
-            forceDa20UsageMenuItem_.Click += new System.EventHandler(OnForceDa20Usage);
+            this.forceDa20UsageMenuItem_.Name = "forceDa20UsageMenuItem_";
+            this.forceDa20UsageMenuItem_.Size = new System.Drawing.Size(175, 22);
+            this.forceDa20UsageMenuItem_.Text = "&Force DA 2.0 Usage";
+            this.forceDa20UsageMenuItem_.Click += new System.EventHandler(this.OnForceDa20Usage);
             // 
             // helpMi_
             // 
-            helpMi_.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            aboutMi_});
-            helpMi_.Name = "helpMi_";
-            helpMi_.Size = new System.Drawing.Size(44, 20);
-            helpMi_.Text = "&Help";
+            this.helpMi_.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutMi_});
+            this.helpMi_.Name = "helpMi_";
+            this.helpMi_.Size = new System.Drawing.Size(44, 20);
+            this.helpMi_.Text = "&Help";
             // 
             // aboutMi_
             // 
-            aboutMi_.Name = "aboutMi_";
-            aboutMi_.Size = new System.Drawing.Size(116, 22);
-            aboutMi_.Text = "&About...";
-            aboutMi_.Click += new System.EventHandler(AboutMI_Click);
+            this.aboutMi_.Name = "aboutMi_";
+            this.aboutMi_.Size = new System.Drawing.Size(116, 22);
+            this.aboutMi_.Text = "&About...";
+            this.aboutMi_.Click += new System.EventHandler(this.AboutMI_Click);
             // 
             // toolBar_
             // 
-            toolBar_.ImageList = toolBarImageList_;
-            toolBar_.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            connectBtn_,
-            disconnectBtn_,
-            viewStatusBtn_,
-            browseBtn_,
-            toolStripSeparator1,
-            readBtn_,
-            writeBtn_,
-            toolStripSeparator2,
-            aboutBtn_});
-            toolBar_.Location = new System.Drawing.Point(3, 0);
-            toolBar_.Name = "toolBar_";
-            toolBar_.Size = new System.Drawing.Size(1010, 25);
-            toolBar_.TabIndex = 0;
+            this.toolBar_.ImageList = this.toolBarImageList_;
+            this.toolBar_.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connectBtn_,
+            this.disconnectBtn_,
+            this.viewStatusBtn_,
+            this.browseBtn_,
+            this.toolStripSeparator1,
+            this.readBtn_,
+            this.writeBtn_,
+            this.toolStripSeparator2,
+            this.aboutBtn_});
+            this.toolBar_.Location = new System.Drawing.Point(3, 0);
+            this.toolBar_.Name = "toolBar_";
+            this.toolBar_.Size = new System.Drawing.Size(1010, 25);
+            this.toolBar_.TabIndex = 0;
             // 
             // toolBarImageList_
             // 
-            toolBarImageList_.ColorDepth = System.Windows.Forms.ColorDepth.Depth24Bit;
-            toolBarImageList_.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("toolBarImageList_.ImageStream")));
-            toolBarImageList_.TransparentColor = System.Drawing.Color.Teal;
-            toolBarImageList_.Images.SetKeyName(0, "");
-            toolBarImageList_.Images.SetKeyName(1, "");
-            toolBarImageList_.Images.SetKeyName(2, "");
-            toolBarImageList_.Images.SetKeyName(3, "");
-            toolBarImageList_.Images.SetKeyName(4, "");
-            toolBarImageList_.Images.SetKeyName(5, "");
-            toolBarImageList_.Images.SetKeyName(6, "");
-            toolBarImageList_.Images.SetKeyName(7, "");
-            toolBarImageList_.Images.SetKeyName(8, "");
-            toolBarImageList_.Images.SetKeyName(9, "");
-            toolBarImageList_.Images.SetKeyName(10, "");
-            toolBarImageList_.Images.SetKeyName(11, "");
-            toolBarImageList_.Images.SetKeyName(12, "");
-            toolBarImageList_.Images.SetKeyName(13, "");
+            this.toolBarImageList_.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("toolBarImageList_.ImageStream")));
+            this.toolBarImageList_.TransparentColor = System.Drawing.Color.Teal;
+            this.toolBarImageList_.Images.SetKeyName(0, "");
+            this.toolBarImageList_.Images.SetKeyName(1, "");
+            this.toolBarImageList_.Images.SetKeyName(2, "");
+            this.toolBarImageList_.Images.SetKeyName(3, "");
+            this.toolBarImageList_.Images.SetKeyName(4, "");
+            this.toolBarImageList_.Images.SetKeyName(5, "");
+            this.toolBarImageList_.Images.SetKeyName(6, "");
+            this.toolBarImageList_.Images.SetKeyName(7, "");
+            this.toolBarImageList_.Images.SetKeyName(8, "");
+            this.toolBarImageList_.Images.SetKeyName(9, "");
+            this.toolBarImageList_.Images.SetKeyName(10, "");
+            this.toolBarImageList_.Images.SetKeyName(11, "");
+            this.toolBarImageList_.Images.SetKeyName(12, "");
+            this.toolBarImageList_.Images.SetKeyName(13, "");
             // 
             // connectBtn_
             // 
-            connectBtn_.ImageIndex = 0;
-            connectBtn_.Name = "connectBtn_";
-            connectBtn_.Size = new System.Drawing.Size(23, 22);
-            connectBtn_.ToolTipText = "Connect to Server";
-            connectBtn_.Click += new System.EventHandler(ConnectMI_Click);
+            this.connectBtn_.ImageIndex = 0;
+            this.connectBtn_.Name = "connectBtn_";
+            this.connectBtn_.Size = new System.Drawing.Size(23, 22);
+            this.connectBtn_.ToolTipText = "Connect to Server";
+            this.connectBtn_.Click += new System.EventHandler(this.ConnectMI_Click);
             // 
             // disconnectBtn_
             // 
-            disconnectBtn_.ImageIndex = 1;
-            disconnectBtn_.Name = "disconnectBtn_";
-            disconnectBtn_.Size = new System.Drawing.Size(23, 22);
-            disconnectBtn_.ToolTipText = "Disconnect from Server";
-            disconnectBtn_.Click += new System.EventHandler(DisconnectMI_Click);
+            this.disconnectBtn_.ImageIndex = 1;
+            this.disconnectBtn_.Name = "disconnectBtn_";
+            this.disconnectBtn_.Size = new System.Drawing.Size(23, 22);
+            this.disconnectBtn_.ToolTipText = "Disconnect from Server";
+            this.disconnectBtn_.Click += new System.EventHandler(this.DisconnectMI_Click);
             // 
             // viewStatusBtn_
             // 
-            viewStatusBtn_.ImageIndex = 4;
-            viewStatusBtn_.Name = "viewStatusBtn_";
-            viewStatusBtn_.Size = new System.Drawing.Size(23, 22);
-            viewStatusBtn_.ToolTipText = "View Server Status";
-            viewStatusBtn_.Click += new System.EventHandler(ViewStatusMI_Click);
+            this.viewStatusBtn_.ImageIndex = 4;
+            this.viewStatusBtn_.Name = "viewStatusBtn_";
+            this.viewStatusBtn_.Size = new System.Drawing.Size(23, 22);
+            this.viewStatusBtn_.ToolTipText = "View Server Status";
+            this.viewStatusBtn_.Click += new System.EventHandler(this.ViewStatusMI_Click);
             // 
             // browseBtn_
             // 
-            browseBtn_.ImageIndex = 6;
-            browseBtn_.Name = "browseBtn_";
-            browseBtn_.Size = new System.Drawing.Size(23, 22);
-            browseBtn_.ToolTipText = "Browse Address Space";
-            browseBtn_.Click += new System.EventHandler(BrowseMI_Click);
+            this.browseBtn_.ImageIndex = 6;
+            this.browseBtn_.Name = "browseBtn_";
+            this.browseBtn_.Size = new System.Drawing.Size(23, 22);
+            this.browseBtn_.ToolTipText = "Browse Address Space";
+            this.browseBtn_.Click += new System.EventHandler(this.BrowseMI_Click);
             // 
             // toolStripSeparator1
             // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // readBtn_
             // 
-            readBtn_.ImageIndex = 7;
-            readBtn_.Name = "readBtn_";
-            readBtn_.Size = new System.Drawing.Size(23, 22);
-            readBtn_.ToolTipText = "Read Items";
-            readBtn_.Click += new System.EventHandler(ReadMI_Click);
+            this.readBtn_.ImageIndex = 7;
+            this.readBtn_.Name = "readBtn_";
+            this.readBtn_.Size = new System.Drawing.Size(23, 22);
+            this.readBtn_.ToolTipText = "Read Items";
+            this.readBtn_.Click += new System.EventHandler(this.ReadMI_Click);
             // 
             // writeBtn_
             // 
-            writeBtn_.ImageIndex = 8;
-            writeBtn_.Name = "writeBtn_";
-            writeBtn_.Size = new System.Drawing.Size(23, 22);
-            writeBtn_.ToolTipText = "Write Items";
-            writeBtn_.Click += new System.EventHandler(WriteMI_Click);
+            this.writeBtn_.ImageIndex = 8;
+            this.writeBtn_.Name = "writeBtn_";
+            this.writeBtn_.Size = new System.Drawing.Size(23, 22);
+            this.writeBtn_.ToolTipText = "Write Items";
+            this.writeBtn_.Click += new System.EventHandler(this.WriteMI_Click);
             // 
             // toolStripSeparator2
             // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // aboutBtn_
             // 
-            aboutBtn_.ImageIndex = 13;
-            aboutBtn_.Name = "aboutBtn_";
-            aboutBtn_.Size = new System.Drawing.Size(23, 22);
-            aboutBtn_.ToolTipText = "About";
-            aboutBtn_.Click += new System.EventHandler(AboutMI_Click);
+            this.aboutBtn_.ImageIndex = 13;
+            this.aboutBtn_.Name = "aboutBtn_";
+            this.aboutBtn_.Size = new System.Drawing.Size(23, 22);
+            this.aboutBtn_.ToolTipText = "About";
+            this.aboutBtn_.Click += new System.EventHandler(this.AboutMI_Click);
             // 
             // bottomPn_
             // 
-            bottomPn_.Controls.Add(outputCtrl_);
-            bottomPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
-            bottomPn_.Location = new System.Drawing.Point(3, 463);
-            bottomPn_.Name = "bottomPn_";
-            bottomPn_.Size = new System.Drawing.Size(1010, 123);
-            bottomPn_.TabIndex = 3;
+            this.bottomPn_.Controls.Add(this.outputCtrl_);
+            this.bottomPn_.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bottomPn_.Location = new System.Drawing.Point(3, 486);
+            this.bottomPn_.Name = "bottomPn_";
+            this.bottomPn_.Size = new System.Drawing.Size(1010, 100);
+            this.bottomPn_.TabIndex = 3;
             // 
             // outputCtrl_
             // 
-            outputCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-            outputCtrl_.Location = new System.Drawing.Point(0, 0);
-            outputCtrl_.Name = "outputCtrl_";
-            outputCtrl_.Size = new System.Drawing.Size(1010, 123);
-            outputCtrl_.TabIndex = 0;
-            outputCtrl_.Text = "";
+            this.outputCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.outputCtrl_.Location = new System.Drawing.Point(0, 0);
+            this.outputCtrl_.Name = "outputCtrl_";
+            this.outputCtrl_.Size = new System.Drawing.Size(1010, 100);
+            this.outputCtrl_.TabIndex = 0;
+            this.outputCtrl_.Text = "";
             // 
             // splitterH_
             // 
-            splitterH_.Dock = System.Windows.Forms.DockStyle.Bottom;
-            splitterH_.Location = new System.Drawing.Point(3, 459);
-            splitterH_.Name = "splitterH_";
-            splitterH_.Size = new System.Drawing.Size(1010, 4);
-            splitterH_.TabIndex = 4;
-            splitterH_.TabStop = false;
+            this.splitterH_.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitterH_.Location = new System.Drawing.Point(3, 483);
+            this.splitterH_.Name = "splitterH_";
+            this.splitterH_.Size = new System.Drawing.Size(1010, 3);
+            this.splitterH_.TabIndex = 4;
+            this.splitterH_.TabStop = false;
             // 
             // splitterV_
             // 
-            splitterV_.Location = new System.Drawing.Point(319, 52);
-            splitterV_.Name = "splitterV_";
-            splitterV_.Size = new System.Drawing.Size(4, 407);
-            splitterV_.TabIndex = 5;
-            splitterV_.TabStop = false;
+            this.splitterV_.Location = new System.Drawing.Point(267, 47);
+            this.splitterV_.Name = "splitterV_";
+            this.splitterV_.Size = new System.Drawing.Size(3, 436);
+            this.splitterV_.TabIndex = 5;
+            this.splitterV_.TabStop = false;
             // 
             // leftPn_
             // 
-            leftPn_.Controls.Add(subscriptionCtrl_);
-            leftPn_.Dock = System.Windows.Forms.DockStyle.Left;
-            leftPn_.Location = new System.Drawing.Point(3, 52);
-            leftPn_.Name = "leftPn_";
-            leftPn_.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            leftPn_.Size = new System.Drawing.Size(316, 407);
-            leftPn_.TabIndex = 6;
+            this.leftPn_.Controls.Add(this.subscriptionCtrl_);
+            this.leftPn_.Dock = System.Windows.Forms.DockStyle.Left;
+            this.leftPn_.Location = new System.Drawing.Point(3, 47);
+            this.leftPn_.Name = "leftPn_";
+            this.leftPn_.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.leftPn_.Size = new System.Drawing.Size(264, 436);
+            this.leftPn_.TabIndex = 6;
             // 
             // subscriptionCtrl_
             // 
-            subscriptionCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-            subscriptionCtrl_.Location = new System.Drawing.Point(0, 3);
-            subscriptionCtrl_.Name = "subscriptionCtrl_";
-            subscriptionCtrl_.Size = new System.Drawing.Size(316, 404);
-            subscriptionCtrl_.TabIndex = 0;
+            this.subscriptionCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subscriptionCtrl_.Location = new System.Drawing.Point(0, 3);
+            this.subscriptionCtrl_.Name = "subscriptionCtrl_";
+            this.subscriptionCtrl_.Size = new System.Drawing.Size(264, 433);
+            this.subscriptionCtrl_.TabIndex = 0;
             // 
             // rightPn_
             // 
-            rightPn_.Controls.Add(updatesCtrl_);
-            rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
-            rightPn_.Location = new System.Drawing.Point(323, 52);
-            rightPn_.Name = "rightPn_";
-            rightPn_.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            rightPn_.Size = new System.Drawing.Size(690, 407);
-            rightPn_.TabIndex = 7;
+            this.rightPn_.Controls.Add(this.updatesCtrl_);
+            this.rightPn_.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rightPn_.Location = new System.Drawing.Point(270, 47);
+            this.rightPn_.Name = "rightPn_";
+            this.rightPn_.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.rightPn_.Size = new System.Drawing.Size(743, 436);
+            this.rightPn_.TabIndex = 7;
             // 
             // updatesCtrl_
             // 
-            updatesCtrl_.AllowDrop = true;
-            updatesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-            updatesCtrl_.Location = new System.Drawing.Point(0, 3);
-            updatesCtrl_.Name = "updatesCtrl_";
-            updatesCtrl_.Size = new System.Drawing.Size(690, 404);
-            updatesCtrl_.TabIndex = 0;
+            this.updatesCtrl_.AllowDrop = true;
+            this.updatesCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.updatesCtrl_.Location = new System.Drawing.Point(0, 3);
+            this.updatesCtrl_.Name = "updatesCtrl_";
+            this.updatesCtrl_.Size = new System.Drawing.Size(743, 433);
+            this.updatesCtrl_.TabIndex = 0;
             // 
             // updateTimerControl_
             // 
-            updateTimerControl_.Interval = 10000;
-            updateTimerControl_.Tick += new System.EventHandler(UpdateTimerCtrlTick);
+            this.updateTimerControl_.Interval = 10000;
+            this.updateTimerControl_.Tick += new System.EventHandler(this.UpdateTimerCtrlTick);
             // 
             // statusCtrl_
             // 
-            statusCtrl_.Location = new System.Drawing.Point(3, 586);
-            statusCtrl_.Name = "statusCtrl_";
-            statusCtrl_.Size = new System.Drawing.Size(1010, 22);
-            statusCtrl_.TabIndex = 8;
+            this.statusCtrl_.Location = new System.Drawing.Point(3, 586);
+            this.statusCtrl_.Name = "statusCtrl_";
+            this.statusCtrl_.Size = new System.Drawing.Size(1010, 22);
+            this.statusCtrl_.TabIndex = 8;
             // 
             // selectServerCtrl_
             // 
-            selectServerCtrl_.Dock = System.Windows.Forms.DockStyle.Top;
-            selectServerCtrl_.Label = "Server";
-            selectServerCtrl_.Location = new System.Drawing.Point(3, 25);
-            selectServerCtrl_.Name = "selectServerCtrl_";
-            selectServerCtrl_.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            selectServerCtrl_.Size = new System.Drawing.Size(1010, 27);
-            selectServerCtrl_.TabIndex = 0;
+            this.selectServerCtrl_.Dock = System.Windows.Forms.DockStyle.Top;
+            this.selectServerCtrl_.Label = "Server";
+            this.selectServerCtrl_.Location = new System.Drawing.Point(3, 25);
+            this.selectServerCtrl_.Name = "selectServerCtrl_";
+            this.selectServerCtrl_.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.selectServerCtrl_.Size = new System.Drawing.Size(1010, 22);
+            this.selectServerCtrl_.TabIndex = 0;
             // 
             // MainForm
             // 
-            AutoScaleBaseSize = new System.Drawing.Size(6, 16);
-            ClientSize = new System.Drawing.Size(1016, 608);
-            Controls.Add(rightPn_);
-            Controls.Add(splitterV_);
-            Controls.Add(leftPn_);
-            Controls.Add(splitterH_);
-            Controls.Add(bottomPn_);
-            Controls.Add(statusCtrl_);
-            Controls.Add(selectServerCtrl_);
-            Controls.Add(toolBar_);
-            MainMenuStrip = mainMenu_;
-            Name = "MainForm";
-            Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            Text = "OPC DA Sample Client";
-            mainMenu_.ResumeLayout(false);
-            mainMenu_.PerformLayout();
-            toolBar_.ResumeLayout(false);
-            toolBar_.PerformLayout();
-            bottomPn_.ResumeLayout(false);
-            leftPn_.ResumeLayout(false);
-            rightPn_.ResumeLayout(false);
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+            this.ClientSize = new System.Drawing.Size(1016, 608);
+            this.Controls.Add(this.rightPn_);
+            this.Controls.Add(this.splitterV_);
+            this.Controls.Add(this.leftPn_);
+            this.Controls.Add(this.splitterH_);
+            this.Controls.Add(this.bottomPn_);
+            this.Controls.Add(this.statusCtrl_);
+            this.Controls.Add(this.selectServerCtrl_);
+            this.Controls.Add(this.toolBar_);
+            this.MainMenuStrip = this.mainMenu_;
+            this.Name = "MainForm";
+            this.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.Text = "OPC DA Sample Client";
+            this.mainMenu_.ResumeLayout(false);
+            this.mainMenu_.PerformLayout();
+            this.toolBar_.ResumeLayout(false);
+            this.toolBar_.PerformLayout();
+            this.bottomPn_.ResumeLayout(false);
+            this.leftPn_.ResumeLayout(false);
+            this.rightPn_.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 		#endregion

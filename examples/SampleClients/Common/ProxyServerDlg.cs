@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://technosoftware.com  
 // 
 // Purpose: 
@@ -12,7 +12,7 @@
 // 
 // The Software is based on the OPC .NET API Sample Code.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 
@@ -41,7 +41,7 @@ namespace SampleClients.Common
 		{
 			// Required for Windows Form Designer support
 			InitializeComponent();
-            Icon = ClientUtils.GetAppIcon();
+            
         }
 		
 		/// <summary>

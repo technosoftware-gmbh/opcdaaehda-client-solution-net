@@ -29,7 +29,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
     /// <summary>
     /// Defines functionality that is common to all OPC Historical Data Access servers.
     /// </summary>
-    internal interface ITsCHdaServer : IOpcServer
+    public interface ITsCHdaServer : IOpcServer
     {
         /// <summary>
         /// Returns the current server status.

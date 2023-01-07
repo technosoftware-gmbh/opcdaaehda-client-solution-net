@@ -21,10 +21,6 @@
       <HandlerName>TOPICS</HandlerName>
       <Category>Topics</Category>
     </RecentItem>
-    <RecentItem Key="Technosoftware.DaAeHdaClient.dxc.-" IsPinned="false" Type="Innovasys.DocumentX.ContentFiles.RecentContentFile" Assembly="Innovasys.DocumentX.ContentFiles">
-      <HandlerName>CONTENT FILES</HandlerName>
-      <Category>Content Files</Category>
-    </RecentItem>
   </RecentItems>
   <ProjectProfileApplicationPlugin DesignTimeProjectProfile="{4120EBAF-EE7C-4C85-9C91-B66410AC8357}" DesignTimeProjectLocale="-" />
 </ApplicationWorkspace>

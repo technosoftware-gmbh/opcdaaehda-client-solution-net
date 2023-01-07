@@ -44,7 +44,7 @@ namespace Technosoftware.AeSampleClient
 			// Required for Windows Form Designer support
 			//
 			InitializeComponent();
-            Icon = ClientUtils.GetAppIcon();
+            
         }
 
 		/// <summary>

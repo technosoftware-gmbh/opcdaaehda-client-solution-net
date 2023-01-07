@@ -25,7 +25,6 @@ using System;
 using System.Linq;
 using static System.String;
 using System.Diagnostics;
-
 using Technosoftware.DaAeHdaClient.Utilities;
 #endregion
 
@@ -115,16 +114,6 @@ namespace Technosoftware.DaAeHdaClient
         #endregion
 
         #region Properties
-        /// <summary>
-        /// This flag suppresses the conversion to local time done during marshalling.
-        /// </summary>
-        [Obsolete("Replaced by the ApplicationInstance.TimeAsUtc property")]
-        public bool TimeAsUtc
-        {
-            get => Com.Interop.PreserveUtc;
-            set => Com.Interop.PreserveUtc = value;
-        }
-
         /// <summary>
         /// Returns whether the product is a licensed product.
         /// </summary>
@@ -347,7 +336,7 @@ namespace Technosoftware.DaAeHdaClient
         /// </summary>
         /// <returns>True if valid; false otherwise</returns>
         /// <exception cref="BadInternalErrorException"></exception>
-        internal static void ValidateFeatures(ProductFeature requiredProductFeature = ProductFeature.None, bool silent = false)
+        public static void ValidateFeatures(ProductFeature requiredProductFeature = ProductFeature.None, bool silent = false)
         {
             var valid = CheckLicense();
 

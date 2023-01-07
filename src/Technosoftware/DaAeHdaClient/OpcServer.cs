@@ -27,8 +27,6 @@ using System.Globalization;
 using System.Resources;
 using System.Reflection;
 using System.Runtime.Serialization;
-
-using Technosoftware.DaAeHdaClient.Utilities;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient
@@ -136,7 +134,7 @@ namespace Technosoftware.DaAeHdaClient
                 {
                     // ignored
                 }
-                              
+
                 Server = null;
             }
         }
@@ -472,27 +470,6 @@ namespace Technosoftware.DaAeHdaClient
 
                     // update the default locale.
                     SetLocale(locale_);
-
-                    SupportedSpecifications = new List<OpcSpecification>();
-                    if (Server is Com.Da20.Server)
-                    {
-                        SupportedSpecifications.Add(OpcSpecification.OPC_DA_20);
-                    }
-                    else if (Server is Com.Da.Server)
-                    {
-                        SupportedSpecifications.Add(OpcSpecification.OPC_DA_30);
-                        SupportedSpecifications.Add(OpcSpecification.OPC_DA_20);
-                    }
-                    else if (Server is Com.Ae.Server)
-                        if (Server is Com.Ae.Server)
-                        {
-                            SupportedSpecifications.Add(OpcSpecification.OPC_AE_10);
-                        }
-                        else if (Server is Com.Hda.Server)
-                            if (Server is Com.Hda.Server)
-                            {
-                                SupportedSpecifications.Add(OpcSpecification.OPC_HDA_10);
-                            }
                 }
                 catch
                 {
@@ -628,27 +605,6 @@ namespace Technosoftware.DaAeHdaClient
 
             return Server.GetErrorText(locale ?? locale_, resultId);
         }
-
-        /// <summary>
-        /// Allows cancellation control of DCOM callbacks to the server - by default DCOM calls will wait the default DCOM timeout
-        /// to fail - this method allows for tigher control of the timeout to wait. Note that DOCM calls can only be controlled
-        /// on a COM Single Threaded Apartment thread - use [STAThread] attribute on your application entry point or use Thread SetThreadApartment
-        /// before the thread the server is operating on is created to STA.
-        /// </summary>
-        /// <param name="timeout">The DCOM call timeout - uses the default timeout if not specified</param>
-        public void EnableDCOMCallCancellation(TimeSpan timeout = default)
-        {
-            DCOMCallWatchdog.Enable(timeout);
-        }
-
-        /// <summary>
-        /// Disables cancellation control of DCOM calls to the server
-        /// </summary>
-        public void DisableDCOMCallCancellation()
-        {
-            DCOMCallWatchdog.Disable();
-        }
-
         #endregion
     }
 
@@ -818,7 +774,7 @@ namespace Technosoftware.DaAeHdaClient
         public DCOMCallCancelledException(string message, Exception innerException) : base(message, innerException) { }
         /// <remarks/>
         protected DCOMCallCancelledException(SerializationInfo info, StreamingContext context) : base(info, context) { }
-        
+
     }
 
 }

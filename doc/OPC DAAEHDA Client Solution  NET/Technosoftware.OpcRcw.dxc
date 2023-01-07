@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentFile Version="2010" Moniker="..\..\src\Technosoftware\OpcRcw\bin\Release\net6.0-windows\Technosoftware.OpcRcw.dll" DocType="DX.NET" IsLocalizationDisabled="false">
+  <RelatedProject>OPC DAAEHDA Client Solution  NET.dxp</RelatedProject>
+  <State>
+    <Attributes />
+  </State>
+  <LastSelectedItem />
+  <Filters />
+</ContentFile>

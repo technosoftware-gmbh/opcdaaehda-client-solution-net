@@ -40,7 +40,7 @@ namespace Technosoftware.DaAeHdaClient.Hda
         #region Properties
         /// <summary>
         /// The time when the value was deleted or replaced.
-        /// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+        /// The <see cref="ApplicationInstance.TimeAsUtc">ApplicationInstance.TimeAsUtc</see> property defines
         /// the time format (UTC or local time).
         /// </summary>
         public DateTime ModificationTime

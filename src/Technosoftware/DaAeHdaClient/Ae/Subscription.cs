@@ -312,7 +312,7 @@ namespace Technosoftware.DaAeHdaClient.Ae
 
         /// <summary>
 		/// The maximum rate at which the server send event notifications.
-		/// The <see cref="LicenseHandler.TimeAsUtc">LicenseHandler.TimeAsUtc</see> property defines
+		/// The <see cref="ApplicationInstance.TimeAsUtc">ApplicationInstance.TimeAsUtc</see> property defines
 		/// the time format (UTC or local   time).
 		/// </summary>
 		public int BufferTime => state_.BufferTime;

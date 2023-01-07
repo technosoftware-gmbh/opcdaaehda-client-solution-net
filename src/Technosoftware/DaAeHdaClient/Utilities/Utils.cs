@@ -35,7 +35,7 @@ namespace Technosoftware.DaAeHdaClient.Utilities
     /// <summary>
     /// Defines various static utility functions.
     /// </summary>
-    internal static class Utils
+    public static class Utils
     {
         #region Trace Support
 #if DEBUG
@@ -728,57 +728,4 @@ namespace Technosoftware.DaAeHdaClient.Utilities
         #endregion Public Properties
     }
     #endregion TraceEventArgs Class
-
-    /// <summary>
-    /// Utility functions used by COM applications.
-    /// </summary>
-    internal static class ConfigUtils
-    {
-        /// <summary>
-        /// Gets the log file directory and ensures it is writable.
-        /// </summary>
-        public static string GetLogFileDirectory()
-        {
-            // try the program data directory.
-            var logFileDirectory = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            logFileDirectory += "\\Technosoftware\\Logs";
-
-            try
-            {
-                // create the directory.
-                if (!Directory.Exists(logFileDirectory))
-                {
-                    Directory.CreateDirectory(logFileDirectory);
-                }
-            }
-            catch (Exception)
-            {
-                // try the MyDocuments directory instead.
-                logFileDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-                logFileDirectory += "Technosoftware\\Logs";
-
-                if (!Directory.Exists(logFileDirectory))
-                {
-                    Directory.CreateDirectory(logFileDirectory);
-                }
-            }
-
-            return logFileDirectory;
-        }
-
-        /// <summary>
-        /// Enable the trace.
-        /// </summary>
-        /// <param name="path">The path to use.</param>
-        /// <param name="filename">The filename.</param>
-        public static void EnableTrace(string path, string filename)
-        {
-            Utils.SetTraceOutput(Utils.TraceOutput.FileOnly);
-            Utils.SetTraceMask(int.MaxValue);
-
-            var logFilePath = path + "\\" + filename;
-            Utils.SetTraceLog(logFilePath, false);
-            Utils.Trace("Log File Set to: {0}", logFilePath);
-        }
-    }
 }

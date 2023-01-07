@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://technosoftware.com  
 // 
 // Purpose: 
@@ -12,7 +12,7 @@
 // 
 // The Software is based on the OPC .NET API Sample Code.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 using System;
@@ -77,12 +77,13 @@ namespace SampleClients.Hda
 		private ItemValuesCtrl valuesCtrl_;
         private Timer updateTimerControl_;
 		private System.ComponentModel.IContainer components_;
-		
-		private static void Main() 
+
+        [STAThread]
+        static void Main() 
 		{
 			try
 			{
-                ApplicationInstance.InitializeSecurity(ApplicationInstance.AuthenticationLevel.Integrity);
+                //ApplicationInstance.InitializeSecurity(ApplicationInstance.AuthenticationLevel.Integrity);
                 ApplicationInstance.EnableTrace(ApplicationInstance.GetLogFileDirectory(), "SampleClients.HDa.log");
  
                 Application.Run(new MainForm());
@@ -100,7 +101,7 @@ namespace SampleClients.Hda
 			//
 			InitializeComponent();
 
-                        Icon = ClientUtils.GetAppIcon();
+                        
 
 			//Technosoftware.DaAeHdaClient.Utilities.Interop.PreserveUTC = true;
  	

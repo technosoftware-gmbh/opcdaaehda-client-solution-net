@@ -1,6 +1,6 @@
-#region Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#region Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 //-----------------------------------------------------------------------------
-// Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+// Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 // Web: https://technosoftware.com  
 // 
 // Purpose: 
@@ -12,7 +12,7 @@
 // 
 // The Software is based on the OPC .NET API Sample Code.
 //-----------------------------------------------------------------------------
-#endregion Copyright (c) 2011-2022 Technosoftware GmbH. All rights reserved
+#endregion Copyright (c) 2011-2023 Technosoftware GmbH. All rights reserved
 
 #region Using Directives
 
@@ -78,11 +78,12 @@ namespace SampleClients.Ae
         private ToolStripSeparator separatorT2_;
         private System.ComponentModel.IContainer components_;
 
-        private static void Main()
+        [STAThread]
+        static void Main()
         {
             try
             {
-                ApplicationInstance.InitializeSecurity(ApplicationInstance.AuthenticationLevel.Integrity);
+                //ApplicationInstance.InitializeSecurity(ApplicationInstance.AuthenticationLevel.Integrity);
                 ApplicationInstance.EnableTrace(ApplicationInstance.GetLogFileDirectory(), "SampleClients.Ae.log");
 
                 Application.Run(new MainForm());
@@ -100,23 +101,23 @@ namespace SampleClients.Ae
             //
             InitializeComponent();
  
-            Icon = ClientUtils.GetAppIcon();
+            
 
-            ////Icon = ClientUtils.GetAppIcon();
+            ////
 
 #if (DEBUG)
 
             // initialize the set of known servers.
             var knownUrLs = new OpcUrl[]
             {
-                new OpcUrl("opcae://localhost/Technosoftware.AeSample")
+                new OpcUrl("opcae://localhost/SampleCompany.AeSample")
             };
 
 #else
 			// initialize the set of known servers.
 			OpcUrl[] knownURLs = new OpcUrl[] 
 			{
-				new OpcUrl("opcae://localhost/Technosoftware.AeSample")
+				new OpcUrl("opcae://localhost/SampleCompany.AeSample")
 			};
 #endif
 

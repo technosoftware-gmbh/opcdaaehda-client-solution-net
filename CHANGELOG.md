@@ -1,4 +1,14 @@
 -------------------------------------------------------------------------------------------------------------
+## OPC DA/AE/HDA Solution .NET - 2.0.0
+
+###	Breaking Changes
+- Splitted into 3 DLLs.
+ - Technosoftware.DaAeHdaClient.dll
+ - Technosoftware.DaAeHdaClient.Com.dll
+ - Technosoftware.OpcRcw.dll 
+- Connection to a server is now done differently. See examples!
+
+-------------------------------------------------------------------------------------------------------------
 ## OPC DA/AE/HDA Solution .NET - 1.4.1
 
 ###	Changes

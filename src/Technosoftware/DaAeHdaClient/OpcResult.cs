@@ -24,6 +24,7 @@
 using System;
 using System.Xml;
 using System.Runtime.Serialization;
+using System.Runtime.InteropServices;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient
@@ -54,7 +55,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Construct a server by de-serializing its URL from the stream.
         /// </summary>
-        private OpcResult(SerializationInfo info, StreamingContext context)
+        public OpcResult(SerializationInfo info, StreamingContext context)
         {
             var name = (string)info.GetValue(Names.Name, typeof(string));
             var ns = (string)info.GetValue(Names.Namespace, typeof(string));
@@ -82,7 +83,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Specifies the type identifier of the result or error code.
         /// </summary>
-        internal enum CodeType
+        public enum CodeType
         {
             /// <summary>
             /// System  specific code (result/error) returned by a system function. 
@@ -113,7 +114,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Specifies the type of function call which returned the result or error code. This enumeration values are used only by the constructor of the OpcResult object.
         /// </summary>
-        internal enum FuncCallType
+        public enum FuncCallType
         {
             /// <summary>
             /// Identifies the code (result/error) passed to the constructor as a result of a system function.
@@ -253,7 +254,7 @@ namespace Technosoftware.DaAeHdaClient
                     break;
 
                 default:
-                    message_ = Utilities.Interop.GetSystemMessage(code_, Utilities.Interop.LOCALE_SYSTEM_DEFAULT) ??
+                    message_ = GetSystemMessage(code_, LOCALE_SYSTEM_DEFAULT) ??
                                $"Server error 0x{code_,0:X}";
                     break;
             }
@@ -268,7 +269,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <param name="eFuncType">Specifies the type of function which has returned the code. This parameter is used to create the code type which can be retrieved with the member function <see cref="Type" />. </param>
         /// <param name="caller">Object which caused the error. Can be null</param>
         /// <returns></returns>
-        internal OpcResult(int hResult, FuncCallType eFuncType, object caller)
+        public OpcResult(int hResult, FuncCallType eFuncType, object caller)
         {
             name_ = null;
             message_ = null;
@@ -298,7 +299,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <param name="eFuncType">Specifies   the type of function which has returned the code. This parameter is used to create the code type which can be retrieved with the member function <see cref="Type" />. </param>
         /// <param name="caller">Object which   caused the error. Can be null</param>
         /// <returns></returns>
-        internal OpcResult(OpcResult resultId, FuncCallType eFuncType, object caller)
+        public OpcResult(OpcResult resultId, FuncCallType eFuncType, object caller)
         {
             name_ = null;
             message_ = null;
@@ -371,7 +372,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Initializes a   result code identified by a qualified name and a specific result code.
         /// </summary>
-        internal OpcResult(string name, string ns, long code)
+        public OpcResult(string name, string ns, long code)
         {
             name_ = new XmlQualifiedName(name, ns);
             if (code > int.MaxValue)
@@ -389,7 +390,7 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Initializes a result code with a general result code and a specific result code.
         /// </summary>
-        internal OpcResult(OpcResult resultId, long code)
+        public OpcResult(OpcResult resultId, long code)
         {
             name_ = resultId.Name;
 
@@ -403,6 +404,118 @@ namespace Technosoftware.DaAeHdaClient
             caller_ = null;
             message_ = null;
 
+        }
+        #endregion
+
+        #region Private Methods
+        /// <summary>
+        /// The constant used to selected the default locale.
+        /// </summary>
+        internal const int LOCALE_SYSTEM_DEFAULT = 0x800;
+
+        /// <summary>
+        /// The WIN32 user default locale.
+        /// </summary>
+        public const int LOCALE_USER_DEFAULT = 0x400;
+
+        private const int MAX_MESSAGE_LENGTH = 1024;
+
+        private const uint FORMAT_MESSAGE_IGNORE_INSERTS = 0x00000200;
+        private const uint FORMAT_MESSAGE_FROM_SYSTEM = 0x00001000;
+
+        [DllImport("Kernel32.dll")]
+        private static extern int FormatMessageW(
+            int dwFlags,
+            IntPtr lpSource,
+            int dwMessageId,
+            int dwLanguageId,
+            IntPtr lpBuffer,
+            int nSize,
+            IntPtr Arguments);
+
+        [DllImport("Kernel32.dll")]
+        private static extern int GetSystemDefaultLangID();
+
+        [DllImport("Kernel32.dll")]
+        private static extern int GetUserDefaultLangID();
+
+        /// <summary>
+        /// Retrieves the system message text for the specified error.
+        /// </summary>
+        private static string GetSystemMessage(int error)
+        {
+            var buffer = Marshal.AllocCoTaskMem(MAX_MESSAGE_LENGTH);
+
+            var result = FormatMessageW(
+                (int)(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_FROM_SYSTEM),
+                IntPtr.Zero,
+                error,
+                0,
+                buffer,
+                MAX_MESSAGE_LENGTH - 1,
+                IntPtr.Zero);
+
+            var msg = Marshal.PtrToStringUni(buffer);
+            Marshal.FreeCoTaskMem(buffer);
+
+            if (msg != null && msg.Length > 0)
+            {
+                return msg;
+            }
+
+            return string.Format("0x{0,0:X}", error);
+        }
+
+        /// <summary>
+        /// Retrieves the system message text for the specified error.
+        /// </summary>
+        public static string GetSystemMessage(int error, int localeId)
+        {
+            int langId;
+            switch (localeId)
+            {
+                case LOCALE_SYSTEM_DEFAULT:
+                    {
+                        langId = GetSystemDefaultLangID();
+                        break;
+                    }
+
+                case LOCALE_USER_DEFAULT:
+                    {
+                        langId = GetUserDefaultLangID();
+                        break;
+                    }
+
+                default:
+                    {
+                        langId = (0xFFFF & localeId);
+                        break;
+                    }
+            }
+
+            var buffer = Marshal.AllocCoTaskMem(MAX_MESSAGE_LENGTH);
+
+            var result = FormatMessageW(
+                (int)FORMAT_MESSAGE_FROM_SYSTEM,
+                IntPtr.Zero,
+                error,
+                langId,
+                buffer,
+                MAX_MESSAGE_LENGTH - 1,
+                IntPtr.Zero);
+
+            if (result > 0)
+            {
+                var msg = Marshal.PtrToStringUni(buffer);
+                Marshal.FreeCoTaskMem(buffer);
+
+                if (!string.IsNullOrEmpty(msg))
+                {
+                    return msg.Trim();
+                }
+            }
+
+            return $"0x{error:X8}";
         }
         #endregion
 
