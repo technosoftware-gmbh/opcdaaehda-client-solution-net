@@ -115,9 +115,8 @@ namespace Technosoftware.DaConsole
 			try
 			{
 
-                // const string serverUrl = "opcda://localhost/SampleCompany.DaSample";
-                const string serverUrl = "opcda://Advosol.SimDAServer.1";
-
+                const string serverUrl = "opcda://localhost/SampleCompany.DaSample";
+                
 				Console.WriteLine();
 				Console.WriteLine("Simple OPC DA Client based on the OPC DA/AE/HDA Solution .NET");
 				Console.WriteLine("-------------------------------------------------------------");
