@@ -1,4 +1,4 @@
-name: Build and Test .NET 7.0
+name: Build .NET 7.0
 
 on:
   push:
@@ -39,5 +39,8 @@ jobs:
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
         
-    - name: Build
+    - name: Build DaAeHdaNetStandard.sln
       run: dotnet build --force --framework ${{ matrix.framework }} --configuration ${{ matrix.configuration }} "DaAeHdaNetStandard.sln"
+
+    - name: Build WorkshopClientSamples.sln
+      run: dotnet build --force --framework ${{ matrix.framework }} --configuration ${{ matrix.configuration }} "WorkshopClientSamples.sln"
