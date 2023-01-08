@@ -744,14 +744,14 @@
         <Caption m="2007-05-31T10:49:56Z">Overview</Caption>
         <ChildTopicCategories />
         <Topics>
-          <Topic Id="{EE6C442B-769D-491F-B730-CAE8A259C379}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2022-07-06T13:42:15.4920804Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="Overview" BuildFlags="">
+          <Topic Id="{EE6C442B-769D-491F-B730-CAE8A259C379}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2023-01-08T05:31:28.9275315Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="Overview" BuildFlags="">
             <Title m="2007-05-31T10:49:56Z">Overview</Title>
             <ContentsTitle m="2007-05-31T10:49:56Z" />
             <Notes></Notes>
             <TopicSections>
               <TopicSection Name="BodyText">
-                <Content m="2022-07-06T13:42:15.4920804Z">&lt;H1&gt;OPC DA/AE/HDA Client&amp;nbsp;Solution .NET&lt;/H1&gt;&lt;IMG border=0 alt="" src="images/OPC DAAEHDA Client Solution NET.png" align=right&gt; 
-&lt;P&gt;The OPC DA/AE/HDA Client Solution .NET offers a fast and easy access to the OPC Classic Client technology. Develop OPC DA, OPC AE and OPC HDA compliant Clients with C# targeting .NET 6.0, or .NET Core 3.1. For backward compatibility we also provide .NET 4.8, .NET 4.7.2 and .NET 4.6.2 support.&lt;/P&gt;
+                <Content m="2023-01-08T05:31:28.9275315Z">&lt;H1&gt;OPC DA/AE/HDA Client&amp;nbsp;Solution .NET&lt;/H1&gt;&lt;IMG border=0 alt="" src="images/OPC DAAEHDA Client Solution NET.png" align=right&gt; 
+&lt;P&gt;The OPC DA/AE/HDA Client Solution .NET offers a fast and easy access to the OPC Classic Client technology. Develop OPC DA, OPC AE and OPC HDA compliant Clients with C# targeting .NET 7.0, or .NET 6.0. For backward compatibility we also provide .NET 4.8, .NET 4.7.2 and .NET 4.6.2 support.&lt;/P&gt;
 &lt;P&gt;The OPC DA/AE/HDA Client Solution .NET API defines classes which can be used to implement an OPC client capable to access OPC servers supporting different specifications with the same API. These classes manage client side state information; provide higher level abstractions for OPC tasks such as managing sessions and subscriptions or saving and restoring connection information for later use. The lower level API’s for OPC DA, OPC AE and OPC HDA defines classes which can be used to access OPC specification specific methods and properties.&lt;/P&gt;
 &lt;H3&gt;Dual License&lt;/H3&gt;
 &lt;P&gt;The original products for OPC DA, OPC AE and OPC HDA are now getting moved to a dual license. Technosoftware GmbH provides different licenses depending on the component and on the ownership of a purchased license or sponsor status of the user of the sources. A single ZIP file or a single repository can contain multiple components where the sources have different license models. The valid license is in the header of each source file.&lt;/P&gt;
@@ -822,13 +822,13 @@
         <Caption m="2007-05-31T10:49:56Z">Support</Caption>
         <ChildTopicCategories />
         <Topics>
-          <Topic Id="{4A40674C-86C0-4FF4-A6F4-463328D25FF3}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2022-08-13T06:39:46.8313084Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="System Requirements" BuildFlags="">
+          <Topic Id="{4A40674C-86C0-4FF4-A6F4-463328D25FF3}" Status="In Progress" CreatedOn="2005-06-04T00:00:00Z" ModifiedOn="2023-01-08T05:31:17.4388793Z" PageTypeName="" AutoIndex="true" HelpContextIds="" Name="System Requirements" BuildFlags="">
             <Title m="2007-05-31T10:49:56Z">System Requirements</Title>
             <ContentsTitle m="2022-07-06T13:38:38.1471298Z">System Requirements</ContentsTitle>
             <Notes></Notes>
             <TopicSections>
               <TopicSection Name="BodyText">
-                <Content m="2022-08-13T06:39:46.8313084Z">&lt;TABLE class=wp-block-table width="100%"&gt;
+                <Content m="2023-01-08T05:31:17.4381421Z">&lt;TABLE class=wp-block-table width="100%"&gt;
 &lt;TBODY&gt;
 &lt;TR&gt;
 &lt;TD width="40%"&gt;&lt;BR&gt;&lt;/TD&gt;
@@ -838,14 +838,12 @@
 &lt;TR&gt;
 &lt;TD&gt;
 &lt;UL&gt;
-&lt;LI&gt;.NET 6.0 &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;LI&gt;.NET 7.0 &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
 &lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR&gt;
-&lt;TD colSpan=2&gt;&lt;STRONG&gt;.NET Standard&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
 &lt;TD&gt;
 &lt;UL&gt;
-&lt;LI&gt;.NET Core 3.1 &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;LI&gt;.NET 6.0 &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
 &lt;TD style="VERTICAL-ALIGN: middle" align=center&gt;√&lt;/TD&gt;&lt;/TR&gt;
 &lt;TR&gt;
 &lt;TD colSpan=2&gt;&lt;STRONG&gt;.NET Framework&lt;/STRONG&gt;&lt;/TD&gt;&lt;/TR&gt;
@@ -966,7 +964,7 @@
     <TopicEditorState>
       <Attributes>
         <Attribute key="dtscrollpos" valuetype="integer">275</Attribute>
-        <Attribute key="scrollPosition" valuetype="integer">325</Attribute>
+        <Attribute key="scrollPosition" valuetype="integer">0</Attribute>
       </Attributes>
     </TopicEditorState>
   </TopicsProjectPlugin>
@@ -1010,7 +1008,7 @@
           <PropertyValue m="2011-09-08T14:50:18.4189453Z">#FFFFFF</PropertyValue>
         </PropertyDefinitionValue>
         <PropertyDefinitionValue PropertyDefinitionId="08de2c63-c533-49c3-a1d7-52b3995b9bec">
-          <PropertyValue m="2022-01-23T08:18:23.9178256Z">Copyright © 2011-2022 Technosoftware GmbH</PropertyValue>
+          <PropertyValue m="2023-01-08T05:32:08.5869571Z">Copyright © 2011-2023 Technosoftware GmbH</PropertyValue>
         </PropertyDefinitionValue>
         <PropertyDefinitionValue PropertyDefinitionId="76de16a8-8dcb-462c-b636-b20ff0b3c3a1">
           <PropertyValue m="2021-01-16T08:14:36.6205125Z">&lt;a href="mailto:support@technosoftware.com?subject=OPC DAAEHDA Client Solution  NET Documentation Feedback: %%FileName%%"&gt;Send comments&lt;/a&gt; on this topic.</PropertyValue>

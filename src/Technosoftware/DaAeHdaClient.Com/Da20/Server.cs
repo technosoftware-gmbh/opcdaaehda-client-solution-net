@@ -185,7 +185,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
         /// A list of seperators used in the browse paths.
         /// </summary>
         private char[] separators_ = null;
-        private readonly object separatorsLock_ = new object();
+        private readonly object separatorsLock_ = new();
 
         //======================================================================
         // Read
@@ -1337,10 +1337,7 @@ namespace Technosoftware.DaAeHdaClient.Com.Da20
 
                 if (index == -1)
                 {
-                    if (separators_ == null)
-                    {
-                        separators_ = new char[1];
-                    }
+                    separators_ ??= new char[1];
 
                     separators_[separators_.Length - 1] = separator;
                 }
