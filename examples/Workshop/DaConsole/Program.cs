@@ -41,9 +41,9 @@ namespace Technosoftware.DaConsole
         /// <summary>
         /// Main Entry of the console application
         /// </summary>
-        [STAThread]
         public static void Main()
         {
+            DaAeHdaClient.Com.ApplicationInstance.InitializeSecurity(DaAeHdaClient.Com.ApplicationInstance.AuthenticationLevel.Integrity);
             ApplicationInstance.EnableTrace(ApplicationInstance.GetLogFileDirectory(), "Technosoftware.DaConsole.log");
 
             var myOpcSample = new OpcSample();

@@ -42,9 +42,9 @@ namespace Technosoftware.AeConsole
         /// <summary>
         /// Main Entry of the console application
         /// </summary>
-        [STAThread]
         public static void Main()
         {
+            DaAeHdaClient.Com.ApplicationInstance.InitializeSecurity(DaAeHdaClient.Com.ApplicationInstance.AuthenticationLevel.Integrity);
             ApplicationInstance.EnableTrace(ApplicationInstance.GetLogFileDirectory(), "Technosoftware.AeConsole.log");
 
             var myOpcSample = new OpcSample();
