@@ -6,17 +6,12 @@
     <LangVersion>9.0</LangVersion>
     <PackageId>Technosoftware.DaAeHdaSolution.DaAeHdaClient</PackageId>
     <Description>OPC DA/AE/HDA Client Solution .NET</Description>
+    <Description>OPC DA/AE/HDA .NET Client Library</Description>
     <IsPackable>true</IsPackable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;NETCORE</DefineConstants>
-    <PackageId>$(PackageId).Debug</PackageId>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <DefineConstants>TRACE;NETCORE</DefineConstants>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <PackageId>$(PackageId).Debug</PackageId>
   </PropertyGroup>
 
@@ -24,12 +19,29 @@
     <DefineConstants>NETCORE</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <DefineConstants>NETCORE</DefineConstants>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+    <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
+    <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+    <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;NETCORE</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OpcRcw\Technosoftware.OpcRcw.csproj" />
+    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
+    <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
   </ItemGroup>
 
   <Target Name="GetPackagingOutputs" />

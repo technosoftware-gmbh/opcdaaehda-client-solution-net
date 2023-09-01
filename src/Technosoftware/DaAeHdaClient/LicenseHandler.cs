@@ -25,7 +25,10 @@ using System;
 using System.Linq;
 using static System.String;
 using System.Diagnostics;
+
 using Technosoftware.DaAeHdaClient.Utilities;
+using Technosoftware.DaAeHdaClient.Licensing;
+using Technosoftware.DaAeHdaClient.Licensing.Validation;
 #endregion
 
 namespace Technosoftware.DaAeHdaClient
@@ -106,10 +109,11 @@ namespace Technosoftware.DaAeHdaClient
         /// License Validation Parameters String for the OPC UA Solution .NET
         /// </summary> 
         private const string LicenseParameter =
-            @"";
+            @"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGILpL7TUaiZj+dO4P78y2gum1scOW2NdSABbWW0d9j72fr3wtox7/LG8EJaJZS7Y33QTSNH9Tt2L/g0HlkQASw==";
         #endregion
 
         #region Internal Fields
+        internal static EvaluationTimer OpcBaseTimer;
         internal static bool LicenseTraceDone;
         #endregion
 
@@ -196,12 +200,12 @@ namespace Technosoftware.DaAeHdaClient
         /// <summary>
         /// Returns the licensed products.
         /// </summary>
-        public static ProductLicense LicensedProduct { get; set; } = ProductLicense.Client;
+        public static ProductLicense LicensedProduct { get; set; } = ProductLicense.Evaluation;
 
         /// <summary>
         /// Returns the licensed OPC UA Features.
         /// </summary>
-        public static ProductFeature LicensedFeatures { get; set; } = ProductFeature.AllFeatures;
+        public static ProductFeature LicensedFeatures { get; set; } = ProductFeature.None;
 
         /// <summary>
         /// Returns the licensed product name.
@@ -322,6 +326,11 @@ namespace Technosoftware.DaAeHdaClient
             if (Checked &&
                ((LicensedProduct & ProductLicense.Client) == ProductLicense.Client))
             {
+                if (OpcBaseTimer != null)
+                {
+                    OpcBaseTimer.Dispose();
+                    OpcBaseTimer = null;
+                }
                 return true;
             }
             CheckProductFeature("");
@@ -374,6 +383,71 @@ namespace Technosoftware.DaAeHdaClient
         /// <param name="licenseKey">The license key</param>
         protected static void CheckProductFeature(string licenseKey)
         {
+            if (!string.IsNullOrEmpty(licenseKey))
+            {
+                try
+                {
+                    var license = License.Load(licenseKey);
+
+                    var validationFailures = license.Validate()
+                        .ExpirationDate()
+                        .When(lic => lic.Type == LicenseType.Trial)
+                        .And()
+                        .AssertThat(lic => lic.ProductFeatures.Contains("DataAccess"),
+                            new GeneralValidationFailure { Message = "DataAccess not licensed!" })
+                        .And()
+                        .Signature(LicenseParameter)
+                        .AssertValidLicense().ToList();
+
+                    if (!validationFailures.Any())
+                    {
+                        LicensedFeatures |= ProductFeature.DataAccess;
+                    }
+
+                    validationFailures = license.Validate()
+                        .ExpirationDate()
+                        .When(lic => lic.Type == LicenseType.Trial)
+                        .And()
+                        .AssertThat(lic => lic.ProductFeatures.Contains("AlarmsConditions"),
+                            new GeneralValidationFailure { Message = "AlarmsConditions not licensed!" })
+                        .And()
+                        .Signature(LicenseParameter)
+                        .AssertValidLicense().ToList();
+
+                    if (!validationFailures.Any())
+                    {
+                        LicensedFeatures |= ProductFeature.AlarmsConditions;
+                    }
+
+                    validationFailures = license.Validate()
+                        .ExpirationDate()
+                        .When(lic => lic.Type == LicenseType.Trial)
+                        .And()
+                        .AssertThat(lic => lic.ProductFeatures.Contains("HistoricalAccess"),
+                            new GeneralValidationFailure { Message = "HistoricalAccess not licensed!" })
+                        .And()
+                        .Signature(LicenseParameter)
+                        .AssertValidLicense().ToList();
+
+                    if (!validationFailures.Any())
+                    {
+                        LicensedFeatures |= ProductFeature.HistoricalAccess;
+                    }
+
+                    if ((LicensedProduct & ProductLicense.Evaluation) == ProductLicense.Evaluation)
+                    {
+                        LicensedProduct ^= ProductLicense.Evaluation;
+                    }
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+            }
+            if (LicensedFeatures == ProductFeature.None)
+            {
+                LicensedFeatures = ProductFeature.AllFeatures;
+            }
         }
 
         /// <summary>
@@ -382,12 +456,72 @@ namespace Technosoftware.DaAeHdaClient
         /// <param name="licenseKey">The license key</param>
         protected static bool CheckLicenseClient(string licenseKey)
         {
-            return true;
-        }
+            if (!String.IsNullOrEmpty(licenseKey))
+            {
+                try
+                {
+                    var license = License.Load(licenseKey);
 
+                    var validationFailures = license.Validate()
+                        .ExpirationDate()
+                        .When(lic => lic.Type == LicenseType.Trial)
+                        .And()
+                        .AssertThat(lic => lic.ProductFeatures.Contains("Client NET"),
+                            new GeneralValidationFailure { Message = "Client DA/AE/HDA .NET not licensed!" })
+                        .And()
+                        .Signature(LicenseParameter)
+                        .AssertValidLicense().ToList();
+
+                    if (validationFailures.Any())
+                    {
+                        return false;
+                    }
+
+                    if ((LicensedProduct & ProductLicense.Expired) == ProductLicense.Expired)
+                    {
+                        LicensedProduct ^= ProductLicense.Expired;
+                    }
+                    if ((LicensedProduct & ProductLicense.Evaluation) == ProductLicense.Evaluation)
+                    {
+                        LicensedProduct ^= ProductLicense.Evaluation;
+                    }
+
+                    LicensedProduct |= ProductLicense.Client;
+
+                    Checked = true;
+                    if (OpcBaseTimer != null)
+                    {
+                        OpcBaseTimer.Dispose();
+                        OpcBaseTimer = null;
+                    }
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+        #endregion
+
+        #region Internal Methods
         internal static bool Check()
         {
-            return true;
+            if (IsLicensed)
+            {
+                return true;
+            }
+            if (OpcBaseTimer == null)
+            {
+                OpcBaseTimer = new EvaluationTimer();
+            }
+            if (OpcBaseTimer.Ok())
+            {
+                return true;
+            }
+            LicensedProduct = LicensedProduct | ProductLicense.Expired;
+            return false;
         }
         #endregion
     }
