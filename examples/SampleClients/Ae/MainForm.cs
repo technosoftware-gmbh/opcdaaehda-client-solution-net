@@ -108,20 +108,20 @@ namespace SampleClients.Ae
 #if (DEBUG)
 
             // initialize the set of known servers.
-            var knownUrLs = new OpcUrl[]
+            var knownUrls = new OpcUrl[]
             {
                 new OpcUrl("opcae://localhost/SampleCompany.AeSample")
             };
 
 #else
 			// initialize the set of known servers.
-			OpcUrl[] knownURLs = new OpcUrl[] 
+			OpcUrl[] knownUrls = new OpcUrl[] 
 			{
 				new OpcUrl("opcae://localhost/SampleCompany.AeSample")
 			};
 #endif
 
-            selectServerCtrl_.Initialize(knownUrLs, 0, OpcSpecification.OPC_AE_10);
+            selectServerCtrl_.Initialize(knownUrls, 0, OpcSpecification.OPC_AE_10);
             LoadSettings();
 
             // register for server connected callbacks.
