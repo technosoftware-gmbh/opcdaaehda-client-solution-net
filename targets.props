@@ -1,31 +1,37 @@
 <Project>
+  <!-- Uncomment to suppress warning that .NET Core 2.1 is used with .NET 6 library. -->
+  <!--
+  <PropertyGroup>
+    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+  </PropertyGroup>
+  -->
   <Choose>
-    <!-- Note: .NET 5.0 and .NET Core 2.x is end of life. -->
-    <!-- Visual Studio 2022, supports .NET Framework 4.6.2, .NET 7.0 and .NET 6 -->
+    <!-- Note: .NET Core 3.1, .NET 5.0 and .NET Core 2.x is end of life. -->
+    <!-- Visual Studio 2022, supports .NET 4.8, .NET 6.0 and .NET 7.0 -->
     <When  Condition="'$(VisualStudioVersion)' == '17.0'">
       <PropertyGroup>
-        <WorkshopClientTargetFrameworks>net462;net472;net48;net6.0-windows;net7.0-windows</WorkshopClientTargetFrameworks>
-        <AppTargetFrameworks>net462;net472;net48;net6.0-windows</AppTargetFrameworks>
-        <LibTargetFrameworks>net462;net472;net48;netstandard2.1;net6.0-windows;net7.0-windows</LibTargetFrameworks>
-        <ComTargetFrameworks>net462;net472;net48;netstandard2.1;net6.0-windows;net7.0-windows</ComTargetFrameworks>
+        <WorkshopClientTargetFrameworks>net48;net6.0-windows;net7.0-windows</WorkshopClientTargetFrameworks>
+        <AppTargetFrameworks>net48;net6.0-windows</AppTargetFrameworks>
+        <LibTargetFrameworks>net48;net6.0-windows;net7.0-windows</LibTargetFrameworks>
+        <ComTargetFrameworks>net48;net6.0-windows;net7.0-windows</ComTargetFrameworks>
       </PropertyGroup>
     </When>
-    <!-- Visual Studio 2019, supports .NET Framework 4.6.2 and .NET Core 3.1 -->
+    <!-- Visual Studio 2019, supports only .NET 4.8 -->
     <When Condition="'$(VisualStudioVersion)' == '16.0'">
       <PropertyGroup>
-        <WorkshopClientTargetFrameworks>net462;net472;net48</WorkshopClientTargetFrameworks>
-        <AppTargetFrameworks>net462;net472;net48</AppTargetFrameworks>
-        <LibTargetFrameworks>net462;net472;net48;netstandard2.1</LibTargetFrameworks>
-        <ComTargetFrameworks>net462;net472;net48;netstandard2.1</ComTargetFrameworks>
+        <WorkshopClientTargetFrameworks>net48</WorkshopClientTargetFrameworks>
+        <AppTargetFrameworks>net48</AppTargetFrameworks>
+        <LibTargetFrameworks>net48</LibTargetFrameworks>
+        <ComTargetFrameworks>net48</ComTargetFrameworks>
       </PropertyGroup>
     </When>
-    <!-- Visual Studio 2017 and earlier, support only .NET Framework 4.6.2. -->
+    <!-- Visual Studio 2017 and earlier, support only .NET 4.8. -->
     <Otherwise>
       <PropertyGroup>
-        <WorkshopClientTargetFrameworks>net462</WorkshopClientTargetFrameworks>
-        <AppTargetFrameworks>net462</AppTargetFrameworks>
-        <LibTargetFrameworks>net462</LibTargetFrameworks>
-        <ComTargetFrameworks>net462</ComTargetFrameworks>
+        <WorkshopClientTargetFrameworks>net48</WorkshopClientTargetFrameworks>
+        <AppTargetFrameworks>net48</AppTargetFrameworks>
+        <LibTargetFrameworks>net48</LibTargetFrameworks>
+        <ComTargetFrameworks>net48</ComTargetFrameworks>
       </PropertyGroup>
     </Otherwise>
   </Choose>

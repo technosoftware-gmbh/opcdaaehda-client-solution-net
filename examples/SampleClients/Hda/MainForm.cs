@@ -108,22 +108,22 @@ namespace SampleClients.Hda
 #if (DEBUG)
 
 			// initialize the set of known servers.
-			var knownUrLs = new OpcUrl[] 
+			var knownUrls = new OpcUrl[] 
 			{
 				new OpcUrl("opchda://localhost/OPCSample.OpcHdaServer")
 			};
 
 #else
 			// initialize the set of known servers.
-			OpcUrl[] knownURLs = new OpcUrl[] 
+			OpcUrl[] knownUrls = new OpcUrl[] 
 			{
 				new OpcUrl("opchda://localhost/OPCSample.OpcHdaServer")
 			};
 #endif
             // set the UTC flag.
-			// OpcCom.Interop.PreserveUTC = true;
-			
-			selectServerCtrl_.Initialize(knownUrLs, 0, OpcSpecification.OPC_HDA_10);
+            // OpcCom.Interop.PreserveUTC = true;
+
+            selectServerCtrl_.Initialize(knownUrls, 0, OpcSpecification.OPC_HDA_10);
 			LoadSettings();
 			
 			// register for server connected callbacks.

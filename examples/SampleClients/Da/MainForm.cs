@@ -116,20 +116,20 @@ namespace SampleClients.Da
 #if (DEBUG)
 
 			// initialize the set of known servers.
-			OpcUrl[] knownUrLs = new OpcUrl[] 
+			OpcUrl[] knownUrls = new OpcUrl[] 
 			{
 				new OpcUrl("opcda://localhost/SampleCompany.DaSample"),
 			};
 
 #else
 			// initialize the set of known servers.
-			OpcUrl[] knownURLs = new OpcUrl[] 
+			OpcUrl[] knownUrls = new OpcUrl[] 
 			{
 				new OpcUrl("opcda://localhost/SampleCompany.DaSample"),
 			};
 #endif
 
-            selectServerCtrl_.Initialize(knownUrLs, 0, OpcSpecification.OPC_DA_20);
+            selectServerCtrl_.Initialize(knownUrls, 0, OpcSpecification.OPC_DA_20);
 			
 			LoadSettings();
 			

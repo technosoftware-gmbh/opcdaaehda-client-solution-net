@@ -14,22 +14,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
-
-/* Unmerged change from project 'Technosoftware.OpcRcw (net472)'
-Before:
-#endregion
-After:
-using Technosoftware.OpcRcw;
-using Technosoftware.OpcRcw.Comn;
-using Technosoftware.OpcRcw;
-#endregion
-*/
 #endregion
 
 #pragma warning disable 1591
 
 namespace Technosoftware.OpcRcw.Comn
-{   
+{
     /// <exclude />
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct CONNECTDATA
@@ -42,8 +32,8 @@ namespace Technosoftware.OpcRcw.Comn
 
     /// <exclude />
     [ComImport]
-    [Guid("B196B287-BAB4-101A-B69C-00AA00341D07")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [GuidAttribute("B196B287-BAB4-101A-B69C-00AA00341D07")]
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IEnumConnections
     {
         /// <summary>
@@ -84,8 +74,8 @@ namespace Technosoftware.OpcRcw.Comn
 
     /// <exclude />
     [ComImport]
-    [Guid("B196B286-BAB4-101A-B69C-00AA00341D07")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [GuidAttribute("B196B286-BAB4-101A-B69C-00AA00341D07")]
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IConnectionPoint
     {
         void GetConnectionInterface(
@@ -113,8 +103,8 @@ namespace Technosoftware.OpcRcw.Comn
 
     /// <exclude />
     [ComImport]
-    [Guid("B196B285-BAB4-101A-B69C-00AA00341D07")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [GuidAttribute("B196B285-BAB4-101A-B69C-00AA00341D07")]
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IEnumConnectionPoints
     {
         void RemoteNext(
@@ -138,8 +128,8 @@ namespace Technosoftware.OpcRcw.Comn
 
     /// <exclude />
     [ComImport]
-    [Guid("B196B284-BAB4-101A-B69C-00AA00341D07")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [GuidAttribute("B196B284-BAB4-101A-B69C-00AA00341D07")]
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IConnectionPointContainer
     {
         void EnumConnectionPoints(
@@ -154,8 +144,8 @@ namespace Technosoftware.OpcRcw.Comn
 
     /// <exclude />
 	[ComImport]
-    [Guid("F31DFDE1-07B6-11d2-B2D8-0060083BA1FB")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [GuidAttribute("F31DFDE1-07B6-11d2-B2D8-0060083BA1FB")]
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IOPCShutdown
     {
         void ShutdownRequest(
@@ -165,8 +155,8 @@ namespace Technosoftware.OpcRcw.Comn
 
     /// <exclude />
 	[ComImport]
-    [Guid("F31DFDE2-07B6-11d2-B2D8-0060083BA1FB")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [GuidAttribute("F31DFDE2-07B6-11d2-B2D8-0060083BA1FB")]
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IOPCCommon
     {
         void SetLocaleID(
@@ -187,17 +177,17 @@ namespace Technosoftware.OpcRcw.Comn
             [MarshalAs(UnmanagedType.I4)]
             int dwError,
             [Out][MarshalAs(UnmanagedType.LPWStr)]
-            out string ppString);
+            out String ppString);
 
         void SetClientName(
             [MarshalAs(UnmanagedType.LPWStr)]
-            string szName);
+            String szName);
     }
 
     /// <exclude />
 	[ComImport]
-    [Guid("13486D50-4821-11D2-A494-3CB306C10000")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [GuidAttribute("13486D50-4821-11D2-A494-3CB306C10000")]
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IOPCServerList
     {
         void EnumClassesOfCategories(
@@ -228,8 +218,8 @@ namespace Technosoftware.OpcRcw.Comn
 
     /// <exclude />
 	[ComImport]
-    [Guid("55C382C8-21C7-4e88-96C1-BECFB1E3F483")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [GuidAttribute("55C382C8-21C7-4e88-96C1-BECFB1E3F483")]
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IOPCEnumGUID
     {
         void Next(
@@ -253,8 +243,8 @@ namespace Technosoftware.OpcRcw.Comn
 
     /// <exclude />
 	[ComImport]
-    [Guid("0002E000-0000-0000-C000-000000000046")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [GuidAttribute("0002E000-0000-0000-C000-000000000046")]
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IEnumGUID
     {
         void Next(
@@ -278,8 +268,8 @@ namespace Technosoftware.OpcRcw.Comn
 
     /// <exclude />
 	[ComImport]
-    [Guid("00000100-0000-0000-C000-000000000046")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [GuidAttribute("00000100-0000-0000-C000-000000000046")]
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IEnumUnknown
     {
         void RemoteNext(
@@ -303,8 +293,8 @@ namespace Technosoftware.OpcRcw.Comn
 
     /// <exclude />
 	[ComImport]
-    [Guid("00000101-0000-0000-C000-000000000046")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [GuidAttribute("00000101-0000-0000-C000-000000000046")]
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IEnumString
     {
         void RemoteNext(
@@ -327,8 +317,8 @@ namespace Technosoftware.OpcRcw.Comn
 
     /// <exclude />
 	[ComImport]
-    [Guid("9DD0B56C-AD9E-43ee-8305-487F3188BF7A")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [GuidAttribute("9DD0B56C-AD9E-43ee-8305-487F3188BF7A")]
+    [InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IOPCServerList2
     {
         void EnumClassesOfCategories(
