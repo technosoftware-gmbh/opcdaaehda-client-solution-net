@@ -10,7 +10,7 @@
     <Product>OPC DA/AE/HDA Solution .NET</Product>
     <Description>Technosoftware HDA Client Console</Description>
     <Copyright>Copyright © 2011 - 2023 Technosoftware GmbH</Copyright>
-    <Platforms>x64;x86</Platforms>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
