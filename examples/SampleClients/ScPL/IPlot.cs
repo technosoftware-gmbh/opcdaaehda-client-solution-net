@@ -39,7 +39,7 @@ $Id: IPlot.cs 1 2015-06-16 02:54:00Z thomasjohannhson $
 
 using System.Drawing;
 
-namespace scpl
+namespace SampleClients.ScPl
 {
 	public interface IPlot
 	{

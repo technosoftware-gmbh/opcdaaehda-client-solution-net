@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>$(AppTargetFrameworks)</TargetFrameworks>
-	<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <TargetFrameworks>$(WorkshopClientTargetFrameworks)</TargetFrameworks>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <ProjectType>Local</ProjectType>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
@@ -35,7 +35,7 @@
     <Platforms>x64;x86</Platforms>
   </PropertyGroup>
   <PropertyGroup>
-	<AnalysisMode>AllDisabledByDefault</AnalysisMode>
+    <AnalysisMode>AllDisabledByDefault</AnalysisMode>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <BaseAddress>285212672</BaseAddress>
@@ -165,6 +165,6 @@
     <ProjectReference Include="..\Common\SampleClients.Common.csproj" />
     <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient.Com\Technosoftware.DaAeHdaClient.Com.csproj" />
     <ProjectReference Include="..\..\..\src\Technosoftware\OpcRcw\Technosoftware.OpcRcw.csproj" />
-    <ProjectReference Include="..\ScPL\ScPL Plotting Controls.csproj" />
+    <ProjectReference Include="..\ScPL\SampleClients.ScPl.csproj" />
   </ItemGroup>
 </Project>

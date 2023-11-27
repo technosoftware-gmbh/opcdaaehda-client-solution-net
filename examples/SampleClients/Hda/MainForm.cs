@@ -124,7 +124,6 @@ namespace SampleClients.Hda
             // OpcCom.Interop.PreserveUTC = true;
 
             selectServerCtrl_.Initialize(knownUrls, 0, OpcSpecification.OPC_HDA_10);
-			LoadSettings();
 			
 			// register for server connected callbacks.
 			selectServerCtrl_.ConnectServer += new ConnectServer_EventHandler(OnConnect); 
@@ -331,7 +330,6 @@ namespace SampleClients.Hda
             aboutMi_.Name = "aboutMi_";
             aboutMi_.Size = new System.Drawing.Size(116, 22);
             aboutMi_.Text = "&About...";
-            aboutMi_.Click += new System.EventHandler(AboutMI_Click);
             // 
             // toolBar_
             // 
@@ -405,7 +403,6 @@ namespace SampleClients.Hda
             aboutBtn_.Name = "aboutBtn_";
             aboutBtn_.Size = new System.Drawing.Size(23, 22);
             aboutBtn_.ToolTipText = "About";
-            aboutBtn_.Click += new System.EventHandler(AboutMI_Click);
             // 
             // bottomPn_
             // 
@@ -587,12 +584,6 @@ namespace SampleClients.Hda
 			// create a default file name for the server.
             configFile_ = $"{server.ServerName}.config";
 
-			// load server object from config file if it exists. 
-			if (File.Exists(configFile_))
-			{
-				if (OnLoad(false, server.Url)) return;
-			}
-
 			// use the specified server object directly.
 			server_ = (TsCHdaServer)server;
 
@@ -639,8 +630,6 @@ namespace SampleClients.Hda
 				// register for shutdown events.
 				server_.ServerShutdownEvent += new OpcServerShutdownEventHandler(Server_ServerShutdown);
 
-				// save settings.
-				SaveSettings();
 			}
 			catch (Exception e)
 			{
@@ -677,197 +666,6 @@ namespace SampleClients.Hda
 		}
 
 		/// <summary>
-		/// Displays the about dialog for the application.
-		/// </summary>
-		private void OnAbout()
-		{
-        }
-
-		/// <summary>
-		/// Saves the configuration for the current server.
-		/// </summary>
-		private void OnSave()
-		{
-			Stream stream = null;
-
-			try
-			{
-				Cursor = Cursors.WaitCursor;
-
-				// ensure a valid server object exists.
-                if (server_ == null) throw new OpcResultException(OpcResult.E_FAIL, "The server is not currently connected.");
-
-				// create the configuartion file.
-				stream = new FileStream(configFile_, FileMode.Create, FileAccess.Write, FileShare.None);
-
-				// serialize the server object.
-				new BinaryFormatter().Serialize(stream, server_);
-			}
-			catch (Exception e)
-			{
-				MessageBox.Show(e.Message);
-			}
-			finally
-			{
-				// close the stream.
-				if (stream != null) stream.Close();
-
-				Cursor = Cursors.Default;
-			}
-		}
-
-		/// <summary>
-		/// Loads the configuration for the current server.
-		/// </summary>
-		private bool OnLoad(bool prompt, Technosoftware.DaAeHdaClient.OpcUrl url)
-		{
-			Stream stream = null;
-
-			try
-			{				
-				Cursor = Cursors.WaitCursor;
-
-				// prompt user to select a configuration file.
-				if (prompt)
-				{
-                    var dialog = new OpenFileDialog
-                    {
-                        CheckFileExists = true,
-                        CheckPathExists = true,
-                        DefaultExt = ".config",
-                        Filter = "Config Files (*.config)|*.config|All Files (*.*)|*.*",
-                        Multiselect = false,
-                        ValidateNames = true,
-                        Title = "Open Server Configuration File",
-                        FileName = configFile_
-                    };
-
-                    if (dialog.ShowDialog() != DialogResult.OK)
-					{
-						return false;
-					}			
-
-					// save the new config file name.
-					configFile_ = dialog.FileName;
-				}
-
-				// disconnect from current server.
-				OnDisconnect();
-
-				// open configuration file.
-				stream = new FileStream(configFile_, FileMode.Open, FileAccess.Read, FileShare.Read);
-				
-				// deserialize the server object.
-				server_ = (TsCHdaServer)new BinaryFormatter().Deserialize(stream);
-
-				// overrided default url.
-				if (url != null)
-				{
-					server_.Url = url;
-				}
-
-				// connect to new server.
-				OnConnect();
-
-				// load succeeded.
-				return true;
-			}
-			catch (Exception e)
-			{
-				if (prompt) MessageBox.Show(e.Message);
-				return false;
-			}
-			finally
-			{
-				// close the stream.
-				if (stream != null) stream.Close();
-
-				Cursor = Cursors.Default;
-			}
-		}
-
-        /// <summary>
-        /// Saves the user's application settings.
-        /// </summary>
-        private void SaveSettings()
-		{
-			Stream stream = null;
-
-			try
-			{
-				Cursor = Cursors.WaitCursor;
-
-				// create the configuartion file.
-				stream = new FileStream(ConfigFilePath, FileMode.Create, FileAccess.Write, FileShare.None);
-
-				// populate the user settings object.
-				var settings = new UserAppData();
-
-				settings.KnownUrls = selectServerCtrl_.GetKnownURLs(out settings.SelectedUrl);
-
-				if (proxy_ != null)
-				{
-					settings.ProxyServer = proxy_.Address.ToString();
-				}
-
-                // serialize the user settings object.
-                new BinaryFormatter().Serialize(stream, settings);
-            }
-			catch
-			{
-				// ignore errors.
-			}
-			finally
-			{
-				// close the stream.
-				if (stream != null) stream.Close();
-				Cursor = Cursors.Default;
-			}
-		}
-
-		/// <summary>
-		/// Loads the user's application settings.
-		/// </summary>
-		private void LoadSettings()
-		{
-			Stream stream = null;
-
-			try
-			{				
-				Cursor = Cursors.WaitCursor;
-				
-				// open configuration file.
-				stream = new FileStream(ConfigFilePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-				
-				// deserialize the server object.
-				var settings = (UserAppData)new BinaryFormatter().Deserialize(stream);
-
-				// overrided the current settings.
-				if (settings != null)
-				{					
-					// known urls.
-					selectServerCtrl_.Initialize(settings.KnownUrls, settings.SelectedUrl, OpcSpecification.OPC_HDA_10);
-
-					// proxy server.
-					if (settings.ProxyServer != null)
-					{
-						proxy_ = new WebProxy(settings.ProxyServer);
-					}
-				}
-			}
-			catch
-			{
-				// ignore errors.
-			}
-			finally
-			{
-				// close the stream.
-				if (stream != null) stream.Close();
-				Cursor = Cursors.Default;
-			}
-		}
-
-		/// <summary>
 		/// Called when a tool bar button is clicked.
 		/// </summary>
 		//private void ToolBar_ButtonClick(object sender, System.Windows.Forms.ToolBarButtonClickEventArgs e)
@@ -878,22 +676,6 @@ namespace SampleClients.Hda
 		//	if (e.Button == BrowseBTN)     { BrowseMI_Click(sender, e);     return; }	
 		//	if (e.Button == AboutBTN)      { OnAbout();                     return; }	
 		//}
-
-		/// <summary>
-		/// Called when the File | Load menu item is clicked.
-		/// </summary>
-		private void LoadMI_Click(object sender, System.EventArgs e)
-		{
-			OnLoad(true, null); 
-		}
-
-		/// <summary>
-		/// Called when the File | Save menu item is clicked.
-		/// </summary>
-		private void SaveMI_Click(object sender, System.EventArgs e)
-		{
-			OnSave();
-		}
 
 		/// <summary>
 		/// Called when the File | Exit menu item is clicked.
@@ -941,14 +723,6 @@ namespace SampleClients.Hda
 		}
 
 		/// <summary>
-		/// Called when the Help | About menu item is clicked.
-		/// </summary>
-		private void AboutMI_Click(object sender, System.EventArgs e)
-		{
-			OnAbout();
-		}
-
-		/// <summary>
 		/// Called when the Output | Clear menu item is clicked.
 		/// </summary>
 		private void OutputClearMI_Click(object sender, System.EventArgs e)
@@ -966,7 +740,6 @@ namespace SampleClients.Hda
 			if (proxy != proxy_)
 			{
 				proxy_ = proxy;
-				SaveSettings();
 			}
 		}
 
@@ -976,7 +749,6 @@ namespace SampleClients.Hda
 		private void ClearHistoryMI_Click(object sender, System.EventArgs e)
 		{
 			selectServerCtrl_.Initialize(null, 0, OpcSpecification.OPC_HDA_10);
-			SaveSettings();
 		}
 
 		/// <summary>

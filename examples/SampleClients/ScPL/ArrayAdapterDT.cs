@@ -41,7 +41,7 @@ using System;
 
 // THIS DOESN'T WORK YET.
 
-namespace scpl
+namespace SampleClients.ScPl
 {
 	/// <summary>
 	/// Summary description for ArrayAdapterDT.

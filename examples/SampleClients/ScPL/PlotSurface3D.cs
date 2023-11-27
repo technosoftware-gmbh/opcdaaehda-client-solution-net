@@ -39,7 +39,7 @@ $Id: PlotSurface3D.cs 1 2015-06-16 02:54:00Z thomasjohannhson $
 
 using System;
 
-namespace scpl
+namespace SampleClients.ScPl
 {
 	public class PlotSurface3D
 	{

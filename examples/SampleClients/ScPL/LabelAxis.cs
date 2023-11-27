@@ -40,7 +40,7 @@ using System;
 using System.Collections;
 using System.Drawing;
 
-namespace scpl
+namespace SampleClients.ScPl
 {
 	public class LabelAxis : Axis
 	{

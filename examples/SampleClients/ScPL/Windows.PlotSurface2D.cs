@@ -44,7 +44,7 @@ using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
 
-namespace scpl
+namespace SampleClients.ScPl
 {
 	namespace Windows 
 	{
@@ -94,7 +94,7 @@ namespace scpl
 				base.SetStyle(ControlStyles.UserPaint, true);
 				base.ResizeRedraw = true;
 
-				ps_ = new scpl.PlotSurface2D();
+				ps_ = new SampleClients.ScPl.PlotSurface2D();
 			}
 
 			/// <summary> 
@@ -427,7 +427,7 @@ namespace scpl
 			}
 			#endregion
 
-			private scpl.PlotSurface2D ps_;
+			private SampleClients.ScPl.PlotSurface2D ps_;
 
 			// Mouse interaction
 			#region Mouse Events routines and associated variables

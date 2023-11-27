@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>$(AppTargetFrameworks)</TargetFrameworks>
-	<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <TargetFrameworks>$(WorkshopClientTargetFrameworks)</TargetFrameworks>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <ProjectType>Local</ProjectType>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
@@ -38,7 +38,7 @@
     <Platforms>x64;x86</Platforms>
   </PropertyGroup>
   <PropertyGroup>
-	<AnalysisMode>AllDisabledByDefault</AnalysisMode>
+    <AnalysisMode>AllDisabledByDefault</AnalysisMode>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <DefineConstants>TRACE;DEBUG</DefineConstants>

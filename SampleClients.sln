@@ -12,7 +12,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleClients.Common", "exa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleClients.Da", "examples\SampleClients\Da\SampleClients.Da.csproj", "{93559F35-12E1-406A-B851-F34B31B4393F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScPL Plotting Controls", "examples\SampleClients\ScPL\ScPL Plotting Controls.csproj", "{4511C3FC-4FDC-4D2C-9A98-8B086FE1E670}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScPL Plotting Controls", "examples\SampleClients\ScPL\SampleClients.ScPl.csproj", "{4511C3FC-4FDC-4D2C-9A98-8B086FE1E670}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleClients.Hda", "examples\SampleClients\Hda\SampleClients.Hda.csproj", "{6CF23E4A-6088-4886-AFC5-83414D795270}"
 EndProject

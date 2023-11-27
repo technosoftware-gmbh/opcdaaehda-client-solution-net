@@ -43,7 +43,7 @@ using System;
 using System.Text;
 using System.Diagnostics;
 
-namespace scpl
+namespace SampleClients.ScPl
 {
 	/// <summary>
 	/// Linear Axis class

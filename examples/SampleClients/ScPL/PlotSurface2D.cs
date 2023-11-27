@@ -45,7 +45,7 @@ using System;
 using System.Drawing;
 using System.Diagnostics;
 
-namespace scpl
+namespace SampleClients.ScPl
 {
 	#region enum XAxisPosition
 	public enum XAxisPosition

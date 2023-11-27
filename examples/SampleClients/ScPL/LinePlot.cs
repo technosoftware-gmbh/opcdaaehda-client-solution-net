@@ -41,7 +41,7 @@ using System;
 using System.Drawing;
 using System.Diagnostics;
 
-namespace scpl
+namespace SampleClients.ScPl
 {
 	public class LinePlot : BasePlot, IPlot
 	{
