@@ -19,7 +19,6 @@
       <group targetFramework=".NETFramework4.8">
         <dependency id="Microsoft.Win32.Registry" version="5.0.0" />
         <dependency id="Portable.BouncyCastle" version="1.9.0" />
-        <dependency id="System.Runtime.InteropServices" version="4.3.0" />
       </group>
       <group targetFramework="net6.0-windows7.0">
         <dependency id="Microsoft.Win32.Registry" version="5.0.0" />
