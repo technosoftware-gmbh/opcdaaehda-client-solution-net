@@ -64,6 +64,9 @@
     </DebugType>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Technosoftware.DaAeHdaSolution.DaAeHdaClient" Version="2.0.2" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Update="System">
       <Name>System</Name>
     </Reference>
@@ -116,10 +119,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient\Technosoftware.DaAeHdaClient.csproj" />
     <ProjectReference Include="..\Common\SampleClients.Common.csproj" />
-    <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient.Com\Technosoftware.DaAeHdaClient.Com.csproj" />
-    <ProjectReference Include="..\..\..\src\Technosoftware\OpcRcw\Technosoftware.OpcRcw.csproj" />
   </ItemGroup>
   <PropertyGroup>
     <PlatformTarget>AnyCPU</PlatformTarget>
