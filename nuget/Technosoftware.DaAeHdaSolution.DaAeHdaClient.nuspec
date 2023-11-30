@@ -39,10 +39,10 @@
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="../nuget/README.md" target="/" />
+    <file src="../README.md" target="/" />
     <file src="../CHANGELOG.md" target="/" />
     <file src="../nuget/TechnosoftwareGmbH.png" target="images/" />
-    <file src="../nuget/LICENSE.md" target="/"/>
+    <file src="../LICENSE.md" target="/"/>
     <file src="../lib/net8.0-windows/Technosoftware.DaAeHdaClient.dll" target="lib/net8.0-windows8.0/" />
     <file src="../lib/net8.0-windows/Technosoftware.DaAeHdaClient.xml" target="lib/net8.0-windows8.0/" />
     <file src="../lib/net8.0-windows/Technosoftware.DaAeHdaClient.Com.dll" target="lib/net8.0-windows8.0/" />
