@@ -42,7 +42,7 @@ using System.Drawing;
 using System;
 using System.Collections;
 
-namespace scpl
+namespace SampleClients.ScPl
 {
 	/// <summary>
 	///  Contains all general axis data except the physical extents of the axis.

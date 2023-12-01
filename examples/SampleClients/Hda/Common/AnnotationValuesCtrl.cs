@@ -38,7 +38,7 @@ namespace SampleClients.Hda.Common
 	{
 		private System.Windows.Forms.ListView valuesLv_;
 		private System.Windows.Forms.Panel mainPn_;
-		private scpl.Windows.PlotSurface2D plotCtrl_;
+		private SampleClients.ScPl.Windows.PlotSurface2D plotCtrl_;
 		private System.Windows.Forms.Panel plotPn_;
 		private System.Windows.Forms.ContextMenuStrip popupMenu_;
 		private System.Windows.Forms.ToolStripMenuItem addMi_;
@@ -99,7 +99,7 @@ namespace SampleClients.Hda.Common
 			importValuesMi_ = new System.Windows.Forms.ToolStripMenuItem();
 			mainPn_ = new System.Windows.Forms.Panel();
 			plotPn_ = new System.Windows.Forms.Panel();
-			plotCtrl_ = new scpl.Windows.PlotSurface2D();
+			plotCtrl_ = new ScPl.Windows.PlotSurface2D();
 			mainPn_.SuspendLayout();
 			plotPn_.SuspendLayout();
 			SuspendLayout();
@@ -209,8 +209,8 @@ namespace SampleClients.Hda.Common
 			plotCtrl_.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			plotCtrl_.ContextMenuStrip = popupMenu_;
 			plotCtrl_.Dock = System.Windows.Forms.DockStyle.Fill;
-			plotCtrl_.HorizontalEdgeLegendPlacement = scpl.Legend.Placement.Inside;
-			plotCtrl_.LegendBorderStyle = scpl.Legend.BorderType.Shadow;
+			plotCtrl_.HorizontalEdgeLegendPlacement = ScPl.Legend.Placement.Inside;
+			plotCtrl_.LegendBorderStyle = ScPl.Legend.BorderType.Shadow;
 			plotCtrl_.LegendXOffset = 10F;
 			plotCtrl_.LegendYOffset = 1F;
 			plotCtrl_.Location = new System.Drawing.Point(0, 0);
@@ -222,7 +222,7 @@ namespace SampleClients.Hda.Common
 			plotCtrl_.TabIndex = 2;
 			plotCtrl_.Title = "";
 			plotCtrl_.TitleFont = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			plotCtrl_.VerticalEdgeLegendPlacement = scpl.Legend.Placement.Outside;
+			plotCtrl_.VerticalEdgeLegendPlacement = ScPl.Legend.Placement.Outside;
 			plotCtrl_.XAxis1 = null;
 			plotCtrl_.XAxis2 = null;
 			plotCtrl_.YAxis1 = null;

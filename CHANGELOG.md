@@ -2,6 +2,7 @@
 ## OPC DA/AE/HDA Solution .NET - 2.0.2
 
 ###	Changes
+- Added support of .NET 8.0
 - Removed support of .NET 4.6.2 and .NET 4.7.2
 
 -------------------------------------------------------------------------------------------------------------

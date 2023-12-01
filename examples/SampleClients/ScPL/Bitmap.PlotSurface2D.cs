@@ -41,7 +41,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace scpl
+namespace SampleClients.ScPl
 {
 	namespace Bitmap
 	{
@@ -55,13 +55,13 @@ namespace scpl
 			public PlotSurface2D( int xSize, int ySize )
 			{
 				b_ = new System.Drawing.Bitmap( xSize, ySize );
-				ps_ = new scpl.PlotSurface2D();	
+				ps_ = new SampleClients.ScPl.PlotSurface2D();	
 			}
 
 			public PlotSurface2D( System.Drawing.Bitmap b )
 			{
 				b_ = b;
-				ps_ = new scpl.PlotSurface2D();	
+				ps_ = new SampleClients.ScPl.PlotSurface2D();	
 			}
 			#endregion
 
@@ -275,7 +275,7 @@ namespace scpl
 			}
 			#endregion
 
-			private scpl.PlotSurface2D ps_;
+			private SampleClients.ScPl.PlotSurface2D ps_;
 			private System.Drawing.Bitmap b_;
 		}
 	}

@@ -1,19 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>$(WorkshopClientTargetFrameworks)</TargetFrameworks>
-    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <ProjectType>Local</ProjectType>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
+    <AssemblyName>SampleClients.ScPl</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SampleClients.ScPl</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject>SampleClients.Da.MainForm</StartupObject>
+    <StartupObject>
+    </StartupObject>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +29,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -38,11 +40,11 @@
     <AnalysisMode>AllDisabledByDefault</AnalysisMode>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Technosoftware.DaAeHdaSolution.DaAeHdaClient" Version="2.0.2" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Update="System">
       <Name>System</Name>
+    </Reference>
+    <Reference Update="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Update="System.Data">
       <Name>System.Data</Name>
@@ -55,54 +57,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Browse\BrowseTreeCtrl.cs">
+    <Compile Update="Windows.PlotSurface2D.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Browse\PropertyFiltersCtrl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Browse\PropertyListViewCtrl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="ItemValue\ItemValueEditCtrl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="ItemValue\ItemValueListEditCtrl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Item\ItemEditCtrl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Item\ItemListEditCtrl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="ResultListViewCtrl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Server\ServerStatusCtrl.cs" />
-    <Compile Update="Subscription\SubscriptionEditCtrl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Subscription\SubscriptionsTreeCtrl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UpdatesListViewCtrl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Common\SampleClients.Common.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -155,4 +112,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows|x86'">
     <DebugType>none</DebugType>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="8.0.0" />
+  </ItemGroup>
 </Project>

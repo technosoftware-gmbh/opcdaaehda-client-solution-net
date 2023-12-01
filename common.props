@@ -14,7 +14,7 @@
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <!--TODO <TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
     <!-- Highest language version supported by .NET Standard 2.0 and .NET framework -->
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>8.0</LangVersion>
     <!--TODO <GenerateDocumentationFile>true</GenerateDocumentationFile>-->
   </PropertyGroup>
 

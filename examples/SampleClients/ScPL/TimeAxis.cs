@@ -40,7 +40,7 @@ using System;
 
 // should automaticall take datetimes and work out whether to display days or months.. etc
 // also user configurable.
-namespace scpl
+namespace SampleClients.ScPl
 {
 	public class TimeAxis : Axis
 	{

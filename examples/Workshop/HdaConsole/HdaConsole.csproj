@@ -10,7 +10,7 @@
     <Product>OPC DA/AE/HDA Solution .NET</Product>
     <Description>Technosoftware HDA Client Console</Description>
     <Copyright>Copyright © 2011 - 2023 Technosoftware GmbH</Copyright>
-    <Platforms>x64;x86</Platforms>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,9 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient\Technosoftware.DaAeHdaClient.csproj" />
-    <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient.Com\Technosoftware.DaAeHdaClient.Com.csproj" />
-    <ProjectReference Include="..\..\..\src\Technosoftware\OpcRcw\Technosoftware.OpcRcw.csproj" />
+    <PackageReference Include="Technosoftware.DaAeHdaSolution.DaAeHdaClient" Version="2.0.2" />
   </ItemGroup>
 
 </Project>

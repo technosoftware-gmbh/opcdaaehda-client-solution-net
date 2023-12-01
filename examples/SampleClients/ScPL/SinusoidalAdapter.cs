@@ -40,7 +40,7 @@ $Id: SinusoidalAdapter.cs 1 2015-06-16 02:54:00Z thomasjohannhson $
 using System;
 using System.Drawing;
 
-namespace scpl
+namespace SampleClients.ScPl
 {
 	/// <summary>
 	/// Simple Data Adapter for making Sinusoidal Data

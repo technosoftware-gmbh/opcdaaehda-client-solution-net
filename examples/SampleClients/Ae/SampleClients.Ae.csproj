@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-	<TargetFrameworks>$(AppTargetFrameworks)</TargetFrameworks>
-	<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <TargetFrameworks>$(WorkshopClientTargetFrameworks)</TargetFrameworks>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <ProjectType>Local</ProjectType>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
@@ -32,10 +32,10 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <Platforms>x64;x86</Platforms>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
   <PropertyGroup>
-	<AnalysisMode>AllDisabledByDefault</AnalysisMode>
+    <AnalysisMode>AllDisabledByDefault</AnalysisMode>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <BaseAddress>285212672</BaseAddress>
@@ -63,6 +63,9 @@
     <DebugType>
     </DebugType>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Technosoftware.DaAeHdaSolution.DaAeHdaClient" Version="2.0.2" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Update="System">
       <Name>System</Name>
@@ -116,10 +119,33 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient\Technosoftware.DaAeHdaClient.csproj" />
     <ProjectReference Include="..\Common\SampleClients.Common.csproj" />
-    <ProjectReference Include="..\..\..\src\Technosoftware\DaAeHdaClient.Com\Technosoftware.DaAeHdaClient.Com.csproj" />
-    <ProjectReference Include="..\..\..\src\Technosoftware\OpcRcw\Technosoftware.OpcRcw.csproj" />
   </ItemGroup>
-  <PropertyGroup />
+  <PropertyGroup>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net48|x64'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows|x64'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-windows|x64'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows|x64'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net48|x86'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows|x86'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-windows|x86'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows|x86'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
 </Project>

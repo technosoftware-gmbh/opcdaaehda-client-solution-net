@@ -42,7 +42,7 @@ using System.Drawing;
 using System.Collections;
 using System.Text;
 
-namespace scpl
+namespace SampleClients.ScPl
 {
 	public class LogAxis : Axis
 	{

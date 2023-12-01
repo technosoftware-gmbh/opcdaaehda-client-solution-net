@@ -122,7 +122,6 @@ namespace SampleClients.Ae
 #endif
 
             selectServerCtrl_.Initialize(knownUrls, 0, OpcSpecification.OPC_AE_10);
-            LoadSettings();
 
             // register for server connected callbacks.
             selectServerCtrl_.ConnectServer += new ConnectServer_EventHandler(OnConnect);
@@ -355,7 +354,6 @@ namespace SampleClients.Ae
             aboutMi_.Name = "aboutMi_";
             aboutMi_.Size = new System.Drawing.Size(116, 22);
             aboutMi_.Text = "&About...";
-            aboutMi_.Click += new System.EventHandler(AboutMI_Click);
             // 
             // toolBar_
             // 
@@ -410,7 +408,6 @@ namespace SampleClients.Ae
             aboutBtn_.Name = "aboutBtn_";
             aboutBtn_.Size = new System.Drawing.Size(23, 22);
             aboutBtn_.ToolTipText = "About";
-            aboutBtn_.Click += new System.EventHandler(AboutMI_Click);
             // 
             // toolBarImageList_
             // 
@@ -605,12 +602,6 @@ namespace SampleClients.Ae
             // create a default file name for the server.
             mConfigFile_ = server.ServerName + ".config";
 
-            // load server object from config file if it exists. 
-            if (File.Exists(mConfigFile_))
-            {
-                if (OnLoad(false, server.Url)) return;
-            }
-
             // use the specified server object directly.
             server_ = (TsCAeServer)server;
 
@@ -653,8 +644,6 @@ namespace SampleClients.Ae
                 // register for shutdown events.
                 server_.ServerShutdownEvent += new OpcServerShutdownEventHandler(Server_ServerShutdown);
 
-                // save settings.
-                SaveSettings();
             }
             catch (Exception e)
             {
@@ -693,164 +682,6 @@ namespace SampleClients.Ae
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Disconnect Server Failed");
-            }
-        }
-
-        /// <summary>
-        /// Displays the about dialog for the application.
-        /// </summary>
-        private void OnAbout()
-        {
-        }
-
-        /// <summary>
-        /// Loads the configuration for the current server.
-        /// </summary>
-        private bool OnLoad(bool prompt, OpcUrl url)
-        {
-            Stream stream = null;
-
-            try
-            {
-                Cursor = Cursors.WaitCursor;
-
-                // prompt user to select a configuration file.
-                if (prompt)
-                {
-                    var dialog = new OpenFileDialog
-                    {
-                        CheckFileExists = true,
-                        CheckPathExists = true,
-                        DefaultExt = ".config",
-                        Filter = "Config Files (*.config)|*.config|All Files (*.*)|*.*",
-                        Multiselect = false,
-                        ValidateNames = true,
-                        Title = "Open Server Configuration File",
-                        FileName = mConfigFile_
-                    };
-
-                    if (dialog.ShowDialog() != DialogResult.OK)
-                    {
-                        return false;
-                    }
-
-                    // save the new config file name.
-                    mConfigFile_ = dialog.FileName;
-                }
-
-                // disconnect from current server.
-                OnDisconnect();
-
-                // open configuration file.
-                stream = new FileStream(mConfigFile_, FileMode.Open, FileAccess.Read, FileShare.Read);
-
-                // deserialize the server object.
-                server_ = (TsCAeServer)new BinaryFormatter().Deserialize(stream);
-
-                // overrided default url.
-                if (url != null)
-                {
-                    server_.Url = url;
-                }
-
-                // connect to new server.
-                OnConnect();
-
-                // load succeeded.
-                return true;
-            }
-            catch (Exception e)
-            {
-                if (prompt) MessageBox.Show(e.Message);
-                return false;
-            }
-            finally
-            {
-                // close the stream.
-                if (stream != null) stream.Close();
-
-                Cursor = Cursors.Default;
-            }
-        }
-
-        /// <summary>
-        /// Saves the user's application settings.
-        /// </summary>
-        private void SaveSettings()
-        {
-            Stream stream = null;
-
-            try
-            {
-                Cursor = Cursors.WaitCursor;
-
-                // create the configuartion file.
-                stream = new FileStream(ConfigFilePath, FileMode.Create, FileAccess.Write, FileShare.None);
-
-                // populate the user settings object.
-                var settings = new UserAppData();
-
-                settings.KnownUrls = selectServerCtrl_.GetKnownURLs(out settings.SelectedUrl);
-
-                if (mProxy_ != null)
-                {
-                    settings.ProxyServer = mProxy_.Address.ToString();
-                }
-
-                // serialize the user settings object.
-                new BinaryFormatter().Serialize(stream, settings);
-            }
-            catch
-            {
-                // ignore errors.
-            }
-            finally
-            {
-                // close the stream.
-                if (stream != null) stream.Close();
-                Cursor = Cursors.Default;
-            }
-        }
-
-        /// <summary>
-        /// Loads the user's application settings.
-        /// </summary>
-        private void LoadSettings()
-        {
-            Stream stream = null;
-
-            try
-            {
-                Cursor = Cursors.WaitCursor;
-
-                // open configuration file.
-                stream = new FileStream(ConfigFilePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-
-                // deserialize the server object.
-                var settings = (UserAppData)new BinaryFormatter().Deserialize(stream);
-
-                // overrided the current settings.
-                if (settings != null)
-                {
-                    // known urls.
-                    selectServerCtrl_.Initialize(settings.KnownUrls, settings.SelectedUrl, OpcSpecification.OPC_AE_10);
-
-                    // proxy server.
-                    if (settings.ProxyServer != null)
-                    {
-                        mProxy_ = new WebProxy(settings.ProxyServer);
-                    }
-                }
-            }
-            catch
-            {
-                // ignore errors.
-            }
-            finally
-            {
-                // close the stream.
-                if (stream != null) stream.Close();
-                Cursor = Cursors.Default;
             }
         }
 
@@ -906,15 +737,7 @@ namespace SampleClients.Ae
             }
         }
 
-        /// <summary>
-        /// Called when the Help | About menu item is clicked.
-        /// </summary>
-        private void AboutMI_Click(object sender, EventArgs e)
-        {
-            OnAbout();
-        }
-
-        /// <summary>
+         /// <summary>
         /// Called when the Output | Clear menu item is clicked.
         /// </summary>
         private void OutputClearMI_Click(object sender, EventArgs e)
@@ -932,7 +755,6 @@ namespace SampleClients.Ae
             if (proxy != mProxy_)
             {
                 mProxy_ = proxy;
-                SaveSettings();
             }
         }
 
@@ -942,7 +764,6 @@ namespace SampleClients.Ae
         private void ClearHistoryMI_Click(object sender, EventArgs e)
         {
             selectServerCtrl_.Initialize(null, 0, OpcSpecification.OPC_AE_10);
-            SaveSettings();
         }
 
         /// <summary>

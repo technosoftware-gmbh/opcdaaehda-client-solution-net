@@ -7,13 +7,13 @@
   -->
   <Choose>
     <!-- Note: .NET Core 3.1, .NET 5.0 and .NET Core 2.x is end of life. -->
-    <!-- Visual Studio 2022, supports .NET 4.8, .NET 6.0 and .NET 7.0 -->
+    <!-- Visual Studio 2022, supports .NET 4.8, .NET 6.0, .NET 7.0 and .NET 8.0 -->
     <When  Condition="'$(VisualStudioVersion)' == '17.0'">
       <PropertyGroup>
-        <WorkshopClientTargetFrameworks>net48;net6.0-windows;net7.0-windows</WorkshopClientTargetFrameworks>
+        <WorkshopClientTargetFrameworks>net48;net6.0-windows;net7.0-windows;net8.0-windows</WorkshopClientTargetFrameworks>
         <AppTargetFrameworks>net48;net6.0-windows</AppTargetFrameworks>
-        <LibTargetFrameworks>net48;net6.0-windows;net7.0-windows</LibTargetFrameworks>
-        <ComTargetFrameworks>net48;net6.0-windows;net7.0-windows</ComTargetFrameworks>
+        <LibTargetFrameworks>net48;net6.0-windows;net7.0-windows;net8.0-windows</LibTargetFrameworks>
+        <ComTargetFrameworks>net48;net6.0-windows;net7.0-windows;net8.0-windows</ComTargetFrameworks>
       </PropertyGroup>
     </When>
     <!-- Visual Studio 2019, supports only .NET 4.8 -->

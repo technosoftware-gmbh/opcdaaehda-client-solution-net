@@ -42,7 +42,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Collections;
 
-namespace scpl
+namespace SampleClients.ScPl
 {
 	/// <summary>
 	/// Unfortunately, C# doesn't have templates. If it did, I would derive PhysicalAxis from
