@@ -4,6 +4,7 @@
 ###	Changes
 - Added support of .NET 8.0
 - Removed support of .NET 4.6.2 and .NET 4.7.2
+- NuGet packages are now only distributed locally in the repository
 
 -------------------------------------------------------------------------------------------------------------
 ## OPC DA/AE/HDA Solution .NET - 2.0.1
